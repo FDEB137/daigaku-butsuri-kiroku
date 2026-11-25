@@ -46,7 +46,7 @@ $n-1=m$ とする。
 &=\frac{1}{3}E_{1}\braket{E_{1}}{E_{1}}+\frac{2}{3}E_{2}\braket{E_{2}}{E_{2}}+0+0\\
 &=\ayamari{\frac{1}{3}\ket{E_{1}}+\frac{2}{3}\ket{E_{2}}}{\frac{E_{1}+2E_{2}}{3}}
 \end{align*}
-\naze{前の行は正しい。$\braket{E_{j}}{E_{j}}=1$ を入れると残るのは数で，期待値は数なので最後の行にケットが残るのは誤りである。正しくは $\expval{\hat{H}}_{t}=(E_{1}+2E_{2})/3$ である。}
+\naze{前の行は正しい。$\braket{E_{j}}{E_{j}}=1$ を入れると残るのは数で，期待値は数なので最後の行にケットが残るのは誤りである。正しくは $\expval{\hat{H}}_{t}=(E_{1}+2E_{2})/3$ である。$\braket{E_{j}}{E_{j}}=1$ を入れたら，最後の行に $\ket{\ }$ が残っていないかを見る。}
 \toi{3}{○}{記述}
 \[ \comm{-\frac{\ii\hat{H}t}{\hbar}}{\frac{\ii\hat{H}t}{\hbar}}=0 \]
 より\quad\nuke{$\hat{U}(t)^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ の導出}
@@ -65,5 +65,4 @@ $n-1=m$ とする。
 \end{align*}
 %% kizuki
 \item \mae{第7章 問題3（059-ring）・11-04} 条件が成り立つことを式に書かずに「満たす」とだけ書いた（前回は $\varphi'(L)=\varphi'(0)$）。今回は級数に $t=0$ を入れた $\hat{U}(0)=\hat{1}$ を1行置けば済む。
-\item 期待値 $\matrixel{\psi}{\hat{A}}{\psi}$ はブラとケットで挟んだ数である。$\braket{E_{j}}{E_{j}}=1$ を入れた後，最後の行に $\ket{\ }$ が残っていないかを見る。
 \item \mae{第8章 問題7（072-translation）・11-08} $\hat{U}^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ は $\hat{H}$ がエルミートだから成り立つ。$\hat{H}$ がエルミートでなければ $\hat{U}^{\dagger}\hat{U}=\hat{1}$ もノルムの保存も言えない。ケットからブラを作るのは $\dagger$ で，$*$ ではない（前回もブラを $(\cdots)^{*}$ と書いた）。
