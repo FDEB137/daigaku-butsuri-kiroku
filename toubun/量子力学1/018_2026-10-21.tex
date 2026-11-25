@@ -1,0 +1,29 @@
+% 量子力学1 量子力学1-3 問題2（018-current。当時は kai03-l1-current） 解いた日 2026-10-21
+%% kotae
+\toi{1}{○}{記述}
+\[ \rho=\abs{\psi_{1}}^{2}=\ayamari{A^{2}}{\abs{A}^{2}} \]
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi_{1}^{*}\pdv{\psi_{1}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(\ii k\ayamari{A^{2}}{\abs{A}^{2}})\\
+&=\frac{\hbar k}{m}A^{2}
+\end{align*}
+\naze{問題文で $A$ は複素数の定数なので，$\psi_{1}^{*}\psi_{1}=A^{*}A=\abs{A}^{2}$，$\psi_{1}^{*}\partial\psi_{1}/\partial x=\ii k\abs{A}^{2}$ である。以降はこの誤りを引き継ぎ，正しくは $j=\hbar k\abs{A}^{2}/m$ である。}
+\[ v=\frac{\hbar k}{m} \]
+\toi{2}{○}{記述}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi_{2}^{*}\pdv{\psi_{2}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(-\ii k\ayamari{A^{2}}{\abs{A}^{2}})\\
+&=-\frac{\hbar k}{m}A^{2}
+\end{align*}
+(1) との違いは確率の流れが逆向き。
+\naze{(1) と同じく $A^{2}$ は $\abs{A}^{2}$ で，$j=-\hbar k\abs{A}^{2}/m$ である。}
+\toi{3}{◎}{}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi_{3}^{*}\pdv{\psi_{3}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(f^{*}(x)\kakimachigai{f(x)}{f'(x)})
+\end{align*}
+$f(x)$ は実数値関数なので，$f^{*}(x)$，$f'(x)$ も実数値の関数。よって
+\[ \Im(f^{*}(x)f'(x))=0 \]
+\[ j=0 \]
+%% kizuki
+\item \mae{第3回 問題2・10-18} 前回と同じく，複素数の定数 $A$ の2乗を $A^{2}$ と書いた。$\psi^{*}$ を作るときは $\ii\to-\ii$ だけでなく $A\to A^{*}$ にするので，定数の部分は $A^{*}A=\abs{A}^{2}$ になる。$\psi^{*}$ を $A^{*}\ee^{-\ii(kx-\omega t)}$ と1行書いてから掛け合わせれば，$A^{2}$ とは書かなくなる。

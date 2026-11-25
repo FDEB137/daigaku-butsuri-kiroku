@@ -1,0 +1,54 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 量子力学1 第9章 問題4〜9（2026-11-11 解答、スキャン 7枚）
+%% matome
+\begin{daiji}
+  \item 問いの後半の「説明せよ」「述べよ」まで答えて1問である。式を導いたところで止めず、その式が何を意味するか（どの条件で古典的に運動するか、保存量が期待値の言葉で何を言うか、$\tau_{A}$ が何の時間か）を書く（問題4 (4)・問題7 (3)・問題8 (2)）。
+  \item 位置表示の期待値は、右にある演算子から順に $\varphi$ に作用させて作る。$\expval{\hat{x}\hat{p}}=\int\varphi^{*}\,x\,(-\ii\hbar\varphi')\,\dd x$ で、$-\ii\hbar\,(x\varphi)'$ は $\hat{p}\hat{x}$ の方である（問題5 (3)）。
+  \item ハイゼンベルク表示では $\ee^{\ii\hat{H}t/\hbar}\hat{p}\,\ee^{-\ii\hat{H}t/\hbar}=\hat{p}_{\mathrm{H}}(t)$ で、$\comm{\hat{p}}{\hat{H}}\neq0$ なら $\hat{p}$ のままにはならない（問題7 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 問いの一部を答えないまま終える：第7章 問題3（2026-11-04）で (3) の縮退と (4) の運動量について言えることを書かず、第6章 問題1（2026-11-01）でも得られる値と確率を答えとして書かなかった。今回も問題4 (4) の条件と問題7 (3) の意味が無い。最後の小問の未着手も第4章 問題7（2026-10-28）・第7章 問題8 (5)（2026-11-07）に続いて問題9 (3) で3回目である。解き終えたら問題文の「求めよ」「述べよ」の数を数え、答えた数と合わせる。
+  \item 符号の誤り：第6章 問題2 (4)（2026-11-01）・第7章 問題2 (2)（2026-11-04）に続き、今回は問題5 (3) で $1+J=-J$ から $J=1/2$ とした。積分の符号は被積分関数の符号（ここでは $x\varphi\varphi'\le0$）で確かめる。
+\end{maemo}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{4}{△}{未着手} $\expval{V'(x)}-V'(\expval{x})=\frac{1}{2}V'''(\expval{x})(\delta x)^{2}$ までは正しい（1次の項が $\expval{x-\expval{x}}=0$ で消えることも示している）。問われている「$\expval{x}$ がほぼ古典力学に従って運動する条件」の説明が無い。補正を力の大きさと比べた $\frac{1}{2}\abs{V'''(\expval{x})}(\delta x)^{2}\ll\abs{V'(\expval{x})}$、つまり波束の幅 $\delta x$ の範囲で力 $-V'(x)$ がほぼ一定とみなせるとき、まで書く。また3次以上の項を捨てているので、展開の式は $=$ でなく $\approx$ である。
+\end{kotaeran}
+\begin{rikai}
+  \item Ehrenfest の定理の右辺は $-\expval{V'(x)}$ で、古典力学の $-V'(\expval{x})$ との差が量子的な補正である。その大きさは $V'$ の曲がり方 $V'''$ と波束の広がり $(\delta x)^{2}$ の積で決まる。$V$ が2次式以下（$V'''=0$）なら (1) のとおり差は $0$。
+  \item 「条件を説明せよ」には、比べる2つの量の不等式と、その意味（力が変わる長さに比べて波束が狭い）の両方を答える。
+\end{rikai}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{3}{○}{計算} 結論の $\expval{\hat{x}\hat{p}}_{0}=\ii\hbar/2$，$\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar/2$，和が $0$ と、$\delta x(t)$ の式は正しいが、途中に打ち消し合う2つの誤りがある。(a) $\matrixel{\psi(0)}{\hat{x}\hat{p}}{\psi(0)}$ の被積分関数を $-\ii\hbar\,(x\varphi)'\,\varphi$ としたが、これは $\hat{p}\hat{x}$ の式である。$\hat{x}\hat{p}$ は右の $\hat{p}$ が先に $\varphi$ に作用して $\varphi\,x\,(-\ii\hbar\varphi')$ になる。$\hat{p}\hat{x}$ の側も同じく入れ替わっている。(b) $\int\varphi^{2}\dd x+J=-J$（$J=\int x\varphi\varphi'\dd x$）から $J=1/2$ としたが、$1+2J=0$ なので $J=-1/2$。正しくは $\expval{\hat{x}\hat{p}}_{0}=-\ii\hbar J=\ii\hbar/2$，$\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar(1+J)=-\ii\hbar/2$ となる。
+\end{kotaeran}
+\begin{rikai}
+  \item 位置表示では $\matrixel{\psi}{\hat{A}\hat{B}}{\psi}=\int\varphi^{*}\,\hat{A}\bigl(\hat{B}\varphi\bigr)\,\dd x$ で、右にある演算子から順に作用させる。$\hat{x}\hat{p}$ なら $x\cdot(-\ii\hbar\varphi')$、$\hat{p}\hat{x}$ なら $-\ii\hbar\,(x\varphi)'$。
+  \item 検算：$J=\int x(\varphi^{2})'/2\,\dd x$ を部分積分すると1行で $-\frac{1}{2}\int\varphi^{2}\dd x=-1/2$。ガウス関数では $x\varphi\varphi'=-b^{2}x^{2}\varphi^{2}\le0$ なので、$J$ が負であることは被積分関数の符号からも分かる。
+\end{rikai}
+%% mondai 7
+\begin{kotaeran}
+  \machigai{3}{△}{未着手} $\dd\hat{G}_{\mathrm{H}}/\dd t=0$ と $\hat{G}_{\mathrm{H}}(t)=\hat{x}$ は正しい。問われている「この保存量の意味を期待値の言葉で述べよ」の答えが無い。$\hat{G}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}(t)-\hat{p}_{\mathrm{H}}(t)t/m$ の期待値をとって $\expval{\hat{x}}_{t}-(t/m)\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0}$（どの状態でも成り立つ）とし、時刻 $t$ の中心の位置から平均の速さ $\expval{\hat{p}}_{t}/m$ で時間を逆にたどると初期位置に戻る、と述べる。
+  \machigai{4}{○}{記述} $\dd\hat{R}_{\mathrm{H}}/\dd t$ の計算で、$\ee^{\ii\hat{H}t/\hbar}(-\hat{p}/m+Ft/m)\ee^{-\ii\hat{H}t/\hbar}$ を次の行で $(-\hat{p}/m+Ft/m)$ とし、交換子の項の $\hat{p}$ も $\hat{p}$ のまま書いている。この系では $\comm{\hat{p}}{\hat{H}}=\ii\hbar F\neq0$ なので、挟んだものは $\hat{p}_{\mathrm{H}}(t)$（$=\hat{p}+Ft$）で、$\hat{p}$ ではない。両方の項が同じ $\hat{p}_{\mathrm{H}}$ になるので打ち消し合い、結論の $0$ と $\hat{x}_{\mathrm{H}}(t)$ は正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 「保存量の意味を述べよ」は、演算子の等式の期待値をとり、測れる量（$\expval{x}$，$\expval{p}$）の関係として言い直す。
+  \item $\ee^{\ii\hat{H}t/\hbar}\hat{A}\,\ee^{-\ii\hat{H}t/\hbar}=\hat{A}$ が言えるのは $\comm{\hat{A}}{\hat{H}}=0$ のときだけ（(1) で示したこと）。(3) の自由粒子では $\hat{p}_{\mathrm{H}}=\hat{p}$ でよかったが、(4) の一様な力では $\hat{p}_{\mathrm{H}}(t)=\hat{p}+Ft$ になる。
+\end{rikai}
+%% mondai 8
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $\delta E\,\tau_{A}\ge\hbar/2$ の導出は正しい。$\tau_{A}$ の意味を「$\hat{A}$ が作用する時間」としたが、$\tau_{A}$ は演算子が作用する時間ではない。$\expval{\hat{A}}$ がその時刻の変化の速さで変わり続けたとき、標準偏差 $\delta A$ だけ変わるのにかかる時間で、$A$ の分布が目に見えて変わる時間の尺度である。
+\end{kotaeran}
+\begin{rikai}
+  \item $\tau_{A}=\delta A/\abs{\dd\expval{\hat{A}}/\dd t}$ は（分布の幅）÷（平均の変化の速さ）＝時間。定義の分子と分母を言葉に直せば意味になる。
+  \item $\delta E\,\tau_{A}\ge\hbar/2$ は「エネルギーの広がりが小さい状態ほど、物理量の分布が変わるのに長い時間がかかる」と読む。エネルギー固有状態では何も変化せず $\tau_{A}=\infty$（(4) で答えたとおり）。
+\end{rikai}
+%% mondai 9
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $xV'=\nu V$ と $\expval{\hat{T}}=\nu E/(\nu+2)$，$\expval{V}=2E/(\nu+2)$ は正しい。(a) $V'(x)$ を $\lambda\nu\abs{x}^{\nu-1}$ とし、$x\cdot\lambda\nu\abs{x}^{\nu-1}=\lambda\nu\abs{x}^{\nu}$ としたが、$x<0$ ではどちらも符号が違い、2つが打ち消している。$x\neq0$ で $V'(x)=\lambda\nu\abs{x}^{\nu-1}\sgn x$、$x\sgn x=\abs{x}$ から $xV'=\nu V$ となる。(b) $\nu\to\infty$ で $\expval{\hat{T}}=1$ と書いたが、$\expval{\hat{T}}\to E$ である（$1$ に近づくのは係数 $\nu/(\nu+2)$）。
+  \machigai{3}{×}{未着手} 見出しの (3) だけで、解答が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item $\abs{x}$ を含む関数は $x>0$ と $x<0$ に分けて微分する（$\dd\abs{x}/\dd x=\sgn x$）。$x$ を掛けると $x\sgn x=\abs{x}$ で符号が消えるので、結果が合っても途中を確かめる。
+  \item (3) は、エネルギー固有値を作れる定数が $\hbar^{2}/m$ と $\lambda$ だけであることを使う次元解析である。それぞれの次元を（エネルギー）と（長さ）で書くところから始める。
+\end{rikai}

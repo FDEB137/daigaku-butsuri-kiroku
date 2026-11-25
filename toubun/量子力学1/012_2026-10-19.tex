@@ -1,0 +1,62 @@
+% 量子力学1 量子力学1-2 問題4（現在は問題5。012-order。当時は kai02-l2-order） 解いた日 2026-10-19
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\hat{x}\hat{p}_{x}f&=x\left(-\ii\hbar\frac{\partial}{\partial x}\right)f=-\ii\hbar x\pdv{f}{x}\\
+\hat{p}_{x}\hat{x}f&=-\ii\hbar\frac{\partial}{\partial x}(xf)\\
+&=-\ii\hbar\left(1\cdot f+x\pdv{f}{x}\right)\\
+&=-\ii\hbar\left(f+x\pdv{f}{x}\right)
+\end{align*}
+\begin{align*}
+&(\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x})f\\
+&\quad=-\ii\hbar x\pdv{f}{x}-\left(-\ii\hbar\left(f+x\pdv{f}{x}\right)\right)\\
+&\quad=\ii\hbar f
+\end{align*}
+\begin{align*}
+\hat{x}\hat{p}_{y}f&=x\left(-\ii\hbar\frac{\partial}{\partial y}\right)f=-\ii\hbar x\pdv{f}{y}\\
+\hat{p}_{y}\hat{x}f&=-\ii\hbar\frac{\partial}{\partial y}(xf)=-\ii\hbar\left(0+x\pdv{f}{y}\right)
+\end{align*}
+\begin{align*}
+&(\hat{x}\hat{p}_{y}-\hat{p}_{y}\hat{x})f\\
+&\quad=-\ii\hbar x\pdv{f}{y}-\left(-\ii\hbar x\pdv{f}{y}\right)=0
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&(\hat{\vect{p}}\cdot\hat{\vect{r}})f-(\hat{\vect{r}}\cdot\hat{\vect{p}})f\\
+&\quad=(\hat{p}_{x}\hat{x}+\hat{p}_{y}\hat{y}+\hat{p}_{z}\hat{z})f\\
+&\qquad-(\hat{x}\hat{p}_{x}+\hat{y}\hat{p}_{y}+\hat{z}\hat{p}_{z})f\\
+&\quad=-(\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x})f-(\hat{y}\hat{p}_{y}-\hat{p}_{y}\hat{y})f\\
+&\qquad-(\hat{z}\hat{p}_{z}-\hat{p}_{z}\hat{z})f\\
+&\quad=-3\ii\hbar f
+\end{align*}
+\toi{3}{◎}{}
+\[ \hat{\vect{p}}\phi=-\ii\hbar\nabla\phi \]
+\begin{align*}
+\pdv{\phi}{x}&=\frac{\partial}{\partial x}\left[\exp\left(-\frac{x^{2}+y^{2}+z^{2}}{2b^{2}}\right)\right]\\
+&=-\frac{x}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)
+\end{align*}
+\begin{align*}
+-\ii\hbar\nabla\phi&=\frac{\ii\hbar}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)(x,y,z)\\
+&=\left(\frac{\ii\hbar}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\vect{r}
+\end{align*}
+\begin{align*}
+(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi&=\hat{x}\hat{p}_{x}\phi+\hat{y}\hat{p}_{y}\phi+\hat{z}\hat{p}_{z}\phi\\
+&=x\left(\frac{\ii\hbar x}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&\qquad+y\left(\frac{\ii\hbar y}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&\qquad+z\left(\frac{\ii\hbar z}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&=\left(\frac{\ii\hbar}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)(x^{2}+y^{2}+z^{2})\\
+&=\frac{\ii\hbar r^{2}}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)
+\end{align*}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})\phi=\hat{p}_{x}\hat{x}\phi+\hat{p}_{y}\hat{y}\phi+\hat{p}_{z}\hat{z}\phi \]
+\begin{align*}
+\hat{p}_{x}\hat{x}\phi&=\kakimachigai{\ii\hbar}{-\ii\hbar}\frac{\partial}{\partial x}\left(x\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&=-\ii\hbar\biggl(\exp\left(-\frac{r^{2}}{2b^{2}}\right)\\
+&\qquad+x\left(-\frac{x}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\biggr)\\
+&=-\ii\hbar\left(1-\frac{x^{2}}{b^{2}}\right)\exp\left(-\frac{r^{2}}{2b^{2}}\right)
+\end{align*}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})\phi=-\ii\hbar\left(3-\frac{r^{2}}{b^{2}}\right)\exp\left(-\frac{r^{2}}{2b^{2}}\right) \]
+\begin{align*}
+&(\hat{\vect{p}}\cdot\hat{\vect{r}})\phi-(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi\\
+&\quad=-3\ii\hbar\exp\left(-\frac{r^{2}}{2b^{2}}\right)=-3\ii\hbar\phi
+\end{align*}
+%% kizuki

@@ -1,0 +1,40 @@
+% 量子力学1 量子力学1-3 問題1（017-norm。当時は kai03-l1-norm） 解いた日 2026-10-18
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\int_{-\infty}^{\infty}\abs{\psi(x,t)}^{2}\dd x\\
+&\quad=\int_{-\infty}^{\infty}\left(A\ee^{-\abs{x}/b}\ee^{\ii\omega t}\right)\\
+&\qquad\qquad\left(A\ee^{-\abs{x}/b}\ee^{-\ii\omega t}\right)\dd x\\
+&\quad=A^{2}\int_{-\infty}^{\infty}\ee^{-2\abs{x}/b}\dd x\\
+&\quad=2A^{2}\int_{0}^{\infty}\ee^{-2x/b}\dd x\\
+&\quad=2A^{2}\frac{0!}{(2/b)^{0+1}}\\
+&\quad=bA^{2}=1
+\end{align*}
+\[ \therefore\ A=\sqrt{\frac{1}{b}} \]
+\toi{2}{◎}{}
+\begin{align*}
+\delta P&=\abs{\psi}^{2}\delta x\\
+&=\frac{1}{b}\ee^{-2\abs{x}/b}\delta x
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int_{-b}^{b}\abs{\psi}^{2}\dd x&=\frac{2}{b}\int_{0}^{b}\ee^{-2x/b}\dd x\\
+&=\frac{2}{b}\left[-\frac{b}{2}\ee^{-2x/b}\right]_{0}^{b}\\
+&=-\ee^{-2}+\ee^{0}\\
+&=1-\frac{1}{\ee^{2}}=0.865
+\end{align*}
+\toi{4}{△}{計算}
+\begin{align*}
+\int_{-\infty}^{\infty}x\abs{\psi}^{2}\dd x&=\ayamari{\frac{2}{b}\int_{0}^{\infty}x\ee^{-2x/b}\dd x}{0}\\
+&=\frac{2}{b}\cdot\frac{1!}{(2/b)^{2}}
+\end{align*}
+\[ \expval{x}=\frac{b}{2} \]
+\naze{$\abs{\psi}^{2}$ は偶関数なので $x\abs{\psi}^{2}$ は奇関数であり，$(-\infty,\infty)$ での積分は0になる（$x>0$ の2倍に直せるのは偶関数のときだけ）。以降はこの誤りを引き継ぎ，正しくは $\expval{x}=0$ である。}
+\begin{align*}
+\int_{-\infty}^{\infty}x^{2}\abs{\psi}^{2}\dd x&=\frac{2}{b}\int_{0}^{\infty}\kakimachigai{x^{2}\ee^{-2x/b}}{x^{2}\ee^{-2x/b}\dd x}\\
+&=\frac{2}{b}\cdot\frac{2!}{(2/b)^{3}}
+\end{align*}
+\[ \expval{x^{2}}=\frac{b^{2}}{2} \]
+%% kizuki
+\item $x>0$ の積分の2倍に直せるのは被積分関数が偶関数のときだけである。$\abs{\psi}^{2}$ が偶関数なら $x\abs{\psi}^{2}$ は奇関数で積分は0，$x^{2}\abs{\psi}^{2}$ は偶関数で2倍に直せる。$x^{n}$ を掛けたら，2倍に直す前に $n$ の偶奇で被積分関数の偶奇を確かめる。
+\item 分布が原点について対称なら平均の位置は原点になる。$\expval{x}=b/2$ のように片側に寄った答えが出たら，$\abs{\psi}^{2}$ の対称性と見比べて検算する。

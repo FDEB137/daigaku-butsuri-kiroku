@@ -1,0 +1,28 @@
+% 量子力学1 量子力学1-3 問題3（現在は 量子力学1-4 問題1。019-fourier。当時は kai03-l1-fourier） 解いた日 2026-10-18
+%% kotae
+\toi{1}{◎}{}
+i) $k\neq0$ のとき
+\begin{align*}
+F(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}f(x)\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-a}^{a}\kakimachigai{\frac{\ee^{-\ii kx}}{\sqrt{2a}}}{\frac{\ee^{-\ii kx}}{\sqrt{2a}}\dd x}\\
+&=\frac{1}{2\sqrt{\pi a}}\left[\frac{\ee^{-\ii kx}}{-\ii k}\right]_{-a}^{a}\\
+&=\frac{\ii}{2k\sqrt{\pi a}}\left(\ee^{-\ii ka}-\ee^{\ii ka}\right)\\
+&=\frac{\sin(ka)}{k\sqrt{\pi a}}
+\end{align*}
+ii) $k=0$ のとき
+\begin{align*}
+F(0)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,f(x)\\
+&=\frac{1}{2\sqrt{\pi a}}\int_{-a}^{a}\dd x\\
+&=\sqrt{\frac{a}{\pi}}
+\end{align*}
+\toi{2}{◎}{}
+\[ \frac{\sin(ka)}{k\sqrt{\pi a}}=0\qquad\therefore\ \sin(ka)=0 \]
+\begin{align*}
+&\therefore\ ka=n\pi\quad(n=1,2,3)\\
+&\therefore\ k_{1}=\frac{\pi}{a}
+\end{align*}
+\[ 2ak_{1}=2\pi \]
+$a$ を大きくすると，$k_{1}$ は小さくなるため，関数が鋭くなる。
+
+（図：$k=0$ の山の両側に小さな振動が続く $F(k)$ の形が，矢印の先では幅の狭い山になる）
+%% kizuki

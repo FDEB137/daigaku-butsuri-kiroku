@@ -1,0 +1,189 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第7章「運動量の固有関数と運動量表示」}{2026-11-04}
+%% kaisetsu-moto	problems\量子力学1\shou07\量子力学1-7.tex	kiroku\kaisetsu\量子力学1\量子力学1-7_2026-11-04_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-057-eigen}{1}}{L1・計算}{◎◎○}{A}{(3)記述}
+  \hyougyou{\hyperlink{bt-m-058-delta}{2}}{L1・計算}{◎△◎}{B}{(2)計算}
+  \hyougyou{\hyperlink{bt-m-059-ring}{3}}{L1・計算}{○△△△}{C}{(1)記述 (2)立式 (3)未着手 (4)未着手}
+\end{saitenichiran}
+\begin{daiji}
+  \item 小問の問いを1つずつ数えて、全部に答えたかを最後に確かめる。問題3 では「規格化」(2)、「縮退の様子」(3)、「井戸で運動量の固有関数がエネルギーの固有関数になれない理由と、運動量について何がいえるか」(4) が答案に無い。
+  \item 規格化された固有関数を求めるときは、$\phi=A\,\ee^{\ii px/\hbar}$ と定数 $A$ を残しておき、最後に $\int_{0}^{L}\abs{\phi}^{2}\dd x=1$ から $A$ を決める（問題3 (2)）。
+  \item $\ee^{-\ii\theta}-\ee^{\ii\theta}=-2\ii\sin\theta$ のように $\ii$ が入る変形は、$\theta$ を小さくしたときの1次の項で符号を確かめる（問題2 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 「固有関数でない」の理由：第5章 問題7 (4)（2026-10-30）でも、成り立たないことを示しただけで「定数倍にならない」理由を書かなかった。今回の問題1 (3) も同じ。結果が「元の関数の定数倍か」を一言で判定して書く。
+  \item 問われた項目の書き落とし：第6章 問題1 (1)（2026-11-01）で、得られる値と確率を答えとして書かなかった。今回は問題3 (3)(4) で縮退と理由を書き落とした。答案の最後に、問題文の「求めよ」「述べよ」の数だけ答えが並んでいるかを数える。
+  \item $\ii$ と符号の扱い：第2章 問題4 (2)（2026-10-14、$-3\ii\hbar$ の符号が逆）、第6章 問題2 (4)（2026-11-01、括弧を外すときの符号）。今回の問題2 (2) も符号の誤り。$1/\ii=-\ii$ を使うときは特に確かめる。
+\end{maemo}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{057-eigen}{計算}{3次元の運動量の固有関数と，運動量が定まった状態での位置の確率（規格化できない固有関数の確率の読み方）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+3次元の自由粒子を考える。$\vect{k}$ を実数の定ベクトル（$\vect{k}\neq\vect{0}$）とし，
+  \[ \phi_{\vect{k}}(\vect{r})=\frac{1}{(2\pi)^{3/2}}\ee^{\ii\vect{k}\cdot\vect{r}} \]
+  とする。
+  \begin{shoumon}
+    \item $\phi_{\vect{k}}$ が運動量演算子 $\hat{\vect{p}}=-\ii\hbar\nabla$ の固有関数であることを示し，固有値を求めよ。
+    \item 状態 $\phi_{\vect{k}}$ にある粒子を，位置 $\vect{r}=\vect{a}$ のまわりの微小体積 $\dd V$ に見出す確率（に比例する量）$\abs{\phi_{\vect{k}}(\vect{a})}^{2}\dd V$ を求め，$\vect{a}$ によらないことを示せ。また，$\phi_{\vect{k}}$ は全空間で規格化できないことを確かめ，この量をどう読めばよいか，粒子の位置について何がいえるかを述べよ。
+    \item 2つの運動量の固有関数の重ね合わせ
+      \[ \chi(\vect{r})=\frac{1}{\sqrt{2}}\left[\phi_{\vect{k}}(\vect{r})+\phi_{-\vect{k}}(\vect{r})\right] \]
+      は $\hat{\vect{p}}$ の固有関数か。$\hat{\vect{p}}^{2}=\hat{\vect{p}}\cdot\hat{\vect{p}}$ の固有関数か。また，状態 $\chi$ で位置 $\vect{a}$ と $\vect{b}$ のまわりの同じ体積 $\dd V$ に粒子を見出す確率の比を求めよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{3}{○}{記述} $\hat{\vect{p}}\chi=\hbar\vect{k}\,[\phi_{\vect{k}}-\phi_{-\vect{k}}]/\sqrt{2}$ と、確率の比 $\cos^{2}(\vect{k}\cdot\vect{a})/\cos^{2}(\vect{k}\cdot\vect{b})$ は正しい。「固有関数でない」の理由が無い。$\vect{k}\neq\vect{0}$ では $\phi_{\vect{k}}$ と $\phi_{-\vect{k}}$ は比例しない関数なので、$\phi_{\vect{k}}-\phi_{-\vect{k}}$ は $\chi\propto\phi_{\vect{k}}+\phi_{-\vect{k}}$ の定数倍にならない、まで書く。
+\end{kotaeran}
+\begin{rikai}
+  \item 固有関数かどうかは「演算子を作用させた結果が、元の関数の定数倍か」で決まる。重ね合わせ $c_{1}\phi_{1}+c_{2}\phi_{2}$ が固有関数になるのは、2つの固有値が等しいときだけである（$\hat{\vect{p}}^{2}$ では $\pm\hbar\vect{k}$ の2乗が等しいので固有関数になる）。
+  \item (2) で左辺を $\abs{\phi_{\vect{k}}(\vect{a})}^{2}$ と書き、右辺に $\dd V$ を付けていた。等式の両辺に同じ量（$\dd V$）があるかを確かめる（減点なし）。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{2}
+\begin{mondai}{058-delta}{計算}{平面波・デルタ関数の重ね合わせの運動量表示と，運動量の分布の読み方（位置の干渉が運動量の分布に現れること）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+1次元系で，次の座標表示の波動関数を要点整理の規約で運動量表示 $\tilde{\phi}(k)$ に直せ（規格化はしなくてよい）。$k_{0}>0$，$x_{0}>0$ は定数とする。
+  \begin{shoumon}
+    \item $\phi(x)=\cos(k_{0}x)/\sqrt{2\pi}$。また，この状態で運動量を測定したときに得られる値と，それぞれが得られる相対的な確率を答えよ。
+    \item $\phi(x)=\left[\delta(x-x_{0})-\delta(x+x_{0})\right]/\sqrt{2}$。
+    \item 1つの位置に局在した $\phi(x)=\delta(x-x_{0})$ の運動量表示の絶対値の2乗 $\abs{\tilde{\phi}(k)}^{2}$ を求め，(2) の $\abs{\tilde{\phi}(k)}^{2}$ と比べよ。(2) の $\abs{\tilde{\phi}(k)}^{2}$ が $0$ になる $k$ と，$k$ についての周期を求め，周期にわたる平均が1つの位置の場合と一致することを確かめよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{△}{計算} $\tilde{\phi}(k)=(\ee^{-\ii kx_{0}}-\ee^{\ii kx_{0}})/(2\sqrt{\pi})$ までは正しい。次の行で $-\sin(kx_{0})/(\ii\sqrt{\pi})$ とした。$-1/\ii=\ii$ なので、これは $+\ii\sin(kx_{0})/\sqrt{\pi}$ で、符号が逆である。$\ee^{-\ii\theta}-\ee^{\ii\theta}=-2\ii\sin\theta$ から、正しくは $\tilde{\phi}(k)=-\ii\sin(kx_{0})/\sqrt{\pi}$（$=\sin(kx_{0})/(\ii\sqrt{\pi})$）。(3) の $\abs{\tilde{\phi}(k)}^{2}$ には影響しない。
+\end{kotaeran}
+\begin{rikai}
+  \item 検算：$\theta$ が小さいとき $\ee^{-\ii\theta}-\ee^{\ii\theta}\approx(1-\ii\theta)-(1+\ii\theta)=-2\ii\theta$ なので、係数は $-2\ii$。$1/\ii=-\ii$ を使って書き直したら、もう一度この形と比べる。
+  \item 全体の符号（位相 $-1$）は $\abs{\tilde{\phi}}^{2}$ には効かないが、ほかの状態と重ね合わせると干渉の符号が変わるので、答えとしては区別する。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{3}
+\begin{mondai}{059-ring}{計算}{周期的境界条件での運動量の固有値（量子化）・規格化された固有関数 $\braket{x}{n}$・エネルギー準位の縮退と，無限に深い井戸との違い}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+長さ $L$ の1次元系 $0\le x\le L$ に周期的境界条件を課す（要点整理）。ポテンシャルは $0$ で，粒子の質量を $m$ とする。
+  \begin{shoumon}
+    \item 運動量演算子 $\hat{p}=-\ii\hbar\,\dd/\dd x$ の固有値方程式を解き，固有値 $p_{n}$ を整数 $n$ で表せ。
+    \item 区間 $0\le x\le L$ で規格化された固有関数の座標表示 $\braket{x}{n}$ を求めよ（$x=0$ で正の実数になる位相をとる）。
+    \item 運動量の固有関数はエネルギーの固有関数でもある。エネルギー準位 $E_{n}$ を求め，縮退の様子を述べよ。また，電子（質量 $\melec$）で $L=\qty{1.00}{\nano\metre}$ のとき，$p_{1}$ と $E_{1}$ を有効数字3桁で求めよ（$E_{1}$ は \unit{\joule} と \unit{\electronvolt} の両方で）。
+    \item 幅 $L$ の無限に深い井戸（境界条件 $\phi(0)=\phi(L)=0$）のエネルギー準位は $E_{n}^{\text{井戸}}=n^{2}\pi^{2}\hbar^{2}/(2mL^{2})$（$n=1,2,\ldots$。第11章）である。(3) の $E_{n}$ と比べよ。また，井戸では運動量の固有関数がエネルギーの固有関数になりえない理由を述べ，井戸のエネルギーの固有状態で運動量について何がいえるかを答えよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $\ee^{\ii p_{n}L/\hbar}=1$ から $p_{n}=2n\pi\hbar/L$ は正しい。周期的境界条件のもう1つの条件 $\phi'(L)=\phi'(0)$ に触れていない。$\phi'=(\ii p/\hbar)\phi$ なので $\phi(L)=\phi(0)$ から自動的に成り立つ、と一言書く（$n$ は整数 $0,\pm1,\pm2,\ldots$ であることも）。
+  \machigai{2}{△}{立式} $\braket{x}{n}=\exp(2\pi\ii nx/L)$ と書き、規格化をしていない。$\int_{0}^{L}\abs{A}^{2}\dd x=\abs{A}^{2}L=1$ から $A=1/\sqrt{L}$ で、$\braket{x}{n}=\ee^{2\pi\ii nx/L}/\sqrt{L}$。
+  \machigai{3}{△}{未着手} $E_{n}=2n^{2}\pi^{2}\hbar^{2}/(mL^{2})$、$p_{1}=\qty{6.63e-25}{\kilogram\metre\per\second}$、$E_{1}=\qty{2.41e-19}{\joule}=\qty{1.51}{\electronvolt}$ は正しい。問われている「縮退の様子」が無い。$E_{n}$ は $n^{2}$ だけで決まるので $n\neq0$ は $\pm n$ の2重縮退、$n=0$（$E_{0}=0$）だけが縮退しない。
+  \machigai{4}{△}{未着手} $E_{n}^{\text{井戸}}=E_{n}/4$ は正しい（$E_{n}=E_{2\abs{n}}^{\text{井戸}}$ とも書ける）。残りの2つの問い（井戸で運動量の固有関数がエネルギーの固有関数になりえない理由、井戸の固有状態で運動量について何がいえるか）が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 運動量の固有関数 $A\,\ee^{\ii px/\hbar}$ は絶対値が $\abs{A}$ で一定なので、$A\neq0$ なら $\phi(0)=0$ を満たせない。だから井戸のエネルギーの固有関数にはなれない。
+  \item 井戸の $\sin(n\pi x/L)$ は、区間の中では運動量 $\pm n\pi\hbar/L$ の平面波2つの重ね合わせの形だが、区間の外で $0$ なので運動量の分布は $k$ の連続関数になる。運動量は（大きさも）1つに定まらず、いえるのは $\expval{p}=0$ と $\expval{p^{2}}=(n\pi\hbar/L)^{2}$。
+  \item 周期的境界条件では $n$ と $-n$（右向きと左向き）が同じエネルギーをもつ。縮退を述べるときは、$n=0$ が例外であることも書く。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{057-eigen}
+\houshin 運動量演算子を成分ごとに作用させて固有値方程式を確かめる。確率は $\abs{\phi}^{2}\dd V$ で，平面波の絶対値が一定であることを使う。重ね合わせは2つの固有関数への作用を別々に計算する。
+\keisan \shoumonkai{1} $\vect{k}\cdot\vect{r}=k_{x}x+k_{y}y+k_{z}z$ なので，$x$ 成分は
+\[ \hat{p}_{x}\phi_{\vect{k}}=-\ii\hbar\pdv{}{x}\left[\frac{1}{(2\pi)^{3/2}}\ee^{\ii(k_{x}x+k_{y}y+k_{z}z)}\right]=-\ii\hbar\,(\ii k_{x})\,\phi_{\vect{k}}=\hbar k_{x}\phi_{\vect{k}} \]
+である。$y$ 成分・$z$ 成分は，微分する変数を $y$・$z$ に替えると $\ii k_{y}$・$\ii k_{z}$ が出るので $\hbar k_{y}\phi_{\vect{k}}$・$\hbar k_{z}\phi_{\vect{k}}$ になる。よって $\hat{\vect{p}}\phi_{\vect{k}}=\hbar\vect{k}\,\phi_{\vect{k}}$ で，固有値は $\hbar\vect{k}$ である。
+
+\shoumonkai{2} $\vect{k}\cdot\vect{a}$ は実数なので $\abs{\ee^{\ii\vect{k}\cdot\vect{a}}}^{2}=1$ であり，
+\[ \abs{\phi_{\vect{k}}(\vect{a})}^{2}\dd V=\frac{1}{(2\pi)^{3}}\abs{\ee^{\ii\vect{k}\cdot\vect{a}}}^{2}\dd V=\frac{\dd V}{(2\pi)^{3}} \]
+となり，$\vect{a}$ を含まない。全空間で積分すると，被積分関数が定数 $1/(2\pi)^{3}$ なので体積とともに発散し，$\phi_{\vect{k}}$ は規格化できない。したがってこの量は絶対的な確率ではなく，相対的な確率（比）として読む。位置 $\vect{a}$ と $\vect{b}$ のまわりの同じ体積 $\dd V$ に見出す確率の比は $1$ で，粒子はどこにも同じ割合で見出される。つまり運動量が確定した状態では，粒子の位置はまったく定まらない。
+
+\shoumonkai{3} (1) から $\hat{\vect{p}}\phi_{\pm\vect{k}}=\pm\hbar\vect{k}\,\phi_{\pm\vect{k}}$ なので
+\[ \hat{\vect{p}}\chi=\frac{\hbar\vect{k}}{\sqrt{2}}\left[\phi_{\vect{k}}-\phi_{-\vect{k}}\right] \]
+である。$\vect{k}\neq\vect{0}$ では $\phi_{\vect{k}}$ と $\phi_{-\vect{k}}$ は比例しない関数なので，これは $\chi$ の定数倍ではなく，$\chi$ は $\hat{\vect{p}}$ の固有関数でない。一方，$\hat{\vect{p}}\cdot\hat{\vect{p}}\,\phi_{\pm\vect{k}}=(\pm\hbar\vect{k})\cdot(\pm\hbar\vect{k})\,\phi_{\pm\vect{k}}=\hbar^{2}k^{2}\phi_{\pm\vect{k}}$（$k=\abs{\vect{k}}$）は符号によらないので，$\hat{\vect{p}}^{2}\chi=\hbar^{2}k^{2}\chi$ となり，$\chi$ は $\hat{\vect{p}}^{2}$ の固有関数である。確率密度は $\ee^{\ii\theta}+\ee^{-\ii\theta}=2\cos\theta$ から
+\[ \abs{\chi(\vect{r})}^{2}=\frac{1}{2(2\pi)^{3}}\abs{2\cos(\vect{k}\cdot\vect{r})}^{2}=\frac{2\cos^{2}(\vect{k}\cdot\vect{r})}{(2\pi)^{3}} \]
+なので，確率の比は $\cos^{2}(\vect{k}\cdot\vect{a})/\cos^{2}(\vect{k}\cdot\vect{b})$ である。
+\kotae{\shoumonkai{1} $\hat{\vect{p}}\phi_{\vect{k}}=\hbar\vect{k}\,\phi_{\vect{k}}$（固有値 $\hbar\vect{k}$） \shoumonkai{2} $\dd V/(2\pi)^{3}$（$\vect{a}$ によらない。規格化できないので比として読み，位置はまったく定まらない） \shoumonkai{3} $\hat{\vect{p}}$ の固有関数ではなく，$\hat{\vect{p}}^{2}$ の固有関数（固有値 $\hbar^{2}k^{2}$）。確率の比は $\cos^{2}(\vect{k}\cdot\vect{a})/\cos^{2}(\vect{k}\cdot\vect{b})$}
+\begin{ronten}
+  \item \shoumonkai{2} 全空間での積分が発散して規格化できないことを示してから，絶対的な確率ではなく比として読むことを述べる。
+  \item \shoumonkai{3} $\vect{k}\neq\vect{0}$ では $\phi_{\vect{k}}$ と $\phi_{-\vect{k}}$ が比例しないので，$\hat{\vect{p}}\chi$ が $\chi$ の定数倍にならないことを書く。
+\end{ronten}
+\kenzan 次元：$\phi_{\vect{k}}$ は無次元なので $\abs{\phi_{\vect{k}}}^{2}\dd V$ は体積の次元をもち，無次元の確率ではない。これは $\phi_{\vect{k}}$ がデルタ関数で規格化される（3次元のデルタ関数は長さの $3$ 乗の次元）ことと合っており，比として読むしかないことの裏づけになる。特殊ケース：$\vect{k}\to\vect{0}$ では $\cos^{2}\to1$ で $\chi$ の確率密度も一様になり，$\chi$ は固有値 $\vect{0}$ の運動量の固有関数（定数）に戻る。
+\tsumazuki 「確率が $\vect{a}$ によらず一定」は「確率が $0$」ではない。規格化できないので1点あたりの確率の絶対値はいえないが，比は意味をもつ。運動エネルギー（$\hat{\vect{p}}^{2}$）が定まっていても，運動量の向きが定まっていなければ位置の分布に干渉の縞が出る。
+\end{kaisetsu}
+
+\kaisetsubangou{2}
+\begin{kaisetsu}{058-delta}
+\houshin 定義 $\tilde{\phi}(k)=(2\pi)^{-1/2}\int\ee^{-\ii kx}\phi(x)\dd x$ に代入する。平面波の積分はデルタ関数の積分表示，デルタ関数の積分は定義で実行する。
+\keisan \shoumonkai{1} $\cos(k_{0}x)=(\ee^{\ii k_{0}x}+\ee^{-\ii k_{0}x})/2$ なので
+\[ \tilde{\phi}(k)=\frac{1}{\sqrt{2\pi}}\cdot\frac{1}{\sqrt{2\pi}}\cdot\frac{1}{2}\int_{-\infty}^{\infty}\left[\ee^{\ii(k_{0}-k)x}+\ee^{-\ii(k_{0}+k)x}\right]\dd x \]
+である。要点整理の積分表示で $x$ と $k$ の文字を入れ替えた式
+\[ \delta(k-k')=\frac{1}{2\pi}\int_{-\infty}^{\infty}\ee^{\ii(k-k')x}\dd x \]
+を使うと，第1項は $\delta(k_{0}-k)=\delta(k-k_{0})$，第2項は $\delta(-(k_{0}+k))=\delta(k+k_{0})$（デルタ関数は偶関数）になる。よって
+\[ \tilde{\phi}(k)=\frac{1}{2}\left[\delta(k-k_{0})+\delta(k+k_{0})\right] \]
+である。これは $\phi=\frac{1}{2}(\phi_{k_{0}}+\phi_{-k_{0}})$ と展開できることを表す。展開係数は2つとも $1/2$ で絶対値の2乗が等しいので，運動量を測定すると $+\hbar k_{0}$ か $-\hbar k_{0}$ が，相対的な確率 $1/2$ ずつで得られる。
+
+\shoumonkai{2} デルタ関数の定義から，$\delta(x\mp x_{0})$ に $\ee^{-\ii kx}$ をかけて積分すると $\ee^{\mp\ii kx_{0}}$ になる。よって
+\[ \tilde{\phi}(k)=\frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{2\pi}}\left(\ee^{-\ii kx_{0}}-\ee^{\ii kx_{0}}\right)=\frac{1}{2\sqrt{\pi}}\left(-2\ii\sin(kx_{0})\right)=-\frac{\ii}{\sqrt{\pi}}\sin(kx_{0}) \]
+である。
+
+\shoumonkai{3} $\phi(x)=\delta(x-x_{0})$ では $\tilde{\phi}(k)=\ee^{-\ii kx_{0}}/\sqrt{2\pi}$ なので $\abs{\tilde{\phi}(k)}^{2}=1/(2\pi)$ で，$k$ によらず一様である（位置が確定した状態では運動量がまったく定まらない）。(2) では
+\[ \abs{\tilde{\phi}(k)}^{2}=\frac{\sin^{2}(kx_{0})}{\pi} \]
+で，$kx_{0}=n\pi$，つまり $k=n\pi/x_{0}$（$n$ は整数）で $0$ になる。$\sin^{2}(kx_{0})$ の周期は $k$ について $\pi/x_{0}$ である。1周期にわたる $\sin^{2}$ の平均は $1/2$ なので，平均は $1/(2\pi)$ となり，1つの位置の場合の値と一致する。2つの位置 $\pm x_{0}$ からの寄与の位相差 $2kx_{0}$ によって，$k$ について干渉の縞ができている。
+\kotae{\shoumonkai{1} $\tilde{\phi}(k)=\frac{1}{2}[\delta(k-k_{0})+\delta(k+k_{0})]$。測定値は $\pm\hbar k_{0}$ で，相対的な確率は $1/2$ ずつ \shoumonkai{2} $\tilde{\phi}(k)=-\ii\sin(kx_{0})/\sqrt{\pi}$ \shoumonkai{3} 1つの位置では $1/(2\pi)$（一様）。(2) は $\sin^{2}(kx_{0})/\pi$ で，$k=n\pi/x_{0}$（$n$ は整数）で $0$，周期 $\pi/x_{0}$，平均 $1/(2\pi)$}
+\kenzan (1)：逆変換は
+\[ \int_{-\infty}^{\infty}\tilde{\phi}(k)\phi_{k}(x)\dd k=\frac{1}{2}\left[\phi_{k_{0}}(x)+\phi_{-k_{0}}(x)\right]=\frac{\cos(k_{0}x)}{\sqrt{2\pi}} \]
+となり，元に戻る。(2)：$x_{0}\to0$ では2つのデルタ関数が打ち消して $\phi\to0$ となり，$\tilde{\phi}\to0$ と合う。$\phi$ が奇関数なので $\tilde{\phi}$ も $k$ の奇関数で，純虚数になっている（実の奇関数のフーリエ変換は純虚数の奇関数）。
+\tsumazuki $\cos(k_{0}x)$ の変換を $\delta(k-k_{0})$ だけと答えるのは誤り。$\cos$ は運動量 $\pm\hbar k_{0}$ の両方を含む。
+\end{kaisetsu}
+
+\kaisetsubangou{3}
+\begin{kaisetsu}{059-ring}
+\houshin 1階の固有値方程式を解き，周期的境界条件で固有値を決める。規格化は区間 $0\le x\le L$ で行う。エネルギーは $\hat{p}^{2}/(2m)$ の固有値として求める。
+\keisan \shoumonkai{1} 固有値方程式 $-\ii\hbar\,\dd\phi/\dd x=p\phi$ の解は $\phi(x)=A\,\ee^{\ii px/\hbar}$ である。$\phi(L)=\phi(0)$ から $\ee^{\ii pL/\hbar}=1$，つまり $pL/\hbar=2\pi n$（$n$ は整数）なので
+\[ p_{n}=\frac{2\pi\hbar n}{L}\qquad(n=0,\pm1,\pm2,\ldots) \]
+である。$\phi'(x)=(\ii p/\hbar)\phi(x)$ なので，$\phi(L)=\phi(0)$ が成り立てば $\phi'(L)=\phi'(0)$ も自動的に成り立つ。
+
+\shoumonkai{2} $\abs{\phi}^{2}=\abs{A}^{2}$ なので，規格化は $\abs{A}^{2}L=1$ である。$x=0$ で正の実数になる位相をとると $A=1/\sqrt{L}$ で
+\[ \braket{x}{n}=\frac{1}{\sqrt{L}}\ee^{2\pi\ii nx/L} \]
+である。
+
+\shoumonkai{3} ポテンシャルが $0$ なので $\hat{H}=\hat{p}^{2}/(2m)$ で，$\hat{H}\braket{x}{n}=p_{n}^{2}/(2m)\,\braket{x}{n}$ となる。よって
+\[ E_{n}=\frac{p_{n}^{2}}{2m}=\frac{2\pi^{2}\hbar^{2}n^{2}}{mL^{2}} \]
+である。$E_{n}$ は $n^{2}$ だけで決まるので，$n\neq0$ の準位は $n$ と $-n$（右向きと左向きの運動量）の2重に縮退し，$n=0$（$E_{0}=0$，定数の関数）だけが縮退しない。数値は
+\[ p_{1}=\frac{2\pi\times\qty{1.055e-34}{\joule\second}}{\qty{1.00e-9}{\metre}}=\qty{6.63e-25}{\kilogram\metre\per\second} \]
+\[ E_{1}=\frac{p_{1}^{2}}{2\melec}=\frac{(\qty{6.629e-25}{\kilogram\metre\per\second})^{2}}{2\times\qty{9.109e-31}{\kilogram}}=\qty{2.412e-19}{\joule} \]
+で，有効数字3桁では $E_{1}=\qty{2.41e-19}{\joule}$ である。電子ボルトへは丸める前の値で換算し，$\qty{2.412e-19}{\joule}\div\qty{1.602e-19}{\joule\per\electronvolt}=\qty{1.51}{\electronvolt}$ である（丸めた \num{2.41} で割ると \num{1.50} になり，3桁目がずれる）。
+
+\shoumonkai{4} (3) の $E_{n}$ を井戸の式の形に書き直すと
+\[ E_{n}=\frac{2\pi^{2}\hbar^{2}n^{2}}{mL^{2}}=\frac{(2\abs{n})^{2}\pi^{2}\hbar^{2}}{2mL^{2}}=E_{2\abs{n}}^{\text{井戸}} \]
+なので，周期的境界条件の準位（$n\neq0$）は井戸の偶数番目の準位と一致し，井戸の奇数番目の準位に当たるものは無い。また周期的境界条件では $E_{0}=0$ が許されるが，井戸の最低準位は $\pi^{2}\hbar^{2}/(2mL^{2})>0$ である。運動量の固有関数 $A\,\ee^{\ii px/\hbar}$ は絶対値が $\abs{A}$ で一定なので，$A\neq0$ なら $\phi(0)=0$ を満たせない。そのため井戸では運動量の固有関数がエネルギーの固有関数になりえない。井戸の固有関数は，区間 $0\le x\le L$ の中では
+\[ \sin\frac{n\pi x}{L}=\frac{1}{2\ii}\left(\ee^{\ii n\pi x/L}-\ee^{-\ii n\pi x/L}\right) \]
+と，運動量 $\pm n\pi\hbar/L$ の平面波を等しい重みで重ねた形に書ける（壁で反射して往復する波）。しかし区間の外では $0$ なので，全空間に広がる平面波による展開はこの2項では済まない。運動量表示 $\tilde{\phi}(k)$ は有限の区間で切れた関数の変換になり，デルタ関数の和ではなく $k$ の連続関数になる。したがって井戸のエネルギーの固有状態は運動量の固有状態ではなく，運動量は（大きさも）1つの値に定まらない。いえるのは，波動関数が実数なので $\tilde{\phi}(-k)=\tilde{\phi}(k)^{*}$ となって運動量の分布が正負で対称になり $\expval{p}=0$ であることと，$\expval{p^{2}}=2mE_{n}^{\text{井戸}}=(n\pi\hbar/L)^{2}$（Level 3 の運動量の2乗の期待値の問題の座標表示の式で確かめられる）であることである。
+\kotae{\shoumonkai{1} $p_{n}=2\pi\hbar n/L$（$n=0,\pm1,\pm2,\ldots$） \shoumonkai{2} $\braket{x}{n}=\ee^{2\pi\ii nx/L}/\sqrt{L}$ \shoumonkai{3} $E_{n}=2\pi^{2}\hbar^{2}n^{2}/(mL^{2})$。$n\neq0$ は $\pm n$ の2重縮退，$n=0$ は縮退なし。$p_{1}=\qty{6.63e-25}{\kilogram\metre\per\second}$，$E_{1}=\qty{2.41e-19}{\joule}=\qty{1.51}{\electronvolt}$ \shoumonkai{4} $E_{n}=E_{2\abs{n}}^{\text{井戸}}$。運動量の固有関数は絶対値が一定で $\phi(0)=0$ を満たせない。井戸の固有状態は運動量の固有状態ではなく，運動量は（大きさも）定まらない（区間内は $\pm n\pi\hbar/L$ の平面波の重ね合わせの形だが，区間外で $0$ のため運動量の分布は連続）。$\expval{p}=0$，$\expval{p^{2}}=(n\pi\hbar/L)^{2}$}
+\begin{ronten}
+  \item \shoumonkai{1} 2つの境界条件のうち $\phi'(L)=\phi'(0)$ は，$\phi(L)=\phi(0)$ から自動的に成り立つことを述べる。
+  \item \shoumonkai{3} 縮退を述べるときに $n=0$ を落とさず，$n=0$ だけが縮退しないことを書く。
+  \item \shoumonkai{4} 運動量の固有関数は絶対値が一定で $\phi(0)=0$ を満たせないことを，理由として述べる。
+  \item \shoumonkai{4} 井戸の波動関数は区間の外で $0$ なので，区間の中で2つの平面波に分けただけでは運動量の分布が決まらないことを書く。
+\end{ronten}
+\kenzan 次元：$\hbar/L$ は $\unit{\joule\second\per\metre}=\unit{\kilogram\metre\per\second}$ で運動量の次元，$\hbar^{2}/(mL^{2})$ はエネルギーの次元。数値：井戸の最低準位は同じ $L$ で \qty{0.376}{\electronvolt} になり，$E_{1}$ はその $4$ 倍（$=E_{2}^{\text{井戸}}$）で (4) と合う。極限：$L\to\infty$ では $p_{n}$ の間隔 $2\pi\hbar/L\to0$ で，運動量は連続的な値をとるようになる。
+\tsumazuki $n=0$ を落とさない。周期的境界条件では定数の関数も許される（井戸では $\phi\equiv0$ になって除かれる）。井戸の $\sin$ を2つの平面波に分けただけで「運動量は $+n\pi\hbar/L$ か $-n\pi\hbar/L$ が確率 $1/2$ ずつ得られる」とするのは誤りである。区間の外で $0$ であることを見落としている。
+\end{kaisetsu}
+
+\end{document}

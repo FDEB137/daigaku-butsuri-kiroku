@@ -1,0 +1,9 @@
+# photos are too large for GitHub (they stay only on the PC)
+shashin/
+uketsuke/
+# LaTeX intermediate files
+*.aux
+*.log
+*.dvi
+*.out
+*.synctex.gz

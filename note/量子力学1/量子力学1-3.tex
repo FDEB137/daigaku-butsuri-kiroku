@@ -1,0 +1,555 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第3章「確率解釈・確率の流れ・期待値と Ehrenfest の定理」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou03\量子力学1-3.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-017-norm}{1}}{L1・計算}{◎◎◎△}{A}{2026-10-18 (4)計算}
+  \ichirangyou{\hyperlink{bt-m-018-current}{2}}{L1・計算}{○○◎}{B}{2026-10-21 2回目 (1)記述 (2)記述}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{4}{L1・計算}{◎○◎}{A}{2026-11-10 (2)単位}
+  \ichirangyou{\hyperlink{bt-m-020-gauss}{5}}{L2・計算}{◎△○}{B}{2026-10-18 (2)計算 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-021-reflect}{6}}{L2・計算}{△○△}{C}{2026-10-18 (1)立式 (2)記述 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-022-box}{7}}{L2・計算}{◎◎◎◎}{S}{2026-10-18}
+  \ichirangyou{8}{L2・計算}{}{未着手}{}
+  \ichirangyou{9}{L2・計算}{◎◎◎△}{B}{2026-11-11 ヒント1 (4)未着手}
+  \ichirangyou{10}{L3・導出}{◎◎◎}{S}{2026-10-29}
+  \ichirangyou{11}{L3・計算}{}{未着手}{}
+  \ichirangyou{12}{L3・導出}{}{未着手}{}
+  \ichirangyou{13}{L3・導出}{◎◎◎◎}{B}{2026-11-11 ヒント1}
+  \ichirangyou{14}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\017_2026-10-18.tex
+\mondaibangou{1}
+\begin{mondai}{017-norm}{計算}{確率解釈（確率密度 $\abs{\psi}^{2}$）・規格化・位置の期待値}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+$-\infty<x<\infty$ の1次元空間で，波動関数
+  \[
+    \psi(x,t)=A\,\ee^{-\abs{x}/b}\,\ee^{-\ii\omega t}
+  \]
+  で表される状態にある粒子を考える。$b\,(>0)$ と $\omega$ は実数の定数，$A$ は正の実数の定数である。必要なら，$\lambda>0$，$n=0,1,2,\dots$ に対する公式
+  \[
+    \int_{0}^{\infty}x^{n}\ee^{-\lambda x}\dd x=\frac{n!}{\lambda^{n+1}}
+  \]
+  を用いてよい。
+  \begin{shoumon}
+    \item この波動関数を規格化し，$A$ を $b$ で表せ。
+    \item 時刻 $t$ に微小区間 $[x,x+\delta x]$ に粒子を見いだす確率 $\delta P$ を $b$ を用いて表し，$\delta P$ が $t$ によらないことを確かめよ。
+    \item 粒子を区間 $-b\le x\le b$ に見いだす確率を求めよ。数値は有効数字3桁で答えよ。
+    \item 位置の期待値 $\expval{x}$ と，$x^{2}$ の期待値 $\expval{x^{2}}$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-18 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{◎}{}
+\begin{align*}
+&\int_{-\infty}^{\infty}\abs{\psi(x,t)}^{2}\dd x\\
+&\quad=\int_{-\infty}^{\infty}\left(A\ee^{-\abs{x}/b}\ee^{\ii\omega t}\right)\\
+&\qquad\qquad\left(A\ee^{-\abs{x}/b}\ee^{-\ii\omega t}\right)\dd x\\
+&\quad=A^{2}\int_{-\infty}^{\infty}\ee^{-2\abs{x}/b}\dd x\\
+&\quad=2A^{2}\int_{0}^{\infty}\ee^{-2x/b}\dd x\\
+&\quad=2A^{2}\frac{0!}{(2/b)^{0+1}}\\
+&\quad=bA^{2}=1
+\end{align*}
+\[ \therefore\ A=\sqrt{\frac{1}{b}} \]
+\toi{2}{◎}{}
+\begin{align*}
+\delta P&=\abs{\psi}^{2}\delta x\\
+&=\frac{1}{b}\ee^{-2\abs{x}/b}\delta x
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int_{-b}^{b}\abs{\psi}^{2}\dd x&=\frac{2}{b}\int_{0}^{b}\ee^{-2x/b}\dd x\\
+&=\frac{2}{b}\left[-\frac{b}{2}\ee^{-2x/b}\right]_{0}^{b}\\
+&=-\ee^{-2}+\ee^{0}\\
+&=1-\frac{1}{\ee^{2}}=0.865
+\end{align*}
+\toi{4}{△}{計算}
+\begin{align*}
+\int_{-\infty}^{\infty}x\abs{\psi}^{2}\dd x&=\ayamari{\frac{2}{b}\int_{0}^{\infty}x\ee^{-2x/b}\dd x}{0}\\
+&=\frac{2}{b}\cdot\frac{1!}{(2/b)^{2}}
+\end{align*}
+\[ \expval{x}=\frac{b}{2} \]
+\naze{$\abs{\psi}^{2}$ は偶関数なので $x\abs{\psi}^{2}$ は奇関数であり，$(-\infty,\infty)$ での積分は0になる（$x>0$ の2倍に直せるのは偶関数のときだけ）。以降はこの誤りを引き継ぎ，正しくは $\expval{x}=0$ である。}
+\begin{align*}
+\int_{-\infty}^{\infty}x^{2}\abs{\psi}^{2}\dd x&=\frac{2}{b}\int_{0}^{\infty}\kakimachigai{x^{2}\ee^{-2x/b}}{x^{2}\ee^{-2x/b}\dd x}\\
+&=\frac{2}{b}\cdot\frac{2!}{(2/b)^{3}}
+\end{align*}
+\[ \expval{x^{2}}=\frac{b^{2}}{2} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $x>0$ の積分の2倍に直せるのは被積分関数が偶関数のときだけである。$\abs{\psi}^{2}$ が偶関数なら $x\abs{\psi}^{2}$ は奇関数で積分は0，$x^{2}\abs{\psi}^{2}$ は偶関数で2倍に直せる。$x^{n}$ を掛けたら，2倍に直す前に $n$ の偶奇で被積分関数の偶奇を確かめる。
+\item 分布が原点について対称なら平均の位置は原点になる。$\expval{x}=b/2$ のように片側に寄った答えが出たら，$\abs{\psi}^{2}$ の対称性と見比べて検算する。
+\end{kizuki}
+\begin{tadashii}
+\houshin 確率密度 $\abs{\psi}^{2}$ の全空間の積分が1になるように $A$ を決める（規格化）。確率と期待値は，$\abs{\psi}^{2}$ を区間で積分する・$\abs{\psi}^{2}$ を重みに平均する，という定義どおりに計算する。
+\keisan \shoumonkai{1} $\abs{\ee^{-\ii\omega t}}=1$ なので $\abs{\psi}^{2}=A^{2}\ee^{-2\abs{x}/b}$ である。これは偶関数なので，$x>0$ の積分の2倍に直し，公式で $n=0$，$\lambda=2/b$ とする。
+\begin{align*}
+  \int_{-\infty}^{\infty}\abs{\psi}^{2}\dd x
+  &=2A^{2}\int_{0}^{\infty}\ee^{-2x/b}\dd x\\
+  &=2A^{2}\cdot\frac{b}{2}=A^{2}b
+\end{align*}
+これが1になるので，$A$ が正の実数であることから $A=1/\sqrt{b}$ である。
+
+\shoumonkai{2} 確率解釈により，微小区間に見いだす確率は確率密度に区間の幅を掛けたものである。
+\[
+  \delta P=\abs{\psi(x,t)}^{2}\delta x=\frac{1}{b}\ee^{-2\abs{x}/b}\,\delta x
+\]
+時間の因子は $\abs{\ee^{-\ii\omega t}}^{2}=1$ として消えるので，$\delta P$ は $t$ によらない。
+
+\shoumonkai{3} (2) の $\delta P$ を区間 $[-b,b]$ で足し合わせる。被積分関数は偶関数なので
+\begin{align*}
+  P&=\frac{2}{b}\int_{0}^{b}\ee^{-2x/b}\dd x
+   =\frac{2}{b}\left[-\frac{b}{2}\ee^{-2x/b}\right]_{0}^{b}\\
+  &=1-\ee^{-2}\approx\num{0.865}
+\end{align*}
+
+\shoumonkai{4} $x\abs{\psi}^{2}$ は奇関数なので，$(-\infty,\infty)$ での積分は0になり，$\expval{x}=0$ である。$x^{2}\abs{\psi}^{2}$ は偶関数なので，$x>0$ の積分の2倍に直し，公式で $n=2$，$\lambda=2/b$ とする。
+\begin{align*}
+  \expval{x^{2}}
+  &=\frac{2}{b}\int_{0}^{\infty}x^{2}\ee^{-2x/b}\dd x
+   =\frac{2}{b}\cdot\frac{2!}{(2/b)^{3}}\\
+  &=\frac{2}{b}\cdot\frac{2b^{3}}{8}=\frac{b^{2}}{2}
+\end{align*}
+\kotae{\shoumonkai{1} $A=1/\sqrt{b}$ \shoumonkai{2} $\delta P=b^{-1}\ee^{-2\abs{x}/b}\,\delta x$（$t$ によらない） \shoumonkai{3} $1-\ee^{-2}\approx\num{0.865}$ \shoumonkai{4} $\expval{x}=0$，$\expval{x^{2}}=b^{2}/2$}
+\kenzan 次元：$\abs{\psi}^{2}$ は長さの逆数の次元をもつので $A^{2}b$ は無次元で，$A=1/\sqrt{b}$ と合う。$\expval{x^{2}}$ は長さの2乗の次元をもつ。(3) の確率は0と1の間にある。区間を $[-Kb,Kb]$（$K>0$）に広げると，同じ計算で確率は $1-\ee^{-2K}$ になり（(3) は $K=1$ の場合），$K\to\infty$ で1に近づくので，(1) の規格化と合う。$b$ が小さいほど $\expval{x^{2}}$ が小さく，粒子が原点の近くに集まる。
+\tsumazuki $\abs{x}$ を含む関数を積分するとき，$x<0$ の側を $\ee^{+2x/b}$ と書き直さずに $\ee^{-2x/b}$ のまま $(-\infty,\infty)$ で積分すると発散する。偶関数であることを使って $x>0$ の2倍に直すのが安全である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\018_2026-10-21.tex
+\mondaibangou{2}
+\begin{mondai}{018-current}{計算}{1次元の確率流の定義と，平面波・実数値の関数での値}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+ポテンシャル $V=0$ の1次元空間を運動する質量 $m$ の粒子を考える。確率密度 $\rho$ と確率流 $j$ は要点整理の1次元の式で定める。$A$ は0でない複素数の定数，$k>0$ と $\omega$ は実数の定数とする。
+  \begin{shoumon}
+    \item $\psi_{1}(x,t)=A\,\ee^{\ii(kx-\omega t)}$ について $\rho$ と $j$ を求めよ。また，$j=\rho v$ と書いたときの $v$ を $\hbar$，$k$，$m$ で表せ。
+    \item $\psi_{2}(x,t)=A\,\ee^{-\ii(kx+\omega t)}$ について $j$ を求め，(1) との違いを述べよ。
+    \item $f(x)$ を実数値の関数として，$\psi_{3}(x,t)=f(x)\,\ee^{-\ii\omega t}$ の確率流が $j=0$ となることを示せ。
+  \end{shoumon}
+\notekiroku{2026-10-18 B ○○◎ → 2026-10-21 B ○○◎}
+\begin{kotaeutsushi}{2026-10-21}
+\toi{1}{○}{記述}
+\[ \rho=\abs{\psi_{1}}^{2}=\ayamari{A^{2}}{\abs{A}^{2}} \]
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi_{1}^{*}\pdv{\psi_{1}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(\ii k\ayamari{A^{2}}{\abs{A}^{2}})\\
+&=\frac{\hbar k}{m}A^{2}
+\end{align*}
+\naze{問題文で $A$ は複素数の定数なので，$\psi_{1}^{*}\psi_{1}=A^{*}A=\abs{A}^{2}$，$\psi_{1}^{*}\partial\psi_{1}/\partial x=\ii k\abs{A}^{2}$ である。以降はこの誤りを引き継ぎ，正しくは $j=\hbar k\abs{A}^{2}/m$ である。}
+\[ v=\frac{\hbar k}{m} \]
+\toi{2}{○}{記述}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi_{2}^{*}\pdv{\psi_{2}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(-\ii k\ayamari{A^{2}}{\abs{A}^{2}})\\
+&=-\frac{\hbar k}{m}A^{2}
+\end{align*}
+(1) との違いは確率の流れが逆向き。
+\naze{(1) と同じく $A^{2}$ は $\abs{A}^{2}$ で，$j=-\hbar k\abs{A}^{2}/m$ である。}
+\toi{3}{◎}{}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi_{3}^{*}\pdv{\psi_{3}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(f^{*}(x)\kakimachigai{f(x)}{f'(x)})
+\end{align*}
+$f(x)$ は実数値関数なので，$f^{*}(x)$，$f'(x)$ も実数値の関数。よって
+\[ \Im(f^{*}(x)f'(x))=0 \]
+\[ j=0 \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第3回 問題2・10-18} 前回と同じく，複素数の定数 $A$ の2乗を $A^{2}$ と書いた。$\psi^{*}$ を作るときは $\ii\to-\ii$ だけでなく $A\to A^{*}$ にするので，定数の部分は $A^{*}A=\abs{A}^{2}$ になる。$\psi^{*}$ を $A^{*}\ee^{-\ii(kx-\omega t)}$ と1行書いてから掛け合わせれば，$A^{2}$ とは書かなくなる。
+\end{kizuki}
+\begin{maekizuki}{2026-10-18}
+\item 問題文で定数が複素数とされているときは，$\psi^{*}\psi$ の定数の部分は $A^{*}A=\abs{A}^{2}$ である。$A^{2}$ と書く前に，その定数が実数か複素数かを問題文で確かめる。
+\end{maekizuki}
+\begin{tadashii}
+\houshin 要点整理の1次元の確率流の定義に，与えられた波動関数とその複素共役の $x$ 微分を代入する。
+\keisan \shoumonkai{1} $\rho=\abs{\psi_{1}}^{2}=\abs{A}^{2}$ である。$x$ 微分は
+\[
+  \pdv{\psi_{1}}{x}=\ii k\psi_{1},\qquad\pdv{\psi_{1}^{*}}{x}=-\ii k\psi_{1}^{*}
+\]
+なので，確率流の括弧の中は
+\[
+  \psi_{1}^{*}\pdv{\psi_{1}}{x}-\psi_{1}\pdv{\psi_{1}^{*}}{x}=\ii k\abs{A}^{2}+\ii k\abs{A}^{2}=2\ii k\abs{A}^{2}
+\]
+となる。よって
+\[
+  j=\frac{\hbar}{2m\ii}\cdot2\ii k\abs{A}^{2}=\frac{\hbar k}{m}\abs{A}^{2}
+\]
+であり，$j=\rho v$ と比べて $v=\hbar k/m$ である。
+
+\shoumonkai{2} 同様に，$\partial\psi_{2}/\partial x=-\ii k\psi_{2}$，$\partial\psi_{2}^{*}/\partial x=\ii k\psi_{2}^{*}$ なので，括弧の中は $-2\ii k\abs{A}^{2}$ になる。
+\[
+  j=\frac{\hbar}{2m\ii}\cdot(-2\ii k\abs{A}^{2})=-\frac{\hbar k}{m}\abs{A}^{2}
+\]
+$j<0$ なので，確率は $-x$ 向きに流れる。位相 $kx+\omega t$ が一定の点は $x=(\text{定数}-\omega t)/k$ で，$t$ とともに $-x$ 向きに動くので，$\psi_{2}$ は $-x$ 向きに進む平面波である。(1) とは流れの向きだけが逆で，大きさは等しい。
+
+\shoumonkai{3} $f$ は実数なので $\psi_{3}^{*}=f\,\ee^{\ii\omega t}$ である。時間の因子は $\ee^{\ii\omega t}\ee^{-\ii\omega t}=1$ で消え，
+\[
+  \psi_{3}^{*}\pdv{\psi_{3}}{x}=f\dv{f}{x},\qquad\psi_{3}\pdv{\psi_{3}^{*}}{x}=f\dv{f}{x}
+\]
+となる。両者の差は0なので $j=0$ である。
+\kotae{\shoumonkai{1} $\rho=\abs{A}^{2}$，$j=\hbar k\abs{A}^{2}/m$，$v=\hbar k/m$ \shoumonkai{2} $j=-\hbar k\abs{A}^{2}/m$（$-x$ 向きの流れ） \shoumonkai{3} $j=0$}
+\kenzan 次元：1次元の $\rho$ は長さの逆数，$v=\hbar k/m$ は $\hbar k$ が運動量（de Broglie の関係 $p=\hbar k$）なので速度であり，$j$ は時間の逆数の次元をもつ（単位時間に通過する確率）。$v=p/m$ は古典的な粒子の速度と一致する。$k\to0$ では $j\to0$ で，(3) で $f$ を定数とした場合と合う。
+\tsumazuki 複素共役の微分 $\partial\psi^{*}/\partial x$ で $\ii k$ の符号を変え忘れると，括弧の中が0になってしまう。また，確率流の係数は $\hbar/(2m\ii)$ で，分母に $\ii$ がある。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\020_2026-10-18.tex
+\mondaibangou{5}
+\begin{mondai}{020-gauss}{計算}{規格化・運動量の期待値・確率流の組み合わせ（波数 $k_{0}$ をもつガウス型の波束）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+1次元空間で，時刻 $t=0$ の波動関数が
+  \[
+    \psi(x,0)=A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)
+  \]
+  で与えられる質量 $m$ の粒子を考える。$\sigma>0$ と $k_{0}$ は実数の定数，$A$ は正の実数の定数である。確率流は要点整理の1次元の式で定める。必要なら，$\alpha>0$ に対する公式
+  \[
+    \int_{-\infty}^{\infty}\ee^{-\alpha x^{2}}\dd x=\sqrt{\frac{\pi}{\alpha}}
+  \]
+  と，奇関数を $(-\infty,\infty)$ で積分すると0になることを用いてよい。
+  \begin{shoumon}
+    \item この波動関数を規格化し，$A$ を $\sigma$ で表せ。
+    \item 運動量演算子 $\hat{p}=-\ii\hbar\,\partial/\partial x$（第2章）の期待値を
+      \[
+        \expval{\hat{p}}=\int_{-\infty}^{\infty}\psi^{*}\hat{p}\psi\dd x
+      \]
+      で定める。$t=0$ での $\expval{\hat{p}}$ を求めよ。
+    \item $t=0$ での確率流 $j(x,0)$ を求めよ。また，$j(x,0)$ を全空間で積分した値が $\expval{\hat{p}}/m$ に等しいことを示せ。
+  \end{shoumon}
+\notekiroku{2026-10-18 B ◎△○}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{◎}{}
+\begin{align*}
+\int\dd x\,\abs{\psi}^{2}&=\int A^{2}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)\\
+&=A^{2}\sqrt{2\pi\sigma^{2}}=1
+\end{align*}
+\[ \therefore\ A=\left(\frac{1}{2\pi\sigma^{2}}\right)^{1/4} \]
+\toi{2}{△}{計算}
+\begin{align*}
+&\int\dd x\,A\exp\left(-\frac{x^{2}}{4\sigma^{2}}-\ii k_{0}x\right)\left(-\ii\hbar\frac{\partial}{\partial x}\right)\\
+&\qquad\biggl(A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)\biggr)
+\end{align*}
+\begin{align*}
+&\frac{\partial}{\partial x}\left(A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)\right)\\
+&\quad=\ayamari{\ii k_{0}}{\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)}\\
+&\qquad\quad A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)
+\end{align*}
+\naze{指数の肩の $-x^{2}/(4\sigma^{2})$ の微分 $-x/(2\sigma^{2})$ が落ちている。正しくは $\psi^{*}\hat{p}\psi=(\ii\hbar x/(2\sigma^{2})+\hbar k_{0})\abs{\psi}^{2}$ で，第1項は奇関数なので積分が0になり，第2項から $\hbar k_{0}$ が出る。以降はこの誤りを引き継ぐ（答えが合ったのは，落とした項がたまたま奇関数で消えるからである）。}
+\begin{align*}
+\expval{\hat{p}}&=\int\dd x\,A^{2}\hbar k_{0}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)\\
+&=A^{2}\hbar k_{0}\sqrt{2\pi\sigma^{2}}=\hbar k_{0}
+\end{align*}
+\toi{3}{○}{計算}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+\psi^{*}\pdv{\psi}{x}&=\ayamari{\ii k_{0}}{\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)}\\
+&\qquad A^{2}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)
+\end{align*}
+\naze{(2) と同じ微分の誤りである。落ちた $-x/(2\sigma^{2})$ の項は実数なので虚部には効かず，以降の $j$ は正しい。}
+\begin{align*}
+\Im\left(\psi^{*}\pdv{\psi}{x}\right)&=k_{0}A^{2}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)\\
+&=\ayamari{\left(\frac{k_{0}^{2}}{2\pi\sigma^{2}}\right)^{1/2}}{\frac{k_{0}}{\sqrt{2\pi\sigma^{2}}}}\\
+&\qquad\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)
+\end{align*}
+\naze{$(k_{0}^{2})^{1/2}=\abs{k_{0}}$ なので，$k_{0}<0$ では符号が合わない。$k_{0}$ を根号の中に入れずに $k_{0}/\sqrt{2\pi\sigma^{2}}$ と書く。次の行の $j$ は正しい形に戻っている。}
+\[ j=\frac{1}{\sqrt{2\pi}}\frac{\hbar k_{0}}{m\sigma}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right) \]
+\begin{align*}
+\int\dd x\,j&=\frac{1}{\sqrt{2\pi}}\cdot\frac{\hbar k_{0}}{m\sigma}\sqrt{2\pi\sigma^{2}}\\
+&=\frac{\hbar k_{0}}{m}=\frac{\expval{\hat{p}}}{m}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第2回 問題1・10-14} 前回は $\cos$ の引数の $k$ を落とし，今回は指数の肩の $-x^{2}/(4\sigma^{2})$ の微分を落とした。$\exp(g(x))$ の微分は $g'(x)\exp(g(x))$ で，肩の項をすべて微分する。$\partial\psi/\partial x=(\text{$x$ の1次式})\psi$ の形に書いてから，肩の各項が1つずつ係数に出ているかを照らす。
+\item 期待値の被積分関数は偶関数の部分と奇関数の部分に分けて積分する。答えが合っても，項を落として奇関数の部分が見えていなければ，この問題の要（奇関数の積分が0になること）を使っていない。
+\item 符号をもつ量（$k_{0}$）を2乗して根号に入れると絶対値になる。根号の外に残す。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\abs{\psi}^{2}$ がガウス関数であることを使って規格化する。運動量の期待値と確率流は，$\partial\psi/\partial x$ を $\psi$ の1次式倍で書き，偶関数・奇関数の部分に分けて積分する。
+\keisan \shoumonkai{1} $\abs{\ee^{\ii k_{0}x}}=1$ なので $\abs{\psi}^{2}=A^{2}\ee^{-x^{2}/(2\sigma^{2})}$ である。公式で $\alpha=1/(2\sigma^{2})$ とする。
+\[
+  \int_{-\infty}^{\infty}\abs{\psi}^{2}\dd x=A^{2}\sqrt{2\pi\sigma^{2}}=1
+\]
+$A>0$ なので $A=(2\pi\sigma^{2})^{-1/4}$ である。
+
+\shoumonkai{2} $x$ で微分すると，指数の肩の微分が前に出る。
+\[
+  \pdv{\psi}{x}=\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)\psi
+\]
+よって
+\[
+  \psi^{*}\hat{p}\psi=-\ii\hbar\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)\abs{\psi}^{2}
+  =\left(\frac{\ii\hbar x}{2\sigma^{2}}+\hbar k_{0}\right)\abs{\psi}^{2}
+\]
+である。$\abs{\psi}^{2}$ は偶関数なので，第1項は奇関数で積分は0になる。第2項は規格化 (1) により $\hbar k_{0}$ を与える。
+\[
+  \expval{\hat{p}}=\hbar k_{0}\int_{-\infty}^{\infty}\abs{\psi}^{2}\dd x=\hbar k_{0}
+\]
+
+\shoumonkai{3} 同じ微分の式から
+\[
+  \psi^{*}\pdv{\psi}{x}=\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)\abs{\psi}^{2}
+\]
+で，虚部は $k_{0}\abs{\psi}^{2}$ である。要点整理の $j=(\hbar/m)\allowbreak\Im(\psi^{*}\partial\psi/\partial x)$ より
+\[
+  j(x,0)=\frac{\hbar k_{0}}{m}\abs{\psi(x,0)}^{2}
+  =\frac{\hbar k_{0}}{m}(2\pi\sigma^{2})^{-1/2}\ee^{-x^{2}/(2\sigma^{2})}
+\]
+である。全空間で積分すると，規格化 (1) により
+\[
+  \int_{-\infty}^{\infty}j(x,0)\dd x=\frac{\hbar k_{0}}{m}=\frac{\expval{\hat{p}}}{m}
+\]
+となる。
+\kotae{\shoumonkai{1} $A=(2\pi\sigma^{2})^{-1/4}$ \shoumonkai{2} $\expval{\hat{p}}=\hbar k_{0}$ \shoumonkai{3} $j(x,0)=\hbar k_{0}\abs{\psi(x,0)}^{2}/m$，その積分は $\hbar k_{0}/m=\expval{\hat{p}}/m$}
+\kenzan $k_{0}=0$ では $\psi$ が実数になり，$\expval{\hat{p}}=0$，$j=0$ となって，実数値の波動関数の確率流が0になることと合う。$\sigma\to\infty$ では $\psi$ は平面波 $\ee^{\ii k_{0}x}$ に近づき，$j=\rho\,\hbar k_{0}/m$ は平面波の確率流 $j=\rho v$（$v=\hbar k_{0}/m$）と同じ形である。次元：$j$ は $(\hbar k_{0}/m)\times$（長さの逆数）で時間の逆数，$\int j\dd x$ は速度の次元で，$\expval{\hat{p}}/m$ と合う。
+\tsumazuki $\expval{\hat{p}}$ を $\int\hat{p}\abs{\psi}^{2}\dd x$ と書いて $\abs{\psi}^{2}$ を微分すると，位相 $\ee^{\ii k_{0}x}$ の情報が消えて0になってしまう。演算子は $\psi^{*}$ と $\psi$ の間に置き，$\psi$ だけに作用させる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\021_2026-10-18.tex
+\mondaibangou{6}
+\begin{mondai}{021-reflect}{計算}{入射波と反射波の重ね合わせの確率流・定常状態での連続の式}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+$x<0$ の領域（ポテンシャル $V=0$）で，質量 $m$ の粒子の波動関数が
+  \[
+    \psi(x,t)=A\left(\ee^{\ii kx}+R\,\ee^{-\ii kx}\right)\ee^{-\ii\omega t}
+  \]
+  で与えられている（$x>0$ の側にある壁や段差で反射している状況）。$k>0$，$\hbar\omega=\hbar^{2}k^{2}/(2m)$ で，$A\,(\neq0)$ と $R$ は複素数の定数である。確率密度と確率流は要点整理の1次元の式で定める。
+  \begin{shoumon}
+    \item 確率流 $j$ を求め，$j$ が $x$ にも $t$ にもよらないことを示せ。
+    \item $R=\abs{R}\ee^{\ii\delta}$（$\delta$ は実数）と書いて，確率密度 $\rho(x,t)$ を求めよ。また，$\rho$ が $x$ に依存するのに $j$ が $x$ によらないことが，1次元の連続の式と矛盾しないことを説明せよ。
+    \item $j$ を，$A\,\ee^{\ii kx}\ee^{-\ii\omega t}$ だけの確率流 $j_{\mathrm{in}}$ と，$AR\,\ee^{-\ii kx}\ee^{-\ii\omega t}$ だけの確率流 $j_{\mathrm{ref}}$ で表し，その意味を述べよ。また，$R=-1$ のときの $\rho$ と $j$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-18 C △○△}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{△}{立式}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+\pdv{\psi}{x}&=A\left(\ii k\ee^{\ii kx}-\ii kR\ee^{-\ii kx}\right)\ee^{-\ii\omega t}
+\end{align*}
+\begin{align*}
+\psi^{*}\pdv{\psi}{x}&=\ayamari{A^{2}}{\abs{A}^{2}}\left(\ee^{-\ii kx}+\ayamari{R}{R^{*}}\ee^{\ii kx}\right)\\
+&\qquad\left(\ii k\ee^{\ii kx}-\ii kR\ee^{-\ii kx}\right)\\
+&=\ii kA^{2}\left(\ee^{-\ii kx}+R\ee^{\ii kx}\right)\\
+&\qquad\left(\ee^{\ii kx}-R\ee^{-\ii kx}\right)\\
+&=\ii kA^{2}\left(1+R\ee^{2\ii kx}-R\ee^{-2\ii kx}-R^{2}\right)\\
+&=\ii kA^{2}\left(1-R^{2}+2\ii R\sin(2kx)\right)
+\end{align*}
+\naze{$A$ と $R$ は複素数なので，$\psi^{*}$ の中は $A^{*}$，$R^{*}$ になる。$R$ を実数とした計算では，交差項が $2\ii R\sin(2kx)$ になり，$R$ が複素数のとき虚部が $x$ によらないことを示せない。正しくは $\psi^{*}\partial\psi/\partial x=\ii k\abs{A}^{2}(1-\abs{R}^{2}-R\ee^{-2\ii kx}+R^{*}\ee^{2\ii kx})$ で，$z=R\ee^{-2\ii kx}$ とおくと交差項 $z^{*}-z$ は純虚数であり，$\ii k\abs{A}^{2}$ を掛けると実数になって虚部に寄与しない。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+&=\frac{\hbar}{m}kA^{2}\left(1-R^{2}\right)
+\end{align*}
+\naze{正しくは $j=\hbar k\abs{A}^{2}(1-\abs{R}^{2})/m$ で，$x$ にも $t$ にもよらない。}
+\toi{2}{○}{記述}
+\begin{align*}
+\rho&=\abs{\psi}^{2}=\psi^{*}\psi\\
+&=\ayamari{A^{2}}{\abs{A}^{2}}\left(\ee^{-\ii kx}+\abs{R}\ee^{-\ii\delta}\ee^{\ii kx}\right)\\
+&\qquad\left(\ee^{\ii kx}+\abs{R}\ee^{\ii\delta}\ee^{-\ii kx}\right)\\
+&=A^{2}\biggl(1+\abs{R}\ee^{-\ii\delta}\ee^{2\ii kx}\\
+&\qquad+\abs{R}\ee^{\ii\delta}\ee^{-2\ii kx}+\abs{R}^{2}\biggr)\\
+&=A^{2}\left(1+\abs{R}^{2}+2\abs{R}\cos(2kx-\delta)\right)
+\end{align*}
+\naze{$A$ は複素数なので $A^{2}$ ではなく $\abs{A}^{2}$ である（$R^{*}=\abs{R}\ee^{-\ii\delta}$ は正しく使えている）。}
+\[ \pdv{\rho}{t}+\pdv{j}{x}=0\qquad\pdv{\rho}{t}=0,\ \pdv{j}{x}=0\ \text{より} \]
+連続の式に矛盾しない
+\toi{3}{△}{計算}
+\begin{align*}
+j_{\mathrm{in}}&=\frac{\hbar}{m}\Im\left(\psi_{\mathrm{in}}^{*}\pdv{\psi_{\mathrm{in}}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(\ii kA^{2})\\
+&=\frac{\hbar k}{m}A^{2}
+\end{align*}
+\begin{align*}
+j_{\mathrm{ref}}&=\frac{\hbar}{m}\Im\left(\psi_{\mathrm{ref}}^{*}\pdv{\psi_{\mathrm{ref}}}{x}\right)\\
+&=\frac{\hbar}{m}\Im\left(-\ii kA^{2}\ayamari{R^{2}}{\abs{R}^{2}}\right)\\
+&=-\frac{\hbar k}{m}A^{2}R^{2}
+\end{align*}
+\naze{$j_{\mathrm{in}}$ の $A^{2}$ は $\abs{A}^{2}$，$j_{\mathrm{ref}}$ の $A^{2}R^{2}$ は $\abs{A}^{2}\abs{R}^{2}$ である（$\psi_{\mathrm{ref}}^{*}$ の定数は $A^{*}R^{*}$）。}
+（図：$x=0$ の壁へ $+x$ 向きに進む $j_{\mathrm{in}}$ の波と，壁で反射して $-x$ 向きに進む $j_{\mathrm{ref}}$ の波）
+
+$j_{\mathrm{in}}$ はかべに向かう流れで，$j_{\mathrm{ref}}$ はかべで反射した流れ
+\[ j=j_{\mathrm{in}}+j_{\mathrm{ref}} \]
+$R=-1$ のとき，
+\begin{align*}
+\rho&=\ayamari{2A^{2}\left(1+\cos(2kx-\delta)\right)}{4\abs{A}^{2}\sin^{2}kx}\\
+j&=0
+\end{align*}
+\naze{$R=-1$ は $\abs{R}=1$，$\delta=\pi$ なので，$\cos(2kx-\pi)=-\cos2kx$ を代入して $\rho=2\abs{A}^{2}(1-\cos2kx)=4\abs{A}^{2}\sin^{2}kx$（節のある定在波）まで求める。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $\psi^{*}$ を作るときは $\ii\to-\ii$ だけでなく，複素数の定数も $A\to A^{*}$，$R\to R^{*}$ にする。$R^{*}$ を残して展開すると交差項は $z^{*}-z$（$z=R\ee^{-2\ii kx}$）の形になり，純虚数であることから $j$ に寄与しないことが見える。(2) では $R^{*}=\abs{R}\ee^{-\ii\delta}$ を正しく使えていたので，(1) でも同じように $\abs{R}$ と $\delta$ で書いてから展開すると取り違えない。
+\item 問題2 (1) と同じく，複素数の定数の2乗は $\abs{A}^{2}$，$\abs{R}^{2}$ と書く。
+\item $R=-1$ のような具体的な値が与えられたら，$\abs{R}$ と $\delta$ を代入して式を最後まで簡単にする（$\rho=4\abs{A}^{2}\sin^{2}kx$）。答えに $\delta$ が残っていたら代入し忘れである。
+\end{kizuki}
+\begin{tadashii}
+\houshin $j=(\hbar/m)\allowbreak\Im(\psi^{*}\partial\psi/\partial x)$ を計算し，交差項が虚部に寄与しないことを示す。$\rho$ は展開して求め，定常状態では連続の式が $\partial j/\partial x=0$ を要求することを使う。
+\keisan \shoumonkai{1} 時間の因子は $\psi^{*}\partial\psi/\partial x$ では $\ee^{\ii\omega t}\ee^{-\ii\omega t}=1$ で消える。$\partial\psi/\partial x=\ii kA(\ee^{\ii kx}-R\,\ee^{-\ii kx})\ee^{-\ii\omega t}$ なので
+\begin{align*}
+  \psi^{*}\pdv{\psi}{x}
+  &=\ii k\abs{A}^{2}\left(\ee^{-\ii kx}+R^{*}\ee^{\ii kx}\right)\left(\ee^{\ii kx}-R\,\ee^{-\ii kx}\right)\\
+  &=\ii k\abs{A}^{2}\left(1-\abs{R}^{2}-R\,\ee^{-2\ii kx}+R^{*}\ee^{2\ii kx}\right)
+\end{align*}
+である。$z=R\,\ee^{-2\ii kx}$ とおくと $R^{*}\ee^{2\ii kx}=z^{*}$ なので，交差項 $z^{*}-z=-2\ii\Im z$ は純虚数である。これに $\ii k\abs{A}^{2}$ を掛けると実数になり，虚部には寄与しない。よって
+\[
+  \Im\left(\psi^{*}\pdv{\psi}{x}\right)=k\abs{A}^{2}\left(1-\abs{R}^{2}\right),\qquad
+  j=\frac{\hbar k}{m}\abs{A}^{2}\left(1-\abs{R}^{2}\right)
+\]
+で，$x$ にも $t$ にもよらない。
+
+\shoumonkai{2} $\abs{\ee^{-\ii\omega t}}=1$ なので
+\begin{align*}
+  \rho&=\abs{A}^{2}\abs{\ee^{\ii kx}+R\,\ee^{-\ii kx}}^{2}
+       =\abs{A}^{2}\left(1+\abs{R}^{2}+z+z^{*}\right)\\
+      &=\abs{A}^{2}\left[1+\abs{R}^{2}+2\abs{R}\cos(2kx-\delta)\right]
+\end{align*}
+である（$z=\abs{R}\ee^{\ii(\delta-2kx)}$ より $2\Re z=2\abs{R}\cos(2kx-\delta)$）。$\rho$ は $x$ に依存するが $t$ にはよらないので，1次元の連続の式から
+\[
+  \pdv{j}{x}=-\pdv{\rho}{t}=0
+\]
+となる。連続の式が決めるのは $j$ の $x$ 微分と $\rho$ の $t$ 微分の関係であり，$\rho$ の $x$ 依存性は $j$ を制約しない。よって $j$ が $x$ によらないことは連続の式と矛盾しない。
+
+\shoumonkai{3} 平面波1つの確率流（$\ee^{\ii kx}$ 型は $+\hbar k\abs{\text{振幅}}^{2}/m$，$\ee^{-\ii kx}$ 型は $-\hbar k\abs{\text{振幅}}^{2}/m$）より
+\[
+  j_{\mathrm{in}}=\frac{\hbar k}{m}\abs{A}^{2},\qquad j_{\mathrm{ref}}=-\frac{\hbar k}{m}\abs{A}^{2}\abs{R}^{2},\qquad j=j_{\mathrm{in}}+j_{\mathrm{ref}}
+\]
+である。正味の確率流は，$+x$ 向きの入射の流れから $-x$ 向きの反射の流れを引いたものであり，入射波と反射波の干渉（交差項）は $\rho$ には縞として現れるが，$j$ には寄与しない。$R=-1$ のとき $\psi=2\ii A\sin(kx)\,\ee^{-\ii\omega t}$ なので
+\[
+  \rho=4\abs{A}^{2}\sin^{2}kx,\qquad j=0
+\]
+である。入射と同じ大きさの流れがすべて反射され，正味の流れが無い定在波になる。$\rho$ には $kx=-\pi,-2\pi,\dots$ で0になる節がある。
+\kotae{\shoumonkai{1} $j=\hbar k\abs{A}^{2}(1-\abs{R}^{2})/m$（一定） \shoumonkai{2} $\rho=\abs{A}^{2}[1+\abs{R}^{2}+2\abs{R}\cos(2kx-\delta)]$。定常なので $\partial j/\partial x=0$ \shoumonkai{3} $j=j_{\mathrm{in}}+j_{\mathrm{ref}}$，$j_{\mathrm{in}}=\hbar k\abs{A}^{2}/m$，$j_{\mathrm{ref}}=-\hbar k\abs{A}^{2}\abs{R}^{2}/m$。$R=-1$ では $\rho=4\abs{A}^{2}\sin^{2}kx$，$j=0$}
+\begin{ronten}
+  \item \shoumonkai{1} 交差項 $z^{*}-z$ が純虚数で，$\ii k\abs{A}^{2}$ を掛けると実数になるので，虚部（確率流）に寄与しないことを述べる。
+  \item \shoumonkai{2} 時間の因子が全体にかかる $\ee^{-\ii\omega t}$ だけなので $\rho$ が $t$ によらず，連続の式から $\partial j/\partial x=0$ となることを書く。
+  \item \shoumonkai{2} 連続の式が結びつけるのは $\rho$ の時間微分と $j$ の $x$ 微分であり，$\rho$ の $x$ 依存性は $j$ を制約しないことを述べる。
+  \item \shoumonkai{3} 入射波と反射波の干渉（交差項）は $\rho$ にだけ現れ，$j$ は2つの平面波の確率流の和になることを述べる。
+\end{ronten}
+\kenzan $R=0$ では $j=\hbar k\abs{A}^{2}/m$，$\rho=\abs{A}^{2}$ となり，$+x$ 向きの平面波の結果に戻る。$\abs{R}=1$ ではいつも $j=0$ で，$\delta$ によらない。$\rho\ge\abs{A}^{2}(1-\abs{R})^{2}\ge0$ で，確率密度として負にならない。次元は平面波の確率流と同じである。
+\tsumazuki 交差項が $\rho$ に縞を作るので $j$ にも $x$ 依存性が出ると考えがちだが，交差項は $\psi^{*}\partial\psi/\partial x$ の実部にしか入らない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\022_2026-10-18.tex
+\mondaibangou{7}
+\begin{mondai}{022-box}{計算}{2つの定常状態の重ね合わせでの確率の時間変化と，連続の式の積分形}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+区間 $0\le x\le L$ の外でポテンシャルが無限大（区間の中では $V=0$）の1次元の井戸に，質量 $m$ の粒子を閉じ込める。$n=1,2,\dots$ に対し
+  \[
+    \phi_{n}(x)=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L},\qquad E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}
+  \]
+  とすると（区間の外と両端では $\phi_{n}=0$），$\phi_{n}(x)\ee^{-\ii E_{n}t/\hbar}$ は時間を含むシュレーディンガー方程式の解である。粒子の波動関数が
+  \[
+    \psi(x,t)=\frac{1}{\sqrt{2}}\left(\phi_{1}(x)\ee^{-\ii E_{1}t/\hbar}+\phi_{2}(x)\ee^{-\ii E_{2}t/\hbar}\right)
+  \]
+  であるとする（$\psi$ は規格化されている。確かめなくてよい）。$\omega_{21}=(E_{2}-E_{1})/\hbar$ とおく。確率流は要点整理の1次元の式で定める。
+  \begin{shoumon}
+    \item 確率密度 $\rho(x,t)$ を $\phi_{1}$，$\phi_{2}$，$\omega_{21}$ で表せ。また，$\omega_{21}$ を $m$，$L$，$\hbar$ で表せ。
+    \item 粒子を左半分 $0\le x\le L/2$ に見いだす確率 $P_{\mathrm{L}}(t)$ を求めよ。
+    \item 中央 $x=L/2$ での確率流 $j(L/2,t)$ を求めよ。また，連続の式の積分形から得られる関係
+      \[
+        \dv{P_{\mathrm{L}}}{t}=-j(L/2,t)
+      \]
+      が，(2)・(3) の結果で成り立っていることを確かめよ。
+    \item 電子（質量 $\melec$）を $L=\qty{1.00}{\nano\metre}$ の井戸に閉じ込めたとき，$P_{\mathrm{L}}(t)$ が振動する周期 $T$ を有効数字3桁で求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-18 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{◎}{}
+（図：$0\le x\le L$ の井戸の中に $\phi_{1}$，$\phi_{2}$ の形を描いたもの）
+\begin{align*}
+\rho(x,t)&=\abs{\psi}^{2}\\
+&=\frac{1}{2}\left(\phi_{1}^{*}\ee^{\ii E_{1}t/\hbar}+\phi_{2}^{*}\ee^{\ii E_{2}t/\hbar}\right)\\
+&\qquad\left(\phi_{1}\ee^{-\ii E_{1}t/\hbar}+\phi_{2}\ee^{-\ii E_{2}t/\hbar}\right)\\
+&=\frac{1}{2}\biggl(\phi_{1}^{*}\phi_{1}+\phi_{2}^{*}\phi_{2}\\
+&\qquad+\phi_{1}\phi_{2}^{*}\ee^{\ii\omega_{21}t}+\phi_{1}^{*}\phi_{2}\ee^{-\ii\omega_{21}t}\biggr)\\
+&=\frac{1}{2}\left(\abs{\phi_{1}}^{2}+\abs{\phi_{2}}^{2}+2\phi_{1}\phi_{2}\cos(\omega_{21}t)\right)
+\end{align*}
+\[ \omega_{21}=\kakimachigai{\frac{\pi^{2}\hbar^{2}}{2mL^{2}}}{\frac{\pi^{2}\hbar}{2mL^{2}}}(4-1)=\frac{3\pi^{2}\hbar}{2mL^{2}} \]
+\toi{2}{◎}{}
+\begin{align*}
+P_{\mathrm{L}}(t)&=\int_{0}^{L/2}\abs{\psi}^{2}\dd x\\
+&=\frac{1}{2}\int_{0}^{L/2}\biggl(\frac{2}{L}\sin^{2}\frac{\pi x}{L}+\frac{2}{L}\sin^{2}\frac{2\pi x}{L}\\
+&\qquad+\frac{4}{L}\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\cos(\omega_{21}t)\biggr)\dd x\\
+&=\frac{1}{L}\int_{0}^{L/2}\biggl(\sin^{2}\frac{\pi x}{L}+\sin^{2}\kakimachigai{\frac{2\pi x}{\pi}}{\frac{2\pi x}{L}}\\
+&\qquad+2\cos(\omega_{21}t)\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\biggr)\dd x
+\end{align*}
+\begin{align*}
+\sin^{2}\frac{\pi x}{L}&=\frac{1}{2}\left(1-\cos\frac{2\pi x}{L}\right)\\
+\sin^{2}\frac{2\pi x}{L}&=\frac{1}{2}\left(1-\cos\frac{4\pi x}{L}\right)
+\end{align*}
+\begin{align*}
+\int_{0}^{L/2}\sin^{2}\frac{\pi x}{L}\dd x&=\left[\frac{x}{2}-\frac{L}{4\pi}\sin\frac{2\pi x}{L}\right]_{0}^{L/2}\\
+&=\frac{L}{4}\\
+\int_{0}^{L/2}\sin^{2}\frac{2\pi x}{L}\dd x&=\left[\frac{x}{2}-\frac{L}{8\pi}\sin\frac{4\pi x}{L}\right]_{0}^{L/2}\\
+&=\frac{L}{4}
+\end{align*}
+\[ \sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}=\frac{1}{2}\left(\cos\frac{\pi x}{L}-\cos\frac{3\pi x}{L}\right) \]
+\begin{align*}
+&\int_{0}^{L/2}\kakimachigai{\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}}{\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\dd x}\\
+&\quad=\frac{1}{2}\left[\frac{L}{\pi}\sin\frac{\pi x}{L}-\frac{L}{3\pi}\sin\frac{3\pi x}{L}\right]_{0}^{L/2}\\
+&\quad=\frac{1}{2}\left(\frac{L}{\pi}+\frac{L}{3\pi}\right)=\frac{2L}{3\pi}
+\end{align*}
+\begin{align*}
+P_{\mathrm{L}}(t)&=\frac{1}{L}\left(\frac{L}{4}+\frac{L}{4}+2\cos(\omega_{21}t)\cdot\frac{2L}{3\pi}\right)\\
+&=\frac{1}{2}+\frac{4}{3\pi}\cos(\omega_{21}t)
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+j(x,t)&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+\pdv{\psi}{x}&=\frac{1}{\sqrt{2}}\left(\phi'_{1}\ee^{-\ii E_{1}t/\hbar}+\phi'_{2}\ee^{-\ii E_{2}t/\hbar}\right)
+\end{align*}
+\begin{align*}
+\psi^{*}\pdv{\psi}{x}&=\frac{1}{2}\left(\phi_{1}\ee^{\ii E_{1}t/\hbar}+\phi_{2}\ee^{\ii E_{2}t/\hbar}\right)\\
+&\qquad\left(\phi'_{1}\ee^{-\ii E_{1}t/\hbar}+\phi'_{2}\ee^{-\ii E_{2}t/\hbar}\right)\\
+&=\frac{1}{2}\biggl(\phi_{1}\phi'_{1}+\phi_{2}\phi'_{2}\\
+&\qquad+\phi'_{1}\phi_{2}\ee^{\ii\omega_{21}t}+\phi_{1}\phi'_{2}\ee^{-\ii\omega_{21}t}\biggr)
+\end{align*}
+\begin{align*}
+\Im\left(\psi^{*}\pdv{\psi}{x}\right)&=\frac{1}{2}\biggl(\phi'_{1}\phi_{2}\sin(\omega_{21}t)\\
+&\qquad-\phi_{1}\phi'_{2}\sin(\omega_{21}t)\biggr)\\
+j(x,t)&=\frac{\hbar}{2m}\left(\phi'_{1}\phi_{2}-\phi_{1}\phi'_{2}\right)\sin(\omega_{21}t)
+\end{align*}
+\begin{align*}
+\phi_{1}\left(\frac{L}{2}\right)&=\sqrt{\frac{2}{L}}\sin\frac{\pi}{2}=\sqrt{\frac{2}{L}}\\
+\phi_{2}\left(\frac{L}{2}\right)&=0\\
+\phi'_{1}\left(\frac{L}{2}\right)&=\frac{\pi}{L}\sqrt{\frac{2}{L}}\cos\frac{\pi}{2}=0\\
+\phi'_{2}\left(\frac{L}{2}\right)&=\frac{2\pi}{L}\sqrt{\frac{2}{L}}\cos\pi=-\frac{2\pi}{L}\sqrt{\frac{2}{L}}
+\end{align*}
+\begin{align*}
+j\left(\frac{L}{2},t\right)&=\frac{\hbar}{2m}\left(0+\frac{4\pi}{L^{2}}\right)\sin(\omega_{21}t)\\
+&=\frac{2\pi\hbar}{mL^{2}}\sin(\omega_{21}t)
+\end{align*}
+\begin{align*}
+\dv{P_{\mathrm{L}}}{t}&=-\frac{4\omega_{21}}{3\pi}\sin(\omega_{21}t)\\
+&=-\frac{4}{3\pi}\cdot\frac{3\pi^{2}\hbar}{2mL^{2}}\sin(\omega_{21}t)\\
+&=-\frac{2\pi\hbar}{mL^{2}}\sin(\omega_{21}t)
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+T&=\frac{2\pi}{\omega_{21}}\\
+&=\frac{2mL^{2}\cdot2\pi}{3\pi^{2}\hbar}=\frac{4\melec L^{2}}{3\pi\hbar}\\
+&=3.6644\cdots\times10^{-15}
+\end{align*}
+\[ \qty{3.66e-15}{\second} \]
+\end{kotaeutsushi}
+\end{mondai}
+
+\noteowari
+\end{document}

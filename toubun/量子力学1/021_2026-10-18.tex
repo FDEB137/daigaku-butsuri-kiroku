@@ -1,0 +1,59 @@
+% 量子力学1 量子力学1-3 問題5（現在は問題6。021-reflect。当時は kai03-l2-reflect） 解いた日 2026-10-18
+%% kotae
+\toi{1}{△}{立式}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+\pdv{\psi}{x}&=A\left(\ii k\ee^{\ii kx}-\ii kR\ee^{-\ii kx}\right)\ee^{-\ii\omega t}
+\end{align*}
+\begin{align*}
+\psi^{*}\pdv{\psi}{x}&=\ayamari{A^{2}}{\abs{A}^{2}}\left(\ee^{-\ii kx}+\ayamari{R}{R^{*}}\ee^{\ii kx}\right)\\
+&\qquad\left(\ii k\ee^{\ii kx}-\ii kR\ee^{-\ii kx}\right)\\
+&=\ii kA^{2}\left(\ee^{-\ii kx}+R\ee^{\ii kx}\right)\\
+&\qquad\left(\ee^{\ii kx}-R\ee^{-\ii kx}\right)\\
+&=\ii kA^{2}\left(1+R\ee^{2\ii kx}-R\ee^{-2\ii kx}-R^{2}\right)\\
+&=\ii kA^{2}\left(1-R^{2}+2\ii R\sin(2kx)\right)
+\end{align*}
+\naze{$A$ と $R$ は複素数なので，$\psi^{*}$ の中は $A^{*}$，$R^{*}$ になる。$R$ を実数とした計算では，交差項が $2\ii R\sin(2kx)$ になり，$R$ が複素数のとき虚部が $x$ によらないことを示せない。正しくは $\psi^{*}\partial\psi/\partial x=\ii k\abs{A}^{2}(1-\abs{R}^{2}-R\ee^{-2\ii kx}+R^{*}\ee^{2\ii kx})$ で，$z=R\ee^{-2\ii kx}$ とおくと交差項 $z^{*}-z$ は純虚数であり，$\ii k\abs{A}^{2}$ を掛けると実数になって虚部に寄与しない。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+&=\frac{\hbar}{m}kA^{2}\left(1-R^{2}\right)
+\end{align*}
+\naze{正しくは $j=\hbar k\abs{A}^{2}(1-\abs{R}^{2})/m$ で，$x$ にも $t$ にもよらない。}
+\toi{2}{○}{記述}
+\begin{align*}
+\rho&=\abs{\psi}^{2}=\psi^{*}\psi\\
+&=\ayamari{A^{2}}{\abs{A}^{2}}\left(\ee^{-\ii kx}+\abs{R}\ee^{-\ii\delta}\ee^{\ii kx}\right)\\
+&\qquad\left(\ee^{\ii kx}+\abs{R}\ee^{\ii\delta}\ee^{-\ii kx}\right)\\
+&=A^{2}\biggl(1+\abs{R}\ee^{-\ii\delta}\ee^{2\ii kx}\\
+&\qquad+\abs{R}\ee^{\ii\delta}\ee^{-2\ii kx}+\abs{R}^{2}\biggr)\\
+&=A^{2}\left(1+\abs{R}^{2}+2\abs{R}\cos(2kx-\delta)\right)
+\end{align*}
+\naze{$A$ は複素数なので $A^{2}$ ではなく $\abs{A}^{2}$ である（$R^{*}=\abs{R}\ee^{-\ii\delta}$ は正しく使えている）。}
+\[ \pdv{\rho}{t}+\pdv{j}{x}=0\qquad\pdv{\rho}{t}=0,\ \pdv{j}{x}=0\ \text{より} \]
+連続の式に矛盾しない
+\toi{3}{△}{計算}
+\begin{align*}
+j_{\mathrm{in}}&=\frac{\hbar}{m}\Im\left(\psi_{\mathrm{in}}^{*}\pdv{\psi_{\mathrm{in}}}{x}\right)\\
+&=\frac{\hbar}{m}\Im(\ii kA^{2})\\
+&=\frac{\hbar k}{m}A^{2}
+\end{align*}
+\begin{align*}
+j_{\mathrm{ref}}&=\frac{\hbar}{m}\Im\left(\psi_{\mathrm{ref}}^{*}\pdv{\psi_{\mathrm{ref}}}{x}\right)\\
+&=\frac{\hbar}{m}\Im\left(-\ii kA^{2}\ayamari{R^{2}}{\abs{R}^{2}}\right)\\
+&=-\frac{\hbar k}{m}A^{2}R^{2}
+\end{align*}
+\naze{$j_{\mathrm{in}}$ の $A^{2}$ は $\abs{A}^{2}$，$j_{\mathrm{ref}}$ の $A^{2}R^{2}$ は $\abs{A}^{2}\abs{R}^{2}$ である（$\psi_{\mathrm{ref}}^{*}$ の定数は $A^{*}R^{*}$）。}
+（図：$x=0$ の壁へ $+x$ 向きに進む $j_{\mathrm{in}}$ の波と，壁で反射して $-x$ 向きに進む $j_{\mathrm{ref}}$ の波）
+
+$j_{\mathrm{in}}$ はかべに向かう流れで，$j_{\mathrm{ref}}$ はかべで反射した流れ
+\[ j=j_{\mathrm{in}}+j_{\mathrm{ref}} \]
+$R=-1$ のとき，
+\begin{align*}
+\rho&=\ayamari{2A^{2}\left(1+\cos(2kx-\delta)\right)}{4\abs{A}^{2}\sin^{2}kx}\\
+j&=0
+\end{align*}
+\naze{$R=-1$ は $\abs{R}=1$，$\delta=\pi$ なので，$\cos(2kx-\pi)=-\cos2kx$ を代入して $\rho=2\abs{A}^{2}(1-\cos2kx)=4\abs{A}^{2}\sin^{2}kx$（節のある定在波）まで求める。}
+%% kizuki
+\item $\psi^{*}$ を作るときは $\ii\to-\ii$ だけでなく，複素数の定数も $A\to A^{*}$，$R\to R^{*}$ にする。$R^{*}$ を残して展開すると交差項は $z^{*}-z$（$z=R\ee^{-2\ii kx}$）の形になり，純虚数であることから $j$ に寄与しないことが見える。(2) では $R^{*}=\abs{R}\ee^{-\ii\delta}$ を正しく使えていたので，(1) でも同じように $\abs{R}$ と $\delta$ で書いてから展開すると取り違えない。
+\item 問題2 (1) と同じく，複素数の定数の2乗は $\abs{A}^{2}$，$\abs{R}^{2}$ と書く。
+\item $R=-1$ のような具体的な値が与えられたら，$\abs{R}$ と $\delta$ を代入して式を最後まで簡単にする（$\rho=4\abs{A}^{2}\sin^{2}kx$）。答えに $\delta$ が残っていたら代入し忘れである。

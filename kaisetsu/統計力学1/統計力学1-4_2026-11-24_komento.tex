@@ -1,0 +1,24 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+%% matome
+\begin{daiji}
+  \item 独立な2粒子の状態和は，粒子ごとの和の積 $(1+q+q^{2})^{2}$ に分かれる。要点整理の「独立な自由度の和は積に分けられる」を使うのが (2) の問いで，9項を書き並べて足すのは (1) の表と同じ数え方なので，別の方法で確かめたことにならない（問題1 (2)）。
+  \item 示量性の式 $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$ の右辺は，元の変数 $(T,V,N)$ で書く（問題2 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 示量性の式の書き間違い：統計力学1-1（旧版）問題4 (3)(4)（2026-10-27）で $S'(2U,2V,2N)-2S(U,V,N)$ とプライムを落とし，同じ日の統計力学1-3 問題2 (3) でも $S'(2U,2V,2N)-S(U,V,N)$ と書いた。今回の問題2 (4) の $\alpha F(T,\alpha V,\alpha N)$ も同じ種類の誤りである。示量性の問題では，計算の前に示す式を問題文から1行写し，最後の行はその右辺と見比べてから書く。
+\end{maemo}
+%% mondai 1
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 状態和を $q^{0}q^{0}+q^{0}q^{1}+q^{0}q^{2}+q^{1}q^{0}+\cdots$ の9項に書き出してまとめ，(1) と同じ $1+2q+3q^{2}+2q^{3}+q^{4}$ を得た。各項が粒子 A の因子と粒子 B の因子の積 $q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}$ になっているところまでは正しい。しかし問いは「粒子ごとの和の積に分けて」求めることで，$\sum_{n_{\mathrm{A}}}\sum_{n_{\mathrm{B}}}q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}=(1+q+q^{2})^{2}$ と積にまとめる式が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 相互作用が無いと全エネルギーは $\varepsilon_{\mathrm{A}}+\varepsilon_{\mathrm{B}}$ の和なので，ボルツマン因子は $\ee^{-\beta\varepsilon_{\mathrm{A}}}\ee^{-\beta\varepsilon_{\mathrm{B}}}$ の積になり，2重和が1粒子の和 $z=1+q+q^{2}$ の積 $z^{2}$ に分かれる。$N$ 個の独立な粒子なら $Z=z^{N}$ で，状態を1つずつ書き出せない大きな系ではこれしか方法が無い。
+  \item 確かめ方：$z^{2}$ を展開して (1) の多項式と係数を比べる。2つの数え方が一致することが，この問題の「確かめよ」の中身である。
+\end{rikai}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{4}{○}{記述} 最後の行を $=\alpha F(T,\alpha V,\alpha N)$ と書いた。右辺は $\alpha F(T,V,N)$ である。その前の $-\alpha N\kB T[\log\{\alpha(V-Nb)/(\alpha\lambda^{3}N)\}+1]$ で $\alpha$ が約分されて対数の中身が元に戻る，という計算は正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 示量性は「$V$ と $N$ を $\alpha$ 倍した系の $F$」が「元の系の $F$ の $\alpha$ 倍」になることで，右辺の括弧の中に $\alpha V$ が残ると別の系どうしの関係になってしまう。統計力学1-3 問題2 (3) と同じ種類の誤りで，示す式を先に1行書いておけば防げる。
+\end{rikai}

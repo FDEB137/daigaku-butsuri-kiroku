@@ -1,0 +1,36 @@
+% 量子力学1 量子力学1-11 問題5（084-junction） 解いた日 2026-11-20
+%% kotae
+（図：$x=a$ でポテンシャルが $V_{1}$ から $V_{2}$ に上がる段差と，$x=a$ に立つデルタ関数（$V_{2}+g$ の印））
+\toi{1}{◎}{}
+\[ -\frac{\hbar^{2}}{2m}\phi''(x)+U(x)\phi(x)+g\phi(x)\delta(x-a)=E\phi(x) \]
+\begin{align*}
+&\int_{a-\varepsilon}^{a+\varepsilon}-\frac{\hbar^{2}}{2m}\phi''(x)\dd x=-\frac{\hbar^{2}}{2m}\bigl(\phi'(a+\varepsilon)-\phi'(a-\varepsilon)\bigr)\\
+&\int_{a-\varepsilon}^{a+\varepsilon}U(x)\phi(x)\dd x=\int_{a-\varepsilon}^{a}V_{1}\phi(x)\dd x+\int_{a}^{a+\varepsilon}V_{2}\phi(x)\dd x\\
+&\qquad=V_{1}\bigl(\psi(a)-\psi(a-\varepsilon)\bigr)+V_{2}\bigl(\psi(a+\varepsilon)-\psi(a)\bigr)
+\end{align*}
+（$\int\phi(x)\dd x=\psi(x)+C$ とする）
+\begin{align*}
+&\int_{a-\varepsilon}^{a+\varepsilon}g\phi(x)\delta(x-a)\dd x=g\phi(a)\\
+&\int_{a-\varepsilon}^{a+\varepsilon}E\phi(x)\dd x=E\bigl(\psi(a+\varepsilon)-\psi(a-\varepsilon)\bigr)
+\end{align*}
+$\varepsilon\to+0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\bigl(\phi'(a+0)-\phi'(a-0)\bigr)+0+g\phi(a)=0\\
+&\therefore\ \phi'(a+0)-\phi'(a-0)=\frac{2mg}{\hbar^{2}}\phi(a)
+\end{align*}
+\toi{2}{○}{記述}
+$g=0$ のとき、$\phi'(a+0)-\phi'(a-0)=0$
+\[ \therefore\ \phi'(a+0)=\phi'(a-0) \]
+より、$V_{2}-V_{1}$ によらず連続
+\naze{段差の大きさによらない理由が無い。(1) で $U$ の項は $V_{1}\bigl(\psi(a)-\psi(a-\varepsilon)\bigr)+V_{2}\bigl(\psi(a+\varepsilon)-\psi(a)\bigr)$ で，$V_{1}$，$V_{2}$ が有限である限り，積分は幅 $2\varepsilon$ に比例して抑えられ $\varepsilon\to+0$ で $0$ になる。$V_{2}\to\infty$（無限井戸の壁）ではこの評価が使えない。}
+\toi{3}{×}{未着手}
+\[ \int_{x_{0}}^{x}-\frac{\hbar^{2}}{2m}\phi''(x)=-\frac{\hbar^{2}}{2m}\bigl(\phi'(x)-\phi'(x_{0})\bigr) \]
+？
+\naze{左辺の積分の1行で止まっている。続きは，方程式から $\phi'(x)=\phi'(x_{0})+(2m/\hbar^{2})\int_{x_{0}}^{x}[U-E]\phi\dd x'+(2mg/\hbar^{2})\phi(a)\theta(x-a)$ と書き，右辺のどの項も有界なので $\abs{\phi'}\le M'$，よって $\abs{\phi(a+\varepsilon)-\phi(a-\varepsilon)}\le2\varepsilon M'\to0$ とする。}
+\toi{4}{△}{記述}
+（図：$x=a$ で上に尖った（$\wedge$ 形の）$\phi(x)$ のグラフ。左が $V_{1}$，右が一段高い $V_{2}$ の領域）
+\naze{問われている「(1) の結果の符号から」の根拠が無い。$g<0$，$\phi(a)>0$ なら (1) の右辺 $2mg\phi(a)/\hbar^{2}<0$ で $\phi'(a+0)<\phi'(a-0)$，つまり傾きが $x=a$ で急に減るので $\wedge$ 形になる。}
+%% kizuki
+\item 接続条件の導出は「$\phi'$ が有界である → だから $\phi$ が連続である」の順に進む。積分の大きさは（区間の幅）$\times$（被積分関数の上限）で抑える（(3)）。
+\item \mae{第7章 問題3・11-04，第9章 問題7・11-11} 「理由を述べよ」「(1) の結果の符号から答えよ」のように問いが指定した根拠を書かずに終えた。解き終えたら問題文の「求めよ」「述べよ」の数と答えた数を合わせる。
+\item 跳びの符号と形：$\phi'$ が増える向きに跳べば $\vee$ 形（斥力 $g>0$），減る向きなら $\wedge$ 形（引力 $g<0$）。問題6 のデルタ関数井戸の $\ee^{-\kappa\abs{x}}$ が $\wedge$ 形になるのと同じである。

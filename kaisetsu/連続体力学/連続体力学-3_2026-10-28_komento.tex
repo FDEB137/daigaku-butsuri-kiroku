@@ -1,0 +1,53 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 2026-10-29 に、講評 kiroku\saiten\連続体力学\連続体力学-3_2026-10-28.md から作った見本
+%% matome
+\begin{daiji}
+  \item 回転角は $\vect{\Omega}$ の大きさの半分である（問題4 (4)・問題7 (3)）。問題1 (4) ではできていたので、$\vect{\Omega}$ を求めたら「角度はその半分」と書く手順を毎回入れる。
+  \item 接線成分は $\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}$ を最後まで引き算し、$\abs{\vect{p}}^{2}=p_{n}^{2}+\abs{\vect{p}_{t}}^{2}$ で検算する（問題3 (3)）。
+  \item 「ただ一通りに分けられる」は、別の分け方があると仮定して差が 0 になることで示す（問題5 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 回転の向き・角度の取り違え：第1回 問題6 (4)（2026-10-21）で等密度面の回転の向きを逆にした。回転は、具体的な1点の変位を計算して向きと角度を確かめる。
+\end{maemo}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $\delta\vect{r}=(-\theta\delta x_{2},\theta\delta x_{1},0)$ で $\vect{c}$ が消えることは正しい。問われている $\vect{c}$ の物理的な意味が「$\delta\vect{r}$ は変位だから」で途切れている。$\vect{c}$ は全部の点を同じだけ動かす平行移動で、2点の相対位置 $\delta\vect{r}$ を変えないので変形を生まない、まで書く。
+  \machigai{3}{○}{記述} 展開を $\cos\theta-1=1-\theta^{2}/2+\dotsb$ と書いている。これは $\cos\theta$ の展開で、正しくは $\cos\theta-1=-\theta^{2}/2+\dotsb$（$\theta$ の2次）。
+\end{kotaeran}
+\begin{rikai}
+  \item 変形を表すのは、近くの2点の相対位置 $\delta\vect{r}$ の変化である。全体の平行移動 $\vect{c}$ は $\delta\vect{r}$ に入らないので、変形とは無関係。
+  \item 回転による長さの変化は $\theta$ の2次なので、$\theta\ll1$ では歪み $\tens{E}$ は 0 として扱える。
+\end{rikai}
+%% mondai 3
+\begin{kotaeran}
+  \machigai{3}{△}{計算} 法線成分 $\tau-p_{0}$ と、接線成分を $\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}$ で出す方針は正しい。引いた結果を $\bigl((\tau-p_{0})/\sqrt{2},(\tau-p_{0})/\sqrt{2},\sigma\bigr)$ と書いていて、これは $\vect{p}$ そのまま（第3成分の $1/\sqrt{2}$ も落ちている）。$(\vect{p}\cdot\vect{n})\vect{n}=\bigl((\tau-p_{0})/\sqrt{2},(\tau-p_{0})/\sqrt{2},0\bigr)$ を引くと第1・第2成分は消えて $(0,0,\sigma/\sqrt{2})$、大きさは $\abs{\sigma}/\sqrt{2}$。
+\end{kotaeran}
+\begin{rikai}
+  \item 応力ベクトルの分け方：法線成分 $p_{n}=\vect{p}\cdot\vect{n}$、接線ベクトル $\vect{p}_{t}=\vect{p}-p_{n}\vect{n}$。$\vect{p}_{t}$ は $\vect{n}$ に垂直なので、$\vect{p}_{t}\cdot\vect{n}=0$ になっているかで引き算を確かめられる。
+  \item 検算：$\abs{\vect{p}}^{2}=(\tau-p_{0})^{2}+\sigma^{2}/2$ が $p_{n}^{2}+\abs{\vect{p}_{t}}^{2}$ に等しいはず。答え $\sqrt{(\tau-p_{0})^{2}+\sigma^{2}}$ だと、これより大きくなってしまう。
+\end{rikai}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{3}{○}{記述} ひし形の形は正しい。図の頂点を $(\gamma/2,\ell)$、$(\ell,\gamma/2)$ と書いたが、正しくは $(\gamma\ell/2,\ell)$、$(\ell,\gamma\ell/2)$。座標は長さなので、無次元の $\gamma/2$ だけでは次元が合わない。
+  \machigai{4}{△}{方針} $\vect{\Omega}=(2\theta,0,0)$ と $x_{1}$ 軸まわりの反時計回りは正しいが、回転角を $2\theta$ とした。回転角は $\Omega_{1}/2=\theta$。
+\end{kotaeran}
+\begin{rikai}
+  \item 回転を表す部分は $\tens{F}\cdot\delta\vect{x}=\frac{1}{2}\vect{\Omega}\times\delta\vect{x}$ で、$\frac{1}{2}$ が付いている。角度 $\theta$ の微小回転は $\delta\vect{r}=\vect{\theta}\times\delta\vect{x}$ なので、$\vect{\theta}=\vect{\Omega}/2$、つまり回転角は $\abs{\vect{\Omega}}$ の半分になる。
+  \item 確かめ方：$\tens{D}$ から $\delta\vect{r}=(0,-\theta\delta x_{3},\theta\delta x_{2})$ を作ると、角度 $\theta$ の回転そのものになっている。
+  \item 変位・座標は「歪み（無次元）$\times$ 長さ」。図に座標を書いたら次元を確かめる。
+\end{rikai}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{2}{△}{記述} $\tens{E}=\frac{1}{2}(\tens{D}+\tens{D}^{\mathrm{T}})$、$\tens{F}=\frac{1}{2}(\tens{D}-\tens{D}^{\mathrm{T}})$ は正しいが、問われている「ただ一通りに分けられること」の証明が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 一意性の示し方：別の分け方 $\tens{D}=\tens{E}'+\tens{F}'$（$\tens{E}'$ 対称・$\tens{F}'$ 反対称）があると仮定すると、$\tens{E}-\tens{E}'=\tens{F}'-\tens{F}$ になる。左辺は対称、右辺は反対称なので、この行列 $\tens{A}$ は $\tens{A}=\tens{A}^{\mathrm{T}}=-\tens{A}$ を満たし $\tens{A}=0$。よって $\tens{E}'=\tens{E}$、$\tens{F}'=\tens{F}$。
+  \item 分け方を1つ見つけること（存在）と、それしか無いこと（一意性）は別の主張である。
+\end{rikai}
+%% mondai 7
+\begin{kotaeran}
+  \machigai{3}{△}{方針} 図（$x_{3}$ 軸に沿う辺はそのままで、$x_{2}$ 軸に沿う辺が $x_{3}$ 側へ傾く平行四辺形）と回転の向きは正しいが、角度を $\Omega_{1}$ とした。正しくは $\Omega_{1}/2=\gamma/2$。途中の図の頂点も $(\ell,\gamma/2)$ と $\ell$ が抜けている（問題4 (3) と同じ）。
+\end{kotaeran}
+\begin{rikai}
+  \item 問題4 (4) と同じく、回転角は $\abs{\vect{\Omega}}$ の半分。単純ずりは「角度 $\gamma/2$ の回転」と「純粋な歪み」に分かれる（$\gamma$ 全部が回転ではない）。
+\end{rikai}

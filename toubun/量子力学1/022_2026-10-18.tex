@@ -1,0 +1,80 @@
+% 量子力学1 量子力学1-3 問題6（現在は問題7。022-box。当時は kai03-l2-box） 解いた日 2026-10-18
+%% kotae
+\toi{1}{◎}{}
+（図：$0\le x\le L$ の井戸の中に $\phi_{1}$，$\phi_{2}$ の形を描いたもの）
+\begin{align*}
+\rho(x,t)&=\abs{\psi}^{2}\\
+&=\frac{1}{2}\left(\phi_{1}^{*}\ee^{\ii E_{1}t/\hbar}+\phi_{2}^{*}\ee^{\ii E_{2}t/\hbar}\right)\\
+&\qquad\left(\phi_{1}\ee^{-\ii E_{1}t/\hbar}+\phi_{2}\ee^{-\ii E_{2}t/\hbar}\right)\\
+&=\frac{1}{2}\biggl(\phi_{1}^{*}\phi_{1}+\phi_{2}^{*}\phi_{2}\\
+&\qquad+\phi_{1}\phi_{2}^{*}\ee^{\ii\omega_{21}t}+\phi_{1}^{*}\phi_{2}\ee^{-\ii\omega_{21}t}\biggr)\\
+&=\frac{1}{2}\left(\abs{\phi_{1}}^{2}+\abs{\phi_{2}}^{2}+2\phi_{1}\phi_{2}\cos(\omega_{21}t)\right)
+\end{align*}
+\[ \omega_{21}=\kakimachigai{\frac{\pi^{2}\hbar^{2}}{2mL^{2}}}{\frac{\pi^{2}\hbar}{2mL^{2}}}(4-1)=\frac{3\pi^{2}\hbar}{2mL^{2}} \]
+\toi{2}{◎}{}
+\begin{align*}
+P_{\mathrm{L}}(t)&=\int_{0}^{L/2}\abs{\psi}^{2}\dd x\\
+&=\frac{1}{2}\int_{0}^{L/2}\biggl(\frac{2}{L}\sin^{2}\frac{\pi x}{L}+\frac{2}{L}\sin^{2}\frac{2\pi x}{L}\\
+&\qquad+\frac{4}{L}\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\cos(\omega_{21}t)\biggr)\dd x\\
+&=\frac{1}{L}\int_{0}^{L/2}\biggl(\sin^{2}\frac{\pi x}{L}+\sin^{2}\kakimachigai{\frac{2\pi x}{\pi}}{\frac{2\pi x}{L}}\\
+&\qquad+2\cos(\omega_{21}t)\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\biggr)\dd x
+\end{align*}
+\begin{align*}
+\sin^{2}\frac{\pi x}{L}&=\frac{1}{2}\left(1-\cos\frac{2\pi x}{L}\right)\\
+\sin^{2}\frac{2\pi x}{L}&=\frac{1}{2}\left(1-\cos\frac{4\pi x}{L}\right)
+\end{align*}
+\begin{align*}
+\int_{0}^{L/2}\sin^{2}\frac{\pi x}{L}\dd x&=\left[\frac{x}{2}-\frac{L}{4\pi}\sin\frac{2\pi x}{L}\right]_{0}^{L/2}\\
+&=\frac{L}{4}\\
+\int_{0}^{L/2}\sin^{2}\frac{2\pi x}{L}\dd x&=\left[\frac{x}{2}-\frac{L}{8\pi}\sin\frac{4\pi x}{L}\right]_{0}^{L/2}\\
+&=\frac{L}{4}
+\end{align*}
+\[ \sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}=\frac{1}{2}\left(\cos\frac{\pi x}{L}-\cos\frac{3\pi x}{L}\right) \]
+\begin{align*}
+&\int_{0}^{L/2}\kakimachigai{\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}}{\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\dd x}\\
+&\quad=\frac{1}{2}\left[\frac{L}{\pi}\sin\frac{\pi x}{L}-\frac{L}{3\pi}\sin\frac{3\pi x}{L}\right]_{0}^{L/2}\\
+&\quad=\frac{1}{2}\left(\frac{L}{\pi}+\frac{L}{3\pi}\right)=\frac{2L}{3\pi}
+\end{align*}
+\begin{align*}
+P_{\mathrm{L}}(t)&=\frac{1}{L}\left(\frac{L}{4}+\frac{L}{4}+2\cos(\omega_{21}t)\cdot\frac{2L}{3\pi}\right)\\
+&=\frac{1}{2}+\frac{4}{3\pi}\cos(\omega_{21}t)
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+j(x,t)&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+\pdv{\psi}{x}&=\frac{1}{\sqrt{2}}\left(\phi'_{1}\ee^{-\ii E_{1}t/\hbar}+\phi'_{2}\ee^{-\ii E_{2}t/\hbar}\right)
+\end{align*}
+\begin{align*}
+\psi^{*}\pdv{\psi}{x}&=\frac{1}{2}\left(\phi_{1}\ee^{\ii E_{1}t/\hbar}+\phi_{2}\ee^{\ii E_{2}t/\hbar}\right)\\
+&\qquad\left(\phi'_{1}\ee^{-\ii E_{1}t/\hbar}+\phi'_{2}\ee^{-\ii E_{2}t/\hbar}\right)\\
+&=\frac{1}{2}\biggl(\phi_{1}\phi'_{1}+\phi_{2}\phi'_{2}\\
+&\qquad+\phi'_{1}\phi_{2}\ee^{\ii\omega_{21}t}+\phi_{1}\phi'_{2}\ee^{-\ii\omega_{21}t}\biggr)
+\end{align*}
+\begin{align*}
+\Im\left(\psi^{*}\pdv{\psi}{x}\right)&=\frac{1}{2}\biggl(\phi'_{1}\phi_{2}\sin(\omega_{21}t)\\
+&\qquad-\phi_{1}\phi'_{2}\sin(\omega_{21}t)\biggr)\\
+j(x,t)&=\frac{\hbar}{2m}\left(\phi'_{1}\phi_{2}-\phi_{1}\phi'_{2}\right)\sin(\omega_{21}t)
+\end{align*}
+\begin{align*}
+\phi_{1}\left(\frac{L}{2}\right)&=\sqrt{\frac{2}{L}}\sin\frac{\pi}{2}=\sqrt{\frac{2}{L}}\\
+\phi_{2}\left(\frac{L}{2}\right)&=0\\
+\phi'_{1}\left(\frac{L}{2}\right)&=\frac{\pi}{L}\sqrt{\frac{2}{L}}\cos\frac{\pi}{2}=0\\
+\phi'_{2}\left(\frac{L}{2}\right)&=\frac{2\pi}{L}\sqrt{\frac{2}{L}}\cos\pi=-\frac{2\pi}{L}\sqrt{\frac{2}{L}}
+\end{align*}
+\begin{align*}
+j\left(\frac{L}{2},t\right)&=\frac{\hbar}{2m}\left(0+\frac{4\pi}{L^{2}}\right)\sin(\omega_{21}t)\\
+&=\frac{2\pi\hbar}{mL^{2}}\sin(\omega_{21}t)
+\end{align*}
+\begin{align*}
+\dv{P_{\mathrm{L}}}{t}&=-\frac{4\omega_{21}}{3\pi}\sin(\omega_{21}t)\\
+&=-\frac{4}{3\pi}\cdot\frac{3\pi^{2}\hbar}{2mL^{2}}\sin(\omega_{21}t)\\
+&=-\frac{2\pi\hbar}{mL^{2}}\sin(\omega_{21}t)
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+T&=\frac{2\pi}{\omega_{21}}\\
+&=\frac{2mL^{2}\cdot2\pi}{3\pi^{2}\hbar}=\frac{4\melec L^{2}}{3\pi\hbar}\\
+&=3.6644\cdots\times10^{-15}
+\end{align*}
+\[ \qty{3.66e-15}{\second} \]
+%% kizuki

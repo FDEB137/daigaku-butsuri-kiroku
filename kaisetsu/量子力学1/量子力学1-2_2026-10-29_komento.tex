@@ -1,0 +1,20 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+%% matome
+\begin{daiji}
+  \item 位相速度は1つの平面波の位相が一定の点の速さ $\omega/k$ で、自由粒子では $\hbar k/(2m)$、つまり粒子の速さ $\hbar k/m$ の半分である。粒子の速さに当たるのは群速度 $\dv{\omega}{k}=\hbar k/m$ のほうで、両者を混同しない（問題5 (2)）。
+  \item 波の山の速さは「位相（差）が一定」の式を書き、$x$ を $t$ で表して出す。2つの平面波の重ね合わせでは差の比 $(\omega_{2}-\omega_{1})/(k_{2}-k_{1})$ で、微分ではない（問題5 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 位相一定の根拠の書き落とし：量子力学1-2 問題1（平面波の位相速度，2026-10-14）の (1) でも、位相が一定になる点を追うという根拠を書いていなかった。速さを問われたら、まず「位相 $=$ 一定」の式を1行書いてから $x$ を $t$ で表す。
+\end{maemo}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{2}{△}{方針} $v_{\mathrm{g}}=\hbar(k_{1}+k_{2})/(2m)$ と「$\hbar k_{1}/m$ と $\hbar k_{2}/m$ の平均」は正しい。最後の問いに「$k_{1}=k_{2}$ のとき $v_{\mathrm{g}}=\hbar k/m$，1倍」と答えているが、平面波1つの位相速度は (1) の $\omega=\hbar k^{2}/(2m)$ から $\omega/k=\hbar k/(2m)$ で、$\hbar k/m$ ではない（$\hbar k/m$ は粒子の速さ）。正しくは $v_{\mathrm{g}}\approx\hbar k/m=2\times\omega/k$ で約2倍。
+
+  ほかに2点：$\abs{\psi}^{2}$ を $2+\exp[\ii((k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t)]+\exp[\ii((k_{1}-k_{2})x-(\omega_{1}-\omega_{2})t)]$ のままにしているが、問いは実関数で表すことなので $2+2\cos[(k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t]$ までまとめる。また $v_{\mathrm{g}}=\dd(\omega_{2}-\omega_{1})/\dd(k_{2}-k_{1})$ と微分の形で書いているが、山の速さは $\cos$ の中身が一定の点の動き $x=[(\omega_{2}-\omega_{1})/(k_{2}-k_{1})]\,t+\text{定数}$ から出る差の比である（計算は実際には割り算になっていて、結果は合っている）。
+\end{kotaeran}
+\begin{rikai}
+  \item 位相速度：1つの平面波 $\ee^{\ii(kx-\omega t)}$ で $kx-\omega t=$ 一定の点は $x=(\omega/k)t+$ 定数 と動くので、速さは $\omega/k$。自由粒子では $\omega/k=\hbar k/(2m)=p/(2m)$ で、粒子の速さ $p/m$ の半分になる。
+  \item 群速度：2つの波の交差項の位相 $(k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t$ が一定の点の速さ $(\omega_{2}-\omega_{1})/(k_{2}-k_{1})$。$k_{2}\to k_{1}$ の極限が $\dv{\omega}{k}=\hbar k/m$ で、これが粒子の速さに一致する。
+  \item 「実関数で表せ」と問われたら、複素共役どうしの和を $\ee^{\ii\theta}+\ee^{-\ii\theta}=2\cos\theta$ でまとめる。
+\end{rikai}

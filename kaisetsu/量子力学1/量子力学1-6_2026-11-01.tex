@@ -1,0 +1,297 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第6章「測定と不確定性関係」}{2026-11-01}
+%% kaisetsu-moto	problems\量子力学1\shou06\量子力学1-6.tex	kiroku\kaisetsu\量子力学1\量子力学1-6_2026-11-01_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-038-well}{1}}{L1・計算}{○◎◎○}{A}{(1)記述 (4)記述}
+  \hyougyou{\hyperlink{bt-m-046-comm}{2}}{L1・計算}{◎◎◎△}{A}{(4)計算}
+  \hyougyou{\hyperlink{bt-m-048-free}{3}}{L1・計算}{◎◎○}{A}{(3)記述}
+  \hyougyou{\hyperlink{bt-m-042-matrix}{5}}{L2・計算}{◎◎◎○}{A}{(4)計算}
+  \hyougyou{\hyperlink{bt-m-050-gauss}{6}}{L2・計算}{◎◎◎◎○}{A}{(5)単位}
+\end{saitenichiran}
+\begin{daiji}
+  \item 交換子の計算で，負号をかけた括弧を外すときは括弧の中のすべての項の符号を変える。最後に関数 $\psi$ に作用させて直接計算し，係数と符号を検算する（問題2 (4)）。
+  \item 「交換子が $0$ でないから同時に定められない」で止めない。同時固有関数 $\phi$ を仮定すると交換子を作用させて $0$ になり，交換子が $0$ でない定数なら $\phi=0$ となって矛盾する，という筋を書く（問題3 (3)。問題5 (4) も同じ型）。
+  \item 問われたものをそのまま答える。「得られる値と確率」「エネルギーの確率の比較」を期待値で代用しない（問題1 (1)(4)）。数値の答えには正しい単位を付ける（問題6 (5)）。
+\end{daiji}
+\begin{maemo}
+  \item 交換子の符号：量子力学1-2 問題4 (2)（2026-10-14）で交換子の符号を逆（$-3\ii\hbar$）にした。今回も問題2 (4) で符号を誤った。交換子を出したら，必ず $\psi$ に作用させる検算を1行入れる。
+  \item 理由の書き落とし：量子力学1-5 問題7 (4)（2026-10-30）で，成り立たない段階を示しただけで理由を書かなかった。今回も問題3 (3) で「$\ne 0$ より」で止まった。「何がどう矛盾するか」を1行で書く。
+\end{maemo}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{038-well}{計算}{エネルギーの測定で得られる値と確率，期待値が測定値とは限らないこと，測定直後の状態，相対的な位相が位置の期待値を変えること}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+幅 $L$ の無限に深い井戸に閉じ込めた質量 $m$ の粒子が，次の状態にある（要点整理の $\phi_{n}$）。
+  \[ \psi=\frac{1}{5}\left(3\phi_{1}+4\ii\phi_{2}\right) \]
+  \begin{shoumon}
+    \item $\psi$ が規格化されていることを確かめよ。エネルギーを測定したときに得られる値をすべて $E_{1}$ で表し，それぞれの確率を求めよ。
+    \item エネルギーの期待値 $\expval{E}$ と標準偏差 $\delta E$ を $E_{1}$ で表せ。$\expval{E}$ は1回の測定で得られる値か。
+    \item 測定で $E_{2}$ が得られた。直後の状態を答え，直後にもう一度エネルギーを測定したときに得られる値とその確率を答えよ。
+    \item $\chi=(3\phi_{1}+4\phi_{2})/5$ と $\psi$ について，エネルギーの確率と位置の期待値 $\expval{x}$ を比べよ。次の積分を使ってよい。
+    \[ \int_{0}^{L}\phi_{1}(x)\,x\,\phi_{2}(x)\dd x=-\frac{16L}{9\pi^{2}} \]
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{1}{○}{記述} 規格化の確認 $\int\abs{\psi}^{2}\dd x=(1/25)\int(9\abs{\phi_{1}}^{2}+16\abs{\phi_{2}}^{2})\dd x=1$ は正しい。問われている「得られる値とその確率」を答えとして書いていない（(2) の $\expval{E}=(9/25)E_{1}+(16/25)E_{2}$ の重みには出ている）。答えは $E_{1}$（確率 $9/25$）と $E_{2}=4E_{1}$（確率 $16/25$）。
+  \machigai{4}{○}{記述} $\expval{x}$ は $\psi$ で $L/2$，$\chi$ で $\approx\num{0.327}L$ と正しい。エネルギーについては「$\expval{E}_{\chi}=(73/25)E_{1}$ で同じ」と期待値を比べたが，問われているのは確率である。期待値が同じでも確率が同じとは限らない。$\chi$ の係数 $3/5$，$4/5$ の絶対値は $\psi$ の $3/5$，$4\ii/5$ と同じなので，確率（$E_{1}$ が $9/25$，$4E_{1}$ が $16/25$）が同じ，と書く。なお途中の式で $L/2-128L/(75\pi^{2})$ を $128L/(75\pi^{2})$ と書いたが，数値 $\num{0.327}L$ は正しい（減点なし）。
+\end{kotaeran}
+\begin{rikai}
+  \item 測定で得られる値は固有値だけで，その確率は展開係数の絶対値の2乗 $\abs{c_{n}}^{2}$ である。期待値 $\sum_{n}a_{n}\abs{c_{n}}^{2}$ は確率から決まるが，逆に期待値だけからは確率は決まらない。
+  \item 係数の位相（$4\ii$ か $4$ か）は確率を変えないが，交差項 $2\Re(c_{1}^{*}c_{2})X_{12}$ を通して $\expval{x}$ を変える。$\psi$ では $c_{1}^{*}c_{2}$ が純虚数なので交差項が消え，$\chi$ では残る。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{2}
+\begin{mondai}{046-comm}{計算}{交換子の積の公式と正準交換関係 $\comm{\hat{x}}{\hat{p}}=\ii\hbar$ を使った交換子の計算}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+1次元で，$\hat{x}$ を $x$ をかける演算子，$\hat{p}=-\ii\hbar\,\dd/\dd x$ とする。$\comm{\hat{x}}{\hat{p}}=\ii\hbar$ と，要点整理の積の公式を用いてよい。
+  \begin{shoumon}
+    \item 任意の演算子 $\hat{A}$，$\hat{B}$，$\hat{C}$ に対して，次を示せ。
+      \[ \comm{\hat{A}\hat{B}}{\hat{C}}=\hat{A}\comm{\hat{B}}{\hat{C}}+\comm{\hat{A}}{\hat{C}}\hat{B} \]
+    \item $\comm{\hat{x}^{2}}{\hat{p}}$ を $\hat{x}$ で表せ。
+    \item $\comm{\hat{x}}{\hat{p}^{2}}$ を $\hat{p}$ で表せ。
+    \item $\comm{\hat{p}}{\hat{x}^{3}}$ を $\hat{x}$ で表せ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{4}{△}{計算} $\comm{\hat{p}}{\hat{x}^{3}}=-\comm{\hat{x}\hat{x}^{2}}{\hat{p}}=-\left(\hat{x}\comm{\hat{x}^{2}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}^{2}\right)$ までは正しい。次の行を $-2\ii\hbar\hat{x}^{2}+\ii\hbar\hat{x}^{2}$ と書き，括弧の2項目の符号を変えていない。正しくは $-2\ii\hbar\hat{x}^{2}-\ii\hbar\hat{x}^{2}=-3\ii\hbar\hat{x}^{2}$。
+\end{kotaeran}
+\begin{rikai}
+  \item 負号を前に出した括弧を外すときは，括弧の中のすべての項の符号を変える。
+  \item 検算：$\psi$ に作用させて $\hat{p}(x^{3}\psi)-x^{3}\hat{p}\psi=-\ii\hbar(3x^{2}\psi+x^{3}\psi')+\ii\hbar x^{3}\psi'=-3\ii\hbar x^{2}\psi$ を直接計算する。問題3 (1) の $\comm{V}{\hat{p}}=\ii\hbar V'(x)$ で $V=x^{3}$ とおいても $\comm{\hat{p}}{\hat{x}^{3}}=-3\ii\hbar\hat{x}^{2}$ が出る（$x^{n}$ の微分と同じ係数 $n$ が付く）。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{3}
+\begin{mondai}{048-free}{計算}{$\comm{\hat{H}}{\hat{p}}$ の計算によるエネルギーと運動量の同時測定可能性の判定（1次元）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+1次元で質量 $m$ の粒子のハミルトニアンを $\hat{H}=\hat{p}^{2}/(2m)+V(x)$，$\hat{p}=-\ii\hbar\,\dd/\dd x$ とする（$V(x)$ は $V(x)$ をかける演算子）。
+  \begin{shoumon}
+    \item 微分可能な $V(x)$ と任意の関数 $\psi(x)$ について $\comm{V}{\hat{p}}\psi=\ii\hbar V'(x)\psi$ を示せ。これを用いて $\comm{\hat{H}}{\hat{p}}$ を $V'(x)$ で表せ。
+    \item 自由粒子（$V=0$）で，エネルギー $E$ と運動量 $p$ を同時に正確に定めることができるか。理由とともに答えよ。できるなら，同時固有関数の例と，そのときの $E$ と $p$ の値を波数 $k$ で表せ。
+    \item 一様な力 $F$（$F>0$，$x$ の正の向き）を受ける粒子（$V(x)=-Fx$）で，$E$ と $p$ を同時に正確に定めることができるか。理由とともに答えよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{3}{○}{記述} $\comm{\hat{H}}{\hat{p}}=-\ii\hbar F\ne 0$ は正しい。理由が「$\ne 0$ より同時観測不可能」で止まっている。交換子が $0$ でないだけでは，同時固有関数が1つも無いとは言えない（問題5 の $A$，$B$ は交換しないが，$\vect{e}_{1}=(1,0,0)^{\mathrm{T}}$ は両方の固有ベクトル）。同時固有関数 $\phi$（$\hat{H}\phi=E\phi$，$\hat{p}\phi=p\phi$）があったとすると $\comm{\hat{H}}{\hat{p}}\phi=pE\phi-Ep\phi=0$，一方で左辺は $-\ii\hbar F\phi$ で $F\ne 0$ なので $\phi=0$ となり，固有関数であることに反する，まで書く。
+\end{kotaeran}
+\begin{rikai}
+  \item 要点は交換子が $0$ でない「定数」であること：$0$ でない定数をかけて $0$ になる関数は $0$ しか無いので，同時固有関数は1つも無い。交換子が演算子（行列）のときは，作用させて $0$ になる特定の状態がありうる。
+\end{rikai}
+\end{mondai}
+
+\level{2}
+\mondaibangou{5}
+\begin{mondai}{042-matrix}{計算}{縮退した固有値の測定の確率と直後の状態，交換しない2つの物理量を続けて測ると最初の結果が保たれないこと}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+状態を3成分の列ベクトルで表し，2つの物理量 $A$，$B$ を次のエルミート行列で表す。状態は $\vect{u}$ とする。
+  \[ A=\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix},\qquad B=\begin{pmatrix}1&0&0\\0&0&1\\0&1&0\end{pmatrix},\qquad \vect{u}=\frac{1}{3}\begin{pmatrix}1\\2\ii\\2\end{pmatrix} \]
+  \begin{shoumon}
+    \item $A$ と $B$ の固有値と，規格直交化した固有ベクトルを求めよ。
+    \item $\vect{u}$ で $A$ を測定したときに得られる値とその確率を求めよ。$A=1$ が得られた直後の状態 $\vect{v}$ を求めよ。
+    \item $\vect{v}$ で続けて $B$ を測定したときに得られる値とその確率を求めよ。$B=-1$ が得られた直後の状態 $\vect{w}$ を求め，$\vect{w}$ でもう一度 $A$ を測定したときに得られる値とその確率を求めよ。
+    \item (3) で，最初に得た $A=1$ が2回目の $A$ の測定で確実には再現されない。$AB-BA$ を計算し，その理由を述べよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{4}{○}{計算} $AB$，$BA$ は正しい。$AB-BA$ の $(3,2)$ 成分を $2$ と書いたが，$(-1)-1=-2$ である（$\ne 0$ という結論は変わらない）。理由は「$B$ の測定で $A=-1$ となる状態が含まれる」まで書けている。その前に，$AB\ne BA$ なので $A$，$B$ の両方の固有ベクトルだけで規格直交な3本の組はつくれない（つくれれば $AB=BA$ になる），だから $B$ の固有ベクトル $\vect{w}$ が $A$ の固有ベクトルとは限らない，という論理をつなぐ。
+\end{kotaeran}
+\begin{rikai}
+  \item 検算：$A$，$B$ が実対称行列なら $(AB-BA)^{\mathrm{T}}=BA-AB$ なので，$AB-BA$ は反対称行列になる。対角成分が $0$ で，$(2,3)$ 成分と $(3,2)$ 成分が符号違いかを確かめる。
+  \item 同時固有ベクトルの規格直交な組があれば，その各ベクトルで $AB\vect{y}=BA\vect{y}$ となり，任意のベクトルを展開して $AB=BA$ になる。対偶から，$AB\ne BA$ なら $B$ の測定後の状態が $A$ の固有ベクトルになるとは限らず，最初の $A$ の結果が保たれない。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{6}
+\begin{mondai}{050-gauss}{計算}{ガウス型波動関数の規格化と，位置・運動量の期待値と標準偏差，不確定性の積}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+1次元の波動関数
+  \[ \phi(x)=N\exp\left(-\frac{x^{2}}{2\sigma^{2}}+\ii k_{0}x\right) \]
+  を考える。$\sigma>0$，$k_{0}$ は実定数，$N$ は正の定数である。$\hat{p}=-\ii\hbar\,\dd/\dd x$ とし，要点整理のガウス積分を用いてよい。
+  \begin{shoumon}
+    \item $\phi$ が規格化されるように $N$ を定めよ。
+    \item $\expval{x}$ と $\expval{x^{2}}$ を求め，位置の標準偏差 $\delta x$ を求めよ。
+    \item $\expval{p}$ と $\expval{p^{2}}$ を求め，運動量の標準偏差 $\delta p$ を求めよ。
+    \item 積 $\delta x\,\delta p$ を求め，$k_{0}$ によるかどうかを述べよ。
+    \item 電子（質量 $\melec$）で $\sigma=\qty{0.100}{\nano\metre}$，$k_{0}=\qty{2.00e10}{\per\metre}$ のとき，$\delta p$，速さの広がり $\delta v=\delta p/\melec$，平均の速さ $\expval{p}/\melec$ を有効数字3桁で求めよ。定数は定数表の値を使う。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{5}{○}{単位} $\delta p$ の数値 $\num{7.46e-25}$ は正しいが，単位を \unit{\metre} と書いた。運動量の単位は \unit{\kilogram\metre\per\second} である。$\delta v$ と平均の速さの単位 \unit{\metre\per\second} は正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 数値に単位を付けるときは，式の次元から出す：$\hbar/\sigma$ は \unit{\joule\second}/\unit{\metre}$=$\unit{\kilogram\metre\per\second} で運動量の単位になる。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{038-well}
+\houshin 展開係数 $c_{1}=3/5$，$c_{2}=4\ii/5$ を読み取り，測定の規則で確率を出す。期待値と標準偏差は確率の重み付きの和で求める。$\expval{x}$ は展開を代入して，交差項が $c_{1}^{*}c_{2}$ の実部で決まることを使う。
+\keisan
+\shoumonkai{1} $\phi_{1}$，$\phi_{2}$ は規格直交なので，$\int\abs{\psi}^{2}\dd x=\abs{c_{1}}^{2}+\abs{c_{2}}^{2}$ である。
+\[ \abs{c_{1}}^{2}+\abs{c_{2}}^{2}=\frac{9}{25}+\frac{16}{25}=1 \]
+よって規格化されている。得られる値は $E_{1}$ と $E_{2}=4E_{1}$ だけで，確率は $\abs{c_{1}}^{2}=9/25=\num{0.36}$ と $\abs{c_{2}}^{2}=16/25=\num{0.64}$ である。
+\shoumonkai{2} 期待値は確率の重み付きの和である。
+\[ \expval{E}=\frac{9}{25}E_{1}+\frac{16}{25}\cdot 4E_{1}=\frac{73}{25}E_{1}=\num{2.92}E_{1} \]
+$\hat{H}^{2}\phi_{n}=E_{n}^{2}\phi_{n}$ なので，$\expval{E^{2}}$ も同じ確率の重み付きの和になる。
+\[ \expval{E^{2}}=\frac{9}{25}E_{1}^{2}+\frac{16}{25}\cdot 16E_{1}^{2}=\frac{265}{25}E_{1}^{2}=\num{10.6}E_{1}^{2} \]
+よって次のようになる。
+\[ \delta E^{2}=\expval{E^{2}}-\expval{E}^{2}=\left(\frac{265}{25}-\frac{5329}{625}\right)E_{1}^{2}=\frac{1296}{625}E_{1}^{2},\qquad \delta E=\frac{36}{25}E_{1}=\num{1.44}E_{1} \]
+$\expval{E}=\num{2.92}E_{1}$ は $E_{1}$ とも $4E_{1}$ とも違うので，1回の測定で得られる値ではない。同じ状態を多数用意して測ったときの測定値の平均である。
+\shoumonkai{3} 測定の規則から，直後の状態は $\phi_{2}$ である（$\ii\phi_{2}$ などの絶対値1の定数倍は区別しない）。$\phi_{2}$ を $\phi_{n}$ で展開すると $c_{2}=1$，ほかは $0$ なので，もう一度測ると $E_{2}=4E_{1}$ が確率1で得られる。
+\shoumonkai{4} $\chi$ の係数は $3/5$，$4/5$ で，絶対値は $\psi$ と同じなので，エネルギーの確率（$E_{1}$ が $\num{0.36}$，$4E_{1}$ が $\num{0.64}$）は $\psi$ と同じである。$\expval{x}$ は展開を代入して次のようになる。
+\[ \expval{x}=\abs{c_{1}}^{2}X_{11}+\abs{c_{2}}^{2}X_{22}+2\Re\left(c_{1}^{*}c_{2}\right)X_{12} \]
+ここで $X_{mn}$ は次の積分で，$\phi_{n}$ は実数なので $X_{21}=X_{12}$ である。
+\[ X_{mn}=\int_{0}^{L}\phi_{m}(x)\,x\,\phi_{n}(x)\dd x \]
+$\abs{\phi_{n}(L-x)}^{2}=\abs{\phi_{n}(x)}^{2}$ で $\abs{\phi_{n}}^{2}$ は $x=L/2$ について対称なので，$X_{11}=X_{22}=L/2$ である。よって最初の2項の和は $L/2$ になる。$\psi$ では $c_{1}^{*}c_{2}=12\ii/25$ で実部が $0$ なので，$\expval{x}=L/2$ である。$\chi$ では $c_{1}^{*}c_{2}=12/25$ なので次のようになる。
+\[ \expval{x}=\frac{L}{2}+2\cdot\frac{12}{25}\cdot\left(-\frac{16L}{9\pi^{2}}\right)=\frac{L}{2}-\frac{128L}{75\pi^{2}}\approx\num{0.327}L \]
+\kotae{\shoumonkai{1} $\abs{c_{1}}^{2}+\abs{c_{2}}^{2}=1$。$E_{1}$（確率 $\num{0.36}$），$4E_{1}$（確率 $\num{0.64}$） \shoumonkai{2} $\expval{E}=\num{2.92}E_{1}$，$\delta E=\num{1.44}E_{1}$。$\expval{E}$ は測定で得られる値ではない（測定値の平均） \shoumonkai{3} 直後は $\phi_{2}$。再測定で $4E_{1}$ が確率1 \shoumonkai{4} エネルギーの確率は同じ。$\expval{x}$ は $\psi$ で $L/2$，$\chi$ で $L/2-128L/(75\pi^{2})\approx\num{0.327}L$}
+\begin{ronten}
+  \item \shoumonkai{1} $\phi_{1}$，$\phi_{2}$ が規格直交であることから，規格化の積分が係数の絶対値の2乗の和になることを述べる。
+  \item \shoumonkai{2} 測定で得られるのは固有値だけで，期待値は多数回の測定値の平均なので，$\expval{E}$ は1回の測定では得られないことを書く。
+  \item \shoumonkai{3} 測定の規則（$E_{2}$ が得られた直後の状態は $\phi_{2}$）を根拠として述べ，その状態の展開係数から再測定の確率を出す。
+  \item \shoumonkai{4} $X_{11}=X_{22}=L/2$ を $\abs{\phi_{n}}^{2}$ の $x=L/2$ についての対称性から述べ，$\phi_{n}$ が実数で $X_{21}=X_{12}$ なので交差項が $c_{1}^{*}c_{2}$ の実部で決まり，相対的な位相が $\expval{x}$ に効くことを書く。
+\end{ronten}
+\kenzan 確率の和：$\num{0.36}+\num{0.64}=1$。2つの値だけをとる量の標準偏差は $\sqrt{P_{1}P_{2}}\,\abs{E_{2}-E_{1}}=\sqrt{\num{0.36}\times\num{0.64}}\times 3E_{1}=\num{1.44}E_{1}$ で一致する。$\chi$ の $\expval{x}$ は $0$ と $L$ の間にある。$\chi$ は $x<L/2$ で $\phi_{1}$ と $\phi_{2}$ が強め合い，$x>L/2$ で弱め合う（$\phi_{2}$ は $x>L/2$ で負）ので，粒子が左に寄って $\expval{x}<L/2$ となり，符号も合う。
+\tsumazuki 確率は係数の絶対値の2乗で決まるので，係数の位相（$\ii$ の有無）はエネルギーの確率を変えない。しかし位置のように固有関数の重なりの交差項を含む量では，係数の相対的な位相が効く。$\expval{E}$ を「得られる値」と答えない。
+\end{kaisetsu}
+
+\kaisetsubangou{2}
+\begin{kaisetsu}{046-comm}
+\houshin 交換子を定義で展開し，積の公式（または (1)）で $\comm{\hat{x}}{\hat{p}}$ の形に分解してから $\ii\hbar$ を入れる。
+\keisan \shoumonkai{1} 右辺を定義どおりに展開する。演算子の積の順序は入れ替えない。
+\begin{align*}
+\hat{A}\comm{\hat{B}}{\hat{C}}+\comm{\hat{A}}{\hat{C}}\hat{B}
+&=\hat{A}\hat{B}\hat{C}-\hat{A}\hat{C}\hat{B}+\hat{A}\hat{C}\hat{B}-\hat{C}\hat{A}\hat{B}\\
+&=\hat{A}\hat{B}\hat{C}-\hat{C}\hat{A}\hat{B}=\comm{\hat{A}\hat{B}}{\hat{C}}
+\end{align*}
+\shoumonkai{2} (1) で $\hat{A}=\hat{B}=\hat{x}$，$\hat{C}=\hat{p}$ とおく。$\ii\hbar$ は数なので演算子と交換し，前後どちらに置いてもよい。
+\[ \comm{\hat{x}^{2}}{\hat{p}}=\hat{x}\comm{\hat{x}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}=\ii\hbar\hat{x}+\ii\hbar\hat{x}=2\ii\hbar\hat{x} \]
+\shoumonkai{3} 積の公式で $\hat{A}=\hat{x}$，$\hat{B}=\hat{C}=\hat{p}$ とおく。
+\[ \comm{\hat{x}}{\hat{p}^{2}}=\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}}=2\ii\hbar\hat{p} \]
+\shoumonkai{4} 反対称性から $\comm{\hat{p}}{\hat{x}^{3}}=-\comm{\hat{x}^{3}}{\hat{p}}$ である。右辺の交換子は，(1) で $\hat{A}=\hat{x}^{2}$，$\hat{B}=\hat{x}$，$\hat{C}=\hat{p}$ とおき，(2) の結果を入れて求める。
+\begin{align*}
+\comm{\hat{x}^{3}}{\hat{p}}&=\hat{x}^{2}\comm{\hat{x}}{\hat{p}}+\comm{\hat{x}^{2}}{\hat{p}}\hat{x}\\
+&=\ii\hbar\hat{x}^{2}+2\ii\hbar\hat{x}^{2}=3\ii\hbar\hat{x}^{2}
+\end{align*}
+よって $\comm{\hat{p}}{\hat{x}^{3}}=-3\ii\hbar\hat{x}^{2}$ である。
+\kotae{\shoumonkai{1} 右辺の展開で中央の2項が消える \shoumonkai{2} $2\ii\hbar\hat{x}$ \shoumonkai{3} $2\ii\hbar\hat{p}$ \shoumonkai{4} $-3\ii\hbar\hat{x}^{2}$}
+\kenzan \shoumonkai{4} を関数 $\psi(x)$ に直接作用させて確かめる。
+\[ \hat{p}(x^{3}\psi)-x^{3}\hat{p}\psi=-\ii\hbar\left(3x^{2}\psi+x^{3}\psi'\right)+\ii\hbar x^{3}\psi'=-3\ii\hbar x^{2}\psi \]
+で一致する。次元：$\hbar$ は（長さ）×（運動量）の次元をもつので，$\hbar\hat{x}^{2}$ は $\comm{\hat{x}^{3}}{\hat{p}}$ と同じ（長さ）$^{3}$×（運動量）の次元になる。
+\tsumazuki $\comm{\hat{x}^{2}}{\hat{p}}=2\hat{x}\comm{\hat{x}}{\hat{p}}$ のように微分の積の公式の感覚で係数をまとめられるのは，$\comm{\hat{x}}{\hat{p}}$ が数（$\ii\hbar$）だからである。一般の演算子では (1) の順序を守る。
+\end{kaisetsu}
+
+\kaisetsubangou{3}
+\begin{kaisetsu}{048-free}
+\houshin (1) は関数に作用させて交換子を計算する。(2)(3) は要点整理の「同時測定」を使い，交換すれば同時固有関数があり，交換子が $0$ でない数なら同時固有関数が無いことを示す。
+\keisan \shoumonkai{1} 任意の $\psi$ に作用させ，積の微分を使う。
+\[ V\hat{p}\psi-\hat{p}(V\psi)=-\ii\hbar V\psi'+\ii\hbar\left(V'\psi+V\psi'\right)=\ii\hbar V'\psi \]
+よって $\comm{V}{\hat{p}}=\ii\hbar V'(x)$ である。$\comm{\hat{p}^{2}}{\hat{p}}=\hat{p}^{3}-\hat{p}^{3}=0$ なので
+\[ \comm{\hat{H}}{\hat{p}}=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{p}}+\comm{V}{\hat{p}}=\ii\hbar V'(x) \]
+\shoumonkai{2} $V=0$ なら $\comm{\hat{H}}{\hat{p}}=0$ で交換するので，同時固有関数系がとれ，$E$ と $p$ を同時に正確に定められる。実際，$\phi=\ee^{\ii kx}$ について
+\[ \hat{p}\phi=-\ii\hbar(\ii k)\ee^{\ii kx}=\hbar k\phi,\qquad \hat{H}\phi=\frac{(-\ii\hbar)^{2}(\ii k)^{2}}{2m}\ee^{\ii kx}=\frac{\hbar^{2}k^{2}}{2m}\phi \]
+で，両方の固有関数になっている。
+\shoumonkai{3} $V'=-F$ なので $\comm{\hat{H}}{\hat{p}}=-\ii\hbar F$ である。同時固有関数 $\phi$（$\hat{H}\phi=E\phi$，$\hat{p}\phi=p\phi$）があったとすると
+\[ \comm{\hat{H}}{\hat{p}}\phi=\hat{H}(p\phi)-\hat{p}(E\phi)=pE\phi-Ep\phi=0 \]
+となるが，左辺は $-\ii\hbar F\phi$ で，$F\ne 0$ だから $\phi=0$ でなければならない。これは固有関数であることに反する。よって同時固有関数は無く，$E$ と $p$ を同時に正確に定めることはできない。古典的にも，力 $F$ を受けると運動量は時間とともに変わり，一定の値をとらない。
+\kotae{\shoumonkai{1} $\comm{\hat{H}}{\hat{p}}=\ii\hbar V'(x)$ \shoumonkai{2} できる（交換する）。例 $\ee^{\ii kx}$，$p=\hbar k$，$E=\hbar^{2}k^{2}/(2m)$ \shoumonkai{3} できない（$\comm{\hat{H}}{\hat{p}}=-\ii\hbar F\ne 0$）}
+\begin{ronten}
+  \item \shoumonkai{1} 演算子の等式を任意の関数 $\psi$ に作用させて示し，$\hat{p}^{2}$ と $\hat{p}$ が交換することを述べる。
+  \item \shoumonkai{2} 交換子が $0$ なので同時固有関数系がとれることを根拠にし，例の関数が $\hat{H}$ と $\hat{p}$ の両方の固有関数であることを確かめる。
+  \item \shoumonkai{3} 同時固有関数があると仮定すると交換子を作用させて $0$ になることと，交換子が $0$ でない定数なので $\phi=0$ となり固有関数であることに反すること（背理法）を書く。
+\end{ronten}
+\kenzan 次元：$\hbar V'$ は（長さ）×（運動量）×（エネルギー）/（長さ）で，$\hat{H}\hat{p}$ と同じ（エネルギー）×（運動量）である。(2) の $E=p^{2}/(2m)$ は古典的な自由粒子の関係と同じ。(3) で $F\to 0$ とすると交換子が $0$ になり，(2) に戻る。
+\tsumazuki 交換子が $0$ でないことだけでは「同時固有関数が1つも無い」ことは言えない。(3) では交換子が $0$ でない数なので，作用させて $0$ になる関数が $0$ しか無いことを使っている。
+\end{kaisetsu}
+
+\level{2}
+\kaisetsubangou{5}
+\begin{kaisetsu}{042-matrix}
+\houshin 固有値と規格直交化した固有ベクトルを求め，縮退がある場合の規則で確率と直後の状態を出す。2回目の $A$ の結果が変わる理由は，$A$ と $B$ が交換しないことで説明する。
+\keisan
+\shoumonkai{1} $A$ は対角行列なので，固有値 $1$ の固有ベクトルが $\vect{e}_{1}=(1,0,0)^{\mathrm{T}}$，$\vect{e}_{2}=(0,1,0)^{\mathrm{T}}$（縮退），固有値 $-1$ の固有ベクトルが $\vect{e}_{3}=(0,0,1)^{\mathrm{T}}$ である。$B$ は $B\vect{e}_{1}=\vect{e}_{1}$ で，第2・第3成分では2成分を入れ替える。次の $\vect{f}_{\pm}$ について $B\vect{f}_{\pm}=\pm\vect{f}_{\pm}$ である。
+\[ \vect{f}_{+}=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\1\end{pmatrix},\qquad \vect{f}_{-}=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\end{pmatrix} \]
+よって $B$ の固有値は $1$（固有ベクトル $\vect{e}_{1}$，$\vect{f}_{+}$。縮退）と $-1$（固有ベクトル $\vect{f}_{-}$）である。$\vect{e}_{1}$，$\vect{f}_{+}$，$\vect{f}_{-}$ は互いに直交し，長さが1である。
+\shoumonkai{2} $\vect{e}_{1}^{\dagger}\vect{u}=1/3$，$\vect{e}_{2}^{\dagger}\vect{u}=2\ii/3$，$\vect{e}_{3}^{\dagger}\vect{u}=2/3$ である。$A=1$ の確率は縮退した2つの成分の和で，$A=-1$ の確率は第3成分である。
+\[ P(A=1)=\frac{1}{9}+\frac{4}{9}=\frac{5}{9},\qquad P(A=-1)=\frac{4}{9} \]
+$A=1$ の直後の状態は，$\vect{u}$ の $\vect{e}_{1}$，$\vect{e}_{2}$ の成分だけを残して規格化したものである。残した成分 $(1,2\ii,0)^{\mathrm{T}}/3$ の長さの2乗は $5/9$ なので，次のようになる。
+\[ \vect{v}=\frac{1}{\sqrt{5}}\begin{pmatrix}1\\2\ii\\0\end{pmatrix} \]
+\shoumonkai{3} $\vect{v}$ と $B$ の固有ベクトルの内積は次のとおり。
+\[ \vect{e}_{1}^{\dagger}\vect{v}=\frac{1}{\sqrt{5}},\qquad \vect{f}_{+}^{\dagger}\vect{v}=\frac{2\ii}{\sqrt{10}},\qquad \vect{f}_{-}^{\dagger}\vect{v}=\frac{2\ii}{\sqrt{10}} \]
+$B=1$ は縮退しているので2つの和をとる。
+\[ P(B=1)=\frac{1}{5}+\frac{4}{10}=\frac{3}{5},\qquad P(B=-1)=\frac{4}{10}=\frac{2}{5} \]
+$B=-1$ の直後の状態は，$\vect{v}$ の $\vect{f}_{-}$ の成分 $(2\ii/\sqrt{10})\vect{f}_{-}$ を規格化したもので，絶対値1の定数を除いて $\vect{w}=\vect{f}_{-}$ である。$\vect{w}$ の $A$ の固有ベクトルの成分は $\vect{e}_{1}^{\dagger}\vect{w}=0$，$\vect{e}_{2}^{\dagger}\vect{w}=1/\sqrt{2}$，$\vect{e}_{3}^{\dagger}\vect{w}=-1/\sqrt{2}$ なので，次のようになる。
+\[ P(A=1)=0+\frac{1}{2}=\frac{1}{2},\qquad P(A=-1)=\frac{1}{2} \]
+\shoumonkai{4} $A$ は各行を $1,1,-1$ 倍し，右からかけると各列を $1,1,-1$ 倍するので，次のようになる。
+\[ AB=\begin{pmatrix}1&0&0\\0&0&1\\0&-1&0\end{pmatrix},\qquad BA=\begin{pmatrix}1&0&0\\0&0&-1\\0&1&0\end{pmatrix},\qquad AB-BA=\begin{pmatrix}0&0&0\\0&0&2\\0&-2&0\end{pmatrix} \]
+もし $A$ と $B$ の両方の固有ベクトルだけで規格直交な3本の組をつくれれば，その各ベクトル $\vect{y}$ で $AB\vect{y}=BA\vect{y}$（どちらも固有値の積倍）となり，任意のベクトルをその組で展開して $AB=BA$ になる。$AB\ne BA$ なのでそのような組はつくれず，実際 $B$ の固有ベクトル $\vect{f}_{-}$ は $A\vect{f}_{-}=(0,1,1)^{\mathrm{T}}/\sqrt{2}$ で $A$ の固有ベクトルではない。$B$ を測ると状態が $\vect{f}_{-}$ に変わり，$\vect{f}_{-}$ は $A=-1$ の成分 $\vect{e}_{3}$ を含むので，最初の $A=1$ の結果は保たれない。
+\kotae{\shoumonkai{1} $A$：$1$（$\vect{e}_{1}$，$\vect{e}_{2}$），$-1$（$\vect{e}_{3}$）。$B$：$1$（$\vect{e}_{1}$，$(0,1,1)^{\mathrm{T}}/\sqrt{2}$），$-1$（$(0,1,-1)^{\mathrm{T}}/\sqrt{2}$） \shoumonkai{2} $A=1$ が $5/9$，$A=-1$ が $4/9$。$\vect{v}=(1,2\ii,0)^{\mathrm{T}}/\sqrt{5}$ \shoumonkai{3} $B=1$ が $3/5$，$B=-1$ が $2/5$。$\vect{w}=(0,1,-1)^{\mathrm{T}}/\sqrt{2}$。2回目の $A$ は $1$，$-1$ がそれぞれ $1/2$ \shoumonkai{4} $AB-BA\ne 0$（$(2,3)$ 成分が $2$，$(3,2)$ 成分が $-2$）。$B$ の測定で状態が $A=-1$ の成分を含む $\vect{w}$ に変わるため}
+\begin{ronten}
+  \item \shoumonkai{2} 固有値 $1$ が縮退しているので，確率は2本の規格直交な固有ベクトルの成分の絶対値の2乗の和で，直後の状態はその2本の成分を全部残して規格化したものであることを述べる。
+  \item \shoumonkai{3} 縮退した $B=1$ にも同じ規則を使うことと，$\vect{w}$ を $A$ の固有ベクトルで展開し直して2回目の確率を出すことを書く。
+  \item \shoumonkai{4} $A$ と $B$ の両方の固有ベクトルだけで規格直交な組がつくれれば $AB=BA$ になるので，$AB\ne BA$ ではそのような組が無いことを述べる。
+  \item \shoumonkai{4} $B$ の測定後の状態 $\vect{w}$ が $A$ の固有ベクトルでなく $A=-1$ の成分を含むことを，最初の結果が保たれない直接の理由として書く。
+\end{ronten}
+\kenzan 確率の和：$5/9+4/9=1$，$3/5+2/5=1$，$1/2+1/2=1$。$\vect{v}$，$\vect{w}$ の長さは1である。$B=1$ が得られた場合の直後の状態は $\vect{v}$ の $\vect{e}_{1}$，$\vect{f}_{+}$ の成分を残した $(1,\ii,\ii)^{\mathrm{T}}/\sqrt{3}$ で，これも $\vect{e}_{3}$ の成分を含むので，そのあとの $A$ の測定で $-1$ が出うる（確率 $1/3$）。
+\tsumazuki 縮退した固有値の確率を，固有ベクトルの1つだけの成分で計算しない。直後の状態は「固有ベクトルのどれか1つ」ではなく，その固有値の成分を全部残して規格化したものである。
+\end{kaisetsu}
+
+\kaisetsubangou{6}
+\begin{kaisetsu}{050-gauss}
+\houshin 規格化と期待値をガウス積分で計算する。位相因子 $\ee^{\ii k_{0}x}$ は $\abs{\phi}^{2}$ では消えるが，$\hat{p}$ を作用させると $\hbar k_{0}$ を生む。
+\keisan \shoumonkai{1} $\abs{\phi}^{2}=N^{2}\ee^{-x^{2}/\sigma^{2}}$ である。ガウス積分で $a=1/\sigma^{2}$ とすると
+\[ \int_{-\infty}^{\infty}\abs{\phi}^{2}\dd x=N^{2}\sqrt{\pi\sigma^{2}}=N^{2}\sqrt{\pi}\,\sigma=1 \]
+だから，$N>0$ として $N=(\pi\sigma^{2})^{-1/4}$ である。
+\shoumonkai{2} $x\abs{\phi}^{2}$ は奇関数なので $\expval{x}=0$ である。$\expval{x^{2}}$ はガウス積分の第2式（$a=1/\sigma^{2}$，$1/(2a)=\sigma^{2}/2$）から
+\[ \expval{x^{2}}=N^{2}\int_{-\infty}^{\infty}x^{2}\ee^{-x^{2}/\sigma^{2}}\dd x=N^{2}\cdot\frac{\sigma^{2}}{2}\sqrt{\pi\sigma^{2}}=\frac{\sigma^{2}}{2} \]
+よって $\delta x=\sqrt{\expval{x^{2}}-\expval{x}^{2}}=\sigma/\sqrt{2}$ である。
+\shoumonkai{3} $\phi'=(-x/\sigma^{2}+\ii k_{0})\phi$ だから
+\[ \hat{p}\phi=-\ii\hbar\phi'=\left(\hbar k_{0}+\frac{\ii\hbar x}{\sigma^{2}}\right)\phi \]
+である。$\phi^{*}$ をかけて積分すると，(2) の $\expval{x}=0$ から
+\[ \expval{p}=\hbar k_{0}+\frac{\ii\hbar}{\sigma^{2}}\expval{x}=\hbar k_{0} \]
+次に，$\phi'$ をもう一度微分すると
+\[ \phi''=\left[\left(-\frac{x}{\sigma^{2}}+\ii k_{0}\right)^{2}-\frac{1}{\sigma^{2}}\right]\phi=\left(\frac{x^{2}}{\sigma^{4}}-\frac{2\ii k_{0}x}{\sigma^{2}}-k_{0}^{2}-\frac{1}{\sigma^{2}}\right)\phi \]
+となる。$\hat{p}^{2}\phi=-\hbar^{2}\phi''$ に $\phi^{*}$ をかけて積分し，(2) の結果を入れる。
+\begin{align*}
+\expval{p^{2}}&=-\hbar^{2}\left(\frac{\expval{x^{2}}}{\sigma^{4}}-\frac{2\ii k_{0}\expval{x}}{\sigma^{2}}-k_{0}^{2}-\frac{1}{\sigma^{2}}\right)\\
+&=-\hbar^{2}\left(\frac{1}{2\sigma^{2}}-k_{0}^{2}-\frac{1}{\sigma^{2}}\right)=\hbar^{2}k_{0}^{2}+\frac{\hbar^{2}}{2\sigma^{2}}
+\end{align*}
+よって $(\delta p)^{2}=\expval{p^{2}}-\expval{p}^{2}=\hbar^{2}/(2\sigma^{2})$，$\delta p=\hbar/(\sqrt{2}\,\sigma)$ である。
+\shoumonkai{4} 積は次のとおりで，$k_{0}$ によらない。位相因子 $\ee^{\ii k_{0}x}$ は運動量の分布を $\hbar k_{0}$ だけずらすだけで，広がりを変えない。
+\[ \delta x\,\delta p=\frac{\sigma}{\sqrt{2}}\cdot\frac{\hbar}{\sqrt{2}\,\sigma}=\frac{\hbar}{2} \]
+これは不確定性関係の下限にちょうど等しい（ガウス型は不確定性が最小の状態）。
+\shoumonkai{5} 定数表の値を入れる。
+\begin{align*}
+\delta p&=\frac{\hbar}{\sqrt{2}\,\sigma}=\frac{\qty{1.055e-34}{\joule\second}}{\sqrt{2}\times\qty{1.00e-10}{\metre}}=\qty{7.46e-25}{\kilogram\metre\per\second}\\
+\delta v&=\frac{\delta p}{\melec}=\frac{\qty{7.46e-25}{\kilogram\metre\per\second}}{\qty{9.109e-31}{\kilogram}}=\qty{8.19e5}{\metre\per\second}\\
+\frac{\expval{p}}{\melec}&=\frac{\hbar k_{0}}{\melec}=\frac{\qty{1.055e-34}{\joule\second}\times\qty{2.00e10}{\per\metre}}{\qty{9.109e-31}{\kilogram}}=\qty{2.32e6}{\metre\per\second}
+\end{align*}
+\kotae{\shoumonkai{1} $N=(\pi\sigma^{2})^{-1/4}$ \shoumonkai{2} $\expval{x}=0$，$\expval{x^{2}}=\sigma^{2}/2$，$\delta x=\sigma/\sqrt{2}$ \shoumonkai{3} $\expval{p}=\hbar k_{0}$，$\expval{p^{2}}=\hbar^{2}k_{0}^{2}+\hbar^{2}/(2\sigma^{2})$，$\delta p=\hbar/(\sqrt{2}\,\sigma)$ \shoumonkai{4} $\hbar/2$（$k_{0}$ によらない） \shoumonkai{5} $\delta p=\qty{7.46e-25}{\kilogram\metre\per\second}$，$\delta v=\qty{8.19e5}{\metre\per\second}$，平均の速さ $\qty{2.32e6}{\metre\per\second}$}
+\kenzan 極限：$\sigma\to\infty$ で $\delta x\to\infty$，$\delta p\to 0$ となり，運動量 $\hbar k_{0}$ の平面波に近づく。$\sigma\to 0$ では逆に位置が鋭く運動量が広がる。次元：$\hbar/\sigma$ は運動量の次元。$\expval{p^{2}}\ge\expval{p}^{2}$ も満たす。単位：$\unit{\joule\second\per\metre}=\unit{\kilogram\metre\per\second}$。平均の速さは光速の約1\%で，非相対論的に扱ってよい。
+\tsumazuki $\abs{\phi}^{2}$ の指数は $-x^{2}/\sigma^{2}$ なので，$\delta x$ は $\sigma$ ではなく $\sigma/\sqrt{2}$ になる。また，$\expval{p}$ が実数になること（虚部が $\expval{x}=0$ で消えること）を確かめると計算の誤りに気づきやすい。
+\end{kaisetsu}
+
+\end{document}

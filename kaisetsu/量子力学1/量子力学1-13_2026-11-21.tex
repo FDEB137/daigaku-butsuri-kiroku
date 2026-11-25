@@ -1,0 +1,274 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第13章「散乱とトンネル効果（階段・障壁・デルタ関数障壁）」}{2026-11-21}
+%% kaisetsu-moto	problems\量子力学1\shou13\量子力学1-13.tex	kiroku\kaisetsu\量子力学1\量子力学1-13_2026-11-21_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-089-step}{1}}{L1・計算}{○◎◎△}{B}{(1)記述 (4)方針}
+  \hyougyou{\hyperlink{bt-m-090-wall}{2}}{L1・計算}{◎○◎}{A}{(2)記述}
+  \hyougyou{\hyperlink{bt-m-091-delta}{3}}{L1・計算}{◎○○◎}{A}{(2)記述 (3)記述}
+  \hyougyou{\hyperlink{bt-m-101-barrier}{5}}{L2・導出}{◎◎◎○}{A}{(4)記述}
+\end{saitenichiran}
+\begin{daiji}
+  \item 反射・透過の振幅 $r$，$t$，$F$ は複素数である。$\phi^{*}$ を作るときは係数も $r\to r^{*}$ とし，確率流や反射率は $\abs{r}^{2}$，$\abs{t}^{2}$ で書く。$r^{2}$ と $\abs{r}^{2}$ は別物である（問題1 (1)・問題2 (2)・問題3 (2)・問題5 (4)）。
+  \item 古典力学との比較は，まず古典の粒子がどうなるかを確定させてから書く。$E>V_{1}$ の段差は古典では必ず越える（$R=0$，$T=1$）。デルタ関数障壁は古典ではどんなエネルギーでも跳ね返し，井戸はどんなエネルギーでも通す（問題1 (4)・問題3 (3)）。
+\end{daiji}
+\begin{maemo}
+  \item 複素数の $\abs{A}^{2}$ を $A^{2}$ と書く：第3章 問題2（2026-10-18・2026-10-21）で同じ書き方をし，第3章 問題5（2026-10-18）では $\psi^{*}$ の中の $R$ を $R^{*}$ にせず実数として扱った。今回は4問で出ている。防ぎ方：$\phi^{*}$ を書く行で係数すべてに ${}^{*}$ を付け，2乗は必ず $\abs{\cdot}^{2}$ で書く。最後に「この係数は実数か」を一度問う。
+\end{maemo}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{089-step}{計算}{確率流による反射率・透過率の定義と，エネルギーが段差より高いときの階段ポテンシャルでの反射}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  1 電子ボルト & \unit{\electronvolt} & \qty{1.602e-19}{\joule}\\
+\end{teisuu}
+次のポテンシャルに，$x=-\infty$ から質量 $m$ の粒子がエネルギー $E$（$E>V_{1}>0$）で入射する。
+  \[ V(x)=\begin{cases} 0 & (x<0)\\ V_{1} & (x\ge 0)\end{cases} \]
+  $k>0$，$q>0$ として，$x<0$ で $\phi=\ee^{\ii kx}+r\ee^{-\ii kx}$，$x\ge 0$ で $\phi=t\,\ee^{\ii qx}$ とおく。
+  \begin{shoumon}
+    \item $k$ と $q$ を $E$，$V_{1}$，$m$，$\hbar$ で表せ。また，$x<0$ と $x>0$ の確率流 $j$ を $r$，$t$，$k$，$q$ などで表せ。$x<0$ では，入射波と反射波の干渉の項が $j$ に残らないことを示せ。
+    \item $x=0$ での接続条件から，$r$ と $t$ を $k$ と $q$ で表せ。
+    \item 反射率 $R$ と透過率 $T$ を $k$ と $q$ で表し，$R+T=1$ を確かめよ。また，$T$ が $\abs{t}^{2}$ に等しくない理由を述べよ。
+    \item $E=\qty{5.00}{\electronvolt}$，$V_{1}=\qty{4.00}{\electronvolt}$ のとき，$R$ と $T$ を有効数字3桁で求めよ。古典力学の粒子ではどうなるかと比べよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $k$，$q$ と，干渉の項が打ち消すことは正しい。ただし $\phi^{*}$ を $(\ee^{-\ii kx}+r\ee^{\ii kx})$ と書いて $r^{*}$ にしておらず（$x>0$ も $t\ee^{-\ii qx}$），$j=\hbar k(1-r^{2})/m$，$j=\hbar q t^{2}/m$ となっている。正しくは $\phi^{*}=\ee^{-\ii kx}+r^{*}\ee^{\ii kx}$ で，$j=\hbar k(1-\abs{r}^{2})/m$，$j=\hbar q\abs{t}^{2}/m$。この問題では後で $r$，$t$ が実数になるが，(1) の時点では複素数として扱う。干渉の項は $r^{*}\ee^{2\ii kx}-r\ee^{-2\ii kx}$（$z-z^{*}$ の形で純虚数）で，$\ii k$ を掛けると実数になるので虚部に残らない。
+  \machigai{4}{△}{方針} $R=(6-2\sqrt{5})^{2}/16$ と $T=\num{0.854}$ は正しい。$R$ の値は $\num{0.1459}$ なので3桁では $\num{0.146}$（$\num{0.145}$ は切り捨て。$R+T=\num{0.999}$ になっていた）。また「古典粒子では $R=1$，$T=0$」としたが，$E>V_{1}$ の古典の粒子は段差で減速するだけで必ず越えるので $R=0$，$T=1$。量子力学では越えられるエネルギーでも $\num{0.146}$ の割合で反射する，というのが比較の要点である。
+\end{kotaeran}
+\begin{rikai}
+  \item 確率流は $j=(\hbar/m)\Im(\phi^{*}\phi')$。$\phi^{*}$ では係数も複素共役にする。
+  \item 古典力学では，$E>V$ の段差・障壁は必ず越え，$E<V$ なら必ず跳ね返る。量子力学ではどちらも $R$，$T$ が0と1の間になる（$E>V$ でも反射し，$E<V$ でもトンネルする）。
+  \item 有効数字は次の桁で四捨五入する。$R+T=1$ の検算で丸めの誤りに気づける。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{2}
+\begin{mondai}{090-wall}{計算}{無限の壁と，エネルギーが段差より低いときの階段ポテンシャルでの全反射（反射の位相と壁の極限）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  1 電子ボルト & \unit{\electronvolt} & \qty{1.602e-19}{\joule}\\
+\end{teisuu}
+質量 $m$ の粒子が $x=-\infty$ からエネルギー $E=\hbar^{2}k^{2}/(2m)$（$k>0$）で入射する。$x<0$ では $V=0$ で，$\phi=\ee^{\ii kx}+r\ee^{-\ii kx}$ とおく。
+  \begin{shoumon}
+    \item $x\ge 0$ が無限の壁（$V=\infty$）のとき，$r$，反射率 $R$，透過率 $T$ を求めよ。また，$x<0$ での確率密度 $\abs{\phi}^{2}$ と確率流 $j$ を求めよ。
+    \item $x\ge 0$ が有限の段差 $V=V_{1}$（$V_{1}>E$）のとき，$x\ge 0$ で $\phi=C\ee^{-\kappa x}$（$\kappa=\sqrt{2m(V_{1}-E)}/\hbar$）とおく。$x=0$ での接続条件から $r$ を $k$ と $\kappa$ で表し，$\abs{r}=1$ を示せ。また，$x>0$ の確率流が0であることを示し，$R$ と $T$ を求めよ。
+    \item (2) の $r$ を $r=\ee^{-2\ii\theta}$（$0<\theta<\pi/2$）と書くとき，$\tan\theta$ を $k$ と $\kappa$ で表せ。$E$ を一定に保って $V_{1}\to\infty$ とする極限と，$E\to V_{1}-0$ の極限で，$r$ と $C$ はそれぞれどうなるか。前者を (1) と比べ，(1) と (2) の結果の関係を説明せよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $r=-(\kappa+\ii k)/(\kappa-\ii k)$ と $\abs{r}=1$ は正しい。問われているのは「$x>0$ の確率流が0」だが，問題1 の式 $j=\hbar k(1-r^{2})/m$ に「$r^{2}=\abs{r}^{2}=1$」を入れて $x<0$ の $j=0$ を出している。$r$ は複素数なので $r^{2}\ne\abs{r}^{2}$（$r=\ee^{-2\ii\theta}$ なら $r^{2}=\ee^{-4\ii\theta}$）。$x>0$ では $\phi^{*}\phi'=-\kappa\abs{C}^{2}\ee^{-2\kappa x}$ が実数なので $j=0$，と直接示す（$x<0$ から出すなら，定常状態では $j$ が $x$ によらないことを書く）。
+\end{kotaeran}
+\begin{rikai}
+  \item $x>0$ の $\phi=C\ee^{-\kappa x}$ は「実数の関数×定数」なので $\phi^{*}\phi'$ は実数で，確率流は0。波はしみ込むが，確率は運ばない（しみ込みと透過は別）。
+  \item $r^{2}$ と $\abs{r}^{2}$ の区別は問題1 (1) と同じ。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{3}
+\begin{mondai}{091-delta}{計算}{デルタ関数ポテンシャルによる散乱（$\phi'$ の跳びを使った反射率・透過率）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  1 電子ボルト & \unit{\electronvolt} & \qty{1.602e-19}{\joule}\\
+\end{teisuu}
+ポテンシャル $V(x)=g\,\delta(x)$（$g$ は0でない実数）に，$x=-\infty$ から質量 $m$ の粒子がエネルギー $E=\hbar^{2}k^{2}/(2m)$（$k>0$）で入射する。$\beta=mg/\hbar^{2}$ とし，$x<0$ で $\phi=\ee^{\ii kx}+r\ee^{-\ii kx}$，$x>0$ で $\phi=t\,\ee^{\ii kx}$ とおく。
+  \begin{shoumon}
+    \item $x=0$ での接続条件から，$r$ と $t$ を $k$ と $\beta$ で表せ。
+    \item 反射率 $R$ と透過率 $T$ を $k$ と $\beta$ で表し，$R+T=1$ を確かめよ。また，障壁（$g>0$）と井戸（$g<0$）で $T$ が同じになることを示せ。
+    \item $E\to 0$ と $E\to\infty$ の極限で $R$ と $T$ はどうなるか。古典力学の粒子と比べて述べよ。
+    \item 電子が $g=\qty{0.300}{\electronvolt\nano\metre}$ のデルタ関数障壁に $E=\qty{1.00}{\electronvolt}$ で入射するとき，$R$ と $T$ を有効数字3桁で求めよ。$\qty{1}{\electronvolt}=\qty{1.602e-19}{\joule}$ とする。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $R=\beta^{2}/(\beta^{2}+k^{2})$，$T=k^{2}/(\beta^{2}+k^{2})$，$T$ が $\beta^{2}$ だけで決まるので $g$ の符号によらないことは正しい。途中で $j_{\mathrm{ref}}=-\hbar k r^{2}/m$，$R=r^{2}=\abs{\beta/(\ii k-\beta)}^{2}$ と書いた。$r=\beta/(\ii k-\beta)$ は複素数なので $r^{2}$ ではなく $\abs{r}^{2}$（最後に絶対値をとったので値は正しい）。問題1 (1) と同じ。
+  \machigai{3}{○}{記述} $E\to0$ で $R\to1$，$T\to0$，$E\to\infty$ で $R\to0$，$T\to1$ は正しい。古典との比較が「古典粒子に近づく」「壁が無い状態での古典粒子に近づく」だけで，古典の粒子がどうなるかが書かれていない。デルタ関数障壁（$g>0$）は高さが無限なので古典ではどんなエネルギーでも跳ね返し，井戸（$g<0$）はどんなエネルギーでも通す。量子力学では，高いエネルギーでは障壁でもほとんど透過し，低いエネルギーでは井戸でもほとんど反射する。
+\end{kotaeran}
+\begin{rikai}
+  \item 古典との比較は，(i) 古典ではどうなるか，(ii) 量子ではどうなるか，(iii) どこが違うか，の順に書く。障壁と井戸は，量子では $T$ が同じでも古典では正反対になるので，両方について書く。
+\end{rikai}
+\end{mondai}
+
+\level{2}
+\mondaibangou{5}
+\begin{mondai}{101-barrier}{導出}{接続条件から障壁の両側の係数を導くこと，透過率の形と $R+T=1$}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  1 電子ボルト & \unit{\electronvolt} & \qty{1.602e-19}{\joule}\\
+\end{teisuu}
+% 出典: 演義 No.12 [1] p.1（演義が「既知とする」係数の関係を導く）
+  要点整理の矩形障壁で $0<E<V_{0}$ とし，領域ごとの波動関数を $\phi_{1}=A\ee^{\ii k_{1}x}+B\ee^{-\ii k_{1}x}$（$x<0$），$\phi_{2}=C\ee^{\kappa x}+D\ee^{-\kappa x}$（$0\le x\le a$），$\phi_{3}=F\ee^{\ii k_{1}x}$（$x>a$）とおく（$k_{1}$・$\kappa$ は要点整理の定義）。
+  \begin{shoumon}
+    \item $x=0$ と $x=a$ での接続条件を，係数 $A,B,C,D,F$ の式として4本書け。
+    \item $x=a$ の2本から，$C$ と $D$ を $F$ で表せ。
+    \item $x=0$ の2本を使って，$A$ と $B$ を $F$ で表し，要点整理の係数の関係になることを示せ。
+    \item 透過率が次の形になることを示し，$R+T=1$ を確かめよ。
+      \[ T=\left[1+\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)\right]^{-1} \]
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{4}{○}{記述} $\abs{A}^{2}$ と $\abs{B}^{2}$ を別々に計算して $R$・$T$ を出し，$T$ の式と $R+T=1$ を示したのは正しい。$\abs{A}^{2}=\abs{\cdots}^{2}F^{2}$ と書いたが，$F$ は複素数なので $\abs{F}^{2}$（問題1 (1) と同じ）。また，$R=\abs{B}^{2}/\abs{A}^{2}$，$T=\abs{F}^{2}/\abs{A}^{2}$ とする根拠（入射側と透過側の波数が同じ $k_{1}$ なので速さが等しく，確率流の比が振幅の2乗の比になる）が書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item $T=\abs{F}^{2}/\abs{A}^{2}$ が使えるのは両側の波数が同じときだけである。問題1 の段差のように波数が違えば，$T=(q/k)\abs{t}^{2}$ と速さの比が付く。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{089-step}
+\houshin 確率流の定義に代入して，入射・反射・透過の流れを分ける。段差は有限なので $x=0$ で $\phi$ と $\phi'$ を連続にして $r$ と $t$ を決め，確率流の比から $R$ と $T$ を求める。
+\keisan
+\shoumonkai{1} $x<0$ では $V=0$ なので $E=\hbar^{2}k^{2}/(2m)$，$x>0$ では $E-V_{1}=\hbar^{2}q^{2}/(2m)$ である。
+\[ k=\frac{\sqrt{2mE}}{\hbar},\qquad q=\frac{\sqrt{2m(E-V_{1})}}{\hbar} \]
+定常状態の確率流は $j=(\hbar/m)\Im(\phi^{*}\phi')$ である（要点整理）。$x<0$ では $\phi'=\ii k(\ee^{\ii kx}-r\ee^{-\ii kx})$ なので，次のようになる。
+\begin{align*}
+\phi^{*}\phi'&=\ii k\left(\ee^{-\ii kx}+r^{*}\ee^{\ii kx}\right)\left(\ee^{\ii kx}-r\ee^{-\ii kx}\right)\\
+&=\ii k\left[1-\abs{r}^{2}+\left(r^{*}\ee^{2\ii kx}-r\ee^{-2\ii kx}\right)\right]
+\end{align*}
+括弧の中の最後の2項は，$z=r^{*}\ee^{2\ii kx}$ とおくと $z-z^{*}$ の形なので純虚数である。$\ii k$ を掛けると実数になり，虚部に寄与しない。これが干渉の項が $j$ に残らない理由である。$x>0$ では $\phi^{*}\phi'=\ii q\abs{t}^{2}$ である。よって次のようになる。
+\[ j=\frac{\hbar k}{m}\left(1-\abs{r}^{2}\right)\quad(x<0),\qquad j=\frac{\hbar q}{m}\abs{t}^{2}\quad(x>0) \]
+\shoumonkai{2} $\phi$ の連続から $1+r=t$，$\phi'$ の連続から $\ii k(1-r)=\ii qt$ である。第2式に第1式を入れると $k(1-r)=q(1+r)$ となるので，次のようになる。
+\[ r=\frac{k-q}{k+q},\qquad t=1+r=\frac{2k}{k+q} \]
+\shoumonkai{3} 要点整理の平面波の式から，入射波・反射波・透過波の確率流は $j_{\mathrm{in}}=\hbar k/m$，$j_{\mathrm{ref}}=-\hbar k\abs{r}^{2}/m$，$j_{\mathrm{tr}}=\hbar q\abs{t}^{2}/m$ である。よって次のようになる。
+\[ R=\abs{r}^{2}=\frac{(k-q)^{2}}{(k+q)^{2}},\qquad T=\frac{q}{k}\abs{t}^{2}=\frac{4kq}{(k+q)^{2}} \]
+和をとると次のようになる。
+\[ R+T=\frac{k^{2}-2kq+q^{2}+4kq}{(k+q)^{2}}=\frac{(k+q)^{2}}{(k+q)^{2}}=1 \]
+これは，(1) の $j$ が $x<0$ と $x>0$ で等しいこと（$k(1-\abs{r}^{2})=q\abs{t}^{2}$）と同じ内容である。$T\ne\abs{t}^{2}$ となるのは，確率流が「確率密度×速さ」であり，透過側の速さ $\hbar q/m$ が入射側の速さ $\hbar k/m$ と違うためである。
+\shoumonkai{4} $q/k=\sqrt{(E-V_{1})/E}=\sqrt{1.00/5.00}=\num{0.4472}$ である。
+\[ R=\left(\frac{1-\num{0.4472}}{1+\num{0.4472}}\right)^{2}=\num{0.1459},\qquad T=\frac{4\times\num{0.4472}}{(1+\num{0.4472})^{2}}=\num{0.8541} \]
+古典力学では，$E>V_{1}$ の粒子は必ず段差を越えるので $R=0$，$T=1$ である。量子力学では，段差を越えられるエネルギーでも $\num{0.146}$ の割合で反射される。
+\kotae{\shoumonkai{1} $k=\sqrt{2mE}/\hbar$，$q=\sqrt{2m(E-V_{1})}/\hbar$，$j=\hbar k(1-\abs{r}^{2})/m$（$x<0$），$j=\hbar q\abs{t}^{2}/m$（$x>0$） \shoumonkai{2} $r=(k-q)/(k+q)$，$t=2k/(k+q)$ \shoumonkai{3} $R=(k-q)^{2}/(k+q)^{2}$，$T=4kq/(k+q)^{2}$ \shoumonkai{4} $R=\num{0.146}$，$T=\num{0.854}$（古典力学では $R=0$，$T=1$）}
+\begin{ronten}
+  \item \shoumonkai{1} 干渉の項が互いに複素共役な2項の差で純虚数になり，$\ii k$ を掛けると実数になるので確率流に寄与しないことを示す。
+  \item \shoumonkai{2} 段差は有限なので，$x=0$ で $\phi$ と $\phi'$ の両方を連続にすることを述べる。
+  \item \shoumonkai{3} 反射率・透過率を確率流の比で定め，$T\ne\abs{t}^{2}$ となるのは透過側の速さが入射側の速さと違うためであることを述べる。
+\end{ronten}
+\kenzan 次元：$R$ と $T$ は波数の比だけで決まり，無次元である。特殊ケース：$V_{1}\to 0$ では $q\to k$ で $R\to 0$，$T\to 1$ となり，段差が無ければ反射しない。$E\to V_{1}+0$ では $q\to 0$ で $R\to 1$，$T\to 0$ となり，$E<V_{1}$ で全反射になること（次の問題）につながる。(4) の値は $q/k$ がエネルギーの比だけで決まるので質量によらず，電子でも陽子でも同じになる。
+\tsumazuki $T=\abs{t}^{2}$ としない。(4) では $\abs{t}=\num{1.382}$ と1を超えるが，$T$ は1を超えない。$j_{\mathrm{ref}}$ は負の向きの流れなので，$R$ では絶対値をとる。
+\end{kaisetsu}
+
+\kaisetsubangou{2}
+\begin{kaisetsu}{090-wall}
+\houshin 無限の壁では $\phi(0)=0$，有限の段差では $\phi$ と $\phi'$ の連続を課して $r$ を決める。確率流は $\phi^{*}\phi'$ の虚部から求め，反射率・透過率を確率流の比で出す。
+\keisan
+\shoumonkai{1} 壁の中では $\phi=0$ なので，$\phi$ の連続から $\phi(0)=1+r=0$，すなわち $r=-1$ である。$x<0$ の波動関数は $\phi=\ee^{\ii kx}-\ee^{-\ii kx}=2\ii\sin kx$ で，次のようになる。
+\[ \abs{\phi}^{2}=4\sin^{2}kx,\qquad \phi^{*}\phi'=(-2\ii\sin kx)(2\ii k\cos kx)=4k\sin kx\cos kx \]
+後者は実数なので $j=0$ である。反射波の確率流の大きさは $\hbar k\abs{r}^{2}/m=\hbar k/m=j_{\mathrm{in}}$ なので $R=1$，$x>0$ には波が無いので $T=0$ である。
+\shoumonkai{2} $x=0$ での $\phi$ の連続から $1+r=C$，$\phi'$ の連続から $\ii k(1-r)=-\kappa C$ である。$C$ を消去すると $\ii k(1-r)=-\kappa(1+r)$，すなわち $r(\kappa-\ii k)=-(\kappa+\ii k)$ となる。分子と分母に $\ii$ を掛けて整理すると次のようになる。
+\[ r=-\frac{\kappa+\ii k}{\kappa-\ii k}=\frac{k-\ii\kappa}{k+\ii\kappa} \]
+分子と分母は互いに複素共役で絶対値が等しいので，$\abs{r}=1$ である。$x>0$ では次のようになる。
+\[ \phi^{*}\phi'=C^{*}\ee^{-\kappa x}\cdot\left(-\kappa C\ee^{-\kappa x}\right)=-\kappa\abs{C}^{2}\ee^{-2\kappa x} \]
+これは実数なので $j=0$ で，$T=0$ である。また $R=\abs{r}^{2}=1$ である。
+\shoumonkai{3} $k>0$，$\kappa>0$ なので，$k+\ii\kappa=\sqrt{k^{2}+\kappa^{2}}\,\ee^{\ii\theta}$，$\tan\theta=\kappa/k$（$0<\theta<\pi/2$）と書ける。$k-\ii\kappa$ はその複素共役なので，次のようになる。
+\[ r=\frac{\sqrt{k^{2}+\kappa^{2}}\,\ee^{-\ii\theta}}{\sqrt{k^{2}+\kappa^{2}}\,\ee^{\ii\theta}}=\ee^{-2\ii\theta} \]
+$E$ を一定にして $V_{1}\to\infty$ とすると $\kappa\to\infty$ で $\theta\to\pi/2$ となり，$r\to\ee^{-\ii\pi}=-1$，$C=1+r\to 0$ となる。しみ込みの深さ $1/\kappa$ も0に近づき，(1) の無限の壁の結果に一致する。$E\to V_{1}-0$ では $\kappa\to 0$ で $\theta\to 0$ となり，$r\to 1$，$C\to 2$ となる。このとき $x<0$ の波は $2\cos kx$ で，$x=0$ で傾き0でつながる。
+(1) と (2) の関係：どちらも $R=1$，$T=0$ の全反射である。有限の段差では波が $x>0$ に $\ee^{-\kappa x}$ の形でしみ込むが，確率流は運ばない。違いは反射波の位相 $-2\theta$ で，段差が高いほど $\theta$ は $\pi/2$ に近づき，無限の壁の $r=-1$（$\phi(0)=0$ の条件）になる。
+\kotae{\shoumonkai{1} $r=-1$，$R=1$，$T=0$，$\abs{\phi}^{2}=4\sin^{2}kx$，$j=0$ \shoumonkai{2} $r=(k-\ii\kappa)/(k+\ii\kappa)$，$\abs{r}=1$，$x>0$ で $j=0$，$R=1$，$T=0$ \shoumonkai{3} $\tan\theta=\kappa/k$。$V_{1}\to\infty$ で $r\to-1$，$C\to 0$（(1) と一致），$E\to V_{1}-0$ で $r\to 1$，$C\to 2$}
+\begin{ronten}
+  \item \shoumonkai{1} 壁の中で $\phi=0$ であることから，$x=0$ の条件として $\phi(0)=0$ を課すことを述べる。
+  \item \shoumonkai{2} $x>0$ の $\phi$ が実数の関数に定数を掛けた形なので $\phi^{*}\phi'$ が実数になり，しみ込みがあっても確率流が0（透過率が0）であることを述べる。
+  \item \shoumonkai{3} $k>0$・$\kappa>0$ から $0<\theta<\pi/2$ にとれることを示し，各極限で $\theta$ がどちらの端に近づくかを根拠に $r$ と $C$ の極限を出す。
+  \item \shoumonkai{3} 無限の壁と有限の段差はどちらも全反射で，反射波の違いは位相だけであり，段差を高くした極限が $\phi(0)=0$ の条件になることを述べる。
+\end{ronten}
+\kenzan 確率流の保存：(2) で $x<0$ の確率流 $\hbar k(1-\abs{r}^{2})/m$ は0になり，$x>0$ の確率流0と一致する。特殊ケース：Level 1 の階段ポテンシャルの反射の問題で $E\to V_{1}+0$ とした極限 $r=(k-q)/(k+q)\to 1$ と，ここで $E\to V_{1}-0$ とした極限 $r\to 1$ がつながる。$\tan\theta=\kappa/k$ は波数の比で無次元である。
+\tsumazuki $x>0$ に波（$C\ee^{-\kappa x}$）があっても，実数の関数に定数を掛けた形なので確率流は0で，透過率は0である。「しみ込み」と「透過」を混同しない。
+\end{kaisetsu}
+
+\kaisetsubangou{3}
+\begin{kaisetsu}{091-delta}
+\houshin $\phi$ の連続と $\phi'$ の跳びの2つの条件から $r$ と $t$ を求める。両側の波数が同じなので，$T=\abs{t}^{2}$，$R=\abs{r}^{2}$ となる。
+\keisan
+\shoumonkai{1} $x=0$ の両側での値と傾きは次のとおり。
+\[ \phi(0-0)=1+r,\quad \phi(0+0)=t,\qquad \phi'(0-0)=\ii k(1-r),\quad \phi'(0+0)=\ii kt \]
+要点整理の跳びの式（$x_{0}=0$）で $2mg/\hbar^{2}=2\beta$ なので，接続条件は次のようになる。
+\[ 1+r=t,\qquad \ii kt-\ii k(1-r)=2\beta t \]
+第2式の左辺に $t=1+r$ を入れると $\ii k(1+r)-\ii k+\ii kr=2\ii kr$ なので，$2\ii kr=2\beta t$，すなわち $r=-\ii\beta t/k$ である。これを $t=1+r$ に入れると次のようになる。
+\[ t\left(1+\frac{\ii\beta}{k}\right)=1,\qquad t=\frac{k}{k+\ii\beta},\qquad r=-\frac{\ii\beta}{k+\ii\beta} \]
+\shoumonkai{2} 入射波と透過波は同じ波数 $k$ を持つので速さが等しく，$T=\abs{t}^{2}$，$R=\abs{r}^{2}$ である。
+\[ T=\frac{k^{2}}{k^{2}+\beta^{2}},\qquad R=\frac{\beta^{2}}{k^{2}+\beta^{2}},\qquad R+T=1 \]
+$T$ は $\beta^{2}=m^{2}g^{2}/\hbar^{4}$ を通してだけ $g$ によるので，$g$ の符号を変えても同じである。
+\shoumonkai{3} $\beta/k=mg/(\hbar\sqrt{2mE})$ である。$E\to 0$ では $\beta/k\to\infty$ なので $R\to 1$，$T\to 0$，$E\to\infty$ では $\beta/k\to 0$ なので $R\to 0$，$T\to 1$ となる。古典力学では，障壁（$g>0$）は幅0でも高さが無限なのでどんなエネルギーの粒子も跳ね返し，井戸（$g<0$）はどんな粒子も通り抜ける。量子力学では，低いエネルギーでは井戸でもほとんど反射し，高いエネルギーでは障壁でもほとんど透過する。
+\shoumonkai{4} $g$ を SI 単位に直すと次のようになる。
+\[ g=\num{0.300}\times\num{1.602e-19}\times\num{1e-9}\,\unit{\joule\metre}=\qty{4.806e-29}{\joule\metre} \]
+$\beta$ と $k$ は次のとおり。
+\[ \beta=\frac{\melec g}{\hbar^{2}}=\frac{\num{9.109e-31}\times\num{4.806e-29}}{(\num{1.055e-34})^{2}}\,\unit{\per\metre}=\qty{3.933e9}{\per\metre} \]
+\[ k=\frac{\sqrt{2\melec E}}{\hbar}=\frac{\sqrt{2\times\num{9.109e-31}\times\num{1.602e-19}}}{\num{1.055e-34}}\,\unit{\per\metre}=\qty{5.121e9}{\per\metre} \]
+よって $\beta/k=\num{0.7681}$，$(\beta/k)^{2}=\num{0.5900}$ で，次のようになる。
+\[ T=\frac{1}{1+(\beta/k)^{2}}=\frac{1}{1+\num{0.5900}}=\num{0.6289},\qquad R=1-T=\num{0.3711} \]
+\kotae{\shoumonkai{1} $r=-\ii\beta/(k+\ii\beta)$，$t=k/(k+\ii\beta)$ \shoumonkai{2} $R=\beta^{2}/(k^{2}+\beta^{2})$，$T=k^{2}/(k^{2}+\beta^{2})$（$\beta^{2}$ だけで決まるので $g$ の符号によらない） \shoumonkai{3} $E\to 0$ で $R\to 1$，$T\to 0$，$E\to\infty$ で $R\to 0$，$T\to 1$ \shoumonkai{4} $R=\num{0.371}$，$T=\num{0.629}$}
+\begin{ronten}
+  \item \shoumonkai{1} $x=0$ で $\phi$ は連続，$\phi'$ は $2\beta\phi(0)$ だけ跳ぶという接続条件を使うことを述べる。
+  \item \shoumonkai{2} 入射側と透過側の波数が同じで速さが等しいことを，$T=\abs{t}^{2}$ とする根拠として書く。
+  \item \shoumonkai{2} $T$ が $\beta^{2}$ を通してだけ $g$ によることを，$g$ の符号によらない理由として述べる。
+  \item \shoumonkai{3} 古典力学では障壁はどんなエネルギーの粒子も跳ね返し，井戸はどんな粒子も通すことを比較の根拠として書く。
+\end{ronten}
+\kenzan 次元：$\beta=mg/\hbar^{2}$ は $\unit{\kilogram}\cdot\unit{\joule\metre}/(\unit{\joule\second})^{2}$ で，$\unit{\joule}=\unit{\kilogram\metre\squared\per\second\squared}$ を使うと \unit{\per\metre} になり，波数と同じ次元である。特殊ケース：$g\to 0$ で $T\to 1$ となる。$V=(\hbar^{2}/m)\Omega\,\delta(x)$ は $g=\hbar^{2}\Omega/m$，$\beta=\Omega$ に当たり，$T=k^{2}/(k^{2}+\Omega^{2})$ となる。(4) の $(\beta/k)^{2}=mg^{2}/(2\hbar^{2}E)$ は，第11章で求めた同じ大きさの $g$ のデルタ関数井戸の束縛エネルギー \qty{0.590}{\electronvolt} を $E=\qty{1.00}{\electronvolt}$ で割った値に等しい（Level 3 の透過振幅の極の問題でこの関係を調べる）。
+\tsumazuki $\phi'$ の跳びの係数は $2mg/\hbar^{2}=2\beta$ で，2を落とさない。この問題では両側の波数が等しいので $T=\abs{t}^{2}$ でよいが，段差がある場合（最初の問題）は速さの比が付く。
+\end{kaisetsu}
+
+\level{2}
+\kaisetsubangou{5}
+\begin{kaisetsu}{101-barrier}
+\houshin ポテンシャルの跳びは有限なので，$x=0$ と $x=a$ で $\phi$ と $\phi'$ が連続。$x=a$ の2本で $C,D$ を，$x=0$ の2本で $A,B$ を出す。最後に $\abs{A}^{2}$・$\abs{B}^{2}$ を比べる。
+\keisan \shoumonkai{1} $\phi_{1}'=\ii k_{1}(A\ee^{\ii k_{1}x}-B\ee^{-\ii k_{1}x})$，$\phi_{2}'=\kappa(C\ee^{\kappa x}-D\ee^{-\kappa x})$，$\phi_{3}'=\ii k_{1}F\ee^{\ii k_{1}x}$ だから，
+\begin{align*}
+  x=0:&\quad A+B=C+D, \qquad \ii k_{1}(A-B)=\kappa(C-D),\\
+  x=a:&\quad C\ee^{\kappa a}+D\ee^{-\kappa a}=F\ee^{\ii k_{1}a}, \qquad \kappa(C\ee^{\kappa a}-D\ee^{-\kappa a})=\ii k_{1}F\ee^{\ii k_{1}a} .
+\end{align*}
+\shoumonkai{2} $x=a$ の2本で，第2式を $\kappa$ で割って第1式と足し引きする。
+\[ C=\frac{1}{2}\left(1+\frac{\ii k_{1}}{\kappa}\right)F\ee^{\ii k_{1}a}\ee^{-\kappa a},\qquad D=\frac{1}{2}\left(1-\frac{\ii k_{1}}{\kappa}\right)F\ee^{\ii k_{1}a}\ee^{\kappa a} . \]
+\shoumonkai{3} まず $C+D$ と $C-D$ を求める。$\ee^{\kappa a}+\ee^{-\kappa a}=2\cosh(\kappa a)$，$\ee^{\kappa a}-\ee^{-\kappa a}=2\sinh(\kappa a)$ を使うと，
+\begin{align*}
+  C+D&=\frac{F\ee^{\ii k_{1}a}}{2}\left[(\ee^{\kappa a}+\ee^{-\kappa a})-\frac{\ii k_{1}}{\kappa}(\ee^{\kappa a}-\ee^{-\kappa a})\right]
+     =\left[\cosh(\kappa a)-\frac{\ii k_{1}}{\kappa}\sinh(\kappa a)\right]F\ee^{\ii k_{1}a},\\
+  C-D&=\frac{F\ee^{\ii k_{1}a}}{2}\left[-(\ee^{\kappa a}-\ee^{-\kappa a})+\frac{\ii k_{1}}{\kappa}(\ee^{\kappa a}+\ee^{-\kappa a})\right]
+     =\left[-\sinh(\kappa a)+\frac{\ii k_{1}}{\kappa}\cosh(\kappa a)\right]F\ee^{\ii k_{1}a} .
+\end{align*}
+$x=0$ の第2式を $\ii k_{1}$ で割ると $A-B=\kappa(C-D)/(\ii k_{1})$ となり，第1式 $A+B=C+D$ と足し引きして
+\[ A=\frac{1}{2}\left[(C+D)+\frac{\kappa}{\ii k_{1}}(C-D)\right],\qquad B=\frac{1}{2}\left[(C+D)-\frac{\kappa}{\ii k_{1}}(C-D)\right] . \]
+ここで
+\[ \frac{\kappa}{\ii k_{1}}(C-D)=\left[\cosh(\kappa a)-\frac{\kappa}{\ii k_{1}}\sinh(\kappa a)\right]F\ee^{\ii k_{1}a} \]
+だから，
+\begin{align*}
+  A&=\left[\cosh(\kappa a)-\frac{1}{2}\left(\frac{\ii k_{1}}{\kappa}+\frac{\kappa}{\ii k_{1}}\right)\sinh(\kappa a)\right]F\ee^{\ii k_{1}a},\\
+  B&=\frac{1}{2}\left(\frac{\kappa}{\ii k_{1}}-\frac{\ii k_{1}}{\kappa}\right)\sinh(\kappa a)\,F\ee^{\ii k_{1}a} .
+\end{align*}
+通分すると
+\[ \frac{\ii k_{1}}{\kappa}+\frac{\kappa}{\ii k_{1}}=\frac{\kappa^{2}-k_{1}^{2}}{\ii k_{1}\kappa},\qquad \frac{\kappa}{\ii k_{1}}-\frac{\ii k_{1}}{\kappa}=\frac{\kappa^{2}+k_{1}^{2}}{\ii k_{1}\kappa} \]
+なので，
+\[ A=\left[\frac{k_{1}^{2}-\kappa^{2}}{2\ii k_{1}\kappa}\sinh(\kappa a)+\cosh(\kappa a)\right]F\ee^{\ii k_{1}a},\qquad B=\frac{\kappa^{2}+k_{1}^{2}}{2\ii k_{1}\kappa}\sinh(\kappa a)\,F\ee^{\ii k_{1}a} \]
+となり，要点整理の関係に一致する。
+\shoumonkai{4} $A$ の角括弧の中は実部 $\cosh(\kappa a)$ と虚部 $-(k_{1}^{2}-\kappa^{2})\sinh(\kappa a)/(2k_{1}\kappa)$ に分かれ，$\abs{\ee^{\ii k_{1}a}}=1$ だから，
+\begin{align*}
+  \frac{\abs{A}^{2}}{\abs{F}^{2}}
+  &=\cosh^{2}(\kappa a)+\left(\frac{k_{1}^{2}-\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)
+   =1+\frac{4k_{1}^{2}\kappa^{2}+(k_{1}^{2}-\kappa^{2})^{2}}{4k_{1}^{2}\kappa^{2}}\sinh^{2}(\kappa a)\\
+  &=1+\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a) .
+\end{align*}
+ここで $\cosh^{2}=1+\sinh^{2}$ と $(k_{1}^{2}-\kappa^{2})^{2}+4k_{1}^{2}\kappa^{2}=(k_{1}^{2}+\kappa^{2})^{2}$ を使った。$T=\abs{F}^{2}/\abs{A}^{2}$ はこの逆数である。また
+\[ \frac{\abs{B}^{2}}{\abs{F}^{2}}=\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)=\frac{\abs{A}^{2}}{\abs{F}^{2}}-1 \]
+なので $\abs{A}^{2}=\abs{B}^{2}+\abs{F}^{2}$，両辺を $\abs{A}^{2}$ で割って $R+T=1$。
+\kotae{\shoumonkai{1} $A+B=C+D$，$\ii k_{1}(A-B)=\kappa(C-D)$，$C\ee^{\kappa a}+D\ee^{-\kappa a}=F\ee^{\ii k_{1}a}$，$\kappa(C\ee^{\kappa a}-D\ee^{-\kappa a})=\ii k_{1}F\ee^{\ii k_{1}a}$ \shoumonkai{2} $C=\frac{\kappa+\ii k_{1}}{2\kappa}F\ee^{(\ii k_{1}-\kappa)a}$，$D=\frac{\kappa-\ii k_{1}}{2\kappa}F\ee^{(\ii k_{1}+\kappa)a}$ \shoumonkai{3} 要点整理の $A$・$B$ の式（導出は本文） \shoumonkai{4} $\abs{A}^{2}=\abs{B}^{2}+\abs{F}^{2}$ より $R+T=1$}
+\begin{ronten}
+  \item \shoumonkai{1} ポテンシャルの跳びが有限なので，$x=0$ と $x=a$ の両方で $\phi$ と $\phi'$ が連続であることを述べる。
+  \item \shoumonkai{4} 入射側と透過側で波数が同じ $k_{1}$ なので，透過率が $\abs{F}^{2}/\abs{A}^{2}$ になることを述べる。
+  \item \shoumonkai{4} $R+T=1$ は $T$ から $1-T$ を作るのではなく，$\abs{B}^{2}$ を別に計算して $\abs{A}^{2}=\abs{B}^{2}+\abs{F}^{2}$ を示すことで確かめる。
+\end{ronten}
+\kenzan $a\to0$ では $\sinh(\kappa a)\to0$ で $B\to0$，$A\to F$，$T\to1$（障壁が無い）。(4) の $T$ に $k_{1}^{2}=2mE/\hbar^{2}$，$\kappa^{2}=2m(V_{0}-E)/\hbar^{2}$ を入れると $(k_{1}^{2}+\kappa^{2})^{2}/(4k_{1}^{2}\kappa^{2})=V_{0}^{2}/[4E(V_{0}-E)]$ となり，要点整理の $T$ の式と一致する。(2) から $\abs{C/D}=\ee^{-2\kappa a}$（$\abs{\kappa+\ii k_{1}}=\abs{\kappa-\ii k_{1}}$ のため）で，$\kappa a\gg1$ なら $x=a$ の近く以外では減衰する解 $D\ee^{-\kappa x}$ が主になることとも合う。
+\tsumazuki $x=a$ での $\phi_{3}$ は $F\ee^{\ii k_{1}a}$ で，$F$ だけではない。この位相を落とすと $A$・$B$ の $\ee^{\ii k_{1}a}$ が出ない（$\abs{A}$ には効かないので $T$ だけを見ると気づきにくい）。
+\end{kaisetsu}
+
+\end{document}

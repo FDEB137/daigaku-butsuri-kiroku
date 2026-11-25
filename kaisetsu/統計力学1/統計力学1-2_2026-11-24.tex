@@ -1,0 +1,178 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{統計力学1　第2章「ミクロカノニカル分布とボルツマン公式（状態の数え方）」}{2026-11-24}
+%% kaisetsu-moto	problems\統計力学1\shou02\統計力学1-2.tex	kiroku\kaisetsu\統計力学1\統計力学1-2_2026-11-24_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-001-levels}{1}}{L1・計算}{○◎○}{B}{(1)記述 (3)記述}
+  \hyougyou{2}{L1・計算}{◎◎◎◎}{S}{全問 ◎}
+  \hyougyou{\hyperlink{bt-m-007-rotor}{3}}{L2・計算}{◎◎◎◎×}{C}{(5)未着手}
+\end{saitenichiran}
+\begin{daiji}
+  \item 「連続量として扱える理由」は，準位間隔 $\Delta E$ が $\kB T$ より桁違いに小さいことを，粗視化の条件 $\Delta E_{\mathrm{level}}\ll\delta U\ll U$ を満たす幅 $\delta U$ が選べることに結びつけて初めて説明になる（問題1 (3)）。
+  \item 状態の数え上げでは，答えの準位だけでなく「その間に別の値が無い」ことまで示して，漏れなく調べたことを伝える（問題1 (1) の和10）。
+  \item $W\propto U^{N/2}$ で $N$ が巨大なとき，$U$ 以下の状態のほとんどはエネルギーの上端のごく薄い殻にある。これが $W$ と $w=\Omega\,\delta U$ が同じエントロピーを与える理由で，問題3 (5) はここを確かめる問いである（未着手）。
+\end{daiji}
+\begin{maemo}
+  \item 理由の書き落とし：統計力学1-1（旧版）問題2 (4)（2026-10-27）で「$2^{N}$ になる理由」，統計力学1-1 問題3 (4)（2026-11-11）で $\Delta U=0$ の理由が無かった。今回も問題1 (3) で，結論「連続的に扱える」と根拠「間隔が小さい」の間をつなぐ一言（$\delta U$ が選べる）が抜けた。「理由を述べよ」の問いでは，要点整理のどの条件・定義に当てはまるのかを名指しして書く。
+\end{maemo}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 1次元の箱の中の粒子のエネルギー準位 % 出典: p.4
+    \[ E_{0}n^{2}=\frac{\pi^{2}\hbar^{2}}{2mL^{2}}n^{2}\qquad(n=1,2,\dots) \notetag{2.1} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{001-levels}{計算}{箱の中の粒子のエネルギー準位と縮退度，準位間隔と熱エネルギーの比較（粗視化の条件）}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.4 式(5)，p.2--3
+一辺 $L$ の立方体容器に閉じ込められた質量 $m$ の粒子1個を考える。壁で波動関数がゼロになる境界条件のもとで，エネルギー固有値は
+\[E=E_{0}\left(n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\right),\qquad E_{0}=\frac{\pi^{2}\hbar^{2}}{2mL^{2}}\qquad(n_{x},n_{y},n_{z}=1,2,3,\dots)\]
+で与えられる（式\noteshiki{2.1}を3方向に用いたもの）。
+\begin{shoumon}
+  \item エネルギーの低い方から4つの準位について，$E/E_{0}$ の値と縮退度（その固有値をもつ固有状態 $(n_{x},n_{y},n_{z})$ の数）を求めよ。
+  \item He 原子（質量 $m_{\mathrm{He}}$）を一辺 $L=\qty{1.00}{\centi\metre}$ の容器に入れたとき，$E_{0}$ と，基底準位と第1励起準位のエネルギー差 $\Delta E$ を有効数字3桁で求めよ。
+  \item $T=\qty{300}{\kelvin}$ での $\kB T$ に対する比 $\Delta E/(\kB T)$ を有効数字2桁で求めよ。また，この結果が「熱力学ではエネルギーを連続量として扱える」ことの根拠の一つになる理由を1〜2文で述べよ。
+\end{shoumon}
+
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $(1,1,1)$ で $E/E_{0}=3$（縮退度1），$(2,1,1)$ の並べ替えで6（3），$(2,2,1)$ で9（3），$(3,1,1)$ で11（3）と，値も縮退度も正しい。ただし，9 の次が 11 であること，すなわち和10 が $1,4,9$ から重複を許して3つ選んだ和では作れないこと（次の候補 $(2,2,2)$ は12）が式にも文にも無い。並べた4つが「低い方から4つ」であることの根拠が欠けている。
+  \machigai{3}{○}{記述} $\Delta E/(\kB T)=\num{6.0e-17}$ は正しい。理由は「$\Delta E\ll\kB T$ なので，温度に対してエネルギー変化の間隔が十分小さいため連続的に扱える」と書いた。間隔が小さいことと「連続量として扱える」の間に，粗視化の条件 $\Delta E_{\mathrm{level}}\ll\delta U\ll U$ を満たす幅 $\delta U$ が選べる（幅 $\delta U$ の中に非常に多くの準位が入り，離散性が見えない）という一言が要る。
+\end{kotaeran}
+\begin{rikai}
+  \item ミクロカノニカル分配関数 $w$ は幅 $\delta U$ の中の固有状態の数である。$\Delta E_{\mathrm{level}}\ll\delta U$ なら幅の中に多数の準位が入り，$w$ は $\delta U$ に比例する滑らかな量になる。$\delta U\ll U$ なら $U$ はほぼ一点に決まる。この両方が同時に満たせることが「エネルギーを連続量として扱える」の中身で，$\Delta E/(\kB T)=\num{6.0e-17}$ はその両立が楽にできることを示している。
+  \item 数え上げの確かめ方：和の候補を小さい順に $3,4,5,\dots$ と一つずつ当たり，作れない値（ここでは 4,5,7,8,10）を飛ばしたことを一言書く。各 $n_{i}^{2}$ は $1,4,9,\dots$ なので，3つの和として作れるかどうかを値ごとに具体的に確かめる（10 は $1+9$ に残り $0$ が要り，$4+4+$ に残り $2$ が要るので作れない）。
+\end{rikai}
+\end{mondai}
+
+\level{2}
+\mondaibangou{3}
+\begin{mondai}{007-rotor}{計算}{位相空間体積を $h$ で割る古典的な状態の数え方，状態数 $W$ と状態密度 $\Omega$（$W$ と $w$ が同じエントロピーを与える理由）}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.6--8（1.6節，1.7節）
+平面内で固定軸のまわりに自由に回転できる剛体（平面回転子）$N$ 個からなる系を考える。回転子 $i$ の回転角を $\phi_{i}$（$0\le\phi_{i}<2\pi$），それに共役な運動量（角運動量）を $p_{i}$，慣性モーメントを $I$ とする。各回転子は異なる格子点に固定されていて位置で区別できるので，この問題では $N!$ で割らない。ハミルトニアンは
+\[H=\sum_{i=1}^{N}\frac{p_{i}^{2}}{2I}\]
+である。
+\begin{shoumon}
+  \item 回転子1個について，位相空間 $(\phi,p)$ で $H\le E$ を満たす領域の面積 $A(E)$ を求めよ。また，量子力学によれば回転子1個のエネルギー固有値は $E_{m}=\hbar^{2}m^{2}/(2I)$（$m=0,\pm1,\pm2,\dots$。$m$ と $-m$ は別の状態）である。$m\ge0$ として $A(E_{m+1})-A(E_{m})$ を求め，$H\le E_{m+1}$ を満たす量子状態の数と $H\le E_{m}$ を満たす量子状態の数の差と比べて，「位相空間体積 $h$ ごとに1つの状態」という数え方と整合することを確かめよ。
+  \item $H\le U$ を満たす $2N$ 次元位相空間の体積を $h^{N}$ で割ったものを状態数 $W(U)$ とする。$N$ 次元の半径 $R$ の球の体積の式 $C(N)R^{N}$（$C(D)=\pi^{D/2}/\Gamma(D/2+1)$）を用いて，次式を示せ。
+  \[W(U)=\frac{1}{\Gamma(N/2+1)}\left(\frac{2\pi IU}{\hbar^{2}}\right)^{N/2}\]
+  \item $N\gg1$ として $S=\kB\log W$ を求め，内部エネルギー $U$ と温度 $T$ の関係，および熱容量 $C=\dv{U}{T}$ を求めよ。
+  \item 状態密度 $\Omega(U)=\dv{W}{U}$ を求め，$\kB\log[\Omega(U)\,\delta U]$ と $\kB\log W(U)$ の差が $N$ に比例しないことを示せ。
+  \item エネルギーが $U(1-\eta)$ 以下の状態の数と $U$ 以下の状態の数の比 $W(U(1-\eta))/W(U)$ を $N$ と $\eta$ で表せ。$N=\num{6.0e23}$，$\eta=\num{1.0e-10}$ のとき，この比を $10^{y}$ と書いたときの $y$ を有効数字2桁で求めよ（$\log(1-\eta)\simeq-\eta$，$\log_{10}\ee=\num{0.4343}$ を用いてよい）。この結果から，$U$ 以下の状態のほとんどがどこにあるかを述べ，$W$ と $w=\Omega\,\delta U$ が同じエントロピーを与える理由を説明せよ。
+\end{shoumon}
+
+\begin{kotaeran}
+  \machigai{5}{×}{未着手} (4) までで終わっていて，(5) の答案が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item (4) で $\Omega=(N/(2U))\,W$ と求めたことが (5) の土台になる。$W\propto U^{N/2}$ なので，比 $W(U(1-\eta))/W(U)$ は $U$ によらず $\eta$ と $N$ だけで決まる。$N\sim10^{23}$ だと，$\eta$ がごく小さくても指数 $N/2$ のせいで比は桁違いに小さくなる。
+  \item その結果「$U$ 以下の状態のほとんどは上端の薄い殻 $U(1-\eta)<H\le U$ にある」と言えるので，殻の中だけを数える $w=\Omega\,\delta U$ と全体を数える $W$ とで，エントロピーの $N$ に比例する部分が変わらない。(4) の差 $\kB\log\{N\delta U/(2U)\}$ が $N$ に比例しないことと，同じ事実の2つの見え方である。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{001-levels}
+\houshin 量子数の組ごとに $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}$ を計算し，同じ値を与える組を数える。(2)(3) は数値を代入する。
+\keisan
+\shoumonkai{1} $n_{i}\ge1$ なので，各 $n_{i}^{2}$ は $1,4,9,\dots$ をとる。和の小さい順に並べると次のようになる。
+$(1,1,1)$：和3，1通り。$(2,1,1)$ とその並べ替え：和6，3通り。$(2,2,1)$ とその並べ替え：和9，3通り。$(3,1,1)$ とその並べ替え：和11，3通り（次は $(2,2,2)$ の和12。和10は $1,4,9$ から3つ選んだ和では作れない）。
+
+\shoumonkai{2} 定義に数値を代入する。
+\[E_{0}=\frac{\pi^{2}\hbar^{2}}{2m_{\mathrm{He}}L^{2}}=\frac{\num{9.870}\times(\qty{1.055e-34}{\joule\second})^{2}}{2\times\qty{6.646e-27}{\kilogram}\times(\qty{1.00e-2}{\metre})^{2}}=\frac{\num{1.0985e-67}}{\num{1.3292e-30}}\,\unit{\joule}=\qty{8.26e-38}{\joule}\]
+基底準位は $3E_{0}$，第1励起準位は $6E_{0}$ なので，$\Delta E=3E_{0}=\qty{2.48e-37}{\joule}$。
+
+\shoumonkai{3} $\kB T=\num{1.381e-23}\times300=\qty{4.143e-21}{\joule}$ より，
+\[\frac{\Delta E}{\kB T}=\frac{\num{2.479e-37}}{\num{4.143e-21}}=\num{6.0e-17}\]
+\kotae{\shoumonkai{1} $E/E_{0}=3$（縮退度1），6（縮退度3），9（縮退度3），11（縮退度3） \shoumonkai{2} $E_{0}=\qty{8.26e-38}{\joule}$，$\Delta E=\qty{2.48e-37}{\joule}$ \shoumonkai{3} $\num{6.0e-17}$。準位間隔は熱的なエネルギーの尺度より16桁以上も小さいので，$\Delta E_{\mathrm{level}}\ll\delta U\ll U$ を満たす幅 $\delta U$ を選べ，離散性が見えなくなる。}
+\begin{ronten}
+  \item \shoumonkai{1} 和 $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}$ の値を小さい順に漏れなく調べたこと（和10は $1,4,9$ から重複を許して3つ選んだ和では作れないので，4番目の準位は11）を示す。
+  \item \shoumonkai{3} 準位間隔が $\kB T$ より桁違いに小さいので，$\Delta E_{\mathrm{level}}\ll\delta U\ll U$ を満たす幅 $\delta U$ を選べることを書く。
+\end{ronten}
+\kenzan 次元：$\hbar^{2}/(mL^{2})$ は $\unit{\joule\squared\second\squared}/(\unit{\kilogram\metre\squared})=\unit{\joule}$ となり正しい。$L\to\infty$ で $E_{0}\to0$ となり準位は連続に近づく（$\Delta E\propto1/L^{2}$）。縮退度は各和での並べ替えの数（3つとも同じ→1，2つが同じ→3）と一致する。
+\tsumazuki $n=0$ は波動関数が恒等的にゼロになるので含めない。$(2,1,1)$ の並べ替えを1通りと数えない。多体系の準位間隔はこれよりはるかに小さい（Level 3 の粗視化の問題を参照）。
+\end{kaisetsu}
+
+\level{2}
+\kaisetsubangou{3}
+\begin{kaisetsu}{007-rotor}
+\houshin (1) 位相空間は $\phi$ 方向の長さが $2\pi$ の帯なので，$\abs{p}\le\sqrt{2IE}$ の長方形の面積を求める。(2) 角度の積分と運動量の積分に分け，運動量の積分を $N$ 次元の球の体積に帰着させる。(3) は Stirling の公式と熱力学関係式。(4)(5) は $W\propto U^{N/2}$ を使う。
+\keisan
+\shoumonkai{1} $H=p^{2}/(2I)\le E$ は $\abs{p}\le\sqrt{2IE}$ と同じで，$\phi$ は $0$ から $2\pi$ まで動くので，
+\[A(E)=2\pi\cdot2\sqrt{2IE}=4\pi\sqrt{2IE}\]
+$E_{m}$ では $\sqrt{2IE_{m}}=\hbar m$ なので $A(E_{m})=4\pi\hbar m$ である。よって，
+\[A(E_{m+1})-A(E_{m})=4\pi\hbar=2h\]
+一方，$H\le E_{m}$ を満たす量子状態は $m'=0,\pm1,\dots,\pm m$ の $2m+1$ 個なので，$H\le E_{m+1}$ を満たす状態との差は $m'=\pm(m+1)$ の2個である。面積 $2h$ に2状態，すなわち1状態あたり $h$ となり，この数え方と整合する。
+\zu{
+\begin{tikzpicture}[scale=0.9]
+  \draw[jiku] (-0.3,0) -- (5.8,0) node[right] {$\phi$};
+  \draw[jiku] (0,-1.9) -- (0,2.0) node[above] {$p$};
+  \draw[thick] (0,-1.5) -- (0,1.5);
+  \draw[thick] (5,-1.5) -- (5,1.5);
+  \foreach \k/\n in {-2/-2\hbar,-1/-\hbar,0/0,1/\hbar,2/2\hbar} {
+    \draw[hojo] (0,0.7*\k) -- (5,0.7*\k);
+    \node[left] at (0,0.7*\k) {\scriptsize $p=\n$};
+  }
+  \node at (2.5,1.05) {\scriptsize 面積 $2\pi\hbar=h$};
+  \draw[sunpou] (0,-1.75) -- (5,-1.75);
+  \node[below] at (2.5,-1.75) {\scriptsize $2\pi$};
+\end{tikzpicture}
+}
+
+\shoumonkai{2} 角度の積分はそれぞれ $2\pi$ を与える。運動量については $p_{1}^{2}+\dots+p_{N}^{2}\le2IU$ が $N$ 次元の半径 $\sqrt{2IU}$ の球なので，
+\[\int_{H\le U}\prod_{i=1}^{N}\dd\phi_{i}\,\dd p_{i}=(2\pi)^{N}\,C(N)\,(2IU)^{N/2}\]
+これを $h^{N}=(2\pi\hbar)^{N}$ で割ると，
+\begin{align*}
+W(U)&=\frac{C(N)\,(2IU)^{N/2}}{\hbar^{N}}=\frac{\pi^{N/2}}{\Gamma(N/2+1)}\left(\frac{2IU}{\hbar^{2}}\right)^{N/2}\\
+&=\frac{1}{\Gamma(N/2+1)}\left(\frac{2\pi IU}{\hbar^{2}}\right)^{N/2}
+\end{align*}
+
+\shoumonkai{3} Stirling の公式 $\log\Gamma(N/2+1)\simeq(N/2)\log(N/2)-N/2$ を用いると，
+\begin{align*}
+\log W&\simeq\frac{N}{2}\log\frac{2\pi IU}{\hbar^{2}}-\frac{N}{2}\log\frac{N}{2}+\frac{N}{2}\\
+&=\frac{N}{2}\left[\log\frac{4\pi IU}{N\hbar^{2}}+1\right]
+\end{align*}
+よって，
+\[S=\frac{N\kB}{2}\left[\log\frac{4\pi IU}{N\hbar^{2}}+1\right]\]
+である。$1/T=\dv{S}{U}=N\kB/(2U)$ より $U=N\kB T/2$，$C=N\kB/2$。
+
+\shoumonkai{4} $W\propto U^{N/2}$ なので，
+\[\Omega=\dv{W}{U}=\frac{N}{2U}\,W\]
+よって，
+\[\kB\log[\Omega\,\delta U]-\kB\log W=\kB\log\frac{N\,\delta U}{2U}=\kB\left[\log\frac{N}{2}+\log\frac{\delta U}{U}\right]\]
+これは $\log N$ と $\log(\delta U/U)$ の程度の量で，$N$ に比例しない。
+
+\shoumonkai{5} $W\propto U^{N/2}$ より，
+\[\frac{W(U(1-\eta))}{W(U)}=(1-\eta)^{N/2}\]
+常用対数をとり $\log(1-\eta)\simeq-\eta$ を用いると，
+\[y=\frac{N}{2}\log_{10}(1-\eta)\simeq-\frac{N\eta}{2}\log_{10}\ee=-\num{3.0e23}\times\num{1.0e-10}\times\num{0.4343}=-\num{1.3e13}\]
+エネルギーが $U(1-\eta)$ 以下の状態は，$U$ 以下の状態全体の $10^{y}$ 倍（$y=-\num{1.3e13}$）にすぎない。つまり，$U$ 以下の状態のほとんどすべては，上端のごく薄い殻 $U(1-\eta)<H\le U$ にある。$w=\Omega\,\delta U$ は (4) より $W$ に因子 $N\delta U/(2U)$ を掛けただけで，その対数は $N$ に比べて無視できる。状態がエネルギーの上端に集中しているので，殻の中だけを数えても $U$ 以下の全体を数えても，エントロピーの $N$ に比例する部分は変わらない。
+\kotae{\shoumonkai{1} $A(E)=4\pi\sqrt{2IE}$。隣り合う準位の間の面積は $2h$ で2状態が加わり，1状態あたり $h$ と整合する \shoumonkai{2} 前段の導出のとおり \shoumonkai{3} $S=(N\kB/2)[\log\{4\pi IU/(N\hbar^{2})\}+1]$，$U=N\kB T/2$，$C=N\kB/2$ \shoumonkai{4} $\Omega=NW/(2U)$。差は $\kB\log\{N\delta U/(2U)\}$ で $N$ に比例しない \shoumonkai{5} 比は $(1-\eta)^{N/2}$，$y=-\num{1.3e13}$。状態のほとんどは $U$ のすぐ下の薄い殻にある}
+\begin{ronten}
+  \item \shoumonkai{1} 角度 $\phi$ の範囲が $2\pi$ で有限であることと，$m$ と $-m$ を別の状態として数えることを述べる。
+  \item \shoumonkai{4} 差が $\log N$ と $\log(\delta U/U)$ の程度の量で，$N$ に比例するエントロピーに比べて無視できることを述べる。
+  \item \shoumonkai{5} 状態のほとんどが $U$ のすぐ下の薄い殻にあるので，殻の中だけを数えても $U$ 以下の全体を数えても $N$ に比例する部分が変わらないことを書く。
+\end{ronten}
+\kenzan $N=1$ なら $\Gamma(3/2)=\sqrt{\pi}/2$ より $W=2\sqrt{2IU}/\hbar$ で，(1) の $A(U)$ を $h$ で割った値と一致する。$IU/\hbar^{2}$ の単位は $\unit{\kilogram\metre\squared}\cdot\unit{\joule}/(\unit{\joule\squared\second\squared})$ で無次元である。$U=N\kB T/2$ は，回転子1つあたり2次の項が1つ（運動エネルギー）だけであり，各2次の項が $\kB T/2$ を担うという等分配則と整合する。
+\tsumazuki 角度 $\phi$ の範囲は $2\pi$ で有限である（位置座標のように容器の大きさで決まるのではない）。$W$ の $1/\Gamma(N/2+1)$ は $N$ 次元球の体積から来たもので，区別不可能性の $N!$ ではない。量子状態を数えるとき，$m$ と $-m$（回転の向きが逆）を別の状態として数える。
+\end{kaisetsu}
+
+\end{document}

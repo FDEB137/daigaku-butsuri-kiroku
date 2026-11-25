@@ -1,0 +1,32 @@
+% 量子力学1 量子力学1-3 問題2（018-current。当時は kai03-l1-current） 解いた日 2026-10-18
+%% kotae
+\toi{1}{○}{記述}
+\[ \rho=\abs{\psi_{1}}^{2}=\psi_{1}^{*}\psi_{1}=\ayamari{A^{2}}{\abs{A}^{2}} \]
+\[ j=\frac{\hbar}{m}\Im\left(\psi_{1}^{*}\pdv{\psi_{1}}{x}\right) \]
+\begin{align*}
+\pdv{\psi_{1}}{x}&=\ii kA\ee^{\ii(kx-\omega t)}\\
+\psi_{1}^{*}\pdv{\psi_{1}}{x}&=\ii k\ayamari{A^{2}}{\abs{A}^{2}}\\
+j&=\frac{\hbar}{m}\Im(\ii kA^{2})=\frac{\hbar k}{m}A^{2}
+\end{align*}
+\naze{問題文で $A$ は複素数の定数なので，$\psi_{1}^{*}\psi_{1}=A^{*}A=\abs{A}^{2}$ である。$A^{2}$ は $A$ を実数とした書き方で，以降の $A^{2}$ もすべて $\abs{A}^{2}$ になる（$j=\hbar k\abs{A}^{2}/m$）。}
+\[ j=\rho v\qquad\therefore\ \frac{\hbar k}{m}A^{2}=A^{2}v \]
+\[ \therefore\ v=\frac{\hbar k}{m} \]
+\toi{2}{○}{記述}
+\begin{align*}
+\pdv{\psi_{2}}{x}&=-\ii kA\ee^{-\ii(kx+\omega t)}\\
+\psi_{2}^{*}\pdv{\psi_{2}}{x}&=-\ii k\ayamari{A^{2}}{\abs{A}^{2}}\\
+j&=\frac{\hbar}{m}\Im(-\ii kA^{2})=-\frac{\hbar k}{m}A^{2}
+\end{align*}
+確率流の向きが逆
+\naze{(1) と同じく $A^{2}$ は $\abs{A}^{2}$ で，$j=-\hbar k\abs{A}^{2}/m$ である。}
+\toi{3}{◎}{}
+\begin{align*}
+\pdv{\psi_{3}}{x}&=f'(x)\ee^{-\ii\omega t}\\
+\psi_{3}^{*}\pdv{\psi_{3}}{x}&=f(x)f'(x)\\
+j&=\frac{\hbar}{m}\Im(f(x)f'(x))
+\end{align*}
+$f(x)$，$f'(x)$ ともに実数値の関数なので，
+\[ \Im(f(x)f'(x))=0 \]
+\[ \therefore\ j=0 \]
+%% kizuki
+\item 問題文で定数が複素数とされているときは，$\psi^{*}\psi$ の定数の部分は $A^{*}A=\abs{A}^{2}$ である。$A^{2}$ と書く前に，その定数が実数か複素数かを問題文で確かめる。

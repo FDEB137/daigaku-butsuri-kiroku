@@ -1,0 +1,45 @@
+% 量子力学1 量子力学1-3 問題4（現在は問題5。020-gauss。当時は kai03-l2-gauss） 解いた日 2026-10-18
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\int\dd x\,\abs{\psi}^{2}&=\int A^{2}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)\\
+&=A^{2}\sqrt{2\pi\sigma^{2}}=1
+\end{align*}
+\[ \therefore\ A=\left(\frac{1}{2\pi\sigma^{2}}\right)^{1/4} \]
+\toi{2}{△}{計算}
+\begin{align*}
+&\int\dd x\,A\exp\left(-\frac{x^{2}}{4\sigma^{2}}-\ii k_{0}x\right)\left(-\ii\hbar\frac{\partial}{\partial x}\right)\\
+&\qquad\biggl(A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)\biggr)
+\end{align*}
+\begin{align*}
+&\frac{\partial}{\partial x}\left(A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)\right)\\
+&\quad=\ayamari{\ii k_{0}}{\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)}\\
+&\qquad\quad A\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right)
+\end{align*}
+\naze{指数の肩の $-x^{2}/(4\sigma^{2})$ の微分 $-x/(2\sigma^{2})$ が落ちている。正しくは $\psi^{*}\hat{p}\psi=(\ii\hbar x/(2\sigma^{2})+\hbar k_{0})\abs{\psi}^{2}$ で，第1項は奇関数なので積分が0になり，第2項から $\hbar k_{0}$ が出る。以降はこの誤りを引き継ぐ（答えが合ったのは，落とした項がたまたま奇関数で消えるからである）。}
+\begin{align*}
+\expval{\hat{p}}&=\int\dd x\,A^{2}\hbar k_{0}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)\\
+&=A^{2}\hbar k_{0}\sqrt{2\pi\sigma^{2}}=\hbar k_{0}
+\end{align*}
+\toi{3}{○}{計算}
+\begin{align*}
+j&=\frac{\hbar}{m}\Im\left(\psi^{*}\pdv{\psi}{x}\right)\\
+\psi^{*}\pdv{\psi}{x}&=\ayamari{\ii k_{0}}{\left(-\frac{x}{2\sigma^{2}}+\ii k_{0}\right)}\\
+&\qquad A^{2}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)
+\end{align*}
+\naze{(2) と同じ微分の誤りである。落ちた $-x/(2\sigma^{2})$ の項は実数なので虚部には効かず，以降の $j$ は正しい。}
+\begin{align*}
+\Im\left(\psi^{*}\pdv{\psi}{x}\right)&=k_{0}A^{2}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)\\
+&=\ayamari{\left(\frac{k_{0}^{2}}{2\pi\sigma^{2}}\right)^{1/2}}{\frac{k_{0}}{\sqrt{2\pi\sigma^{2}}}}\\
+&\qquad\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right)
+\end{align*}
+\naze{$(k_{0}^{2})^{1/2}=\abs{k_{0}}$ なので，$k_{0}<0$ では符号が合わない。$k_{0}$ を根号の中に入れずに $k_{0}/\sqrt{2\pi\sigma^{2}}$ と書く。次の行の $j$ は正しい形に戻っている。}
+\[ j=\frac{1}{\sqrt{2\pi}}\frac{\hbar k_{0}}{m\sigma}\exp\left(-\frac{x^{2}}{2\sigma^{2}}\right) \]
+\begin{align*}
+\int\dd x\,j&=\frac{1}{\sqrt{2\pi}}\cdot\frac{\hbar k_{0}}{m\sigma}\sqrt{2\pi\sigma^{2}}\\
+&=\frac{\hbar k_{0}}{m}=\frac{\expval{\hat{p}}}{m}
+\end{align*}
+%% kizuki
+\item \mae{第2回 問題1・10-14} 前回は $\cos$ の引数の $k$ を落とし，今回は指数の肩の $-x^{2}/(4\sigma^{2})$ の微分を落とした。$\exp(g(x))$ の微分は $g'(x)\exp(g(x))$ で，肩の項をすべて微分する。$\partial\psi/\partial x=(\text{$x$ の1次式})\psi$ の形に書いてから，肩の各項が1つずつ係数に出ているかを照らす。
+\item 期待値の被積分関数は偶関数の部分と奇関数の部分に分けて積分する。答えが合っても，項を落として奇関数の部分が見えていなければ，この問題の要（奇関数の積分が0になること）を使っていない。
+\item 符号をもつ量（$k_{0}$）を2乗して根号に入れると絶対値になる。根号の外に残す。

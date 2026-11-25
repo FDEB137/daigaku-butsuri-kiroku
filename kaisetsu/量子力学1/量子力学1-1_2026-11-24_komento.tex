@@ -1,0 +1,21 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+%% matome
+\begin{daiji}
+  \item 円運動する電子の力学的エネルギーは位置エネルギーの半分、$E_{n}=-e^{2}/(8\pi\varepsilon_{0}r_{n})$ である。この係数 $1/2$ を落とすと、$E_{1}$ は2倍、波長は半分になり、(2)〜(4) の数値がすべてずれる（問題7 (1)〜(4)）。
+  \item 束縛状態のエネルギーは負である。$E_{1}=\qty{-13.6}{\electronvolt}$（水素のイオン化エネルギー）、$\lambda_{32}=\qty{656}{\nano\metre}$（赤い Hα 線）のようなよく知られた値で、数値の答えを検算する（問題7 (2)〜(4)）。
+\end{daiji}
+\begin{maemo}
+  \item 同じ問題 (1) の $E_{n}$ の計算で、2026-10-29 にも途中で係数を書き違えた（そのときは次の行で直した）。今回は直らずに最後まで残った。$E_{n}=K+U=U/2$ を1行書いてから $r_{n}$ を代入する。
+\end{maemo}
+%% mondai 7
+\begin{kotaeran}
+  \machigai{1}{△}{計算} 運動方程式と量子条件から $r_{n}=4\pi\varepsilon_{0}n^{2}\hbar^{2}/(\melec e^{2})=n^{2}\varepsilon_{0}h^{2}/(\pi\melec e^{2})$ は正しい。$E_{n}=e^{2}/(8\pi\varepsilon_{0}r_{n})-e^{2}/(4\pi\varepsilon_{0}r_{n})$ までも正しいが、次の行で $-\bigl(e^{2}/(4\pi\varepsilon_{0})\bigr)\cdot\pi\melec e^{2}/(n^{2}\varepsilon_{0}h^{2})$ と係数 $1/2$ が落ち、$E_{n}=-\melec e^{4}/(4\varepsilon_{0}^{2}h^{2}n^{2})$ とした。$1/2-1=-1/2$ なので $E_{n}=-e^{2}/(8\pi\varepsilon_{0}r_{n})=-\melec e^{4}/(8\varepsilon_{0}^{2}h^{2}n^{2})$ が正しい。
+  \machigai{2}{△}{計算} $r_{1}=\qty{0.0529}{\nano\metre}$ は正しい。$E_{1}$ を \qty{27.2}{\electronvolt} とした。(1) の係数の誤りで大きさが2倍になり、さらに式の負号を落として正の値にしている。正しくは $E_{1}=\qty{-13.6}{\electronvolt}$。
+  \machigai{3}{△}{計算} 振動数条件 $\Delta E=hc/\lambda$ を使う方針は正しい。(2) の $E_{1}$ を正として $E_{3}-E_{2}=\frac{5}{36}E_{1}=\qty{3.78}{\electronvolt}$、$\lambda=\qty{328}{\nano\metre}$ とした（(1) の2倍を引き継いで、正しい値の半分）。$E_{1}<0$ なので $E_{3}-E_{2}=-\frac{5}{36}E_{1}=\frac{5}{36}\abs{E_{1}}=\qty{1.89}{\electronvolt}$、$\lambda=\qty{656}{\nano\metre}$。
+  \machigai{4}{△}{計算} $0-E_{2}=\frac{1}{4}E_{1}$ とし $\lambda=\qty{182}{\nano\metre}$ とした（(3) と同じく2倍の $E_{1}$ を引き継いだ）。正しくは $0-E_{2}=\abs{E_{1}}/4$、$\lambda=\qty{365}{\nano\metre}$。また、$n$ が大きいほど $E_{n}-E_{2}$ が大きく波長が短いので下限が $n\to\infty$ の極限になる、という根拠が書かれていない（解答の論点）。
+\end{kotaeran}
+\begin{rikai}
+  \item 運動方程式 $\melec v^{2}/r=e^{2}/(4\pi\varepsilon_{0}r^{2})$ の両辺に $r/2$ をかけると、運動エネルギー $K=e^{2}/(8\pi\varepsilon_{0}r)=-U/2$。よって $E=K+U=U/2=-e^{2}/(8\pi\varepsilon_{0}r)$（ビリアル定理の形）。「$E$ は $U$ の半分」と言葉で押さえておけば、係数の書き落としに気づける。
+  \item 束縛状態の $E_{n}=E_{1}/n^{2}$ は $E_{1}<0$ のまま使い、遷移のエネルギーは $E_{3}-E_{2}=\abs{E_{1}}(1/4-1/9)$ のように絶対値で書くと、符号を取り違えない。
+  \item 検算：\qty{27.2}{\electronvolt} は \qty{13.6}{\electronvolt} のちょうど2倍、\qty{328}{\nano\metre} は \qty{656}{\nano\metre} のちょうど半分である。答えが既知の値の2倍・半分になったら、まず係数 $1/2$ を疑う。
+\end{rikai}

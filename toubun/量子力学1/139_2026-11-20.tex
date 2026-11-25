@@ -1,0 +1,99 @@
+% 量子力学1 量子力学1-11 問題8（139-parity） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\hat{P}^{2}\psi(x)&=\hat{P}\bigl(\hat{P}\psi(x)\bigr)\\
+&=\hat{P}\psi(-x)\\
+&=\psi(x)\qquad\therefore\ \hat{P}^{2}=\hat{1}
+\end{align*}
+$\hat{P}$ の固有値を $\lambda$，固有関数を $\chi(x)$ とする。
+\[ \hat{P}\chi(x)=\lambda\chi(x)\qquad\text{両辺に $\hat{P}$ を作用させる。} \]
+\begin{align*}
+&\hat{P}^{2}\chi(x)=\lambda\hat{P}\chi(x)\\
+&\hat{1}\chi(x)=\lambda^{2}\chi(x)\\
+&\therefore\ \lambda^{2}=1\qquad\lambda=\pm1
+\end{align*}
+$\lambda=1$ のとき、
+\[ \hat{P}\chi(x)=\chi(-x)=\chi(x) \]
+$\therefore$ $\chi(x)$ は偶パリティ
+
+$\lambda=-1$ のとき、
+\[ \hat{P}\chi(x)=\chi(-x)=-\chi(x) \]
+$\chi(x)$ は奇パリティ
+\toi{2}{◎}{}
+\[ \int\psi^{*}\hat{P}\psi\dd x=\int\hat{P}\psi^{*}\psi\dd x\quad\text{を示す} \]
+\begin{align*}
+\text{左辺}&=\int_{-\infty}^{\infty}\psi^{*}(x)\psi(-x)\dd x\qquad y=-x\ \text{とする。}\\
+&=\int_{\infty}^{-\infty}\psi^{*}(-y)\psi(y)\cdot{-\dd y}\\
+&=\int_{-\infty}^{\infty}\psi^{*}(-y)\psi(y)\dd y\\
+\text{右辺}&=\int_{-\infty}^{\infty}\psi^{*}(-x)\psi(x)\dd x
+\end{align*}
+より、左辺＝右辺が成り立つ。
+
+よって $\hat{P}$ はエルミート演算子
+\toi{3}{◎}{}
+\begin{align*}
+\hat{P}\hat{x}\psi(x)&=\hat{P}\bigl(x\psi(x)\bigr)\\
+&=-x\psi(-x)\\
+-\hat{x}\hat{P}\psi(x)&=-x\psi(-x)\quad\text{より、}\ \hat{P}\hat{x}=-\hat{x}\hat{P}
+\end{align*}
+\begin{align*}
+\hat{P}\hat{p}\psi(x)&=\hat{P}\bigl(-\ii\hbar\psi'(x)\bigr)\\
+&=-\ii\hbar\psi'(-x)\\
+\hat{p}\hat{P}\psi(x)&=-\ii\hbar\dv{}{x}\bigl(\psi(-x)\bigr)\\
+&=\ii\hbar\psi'(-x)\qquad\text{よって}\ \hat{P}\hat{p}=-\hat{p}\hat{P}
+\end{align*}
+\[ \comm{\hat{P}}{\hat{H}}=\frac{1}{2m}\comm{\hat{P}}{\hat{p}^{2}}+\comm{\hat{P}}{V(x)} \]
+\begin{align*}
+\comm{\hat{P}}{\hat{p}^{2}}&=\comm{\hat{P}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{P}}{\hat{p}}\\
+&=(\hat{P}\hat{p}-\hat{p}\hat{P})\hat{p}+\hat{p}(\hat{P}\hat{p}-\hat{p}\hat{P})\\
+&=2\hat{P}\hat{p}^{2}+2\hat{p}\hat{P}\hat{p}\\
+&=2\hat{P}\hat{p}^{2}-2\hat{P}\hat{p}^{2}\\
+&=0
+\end{align*}
+\begin{align*}
+\comm{\hat{P}}{V(x)}\psi(x)&=\hat{P}V(x)\psi(x)-V(x)\hat{P}\psi(x)\\
+&=V(-x)\psi(-x)-V(x)\psi(-x)\\
+&=\bigl(V(-x)-V(x)\bigr)\hat{P}\psi(x)
+\end{align*}
+\[ \comm{\hat{P}}{V(x)}=\bigl(V(-x)-V(x)\bigr)\hat{P} \]
+よって $\comm{\hat{P}}{\hat{H}}=0$ となるのは $V(-x)=V(x)$ のときのみ
+\toi{4}{○}{記述}
+\begin{align*}
+\expval{\hat{P}}&=\int_{-\infty}^{\infty}\psi^{*}(x)\hat{P}\psi(x)\dd x\\
+&=\int_{-\infty}^{\infty}\psi(x)\psi(-x)\dd x\\
+&=(\pi\sigma^{2})^{-\frac{1}{2}}\int_{-\infty}^{\infty}\exp\biggl(\frac{-(x-x_{0})^{2}}{2\sigma^{2}}\\
+&\qquad+\frac{-(-x-x_{0})^{2}}{2\sigma^{2}}\biggr)\dd x
+\end{align*}
+（矢印で指数の部分につなぐ）
+\begin{align*}
+&\frac{1}{2\sigma^{2}}\Bigl(-(x^{2}-2x_{0}x+x_{0}^{2})-(x^{2}+2x_{0}x+x_{0}^{2})\Bigr)\\
+&=\frac{-(x^{2}+x_{0}^{2})}{\sigma^{2}}
+\end{align*}
+\begin{align*}
+&\int_{-\infty}^{\infty}\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\exp\left(-\frac{x^{2}}{\sigma^{2}}\right)\dd x\\
+&=\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\sqrt{\pi\sigma^{2}}
+\end{align*}
+\[ \expval{\hat{P}}=\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right) \]
+\[ \psi(x)=\underbrace{\psi_{+}(x)}_{\text{偶}}+\underbrace{\psi_{-}(x)}_{\text{奇}} \]
+\begin{align*}
+&\hat{P}\psi(x)=\psi_{+}(x)-\psi_{-}(x)\\
+&(1+\hat{P})\psi(x)=2\psi_{+}(x)\\
+&\therefore\ \psi_{+}(x)=\frac{1+\hat{P}}{2}\psi(x)\\
+&(1-\hat{P})\psi(x)=2\psi_{-}(x)\\
+&\therefore\ \psi_{-}(x)=\frac{1-\hat{P}}{2}\psi(x)
+\end{align*}
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{\psi_{+}(x)}^{2}\dd x&=\frac{1}{4}\int\psi^{2}(x)+2\psi(x)\psi(-x)\\
+&\qquad+\psi^{2}(-x)\dd x\\
+&=\frac{1}{4}\bigl(2+2\expval{\hat{P}}\bigr)\\
+&=\frac{1}{2}\left(1+\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\right)\\
+\int_{-\infty}^{\infty}\abs{\psi_{-}(x)}^{2}\dd x&=\frac{1}{4}\int\psi^{2}(x)-2\psi(x)\psi(-x)\\
+&\qquad+\psi^{2}(-x)\dd x\\
+&=\frac{1}{4}\bigl(2-2\expval{\hat{P}}\bigr)\\
+&=\frac{1}{2}\left(1-\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\right)
+\end{align*}
+\naze{$\int\abs{\psi_{\pm}}^{2}\dd x$ がパリティを測って $\pm1$ を得る確率になる根拠が無い。$\psi_{+}$ と $\psi_{-}$ は $\hat{P}$ の異なる固有値の固有関数で，$\hat{P}$ がエルミート（(2)）なので直交する。だから $\int\abs{\psi}^{2}=\int\abs{\psi_{+}}^{2}+\int\abs{\psi_{-}}^{2}$ と分かれ，各成分の積分が確率になる。}
+%% kizuki
+\item \mae{第7章 問題4・11-07} 確率と読める理由を書かなかった（前回は $\abs{\tilde{\psi}}^{2}\dd k$ が確率になる理由）。測定で固有値 $\pm1$ を得る確率は，$\psi$ を固有関数どうしの直交する成分に分けたときの各成分の規格化の積分である。直交していなければ $\int\abs{\psi}^{2}=\int\abs{\psi_{+}}^{2}+\int\abs{\psi_{-}}^{2}$ が成り立たず確率と読めない。(2) のエルミート性がここで使われる。
+\item 確かめ：$P_{+}+P_{-}=1$，$x_{0}=0$（偶関数）で $P_{+}=1$ になる。

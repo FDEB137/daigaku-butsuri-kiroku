@@ -1,0 +1,53 @@
+% 量子力学1 量子力学1-11 問題2（082-step） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+（図：$x<0$ で $V=0$，$x>0$ で高さ $V_{1}$ の段差のポテンシャル）
+
+i) $x<0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi''(x)=E\phi(x)\\
+&\therefore\ \phi_{1}''(x)=-\frac{2mE}{\hbar^{2}}\phi_{1}(x)\\
+&\phi_{1}(x)=A\cos\frac{\sqrt{2mE}}{\hbar}x+B\sin\frac{\sqrt{2mE}}{\hbar}x
+\end{align*}
+ii) $x>0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi_{2}''(x)=-(V_{1}-E)x\\
+&\therefore\ \phi_{2}''(x)=\frac{2m(V_{1}-E)}{\hbar^{2}}\phi_{2}(x)\\
+&\phi_{2}(x)=C\ee^{-\frac{\sqrt{2m(V_{1}-E)}}{\hbar}x}
+\end{align*}
+\[ \therefore\ k=\frac{\sqrt{2mE}}{\hbar}\qquad\kappa=\frac{\sqrt{2m(V_{1}-E)}}{\hbar} \]
+$x\to+\infty$ で発散しないよう $\ee^{\kappa x}$ の項を除いている。
+\toi{2}{◎}{}
+\begin{align*}
+&\lim_{x\to-0}A\cos kx+B\sin kx=A\\
+&\lim_{x\to+0}C\ee^{-\kappa x}=C\\
+&A=C
+\end{align*}
+\begin{align*}
+\lim_{x\to-0}\phi_{1}'(x)&=\lim_{x\to-0}-Ak\sin kx+Bk\cos kx\\
+&=Bk\\
+\lim_{x\to+0}\phi_{2}'(x)&=\lim_{x\to+0}-C\kappa\ee^{-\kappa x}\\
+&=-C\kappa
+\end{align*}
+\[ B=-C\frac{\kappa}{k} \]
+\toi{3}{○}{計算}
+\[ \phi_{1}(x)=C\left(\cos kx-\frac{\kappa}{k}\sin kx\right) \]
+\[ k=\frac{\sqrt{mV_{1}}}{\hbar}\qquad\kappa=\frac{\sqrt{mV_{1}}}{\hbar}\quad\text{より、} \]
+\[ \phi_{1}(x)=\nuke{\sqrt{2}}\,C\left(\sin\left(kx+\frac{3\pi}{4}\right)\right) \]
+\naze{$\sin(\theta+3\pi/4)=(\cos\theta-\sin\theta)/\sqrt{2}$ なので，合成すると振幅に $\sqrt{2}$ が付く。零点の位置には影響しない。}
+\[ \phi_{1}(x)=0\qquad kx+\frac{3\pi}{4}=0 \]
+\begin{align*}
+x&=-\frac{3\pi}{4k}\\
+&=-\frac{3\pi\hbar}{4\sqrt{mV_{1}}}
+\end{align*}
+\naze{零点は $kx+3\pi/4=l\pi$（$l$ は整数）のすべてである。そのうち $x<0$ で $x=0$ に最も近いのが $l=0$ であることを1行書く。}
+\toi{4}{◎}{}
+\begin{align*}
+&\lim_{x\to0}\phi(x)=C=-B\frac{k}{\kappa}\\
+&V_{1}\to\infty\ \text{で}\ \kappa\to\infty\\
+&\lim_{\kappa\to\infty}\left(-B\frac{k}{\kappa}\right)=0
+\end{align*}
+無限井戸の壁での境界条件と一致する。
+%% kizuki
+\item \mae{第2章 問題1・10-14} 三角関数を合成するときに係数を落とした（前回は $2\cos x$ で $k$ を落とした）。合成した式は加法定理で展開し直して元の式に戻るか，$\theta=0$ を入れて両辺の値が等しいか（左辺 $1$，右辺 $\sin(3\pi/4)=1/\sqrt{2}$）で確かめる。
+\item \mae{第4章 問題3・10-28} 方程式の解が無数にあるときは，一般形（$l$ を整数として）を書いてから，問題の条件（$x<0$，$x=0$ に最も近い）で1つを選ぶ。選んだ根拠を1行で書く。

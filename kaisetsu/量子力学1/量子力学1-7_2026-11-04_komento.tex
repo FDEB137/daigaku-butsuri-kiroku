@@ -1,0 +1,41 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 2026-11-06 採点（解いた日 2026-11-04 のスキャン）
+%% matome
+\begin{daiji}
+  \item 小問の問いを1つずつ数えて、全部に答えたかを最後に確かめる。問題3 では「規格化」(2)、「縮退の様子」(3)、「井戸で運動量の固有関数がエネルギーの固有関数になれない理由と、運動量について何がいえるか」(4) が答案に無い。
+  \item 規格化された固有関数を求めるときは、$\phi=A\,\ee^{\ii px/\hbar}$ と定数 $A$ を残しておき、最後に $\int_{0}^{L}\abs{\phi}^{2}\dd x=1$ から $A$ を決める（問題3 (2)）。
+  \item $\ee^{-\ii\theta}-\ee^{\ii\theta}=-2\ii\sin\theta$ のように $\ii$ が入る変形は、$\theta$ を小さくしたときの1次の項で符号を確かめる（問題2 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 「固有関数でない」の理由：第5章 問題7 (4)（2026-10-30）でも、成り立たないことを示しただけで「定数倍にならない」理由を書かなかった。今回の問題1 (3) も同じ。結果が「元の関数の定数倍か」を一言で判定して書く。
+  \item 問われた項目の書き落とし：第6章 問題1 (1)（2026-11-01）で、得られる値と確率を答えとして書かなかった。今回は問題3 (3)(4) で縮退と理由を書き落とした。答案の最後に、問題文の「求めよ」「述べよ」の数だけ答えが並んでいるかを数える。
+  \item $\ii$ と符号の扱い：第2章 問題4 (2)（2026-10-14、$-3\ii\hbar$ の符号が逆）、第6章 問題2 (4)（2026-11-01、括弧を外すときの符号）。今回の問題2 (2) も符号の誤り。$1/\ii=-\ii$ を使うときは特に確かめる。
+\end{maemo}
+%% mondai 1
+\begin{kotaeran}
+  \machigai{3}{○}{記述} $\hat{\vect{p}}\chi=\hbar\vect{k}\,[\phi_{\vect{k}}-\phi_{-\vect{k}}]/\sqrt{2}$ と、確率の比 $\cos^{2}(\vect{k}\cdot\vect{a})/\cos^{2}(\vect{k}\cdot\vect{b})$ は正しい。「固有関数でない」の理由が無い。$\vect{k}\neq\vect{0}$ では $\phi_{\vect{k}}$ と $\phi_{-\vect{k}}$ は比例しない関数なので、$\phi_{\vect{k}}-\phi_{-\vect{k}}$ は $\chi\propto\phi_{\vect{k}}+\phi_{-\vect{k}}$ の定数倍にならない、まで書く。
+\end{kotaeran}
+\begin{rikai}
+  \item 固有関数かどうかは「演算子を作用させた結果が、元の関数の定数倍か」で決まる。重ね合わせ $c_{1}\phi_{1}+c_{2}\phi_{2}$ が固有関数になるのは、2つの固有値が等しいときだけである（$\hat{\vect{p}}^{2}$ では $\pm\hbar\vect{k}$ の2乗が等しいので固有関数になる）。
+  \item (2) で左辺を $\abs{\phi_{\vect{k}}(\vect{a})}^{2}$ と書き、右辺に $\dd V$ を付けていた。等式の両辺に同じ量（$\dd V$）があるかを確かめる（減点なし）。
+\end{rikai}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{2}{△}{計算} $\tilde{\phi}(k)=(\ee^{-\ii kx_{0}}-\ee^{\ii kx_{0}})/(2\sqrt{\pi})$ までは正しい。次の行で $-\sin(kx_{0})/(\ii\sqrt{\pi})$ とした。$-1/\ii=\ii$ なので、これは $+\ii\sin(kx_{0})/\sqrt{\pi}$ で、符号が逆である。$\ee^{-\ii\theta}-\ee^{\ii\theta}=-2\ii\sin\theta$ から、正しくは $\tilde{\phi}(k)=-\ii\sin(kx_{0})/\sqrt{\pi}$（$=\sin(kx_{0})/(\ii\sqrt{\pi})$）。(3) の $\abs{\tilde{\phi}(k)}^{2}$ には影響しない。
+\end{kotaeran}
+\begin{rikai}
+  \item 検算：$\theta$ が小さいとき $\ee^{-\ii\theta}-\ee^{\ii\theta}\approx(1-\ii\theta)-(1+\ii\theta)=-2\ii\theta$ なので、係数は $-2\ii$。$1/\ii=-\ii$ を使って書き直したら、もう一度この形と比べる。
+  \item 全体の符号（位相 $-1$）は $\abs{\tilde{\phi}}^{2}$ には効かないが、ほかの状態と重ね合わせると干渉の符号が変わるので、答えとしては区別する。
+\end{rikai}
+%% mondai 3
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $\ee^{\ii p_{n}L/\hbar}=1$ から $p_{n}=2n\pi\hbar/L$ は正しい。周期的境界条件のもう1つの条件 $\phi'(L)=\phi'(0)$ に触れていない。$\phi'=(\ii p/\hbar)\phi$ なので $\phi(L)=\phi(0)$ から自動的に成り立つ、と一言書く（$n$ は整数 $0,\pm1,\pm2,\ldots$ であることも）。
+  \machigai{2}{△}{立式} $\braket{x}{n}=\exp(2\pi\ii nx/L)$ と書き、規格化をしていない。$\int_{0}^{L}\abs{A}^{2}\dd x=\abs{A}^{2}L=1$ から $A=1/\sqrt{L}$ で、$\braket{x}{n}=\ee^{2\pi\ii nx/L}/\sqrt{L}$。
+  \machigai{3}{△}{未着手} $E_{n}=2n^{2}\pi^{2}\hbar^{2}/(mL^{2})$、$p_{1}=\qty{6.63e-25}{\kilogram\metre\per\second}$、$E_{1}=\qty{2.41e-19}{\joule}=\qty{1.51}{\electronvolt}$ は正しい。問われている「縮退の様子」が無い。$E_{n}$ は $n^{2}$ だけで決まるので $n\neq0$ は $\pm n$ の2重縮退、$n=0$（$E_{0}=0$）だけが縮退しない。
+  \machigai{4}{△}{未着手} $E_{n}^{\text{井戸}}=E_{n}/4$ は正しい（$E_{n}=E_{2\abs{n}}^{\text{井戸}}$ とも書ける）。残りの2つの問い（井戸で運動量の固有関数がエネルギーの固有関数になりえない理由、井戸の固有状態で運動量について何がいえるか）が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 運動量の固有関数 $A\,\ee^{\ii px/\hbar}$ は絶対値が $\abs{A}$ で一定なので、$A\neq0$ なら $\phi(0)=0$ を満たせない。だから井戸のエネルギーの固有関数にはなれない。
+  \item 井戸の $\sin(n\pi x/L)$ は、区間の中では運動量 $\pm n\pi\hbar/L$ の平面波2つの重ね合わせの形だが、区間の外で $0$ なので運動量の分布は $k$ の連続関数になる。運動量は（大きさも）1つに定まらず、いえるのは $\expval{p}=0$ と $\expval{p^{2}}=(n\pi\hbar/L)^{2}$。
+  \item 周期的境界条件では $n$ と $-n$（右向きと左向き）が同じエネルギーをもつ。縮退を述べるときは、$n=0$ が例外であることも書く。
+\end{rikai}

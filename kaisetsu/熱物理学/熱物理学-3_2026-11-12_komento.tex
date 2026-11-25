@@ -1,0 +1,53 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 熱物理学 第3章（2026-11-12 解答。スキャン 2026-11-13_02_16_20_AM_からスキャン_p1〜p4）
+%% matome
+\begin{daiji}
+  \item 原始関数は $\int A\,\dd T + \int B\,\dd V$ の和ではない。一方を不定積分して「積分定数」を残りの変数の関数 $g(V)$ とおき，もう一方の係数と見比べて決める。求めたら偏微分して係数に戻るかで検算する（問題2 (1)・(3)）。
+  \item 式の並びだけでは伝わらない根拠を一言書く。係数を比べてよいのは比べる微小量が独立に選べるから，線積分が $F(\mathrm{Q})-F(\mathrm{P})$ に等しいのは全微分だから（問題5 (1)(2)・問題7 (3)）。
+  \item 説明の問いには，問われたことを全部答える。符号の整合は因子ごとに $\alpha>0$，$\kappa_{T}>0$ から符号を決め，積が 0 になる条件は「どちらかの因子が 0」の2通りを挙げる（問題6）。
+\end{daiji}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{1}{▲}{方針} 条件2で全微分と判定したところまでは正しい。原始関数を $F=\int(2TV^{2}+b)\,\dd T+\int(2T^{2}V-c/V^{2})\,\dd V=2T^{2}V^{2}+bT+c/V$ とした。2つの係数をそれぞれ積分して足すと，両方に含まれる $T^{2}V^{2}$ を2回数えてしまう。実際，この $F$ を $T$ で微分すると $4TV^{2}+b$ になり，$\dd T$ の係数 $2TV^{2}+b$ に戻らない。正しくは $T$ で不定積分して $F=T^{2}V^{2}+bT+g(V)$ とおき，$V$ で微分して $B$ と比べると $g'(V)=-c/V^{2}$ なので $F=T^{2}V^{2}+bT+c/V+(\text{定数})$。
+  \machigai{3}{△}{未着手} $(T,V)$，$(T,n)$，$(V,n)$ の3組で条件2を確かめたところは正しいが，原始関数 $F(T,V,n)$ を求めていない。(1) と同じ手順で $F=nTV+h(V,n)$ から始め，$V$ 微分を $nT$ と，$n$ 微分を $TV+2n$ と順に見比べると $F=nTV+n^{2}+(\text{定数})$。
+\end{kotaeran}
+\begin{rikai}
+  \item $(\partial F/\partial T)_{V}=A$ を $T$ で積分するとき $V$ は固定していたので，「積分定数」は $V$ の任意関数 $g(V)$ になる。$g$ は $(\partial F/\partial V)_{T}=B$ と見比べて決める。$B$ を $V$ で積分した結果をそのまま足すと，$A$ からすでに出ている項が重なる。
+  \item もう1つの作り方は，基準点から $V=V^{*}$ のまま $T$ 方向，続けて $T$ を固定して $V$ 方向に進む線積分 $F=\int_{T^{*}}^{T}A(T',V^{*})\,\dd T'+\int_{V^{*}}^{V}B(T,V')\,\dd V'$。問題7 (2) ではこれができている。
+  \item 求めた $F$ は必ず偏微分して，$\dd T$・$\dd V$（・$\dd n$）の係数に戻ることを確かめる。
+\end{rikai}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{5}{△}{計算} $\alpha=(1/T)(1-nb/V)$ までは正しいが，値を $2.67\times10^{-4}$ とした。正しくは $(1-0.0200)/\qty{300}{\kelvin}=\qty{3.27e-3}{\per\kelvin}$。$2.67\times10^{-4}$ は $0.08/300$ に当たるので，$1-0.0200=0.980$ の引き算を誤ったとみられる。単位も無く，問われている同じ温度の理想気体の値 $1/T=\qty{3.33e-3}{\per\kelvin}$ との比較（この気体は $0.980$ 倍で 2.0\,\% 小さい）も書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item $nb/V=0.0200$ は小さな補正なので，$\alpha$ は理想気体の $1/T$ に近いはずである。$b\to0$ で理想気体に戻ることを使って，答えが $1/T$ と同じ桁かを確かめる。
+  \item 数値の答えには単位（\unit{\per\kelvin}）を付ける。「比べよ」には比（$0.980$ 倍）か差で答える。
+\end{rikai}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $\dd V=\alpha V\,\dd T-\kappa_{T}V\,\dd p$ の導出と代入，得た $(\partial X/\partial T)_{p}=(\partial X/\partial T)_{V}+\alpha V(\partial X/\partial V)_{T}$，$(\partial X/\partial p)_{T}=-\kappa_{T}V(\partial X/\partial V)_{T}$ は正しい。代入した $\dd X$ からすぐ $(\partial X/\partial T)_{p}=\cdots$ と書いていて，$X$ を $(T,p)$ の関数とみた全微分 $\dd X=(\partial X/\partial T)_{p}\dd T+(\partial X/\partial p)_{T}\dd p$ と，係数を比べてよい理由（$\dd T$ と $\dd p$ が独立に選べる）が無い。
+  \machigai{2}{○}{記述} $(V,p)$ の全微分に $\dd V$ を代入し，$\dd T$・$\dd p$ の係数を (1) の結果と比べて $(\partial X/\partial V)_{p}$，$(\partial X/\partial p)_{V}$ を出す方法は，解答と違うが正しい。$X=T$ での確かめも正しい。(1) と同じく係数比較の根拠が無く，$1/(\alpha V)$ を作るときに $\alpha\neq0$ を使ったことも書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item $\dd T$，$\dd V$，$\dd p$ は状態方程式で結ばれていて，独立に選べるのは2つだけである。係数を比べるときは「どの2つが独立か」を一言書く。3つを同時に独立とみると誤る。
+  \item 割り算をしたら，割った量が 0 でないこと（ここでは $\alpha\neq0$）を書く。水の \qty{4}{\degreeCelsius} 付近のように $\alpha=0$ となる状態では，$(V,p)$ を独立変数に選べない。
+\end{rikai}
+%% mondai 6
+\begin{kotaeran}
+  \machigai{1}{△}{記述} 3つの因子を $\alpha/\kappa_{T}$，$1/(\alpha V)$，$-\kappa_{T}V$ と表して積が $-1$ になることは正しい。約分できない理由は「固定した変数について考えていない」だけで，3つが等積・等圧・等温という別々の変化に沿った比なので，分母と分子の $\partial T$ などが同じ量ではない，まで書かれていない。また，問われている「$-1$ の符号が $\alpha>0$，$\kappa_{T}>0$ と整合すること」の説明が無い。積 $(\alpha/\kappa_{T})\cdot(1/(\alpha V))\cdot(-\kappa_{T}V)$ は $\alpha$，$\kappa_{T}$ の符号によらず $-1$ になるので，この計算だけでは整合の説明にならない。
+  \machigai{2}{△}{記述} $(\partial X/\partial T)_{p}=(\partial X/\partial T)_{V}+\alpha V(\partial X/\partial V)_{T}$ から $(\partial X/\partial V)_{T}=0$ を挙げたのは正しいが，差 $\alpha V(\partial X/\partial V)_{T}$ が 0 になるもう1つの場合 $\alpha=0$ が式で挙がっていない（図に添えた「等積線と等圧線の傾きが同じ」は $\alpha=0$ の意味に当たるが，$\alpha$ と結び付けていない）。$(\partial X/\partial V)_{T}=0$ の意味も「$X$ が $V$ によらない」にとどまり，等積線・等圧線の言葉での説明が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 符号は因子ごとに決める。$\alpha>0$（定圧で温めると膨張）なので $(\partial T/\partial V)_{p}=1/(\alpha V)>0$，$\kappa_{T}>0$（等温で圧縮すると体積が減る）なので $(\partial V/\partial p)_{T}=-\kappa_{T}V<0$，その結果 $(\partial p/\partial T)_{V}=\alpha/\kappa_{T}>0$。正・正・負で積は負になり，$-1$ の符号と合う。
+  \item 積が 0 になるのは，どちらかの因子が 0 のとき。$V>0$ なので $\alpha V(\partial X/\partial V)_{T}=0$ は「$\alpha=0$ または $(\partial X/\partial V)_{T}=0$」の2通り。
+  \item $(T,V)$ 平面（横軸 $T$，縦軸 $V$）で，等積線は水平線，等圧線の傾きは $(\partial V/\partial T)_{p}=\alpha V$。$\alpha=0$ なら等圧線がその点で等積線に接し，定圧で温めても体積が1次で変わらない。$(\partial X/\partial V)_{T}=0$ なら，等圧線が等積線からずれて体積が $\alpha V\,\dd T$ 変わっても，$X$ がその方向に変わらないので差が出ない。
+\end{rikai}
+%% mondai 7
+\begin{kotaeran}
+  \machigai{3}{○}{記述} 媒介変数での計算，値 $-T_{0}V_{0}^{2}/2$，$F(\mathrm{Q})-F(\mathrm{P})$ との一致は正しい。書き出しを $F(T,V)=\int_{C}\omega$ としたが，線積分は曲線 $C$ で決まる1つの数で，$(T,V)$ の関数 $F$ ではない（等しいのは $F(\mathrm{Q})-F(\mathrm{P})$）。また，両者が等しくなる理由（(1) で条件2を確かめた全微分なので，線積分は原始関数の終点と始点の値の差になる。基準点による定数 $T^{*}V^{*2}$ は差で消える）が書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item 線積分 $\int_{C}\omega$ が $F(\text{終点})-F(\text{始点})$ に等しいのは，$\omega$ が全微分（原始関数をもつ）ときだけである。名前を付けるなら $I_{C}$ などとし，原始関数 $F$ と区別する。
+  \item (2) で最初に第2項の $T$ を $T^{*}$ にしかけて自分で直せている。原始関数の構成の第2項 $\int_{V^{*}}^{V}B(T,V')\,\dd V'$ の $T$ は終点の $T$ である。
+\end{rikai}

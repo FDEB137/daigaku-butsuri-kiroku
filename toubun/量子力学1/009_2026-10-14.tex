@@ -1,0 +1,24 @@
+% 量子力学1 量子力学1-2 問題1（009-phase。当時は kai02-l1-phase） 解いた日 2026-10-14
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+&\psi_{a}:\ \text{右},\ \frac{\omega t}{k}\qquad\psi_{b}:\ \text{左}\ -\frac{\omega t}{k}\\
+&\psi_{c}:\ \text{左}\ -\frac{\omega t}{2k}
+\end{align*}
+\naze{向きと速さの答えだけで，位相が一定の点の動きの根拠が無い。たとえば $\psi_{c}$ では位相 $-(2kx+\omega t)=$ 一定 から $2k\,\dv{x}{t}+\omega=0$，$\dv{x}{t}=-\omega/(2k)$ である。書いた $\omega t/k$ などは位相が一定の点の位置（$+$定数）で，速さはその係数 $\omega/k$，$\omega/k$，$\omega/(2k)$（正の量）である。}
+\toi{2}{△}{計算}
+\begin{align*}
+&\ee^{\ii kx}\ee^{-\ii\omega t}+\ee^{-\ii kx}\ee^{-\ii\omega t}\\
+&\quad=(\ee^{\ii kx}+\ee^{-\ii kx})\ee^{-\ii\omega t}\\
+&\quad=\ayamari{2\cos x}{2\cos kx}\,\ee^{-\ii\omega t}
+\end{align*}
+\naze{$\ee^{\ii kx}+\ee^{-\ii kx}=2\cos kx$ で，$k$ が落ちている。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+&\abs{\psi_{d}}=\abs{2\cos x}=0\\
+&\therefore\ x=\frac{\pi}{2}+n\pi\quad(n=\pm\fumei,2,3,\dots)
+\end{align*}
+\naze{正しくは $\abs{\psi_{d}}=\abs{2\cos kx}=0$ から $kx=\pi/2+j\pi$，すなわち $x=(2j+1)\pi/(2k)$（$j$ は $0$ を含むすべての整数）である。}
+$0$ になる点が $t$ に依存しないため，定常波。
+%% kizuki
+\item 位相が $\theta=\alpha x+\beta t+\text{定数}$ の形なら，$\theta$ が一定の点では $\alpha\,\dv{x}{t}+\beta=0$ で $\dv{x}{t}=-\beta/\alpha$ となる。この1行を書いてから，向き（符号）と速さ（正の量）を分けて答える。
+\item $\cos$ の引数は無次元なので，$\cos x$ や $x=\pi/2+n\pi$ のように $x$ が $k$ を伴わずに出てきたら $k$ の書き落としを疑う。零点の答えに $k$ が入っているかで検算する。

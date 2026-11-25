@@ -1,0 +1,152 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第5章「エルミート演算子と固有値問題」}{2026-11-01}
+%% kaisetsu-moto	problems\量子力学1\shou05\量子力学1-5.tex	kiroku\kaisetsu\量子力学1\量子力学1-5_2026-11-01_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-041-ortho}{7}}{L2・導出}{◎○◎○}{A}{(2)記述 (4)記述}
+  \hyougyou{\hyperlink{bt-m-128-gram}{8}}{L2・計算}{◎○◎○}{A}{(2)記述 (4)記述}
+\end{saitenichiran}
+\begin{daiji}
+  \item エルミート性 $\int\phi^{*}(\hat{A}\psi)\dd x=\int(\hat{A}\phi)^{*}\psi\dd x$ は積分どうしの等式で、被積分関数どうしは等しくない。固有値の実数性は積分を付けたまま示し、最後に $\int\abs{\psi}^{2}\dd x>0$ で割る（問題7 (2)）。
+  \item 「どの段階で成り立たないか」「基底によらないのはなぜか」と聞かれたら、式で確かめた後に理由を1文書く。非エルミート行列では $B^{\dagger}\vect{v}$ が $\vect{v}$ の定数倍にならない（問題7 (4)）。縮退した固有ベクトルの1次結合も同じ固有値の固有ベクトルなので直交化してよい（問題8 (2)）。縮退した部分の係数の2乗和は固有空間への射影の長さの2乗である（問題8 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 根拠の1文の書き落とし：量子力学1-2 問題1 (1)（2026-10-14、位相一定の根拠なし）、量子力学1-4 問題3 (2)（2026-10-28、$x=-1$ が区間外である根拠なし）でも、結論に必要な根拠を書いていなかった。今回は問題7 (2)(4)、問題8 (2)(4) で同じことが起きた。答えを書いたら「なぜそう言えるか」を1行足してから次の問いへ進む。
+  \item 複素共役の書き方：量子力学1-3 問題2（2026-10-18・2026-10-21、複素定数の $\abs{A}^{2}$ を $A^{2}$）、問題5（2026-10-18、$R$ を $R^{*}$ にしなかった）。今回も問題7 (1)〜(3) で $(\hat{A}\psi)^{*}$ を $\hat{A}^{\dagger}\psi^{*}$ と書いていた（最後の式は正しいので減点していない）。共役は括弧ごと $(\hat{A}\psi)^{*}$ と書き、$\hat{A}^{\dagger}$（エルミート共役）と $^{*}$（複素共役）を混ぜない。
+\end{maemo}
+
+\mondaihen
+\level{2}
+\mondaibangou{7}
+\begin{mondai}{041-ortho}{導出}{エルミート演算子の $\int\psi^{*}\hat{A}\psi\dd x$ と固有値の実数性，異なる固有値に属する固有関数の直交性の証明}
+1次元で考え，関数はすべて $x\to\pm\infty$ で十分速く 0 になるとする。エルミート演算子は要点整理の定義に従う。
+  \begin{shoumon}
+    \item $\hat{A}$ をエルミート演算子とする。$\psi(x)$ が $\hat{A}$ の固有関数でなくても，$\int\psi^{*}\hat{A}\psi\dd x$ が実数であることを示せ。
+    \item (1) を用いて，$\hat{A}$ の固有値が実数であることを示せ。
+    \item $\hat{A}\phi_{n}=a_{n}\phi_{n}$，$\hat{A}\phi_{m}=a_{m}\phi_{m}$，$a_{n}\neq a_{m}$ のとき，$\phi_{n}$ と $\phi_{m}$ が直交すること（$\int\phi_{m}^{*}\phi_{n}\dd x=0$）を示せ。
+    \item エルミートでない次の行列 $B$ の固有値と固有ベクトルを求め，異なる固有値に属する固有ベクトルが直交しないことを確かめよ。また，(3) の証明を行列に書き直したとき，どの段階が成り立たなくなるかを述べよ。
+      \[
+        B=\begin{pmatrix}1&1\\0&2\end{pmatrix}
+      \]
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $\hat{A}\psi=\lambda\psi$ から $\psi^{*}\hat{A}\psi=\lambda\psi^{*}\psi=(\hat{A}^{\dagger}\psi^{*})\psi=\lambda^{*}\psi^{*}\psi$、$\therefore\lambda=\lambda^{*}$ と書いている。方針（2通りに計算して比べる）は正しいが、積分記号がすべて落ちている。$\psi^{*}(\hat{A}\psi)=(\hat{A}\psi)^{*}\psi$ は各点では成り立たず（例：$\hat{p}$ では左辺と右辺で符号が違う）、エルミート性が保証するのは積分が等しいことだけである。また、$\lambda\psi^{*}\psi=\lambda^{*}\psi^{*}\psi$ から $\lambda=\lambda^{*}$ とするには、$\psi\neq0$ なので $\int\abs{\psi}^{2}\dd x>0$ であり、それで割ってよいことが要る。正しくは、(1) の $\psi$ に固有関数を使って $\int\psi^{*}\hat{A}\psi\dd x=\lambda\int\abs{\psi}^{2}\dd x$ と書き、左辺が (1) より実数、$\int\abs{\psi}^{2}\dd x$ が正の実数なので $\lambda$ は実数、とする。
+
+  \machigai{4}{○}{記述} 固有値 $1$、$2$、固有ベクトル $(1,0)^{\mathrm{T}}$、$(1,1)^{\mathrm{T}}/\sqrt{2}$、内積 $1/\sqrt{2}\neq0$ は正しい。(3) の書き直しとして $\vect{v}_{2}^{\dagger}B\vect{v}_{1}=\vect{v}_{2}^{\dagger}\vect{v}_{1}$ と $(B^{\dagger}\vect{v}_{2})^{\dagger}\vect{v}_{1}=2\vect{v}_{2}^{\dagger}\vect{v}_{1}$ を並べ、後者に波線を引いているが、「この段階が成り立たない」ことも、その理由も書いていない。「述べよ」の問いなので、ここで $B^{\dagger}\vect{v}_{2}=2\vect{v}_{2}$（つまり $B^{\dagger}=B$）を使っているが $B$ はエルミートでなく、実際 $B^{\dagger}\vect{v}_{2}=(1,3)^{\mathrm{T}}/\sqrt{2}$ は $\vect{v}_{2}$ の定数倍でない、と書く必要がある。
+
+  問題とは別に (1)(3) の書き方について：$\int(\hat{A}^{\dagger}\psi^{*})\psi\dd x=\int\psi\hat{A}\psi^{*}\dd x$ のように、$(\hat{A}\psi)^{*}$ を $\hat{A}^{\dagger}\psi^{*}$ や $\hat{A}\psi^{*}$ と書いている。文字どおりには「$\psi^{*}$ に $\hat{A}$ を作用させたもの」で、$\hat{p}$ なら $\hat{p}(\psi^{*})=-(\hat{p}\psi)^{*}$ と符号まで変わる。最後の式は正しく、意図は読み取れるので減点していないが、括弧ごと $(\hat{A}\psi)^{*}$ と書く。(3) の途中の $\int\phi_{m}^{*}u_{n}\dd x$ は $\phi_{n}$ の書き間違い（次の行で直っている）。
+\end{kotaeran}
+\begin{rikai}
+  \item エルミート演算子の定義 $\int\phi^{*}(\hat{A}\psi)\dd x=\int(\hat{A}\phi)^{*}\psi\dd x$ は、部分積分で演算子を左の関数へ移したときの等式である。だから積分記号を外した形では使えない。$\hat{p}$ の場合、部分積分の境界の項が 0 になって初めて成り立つ。
+  \item 固有値の実数性の証明の要は2つ：(1) の「$\int\psi^{*}\hat{A}\psi\dd x$ は実数」と、$\int\abs{\psi}^{2}\dd x$ が 0 でない正の実数であること。後者が無いと $\lambda$ について割れない。
+  \item (3) の証明でエルミート性を使うのは「$\hat{A}$ を左に移して、左の固有関数の固有値で置き換える」ところだけである。行列では $\vect{u}^{\dagger}B\vect{v}=(B^{\dagger}\vect{u})^{\dagger}\vect{v}$ の $B^{\dagger}\vect{u}$ が $\vect{u}$ の定数倍かどうかを、実際に掛け算して確かめるとよい。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{8}
+\begin{mondai}{128-gram}{計算}{縮退のある3行3列のエルミート行列の固有値問題と，Gram--Schmidt の直交化，展開係数が縮退した部分の基底の選び方によらないこと}
+次の実対称行列（エルミート行列）を考える。
+  \[ A=\begin{pmatrix} 2 & 1 & 1\\ 1 & 2 & 1\\ 1 & 1 & 2 \end{pmatrix} \]
+  \begin{shoumon}
+    \item $A$ の固有値をすべて求めよ。また，縮退していない固有値の規格化された固有ベクトル $\vect{e}_{0}$ を求めよ。
+    \item 縮退した固有値について，$\vect{u}_{a}=(1,-1,0)^{\mathrm{T}}$ と $\vect{u}_{b}=(1,0,-1)^{\mathrm{T}}$ がどちらも固有ベクトルであり，互いに直交しないことを確かめよ。Gram--Schmidt の方法で，$\vect{u}_{a}$ の向きを $\vect{e}_{1}$ として，規格直交な固有ベクトル $\vect{e}_{1}$，$\vect{e}_{2}$ を作れ。
+    \item $\vect{v}=(1,0,0)^{\mathrm{T}}$ を $\vect{v}=c_{0}\vect{e}_{0}+c_{1}\vect{e}_{1}+c_{2}\vect{e}_{2}$ と展開し，係数を求めよ。$\vect{v}^{\dagger}A\vect{v}$ が $\sum_{j}\abs{c_{j}}^{2}\times$（固有値）に等しいことを確かめよ。
+    \item 縮退した固有値の部分の規格直交基底を $\vect{f}_{1}=(1,0,-1)^{\mathrm{T}}/\sqrt{2}$，$\vect{f}_{2}=(1,-2,1)^{\mathrm{T}}/\sqrt{6}$ に取り替えても，その部分の係数の絶対値の2乗の和は変わらないことを確かめよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $\vect{u}_{a}$、$\vect{u}_{b}$ が固有値 $1$ の固有ベクトルであることの確認と、Gram--Schmidt の結果 $\vect{e}_{1}=(1,-1,0)^{\mathrm{T}}/\sqrt{2}$、$\vect{e}_{2}=(1,1,-2)^{\mathrm{T}}/\sqrt{6}$ は正しい。抜けているのは2点。(a) 問いの「互いに直交しないことを確かめよ」に当たる $\vect{u}_{a}^{\dagger}\vect{u}_{b}=1\neq0$ が書かれていない（射影の係数 $1/2$ から読み取れるだけ）。(b) 直交化してできた $\vect{e}_{2}$ が固有ベクトルであることの根拠、つまり「同じ固有値の固有ベクトルの1次結合は、また同じ固有値の固有ベクトル」が無い。また分母を $\abs{\vect{u}_{2}-(\vect{u}_{2}\cdot\vect{u}_{1})\vect{u}_{1}}$ と書いているが、正しくは $\vect{e}_{1}$ 方向の成分を引いた $\abs{\vect{u}_{2}-(\vect{u}_{2}\cdot\vect{e}_{1})\vect{e}_{1}}$ である（値 $\sqrt{2/3}$ は正しい）。
+
+  \machigai{4}{○}{記述} 連立方程式から $c_{1}'=1/\sqrt{2}$、$c_{2}'=1/\sqrt{6}$ を出し、$c_{1}'^{2}+c_{2}'^{2}=2/3=c_{1}^{2}+c_{2}^{2}$ を確かめたところまでは正しい。足りないのは、なぜ基底を取り替えても変わらないかの1文である。縮退した部分の係数の2乗和は、$\vect{v}$ を固有値 $1$ の固有空間へ射影したベクトルの長さの2乗で、$\abs{\vect{v}}^{2}-\abs{c_{0}}^{2}=1-1/3=2/3$ と基底によらずに決まる。
+\end{kotaeran}
+\begin{rikai}
+  \item 縮退した固有値 $\lambda$ では、$A\vect{u}_{a}=\lambda\vect{u}_{a}$、$A\vect{u}_{b}=\lambda\vect{u}_{b}$ から $A(\alpha\vect{u}_{a}+\beta\vect{u}_{b})=\lambda(\alpha\vect{u}_{a}+\beta\vect{u}_{b})$ となる。だから固有空間の中で Gram--Schmidt を行っても固有ベクトルのままである。これが直交化してよい理由になる。
+  \item 規格直交基底での係数の2乗和は、そのベクトルの長さの2乗（射影の長さの2乗）である。固有空間が決まれば射影は決まるので、その中の基底の選び方によらない。
+  \item 展開係数は連立方程式でも求まるが、規格直交基底なら $c_{j}=\vect{e}_{j}^{\dagger}\vect{v}$ と内積1回で求まる。連立方程式で解いたときは、内積で検算するとよい。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{2}
+\kaisetsubangou{7}
+\begin{kaisetsu}{041-ortho}
+\houshin (1) はエルミート演算子の定義で2つの関数をどちらも $\psi$ にし，積分がその複素共役に等しいことを示す。(2) は固有関数に (1) を使う。(3) は $\int\phi_{m}^{*}\hat{A}\phi_{n}\dd x$ を2通りに計算して比べる。(4) は行列で同じ議論を試み，エルミート性を使う段階を特定する。
+\keisan \shoumonkai{1} $I=\int\psi^{*}(\hat{A}\psi)\dd x$ とおく。定義で $\phi=\psi$ とすると
+\[
+  I=\int_{-\infty}^{\infty}\bigl(\hat{A}\psi\bigr)^{*}\psi\dd x=\left[\int_{-\infty}^{\infty}\psi^{*}\bigl(\hat{A}\psi\bigr)\dd x\right]^{*}=I^{*}
+\]
+2つ目の等号は，被積分関数 $(\hat{A}\psi)^{*}\psi$ が $\psi^{*}(\hat{A}\psi)$ の複素共役であることによる。$I=I^{*}$ なので $I$ は実数である。この議論では $\psi$ が固有関数であることを使っていない。
+
+\shoumonkai{2} $\hat{A}\phi=a\phi$（$\phi\neq0$）とすると，(1) の $\psi$ に $\phi$ を使って
+\[
+  \int_{-\infty}^{\infty}\phi^{*}\hat{A}\phi\dd x=a\int_{-\infty}^{\infty}\abs{\phi}^{2}\dd x
+\]
+左辺は (1) より実数，$\int\abs{\phi}^{2}\dd x$ は正の実数なので，$a$ は実数である。
+
+\shoumonkai{3} $\hat{A}$ を右の $\phi_{n}$ に作用させると
+\[
+  \int_{-\infty}^{\infty}\phi_{m}^{*}\bigl(\hat{A}\phi_{n}\bigr)\dd x=a_{n}\int_{-\infty}^{\infty}\phi_{m}^{*}\phi_{n}\dd x
+\]
+定義で $\hat{A}$ を左に移し，(2) の $a_{m}^{*}=a_{m}$ を使うと
+\[
+  \int_{-\infty}^{\infty}\phi_{m}^{*}\bigl(\hat{A}\phi_{n}\bigr)\dd x=\int_{-\infty}^{\infty}\bigl(\hat{A}\phi_{m}\bigr)^{*}\phi_{n}\dd x=a_{m}^{*}\int_{-\infty}^{\infty}\phi_{m}^{*}\phi_{n}\dd x=a_{m}\int_{-\infty}^{\infty}\phi_{m}^{*}\phi_{n}\dd x
+\]
+2式の差をとると
+\[
+  (a_{n}-a_{m})\int_{-\infty}^{\infty}\phi_{m}^{*}\phi_{n}\dd x=0
+\]
+$a_{n}\neq a_{m}$ なので $\int\phi_{m}^{*}\phi_{n}\dd x=0$，すなわち直交する。
+
+\shoumonkai{4} $B$ は上三角行列なので固有値は対角成分の $1$ と $2$。
+\[
+  (B-1\cdot I)\vect{u}=\begin{pmatrix}0&1\\0&1\end{pmatrix}\vect{u}=\vect{0}\ \Rightarrow\ \vect{u}=\begin{pmatrix}1\\0\end{pmatrix},\qquad
+  (B-2I)\vect{v}=\begin{pmatrix}-1&1\\0&0\end{pmatrix}\vect{v}=\vect{0}\ \Rightarrow\ \vect{v}=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix}
+\]
+$\vect{u}^{\dagger}\vect{v}=1/\sqrt{2}\neq0$ なので直交しない。(3) を行列で書くと，$\vect{u}^{\dagger}B\vect{v}=2\,\vect{u}^{\dagger}\vect{v}$（右に作用）と，$\vect{u}^{\dagger}B\vect{v}=(B^{\dagger}\vect{u})^{\dagger}\vect{v}$ の2通りの計算になる。後者を $(B\vect{u})^{\dagger}\vect{v}=1\cdot\vect{u}^{\dagger}\vect{v}$ に置き換える段階で $B^{\dagger}=B$ を使うが，$B$ はエルミートでなく，実際
+\[
+  B^{\dagger}\vect{u}=\begin{pmatrix}1&0\\1&2\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix}
+\]
+は $\vect{u}$ の定数倍でない。このため「$\hat{A}$ を左に移して固有値で置き換える」段階が成り立たない。
+\kotae{\shoumonkai{1} $I=I^{*}$ より実数 \shoumonkai{2} $a=a^{*}$（実数） \shoumonkai{3} $(a_{n}-a_{m})\int\phi_{m}^{*}\phi_{n}\dd x=0$ より直交 \shoumonkai{4} 固有値 $1$，$2$，固有ベクトル $(1,0)^{\mathrm{T}}$，$(1,1)^{\mathrm{T}}/\sqrt{2}$，内積 $1/\sqrt{2}\neq0$。$\hat{A}$ を左に移して固有値で置き換える段階（エルミート性）が成り立たない}
+\begin{ronten}
+  \item \shoumonkai{1} 定義で2つの関数をどちらも $\psi$ にし，右辺の被積分関数が左辺の被積分関数の複素共役であることから $I=I^{*}$ を導くこと，$\psi$ が固有関数であることを使っていないことを述べる。
+  \item \shoumonkai{2} $\phi\neq0$ なので $\int\abs{\phi}^{2}\dd x$ が正の実数であり，それで割ってよいことを述べる。
+  \item \shoumonkai{3} $\hat{A}$ を左に移したときに出る $a_{m}^{*}$ を，固有値の実数性によって $a_{m}$ に置き換えること，最後に $a_{n}\neq a_{m}$ を使って積分が 0 と結論することを書く。
+  \item \shoumonkai{4} 成り立たなくなるのは $B^{\dagger}=B$ を使って左に移した行列を固有値で置き換える段階であり，$B^{\dagger}\vect{u}$ が $\vect{u}$ の定数倍でないことを示す。
+\end{ronten}
+\kenzan (3) で $n=m$ とおくと係数 $a_{n}-a_{n}=0$ となり，$\int\abs{\phi_{n}}^{2}\dd x$ には何の制約も付かない（規格化と矛盾しない）。無限に深い井戸の固有関数 $\sqrt{2/L}\sin(n\pi x/L)$ は，エネルギーがすべて異なり，実際に互いに直交していた。(4) で $\vect{u}=(1,0)^{\mathrm{T}}$ と $(1,1)^{\mathrm{T}}$ の内積が 1 になることも直接確かめられる。
+\tsumazuki (3) で $a_{m}^{*}$ を $a_{m}$ に置き換えるには (2) が必要である。これを忘れると $(a_{n}-a_{m}^{*})$ が残る。(1) では $\hat{A}\psi=a\psi$ を仮定してはいけない（$\psi$ は固有関数とは限らない）。
+\end{kaisetsu}
+
+\kaisetsubangou{8}
+\begin{kaisetsu}{128-gram}
+\houshin 固有方程式を解き，縮退した固有値では固有空間の中で Gram--Schmidt の方法で規格直交な基底を作る。展開係数は内積で求め，期待値が固有値の重み付き平均になることと，縮退した部分の係数の2乗和が基底の選び方によらないことを確かめる。
+\keisan
+\shoumonkai{1} $\mu=2-\lambda$ とおくと
+\[ \det(A-\lambda I)=\mu^{3}+1+1-3\mu=\mu^{3}-3\mu+2=(\mu-1)^{2}(\mu+2) \]
+よって $\mu=1$（2重）と $\mu=-2$，すなわち固有値は $\lambda=1$（2重に縮退）と $\lambda=4$ である。$\lambda=4$ では $(A-4I)\vect{u}=\vect{0}$ から $-2u_{1}+u_{2}+u_{3}=0$，$u_{1}-2u_{2}+u_{3}=0$ で，$u_{1}=u_{2}=u_{3}$。規格化して
+\[ \vect{e}_{0}=\frac{1}{\sqrt{3}}(1,1,1)^{\mathrm{T}} \]
+\shoumonkai{2} $\lambda=1$ では $(A-I)\vect{u}=\vect{0}$ の3つの式がすべて $u_{1}+u_{2}+u_{3}=0$ になる。$\vect{u}_{a}$，$\vect{u}_{b}$ はどちらも成分の和が $0$ なので固有ベクトルで，$\vect{u}_{a}^{\dagger}\vect{u}_{b}=1\neq0$ なので直交しない。Gram--Schmidt の方法で
+\begin{align*}
+  \vect{e}_{1}&=\frac{\vect{u}_{a}}{\norm{\vect{u}_{a}}}=\frac{1}{\sqrt{2}}(1,-1,0)^{\mathrm{T}},\\
+  \vect{w}&=\vect{u}_{b}-(\vect{e}_{1}^{\dagger}\vect{u}_{b})\vect{e}_{1}=(1,0,-1)^{\mathrm{T}}-\frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{2}}(1,-1,0)^{\mathrm{T}}=\left(\frac{1}{2},\frac{1}{2},-1\right)^{\mathrm{T}},\\
+  \vect{e}_{2}&=\frac{\vect{w}}{\norm{\vect{w}}}=\frac{1}{\sqrt{6}}(1,1,-2)^{\mathrm{T}}.
+\end{align*}
+$\vect{w}$ は2つの固有ベクトルの1次結合なので同じ固有値 $1$ の固有ベクトルで，$\vect{e}_{1}^{\dagger}\vect{e}_{2}=0$ である。
+\shoumonkai{3} 係数は $c_{j}=\vect{e}_{j}^{\dagger}\vect{v}$（$\vect{v}$ の第1成分を取り出す）なので
+\[ c_{0}=\frac{1}{\sqrt{3}},\qquad c_{1}=\frac{1}{\sqrt{2}},\qquad c_{2}=\frac{1}{\sqrt{6}} \]
+$\abs{c_{0}}^{2}+\abs{c_{1}}^{2}+\abs{c_{2}}^{2}=1/3+1/2+1/6=1$ で，$\vect{v}$ の長さと合う。$\vect{v}^{\dagger}A\vect{v}=A_{11}=2$ で，固有値の重み付き平均は $4\times1/3+1\times(1/2+1/6)=2$ となり等しい。
+\shoumonkai{4} $\vect{f}_{1}$，$\vect{f}_{2}$ はどちらも成分の和が $0$ で，$\vect{f}_{1}^{\dagger}\vect{f}_{2}=(1+0-1)/\sqrt{12}=0$，長さ1なので，固有値 $1$ の規格直交基底である。係数は $\vect{f}_{1}^{\dagger}\vect{v}=1/\sqrt{2}$，$\vect{f}_{2}^{\dagger}\vect{v}=1/\sqrt{6}$ で，2乗の和は $1/2+1/6=2/3$ となり，(3) の $\abs{c_{1}}^{2}+\abs{c_{2}}^{2}=2/3$ と同じである。これは $\vect{v}$ の長さの2乗 $1$ から $\abs{c_{0}}^{2}=1/3$ を引いたもの（固有空間への射影の長さの2乗）で，基底の選び方によらない。
+\kotae{\shoumonkai{1} 固有値 $4$ と $1$（2重），$\vect{e}_{0}=(1,1,1)^{\mathrm{T}}/\sqrt{3}$ \shoumonkai{2} $\vect{u}_{a}^{\dagger}\vect{u}_{b}=1$。$\vect{e}_{1}=(1,-1,0)^{\mathrm{T}}/\sqrt{2}$，$\vect{e}_{2}=(1,1,-2)^{\mathrm{T}}/\sqrt{6}$ \shoumonkai{3} $c_{0}=1/\sqrt{3}$，$c_{1}=1/\sqrt{2}$，$c_{2}=1/\sqrt{6}$。$\vect{v}^{\dagger}A\vect{v}=2=4/3+2/3$ \shoumonkai{4} 係数は $1/\sqrt{2}$，$1/\sqrt{6}$ で，2乗の和は同じ $2/3$}
+\begin{ronten}
+  \item \shoumonkai{2} 縮退した固有値の固有ベクトルの1次結合も同じ固有値の固有ベクトルであること（だから直交化してよいこと）を述べる。
+  \item \shoumonkai{4} 縮退した部分の係数の2乗和が，固有空間への射影の長さの2乗で，基底によらないことを述べる。
+\end{ronten}
+\kenzan $A\vect{e}_{2}=(2+1-2,1+2-2,1+1-4)^{\mathrm{T}}/\sqrt{6}=(1,1,-2)^{\mathrm{T}}/\sqrt{6}=\vect{e}_{2}$ で固有値 $1$。固有値の和 $4+1+1=6$ は $A$ の対角成分の和に，積 $4$ は $\det A=8+1+1-2-2-2=4$ に等しい。$\vect{e}_{0}$ は縮退した固有空間のすべてのベクトルと直交する（異なる固有値の固有ベクトルは直交する）。
+\tsumazuki 縮退した固有値の固有ベクトルは自動的には直交しない（$\vect{u}_{a}$ と $\vect{u}_{b}$）。また，Gram--Schmidt で引くのは $\vect{e}_{1}$（規格化したもの）方向の成分で，規格化していない $\vect{u}_{a}$ を使うときは $\norm{\vect{u}_{a}}^{2}$ で割る。
+\end{kaisetsu}
+
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第5章「エルミート演算子と固有値問題」}{2026-11-24}
+%% kaisetsu-moto	problems\量子力学1\shou05\量子力学1-5.tex	kiroku\kaisetsu\量子力学1\量子力学1-5_2026-11-24_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-026-matrix}{1}}{L1・計算}{◎△◎○}{B}{(2)計算 (4)記述}
+\end{saitenichiran}
+\begin{daiji}
+  \item 複素数を成分にもつベクトルの大きさの2乗は、各成分の絶対値の2乗の和である。$\abs{1+\ii}^{2}=(1+\ii)(1-\ii)=2$ で、4 ではない（問題1 (2)）。
+  \item 「エルミート行列なら固有値は実数」の逆は言えない。エルミートでない行列の固有値は「実数とは限らない」のであって「実数でない」のではない（問題1 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 問題1 (4) は同じ問題で同じ誤り：2026-10-28（当時の第4回 問題1 (4)）にも「エルミートでないため実数にならない」と書いた。今回も「エルミートでないので固有値は実数でない」と書いている。答えの文は「$Q$ はエルミートでないので固有値が実数であるとは保証されず、実際 $1\pm\ii$ である」と、「保証されない」の形で書く。
+  \item 複素数の大きさの2乗の扱い：量子力学1-3 問題2（2026-10-18・10-21）で $\abs{A}^{2}$ を $A^{2}$、量子力学1-13 問題2・3（2026-11-21）で $\abs{r}^{2}$ を $r^{2}$ と書いた。今回は $\abs{1-\ii}^{2}$ を 4 とした。規格化したら、最後に $\vect{u}^{\dagger}\vect{u}=1$ を計算して確かめる。
+\end{maemo}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{026-matrix}{計算}{エルミート行列の判定，固有値・規格化された固有ベクトル，複素ベクトルの直交}
+次の2行2列の行列を考える。
+  \[ P=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix},\qquad Q=\begin{pmatrix}1 & \ii\\ \ii & 1\end{pmatrix} \]
+  \begin{shoumon}
+    \item $P^{\dagger}$，$Q^{\dagger}$ を求め，それぞれがエルミート行列かどうかを判定せよ。
+    \item $P$ の固有値と，規格化された（大きさが 1 の）固有ベクトルをすべて求めよ。固有ベクトルの全体の位相因子は任意に選んでよい。
+    \item (2) で求めた2つの固有ベクトルが直交することを，内積 $\vect{u}^{\dagger}\vect{v}$ を計算して確かめよ。
+    \item $Q$ の固有値を求め，(1) の判定の結果と関係づけて述べよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{△}{計算} 固有値 $\lambda=0,\,3$ と、成分の比 $(1+\ii,\,-1)^{\mathrm{T}}$・$(1,\,1-\ii)^{\mathrm{T}}$ は正しい（どちらも両方の行の式を満たす）。規格化の係数を両方とも $1/\sqrt{5}$ とした。大きさの2乗は $\abs{1+\ii}^{2}+\abs{-1}^{2}=2+1=3$、$1+\abs{1-\ii}^{2}=1+2=3$ なので、正しくは $1/\sqrt{3}$。$\abs{1\pm\ii}^{2}$ を 4 としたことになる。また、第1行の式から決めた比が第2行の式も満たすことの確認が書かれていない（解答の論点）。(3) の係数 $1/5$ はこの誤りを引き継いだもので、内積が 0 になる結論には影響しない。
+  \machigai{4}{○}{記述} 固有値 $1\pm\ii$ は正しい。理由を「$Q$ はエルミートでないので固有値は実数でない」と書いた。定理は「エルミートなら実数」であり、エルミートでない行列でも実数の固有値をもつものはある（例えば $\begin{pmatrix}1&1\\0&2\end{pmatrix}$ の固有値は 1 と 2）。正しくは「$Q$ はエルミートでなく定理の前提を満たさないので、固有値が実数でなくても矛盾しない」。
+\end{kotaeran}
+\begin{rikai}
+  \item 複素ベクトル $(a,b)^{\mathrm{T}}$ の大きさの2乗は $\abs{a}^{2}+\abs{b}^{2}=a^{*}a+b^{*}b$。$\abs{x+\ii y}^{2}=x^{2}+y^{2}$ なので $\abs{1\pm\ii}^{2}=2$。規格化の後に $\vect{u}^{\dagger}\vect{u}=\frac{1}{3}(2+1)=1$ を計算すれば、係数の誤りはすぐ見つかる。
+  \item 「$A$ ならば $B$」から言えるのは「$B$ でないならば $A$ でない」（対偶）であって、「$A$ でないならば $B$ でない」（裏）ではない。エルミートでない行列については、固有値が実数であることが「保証されない」とだけ言える。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{026-matrix}
+\houshin エルミート共役は「転置して複素共役」で求める。固有値は固有方程式の根，固有ベクトルは連立方程式の解を規格化して求め，複素ベクトルの内積では左のベクトルの成分の複素共役をとる。
+\keisan \shoumonkai{1} 転置してから複素共役をとる。
+\[ P^{\mathrm{T}}=\begin{pmatrix}1 & 1-\ii\\ 1+\ii & 2\end{pmatrix},\qquad P^{\dagger}=(P^{\mathrm{T}})^{*}=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}=P \]
+よって $P$ はエルミート行列である。$Q$ は対称行列なので $Q^{\mathrm{T}}=Q$ であり，
+\[ Q^{\dagger}=Q^{*}=\begin{pmatrix}1 & -\ii\\ -\ii & 1\end{pmatrix}\neq Q \]
+となるので，$Q$ はエルミート行列でない。
+
+\shoumonkai{2} 固有方程式は次のとおり。
+\begin{align*}
+\det(P-\lambda I)&=(1-\lambda)(2-\lambda)-(1+\ii)(1-\ii)\\
+&=\lambda^{2}-3\lambda+2-2=\lambda(\lambda-3)=0
+\end{align*}
+よって固有値は $\lambda=0,\,3$ である。固有ベクトルを $(a,b)^{\mathrm{T}}$ とおき，$(P-\lambda I)$ の第1行の式 $(1-\lambda)a+(1+\ii)b=0$ から比を決める。
+
+$\lambda=3$ のとき $-2a+(1+\ii)b=0$ なので，$b=2$ とすると $a=1+\ii$。大きさの2乗は $\abs{1+\ii}^{2}+2^{2}=2+4=6$ なので，
+\[ \vect{u}_{3}=\frac{1}{\sqrt{6}}\begin{pmatrix}1+\ii\\ 2\end{pmatrix} \]
+第2行 $(1-\ii)a+(2-3)b=(1-\ii)(1+\ii)-2=0$ も満たす。
+
+$\lambda=0$ のとき $a+(1+\ii)b=0$ なので，$b=1$ とすると $a=-1-\ii$。大きさの2乗は $2+1=3$ なので，
+\[ \vect{u}_{0}=\frac{1}{\sqrt{3}}\begin{pmatrix}-1-\ii\\ 1\end{pmatrix} \]
+第2行 $(1-\ii)a+2b=-(1-\ii)(1+\ii)+2=0$ も満たす。
+
+\shoumonkai{3} 内積は左のベクトルの成分の複素共役をとって計算する。$(1+\ii)^{*}=1-\ii$ なので，
+\[ \vect{u}_{3}^{\dagger}\vect{u}_{0}=\frac{1}{\sqrt{18}}\Bigl[(1-\ii)(-1-\ii)+2\cdot 1\Bigr]=\frac{1}{\sqrt{18}}\bigl[-(1-\ii)(1+\ii)+2\bigr]=\frac{-2+2}{\sqrt{18}}=0 \]
+よって直交する。
+
+\shoumonkai{4} 固有方程式は次のとおり。
+\[ \det(Q-\lambda I)=(1-\lambda)^{2}-\ii^{2}=(1-\lambda)^{2}+1=0 \]
+よって $1-\lambda=\pm\ii$，すなわち $\lambda=1\pm\ii$ で，固有値は実数でない。固有値が実数であると保証されるのはエルミート行列だけであり，(1) で $Q$ がエルミート行列でないことを確かめたので矛盾しない。
+\kotae{\shoumonkai{1} $P^{\dagger}=P$（エルミート行列），$Q^{\dagger}=Q^{*}\neq Q$（エルミート行列でない） \shoumonkai{2} $\lambda=3$：$\frac{1}{\sqrt{6}}(1+\ii,\,2)^{\mathrm{T}}$，$\lambda=0$：$\frac{1}{\sqrt{3}}(-1-\ii,\,1)^{\mathrm{T}}$（位相因子は任意） \shoumonkai{3} $\vect{u}_{3}^{\dagger}\vect{u}_{0}=0$ \shoumonkai{4} $\lambda=1\pm\ii$（$Q$ はエルミートでないので実数とは限らない）}
+\begin{ronten}
+  \item \shoumonkai{2} 第1行の式から決めた成分の比が，第2行の式も満たすことを確かめる。
+  \item \shoumonkai{4} 固有値が実数であるという定理はエルミート行列についてのものであり，$Q$ はエルミート行列でなく定理の前提を満たさないので，固有値が実数でなくても矛盾しないことを述べる。
+\end{ronten}
+\kenzan 固有値の和は対角和に，積は行列式に等しい。$P$ では $0+3=1+2$，$0\cdot 3=\det P=2-2=0$。$Q$ では $(1+\ii)+(1-\ii)=2=1+1$，$(1+\ii)(1-\ii)=2=\det Q=1-\ii^{2}$。いずれも一致する。
+\tsumazuki 内積で複素共役をとり忘れると $(1+\ii)(-1-\ii)+2=2-2\ii\neq 0$ となり，直交しないように見えてしまう。
+\end{kaisetsu}
+
+\end{document}

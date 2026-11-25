@@ -1,0 +1,58 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 量子力学1 第7章 問題4〜8（2026-11-07 に解いた答案。スキャン 2026-11-08_12_19_55_AM_からスキャン_p1〜p3）
+%% matome
+\begin{daiji}
+  \item 周期的境界条件の運動量の固有状態には $n$ と $-n$（逆向きの運動量）の両方があり，状態を数えるときは負の $n$ も数える（問題7 (4)）。
+  \item 展開係数は内積 $c_{n}=\int_{0}^{L}\phi_{n}^{*}\psi\dd x$ で正確に求める。和を積分に置き換えるのは $L\to\infty$ の極限でだけ使える近似で，有限の $L$ での等式の証明には使えない（問題7 (1)）。
+  \item 「説明せよ」「解け」を最後まで書く：$\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率である理由（問題4 (1)），完全性の式を挟む理由（問題6 (1)），$\delta_{nm}$ の対応（問題7 (3)），微分方程式の解（問題8 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 負の $n$ の取りこぼし：第7章 問題3 (3)（2026-11-04）で $\pm n$ の2重縮退を述べなかった。今回も問題7 (4) で負の $n$ を数えなかった。周期的境界条件では $n$ を書いたら「$n=0,\pm1,\pm2,\ldots$」と書き添え，$k$ 軸に点を並べてから数える。
+  \item 理由・説明の書き落とし：第5章 問題7・8（2026-10-30），第6章 問題3 (3)（2026-11-01），第7章 問題1 (3)（2026-11-04）でも理由の論点が無く「記述」になった。解き終えたら問題文の「説明せよ」「述べよ」に印を付け，答えた行と対応させる。
+  \item 小問の途中で終わる：第4章 問題7（2026-10-28）で (2) が途中，(3)(4) が未着手だった。今回も問題8 は (4) が解く手前で止まり，(5) が無い。
+\end{maemo}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{1}{▲}{立式} $f(p)=\int_{-\infty}^{\infty}\hbar k\abs{\tilde{\psi}(k)}^{2}\dd k$ と書いた。右辺は $\expval{p}$ の式で，一般の $f$ の期待値になっていない。左辺も期待値ではなく関数 $f(p)$ そのものである。正しくは $\expval{f(p)}=\int f(\hbar k)\abs{\tilde{\psi}(k)}^{2}\dd k$。また，問われている「$\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率と読める理由」の説明が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 逆変換 $\psi(x)=\int\tilde{\psi}(k)\phi_{k}(x)\dd k$ は，$\psi$ を運動量の固有関数 $\phi_{k}$（固有値 $\hbar k$）で展開した式で，$\tilde{\psi}(k)$ が展開係数である。離散の場合は $\abs{c_{n}}^{2}$ が確率なので，連続では $\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率になる。規格化は変換で保たれるので合計は $1$ である。
+  \item 期待値は「値 $\times$ 確率」の和である。測る量が $f(p)$ なら，運動量が $\hbar k$ のときの値 $f(\hbar k)$ に確率 $\abs{\tilde{\psi}(k)}^{2}\dd k$ をかけて積分する。$f(p)=p$，$p^{2}$ とおくと (3) で使った式になることで確かめる。
+\end{rikai}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 指数を $-(u+\ii\xi^{2}(k-k_{0})/2)^{2}/\xi^{2}-\xi^{2}(k-k_{0})^{2}/4-\ii(k-k_{0})x_{0}$ と平方完成したあと，すぐに答え $\tilde{\psi}(k)=(\xi^{2}/(2\pi))^{1/4}\exp[\cdots]$ を書いた。答えは正しいが，$u$ の積分（$\xi\sqrt{\pi}$ になる）と係数の計算，そして虚数方向にずれたガウス積分に要点整理の式を使ってよい理由（ずれ $a=-(k-k_{0})\xi/2$ が実数であること）が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 要点整理の $\int\ee^{-(x-\ii a)^{2}}\dd x=\sqrt{\pi}$ は $a$ が実数のときの式である。平方完成で出る $u+\ii\xi^{2}q/2$（$q=k-k_{0}$）を $v=u/\xi$ で $v-\ii a$ の形に直し，$a$ が実数であることを確かめてから使う。これがこの問題の要点である。
+  \item 係数 $(2\pi\xi)^{-1/2}(2/\pi)^{1/4}\cdot\xi\sqrt{\pi}=(\xi^{2}/(2\pi))^{1/4}$ を1行書いておけば，(3) の $\int\abs{\tilde{\psi}}^{2}\dd k=1$ で検算できる。
+\end{rikai}
+%% mondai 6
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x=(1/L)\int_{0}^{L}\ee^{2\pi\ii(n-m)x/L}\dd x$ を計算して $\braket{m}{n}=\delta_{mn}$ を出した。計算は正しいが，問われている「この積分が $\braket{m}{n}$ に等しい理由（完全性の観点）」が式にも文にも無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 完全性の式 $\int_{0}^{L}\ketbra{x}{x}\dd x=1$ は恒等演算子なので，$\bra{m}$ と $\ket{n}$ の間に挟んでも値は変わらない。$\braket{m}{n}=\bra{m}\bigl(\int_{0}^{L}\ketbra{x}{x}\dd x\bigr)\ket{n}=\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x$ の1行が「完全性の観点からの説明」である。$c_{n}=\braket{n}{\psi}$ も同じ1行で出る。
+\end{rikai}
+%% mondai 7
+\begin{kotaeran}
+  \machigai{1}{▲}{方針} $c_{n}=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ を仮定して $\psi=\sum_{n}c_{n}\phi_{n}$ に入れ，和を $\int\dd n$，さらに $\int\dd k_{n}$ に置き換えて逆変換に戻ることを確かめた。和を積分に置き換えるのは $L\to\infty$ での近似なので，有限の $L$ で成り立つ等式の証明にならない（展開係数がただ一通りであることも黙って使っている）。規格直交性から $c_{n}=\int_{0}^{L}\phi_{n}^{*}\psi\dd x$ とし，$\psi$ が範囲の外で $0$ なので積分範囲を全区間に広げれば，近似なしで $\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ になる。
+  \machigai{3}{△}{未着手} 前半（$(1/L)\sum_{n}\ee^{\ii k_{n}(x-x')}$ が $\delta(x-x')$ に近づくこと）は正しい。後半の「$\delta_{nm}$ が $(2\pi/L)\delta(k-k')$ に対応すること」が無い。
+  \machigai{4}{△}{立式} $E_{n}=2n^{2}\pi^{2}\hbar^{2}/(\melec L^{2})\le\qty{1.00}{\electronvolt}$ から $n\le810$ を求めて終えた。$n$ は負の整数（逆向きの運動量）もとるので，条件を満たすのは $\abs{n}\le814$ の整数で $2\times814+1=1629$ 個，つまり約 \num{1.6e3} 個である。$n\le810$ の個数は答えの約半分にしかならない。
+\end{kotaeran}
+\begin{rikai}
+  \item 展開係数を求める基本は内積 $c_{n}=\braket{\phi_{n}}{\psi}$ である。「$\Delta k=2\pi/L$ をかけた和がリーマン和として積分に移る」は，(2)(3) の $L\to\infty$ の極限で使う道具である。
+  \item $\phi_{n}=\sqrt{2\pi/L}\,\phi_{k_{n}}$ を $\int\phi_{n}^{*}\phi_{m}\dd x=\delta_{nm}$ に入れると $(2\pi/L)\int\phi_{k_{n}}^{*}\phi_{k_{m}}\dd x=\delta_{nm}$ で，$L\to\infty$ で左辺の積分は $\delta(k_{n}-k_{m})$ になる。だから $\delta_{nm}$ は $(2\pi/L)\delta(k-k')$ に対応する。
+  \item $\abs{p}$ がある値以下の状態を数えるときは，$k$ 軸上に間隔 $2\pi/L$ で並ぶ点のうち区間 $[-k_{0},k_{0}]$ に入るものを数える。個数はおよそ（区間の長さ $2k_{0}$）$/$（間隔）で，$2$ を忘れない。
+\end{rikai}
+%% mondai 8
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 部分積分を2回行い，境界項 $[-(\hbar/(\ii p))\ee^{-\ii px/\hbar}\psi]_{-\infty}^{\infty}$ などを $0$ として落とした。結果は正しいが，境界項が消える理由が無い。
+  \machigai{4}{△}{未着手} $\dd\tilde{\phi}/\dd p=\ii(E-p^{2}/(2m))\tilde{\phi}/(\hbar F)$ まで正しく導いたが，問われている解が無い。
+  \machigai{5}{×}{未着手} 書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item 境界項が消えるのは，$\abs{\ee^{-\ii px/\hbar}}=1$ で，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になるから（問題文の仮定）である。部分積分で境界項を落とすときは，この理由を1行で書く。
+  \item (4) の方程式は変数分離形で，$\dd\tilde{\phi}/\tilde{\phi}=(\text{$p$ の関数})\dd p$ の両辺を積分すれば解ける。解いたら $p$ で微分して元の方程式に戻るかで検算する。
+  \item (5) の要点：指数の肩が純虚数なら $\abs{\tilde{\phi}}^{2}$ は $p$ によらない。古典力学では $\dd p/\dd t=F$ が一定で，どの幅 $\dd p$ にも同じ時間 $\dd p/F$ だけとどまることと対応する。
+\end{rikai}

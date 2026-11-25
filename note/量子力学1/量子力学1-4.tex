@@ -1,0 +1,69 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第4章「数学的準備：デルタ関数・フーリエ級数・フーリエ変換」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou04\量子力学1-4.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-019-fourier}{1}}{L1・計算}{◎◎}{S}{2026-10-18}
+  \ichirangyou{2}{L1・計算}{◎○◎}{A}{2026-10-28 (2)記述}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{4}{L2・導出}{○×××}{E}{2026-10-28 (1)記述 (2)未着手 (3)未着手 (4)未着手}
+  \ichirangyou{5}{L2・計算}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L3・計算}{}{未着手}{}
+  \ichirangyou{10}{L3・計算}{}{未着手}{}
+  \ichirangyou{11}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\019_2026-10-18.tex
+\mondaibangou{1}
+\begin{mondai}{019-fourier}{計算}{フーリエ変換の定義（係数 $1/\sqrt{2\pi}$ の規約）と，関数の幅と波数の広がり}
+フーリエ変換は要点整理の規約で定める。$a>0$ として，関数
+  \[
+    f(x)=
+    \begin{cases}
+      1/\sqrt{2a} & (\abs{x}\le a)\\
+      0 & (\abs{x}>a)
+    \end{cases}
+  \]
+  を考える。
+  \begin{shoumon}
+    \item $f(x)$ のフーリエ変換 $F(k)$ を，$k\neq0$ と $k=0$ の場合に分けて求めよ。
+    \item $F(k)=0$ となる正の $k$ のうち最小のもの $k_{1}$ を求めよ。また，$f(x)$ が0でない区間の幅 $2a$ と $k_{1}$ の積が $a$ によらないことを示し，$a$ を大きくすると $F(k)$ の形がどう変わるかを述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-18 S ◎◎}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{◎}{}
+i) $k\neq0$ のとき
+\begin{align*}
+F(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}f(x)\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-a}^{a}\kakimachigai{\frac{\ee^{-\ii kx}}{\sqrt{2a}}}{\frac{\ee^{-\ii kx}}{\sqrt{2a}}\dd x}\\
+&=\frac{1}{2\sqrt{\pi a}}\left[\frac{\ee^{-\ii kx}}{-\ii k}\right]_{-a}^{a}\\
+&=\frac{\ii}{2k\sqrt{\pi a}}\left(\ee^{-\ii ka}-\ee^{\ii ka}\right)\\
+&=\frac{\sin(ka)}{k\sqrt{\pi a}}
+\end{align*}
+ii) $k=0$ のとき
+\begin{align*}
+F(0)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,f(x)\\
+&=\frac{1}{2\sqrt{\pi a}}\int_{-a}^{a}\dd x\\
+&=\sqrt{\frac{a}{\pi}}
+\end{align*}
+\toi{2}{◎}{}
+\[ \frac{\sin(ka)}{k\sqrt{\pi a}}=0\qquad\therefore\ \sin(ka)=0 \]
+\begin{align*}
+&\therefore\ ka=n\pi\quad(n=1,2,3)\\
+&\therefore\ k_{1}=\frac{\pi}{a}
+\end{align*}
+\[ 2ak_{1}=2\pi \]
+$a$ を大きくすると，$k_{1}$ は小さくなるため，関数が鋭くなる。
+
+（図：$k=0$ の山の両側に小さな振動が続く $F(k)$ の形が，矢印の先では幅の狭い山になる）
+\end{kotaeutsushi}
+\end{mondai}
+
+\noteowari
+\end{document}

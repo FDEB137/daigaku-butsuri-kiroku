@@ -1,0 +1,63 @@
+% 量子力学1 量子力学1-11 問題6（085-delta） 解いた日 2026-11-20
+%% kotae
+\toi{1}{▲}{立式}
+i) $x<0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi''(x)=E\phi(x)\\
+&\phi''(x)=\kappa^{2}\phi(x)\\
+&\therefore\ \phi(x)=C_{1}\ee^{-\kappa x}+C_{2}\ee^{\kappa x}
+\end{align*}
+$x\to-\infty$ で $\phi(x)\to0$ より、
+\[ C_{1}=0\qquad\phi(x)=C_{2}\ee^{\kappa x} \]
+ii) $x>0$
+\[ \phi(x)=C_{1}\ee^{-\kappa x}+C_{2}\ee^{\kappa x} \]
+$x\to\infty$ で $\phi(x)\to0$ より、
+\[ C_{2}=0\qquad\phi(x)=C_{1}\ee^{-\kappa x} \]
+\ayamari{対称性}{$x=0$ での $\phi$ の連続} より\quad $C_{1}=C_{2}$
+\[ \phi(x)=C\ee^{-\kappa\abs{x}} \]
+\naze{対称なポテンシャルでも奇関数の解（$C_{1}=-C_{2}$）は許されるので，対称性からは決まらない。$C_{1}=C_{2}$ は $x=0$ での $\phi$ の連続から出し，そこから「奇関数の解は無く，$\kappa$ はただ1つに決まるので束縛状態は1つ」と結論する。}
+\[ \phi'(+0)-\phi'(-0)=\ayamari{\frac{2mg}{\hbar^{2}}}{-\frac{2mg}{\hbar^{2}}}\phi(0) \]
+\naze{ポテンシャルは $-g\delta(x)$ なので，跳びの式の $g$ を $-g$ にする（引力なので $\phi'$ は減る向きに跳ぶ）。以降はこの誤りを引き継ぐ。正しくは $-2C\kappa=-(2mg/\hbar^{2})C$ で $\kappa=mg/\hbar^{2}$ である。下の $\kappa=-mg/\hbar^{2}$ は $g>0$ なので $\kappa>0$ と矛盾し，$E$ が合ったのは2乗で符号が消えたからである。}
+\begin{align*}
+&\phi'(+0)=\lim_{x\to+0}-C\kappa\ee^{-\kappa x}=-C\kappa\\
+&\phi'(-0)=\lim_{x\to-0}C\kappa\ee^{\kappa x}=C\kappa\\
+&-2C\kappa=\frac{2mg}{\hbar^{2}}C\\
+&\kappa=-\frac{mg}{\hbar^{2}}\\
+&-\frac{2mE}{\hbar^{2}}=\frac{m^{2}g^{2}}{\hbar^{4}}\\
+&\therefore\ E=-\frac{mg^{2}}{2\hbar^{2}}
+\end{align*}
+束縛状態は1つ
+\toi{2}{◎}{}
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{\phi(x)}^{2}\dd x&=C^{2}\int_{-\infty}^{\infty}\ee^{-2\kappa\abs{x}}\dd x\\
+&=2C^{2}\int_{0}^{\infty}\ee^{-2\kappa x}\dd x\\
+&=2C^{2}\left[-\frac{1}{2\kappa}\ee^{-2\kappa x}\right]_{0}^{\infty}\\
+&=2C^{2}\cdot\frac{1}{2\kappa}\\
+&=\frac{C^{2}}{\kappa}
+\end{align*}
+\[ \frac{C^{2}}{\kappa}=1\qquad C=\sqrt{\kappa} \]
+\[ \phi(x)=\sqrt{\kappa}\,\ee^{-\kappa\abs{x}} \]
+\begin{align*}
+2\int_{\frac{1}{\kappa}}^{\infty}\bigl(\sqrt{\kappa}\,\ee^{-\kappa x}\bigr)^{2}\dd x&=2\kappa\int_{\frac{1}{\kappa}}^{\infty}\ee^{-2\kappa x}\dd x\\
+&=2\kappa\left[-\frac{1}{2\kappa}\ee^{-2\kappa x}\right]_{\frac{1}{\kappa}}^{\infty}\\
+&=2\kappa\cdot\frac{1}{2\kappa}\ee^{-2}\\
+&=\frac{1}{\ee^{2}}\\
+&=\num{0.135}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int_{-\infty}^{\infty}V(x)\abs{\phi(x)}^{2}\dd x&=-g\abs{\phi(0)}^{2}\\
+&=-g\kappa
+\end{align*}
+\begin{align*}
+\expval{V}&=-\frac{\hbar^{2}\kappa^{2}}{m}=\frac{\hbar^{2}}{m}\cdot\frac{-2mE}{\hbar^{2}}=2E\\
+\expval{T}&=E-2E=-E
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\abs{E}&=\frac{mg^{2}}{2\hbar^{2}}=\qty{0.590}{\electronvolt}\\
+\frac{1}{\kappa}&=\qty{0.254}{\nano\metre}
+\end{align*}
+%% kizuki
+\item \mae{第6章 問題2・11-01，第7章 問題2・11-04，第9章 問題5・11-11} 符号の誤り。跳びの式には $V$ に含まれる $g\delta(x-a)$ の係数をそのまま入れる。$V=-g\delta(x)$ なら係数は $-g$ である。$\kappa$ や $\abs{E}$ のように正と決めた量は，答えを出したら符号を確かめる（負になったら，どこかで符号を取り違えている）。
+\item 対称なポテンシャルでも奇関数の解は許される。偶か奇かは「対称性」ではなく接続条件（$\phi$ の連続）で決まり，ここでは奇関数の解が無いことが「束縛状態は1つ」の根拠になる。

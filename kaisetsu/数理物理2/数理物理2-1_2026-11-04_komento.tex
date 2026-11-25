@@ -1,0 +1,34 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 2026-11-06 採点（解いた日 2026-11-04 のスキャン）
+%% matome
+\begin{daiji}
+  \item 複素数の積の実部は、実部どうしの積ではない。$\Re(A\ee^{\ii\omega t})=\abs{A}\cos(\omega t-\delta)=\abs{A}(\cos\delta\cos\omega t+\sin\delta\sin\omega t)$ で、$\Re(A)\cos\omega t$ だけでは $\sin\omega t$ の項が落ちる（問題4 (3)）。
+  \item 極形式の指数には必ず $\ii$ を書く。$\ee^{3\pi/4}$ は実数（約 \num{10.6}）で、$\ee^{3\pi\ii/4}$ とはまったく別の数である（問題1 (2)(4)）。
+  \item 答えの形が指定されていたら、その形まで直す（問題2 (2) の $a+b\ii$）。
+\end{daiji}
+%% mondai 1
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $z_{2}=\sqrt{2}\,\ee^{3\pi/4}$ と、指数の $\ii$ が抜けたまま答えている（(4) の $16\ee^{6\pi}$ も同じ。こちらは答え $16$ が正しいので減点なし）。正しくは $z_{2}=\sqrt{2}\,\ee^{3\pi\ii/4}$。また、偏角 $3\pi/4$ を決めた根拠（実部が負・虚部が正で第2象限）が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 偏角は $\arctan(b/a)$ だけで決めず、実部・虚部の符号で象限を先に決める。$z_{2}=-1+\ii$ は第2象限なので $3\pi/4$（$\arctan(-1)=-\pi/4$ は第4象限の値）。
+  \item 書き終えたら、$\ee^{(\text{実数})}$ になっていないかを見直す。$\ee^{\ii\theta}$ の形でなければ絶対値 $1$ の位相因子ではない。
+\end{rikai}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 4つの解 $2\ee^{-5\pi\ii/6}$、$2\ee^{-\pi\ii/3}$、$2\ee^{\pi\ii/6}$、$2\ee^{2\pi\ii/3}$ と正方形の図は正しいが、問われている $a+b\ii$ の形にしていない。$\sqrt{3}+\ii$、$-1+\sqrt{3}\,\ii$、$-\sqrt{3}-\ii$、$1-\sqrt{3}\,\ii$ まで書く。途中の式 $z^{4}=2^{4}\ee^{\ii(2\pi/3+k\pi/2)}$ は、$z^{4}$ と $z$ が混ざっている。正しくは $z^{4}=2^{4}\ee^{\ii(2\pi/3+2\pi k)}$ から $z=2\ee^{\ii(\pi/6+k\pi/2)}$。
+\end{kotaeran}
+\begin{rikai}
+  \item $n$ 乗根は、偏角に $2\pi k$ を足してから $n$ で割る。$k=0,1,\ldots,n-1$ で $n$ 個が出そろい、$k$ を $n$ だけ変えると偏角が $2\pi$ 変わって同じ解に戻る。絶対値は正の実数なので $r^{4}=16$ から $r=2$ だけをとる。
+\end{rikai}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $A=F_{0}/(k-m\omega^{2}+\ii\gamma\omega)$ は正しい。$\gamma\omega>0$ なので分母が $0$ にならず $A$ が定まる、の一言が無い。
+  \machigai{3}{△}{立式} $\abs{A}$ と $\tan\delta=\gamma\omega/(k-m\omega^{2})$ は正しい。$x(t)=\abs{A}\cos\delta\cos\omega t=(k-m\omega^{2})F_{0}\cos\omega t/\{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}\}$ としたのが誤り。これは $\Re(A)\cos\omega t$ で、$\Re(A\ee^{\ii\omega t})$ ではない。正しくは $x(t)=\Re(\abs{A}\ee^{\ii(\omega t-\delta)})=\abs{A}\cos(\omega t-\delta)$。また、$\tan\delta$ だけでは象限が決まらないので、$\sin\delta=\abs{A}\gamma\omega/F_{0}>0$ から $0<\delta<\pi$ と確かめる。
+  \machigai{4}{○}{記述} 数値（$\abs{A}=\qty{0.43}{\metre}$、$\delta=\qty{0.71}{\radian}$；$\abs{A}=\qty{0.50}{\metre}$、$\delta=\pi/2$）は正しい。$\omega=\qty{4.0}{\radian\per\second}$ では $k-m\omega^{2}=0$ で $\tan\delta$ が定まらないので、$\cos\delta=0$ と $\sin\delta>0$ から $\delta=\pi/2$ とする、の根拠が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item $A=a+b\ii$、$\ee^{\ii\omega t}=\cos\omega t+\ii\sin\omega t$ とすると $\Re(A\ee^{\ii\omega t})=a\cos\omega t-b\sin\omega t$。虚部 $b$ も $\sin\omega t$ の係数として実部に入ってくる。複素振幅の偏角 $-\delta$ が、位相の遅れ $\cos(\omega t-\delta)$ になるのはこのためである。
+  \item 確かめ方：$\omega=\sqrt{k/m}$（共振）で $k-m\omega^{2}=0$ を代入すると、自分の式では $x(t)=0$ になってしまうが、実際は振幅 $F_{0}/(\gamma\omega)$ で振動する。特別な値を入れて物理的におかしくないかを見る。
+  \item 位相は $\tan$ だけで決めず、$\cos\delta$ と $\sin\delta$ の符号で象限を決める（$k<m\omega^{2}$ では第2象限）。
+\end{rikai}

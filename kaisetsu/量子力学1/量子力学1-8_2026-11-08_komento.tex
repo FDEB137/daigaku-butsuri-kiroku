@@ -1,0 +1,33 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 量子力学1 第8章 本編。採点 2026-11-08（スキャン 2026-11-08_05_11_46_PM_からスキャン_p1〜p4）
+%% matome
+\begin{daiji}
+  \item 積分の中の微分は，$x$ での微分を積分変数 $x'$ の積分の外に出すか，$x'$ での微分に直して部分積分するかのどちらかで動かす。$\partial\delta(x-x')/\partial x$ の微分を，そのまま $\psi(x')$ に付け替えることはできない（問題3 (4)）。
+  \item 行列要素 $\matrixel{x}{\hat{p}}{x'}$ は $x$ と $x'$ の2変数の関数であり，デルタ関数の引数は $\braket{x}{x'}=\delta(x-x')$ のまま $x-x'$ である（問題3 (2)）。
+  \item $\exp(a\hat{D})f(x)=f(x+a)$ は，テイラー展開が収束する関数について近似ではなく等式として成り立つ。級数を並べて比べたら，その結論を答えとして書く（問題1 (3)）。
+\end{daiji}
+\begin{maemo}
+  \item 答えの式の記号の書き落とし：第3章 問題2（2026-10-18・2026-10-21）で複素定数の $\abs{A}^{2}$ を $A^{2}$ と書いた。今回は $\delta(x-x')$ を $\delta(x)$ と書いた。答えを書いたら，問題に出てくる変数（ここでは $x$ と $x'$）がすべて入っているか，絶対値や引数が落ちていないかを見直す。
+  \item デルタ関数や微分を含む積分の変形の根拠：第4章 問題7 (1)（2026-10-28）で $\delta(cx)$ の置換の後を $f(0)/\abs{c}$ まで書かず，第7章 問題8 (2)（2026-11-07）で部分積分の境界項が消える理由を書かなかった。積分の中の微分を動かすときは，「どの変数での微分か」「積分の外に出すのか，部分積分なのか」を毎回書く。
+  \item 比べた結果を答えとして書かない：第6章 問題1 (1)（2026-11-01）で得られる値と確率を答えとして書かなかった。「何になるか」と問われたら，最後に答えの式を1行書く。
+\end{maemo}
+%% mondai 1
+\begin{kotaeran}
+  \machigai{3}{○}{記述} $\exp(a\hat{D})=\exp(\ii a\hat{p}/\hbar)$ は正しい。続けて $\exp(a\hat{D})f=\sum_{n}(a^{n}/n!)\,\dd^{n}f/\dd x^{n}$ と $f(x+a)\simeq\sum_{n}(a^{n}/n!)\,\dd^{n}f/\dd x^{n}$ を並べたところで終わっている。問われている「何になるか」の答え $\exp(a\hat{D})f(x)=f(x+a)$ が書かれていない。また「$\simeq$」は近似に読めるが，テイラー展開が $f(x+a)$ に収束する関数では2つの級数は項ごとに等しく，等号で成り立つ。その条件（テイラー展開が収束すること）を書き，$\exp(a\hat{D})f(x)=f(x+a)$（グラフを $x$ の負の向きに $a$ だけずらす）と結論する。
+\end{kotaeran}
+\begin{rikai}
+  \item 定義の級数 $\sum_{n}(a^{n}/n!)f^{(n)}(x)$ は，$f(x+a)$ を $x$ のまわりでテイラー展開した式そのものである。展開が収束する関数では両者は等しく，$\exp(a\hat{D})$ は「関数を平行移動する演算子」になる。(1) の $(x+a)^{2}$ と (2) の $\ee^{\ii k(x+a)}$ はその例である。
+  \item 「〜と比べて答えよ」の問いでは，比べた後に答えの式を1行で書く。
+\end{rikai}
+%% mondai 3
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 与えた式で $\ket{\psi}=\ket{x'}$ とする方針は正しいが，答えを $-\ii\hbar\,\partial\delta(x)/\partial x$ と書いた。$\braket{x}{x'}=\delta(x-x')$ なので，正しくは $\matrixel{x}{\hat{p}}{x'}=-\ii\hbar\,\partial\delta(x-x')/\partial x$。$\delta(x)$ では $x'$ がどこにも入らず，$x'$ によらない量になってしまう（(4) では正しく $\delta(x-x')$ を使っている）。
+  \machigai{4}{△}{記述} 最後の $-\ii\hbar\,\partial\psi/\partial x$ は正しいが，途中で
+  \[ \int_{-\infty}^{\infty}-\ii\hbar\Bigl(\pdv{}{x}\delta(x-x')\Bigr)\psi(x')\dd x'=\int_{-\infty}^{\infty}-\ii\hbar\Bigl(\pdv{}{x}\psi(x')\Bigr)\delta(x-x')\dd x' \]
+  と，微分をデルタ関数から $\psi(x')$ に付け替えた。$\psi(x')$ は $x$ によらないので，書いたとおりに読むと $\partial\psi(x')/\partial x=0$ で，この変形は成り立たない。正しくは，$x$ での微分は積分変数 $x'$ に関係しないので積分の外に出し，$-\ii\hbar\,\partial_{x}\int\delta(x-x')\psi(x')\dd x'=-\ii\hbar\,\dd\psi/\dd x$ とする。また，この積分が $\hat{p}$ と $\ket{\psi}$ の間に位置の完全性 $\int\ket{x'}\bra{x'}\dd x'=\hat{1}$ を挟んだ $\matrixel{x}{\hat{p}}{\psi}$ そのものであることも書く。
+\end{kotaeran}
+\begin{rikai}
+  \item 位置表示の行列要素 $\matrixel{x}{\hat{A}}{x'}$ は $x$ と $x'$ の2変数の関数（連続な添字の「行列」）である。答えに両方の変数が入っているかで確かめる。
+  \item 積分変数でない変数での微分は積分の外に出せる：$\int\partial_{x}F(x,x')\dd x'=\partial_{x}\int F(x,x')\dd x'$。デルタ関数の微分を相手の関数に移したいときは，$\partial\delta(x-x')/\partial x=-\partial\delta(x-x')/\partial x'$ と $x'$ での微分に直してから部分積分する（符号が2回変わって $+\int\delta(x-x')\psi'(x')\dd x'=\psi'(x)$ になる）。
+  \item $\int\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x'$ は，離散の場合の $\sum_{m}A_{nm}c_{m}$（行列と成分の列の積）の和を，連続な添字 $x'$ の積分に置きかえたものである。
+\end{rikai}

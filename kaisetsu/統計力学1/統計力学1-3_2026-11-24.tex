@@ -1,0 +1,149 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{統計力学1　第3章「理想気体のエントロピー（位相空間・$N!$ 因子・Sackur--Tetrode の式）」}{2026-11-24}
+%% kaisetsu-moto	problems\統計力学1\shou03\統計力学1-3.tex	kiroku\kaisetsu\統計力学1\統計力学1-3_2026-11-24_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-004-extensive}{2}}{L2・導出}{◎◎○◎}{A}{(3)記述}
+  \hyougyou{4}{L2・計算}{◎◎◎◎}{S}{全問 ◎}
+  \hyougyou{\hyperlink{bt-m-092-shuuki}{5}}{L2・計算}{◎◎◎×}{C}{(4)未着手}
+\end{saitenichiran}
+\begin{daiji}
+  \item 示量性を調べるときに比べる相手は「同じ系2つ分」$2S'(U,V,N)$ である。差の式の左右を写し間違えると，計算が正しくても何と何を比べたのかが答案から読めなくなる（問題2 (3)）。
+  \item 境界条件によらず同じエントロピーになるのは，固定端でも周期境界条件でも，位相空間の面積 $h$ あたりちょうど1つの状態があるからである。(2) で両方の数が $\sqrt{\varepsilon/E_{0}}$ に一致したことが，その1方向版になっている（問題5 (4)，未着手）。
+\end{daiji}
+\begin{maemo}
+  \item 示量性の式の書き間違い：統計力学1-1（旧版）問題4 (3)(4)（2026-10-27，同じ問題）で $S'(2U,2V,2N)-2S(U,V,N)$ とプライムを落とした。今回は (3) で $S'(2U,2V,2N)-S(U,V,N)$ と，プライムと係数2の両方を落とした。同じ日の統計力学1-4 問題2 (4) でも右辺を $\alpha F(T,\alpha V,\alpha N)$ と書いている。示量性の問題では，計算を始める前に「示すこと：$S'(2U,2V,2N)$ と $2S'(U,V,N)$ を比べる」と1行書き，差の式はその行から写す。
+  \item 最後の説明の小問の未着手：統計力学1-2 問題3 (5)（2026-11-24）に続いて，今回も問題5 (4) が途中で止まった。止まったら，その小問の前の小問の結果（ここでは (2)）が何を言っているかを言葉にしてみると，手掛かりになることが多い。
+\end{maemo}
+
+\mondaihen
+\level{2}
+\mondaibangou{2}
+\begin{mondai}{004-extensive}{導出}{$N!$ 因子の必要性（エントロピーの示量性）}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.3（1.4節），p.4--6 式(13)--(18)
+要点整理のとおり，理想気体のミクロカノニカル分配関数
+\[w(U,V)=\frac{3N}{2}\,\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)}\,\frac{\delta U}{U}\]
+から，Sackur--Tetrode の式
+\[S(U,V,N)=N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]\]
+が得られる。ここで，仮に同種粒子が区別できないことを無視して $N!$ で割らなかったとし，そのときの分配関数を $w'=N!\,w$，エントロピーを $S'=\kB\log w'$ とする。$N\gg1$ とし，Stirling の公式 $\log N!\simeq N\log N-N$ を用い，$N$ に比例しない項（$\log N$ 程度の項や $\log(\delta U/U)$）は無視する。
+\begin{shoumon}
+  \item $S'(U,V,N)$ を求めよ。
+  \item 正しいエントロピー $S(U,V,N)$ が示量的であること，すなわち任意の正の数 $\lambda$ に対して $S(\lambda U,\lambda V,\lambda N)=\lambda S(U,V,N)$ となることを示せ。
+  \item $S'(2U,2V,2N)-2S'(U,V,N)$ を求め，$S'$ が示量的でないことを示せ。
+  \item 同じ種類の理想気体が，同じ状態 $(U,V,N)$ で，仕切りで隔てられた2つの部屋に入っている。仕切りを静かに取り除いても巨視的には何も変化しない。このときのエントロピー変化を $S'$ を用いて計算するとどうなるか。また $S$ を用いるとどうなるか。この結果から，$N!$ で割ることがなぜ必要かを説明せよ。
+\end{shoumon}
+
+\begin{kotaeran}
+  \machigai{3}{○}{記述} 差を $S'(2U,2V,2N)-S(U,V,N)$ と書いた。引くべきものは $2S'(U,V,N)$ で，プライムと係数2が抜けている。次の行の $N\kB[2\log2V-2\log V+\cdots+3-3]$ は $2S'(U,V,N)$ を引いた正しい計算になっていて，答え $2N\kB\log2\neq0$ も正しい。ただし書いた式のとおりに読むと，$N!$ で割った $S$ を $N$ 個分だけ引いたことになり，(4) で $S'$ と $S$ を比べる議論とも混ざる。結論の「$S$ は示量変数でない」も $S'$ のことである。
+\end{kotaeran}
+\begin{rikai}
+  \item 示量性は $S(\lambda U,\lambda V,\lambda N)=\lambda S(U,V,N)$ で，$\lambda=2$ なら「2倍の系のエントロピー」と「元の系2つ分のエントロピー」を比べる。$S'$ の示量性を調べるなら，両辺とも $S'$ である。
+  \item 確かめ方：差の式を書いたら，両辺の前の係数がそろっているかを見る。$S'(2U,2V,2N)$ は $2N\kB[\cdots]$，$2S'(U,V,N)$ も $2N\kB[\cdots]$ で，$S(U,V,N)$ だと $N\kB[\cdots]$ となって半分しかない。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{5}
+\begin{mondai}{092-shuuki}{計算}{境界条件（固定端と周期境界条件）による1粒子の準位と縮退の違い，量子数空間の全領域と象限での状態の数え方，巨視系ではエントロピーが境界条件によらないこと}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+一辺 $L$ の立方体（体積 $V=L^{3}$）に入った，質量 $m$ の同種原子 $N$ 個の理想気体を考える。要点整理の $w(U,V)$ は，壁で波動関数が0になる条件（固定端）で求めたもので，1方向の準位は $E_{0}n^{2}$（$n=1,2,\dots$，$E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$）であった。ここでは代わりに，各方向に $\psi(x+L)=\psi(x)$ が成り立つとする周期境界条件を使う。$D$ 次元の半径 $R$ の球の体積を $C(D)R^{D}$ とし，$N\gg1$ とする。
+\begin{shoumon}
+  \item 1方向の固有関数を $\ee^{\ii px/\hbar}$ とおき，周期境界条件から許される運動量 $p$ と1方向のエネルギー準位を求め，$E_{0}$ で表せ。固定端の場合と比べ，それぞれ低いほうから3つの準位のエネルギーと縮退度を書け。
+  \item 1方向でエネルギーが $\varepsilon$ 以下の状態の数を，$\varepsilon\gg E_{0}$ として両方の境界条件で求め，比べよ。
+  \item $N$ 原子の全エネルギーが $U$ 以下の状態の数 $W(U)$ を，$3N$ 次元の量子数空間の球の体積で近似し，$N!$ で割って求めよ。固定端での $W(U)$（球の体積に象限の因子 $2^{-3N}$ を掛けたもの）と一致することを示し，$V$，$m$，$U$，$h$ で表せ。
+  \item (3) から，境界条件によらず同じ Sackur--Tetrode の式が得られる。その理由を，位相空間の体積 $h$ あたり1つの状態という古典的な数え方と結びつけて説明せよ。また，境界条件の違いが無視できないのはどのような場合かを述べよ。
+\end{shoumon}
+
+\begin{kotaeran}
+  \machigai{4}{×}{未着手} 「固定端では $0<E_{0}n^{2}<\varepsilon$」と書いたところで止まっていて，境界条件によらない理由も，違いが効く場合も書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item (2) の結果を運動量で書き直すと (4) の答えになる。$\varepsilon=p^{2}/(2m)$ と $E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$ から $\sqrt{\varepsilon/E_{0}}=2pL/h$ で，これは「運動量の範囲 $-p$〜$p$ の幅 $2p$」と「位置の範囲 $L$」の積を $h$ で割ったもの，つまり位相空間の面積を $h$ で割ったものである。周期境界条件では運動量が間隔 $h/L$ で正負に並び，固定端の定常波は $\pm p$ の平面波の重ね合わせで $\abs{p}$ が間隔 $h/(2L)$ で正の側だけに並ぶが，1つの定常波を $\pm p$ の両側に広げて数えれば，周期境界条件と同じく位相空間の面積 $h$ あたり1状態になる。
+  \item エントロピーは，高いエネルギーでの状態の数（位相空間の体積を $N!\,h^{3N}$ で割ったもの）だけで決まるので，境界条件によらない。違いが効くのは，$\kB T$ が準位の間隔 $E_{0}$ と同程度以下になる場合（小さな容器や極低温）で，このときは基底状態のエネルギー（固定端 $3E_{0}$，周期境界条件 $0$）や縮退度の違いがそのまま熱力学量に出る。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{2}
+\kaisetsubangou{2}
+\begin{kaisetsu}{004-extensive}
+\houshin $\log w'=\log w+\log N!$ に Stirling の公式を使う。示量性は $U,V,N$ を同時に $\lambda$ 倍して調べる。(4) は仕切りを外す前後の $S'$ を比べる。
+\keisan
+\shoumonkai{1} Sackur--Tetrode の式は $\log w$ から $N$ に比例しない項を落としたものなので，それに $\log N!\simeq N\log N-N$ を加える。
+\[\log w'\simeq N\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]+N\log N-N=N\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]\]
+
+\shoumonkai{2} $S$ の中の $V/N$ と $U/N$ は，$U,V,N$ を同時に $\lambda$ 倍しても変わらない。
+\[S(\lambda U,\lambda V,\lambda N)=\lambda N\kB\left[\log\frac{\lambda V}{\lambda N}+\frac{3}{2}\log\frac{4\pi m\lambda U}{3\lambda Nh^{2}}+\frac{5}{2}\right]=\lambda S(U,V,N)\]
+
+\shoumonkai{3} $S'$ では $\log V$ の中の $V$ が $N$ で割られていないので，
+\begin{align*}
+S'(2U,2V,2N)&=2N\kB\left[\log2V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]\\
+&=2S'(U,V,N)+2N\kB\log2
+\end{align*}
+よって差は $2N\kB\log2\neq0$ であり，$S'$ は示量的でない。
+
+\shoumonkai{4} 仕切りを外す前のエントロピーは2つの部屋の和 $2S(U,V,N)$，外した後は $(2U,2V,2N)$ の1つの系なので $S(2U,2V,2N)$。$S'$ を用いると $\Delta S'=2N\kB\log2>0$ となる。$S$ を用いると (2) より $\Delta S=0$ である。仕切りを外しても（また戻しても）巨視的な状態は変わらないので，状態量であるエントロピーは変わってはならない。$N!$ で割らないと，同種粒子の入れ替えで得られる同じ状態を別々に数えてしまい，この矛盾が生じる。
+\kotae{\shoumonkai{1} $S'=N\kB[\log V+(3/2)\log\{4\pi mU/(3Nh^{2})\}+3/2]$ \shoumonkai{2} $V/N$，$U/N$ が不変なので $S(\lambda U,\lambda V,\lambda N)=\lambda S$ \shoumonkai{3} $2N\kB\log2$（$\neq0$） \shoumonkai{4} $S'$ では $\Delta S'=2N\kB\log2>0$，$S$ では $\Delta S=0$。何も変化しないのにエントロピーが増えるという矛盾を，$N!$ で割ることが解消する。}
+\begin{ronten}
+  \item \shoumonkai{1} $N\gg1$ で Stirling の公式を使い，Sackur--Tetrode の式が $\log w$ から $N$ に比例しない項を落としたものであることを踏まえて $\log N!$ を加えたことを書く。
+  \item \shoumonkai{2} 対数の中が $V/N$ と $U/N$ の組み合わせだけで書かれていて $U,V,N$ を同時に $\lambda$ 倍しても変わらず，前の係数 $N\kB$ だけが $\lambda$ 倍になることを述べる。
+  \item \shoumonkai{3} $S'$ では対数の中の $V$ が $N$ で割られていないため，差が残ることを書く。
+  \item \shoumonkai{4} 仕切りを外す前は2つの部屋の和，外した後は1つの系として比べ，巨視的に何も変わらない以上，状態量のエントロピーは変わってはならないこと，$N!$ で割らないと同種粒子の入れ替えで得られる同じ状態を別々に数えてしまうことを述べる。
+\end{ronten}
+\kenzan $S'=S+\kB\log N!$ であり $S$ は示量的なので，(3) の差には $N!$ 因子の寄与だけが残る。
+\[\kB\left[\log(2N)!-2\log N!\right]\simeq\kB\left[2N\log(2N)-2N-2(N\log N-N)\right]=2N\kB\log2\]
+これは (3) の結果と一致し，まさに落とした $N!$ 因子の寄与である。単位は $\unit{\joule\per\kelvin}$ で正しい。
+\tsumazuki 異なる種類の気体を混ぜる場合は，仕切りを外すと実際にエントロピーが増える（混合エントロピー）。同種の気体の場合と混同しない。
+\end{kaisetsu}
+
+\kaisetsubangou{5}
+\begin{kaisetsu}{092-shuuki}
+\houshin 周期境界条件で許される運動量を求め，1粒子の準位を固定端と比べる。状態の数は，量子数空間の格子点を体積で数える。固定端では正の象限だけ，周期境界条件では全領域を使うが，格子の間隔が違うことで結果が一致することを確かめる。
+\keisan \shoumonkai{1} $\ee^{\ii p(x+L)/\hbar}=\ee^{\ii px/\hbar}$ より $\ee^{\ii pL/\hbar}=1$，すなわち
+\[ p=\frac{2\pi\hbar n}{L}=\frac{hn}{L},\qquad\varepsilon=\frac{p^{2}}{2m}=\frac{4\pi^{2}\hbar^{2}n^{2}}{2mL^{2}}=4E_{0}n^{2}\qquad(n=0,\pm1,\pm2,\dots) \]
+固定端：$E_{0}$，$4E_{0}$，$9E_{0}$（どれも縮退なし）。周期境界条件：$0$（$n=0$，縮退なし），$4E_{0}$（$n=\pm1$，縮退度2），$16E_{0}$（$n=\pm2$，縮退度2）。
+
+\shoumonkai{2} 固定端では $E_{0}n^{2}\le\varepsilon$ を満たす正の整数の数で，約 $\sqrt{\varepsilon/E_{0}}$。周期境界条件では $\abs{n}\le\sqrt{\varepsilon/(4E_{0})}$ を満たす整数の数で
+\[ 2\sqrt{\frac{\varepsilon}{4E_{0}}}+1\simeq\sqrt{\frac{\varepsilon}{E_{0}}} \]
+となり，$\varepsilon\gg E_{0}$ では一致する。周期境界条件ではエネルギーの係数が4倍なので $\abs{n}$ の上限は $1/2$ 倍になるが，正負の両方を数えるので数は2倍になり，打ち消し合う。
+
+\shoumonkai{3} 全エネルギーが $U$ 以下という条件は，周期境界条件では
+\[ 4E_{0}\sum_{i}n_{i}^{2}\le U \]
+なので，半径 $R_{\mathrm{p}}=\sqrt{U/(4E_{0})}$ の $3N$ 次元の球の中の格子点を，符号の制限なしに数える。
+\[ W_{\mathrm{p}}(U)=\frac{1}{N!}C(3N)\left(\frac{U}{4E_{0}}\right)^{3N/2}=\frac{1}{N!}C(3N)\,2^{-3N}\left(\frac{U}{E_{0}}\right)^{3N/2} \]
+固定端では半径 $\sqrt{U/E_{0}}$ の球の正の象限で，$C(3N)(U/E_{0})^{3N/2}2^{-3N}/N!$ となり，一致する。$E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$ を代入すると
+\[ 2^{-3N}\left(\frac{U}{E_{0}}\right)^{3N/2}=\left(\frac{2mL^{2}U}{(2\pi\hbar)^{2}}\right)^{3N/2}=\frac{V^{N}(2mU)^{3N/2}}{h^{3N}} \]
+で，$C(3N)=\pi^{3N/2}/\Gamma(3N/2+1)$ より
+\[ W(U)=\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)} \]
+
+\shoumonkai{4} 周期境界条件では，1方向の運動量は間隔 $h/L$ で $-\infty$ から $\infty$ まで並ぶので，位相空間の面積 $L\times(h/L)=h$ ごとに1つの状態がある。固定端の定常波は運動量 $\pm p$ の平面波の重ね合わせで，$\abs{p}$ の間隔 $h/(2L)$ で $p>0$ の側だけに並ぶが，$\pm p$ の両側に広げて数えると同じく面積 $h$ あたり1つになる。巨視的な熱力学量は，エネルギーの大きいところでの状態の数（状態密度）だけで決まり，それは位相空間の体積を $N!\,h^{3N}$ で割ったものでどちらも同じなので，Sackur--Tetrode の式は境界条件によらない。
+
+境界条件の違いが効くのは，$\kB T$ が準位の間隔 $E_{0}$ と同程度以下になる場合（容器が非常に小さいか，温度が非常に低い場合）である。このときは基底状態のエネルギー（固定端 $3E_{0}$，周期境界条件 $0$）や縮退度の違いが熱力学量に直接現れる。また，壁の近くの補正は表面積に比例する量で，体積に比べた割合は熱的ド・ブロイ波長と $L$ の比（$\sim\sqrt{E_{0}/(\kB T)}$）程度なので，巨視系では無視できる。
+\kotae{\shoumonkai{1} $p=hn/L$，準位 $4E_{0}n^{2}$（$n=0,\pm1,\dots$）。固定端は $E_{0}$，$4E_{0}$，$9E_{0}$（縮退なし），周期境界条件は $0$（縮退度1），$4E_{0}$，$16E_{0}$（縮退度2） \shoumonkai{2} どちらも約 $\sqrt{\varepsilon/E_{0}}$ \shoumonkai{3} $W(U)=\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)}$ で一致 \shoumonkai{4} どちらも位相空間の体積 $h$ あたり1状態で，高いエネルギーの状態密度が等しいため。$\kB T\lesssim E_{0}$ の小さな容器や極低温では違いが効く}
+\begin{ronten}
+  \item \shoumonkai{2} 周期境界条件では準位の間隔が4倍だが，正負の両方を数えることで，状態の数が固定端と同じになることを書く。
+  \item \shoumonkai{3} 周期境界条件では象限の因子が無く，代わりに半径が $1/2$ 倍になって $2^{-3N}$ が出ることを示す。
+  \item \shoumonkai{4} 両方の境界条件で，位相空間の体積 $h$ あたり1状態になることを根拠に述べる。
+  \item \shoumonkai{4} 違いが効くのは $\kB T$ が準位の間隔と同程度以下の場合であることを書く。
+\end{ronten}
+\kenzan $w=(\dd W/\dd U)\,\delta U=(3N/2)W\,\delta U/U$ とすると，(3) の $W$ から要点整理の $w(U,V)$ が得られる。(2) の数値例：$\varepsilon=100E_{0}$ では固定端 $n=1,\dots,10$ の10個，周期境界条件 $n=-5,\dots,5$ の11個で，差の1は $\varepsilon$ が大きいほど相対的に小さくなる。
+\tsumazuki 周期境界条件で正の量子数だけを数えたり，固定端の運動量の間隔 $\pi\hbar/L$ に正負の両方を数えたりすると，状態の数が $2^{3N}$ 倍ずれる。
+\end{kaisetsu}
+
+\end{document}

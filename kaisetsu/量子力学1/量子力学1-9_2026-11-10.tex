@@ -1,0 +1,131 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第9章「時間発展・ハイゼンベルク表示・Ehrenfest の定理」}{2026-11-10}
+%% kaisetsu-moto	problems\量子力学1\shou09\量子力学1-9.tex	kiroku\kaisetsu\量子力学1\量子力学1-9_2026-11-10_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-073-unitary}{1}}{L1・計算}{○○○}{B}{(1)記述 (2)記述 (3)記述}
+  \hyougyou{\hyperlink{bt-m-067-classical}{3}}{L1・計算}{◎○◎}{A}{(2)単位}
+\end{saitenichiran}
+\begin{daiji}
+  \item 「示せ」「確かめよ」と問われた式は、結果を使う前に1行でも導く。$\hat{U}^{\dagger}=\ee^{\ii\hat{H}t/\hbar}$ は $\hat{H}^{\dagger}=\hat{H}$ から、初期条件は $\hat{U}(0)=\hat{1}$ から出る（問題1 (1)(3)）。
+  \item 期待値は数であり、最後の行がケットになっていないかを確かめる。$\expval{\hat{H}}_{t}=(E_{1}+2E_{2})/3$ であって $\frac{1}{3}\ket{E_{1}}+\frac{2}{3}\ket{E_{2}}$ ではない（問題1 (2)）。
+  \item 数値の答えには単位を付ける（問題3 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 単位の誤り・書き落とし：第6章 問題6 (5)（2026-11-01）で $\delta p$ の単位を $\unit{\metre}$ と書いた。今回は問題3 (2) で単位が無い。数値を出したら、その行のうちに単位を書き、次元が問いの量と合うかを見る。
+  \item 条件が成り立つことの確認を書かない：第7章 問題3 (1)（2026-11-04）で $\varphi'(L)=\varphi'(0)$ が自動で成り立つことを書かなかった。今回は問題1 (1) の初期条件。「満たす」と書く前に、$t=0$ などを代入した式を1行置く。
+\end{maemo}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{073-unitary}{計算}{時間発展の演算子 $\ee^{-\ii\hat{H}t/\hbar}$ がシュレーディンガー方程式を解くことと，そのユニタリ性によるノルムの保存}
+ハミルトニアン $\hat{H}$ は時間によらないエルミート演算子とし，固有値 $E_{n}$ に属する規格直交な固有ケット $\ket{E_{n}}$（$\hat{H}\ket{E_{n}}=E_{n}\ket{E_{n}}$）が完全系をなすとする。時間発展の演算子を $\hat{U}(t)=\exp(-\ii\hat{H}t/\hbar)$（要点整理の級数で定める）とし，$\ket{\psi(t)}=\hat{U}(t)\ket{\psi(0)}$ とおく。
+  \begin{shoumon}
+    \item 級数を項別に微分して $\ii\hbar\,\dd\hat{U}/\dd t=\hat{H}\hat{U}$ を示し，$\ket{\psi(t)}$ がシュレーディンガー方程式と初期条件を満たすことを確かめよ。
+    \item $\ket{\psi(0)}=(\ket{E_{1}}+\ii\sqrt{2}\ket{E_{2}})/\sqrt{3}$ のとき，$\ket{\psi(t)}$ を $\ket{E_{1}}$，$\ket{E_{2}}$ で表し，$\braket{\psi(t)}{\psi(t)}$ と $\expval{\hat{H}}_{t}=\matrixel{\psi(t)}{\hat{H}}{\psi(t)}$ を求めよ。
+    \item $\hat{U}(t)^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ と $\hat{U}(t)^{\dagger}\hat{U}(t)=\hat{1}$ を示し，任意の $\ket{\psi(0)}$ について $\braket{\psi(t)}{\psi(t)}=\braket{\psi(0)}{\psi(0)}$ であることを導け。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{1}{○}{記述} 級数を項別に微分して $\ii\hbar\,\dd\hat{U}/\dd t=\hat{H}\hat{U}$ を出すところは正しい。最後に「シュレーディンガー方程式と初期条件を満たす」と書いたが、初期条件の根拠が式にも文にも無い。$t=0$ では $n\ge1$ の項が消えて $\hat{U}(0)=\hat{1}$、よって $\ket{\psi(t)}$ は $t=0$ で $\ket{\psi(0)}$ に戻る、を書く。
+  \machigai{2}{○}{記述} $\ket{\psi(t)}$ と $\braket{\psi(t)}{\psi(t)}=1$ は正しく、$\expval{\hat{H}}_{t}$ も途中の $\frac{1}{3}E_{1}\braket{E_{1}}{E_{1}}+\frac{2}{3}E_{2}\braket{E_{2}}{E_{2}}$ までは正しい。最後の行を $\frac{1}{3}\ket{E_{1}}+\frac{2}{3}\ket{E_{2}}$ とケットで書いている。$\braket{E_{j}}{E_{j}}=1$ を入れると、正しくは $\expval{\hat{H}}_{t}=(E_{1}+2E_{2})/3$（数）。
+  \machigai{3}{○}{記述} $\hat{U}^{\dagger}\hat{U}=\exp(-\ii\hat{H}t/\hbar+\ii\hat{H}t/\hbar)=\hat{1}$ とノルムの保存は正しい。問われている $\hat{U}(t)^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ を示さずに使っている。級数の各項で $(c\hat{H}^{n})^{\dagger}=c^{*}\hat{H}^{n}$（$\hat{H}^{\dagger}=\hat{H}$ による）を使って導く。
+\end{kotaeran}
+\begin{rikai}
+  \item $\hat{U}^{\dagger}=\ee^{\ii\hat{H}t/\hbar}$ は $\hat{H}$ がエルミートだから成り立つ。$\hat{H}$ がエルミートでなければ $\hat{U}^{\dagger}\hat{U}=\hat{1}$ は言えず、ノルムも保存しない。つまり (3) の要点はこの1行にある。
+  \item 時間発展の解は「方程式」と「初期条件」の2つを満たして初めて決まる。$\hat{U}(0)=\hat{1}$ は級数に $t=0$ を入れるだけで出る。
+  \item $\matrixel{\psi}{\hat{A}}{\psi}$ はブラとケットで挟んだ数である。最後の行に $\ket{\ }$ が残っていたら誤り。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{3}
+\begin{mondai}{067-classical}{計算}{Ehrenfest の定理による期待値の運動（一様な力・調和振動子）}
+質量 $m$ の粒子が1次元のポテンシャル $V(x)$ 中を運動する。Ehrenfest の定理
+  \[ \dv{\expval{x}}{t}=\frac{\expval{p}}{m},\qquad \dv{\expval{p}}{t}=-\expval{\dv{V}{x}} \]
+  を使い，時刻 $t=0$ で $\expval{x}=x_{0}$，$\expval{p}=p_{0}$ として次の問いに答えよ。
+  \begin{shoumon}
+    \item $V(x)=mgx$（$x$ 軸は鉛直上向き，$g$ は正の定数）のとき，$\expval{p}$ と $\expval{x}$ を時刻 $t$ の関数として求めよ。
+    \item (1) の状況で，中性子の波束を $p_{0}=0$ で放した。$g=\qty{9.80}{\metre\per\second\squared}$ として，$t=\qty{0.200}{\second}$ の間の $\expval{x}$ の変化を有効数字3桁で求めよ。この変化は中性子の質量や $\hbar$ によるか。
+    \item $V(x)=\frac{1}{2}m\omega^{2}x^{2}$（$\omega$ は正の定数）のとき，$\expval{x}$ と $\expval{p}$ を時刻 $t$ の関数として求めよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{単位} $\delta\expval{x}=-0.196$ と単位が無い。数値は正しく、質量にも $\hbar$ にもよらないことも (1) の式から読み取れる。正しくは $\qty{-0.196}{\metre}$（$\qty{0.196}{\metre}$ 下がる）。
+\end{kotaeran}
+\begin{rikai}
+  \item 数値の答えには単位を付ける。$gt^{2}$ は $\unit{\metre\per\second\squared}\times\unit{\second\squared}=\unit{\metre}$ で、位置の変化の次元になっていることを確かめる。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{073-unitary}
+\houshin (1) は級数を項別に微分する。(2) は固有ケットに $\hat{U}$ を作用させると位相因子がかかるだけであることを使う。(3) は級数の各項のエルミート共役をとり，可換な場合の指数法則でまとめる。
+\keisan \shoumonkai{1} 級数で書くと
+\[ \hat{U}(t)=\sum_{n=0}^{\infty}\frac{1}{n!}\left(-\frac{\ii t}{\hbar}\right)^{n}\hat{H}^{n} \]
+である。$\hat{H}$ は時間によらないので，$t$ を含むのは係数だけである。$n=0$ の項は定数で微分すると $0$，$n\ge1$ の項は
+\[ \frac{\dd}{\dd t}\left[\frac{1}{n!}\left(-\frac{\ii t}{\hbar}\right)^{n}\hat{H}^{n}\right]=\frac{n}{n!}\left(-\frac{\ii}{\hbar}\right)^{n}t^{n-1}\hat{H}^{n}=-\frac{\ii\hat{H}}{\hbar}\cdot\frac{1}{(n-1)!}\left(-\frac{\ii t}{\hbar}\right)^{n-1}\hat{H}^{n-1} \]
+となる。$n-1=l$ と置き直して和をとると，
+\[ \frac{\dd\hat{U}}{\dd t}=-\frac{\ii\hat{H}}{\hbar}\sum_{l=0}^{\infty}\frac{1}{l!}\left(-\frac{\ii t}{\hbar}\right)^{l}\hat{H}^{l}=-\frac{\ii}{\hbar}\hat{H}\hat{U}(t) \]
+すなわち $\ii\hbar\,\dd\hat{U}/\dd t=\hat{H}\hat{U}$ である。$\ket{\psi(0)}$ は $t$ によらないので，両辺を $\ket{\psi(0)}$ に作用させると
+\[ \ii\hbar\frac{\dd}{\dd t}\ket{\psi(t)}=\hat{H}\ket{\psi(t)} \]
+を得る。また $t=0$ では級数の $n\ge1$ の項が消えて $\hat{U}(0)=\hat{1}$ なので，$\ket{\psi(t)}$ は $t=0$ で $\ket{\psi(0)}$ に一致する。
+
+\shoumonkai{2} $\hat{H}^{n}\ket{E_{j}}=E_{j}^{n}\ket{E_{j}}$ を級数に入れると（第8章の演算子の関数）
+\[ \hat{U}(t)\ket{E_{j}}=\sum_{n=0}^{\infty}\frac{1}{n!}\left(-\frac{\ii E_{j}t}{\hbar}\right)^{n}\ket{E_{j}}=\ee^{-\ii E_{j}t/\hbar}\ket{E_{j}} \]
+となる。$\hat{U}$ は線形なので
+\[ \ket{\psi(t)}=\frac{1}{\sqrt{3}}\left(\ee^{-\ii E_{1}t/\hbar}\ket{E_{1}}+\ii\sqrt{2}\,\ee^{-\ii E_{2}t/\hbar}\ket{E_{2}}\right) \]
+である。対応するブラは係数を複素共役にして
+\[ \bra{\psi(t)}=\frac{1}{\sqrt{3}}\left(\ee^{\ii E_{1}t/\hbar}\bra{E_{1}}-\ii\sqrt{2}\,\ee^{\ii E_{2}t/\hbar}\bra{E_{2}}\right) \]
+である。$\braket{E_{i}}{E_{j}}=\delta_{ij}$ により交差項は消え，位相因子は打ち消し合うので
+\[ \braket{\psi(t)}{\psi(t)}=\frac{1}{3}\left[1+(-\ii\sqrt{2})(\ii\sqrt{2})\right]=\frac{1}{3}(1+2)=1 \]
+となる。$\hat{H}\ket{\psi(t)}$ は各項に $E_{1}$，$E_{2}$ がかかるだけなので，同様に
+\[ \expval{\hat{H}}_{t}=\frac{1}{3}\left(E_{1}+2E_{2}\right) \]
+となり，時間によらない。
+
+\shoumonkai{3} 級数の各項のエルミート共役をとる。$(c\hat{A})^{\dagger}=c^{*}\hat{A}^{\dagger}$ と，積のエルミート共役は順序が逆になるが同じ $\hat{H}$ の積なので $(\hat{H}^{n})^{\dagger}=(\hat{H}^{\dagger})^{n}=\hat{H}^{n}$ であることから
+\[ \hat{U}(t)^{\dagger}=\sum_{n=0}^{\infty}\frac{1}{n!}\left(\frac{\ii t}{\hbar}\right)^{n}\hat{H}^{n}=\exp\left(\frac{\ii\hat{H}t}{\hbar}\right) \]
+である。$\ii\hat{H}t/\hbar$ と $-\ii\hat{H}t/\hbar$ はどちらも $\hat{H}$ の数倍なので交換し，第8章の指数法則が使える。
+\[ \hat{U}^{\dagger}\hat{U}=\exp\left(\frac{\ii\hat{H}t}{\hbar}-\frac{\ii\hat{H}t}{\hbar}\right)=\exp(0)=\hat{1} \]
+$\ket{\psi(t)}=\hat{U}\ket{\psi(0)}$ に対応するブラは $\bra{\psi(0)}\hat{U}^{\dagger}$ なので
+\[ \braket{\psi(t)}{\psi(t)}=\matrixel{\psi(0)}{\hat{U}^{\dagger}\hat{U}}{\psi(0)}=\braket{\psi(0)}{\psi(0)} \]
+となる。$t=0$ で規格化されていれば，任意の $t$ でも規格化されている。
+\kotae{\shoumonkai{1} $\ii\hbar\,\dd\hat{U}/\dd t=\hat{H}\hat{U}$，$\hat{U}(0)=\hat{1}$ \shoumonkai{2} $\ket{\psi(t)}=(\ee^{-\ii E_{1}t/\hbar}\ket{E_{1}}+\ii\sqrt{2}\,\ee^{-\ii E_{2}t/\hbar}\ket{E_{2}})/\sqrt{3}$，$\braket{\psi(t)}{\psi(t)}=1$，$\expval{\hat{H}}_{t}=(E_{1}+2E_{2})/3$ \shoumonkai{3} $\hat{U}^{\dagger}\hat{U}=\hat{1}$ よりノルムは保存する}
+\begin{ronten}
+  \item \shoumonkai{1} $\hat{H}$ が時間によらないので，級数の中で $t$ を含むのは係数だけであり，項別に微分してよいことを述べる。
+  \item \shoumonkai{1} 初期条件は，$t=0$ で $n\ge1$ の項が消えて $\hat{U}(0)=\hat{1}$ となることから確かめる。
+  \item \shoumonkai{3} $\hat{U}^{\dagger}$ の計算に $\hat{H}$ のエルミート性を使ったことと，指数法則を使う前に2つの指数が交換すること（どちらも $\hat{H}$ の数倍）を書く。
+\end{ronten}
+\kenzan (2) で $t=0$ とすると $\braket{\psi(0)}{\psi(0)}=(1+2)/3=1$ で，(3) の一般の結論と合う。$\expval{\hat{H}}_{t}$ は $E_{1}$ と $E_{2}$ を確率 $1/3$，$2/3$ で重みづけた平均で，両者の間にある。指数 $Et/\hbar$ は $\unit{\joule}\cdot\unit{\second}/(\unit{\joule\second})$ で無次元である。
+\tsumazuki ブラを作るときに係数 $\ii\sqrt{2}$ を $-\ii\sqrt{2}$ にし忘れると，$1-2=-1$ という負のノルムになる。$\hat{H}$ がエルミートでなければ $\hat{U}^{\dagger}=\ee^{\ii\hat{H}t/\hbar}$ が成り立たず，ノルムは保存しない。
+\end{kaisetsu}
+
+\kaisetsubangou{3}
+\begin{kaisetsu}{067-classical}
+\houshin Ehrenfest の定理の2式から $\expval{x}$ の2階の微分方程式を作る。$V$ が1次式・2次式なら $\expval{\dd V/\dd x}$ は $\expval{x}$ だけで書けるので，古典力学と同じ方程式になる。
+\keisan \shoumonkai{1} $\dd V/\dd x=mg$ は定数なので，$\expval{\dd V/\dd x}=mg$（$\psi$ は規格化されている）。よって
+\[ \dv{\expval{p}}{t}=-mg\quad\Rightarrow\quad \expval{p}=p_{0}-mgt \]
+これを第1式に入れて積分する。
+\[ \dv{\expval{x}}{t}=\frac{p_{0}}{m}-gt\quad\Rightarrow\quad \expval{x}=x_{0}+\frac{p_{0}}{m}t-\frac{1}{2}gt^{2} \]
+\shoumonkai{2} $p_{0}=0$ なら $\expval{x}-x_{0}=-\frac{1}{2}gt^{2}$。数値を代入すると
+\[ -\frac{1}{2}\times\qty{9.80}{\metre\per\second\squared}\times(\qty{0.200}{\second})^{2}=-\qty{0.196}{\metre} \]
+式に $m$ も $\hbar$ も入らないので，中性子の質量にも $\hbar$ にもよらない。
+
+\shoumonkai{3} $\dd V/\dd x=m\omega^{2}x$ なので $\expval{\dd V/\dd x}=m\omega^{2}\expval{x}$。第1式を $t$ で微分して第2式を使うと
+\[ \dv[2]{\expval{x}}{t}=\frac{1}{m}\dv{\expval{p}}{t}=-\omega^{2}\expval{x} \]
+一般解 $\expval{x}=A\cos\omega t+B\sin\omega t$ に，$t=0$ での $\expval{x}=x_{0}$ と $\dd\expval{x}/\dd t=p_{0}/m$ を課すと $A=x_{0}$，$B\omega=p_{0}/m$。よって
+\[ \expval{x}=x_{0}\cos\omega t+\frac{p_{0}}{m\omega}\sin\omega t,\qquad \expval{p}=m\dv{\expval{x}}{t}=p_{0}\cos\omega t-m\omega x_{0}\sin\omega t \]
+\kotae{\shoumonkai{1} $\expval{p}=p_{0}-mgt$，$\expval{x}=x_{0}+p_{0}t/m-gt^{2}/2$ \shoumonkai{2} $\qty{0.196}{\metre}$ 下がる（$\qty{-0.196}{\metre}$）。質量にも $\hbar$ にもよらない \shoumonkai{3} $\expval{x}=x_{0}\cos\omega t+\frac{p_{0}}{m\omega}\sin\omega t$，$\expval{p}=p_{0}\cos\omega t-m\omega x_{0}\sin\omega t$}
+\begin{ronten}
+  \item \shoumonkai{1} $\expval{\dd V/\dd x}$ を $\expval{x}$ で書けるのは $\dd V/\dd x$ が $x$ の1次式以下だからであり，期待値の線形性と $\psi$ の規格化を使うことを述べる（(3) も同じ）。
+  \item \shoumonkai{3} 一般解の係数を決める2つ目の条件 $\dd\expval{x}/\dd t=p_{0}/m$（$t=0$）は，Ehrenfest の定理の第1式から得ることを書く。
+\end{ronten}
+\kenzan (1) で $t=0$ とすると $x_{0}$，$p_{0}$ に戻る。$\dd\expval{x}/\dd t=\expval{p}/m$ も満たす。(3) で $\omega\to0$ とすると $\expval{x}\to x_{0}+p_{0}t/m$（自由粒子の等速運動）になる。$p_{0}/(m\omega)$ の次元は（運動量）/（質量$\times$1/時間）＝長さで整合する。
+\tsumazuki 波束の幅は時間とともに変わり得るが，この問題のように $V$ が $x$ の2次式以下なら $\expval{x}$ の運動には影響しない（3次以上の項がある場合は Level 2 の非調和項の問題）。古典力学と同じになるのは期待値であって，粒子の位置が決まった軌道を描くという意味ではない。
+\end{kaisetsu}
+
+\end{document}

@@ -1,0 +1,43 @@
+% 量子力学1 量子力学1-2 問題4（現在は問題5。012-order。当時は kai02-l2-order） 解いた日 2026-10-14
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+(\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x})f&=x\cdot\left(-\ii\hbar\kakimachigai{\frac{\dd}{\dd x}}{\frac{\partial}{\partial x}}f\right)+\ii\hbar\frac{\dd}{\dd x}(xf)\\
+&=-\ii\hbar x\dv{f}{x}+\ii\hbar\left(f+x\dv{f}{x}\right)\\
+&=\ii\hbar f
+\end{align*}
+\begin{align*}
+(\hat{x}\hat{p}_{y}-\hat{p}_{y}\hat{x})f&=x\cdot\left(-\ii\hbar\frac{\dd}{\dd y}f\right)+\ii\hbar\frac{\dd}{\dd y}(xf)\\
+&=-\ii\hbar x\dv{f}{y}+\ii\hbar x\dv{f}{y}\\
+&=0
+\end{align*}
+\toi{2}{△}{計算}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})f-(\hat{\vect{r}}\cdot\hat{\vect{p}})f=\ayamari{3\ii\hbar f}{-3\ii\hbar f} \]
+\naze{(1) より各成分で $(\hat{p}_{j}\hat{x}_{j}-\hat{x}_{j}\hat{p}_{j})f=-\ii\hbar f$ で，差は $\sum_{j}(\hat{p}_{j}\hat{x}_{j}-\hat{x}_{j}\hat{p}_{j})f=-3\ii\hbar f$ である。(1) の $\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x}$ と順序が逆なので符号が変わる。}
+\toi{3}{○}{記述}
+\begin{align*}
+\hat{\vect{p}}\phi(\vect{r})&=-\ii\hbar\nabla\ee^{-\frac{r^{2}}{2b^{2}}}\\
+&=\left(-\ii\hbar\cdot\left(-\frac{1}{2b^{2}}\right)\cdot2x\,\ee^{-\frac{r^{2}}{2b^{2}}},\ \dots\right)\\
+&=\frac{\ii\hbar}{b^{2}}\ee^{-\frac{r^{2}}{2b^{2}}}\vect{r}
+\end{align*}
+\begin{align*}
+(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi&=\hat{x}\hat{p}_{x}\phi+\hat{y}\hat{p}_{y}\phi+\hat{z}\hat{p}_{z}\phi\\
+&=\frac{\ii\hbar}{b^{2}}\ee^{-\frac{r^{2}}{2b^{2}}}(x^{2}+y^{2}+z^{2})\\
+&=\frac{\ii\hbar r^{2}}{b^{2}}\ee^{-\frac{r^{2}}{2b^{2}}}
+\end{align*}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})\phi=\hat{p}_{x}\hat{x}\phi+\hat{p}_{y}\hat{y}\phi+\hat{p}_{z}\hat{z}\phi \]
+\begin{align*}
+\hat{p}_{x}\hat{x}\phi&=-\ii\hbar\frac{\dd}{\dd x}\left(x\ee^{-\frac{r^{2}}{2b^{2}}}\right)\\
+&=-\ii\hbar\left(\ee^{-\frac{r^{2}}{2b^{2}}}+x\cdot\frac{-x}{b^{2}}\ee^{-\frac{r^{2}}{2b^{2}}}\right)\\
+&=-\ii\hbar\left(1-\frac{x^{2}}{b^{2}}\right)\ee^{-\frac{r^{2}}{2b^{2}}}
+\end{align*}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})\phi=-\ii\hbar\left(3-\frac{r^{2}}{b^{2}}\right)\ee^{-\frac{r^{2}}{2b^{2}}} \]
+\begin{align*}
+&(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi-(\hat{\vect{p}}\cdot\hat{\vect{r}})\phi\\
+&\quad=\left(\frac{\ii\hbar r^{2}}{b^{2}}+\ii\hbar\left(3-\frac{r^{2}}{b^{2}}\right)\right)\ee^{-\frac{r^{2}}{2b^{2}}}\\
+&\quad=3\ii\hbar\,\ee^{-\frac{r^{2}}{2b^{2}}}
+\end{align*}
+\naze{ここまでの計算は正しいが，差の順序が (2) の $(\hat{\vect{p}}\cdot\hat{\vect{r}})f-(\hat{\vect{r}}\cdot\hat{\vect{p}})f$ と逆なので，(2) の結果を満たすことの確かめになっていない。同じ順序でとると $(\hat{\vect{p}}\cdot\hat{\vect{r}})\phi-(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi=-3\ii\hbar\phi$ で，正しい (2) の $-3\ii\hbar f$ と一致する。}
+%% kizuki
+\item 交換子の和は $\sum_{j}(\hat{p}_{j}\hat{x}_{j}-\hat{x}_{j}\hat{p}_{j})f$ と成分ごとの差に分けて1行書き，(1) の $\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x}=\ii\hbar$ と順序が同じか逆かを見てから符号を決める。
+\item 具体的な関数で確かめるときは，(2) と同じ順序の差をとって比べる。順序をそろえていれば (2) の符号の誤りに気付けた。

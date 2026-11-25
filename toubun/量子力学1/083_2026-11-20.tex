@@ -1,0 +1,50 @@
+% 量子力学1 量子力学1-11 問題3（083-jump） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi''(x)=E\phi(x)\\
+&-\frac{\hbar^{2}}{2m}\cdot\bigl(-k^{2}\cos(k\abs{x}+\alpha)\bigr)=\frac{\hbar^{2}k^{2}}{2m}\cos(k\abs{x}+\alpha)\\
+&\frac{\hbar^{2}k^{2}}{2m}\cos(k\abs{x}+\alpha)=\frac{\hbar^{2}k^{2}}{2m}\cos(k\abs{x}+\alpha)\ \text{より}
+\end{align*}
+シュレーディンガー方程式を満たしている。
+\[ \lim_{x\to+0}\phi(x)=\cos\alpha\qquad\phi(0)=\cos\alpha \]
+\[ \lim_{x\to-0}\phi(x)=\cos\alpha\quad\text{より連続} \]
+\toi{2}{○}{記述}
+\begin{align*}
+&\phi'(+0)-\phi'(-0)=\frac{2mg}{\hbar^{2}}\phi(0)\\
+&-k\sin\alpha-(+k\sin\alpha)=\frac{2mg}{\hbar^{2}}\cos\alpha\\
+&\nuke{\cos\alpha\neq0\ \text{より}}\ \therefore\ \tan\alpha=-\frac{mg}{\hbar^{2}k}
+\end{align*}
+\naze{両辺を $\cos\alpha$ で割るには $\cos\alpha\neq0$ が要る。$-\pi/2<\alpha\le0$ では $\cos\alpha>0$ なので割ってよい。}
+\toi{3}{○}{記述}
+\begin{align*}
+&g\to0\qquad\tan\alpha\to0\quad\therefore\ \alpha\to0\\
+&\phi(x)\to\cos kx
+\end{align*}
+壁がない状態に近づく
+\begin{align*}
+&g\to\infty\qquad\tan\alpha\to-\infty\quad\therefore\ \alpha\to-\frac{\pi}{2}\\
+\phi(x)&\to\cos\left(k\abs{x}-\frac{\pi}{2}\right)\\
+&=\ayamari{-\sin k\abs{x}}{\sin k\abs{x}}
+\end{align*}
+\naze{$\cos(\theta-\pi/2)=\sin\theta$ である（$\theta=\pi/2$ を入れると左辺は $\cos0=1$）。}
+$x=0$ で $0$ に近づき対称的な広がりをもつ
+\naze{意味の要点が無い。$\phi(0)=0$ は無限に高い壁での境界条件と同じで，原点が厚さ0の無限に高い壁になり，$x>0$ と $x<0$ が切り離されて，それぞれが無限井戸の壁のそばと同じふるまいをする。}
+\toi{4}{◎}{}
+\begin{align*}
+-\frac{\hbar^{2}}{2m}\phi''(x)&=\frac{\hbar^{2}k^{2}}{2m}\sin kx\\
+&=E\sin kx\ \text{より}
+\end{align*}
+シュレーディンガー方程式を満たす。
+
+$\phi(x)$ は $x=0$ で連続
+\begin{align*}
+&\phi'(+0)=k\qquad\phi'(-0)=k\\
+&\phi'(+0)-\phi'(-0)=0\\
+&\frac{2mg}{\hbar^{2}}\phi(0)=0\ \text{より、}
+\end{align*}
+接続条件を満たす。
+%% kizuki
+\item \mae{第6章 問題2・11-01，第7章 問題2・11-04，第9章 問題5・11-11} 符号の誤りが続いている。$\cos(\theta-\pi/2)$ は $\theta=\pi/2$ を入れると $\cos0=1$ になるので $+\sin\theta$ である。三角関数の変形は特別な値を1つ入れて確かめる。
+\item $g\to\infty$ のデルタ関数は「厚さ0の無限に高い壁」で，$\phi(0)=0$ は無限井戸の壁での境界条件と同じである。両側の波は互いに行き来できなくなる。
+\item 両辺をある量で割るときは，その量が0でない理由を書く（ここでは $\alpha$ の範囲から $\cos\alpha>0$）。

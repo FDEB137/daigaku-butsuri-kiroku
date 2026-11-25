@@ -1,0 +1,919 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第5章「1次元系の一般的性質と束縛状態（無限に深い井戸・デルタ関数ポテンシャル・パリティ）」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou05\量子力学1-5.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-081-box}{1}}{L1・計算}{◎△◎}{B}{2026-11-20 (2)未着手}
+  \ichirangyou{\hyperlink{bt-m-082-step}{2}}{L1・計算}{◎◎○◎}{A}{2026-11-20 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-083-jump}{3}}{L1・計算}{◎○○◎}{A}{2026-11-20 (2)記述 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-014-box}{4}}{L2・計算}{○◎◎}{A}{2026-11-20 (1)記述}
+  \ichirangyou{\hyperlink{bt-m-084-junction}{5}}{L2・導出}{◎○×△}{C}{2026-11-20 (2)記述 (3)未着手 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-085-delta}{6}}{L2・計算}{▲◎◎◎}{B}{2026-11-20 (1)立式}
+  \ichirangyou{\hyperlink{bt-m-086-symwell}{7}}{L2・計算}{○◎△}{B}{2026-11-20 (1)記述 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-139-parity}{8}}{L2・計算}{◎◎◎○}{B}{2026-11-20 ヒント1 (4)記述}
+  \ichirangyou{9}{L3・導出}{}{未着手}{}
+  \ichirangyou{10}{L3・導出}{}{未着手}{}
+  \ichirangyou{11}{L3・計算}{}{未着手}{}
+  \ichirangyou{12}{L4・導出}{}{未着手}{}
+  \ichirangyou{13}{L4・導出}{○◎×}{C}{2026-11-11 (1)記述 (3)未着手}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\081_2026-11-20.tex
+\mondaibangou{1}
+\begin{mondai}{081-box}{計算}{遷移で出る光の波長から無限井戸の幅を決めることと，固有関数から求める存在確率}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+無限井戸（$0\le x\le L$ で $V=0$，それ以外で $V=\infty$）の中の電子を考える。要点整理の無限井戸の結果と定数表の値を使い，$\qty{1}{\electronvolt}=\qty{1.602e-19}{\joule}$ とする。数値の答えは有効数字3桁で求めよ。
+  \begin{shoumon}
+    \item 電子が $n=2$ の状態から $n=1$ の状態に移るときに放出される光子の波長が $\lambda_{21}=\qty{480}{\nano\metre}$ になるような井戸の幅 $L$ を \unit{\nano\metre} 単位で求めよ。
+    \item (1) の井戸での $E_{1}$ を \unit{\electronvolt} 単位で求めよ。また，電子が $n=3$ の状態から $n=2$ の状態に移るときに放出される光子の波長 $\lambda_{32}$ を \unit{\nano\metre} 単位で求めよ。
+    \item $n=1$ と $n=2$ の状態のそれぞれについて，電子を $0\le x\le L/4$ に見いだす確率を求めよ。また，井戸の中を一定の速さで往復する古典的な粒子がこの範囲にいる確率 $1/4$ と比べよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 B ◎△◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+\[ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}} \]
+\[ E_{2}-E_{1}=\frac{3\pi^{2}\hbar^{2}}{2mL^{2}}=\frac{3h^{2}}{8mL^{2}} \]
+\[ E_{2}-E_{1}=\frac{hc}{\lambda_{21}}\qquad\therefore\ \frac{3h^{2}}{8mL^{2}}=\frac{hc}{\lambda_{21}} \]
+\begin{align*}
+L^{2}&=\frac{3h\lambda_{21}}{8mc}\\
+L&=\sqrt{\frac{3h\lambda_{21}}{8mc}}\\
+&=\qty{6.61e-10}{\metre}\\
+&=\qty{0.661}{\nano\metre}
+\end{align*}
+\toi{2}{△}{未着手}
+\begin{align*}
+E_{1}&=\frac{\pi^{2}\hbar^{2}}{2mL^{2}}\\
+&=\qty{0.861}{\electronvolt}
+\end{align*}
+\nuke{$\lambda_{32}=hc/(5E_{1})=\qty{288}{\nano\metre}$}
+\naze{問われているもう1つの量 $\lambda_{32}$ が書かれていない。$E_{n}\propto n^{2}$ なので $E_{3}-E_{2}=(9-4)E_{1}=5E_{1}$ で，波長は準位の差に反比例するから $\lambda_{32}=hc/(5E_{1})=(3/5)\lambda_{21}=\qty{288}{\nano\metre}$ である。}
+\toi{3}{◎}{}
+i) $n=1$
+\begin{align*}
+\int_{0}^{\frac{L}{4}}\abs{\phi_{1}(x)}^{2}\dd x&=\int_{0}^{\frac{L}{4}}\frac{2}{L}\sin^{2}\frac{\pi x}{L}\\
+&=\frac{2}{L}\int_{0}^{\frac{L}{4}}\frac{1}{2}\left(1-\cos\frac{2\pi x}{L}\right)\dd x\\
+&=\frac{1}{L}\left[x-\frac{L}{2\pi}\sin\frac{2\pi x}{L}\right]_{0}^{\frac{L}{4}}\\
+&=\frac{1}{L}\left(\frac{L}{4}-\frac{L}{2\pi}\sin\frac{\pi}{2}\right)\\
+&=\frac{1}{4}-\frac{1}{2\pi}
+\end{align*}
+ii) $n=2$
+\begin{align*}
+\int_{0}^{\frac{L}{4}}\abs{\phi_{2}(x)}^{2}\dd x&=\int_{0}^{\frac{L}{4}}\frac{2}{L}\sin^{2}\frac{2\pi x}{L}\dd x\\
+&=\frac{2}{L}\int_{0}^{\frac{L}{4}}\frac{1}{2}\left(1-\cos\frac{4\pi x}{L}\right)\dd x\\
+&=\frac{1}{L}\left[x-\frac{L}{4\pi}\sin\frac{4\pi x}{L}\right]_{0}^{\frac{L}{4}}\\
+&=\frac{1}{L}\left(\frac{L}{4}-\frac{L}{4\pi}\sin\pi\right)\\
+&=\frac{1}{4}
+\end{align*}
+$n=1$ のときは $1/4$ よりも小さい確率になる。
+
+$n=2$ のときは古典的な粒子と一致する。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第7章 問題3・11-04，第9章 問題7・11-11} 問いの一部を答えないまま終えた。(2) は $E_{1}$ と $\lambda_{32}$ の2つを求める問いである。解き終えたら問題文の「求めよ」の数を数え，答えた数と合わせる。
+\item 無限井戸の準位の差はどれも $E_{1}$ の整数倍（$E_{n}-E_{m}=(n^{2}-m^{2})E_{1}$）なので，遷移の波長どうしの比は差の逆比で，$L$ を使わずに求まる。上の準位ほど間隔が広いので $\lambda_{32}<\lambda_{21}$（$5/3$ 倍ではなく $3/5$ 倍）で確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 光子のエネルギーは準位の差に等しいので，$E_{2}-E_{1}=3E_{1}=hc/\lambda_{21}$ から $L$ を決める。$\hbar=h/(2\pi)$ で $E_{n}$ を $h$ で書くと，式には $h$ だけが現れる。存在確率は $\abs{\phi_{n}}^{2}$ を $0\le x\le L/4$ で積分して求める。
+\keisan
+\shoumonkai{1} 要点整理の式で $m=\melec$ とし，$\hbar=h/(2\pi)$ を代入する。
+\[ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2\melec L^{2}}=\frac{n^{2}h^{2}}{8\melec L^{2}} \]
+$n=2$ から $n=1$ に移るときの光子のエネルギーは $E_{2}-E_{1}=3E_{1}$ で，これが $hc/\lambda_{21}$ に等しい。
+\[ \frac{3h^{2}}{8\melec L^{2}}=\frac{hc}{\lambda_{21}}\qquad\text{より}\qquad L^{2}=\frac{3h\lambda_{21}}{8\melec c} \]
+数値を入れる。途中は5桁で計算し，最後に3桁に丸める。
+\[ L^{2}=\frac{3\times\num{6.626e-34}\times\num{4.80e-7}}{8\times\num{9.109e-31}\times\num{2.998e8}}\,\unit{\metre\squared}=\frac{\num{9.5414e-40}}{\num{2.1847e-21}}\,\unit{\metre\squared}=\qty{4.3674e-19}{\metre\squared} \]
+平方根は，指数を偶数に直した $\qty{43.674e-20}{\metre\squared}$ からとる。$L=\qty{6.6086e-10}{\metre}$，すなわち $L=\qty{0.661}{\nano\metre}$ である。
+\shoumonkai{2} (1) の関係 $3E_{1}=hc/\lambda_{21}$ から，$L$ を経由せずに $E_{1}$ が求まる。
+\[ E_{1}=\frac{hc}{3\lambda_{21}}=\frac{\num{6.626e-34}\times\num{2.998e8}}{3\times\num{4.80e-7}}\,\unit{\joule}=\qty{1.3795e-19}{\joule} \]
+\unit{\electronvolt} に直すと次のようになる。
+\[ E_{1}=\frac{\num{1.3795e-19}}{\num{1.602e-19}}\,\unit{\electronvolt}=\qty{0.8611}{\electronvolt} \]
+$E_{3}-E_{2}=(9-4)E_{1}=5E_{1}$ で，波長は準位の差に反比例するので，次のようになる。
+\[ \lambda_{32}=\frac{hc}{5E_{1}}=\frac{3}{5}\lambda_{21}=\qty{288}{\nano\metre} \]
+\shoumonkai{3} 存在確率は次の積分である。
+\[ P_{n}=\int_{0}^{L/4}\abs{\phi_{n}(x)}^{2}\dd x=\frac{2}{L}\int_{0}^{L/4}\sin^{2}\frac{n\pi x}{L}\dd x \]
+半角の公式 $\sin^{2}\theta=(1-\cos 2\theta)/2$ を使う。
+\begin{align*}
+P_{n}&=\frac{1}{L}\int_{0}^{L/4}\left(1-\cos\frac{2n\pi x}{L}\right)\dd x
+=\frac{1}{L}\left[x-\frac{L}{2n\pi}\sin\frac{2n\pi x}{L}\right]_{0}^{L/4}\\
+&=\frac{1}{4}-\frac{1}{2n\pi}\sin\frac{n\pi}{2}
+\end{align*}
+$n=1$ では $\sin(\pi/2)=1$，$n=2$ では $\sin\pi=0$ なので，次のようになる。
+\[ P_{1}=\frac{1}{4}-\frac{1}{2\pi}=\num{0.0908},\qquad P_{2}=\frac{1}{4}=\num{0.250} \]
+\kotae{\shoumonkai{1} $L=\qty{0.661}{\nano\metre}$ \shoumonkai{2} $E_{1}=\qty{0.861}{\electronvolt}$，$\lambda_{32}=\qty{288}{\nano\metre}$ \shoumonkai{3} $n=1$：$\num{0.0908}$，$n=2$：$\num{0.250}$（古典的な値 $\num{0.250}$ に比べ，$n=1$ は小さく，$n=2$ は等しい）}
+\kenzan 単位：$h\lambda/(mc)$ は $\unit{\joule\second}\cdot\unit{\metre}/(\unit{\kilogram}\cdot\unit{\metre\per\second})=\unit{\joule\second\squared\per\kilogram}$ で，$\unit{\joule}=\unit{\kilogram\metre\squared\per\second\squared}$ を使うと \unit{\metre\squared} になり，$L^{2}$ と合う。別の計算：$\hbar$ を $h$ に書き直さず，要点整理の式のまま定数表の $\hbar$ を使って次の式を解く。
+\[ \frac{3\pi^{2}\hbar^{2}}{2\melec L^{2}}=\frac{hc}{\lambda_{21}} \]
+$L=\qty{6.6114e-10}{\metre}$ となる。定数表の $\hbar$ は4桁に丸めた値で，$2\pi$ 倍しても定数表の $h$ に一致しない（$2\pi\times\num{1.055e-34}=\num{6.629e-34}$）ので途中の値は少しずれるが，3桁では同じ \qty{0.661}{\nano\metre} である。$E_{1}$ はどちらの計算でも $hc/(3\lambda_{21})$ に等しい。Level 2 の無限井戸の境界値問題との比較：その問題では $L=\qty{0.500}{\nano\metre}$ で $\lambda_{21}=\qty{275}{\nano\metre}$ だった。(1) の式から $\lambda_{21}\propto L^{2}$ なので，次のように整合する。
+\[ \qty{275}{\nano\metre}\times\left(\frac{\num{0.6609}}{\num{0.500}}\right)^{2}\approx\qty{480}{\nano\metre} \]
+大きさ：幅が \unit{\nano\metre} 程度の井戸の電子の準位差が \unit{\electronvolt} 程度になり，可視光から紫外線の光を出すのは妥当である。$\lambda_{32}<\lambda_{21}$ は，$E_{n}\propto n^{2}$ で上の準位ほど間隔が広がることと合う。確率：$n=1$ の $\abs{\phi_{1}}^{2}$ は井戸の中央で最大，壁で0なので，壁に近い範囲の確率は古典的な値より小さい。$n=2$ の $\abs{\phi_{2}}^{2}$ は $0\le x\le L/2$ の中で $x=L/4$ について対称なので，その半分の範囲の確率は $1/4$ になる。$n\to\infty$ では $P_{n}\to 1/4$ となり，古典的な値に近づく。
+\tsumazuki 要点整理の $E_{n}$ は $\hbar$ で，光子の $hc/\lambda$ は $h$ で書かれている。$\hbar$ と $h$ を取り違えると，$L^{2}$ が $(2\pi)^{2}$ 倍ずれる。$L^{2}$ を $\qty{4.3674e-19}{\metre\squared}$ のまま開くと，$\sqrt{\num{4.3674}}\times\num{e-10}$ のように指数の半分を誤りやすい。放出される光子のエネルギーは $E_{2}$ ではなく $E_{2}-E_{1}$ である。$\lambda_{32}$ は準位の差 $5E_{1}$ に反比例するので，$\lambda_{21}$ の $5/3$ 倍ではなく $3/5$ 倍になる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\082_2026-11-20.tex
+\mondaibangou{2}
+\begin{mondai}{082-step}{計算}{有限の段差での $\phi$ と $\phi'$ の接続条件の使い方}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+次のポテンシャル（$V_{1}>0$ は有限）の中で，エネルギー $E$（$0<E<V_{1}$）を持つ質量 $m$ の粒子の波動関数 $\phi(x)$ を考える。
+  \[ V(x)=\begin{cases} 0 & (x<0)\\ V_{1} & (x\ge 0)\end{cases} \]
+  \begin{shoumon}
+    \item $x<0$ と $x>0$ でシュレーディンガー方程式を解き，$x\to+\infty$ で発散しない解を次の形に書く。$k>0$ と $\kappa>0$ を $E$，$V_{1}$，$m$，$\hbar$ で表せ。また，$x>0$ で $\ee^{\kappa x}$ の項を除く理由を述べよ。
+    \[ \phi(x)=\begin{cases} A\cos kx+B\sin kx & (x<0)\\ C\ee^{-\kappa x} & (x\ge 0)\end{cases} \]
+    \item $x=0$ での接続条件から，$A$ と $B$ を $C$ で表せ。
+    \item $E=V_{1}/2$ のとき，$x<0$ で $\phi(x)=0$ となる点のうち $x=0$ に最も近いものの位置を，$m$，$V_{1}$，$\hbar$ で表せ（$C\ne 0$ とする）。
+    \item $E$ と $B$ を一定に保って $V_{1}\to\infty$ としたとき，$\phi(0)$ はどうなるか。無限井戸の壁での境界条件と比べよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 A ◎◎○◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+（図：$x<0$ で $V=0$，$x>0$ で高さ $V_{1}$ の段差のポテンシャル）
+
+i) $x<0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi''(x)=E\phi(x)\\
+&\therefore\ \phi_{1}''(x)=-\frac{2mE}{\hbar^{2}}\phi_{1}(x)\\
+&\phi_{1}(x)=A\cos\frac{\sqrt{2mE}}{\hbar}x+B\sin\frac{\sqrt{2mE}}{\hbar}x
+\end{align*}
+ii) $x>0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi_{2}''(x)=-(V_{1}-E)x\\
+&\therefore\ \phi_{2}''(x)=\frac{2m(V_{1}-E)}{\hbar^{2}}\phi_{2}(x)\\
+&\phi_{2}(x)=C\ee^{-\frac{\sqrt{2m(V_{1}-E)}}{\hbar}x}
+\end{align*}
+\[ \therefore\ k=\frac{\sqrt{2mE}}{\hbar}\qquad\kappa=\frac{\sqrt{2m(V_{1}-E)}}{\hbar} \]
+$x\to+\infty$ で発散しないよう $\ee^{\kappa x}$ の項を除いている。
+\toi{2}{◎}{}
+\begin{align*}
+&\lim_{x\to-0}A\cos kx+B\sin kx=A\\
+&\lim_{x\to+0}C\ee^{-\kappa x}=C\\
+&A=C
+\end{align*}
+\begin{align*}
+\lim_{x\to-0}\phi_{1}'(x)&=\lim_{x\to-0}-Ak\sin kx+Bk\cos kx\\
+&=Bk\\
+\lim_{x\to+0}\phi_{2}'(x)&=\lim_{x\to+0}-C\kappa\ee^{-\kappa x}\\
+&=-C\kappa
+\end{align*}
+\[ B=-C\frac{\kappa}{k} \]
+\toi{3}{○}{計算}
+\[ \phi_{1}(x)=C\left(\cos kx-\frac{\kappa}{k}\sin kx\right) \]
+\[ k=\frac{\sqrt{mV_{1}}}{\hbar}\qquad\kappa=\frac{\sqrt{mV_{1}}}{\hbar}\quad\text{より、} \]
+\[ \phi_{1}(x)=\nuke{\sqrt{2}}\,C\left(\sin\left(kx+\frac{3\pi}{4}\right)\right) \]
+\naze{$\sin(\theta+3\pi/4)=(\cos\theta-\sin\theta)/\sqrt{2}$ なので，合成すると振幅に $\sqrt{2}$ が付く。零点の位置には影響しない。}
+\[ \phi_{1}(x)=0\qquad kx+\frac{3\pi}{4}=0 \]
+\begin{align*}
+x&=-\frac{3\pi}{4k}\\
+&=-\frac{3\pi\hbar}{4\sqrt{mV_{1}}}
+\end{align*}
+\naze{零点は $kx+3\pi/4=l\pi$（$l$ は整数）のすべてである。そのうち $x<0$ で $x=0$ に最も近いのが $l=0$ であることを1行書く。}
+\toi{4}{◎}{}
+\begin{align*}
+&\lim_{x\to0}\phi(x)=C=-B\frac{k}{\kappa}\\
+&V_{1}\to\infty\ \text{で}\ \kappa\to\infty\\
+&\lim_{\kappa\to\infty}\left(-B\frac{k}{\kappa}\right)=0
+\end{align*}
+無限井戸の壁での境界条件と一致する。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第2章 問題1・10-14} 三角関数を合成するときに係数を落とした（前回は $2\cos x$ で $k$ を落とした）。合成した式は加法定理で展開し直して元の式に戻るか，$\theta=0$ を入れて両辺の値が等しいか（左辺 $1$，右辺 $\sin(3\pi/4)=1/\sqrt{2}$）で確かめる。
+\item \mae{第4章 問題3・10-28} 方程式の解が無数にあるときは，一般形（$l$ を整数として）を書いてから，問題の条件（$x<0$，$x=0$ に最も近い）で1つを選ぶ。選んだ根拠を1行で書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 各領域でシュレーディンガー方程式を解き，$x\to+\infty$ で発散しない解を選ぶ。段差は有限なので，$x=0$ で $\phi$ と $\phi'$ の両方を連続にする。
+\keisan
+\shoumonkai{1} $x<0$ では $V=0$ なので，方程式は次の形になる。
+\[ \phi''=-\frac{2mE}{\hbar^{2}}\phi \]
+$E>0$ なので解は振動し，$k=\sqrt{2mE}/\hbar$ である。$x>0$ では次の形になる。
+\[ \phi''=\frac{2m(V_{1}-E)}{\hbar^{2}}\phi \]
+$V_{1}-E>0$ なので一般解は $C\ee^{-\kappa x}+D\ee^{\kappa x}$，$\kappa=\sqrt{2m(V_{1}-E)}/\hbar$ である。$\ee^{\kappa x}$ は $x\to+\infty$ で発散し，確率密度が際限なく大きくなるので，$D=0$ として除く。
+\shoumonkai{2} $x=0$ の両側での値と傾きは次のとおり。
+\[ \phi(0-0)=A,\quad \phi(0+0)=C,\qquad \phi'(0-0)=kB,\quad \phi'(0+0)=-\kappa C \]
+$\phi$ と $\phi'$ の連続から $A=C$，$kB=-\kappa C$ である。よって $B=-\kappa C/k$ となる。
+\shoumonkai{3} $E=V_{1}/2$ では次のようになる。
+\[ k^{2}=\frac{2m}{\hbar^{2}}\cdot\frac{V_{1}}{2}=\frac{mV_{1}}{\hbar^{2}},\qquad \kappa^{2}=\frac{2m}{\hbar^{2}}\left(V_{1}-\frac{V_{1}}{2}\right)=\frac{mV_{1}}{\hbar^{2}} \]
+よって $\kappa=k$，$B=-C$ で，$x<0$ の解は三角関数の合成により次の形になる。
+\[ \phi(x)=C(\cos kx-\sin kx)=\sqrt{2}\,C\cos\left(kx+\frac{\pi}{4}\right) \]
+$\phi=0$ となるのは，$l$ を整数として次が成り立つときである。
+\[ kx+\frac{\pi}{4}=\frac{\pi}{2}+l\pi \]
+$x<0$ のうち最大のもの（$x=0$ に最も近いもの）は $l=-1$ のときで，次のようになる。
+\[ x=-\frac{3\pi}{4k}=-\frac{3\pi\hbar}{4\sqrt{mV_{1}}} \]
+\shoumonkai{4} (2) より $A=-kB/\kappa$ なので，次のようになる。
+\[ \phi(0)=A=-\frac{k}{\kappa}B \]
+$E$ と $B$ を一定にして $V_{1}\to\infty$ とすると $\kappa\to\infty$ なので $\phi(0)\to 0$ となり，$x<0$ の解は $B\sin kx$ に近づく。これは無限井戸の壁での境界条件 $\phi=0$ と一致する。
+\kotae{\shoumonkai{1} $k=\sqrt{2mE}/\hbar$，$\kappa=\sqrt{2m(V_{1}-E)}/\hbar$（$\ee^{\kappa x}$ は $x\to+\infty$ で発散するので除く） \shoumonkai{2} $A=C$，$B=-\kappa C/k$ \shoumonkai{3} $x=-3\pi\hbar/(4\sqrt{mV_{1}})$ \shoumonkai{4} $\phi(0)\to 0$（無限井戸の壁の条件 $\phi=0$ に一致する）}
+\begin{ronten}
+  \item \shoumonkai{1} $x>0$ で $\ee^{\kappa x}$ の項を捨てる理由（$x\to+\infty$ で発散し，確率密度が際限なく大きくなる）を書く。
+  \item \shoumonkai{2} 段差が有限なので，$x=0$ で $\phi$ と $\phi'$ の両方を連続にすることを述べる。
+  \item \shoumonkai{3} 零点の候補のうち，$x<0$ の範囲にあって $x=0$ に最も近いものを選んだことを書く。
+\end{ronten}
+\kenzan 次元：$\hbar/\sqrt{mV_{1}}$ は \unit{\joule\second}$/\sqrt{\unit{\kilogram\joule}}$ で，$\unit{\joule}=\unit{\kilogram\metre\squared\per\second\squared}$ を使うと \unit{\metre} になる。特殊ケース：(3) の解は $-\sqrt{2}\,C\sin(k(x-x_{\mathrm{w}}))$（$x_{\mathrm{w}}=\pi/(4k)$）と書けるので，$x<0$ の波は「$x=x_{\mathrm{w}}>0$ に $\phi=0$ の壁がある」ときの $\sin$ 型の波と同じ形である。波が段差の中へしみ込む分だけ，実効的な壁が $x>0$ 側へずれていると解釈でき，(4) で $V_{1}\to\infty$ とするとしみ込みが無くなって壁が $x=0$ に戻ることと整合する。
+\tsumazuki 有限の段差では $\phi'$ も連続である（無限井戸の壁では $\phi'$ は連続にならない）。$\phi=0$ の点は $x<0$ の範囲から選ぶ。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\083_2026-11-20.tex
+\mondaibangou{3}
+\begin{mondai}{083-jump}{計算}{デルタ関数ポテンシャルでの $\phi'$ の跳び}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+ポテンシャル $V(x)=g\delta(x)$（$g>0$）の中の質量 $m$ の粒子が，エネルギー $E=\hbar^{2}k^{2}/(2m)$（$k>0$）を持つとする。
+  \begin{shoumon}
+    \item $\alpha$ を $-\pi/2<\alpha\le 0$ の定数として，$\phi(x)=\cos(k\abs{x}+\alpha)$ が $x\ne 0$ でシュレーディンガー方程式を満たし，$x=0$ で連続であることを確かめよ。
+    \item $x=0$ での $\phi'$ の接続条件から $\tan\alpha$ を求めよ。
+    \item $g\to 0$ と $g\to\infty$ の極限で $\phi(x)$ はどうなるか。それぞれの物理的な意味を述べよ。
+    \item $\phi(x)=\sin kx$ は，$g$ によらず $x\ne 0$ での方程式と $x=0$ での接続条件を満たすことを示せ。
+  \end{shoumon}
+\notekiroku{2026-11-20 A ◎○○◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi''(x)=E\phi(x)\\
+&-\frac{\hbar^{2}}{2m}\cdot\bigl(-k^{2}\cos(k\abs{x}+\alpha)\bigr)=\frac{\hbar^{2}k^{2}}{2m}\cos(k\abs{x}+\alpha)\\
+&\frac{\hbar^{2}k^{2}}{2m}\cos(k\abs{x}+\alpha)=\frac{\hbar^{2}k^{2}}{2m}\cos(k\abs{x}+\alpha)\ \text{より}
+\end{align*}
+シュレーディンガー方程式を満たしている。
+\[ \lim_{x\to+0}\phi(x)=\cos\alpha\qquad\phi(0)=\cos\alpha \]
+\[ \lim_{x\to-0}\phi(x)=\cos\alpha\quad\text{より連続} \]
+\toi{2}{○}{記述}
+\begin{align*}
+&\phi'(+0)-\phi'(-0)=\frac{2mg}{\hbar^{2}}\phi(0)\\
+&-k\sin\alpha-(+k\sin\alpha)=\frac{2mg}{\hbar^{2}}\cos\alpha\\
+&\nuke{\cos\alpha\neq0\ \text{より}}\ \therefore\ \tan\alpha=-\frac{mg}{\hbar^{2}k}
+\end{align*}
+\naze{両辺を $\cos\alpha$ で割るには $\cos\alpha\neq0$ が要る。$-\pi/2<\alpha\le0$ では $\cos\alpha>0$ なので割ってよい。}
+\toi{3}{○}{記述}
+\begin{align*}
+&g\to0\qquad\tan\alpha\to0\quad\therefore\ \alpha\to0\\
+&\phi(x)\to\cos kx
+\end{align*}
+壁がない状態に近づく
+\begin{align*}
+&g\to\infty\qquad\tan\alpha\to-\infty\quad\therefore\ \alpha\to-\frac{\pi}{2}\\
+\phi(x)&\to\cos\left(k\abs{x}-\frac{\pi}{2}\right)\\
+&=\ayamari{-\sin k\abs{x}}{\sin k\abs{x}}
+\end{align*}
+\naze{$\cos(\theta-\pi/2)=\sin\theta$ である（$\theta=\pi/2$ を入れると左辺は $\cos0=1$）。}
+$x=0$ で $0$ に近づき対称的な広がりをもつ
+\naze{意味の要点が無い。$\phi(0)=0$ は無限に高い壁での境界条件と同じで，原点が厚さ0の無限に高い壁になり，$x>0$ と $x<0$ が切り離されて，それぞれが無限井戸の壁のそばと同じふるまいをする。}
+\toi{4}{◎}{}
+\begin{align*}
+-\frac{\hbar^{2}}{2m}\phi''(x)&=\frac{\hbar^{2}k^{2}}{2m}\sin kx\\
+&=E\sin kx\ \text{より}
+\end{align*}
+シュレーディンガー方程式を満たす。
+
+$\phi(x)$ は $x=0$ で連続
+\begin{align*}
+&\phi'(+0)=k\qquad\phi'(-0)=k\\
+&\phi'(+0)-\phi'(-0)=0\\
+&\frac{2mg}{\hbar^{2}}\phi(0)=0\ \text{より、}
+\end{align*}
+接続条件を満たす。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第6章 問題2・11-01，第7章 問題2・11-04，第9章 問題5・11-11} 符号の誤りが続いている。$\cos(\theta-\pi/2)$ は $\theta=\pi/2$ を入れると $\cos0=1$ になるので $+\sin\theta$ である。三角関数の変形は特別な値を1つ入れて確かめる。
+\item $g\to\infty$ のデルタ関数は「厚さ0の無限に高い壁」で，$\phi(0)=0$ は無限井戸の壁での境界条件と同じである。両側の波は互いに行き来できなくなる。
+\item 両辺をある量で割るときは，その量が0でない理由を書く（ここでは $\alpha$ の範囲から $\cos\alpha>0$）。
+\end{kizuki}
+\begin{tadashii}
+\houshin $x>0$ と $x<0$ で $\abs{x}$ を外して微分し，方程式と連続を確かめる。$\phi'$ の跳びを要点整理の式（$a=0$）に入れて $\alpha$ を決める。
+\keisan
+\shoumonkai{1} $x>0$ では $\phi=\cos(kx+\alpha)$，$x<0$ では $\phi=\cos(-kx+\alpha)$ で，どちらも $\phi''=-k^{2}\phi$ を満たす。$x\ne 0$ では $V=0$ なので，方程式は $\phi''=-(2mE/\hbar^{2})\phi=-k^{2}\phi$ であり，満たされる。また $\phi(0+0)=\phi(0-0)=\cos\alpha$ なので連続である。
+\shoumonkai{2} それぞれの側の傾きは次のとおり（$x<0$ では $\cos(-kx+\alpha)$ を $x$ で微分すると $k\sin(-kx+\alpha)$ になる）。
+\[ \phi'(0+0)=-k\sin\alpha,\qquad \phi'(0-0)=k\sin\alpha \]
+接続条件に入れると次のようになる。
+\[ -2k\sin\alpha=\frac{2mg}{\hbar^{2}}\cos\alpha \]
+$-\pi/2<\alpha$ より $\cos\alpha\ne 0$ なので，両辺を $-2k\cos\alpha$ で割って次を得る。
+\[ \tan\alpha=-\frac{mg}{\hbar^{2}k} \]
+\shoumonkai{3} $g\to 0$ では $\tan\alpha\to 0$ より $\alpha\to 0$ で，$\phi=\cos kx$ となる。デルタ関数が無くなった自由粒子の偶関数の解である。$g\to\infty$ では $\tan\alpha\to-\infty$ より $\alpha\to-\pi/2$ で，$\phi=\cos(k\abs{x}-\pi/2)=\sin k\abs{x}$ となる。$\phi(0)=0$ なので，原点が無限に高い壁になり，$x>0$ と $x<0$ が切り離されて，それぞれが無限井戸の壁のそばと同じふるまいをする。
+\shoumonkai{4} $\phi=\sin kx$ は $x\ne 0$ で $\phi''=-k^{2}\phi$ を満たす。$\phi(0)=0$ で連続であり，$\phi'(0+0)=\phi'(0-0)=k$ なので跳びは0である。接続条件の右辺も $\phi(0)=0$ より0なので，$g$ によらず条件を満たす。
+\kotae{\shoumonkai{1} 満たす（$\phi(0+0)=\phi(0-0)=\cos\alpha$） \shoumonkai{2} $\tan\alpha=-mg/(\hbar^{2}k)$ \shoumonkai{3} $g\to 0$：$\phi=\cos kx$（自由粒子），$g\to\infty$：$\phi=\sin k\abs{x}$（$\phi(0)=0$ の無限に高い壁） \shoumonkai{4} $\phi(0)=0$ なので $\phi'$ の跳びも右辺も0で，条件を満たす}
+\begin{ronten}
+  \item \shoumonkai{2} 両辺を $\cos\alpha$ で割ってよい理由（$-\pi/2<\alpha\le 0$ では $\cos\alpha\ne 0$）を書く。
+  \item \shoumonkai{3} $\tan\alpha\to 0$，$\tan\alpha\to-\infty$ から $\alpha$ の極限を決めるのに，$\alpha$ の範囲 $-\pi/2<\alpha\le 0$ を使って1つに定める。
+  \item \shoumonkai{4} 接続条件の左辺（$\phi'$ の跳び）と右辺（$\phi(0)$ に比例する項）がともに0であることを，両方とも確かめて書く。
+\end{ronten}
+\kenzan 次元：$g$ は（エネルギー）$\times$（長さ）なので，$mg/(\hbar^{2}k)$ は \unit{\kilogram\joule\metre}$/(\unit{\joule\squared\second\squared\per\metre})=\unit{\kilogram\metre\squared\per\joule\per\second\squared}$ で無次元になる。符号：斥力のデルタ関数（$g>0$）では $\alpha<0$ で $\phi(0)=\cos\alpha<1$ となり，波動関数が原点から押しのけられる向きで妥当である。
+\tsumazuki $x<0$ 側の傾きの符号を誤りやすい。$\abs{x}=-x$ と書き直してから微分する。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\014_2026-11-20.tex
+\mondaibangou{4}
+\begin{mondai}{014-box}{計算}{無限に深い井戸の境界値問題によるエネルギーの量子化と，準位間の遷移で出る光の波長}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+$0<x<L$ では $V=0$，その外ではポテンシャルが無限大の1次元の井戸に，質量 $m$ の粒子を閉じ込める。波動関数は井戸の外で0であり，境界条件 $\phi(0)=\phi(L)=0$ を課す。エネルギー $E$ は正とする。
+  \begin{shoumon}
+    \item 井戸の中の時間を含まないシュレーディンガー方程式を書き，境界条件を満たす0でない解を求めて，要点整理の無限井戸の $E_{n}$ と $\phi_{n}$ を導け。
+    \item 電子（$m=\melec$）で $L=\qty{0.500}{\nano\metre}$ のとき，$\hbar=h/(2\pi)$ と定数表の $h$ を使って，$E_{1}$，$E_{2}$，$E_{3}$ を \unit{\electronvolt} 単位で有効数字3桁で求めよ。
+    \item (2) の電子が $n=2$ の状態から $n=1$ の状態に移るときに放出される光子1個の波長 $\lambda_{21}$ を有効数字3桁で求めよ。また，井戸の幅を2倍にすると $\lambda_{21}$ は何倍になるか。
+  \end{shoumon}
+\notekiroku{2026-11-20 A ○◎◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{○}{記述}
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi_{n}''(x)=E_{n}\phi_{n}(x)\\
+&\phi_{n}''(x)=-\frac{2mE_{n}}{\hbar^{2}}\phi_{n}(x)\\
+&\phi_{n}(x)=A\cos\frac{\sqrt{2mE_{n}}}{\hbar}x+B\sin\frac{\sqrt{2mE_{n}}}{\hbar}x
+\end{align*}
+\begin{align*}
+&\phi_{n}(0)=A=0\\
+&\phi_{n}(L)=B\sin\frac{\sqrt{2mE_{n}}}{\hbar}L=0
+\end{align*}
+$B\neq0$ より、
+\[ \frac{\sqrt{2mE_{n}}}{\hbar}L=n\pi\quad\nuke{n=1,2,3,\dots} \]
+\naze{$n$ の範囲が無い。$k=\sqrt{2mE_{n}}/\hbar>0$ なので $n$ は正で，$n=0$ は $\phi=0$ になるので除く（負の $n$ は正の $n$ と符号が違うだけの同じ状態）。よって $n=1,2,3,\dots$ である。}
+\begin{align*}
+\therefore\ 2mE_{n}&=\frac{n^{2}\pi^{2}\hbar^{2}}{L^{2}}\\
+\therefore\ E_{n}&=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}
+\end{align*}
+\begin{align*}
+\phi_{n}(x)&=B\sin\frac{\sqrt{\frac{n^{2}\pi^{2}\hbar^{2}}{L^{2}}}}{\hbar}x\\
+&=B\sin\frac{n\pi x}{L}
+\end{align*}
+規格化条件より
+\begin{align*}
+\int_{0}^{L}\abs{\phi_{n}(x)}^{2}\dd x&=\int_{0}^{L}B^{2}\sin^{2}\frac{n\pi x}{L}\dd x\\
+&=B^{2}\int_{0}^{L}\frac{1}{2}\left(1-\cos\frac{2n\pi x}{L}\right)\dd x\\
+&=\frac{B^{2}}{2}\left[x-\frac{L}{2n\pi}\sin\frac{2n\pi x}{L}\right]_{0}^{L}\\
+&=\frac{B^{2}}{2}L
+\end{align*}
+\[ \frac{B^{2}}{2}L=1\qquad\therefore\ B=\sqrt{\frac{2}{L}} \]
+\[ \phi_{n}(x)=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L} \]
+\toi{2}{◎}{}
+\begin{align*}
+E_{n}&=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}=\frac{n^{2}h^{2}}{8mL^{2}}\\
+E_{1}&=\frac{h^{2}}{8mL^{2}}=\qty{1.50}{\electronvolt}\\
+E_{2}&=4E_{1}=\qty{6.02}{\electronvolt}\\
+E_{3}&=9E_{1}=\qty{13.5}{\electronvolt}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\lambda_{21}&=\frac{hc}{E_{2}-E_{1}}=\qty{275}{\nano\metre}\\
+\lambda_{21}&=\frac{hc}{\frac{3h^{2}}{8mL^{2}}}=\frac{8mcL^{2}}{3h}
+\end{align*}
+$L\to2$ 倍\qquad $\lambda_{21}\to4$ 倍
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第4章 問題3・10-28} 候補の範囲を書かなかった。量子数の範囲は答えの一部である。$k>0$ から $n$ を正に限り，$n=0$ は $\phi=0$ になるので除く（負の $n$ は符号が違うだけの同じ状態）と1行で書く。問題7 (1) も同じ。
+\end{kizuki}
+\begin{tadashii}
+\houshin 井戸の中では $V=0$ なので，時間を含まないシュレーディンガー方程式は $\phi''=-k^{2}\phi$ の形になる。一般解に両端の境界条件を課すと $k$ がとびとびの値に限られ，エネルギーが量子化される。遷移で出る光子のエネルギーは準位の差に等しい。
+\keisan
+\shoumonkai{1} $0<x<L$ で
+\[ -\frac{\hbar^{2}}{2m}\dv[2]{\phi}{x}=E\phi \]
+である。$k=\sqrt{2mE}/\hbar>0$ とおくと $\phi''=-k^{2}\phi$ で，一般解は $\phi=c_{1}\cos kx+c_{2}\sin kx$。$\phi(0)=c_{1}=0$，$\phi(L)=c_{2}\sin kL=0$ である。0でない解には $c_{2}\neq0$ が必要なので $\sin kL=0$，すなわち $kL=n\pi$（$k>0$ より $n=1,2,3,\dots$）。したがって
+\[ E_{n}=\frac{\hbar^{2}k^{2}}{2m}=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}},\qquad \phi_{n}(x)=C\sin\frac{n\pi x}{L} \]
+
+\shoumonkai{2} 分母と分子を計算する。
+\begin{align*}
+  2\melec L^{2}&=2\times\num{9.109e-31}\times(\num{0.500e-9})^{2}\ \unit{\kilogram\metre\squared}=\qty{4.555e-49}{\kilogram\metre\squared},\\
+  E_{1}&=\frac{\pi^{2}\times(\num{1.0546e-34})^{2}}{\num{4.555e-49}}\ \unit{\joule}=\qty{2.410e-19}{\joule}=\qty{1.504}{\electronvolt}.
+\end{align*}
+$E_{n}=n^{2}E_{1}$ より $E_{2}=4E_{1}=\qty{6.018}{\electronvolt}$，$E_{3}=9E_{1}=\qty{13.54}{\electronvolt}$。
+
+\shoumonkai{3} 光子のエネルギーは $E_{2}-E_{1}=3E_{1}=\qty{7.230e-19}{\joule}$ なので
+\[ \lambda_{21}=\frac{hc}{E_{2}-E_{1}}=\frac{\num{6.626e-34}\times\num{2.998e8}}{\num{7.230e-19}}\ \unit{\metre}=\qty{2.747e-7}{\metre} \]
+幅を $2L$ にすると $E_{n}$ はすべて $1/4$ 倍になり，$E_{2}-E_{1}$ も $1/4$ 倍なので，$\lambda_{21}$ は4倍（約 \qty{1.10}{\micro\metre}）になる。
+\kotae{\shoumonkai{1} $E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}$，$\phi_{n}=C\sin(n\pi x/L)$（$n=1,2,3,\dots$） \shoumonkai{2} $E_{1}=\qty{1.50}{\electronvolt}$，$E_{2}=\qty{6.02}{\electronvolt}$，$E_{3}=\qty{13.5}{\electronvolt}$ \shoumonkai{3} $\lambda_{21}=\qty{275}{\nano\metre}$，4倍}
+\begin{ronten}
+  \item \shoumonkai{1} 0でない解を求めるので $c_{2}\ne 0$ とし，そこから $\sin kL=0$ を導くことを書く。
+  \item \shoumonkai{1} $k>0$ であることから，$n$ を正の整数に限る理由を書く。
+\end{ronten}
+\kenzan 次元：$\hbar^{2}/(mL^{2})$ は $(\unit{\joule\second})^{2}/(\unit{\kilogram\metre\squared})=\unit{\joule}$。$E_{1}=h^{2}/(8\melec L^{2})$ と書き直して計算しても \qty{1.504}{\electronvolt} になる。$L\to\infty$ では準位の間隔が0に近づき，自由粒子の連続的なエネルギーに移る。\qty{275}{\nano\metre} は紫外線で，原子程度の大きさに閉じ込めた電子の準位差が \unit{\electronvolt} 程度になることと合う。
+\tsumazuki 光子のエネルギーは $E_{2}$ でも $E_{1}$ でもなく，差 $E_{2}-E_{1}=3E_{1}$ である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\084_2026-11-20.tex
+\mondaibangou{5}
+\begin{mondai}{084-junction}{導出}{段差とデルタ関数を含むポテンシャルでの接続条件の導出}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+$V_{1}$，$V_{2}$，$g$ を有限な実数の定数として，次のポテンシャルの中の質量 $m$ の粒子を考える。
+  \[ V(x)=U(x)+g\delta(x-a),\qquad U(x)=\begin{cases} V_{1} & (x<a)\\ V_{2} & (x\ge a)\end{cases} \]
+  $\phi(x)$ はエネルギー $E$ の解で，$x=a$ の近くで有界であるとする。
+  \begin{shoumon}
+    \item $\phi$ が $x=a$ で連続であるとして，シュレーディンガー方程式を $x=a-\varepsilon$ から $x=a+\varepsilon$ まで積分し，$\varepsilon\to+0$ とすることで，$\phi'(a+0)-\phi'(a-0)$ を $g$，$\phi(a)$，$m$，$\hbar$ で表せ。
+    \item $g=0$ のとき，$\phi'$ は $x=a$ で連続であることを示せ。この結論が段差の大きさ $V_{2}-V_{1}$ によらない理由を述べよ。
+    \item 方程式を $x=a$ より左の定点 $x_{0}$ から $x$ まで積分して，$\phi'$ が $x=a$ の近くで有界であることを示し，そこから $\phi$ が $x=a$ で連続であることを導け。
+    \item $g<0$ で $\phi(a)>0$ のとき，$x=a$ の付近で $\phi(x)$ のグラフはどんな形になるか。(1) の結果の符号から答えよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 C ◎○×△}
+\begin{kotaeutsushi}{2026-11-20}
+（図：$x=a$ でポテンシャルが $V_{1}$ から $V_{2}$ に上がる段差と，$x=a$ に立つデルタ関数（$V_{2}+g$ の印））
+\toi{1}{◎}{}
+\[ -\frac{\hbar^{2}}{2m}\phi''(x)+U(x)\phi(x)+g\phi(x)\delta(x-a)=E\phi(x) \]
+\begin{align*}
+&\int_{a-\varepsilon}^{a+\varepsilon}-\frac{\hbar^{2}}{2m}\phi''(x)\dd x=-\frac{\hbar^{2}}{2m}\bigl(\phi'(a+\varepsilon)-\phi'(a-\varepsilon)\bigr)\\
+&\int_{a-\varepsilon}^{a+\varepsilon}U(x)\phi(x)\dd x=\int_{a-\varepsilon}^{a}V_{1}\phi(x)\dd x+\int_{a}^{a+\varepsilon}V_{2}\phi(x)\dd x\\
+&\qquad=V_{1}\bigl(\psi(a)-\psi(a-\varepsilon)\bigr)+V_{2}\bigl(\psi(a+\varepsilon)-\psi(a)\bigr)
+\end{align*}
+（$\int\phi(x)\dd x=\psi(x)+C$ とする）
+\begin{align*}
+&\int_{a-\varepsilon}^{a+\varepsilon}g\phi(x)\delta(x-a)\dd x=g\phi(a)\\
+&\int_{a-\varepsilon}^{a+\varepsilon}E\phi(x)\dd x=E\bigl(\psi(a+\varepsilon)-\psi(a-\varepsilon)\bigr)
+\end{align*}
+$\varepsilon\to+0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\bigl(\phi'(a+0)-\phi'(a-0)\bigr)+0+g\phi(a)=0\\
+&\therefore\ \phi'(a+0)-\phi'(a-0)=\frac{2mg}{\hbar^{2}}\phi(a)
+\end{align*}
+\toi{2}{○}{記述}
+$g=0$ のとき、$\phi'(a+0)-\phi'(a-0)=0$
+\[ \therefore\ \phi'(a+0)=\phi'(a-0) \]
+より、$V_{2}-V_{1}$ によらず連続
+\naze{段差の大きさによらない理由が無い。(1) で $U$ の項は $V_{1}\bigl(\psi(a)-\psi(a-\varepsilon)\bigr)+V_{2}\bigl(\psi(a+\varepsilon)-\psi(a)\bigr)$ で，$V_{1}$，$V_{2}$ が有限である限り，積分は幅 $2\varepsilon$ に比例して抑えられ $\varepsilon\to+0$ で $0$ になる。$V_{2}\to\infty$（無限井戸の壁）ではこの評価が使えない。}
+\toi{3}{×}{未着手}
+\[ \int_{x_{0}}^{x}-\frac{\hbar^{2}}{2m}\phi''(x)=-\frac{\hbar^{2}}{2m}\bigl(\phi'(x)-\phi'(x_{0})\bigr) \]
+？
+\naze{左辺の積分の1行で止まっている。続きは，方程式から $\phi'(x)=\phi'(x_{0})+(2m/\hbar^{2})\int_{x_{0}}^{x}[U-E]\phi\dd x'+(2mg/\hbar^{2})\phi(a)\theta(x-a)$ と書き，右辺のどの項も有界なので $\abs{\phi'}\le M'$，よって $\abs{\phi(a+\varepsilon)-\phi(a-\varepsilon)}\le2\varepsilon M'\to0$ とする。}
+\toi{4}{△}{記述}
+（図：$x=a$ で上に尖った（$\wedge$ 形の）$\phi(x)$ のグラフ。左が $V_{1}$，右が一段高い $V_{2}$ の領域）
+\naze{問われている「(1) の結果の符号から」の根拠が無い。$g<0$，$\phi(a)>0$ なら (1) の右辺 $2mg\phi(a)/\hbar^{2}<0$ で $\phi'(a+0)<\phi'(a-0)$，つまり傾きが $x=a$ で急に減るので $\wedge$ 形になる。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 接続条件の導出は「$\phi'$ が有界である → だから $\phi$ が連続である」の順に進む。積分の大きさは（区間の幅）$\times$（被積分関数の上限）で抑える（(3)）。
+\item \mae{第7章 問題3・11-04，第9章 問題7・11-11} 「理由を述べよ」「(1) の結果の符号から答えよ」のように問いが指定した根拠を書かずに終えた。解き終えたら問題文の「求めよ」「述べよ」の数と答えた数を合わせる。
+\item 跳びの符号と形：$\phi'$ が増える向きに跳べば $\vee$ 形（斥力 $g>0$），減る向きなら $\wedge$ 形（引力 $g<0$）。問題6 のデルタ関数井戸の $\ee^{-\kappa\abs{x}}$ が $\wedge$ 形になるのと同じである。
+\end{kizuki}
+\begin{tadashii}
+\houshin 方程式を $\phi''=\cdots$ の形にして狭い区間で積分する。デルタ関数の積分は $\phi(a)$ を拾い，有限な項の積分は区間の幅とともに0になる。(3) は積分の上端を動かして $\phi'$ の有界性を示す。
+\keisan
+\shoumonkai{1} 方程式を次の形に書く。
+\[ \phi''(x)=\frac{2m}{\hbar^{2}}\bigl[U(x)+g\delta(x-a)-E\bigr]\phi(x) \]
+$a-\varepsilon$ から $a+\varepsilon$ まで積分すると，左辺は $\phi'$ の差になり，デルタ関数の項は $\phi$ が連続なので $g\phi(a)$ になる。
+\[ \phi'(a+\varepsilon)-\phi'(a-\varepsilon)=\frac{2m}{\hbar^{2}}\int_{a-\varepsilon}^{a+\varepsilon}\bigl[U(x)-E\bigr]\phi(x)\dd x+\frac{2mg}{\hbar^{2}}\phi(a) \]
+$\abs{U-E}\le M_{U}$，$\abs{\phi}\le M$（どちらも有限）とすると，右辺第1項の大きさは $2\varepsilon M_{U}M$ 以下で，$\varepsilon\to+0$ で0になる。よって次を得る。
+\[ \phi'(a+0)-\phi'(a-0)=\frac{2mg}{\hbar^{2}}\phi(a) \]
+\shoumonkai{2} $g=0$ なら右辺は0で，$\phi'(a+0)=\phi'(a-0)$ である。段差は (1) の第1項にしか入らず，その積分は $U$ が有限である限り区間の幅 $2\varepsilon$ とともに0になる。したがって，$V_{2}-V_{1}$ がどれだけ大きくても有限なら結論は変わらない（$V_{2}\to\infty$ では $M_{U}$ が有限でなくなり，この議論は使えない。無限井戸の壁で $\phi'$ の連続を課さないのはこのためである）。
+\shoumonkai{3} $x_{0}<a$ を固定し，方程式を $x_{0}$ から $x$ まで積分する。
+\[ \phi'(x)=\phi'(x_{0})+\frac{2m}{\hbar^{2}}\int_{x_{0}}^{x}\bigl[U(x')-E\bigr]\phi(x')\dd x'+\frac{2mg}{\hbar^{2}}\phi(a)\,\theta(x-a) \]
+ここで $\theta$ は階段関数で，デルタ関数の部分は $x$ が $a$ を越えると定数 $g\phi(a)$ になることを表す。右辺の第2項は $\abs{x-x_{0}}M_{U}M$ 以下，第3項も有限なので，$x=a$ の近くで $\abs{\phi'}\le M'$（有限）である。したがって次が成り立つ。
+\[ \abs{\phi(a+\varepsilon)-\phi(a-\varepsilon)}=\abs{\int_{a-\varepsilon}^{a+\varepsilon}\phi'(x)\dd x}\le 2\varepsilon M' \]
+$\varepsilon\to+0$ で右辺は0になるので，$\phi(a+0)=\phi(a-0)$，すなわち $\phi$ は $x=a$ で連続である。
+\shoumonkai{4} $g<0$，$\phi(a)>0$ なら (1) の右辺は負で，$\phi'(a+0)<\phi'(a-0)$ である。傾きが $x=a$ で急に減るので，グラフは $x=a$ で上に尖った折れ目（$\wedge$ 形）を持つ。
+\kotae{\shoumonkai{1} $\phi'(a+0)-\phi'(a-0)=\frac{2mg}{\hbar^{2}}\phi(a)$ \shoumonkai{2} 跳びは0（有限な $U$ の積分は区間の幅とともに0になるため，段差の大きさによらない） \shoumonkai{3} $\phi'$ が有界なので $\phi(a+0)=\phi(a-0)$ \shoumonkai{4} 傾きが $x=a$ で急に減る，上に尖った折れ目（$\wedge$ 形）}
+\begin{ronten}
+  \item \shoumonkai{1} デルタ関数の項を $\phi(a)$ に置き換えるのに，$\phi$ が $x=a$ で連続であることを使ったと書く。
+  \item \shoumonkai{1} 有限な項の積分が0になる理由を，$U-E$ と $\phi$ が有界なので積分の大きさが区間の幅に比例して抑えられることとして書く。
+  \item \shoumonkai{2} 段差の大きさによらない理由として，$U$ が有限である限り (1) の評価がそのまま使えることを述べ，$U$ が無限大になる壁ではこの議論が使えないことに触れる。
+  \item \shoumonkai{3} 先に $\phi'$ が $x=a$ の近くで有界であることを示し，それを根拠に $\phi$ の差が区間の幅とともに0になるという順序で書く。
+\end{ronten}
+\kenzan 次元：$2mg/\hbar^{2}$ は（長さ）$^{-1}$ なので，右辺は $\phi$/（長さ）で $\phi'$ と同じ次元である。特殊ケース：デルタ関数井戸（$g\to-g$，$a=0$）の束縛状態 $\ee^{-\kappa\abs{x}}$ では，傾きの跳びは $-2\kappa$ で，(1) から $\kappa=mg/\hbar^{2}$ となり，Level 2 のデルタ関数井戸の問題と一致する。グラフも原点で上に尖っていて (4) と合う。
+\tsumazuki 「$\phi'$ が連続」は有限の段差でだけ成り立つ。デルタ関数がある点や無限に高い壁では成り立たない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\085_2026-11-20.tex
+\mondaibangou{6}
+\begin{mondai}{085-delta}{計算}{デルタ関数井戸の束縛状態と，エネルギーの内訳}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+ポテンシャル $V(x)=-g\delta(x)$（$g>0$）の中の質量 $m$ の粒子の束縛状態（$E<0$）を考え，$\kappa=\sqrt{-2mE}/\hbar$（$\kappa>0$）とおく。
+  \begin{shoumon}
+    \item $x<0$ と $x>0$ で，$\abs{x}\to\infty$ で $\phi\to 0$ となる解を書け。$x=0$ での接続条件から $\kappa$ と $E$ を $m$，$g$，$\hbar$ で表し，束縛状態がいくつあるかを答えよ。
+    \item 規格化した $\phi(x)$（実数で正にとる）を求めよ。また，粒子を $\abs{x}\ge 1/\kappa$ に見いだす確率を有効数字3桁で求めよ。
+    \item ポテンシャルエネルギーの期待値 $\expval{V}$（$V(x)\abs{\phi(x)}^{2}$ の全区間での積分）を求めよ。$\expval{V}$ と，運動エネルギーの期待値 $\expval{T}=E-\expval{V}$ を，それぞれ $E$ で表せ。
+    \item 電子（質量 $\melec$）で $g=\qty{0.300}{\electronvolt\nano\metre}$ のとき，束縛エネルギー $\abs{E}$（\unit{\electronvolt} 単位）と $1/\kappa$（\unit{\nano\metre} 単位）を有効数字3桁で求めよ。$\qty{1}{\electronvolt}=\qty{1.602e-19}{\joule}$ とする。
+  \end{shoumon}
+\notekiroku{2026-11-20 B ▲◎◎◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{▲}{立式}
+i) $x<0$
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi''(x)=E\phi(x)\\
+&\phi''(x)=\kappa^{2}\phi(x)\\
+&\therefore\ \phi(x)=C_{1}\ee^{-\kappa x}+C_{2}\ee^{\kappa x}
+\end{align*}
+$x\to-\infty$ で $\phi(x)\to0$ より、
+\[ C_{1}=0\qquad\phi(x)=C_{2}\ee^{\kappa x} \]
+ii) $x>0$
+\[ \phi(x)=C_{1}\ee^{-\kappa x}+C_{2}\ee^{\kappa x} \]
+$x\to\infty$ で $\phi(x)\to0$ より、
+\[ C_{2}=0\qquad\phi(x)=C_{1}\ee^{-\kappa x} \]
+\ayamari{対称性}{$x=0$ での $\phi$ の連続} より\quad $C_{1}=C_{2}$
+\[ \phi(x)=C\ee^{-\kappa\abs{x}} \]
+\naze{対称なポテンシャルでも奇関数の解（$C_{1}=-C_{2}$）は許されるので，対称性からは決まらない。$C_{1}=C_{2}$ は $x=0$ での $\phi$ の連続から出し，そこから「奇関数の解は無く，$\kappa$ はただ1つに決まるので束縛状態は1つ」と結論する。}
+\[ \phi'(+0)-\phi'(-0)=\ayamari{\frac{2mg}{\hbar^{2}}}{-\frac{2mg}{\hbar^{2}}}\phi(0) \]
+\naze{ポテンシャルは $-g\delta(x)$ なので，跳びの式の $g$ を $-g$ にする（引力なので $\phi'$ は減る向きに跳ぶ）。以降はこの誤りを引き継ぐ。正しくは $-2C\kappa=-(2mg/\hbar^{2})C$ で $\kappa=mg/\hbar^{2}$ である。下の $\kappa=-mg/\hbar^{2}$ は $g>0$ なので $\kappa>0$ と矛盾し，$E$ が合ったのは2乗で符号が消えたからである。}
+\begin{align*}
+&\phi'(+0)=\lim_{x\to+0}-C\kappa\ee^{-\kappa x}=-C\kappa\\
+&\phi'(-0)=\lim_{x\to-0}C\kappa\ee^{\kappa x}=C\kappa\\
+&-2C\kappa=\frac{2mg}{\hbar^{2}}C\\
+&\kappa=-\frac{mg}{\hbar^{2}}\\
+&-\frac{2mE}{\hbar^{2}}=\frac{m^{2}g^{2}}{\hbar^{4}}\\
+&\therefore\ E=-\frac{mg^{2}}{2\hbar^{2}}
+\end{align*}
+束縛状態は1つ
+\toi{2}{◎}{}
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{\phi(x)}^{2}\dd x&=C^{2}\int_{-\infty}^{\infty}\ee^{-2\kappa\abs{x}}\dd x\\
+&=2C^{2}\int_{0}^{\infty}\ee^{-2\kappa x}\dd x\\
+&=2C^{2}\left[-\frac{1}{2\kappa}\ee^{-2\kappa x}\right]_{0}^{\infty}\\
+&=2C^{2}\cdot\frac{1}{2\kappa}\\
+&=\frac{C^{2}}{\kappa}
+\end{align*}
+\[ \frac{C^{2}}{\kappa}=1\qquad C=\sqrt{\kappa} \]
+\[ \phi(x)=\sqrt{\kappa}\,\ee^{-\kappa\abs{x}} \]
+\begin{align*}
+2\int_{\frac{1}{\kappa}}^{\infty}\bigl(\sqrt{\kappa}\,\ee^{-\kappa x}\bigr)^{2}\dd x&=2\kappa\int_{\frac{1}{\kappa}}^{\infty}\ee^{-2\kappa x}\dd x\\
+&=2\kappa\left[-\frac{1}{2\kappa}\ee^{-2\kappa x}\right]_{\frac{1}{\kappa}}^{\infty}\\
+&=2\kappa\cdot\frac{1}{2\kappa}\ee^{-2}\\
+&=\frac{1}{\ee^{2}}\\
+&=\num{0.135}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int_{-\infty}^{\infty}V(x)\abs{\phi(x)}^{2}\dd x&=-g\abs{\phi(0)}^{2}\\
+&=-g\kappa
+\end{align*}
+\begin{align*}
+\expval{V}&=-\frac{\hbar^{2}\kappa^{2}}{m}=\frac{\hbar^{2}}{m}\cdot\frac{-2mE}{\hbar^{2}}=2E\\
+\expval{T}&=E-2E=-E
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\abs{E}&=\frac{mg^{2}}{2\hbar^{2}}=\qty{0.590}{\electronvolt}\\
+\frac{1}{\kappa}&=\qty{0.254}{\nano\metre}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第6章 問題2・11-01，第7章 問題2・11-04，第9章 問題5・11-11} 符号の誤り。跳びの式には $V$ に含まれる $g\delta(x-a)$ の係数をそのまま入れる。$V=-g\delta(x)$ なら係数は $-g$ である。$\kappa$ や $\abs{E}$ のように正と決めた量は，答えを出したら符号を確かめる（負になったら，どこかで符号を取り違えている）。
+\item 対称なポテンシャルでも奇関数の解は許される。偶か奇かは「対称性」ではなく接続条件（$\phi$ の連続）で決まり，ここでは奇関数の解が無いことが「束縛状態は1つ」の根拠になる。
+\end{kizuki}
+\begin{tadashii}
+\houshin $x\ne 0$ では自由な方程式の減衰解を使い，$x=0$ で $\phi$ の連続と $\phi'$ の跳びを課す。期待値はデルタ関数が $\abs{\phi(0)}^{2}$ を拾うことを使う。
+\keisan
+\shoumonkai{1} $x\ne 0$ では $V=0$ で，$E<0$ なので次の形になる。
+\[ \phi''=-\frac{2mE}{\hbar^{2}}\phi=\kappa^{2}\phi \]
+$\abs{x}\to\infty$ で0になる解は，$x<0$ で $A\ee^{\kappa x}$，$x>0$ で $B\ee^{-\kappa x}$ である。$x=0$ での連続から $A=B$ となる。$\phi'$ の跳び（要点整理の式で $g\to-g$，$a=0$）は次のとおり。
+\[ \phi'(0+0)-\phi'(0-0)=-\kappa B-\kappa A=-2\kappa A=-\frac{2mg}{\hbar^{2}}A \]
+$A\ne 0$ なので $\kappa=mg/\hbar^{2}$ で，エネルギーは次のようになる。
+\[ E=-\frac{\hbar^{2}\kappa^{2}}{2m}=-\frac{mg^{2}}{2\hbar^{2}} \]
+$\kappa$ はただ1つに決まり，連続の条件から解は必ず偶関数（$A=B$）になって奇関数の解は無い。よって束縛状態は1つだけである。
+\shoumonkai{2} 規格化の条件は次のとおり。
+\[ \int_{-\infty}^{\infty}\abs{\phi}^{2}\dd x=2A^{2}\int_{0}^{\infty}\ee^{-2\kappa x}\dd x=\frac{A^{2}}{\kappa}=1 \]
+よって $A=\sqrt{\kappa}$，$\phi(x)=\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}$ である。$\abs{x}\ge 1/\kappa$ に見いだす確率は，左右の対称性から次のようになる。
+\[ P=2\int_{1/\kappa}^{\infty}\kappa\,\ee^{-2\kappa x}\dd x=\Bigl[-\ee^{-2\kappa x}\Bigr]_{1/\kappa}^{\infty}=\ee^{-2}=\num{0.135} \]
+\shoumonkai{3} デルタ関数は積分で $x=0$ の値を拾う。
+\[ \expval{V}=\int_{-\infty}^{\infty}\bigl(-g\delta(x)\bigr)\abs{\phi(x)}^{2}\dd x=-g\abs{\phi(0)}^{2}=-g\kappa \]
+(1) の $g=\hbar^{2}\kappa/m$ を入れると，次のようになる。
+\[ \expval{V}=-\frac{\hbar^{2}\kappa^{2}}{m}=2E,\qquad \expval{T}=E-\expval{V}=-E=\frac{\hbar^{2}\kappa^{2}}{2m} \]
+\shoumonkai{4} $g$ を SI 単位に直す。
+\[ g=\num{0.300}\times\num{1.602e-19}\,\unit{\joule}\times\num{1.000e-9}\,\unit{\metre}=\qty{4.806e-29}{\joule\metre} \]
+\[ \kappa=\frac{\melec g}{\hbar^{2}}=\frac{\num{9.109e-31}\times\num{4.806e-29}}{(\num{1.055e-34})^{2}}\,\unit{\per\metre}=\qty{3.933e9}{\per\metre} \]
+よって $1/\kappa=\qty{2.542e-10}{\metre}=\qty{0.254}{\nano\metre}$ である。束縛エネルギーは次のとおり。
+\[ \abs{E}=\frac{\hbar^{2}\kappa^{2}}{2\melec}=\frac{(\num{1.055e-34})^{2}\times(\num{3.933e9})^{2}}{2\times\num{9.109e-31}}\,\unit{\joule}=\qty{9.45e-20}{\joule}=\qty{0.590}{\electronvolt} \]
+\kotae{\shoumonkai{1} $\kappa=mg/\hbar^{2}$，$E=-mg^{2}/(2\hbar^{2})$，束縛状態は1つ \shoumonkai{2} $\phi(x)=\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}$，確率 $\ee^{-2}=\num{0.135}$ \shoumonkai{3} $\expval{V}=-g\kappa=2E$，$\expval{T}=-E$ \shoumonkai{4} $\abs{E}=\qty{0.590}{\electronvolt}$，$1/\kappa=\qty{0.254}{\nano\metre}$}
+\begin{ronten}
+  \item \shoumonkai{1} $\abs{x}\to\infty$ で増大する項を捨て，減衰する解だけを選ぶ理由を書く。
+  \item \shoumonkai{1} 連続の条件から $A=B$ となって奇関数の解が無いことと，$A\ne 0$ で割って $\kappa$ がただ1つに決まることから，束縛状態が1つであると結論する。
+\end{ronten}
+\kenzan 次元：$mg/\hbar^{2}$ は \unit{\kilogram\joule\metre}$/\unit{\joule\squared\second\squared}=\unit{\kilogram\metre\per\joule\per\second\squared}=\unit{\per\metre}$ で，$\kappa$ の次元と合う。特殊ケース：$g\to 0$ で $\kappa\to 0$，$E\to 0$ となり，束縛が弱くなって波動関数が広がる。符号：$\expval{T}>0$，$\expval{V}<0$ で妥当である。別の確かめ方：$\expval{T}$ を $\hbar^{2}/(2m)$ と $\abs{\phi'}^{2}$ の積分の積で計算すると，$\abs{\phi'}^{2}=\kappa^{2}\abs{\phi}^{2}$ より $\hbar^{2}\kappa^{2}/(2m)$ で一致する。数値：$\abs{E}=g\kappa/2=\qty{0.300}{\electronvolt\nano\metre}\times\qty{3.933}{\per\nano\metre}/2=\qty{0.590}{\electronvolt}$ とも一致する。
+\tsumazuki 規格化で $x<0$ の分を落とすと係数が $\sqrt{2}$ 倍ずれる。引力のデルタ関数では跳びの式の $g$ を $-g$ にする（符号を誤ると $\kappa<0$ になり束縛状態が無くなる）。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\086_2026-11-20.tex
+\mondaibangou{7}
+\begin{mondai}{086-symwell}{計算}{原点について対称な無限井戸での固有関数のパリティと位置の期待値}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+次のポテンシャルの中の質量 $m$ の粒子を考える（$a>0$。$E>0$ の解だけを考えればよい）。
+  \[ V(x)=\begin{cases} 0 & (\abs{x}\le a/2)\\ \infty & (\abs{x}>a/2)\end{cases} \]
+  \begin{shoumon}
+    \item 井戸の中の一般解を $\phi(x)=A\cos kx+B\sin kx$（$k=\sqrt{2mE}/\hbar>0$）とし，境界条件 $\phi(\pm a/2)=0$ から，エネルギー固有値と規格化した固有関数を求めよ。固有値には小さい順に $n=1,2,3,\dots$ と番号を付け，固有関数を $\chi_{n}(x)$ と書く。各固有関数のパリティも答えよ。
+    \item 要点整理の $0\le x\le L$ の無限井戸で $L=a$ とした固有関数 $\phi_{n}$ を $x$ の負の向きに $a/2$ だけずらした $\phi_{n}(x+a/2)$ を，(1) の $\chi_{n}(x)$ と比べ，符号を除いて一致することを確かめよ。
+    \item (1) の各固有状態で $\expval{x}$ と $\expval{x^{2}}$ を求めよ。また，$n\to\infty$ で $\expval{x^{2}}$ が，井戸の中に一様に分布した粒子での値に近づくことを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 B ○◎△}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{○}{記述}
+\begin{align*}
+&\phi\left(\frac{a}{2}\right)=A\cos\frac{ka}{2}+B\sin\frac{ka}{2}=0\\
+&\phi\left(-\frac{a}{2}\right)=A\cos\frac{ka}{2}-B\sin\frac{ka}{2}=0\\
+&\therefore\ 2A\cos\frac{ka}{2}=0,\quad B\sin\frac{ka}{2}=0
+\end{align*}
+\begin{align*}
+&\cos\frac{ka}{2}=0\qquad\therefore\ \frac{ka}{2}=\frac{\pi}{2}+n\pi\\
+&\therefore\ \frac{\sqrt{2mE_{n}}}{\hbar}=\frac{1}{a}(2n+1)\pi\\
+&E_{n}=\frac{(2n+1)^{2}\pi^{2}\hbar^{2}}{2ma^{2}}
+\end{align*}
+\begin{align*}
+&\sin\frac{ka}{2}=0\qquad\therefore\ \frac{ka}{2}=n\pi\\
+&\frac{\sqrt{2mE_{n}}}{\hbar}=\frac{2n\pi}{a}\\
+&E_{n}=\frac{(2n)^{2}\pi^{2}\hbar^{2}}{2ma^{2}}
+\end{align*}
+\[ \therefore\ E_{n}=\frac{n^{2}\pi^{2}\hbar^{2}}{2ma^{2}}\quad\nuke{n=1,2,3,\dots} \]
+\naze{最後の $n$ を正の整数に限る理由が無い。$k>0$ で，$A=B=0$（$\phi=0$）を除くので $n=1,2,3,\dots$ である。なお，2つの場合で同じ文字 $n$ を別の意味に使っている（上の2式の $2n+1$ と $2n$ が最後の式の $n$ にあたる）。}
+$n$ が奇数のとき、
+\[ \cos\frac{ka}{2}=0\qquad B=0 \]
+\[ \chi_{n}(x)=A\cos\frac{n\pi x}{a} \]
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{\chi_{n}(x)}^{2}\dd x&=A^{2}\int_{-\frac{a}{2}}^{\frac{a}{2}}\cos^{2}\frac{n\pi x}{a}\dd x\\
+&=\frac{A^{2}}{2}\int_{-\frac{a}{2}}^{\frac{a}{2}}1+\cos\frac{2n\pi x}{a}\dd x\\
+&=\frac{A^{2}}{2}\left[x+\frac{a}{2n\pi}\sin\frac{2n\pi x}{a}\right]_{-\frac{a}{2}}^{\frac{a}{2}}\\
+&=\frac{A^{2}}{2}\left(\frac{a}{2}-\left(-\frac{a}{2}\right)\right)
+\end{align*}
+\[ \frac{aA^{2}}{2}=1\qquad A=\sqrt{\frac{2}{a}} \]
+\[ \chi_{n}(x)=\sqrt{\frac{2}{a}}\cos\frac{n\pi x}{a}\quad(\text{$n$ が奇数}) \]
+$n$ が偶数のとき、
+\[ \sin\frac{ka}{2}=0\qquad A=0 \]
+\[ \chi_{n}(x)=\sqrt{\frac{2}{a}}\sin\frac{n\pi x}{a}\quad(\text{$n$ は偶数}) \]
+$n$ が奇数のとき偶パリティ
+
+$n$ が偶数のとき奇パリティ
+\toi{2}{◎}{}
+\begin{align*}
+\phi_{n}\left(x+\frac{a}{2}\right)&=\sqrt{\frac{2}{a}}\sin\frac{n\pi\left(x+\frac{a}{2}\right)}{a}\\
+&=\sqrt{\frac{2}{a}}\sin\frac{n\pi x}{a}+\frac{n\pi}{2}
+\end{align*}
+$n$ が奇数のとき、
+\[ \phi_{n}\left(x+\frac{a}{2}\right)=\pm\sqrt{\frac{2}{a}}\cos\frac{n\pi x}{a} \]
+$n$ が偶数のとき、
+\[ \phi_{n}\left(x+\frac{a}{2}\right)=\pm\sqrt{\frac{2}{a}}\sin\frac{n\pi x}{a} \]
+符号を除いて一致
+\toi{3}{△}{計算}
+i) $n$ が奇数のとき
+\begin{align*}
+\expval{x}&=\int_{-\frac{a}{2}}^{\frac{a}{2}}\underbrace{x\cdot\frac{2}{a}\cos^{2}\frac{n\pi x}{a}}_{\text{奇関数}}\dd x\\
+&=0
+\end{align*}
+\begin{align*}
+\expval{x^{2}}&=\int_{-\frac{a}{2}}^{\frac{a}{2}}x^{2}\cdot\frac{2}{a}\cos^{2}\frac{n\pi x}{a}\dd x\\
+&=\frac{4}{a}\int_{0}^{\frac{a}{2}}x^{2}\cos^{2}\frac{n\pi x}{a}\dd x\\
+&=\frac{2}{a}\int_{0}^{\frac{a}{2}}x^{2}+x^{2}\cos\frac{2n\pi x}{a}\dd x\\
+&=\frac{2}{a}\cdot\frac{1}{3}\left(\frac{a}{2}\right)^{3}+\frac{2}{a}\int_{0}^{\frac{a}{2}}x^{2}\cos\frac{2n\pi x}{a}\dd x
+\end{align*}
+（矢印で第2項の積分につなぐ）
+\begin{align*}
+&\left[x^{2}\cdot\frac{a}{2n\pi}\sin\frac{2n\pi x}{a}\right]_{0}^{\frac{a}{2}}\\
+&\qquad-\int_{0}^{\frac{a}{2}}\ayamari{x}{2x}\cdot\frac{a}{2n\pi}\sin\frac{2n\pi x}{a}\dd x\\
+&=-\frac{a}{2n\pi}\int_{0}^{\frac{a}{2}}x\sin\frac{2n\pi x}{a}\dd x
+\end{align*}
+\naze{部分積分 $\int uv'\dd x=[uv]-\int u'v\dd x$ で $u=x^{2}$ の微分は $2x$ である。正しくは第2項が $-(a/(n\pi))\int_{0}^{a/2}x\sin(2n\pi x/a)\dd x$ で，以降はこの誤り（第2項が半分）を引き継ぐ。正しい答えは $\expval{x^{2}}=a^{2}/12-a^{2}/(2n^{2}\pi^{2})$（$n$ が偶数でも同じ）である。}
+\begin{align*}
+&\int_{0}^{\frac{a}{2}}x\sin\frac{2n\pi x}{a}\dd x\\
+&\quad=\left[-\frac{ax}{2n\pi}\cos\frac{2n\pi x}{a}\right]_{0}^{\frac{a}{2}}+\int_{0}^{\frac{a}{2}}\frac{a}{2n\pi}\cos\frac{2n\pi x}{a}\dd x\\
+&\quad=-\frac{a^{2}}{4n\pi}(-1)^{n}+\left(\frac{a}{2n\pi}\right)^{2}\left[\sin\frac{2n\pi x}{a}\right]_{0}^{\frac{a}{2}}
+\end{align*}
+\begin{align*}
+\expval{x^{2}}&=\frac{a^{2}}{12}+\frac{2}{a}\left(-\frac{a}{2n\pi}\cdot-\frac{a^{2}}{4n\pi}(-1)^{n}\right)\\
+&=\frac{a^{2}}{12}+\frac{a^{2}}{4n^{2}\pi^{2}}(-1)^{n}
+\end{align*}
+$n$ は奇数なので
+\[ \expval{x^{2}}=\frac{a^{2}}{12}-\frac{a^{2}}{4n^{2}\pi^{2}} \]
+ii) $n$ が偶数のとき、
+\begin{align*}
+\expval{x}&=\int_{-\frac{a}{2}}^{\frac{a}{2}}\underbrace{x\cdot\frac{2}{a}\sin^{2}\frac{n\pi x}{a}}_{\text{奇関数}}\dd x=0
+\end{align*}
+\begin{align*}
+\expval{x^{2}}&=\int_{-\frac{a}{2}}^{\frac{a}{2}}x^{2}\cdot\frac{2}{a}\sin^{2}\frac{n\pi x}{a}\dd x\\
+&=\frac{4}{a}\int_{0}^{\frac{a}{2}}x^{2}\sin^{2}\frac{n\pi x}{a}\dd x\\
+&=\ayamari{\frac{4}{a}}{\frac{2}{a}}\int_{0}^{\frac{a}{2}}x^{2}-x^{2}\cos\frac{2n\pi x}{a}\dd x\\
+&=\frac{a^{2}}{12}-\frac{a^{2}}{4n^{2}\pi^{2}}(-1)^{n}\\
+&=\frac{a^{2}}{12}-\frac{a^{2}}{4n^{2}\pi^{2}}
+\end{align*}
+\naze{半角の公式 $\sin^{2}\theta=(1-\cos2\theta)/2$ の $1/2$ で係数は $2/a$ になる（次の行の $a^{2}/12$ は $2/a$ で計算していて，答えには影響しない）。第2項は i) と同じ部分積分の誤りを引き継ぎ，正しくは $-a^{2}/(2n^{2}\pi^{2})$ である。}
+\[ \expval{x}=0\qquad\expval{x^{2}}=\frac{a^{2}}{12}-\frac{a^{2}}{4n^{2}\pi^{2}} \]
+\[ n\to\infty\ \text{で}\ \expval{x^{2}}\to\frac{a^{2}}{12} \]
+一様に分布しているとき、規格化条件より、
+\[ \phi(x)=\frac{1}{a} \]
+\begin{align*}
+\int_{-\frac{a}{2}}^{\frac{a}{2}}x^{2}\phi(x)\dd x&=\frac{2}{a}\int_{0}^{\frac{a}{2}}x^{2}\dd x\\
+&=\frac{2}{a}\left[\frac{1}{3}x^{3}\right]_{0}^{\frac{a}{2}}\\
+&=\frac{a^{2}}{12}\quad\text{となり一致する。}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 部分積分 $\int uv'\dd x=[uv]-\int u'v\dd x$ は，$u=x^{2}$，$v'=\cos qx$ と役割を書いてから $u'=2x$ を代入する。2回続けるときは1回ごとに係数を書き出す。
+\item 検算は，得た原始関数 $\frac{x^{2}}{q}\sin qx+\frac{2x}{q^{2}}\cos qx-\frac{2}{q^{3}}\sin qx$ を微分して $x^{2}\cos qx$ に戻るかで行う。$n\to\infty$ の極限は第2項の係数によらないので，係数の誤りの確かめにならない。
+\item \mae{第4章 問題3・10-28} (1) の $n$ の範囲は問題4 (1) と同じ。2つの場合を別の文字（$n=2l+1$，$n=2l$ など）で書くと，最後にまとめるときに範囲を書き落としにくい。
+\end{kizuki}
+\begin{tadashii}
+\houshin 境界条件の和と差で $\cos$ の項と $\sin$ の項を分ける。$\expval{x}$ はパリティから，$\expval{x^{2}}$ は半角の公式と部分積分で求める。
+\keisan
+\shoumonkai{1} 境界条件は次の2式である。
+\[ A\cos\frac{ka}{2}+B\sin\frac{ka}{2}=0,\qquad A\cos\frac{ka}{2}-B\sin\frac{ka}{2}=0 \]
+和と差をとると次のようになる。
+\[ A\cos\frac{ka}{2}=0,\qquad B\sin\frac{ka}{2}=0 \]
+$\cos(ka/2)$ と $\sin(ka/2)$ は同時に0にならないので，$A$ と $B$ が両方0でない解は無い（$A=B=0$ は $\phi=0$ で除く）。よって次の2通りに分かれる。
+(i) $B=0$，$\cos(ka/2)=0$：$ka=\pi,3\pi,5\pi,\dots$。
+(ii) $A=0$，$\sin(ka/2)=0$：$k>0$ より $ka=2\pi,4\pi,\dots$。
+まとめると $ka=n\pi$（$n=1,2,3,\dots$）で，$n$ が奇数なら $\cos$，偶数なら $\sin$ の解になる。エネルギーは次のとおり。
+\[ E_{n}=\frac{\hbar^{2}k^{2}}{2m}=\frac{n^{2}\pi^{2}\hbar^{2}}{2ma^{2}} \]
+規格化は，半角の公式を使うと $\cos(2n\pi x/a)$ の項の積分が0になるので，次のようになる。
+\[ \abs{A}^{2}\int_{-a/2}^{a/2}\cos^{2}\frac{n\pi x}{a}\dd x=\abs{A}^{2}\cdot\frac{a}{2}=1 \]
+$\sin$ の場合も同じで，係数は $\sqrt{2/a}$ である。$n$ が奇数のときと偶数のときの固有関数は，それぞれ次のとおり。
+\[ \chi_{n}(x)=\sqrt{\frac{2}{a}}\cos\frac{n\pi x}{a}\quad(\text{$n$ が奇数}),\qquad \chi_{n}(x)=\sqrt{\frac{2}{a}}\sin\frac{n\pi x}{a}\quad(\text{$n$ が偶数}) \]
+$n$ が奇数のものは偶パリティ，偶数のものは奇パリティで，基底状態（$n=1$）は偶パリティ，以後交互に入れ替わる。これは要点整理の「使う定理」と合う。
+\shoumonkai{2} 要点整理の $\phi_{n}$ で $L=a$ とし，ずらすと次のようになる。
+\[ \phi_{n}\left(x+\frac{a}{2}\right)=\sqrt{\frac{2}{a}}\sin\left(\frac{n\pi x}{a}+\frac{n\pi}{2}\right) \]
+$\theta=n\pi x/a$ として加法定理で展開すると，$\sin(\theta+n\pi/2)=\sin\theta\cos(n\pi/2)+\cos\theta\sin(n\pi/2)$ である。$n$ が奇数なら $\cos(n\pi/2)=0$，$\sin(n\pi/2)=\pm 1$ なので $\pm\cos\theta$，$n$ が偶数なら $\sin(n\pi/2)=0$，$\cos(n\pi/2)=\pm 1$ なので $\pm\sin\theta$ になる。よって $\phi_{n}(x+a/2)=\pm\chi_{n}(x)$ で，符号を除いて一致する。井戸を平行移動しても方程式の形は変わらないので，固有関数も平行移動したものになり，エネルギーも変わらない。
+\shoumonkai{3} $\abs{\chi_{n}}^{2}$ は偶関数なので，$x\abs{\chi_{n}}^{2}$ は奇関数で，対称な区間での積分は0である。よって $\expval{x}=0$ である。次に，半角の公式から次の形になる（複号は $n$ が奇数のとき $+$，偶数のとき $-$）。
+\[ \abs{\chi_{n}(x)}^{2}=\frac{1}{a}\left(1\pm\cos\frac{2n\pi x}{a}\right) \]
+\[ \expval{x^{2}}=\frac{1}{a}\int_{-a/2}^{a/2}x^{2}\dd x\pm\frac{1}{a}\int_{-a/2}^{a/2}x^{2}\cos\frac{2n\pi x}{a}\dd x \]
+第1項の積分は $a^{3}/12$ である。第2項は $q=2n\pi/a$ として，部分積分による次の原始関数を使う。
+\[ \int x^{2}\cos qx\dd x=\frac{x^{2}}{q}\sin qx+\frac{2x}{q^{2}}\cos qx-\frac{2}{q^{3}}\sin qx \]
+$x=\pm a/2$ では $qx=\pm n\pi$ なので $\sin qx=0$，$\cos qx=(-1)^{n}$ である。よって次のようになる。
+\[ \int_{-a/2}^{a/2}x^{2}\cos qx\dd x=\frac{2}{q^{2}}\left[\frac{a}{2}-\left(-\frac{a}{2}\right)\right](-1)^{n}=\frac{2a}{q^{2}}(-1)^{n}=\frac{(-1)^{n}a^{3}}{2n^{2}\pi^{2}} \]
+$n$ が奇数なら（複号 $+$，$(-1)^{n}=-1$），偶数なら（複号 $-$，$(-1)^{n}=+1$）で，どちらも第2項は $-a^{2}/(2n^{2}\pi^{2})$ になる。
+\[ \expval{x^{2}}=a^{2}\left(\frac{1}{12}-\frac{1}{2n^{2}\pi^{2}}\right) \]
+井戸の中に一様に分布した粒子（確率密度 $1/a$）では，$\expval{x^{2}}$ は $x^{2}/a$ の積分で $a^{2}/12$ である。$n\to\infty$ で第2項は0になるので，$\expval{x^{2}}\to a^{2}/12$ となり一致する。
+\kotae{\shoumonkai{1} $E_{n}=n^{2}\pi^{2}\hbar^{2}/(2ma^{2})$（$n=1,2,\dots$）。$n$ が奇数で $\chi_{n}=\sqrt{2/a}\cos(n\pi x/a)$（偶パリティ），\\ $n$ が偶数で $\chi_{n}=\sqrt{2/a}\sin(n\pi x/a)$（奇パリティ） \shoumonkai{2} $\phi_{n}(x+a/2)=\pm\chi_{n}(x)$ \shoumonkai{3} $\expval{x}=0$，$\expval{x^{2}}=a^{2}\bigl[1/12-1/(2n^{2}\pi^{2})\bigr]$（$n\to\infty$ で $a^{2}/12$）}
+\begin{ronten}
+  \item \shoumonkai{1} $\cos(ka/2)$ と $\sin(ka/2)$ が同時に0にならないことから，$A=0$ か $B=0$ の2通りに分かれることを述べる。
+  \item \shoumonkai{1} $k>0$ と自明な解 $\phi=0$ の排除から，$n$ を正の整数に限ることを書く。
+  \item \shoumonkai{3} $\expval{x}=0$ の根拠として，$\abs{\chi_{n}}^{2}$ が偶関数で，被積分関数が対称な区間で奇関数になることを書く。
+\end{ronten}
+\kenzan 特殊ケース：$n=1$ では $\expval{x^{2}}=\num{0.0327}a^{2}$ で，一様分布の $a^{2}/12=\num{0.0833}a^{2}$ より小さい。基底状態は中央に集まっているので妥当である。また $\expval{x^{2}}\le(a/2)^{2}$ も満たす。エネルギーは要点整理の $0\le x\le L$ の井戸で $L=a$ としたものと同じで，(2) の平行移動の議論と合う。次元：$\expval{x^{2}}$ は $a^{2}$ に比例し，（長さ）$^{2}$ である。
+\tsumazuki $\cos$ の解だけを探して $\sin$ の解（$n$ が偶数）を落としやすい。$A$ と $B$ が両方0でない解を探すと矛盾する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\139_2026-11-20.tex
+\mondaibangou{8}
+\begin{mondai}{139-parity}{計算}{パリティ演算子の定義と固有値，エルミート性，$\hat{x}$・$\hat{p}$ との関係，ハミルトニアンと交換する条件と期待値}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+1次元の関数に対して，パリティ演算子 $\hat{P}$ を $(\hat{P}\psi)(x)=\psi(-x)$ で定める。質量 $m$ の粒子のハミルトニアンを $\hat{H}=\hat{p}^{2}/(2m)+V(x)$ とする。
+  \begin{shoumon}
+    \item $\hat{P}^{2}=\hat{1}$ を示し，$\hat{P}$ の固有値が $\pm1$ だけであることと，それぞれの固有関数がどのような関数かを答えよ。
+    \item $\hat{P}$ がエルミート演算子であること，すなわち無限遠で十分速く $0$ になる任意の $\phi$，$\psi$ について $\int\phi^{*}(\hat{P}\psi)\dd x=\int(\hat{P}\phi)^{*}\psi\dd x$ が成り立つことを示せ。
+    \item $\hat{P}\hat{x}=-\hat{x}\hat{P}$，$\hat{P}\hat{p}=-\hat{p}\hat{P}$ を示せ。これを使い，$\comm{\hat{P}}{\hat{H}}=0$ となるのは $V(-x)=V(x)$ のときに限ることを示せ。
+    \item $\psi(x)=(\pi\sigma^{2})^{-1/4}\exp[-(x-x_{0})^{2}/(2\sigma^{2})]$（$\sigma>0$，$x_{0}$ は実数）について $\expval{\hat{P}}$ を求めよ。また，$\psi$ を偶関数と奇関数の和 $\psi=\psi_{+}+\psi_{-}$ に分け，パリティを測定して $+1$，$-1$ が得られる確率を求めよ。ただし，規格化された $\psi$ でパリティを測定して $\pm1$ が得られる確率は $\int\abs{\psi_{\pm}}^{2}\dd x$ である（測定の一般の規則は第16章で扱う）。
+  \end{shoumon}
+\notekiroku{2026-11-20 B ◎◎◎○ (ヒント1)}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+\begin{align*}
+\hat{P}^{2}\psi(x)&=\hat{P}\bigl(\hat{P}\psi(x)\bigr)\\
+&=\hat{P}\psi(-x)\\
+&=\psi(x)\qquad\therefore\ \hat{P}^{2}=\hat{1}
+\end{align*}
+$\hat{P}$ の固有値を $\lambda$，固有関数を $\chi(x)$ とする。
+\[ \hat{P}\chi(x)=\lambda\chi(x)\qquad\text{両辺に $\hat{P}$ を作用させる。} \]
+\begin{align*}
+&\hat{P}^{2}\chi(x)=\lambda\hat{P}\chi(x)\\
+&\hat{1}\chi(x)=\lambda^{2}\chi(x)\\
+&\therefore\ \lambda^{2}=1\qquad\lambda=\pm1
+\end{align*}
+$\lambda=1$ のとき、
+\[ \hat{P}\chi(x)=\chi(-x)=\chi(x) \]
+$\therefore$ $\chi(x)$ は偶パリティ
+
+$\lambda=-1$ のとき、
+\[ \hat{P}\chi(x)=\chi(-x)=-\chi(x) \]
+$\chi(x)$ は奇パリティ
+\toi{2}{◎}{}
+\[ \int\psi^{*}\hat{P}\psi\dd x=\int\hat{P}\psi^{*}\psi\dd x\quad\text{を示す} \]
+\begin{align*}
+\text{左辺}&=\int_{-\infty}^{\infty}\psi^{*}(x)\psi(-x)\dd x\qquad y=-x\ \text{とする。}\\
+&=\int_{\infty}^{-\infty}\psi^{*}(-y)\psi(y)\cdot{-\dd y}\\
+&=\int_{-\infty}^{\infty}\psi^{*}(-y)\psi(y)\dd y\\
+\text{右辺}&=\int_{-\infty}^{\infty}\psi^{*}(-x)\psi(x)\dd x
+\end{align*}
+より、左辺＝右辺が成り立つ。
+
+よって $\hat{P}$ はエルミート演算子
+\toi{3}{◎}{}
+\begin{align*}
+\hat{P}\hat{x}\psi(x)&=\hat{P}\bigl(x\psi(x)\bigr)\\
+&=-x\psi(-x)\\
+-\hat{x}\hat{P}\psi(x)&=-x\psi(-x)\quad\text{より、}\ \hat{P}\hat{x}=-\hat{x}\hat{P}
+\end{align*}
+\begin{align*}
+\hat{P}\hat{p}\psi(x)&=\hat{P}\bigl(-\ii\hbar\psi'(x)\bigr)\\
+&=-\ii\hbar\psi'(-x)\\
+\hat{p}\hat{P}\psi(x)&=-\ii\hbar\dv{}{x}\bigl(\psi(-x)\bigr)\\
+&=\ii\hbar\psi'(-x)\qquad\text{よって}\ \hat{P}\hat{p}=-\hat{p}\hat{P}
+\end{align*}
+\[ \comm{\hat{P}}{\hat{H}}=\frac{1}{2m}\comm{\hat{P}}{\hat{p}^{2}}+\comm{\hat{P}}{V(x)} \]
+\begin{align*}
+\comm{\hat{P}}{\hat{p}^{2}}&=\comm{\hat{P}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{P}}{\hat{p}}\\
+&=(\hat{P}\hat{p}-\hat{p}\hat{P})\hat{p}+\hat{p}(\hat{P}\hat{p}-\hat{p}\hat{P})\\
+&=2\hat{P}\hat{p}^{2}+2\hat{p}\hat{P}\hat{p}\\
+&=2\hat{P}\hat{p}^{2}-2\hat{P}\hat{p}^{2}\\
+&=0
+\end{align*}
+\begin{align*}
+\comm{\hat{P}}{V(x)}\psi(x)&=\hat{P}V(x)\psi(x)-V(x)\hat{P}\psi(x)\\
+&=V(-x)\psi(-x)-V(x)\psi(-x)\\
+&=\bigl(V(-x)-V(x)\bigr)\hat{P}\psi(x)
+\end{align*}
+\[ \comm{\hat{P}}{V(x)}=\bigl(V(-x)-V(x)\bigr)\hat{P} \]
+よって $\comm{\hat{P}}{\hat{H}}=0$ となるのは $V(-x)=V(x)$ のときのみ
+\toi{4}{○}{記述}
+\begin{align*}
+\expval{\hat{P}}&=\int_{-\infty}^{\infty}\psi^{*}(x)\hat{P}\psi(x)\dd x\\
+&=\int_{-\infty}^{\infty}\psi(x)\psi(-x)\dd x\\
+&=(\pi\sigma^{2})^{-\frac{1}{2}}\int_{-\infty}^{\infty}\exp\biggl(\frac{-(x-x_{0})^{2}}{2\sigma^{2}}\\
+&\qquad+\frac{-(-x-x_{0})^{2}}{2\sigma^{2}}\biggr)\dd x
+\end{align*}
+（矢印で指数の部分につなぐ）
+\begin{align*}
+&\frac{1}{2\sigma^{2}}\Bigl(-(x^{2}-2x_{0}x+x_{0}^{2})-(x^{2}+2x_{0}x+x_{0}^{2})\Bigr)\\
+&=\frac{-(x^{2}+x_{0}^{2})}{\sigma^{2}}
+\end{align*}
+\begin{align*}
+&\int_{-\infty}^{\infty}\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\exp\left(-\frac{x^{2}}{\sigma^{2}}\right)\dd x\\
+&=\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\sqrt{\pi\sigma^{2}}
+\end{align*}
+\[ \expval{\hat{P}}=\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right) \]
+\[ \psi(x)=\underbrace{\psi_{+}(x)}_{\text{偶}}+\underbrace{\psi_{-}(x)}_{\text{奇}} \]
+\begin{align*}
+&\hat{P}\psi(x)=\psi_{+}(x)-\psi_{-}(x)\\
+&(1+\hat{P})\psi(x)=2\psi_{+}(x)\\
+&\therefore\ \psi_{+}(x)=\frac{1+\hat{P}}{2}\psi(x)\\
+&(1-\hat{P})\psi(x)=2\psi_{-}(x)\\
+&\therefore\ \psi_{-}(x)=\frac{1-\hat{P}}{2}\psi(x)
+\end{align*}
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{\psi_{+}(x)}^{2}\dd x&=\frac{1}{4}\int\psi^{2}(x)+2\psi(x)\psi(-x)\\
+&\qquad+\psi^{2}(-x)\dd x\\
+&=\frac{1}{4}\bigl(2+2\expval{\hat{P}}\bigr)\\
+&=\frac{1}{2}\left(1+\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\right)\\
+\int_{-\infty}^{\infty}\abs{\psi_{-}(x)}^{2}\dd x&=\frac{1}{4}\int\psi^{2}(x)-2\psi(x)\psi(-x)\\
+&\qquad+\psi^{2}(-x)\dd x\\
+&=\frac{1}{4}\bigl(2-2\expval{\hat{P}}\bigr)\\
+&=\frac{1}{2}\left(1-\exp\left(-\frac{x_{0}^{2}}{\sigma^{2}}\right)\right)
+\end{align*}
+\naze{$\int\abs{\psi_{\pm}}^{2}\dd x$ がパリティを測って $\pm1$ を得る確率になる根拠が無い。$\psi_{+}$ と $\psi_{-}$ は $\hat{P}$ の異なる固有値の固有関数で，$\hat{P}$ がエルミート（(2)）なので直交する。だから $\int\abs{\psi}^{2}=\int\abs{\psi_{+}}^{2}+\int\abs{\psi_{-}}^{2}$ と分かれ，各成分の積分が確率になる。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第7章 問題4・11-07} 確率と読める理由を書かなかった（前回は $\abs{\tilde{\psi}}^{2}\dd k$ が確率になる理由）。測定で固有値 $\pm1$ を得る確率は，$\psi$ を固有関数どうしの直交する成分に分けたときの各成分の規格化の積分である。直交していなければ $\int\abs{\psi}^{2}=\int\abs{\psi_{+}}^{2}+\int\abs{\psi_{-}}^{2}$ が成り立たず確率と読めない。(2) のエルミート性がここで使われる。
+\item 確かめ：$P_{+}+P_{-}=1$，$x_{0}=0$（偶関数）で $P_{+}=1$ になる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 定義 $(\hat{P}\psi)(x)=\psi(-x)$ に従って計算する。エルミート性は積分変数の変換で，交換関係は合成関数の微分で示す。期待値と確率は，偶・奇への分解（$\hat{P}$ の固有関数による展開）で求める。
+\keisan
+\shoumonkai{1} $(\hat{P}^{2}\psi)(x)=(\hat{P}\psi)(-x)=\psi(x)$ なので $\hat{P}^{2}=\hat{1}$。$\hat{P}\psi=c\psi$（$\psi\neq0$）なら $\psi=\hat{P}^{2}\psi=c^{2}\psi$ より $c^{2}=1$，$c=\pm1$。固有値 $+1$ の固有関数は $\psi(-x)=\psi(x)$ の偶関数，$-1$ の固有関数は $\psi(-x)=-\psi(x)$ の奇関数である。
+\shoumonkai{2} $x=-y$ と変数変換すると
+\[ \int_{-\infty}^{\infty}\phi^{*}(x)\psi(-x)\dd x=\int_{-\infty}^{\infty}\phi^{*}(-y)\psi(y)\dd y=\int_{-\infty}^{\infty}(\hat{P}\phi)^{*}(y)\psi(y)\dd y \]
+で，$\int\phi^{*}\hat{P}\psi\dd x=\int(\hat{P}\phi)^{*}\psi\dd x$ がすべての $\phi$，$\psi$ で成り立つ。よって $\hat{P}$ はエルミートである。
+\shoumonkai{3} $(\hat{P}\hat{x}\psi)(x)=(-x)\psi(-x)=-x(\hat{P}\psi)(x)$ より $\hat{P}\hat{x}=-\hat{x}\hat{P}$。また $(\hat{P}\hat{p}\psi)(x)=-\ii\hbar\psi'(-x)$，一方 $\hat{p}\hat{P}\psi=-\ii\hbar\,\dd[\psi(-x)]/\dd x=\ii\hbar\psi'(-x)$ なので $\hat{P}\hat{p}=-\hat{p}\hat{P}$。これを2回使うと $\hat{P}\hat{p}^{2}=\hat{p}^{2}\hat{P}$ で，また $(\hat{P}V\psi)(x)=V(-x)\psi(-x)$ なので
+\[ \comm{\hat{P}}{\hat{H}}\psi=\left[V(-x)-V(x)\right](\hat{P}\psi)(x) \]
+これがすべての $\psi$ で $0$ になるのは，$V(-x)=V(x)$ がすべての $x$ で成り立つときに限る（$\hat{P}\psi$ は任意の関数をとれる）。
+\shoumonkai{4} $\psi$ は実数なので
+\[ \expval{\hat{P}}=\int_{-\infty}^{\infty}\psi(x)\psi(-x)\dd x=\frac{1}{\sqrt{\pi}\sigma}\int_{-\infty}^{\infty}\exp\left(-\frac{2x^{2}+2x_{0}^{2}}{2\sigma^{2}}\right)\dd x=\frac{1}{\sqrt{\pi}\sigma}\ee^{-x_{0}^{2}/\sigma^{2}}\sqrt{\pi}\sigma=\ee^{-x_{0}^{2}/\sigma^{2}} \]
+$\psi_{\pm}=(1\pm\hat{P})\psi/2$ とおくと，$\psi=\psi_{+}+\psi_{-}$ で，$\psi_{+}$ は偶関数，$\psi_{-}$ は奇関数（$\hat{P}\psi_{\pm}=\pm\psi_{\pm}$）である。$\hat{P}$ はエルミートなので偶関数と奇関数は直交し，パリティ $\pm1$ が得られる確率は
+\[ P_{\pm}=\int_{-\infty}^{\infty}\abs{\psi_{\pm}}^{2}\dd x=\frac{1}{4}\int\left(\psi^{2}\pm2\psi(x)\psi(-x)+\psi(-x)^{2}\right)\dd x=\frac{1\pm\expval{\hat{P}}}{2}=\frac{1\pm\ee^{-x_{0}^{2}/\sigma^{2}}}{2} \]
+\kotae{\shoumonkai{1} 固有値は $\pm1$。$+1$ は偶関数，$-1$ は奇関数 \shoumonkai{2} 変数変換 $x\to-x$ で示せる（本文） \shoumonkai{3} 交換関係は本文。$\comm{\hat{P}}{\hat{H}}=0\iff V(-x)=V(x)$ \shoumonkai{4} $\expval{\hat{P}}=\ee^{-x_{0}^{2}/\sigma^{2}}$，$P_{\pm}=(1\pm\ee^{-x_{0}^{2}/\sigma^{2}})/2$}
+\begin{ronten}
+  \item \shoumonkai{1} 固有値が $\pm1$ に限ることを，$\hat{P}^{2}=\hat{1}$ から示す（$\pm1$ が実際に現れることは偶関数・奇関数の例で示す）。
+  \item \shoumonkai{3} $\comm{\hat{P}}{\hat{H}}=0$ の「限る」の向きは，任意の $\psi$ で成り立つことから $V(-x)-V(x)=0$ を導いて示す。
+  \item \shoumonkai{4} 確率を求めるのに，偶関数と奇関数の直交性（$\hat{P}$ のエルミート性）を使ったことを書く。
+\end{ronten}
+\kenzan $x_{0}=0$ では $\psi$ は偶関数で，$\expval{\hat{P}}=1$，$P_{+}=1$ と合う。$x_{0}\gg\sigma$ では $\expval{\hat{P}}\to0$，$P_{\pm}\to1/2$ で，原点から遠く離れた波束は偶と奇を等しく含む。$P_{+}+P_{-}=1$。
+\tsumazuki $\hat{P}\hat{p}=-\hat{p}\hat{P}$ で，$\hat{p}$ とは交換しないが，$\hat{p}^{2}$ とは交換する。運動エネルギーはパリティと交換するので，交換するかどうかはポテンシャルだけで決まる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

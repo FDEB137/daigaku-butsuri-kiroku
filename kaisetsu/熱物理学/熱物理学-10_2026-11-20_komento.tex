@@ -1,0 +1,43 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 熱物理学 第10章 問題1〜5（2026-11-20 解答、スキャン 3枚）
+%% matome
+\begin{daiji}
+  \item $f$ を $x$ 方向に $C$ ずらすと、Legendre 変換は $g_{C}(y)=g(y)-Cy$ と1次の項が加わる。上下の平行移動ではない。傾き $y$ の接線を右に $C$ ずらすと切片が $-Cy$ 変わる、と図で覚える（問題3 (4)）。
+  \item $p=T(\partial p/\partial T)_{V,n}$ から $p=Tf(V,n)$ へは、$(\partial/\partial T)(p/T)_{V,n}=0$ を経由する。偏微分方程式を解いて任意関数が残ることが、$U(T,V)$ が完全でないことの中身である（問題2 (1)）。
+  \item 計算した条件・量が何から来るかを一言添える：$\mu\dd n$ は物質の授受に伴う仕事（問題2 (3)）、$C_{V}>0$・$\kappa_{S}>0$ は $U$ の凸性（問題4 (3)）、$\rho$ は示強変数で $n$ によらない（問題5 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 式変形の根拠を書かない：第3章 問題5（2026-11-12）で係数比較の根拠（$\dd T$ と $\dd p$ が独立）が無かった。今回も問題2 (1) で $p=T(\partial p/\partial T)$ から $p=Tf(V,n)$ へ1行で飛んでいる。「$\therefore$」の前後で何を使ったかを1語でも書く。
+  \item 小問の後半の書き落とし：第3章 問題2 (3)（2026-11-12）、第8章 問題5 (3)（2026-11-16）の $C_{V}$ に続き、今回は問題2 (3) の「$\mu$ を $\delta W$ の中の係数として説明せよ」が無い。問題文の「求めよ」「説明せよ」の数と答えの数を合わせる。
+\end{maemo}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $0=T(\partial p/\partial T)_{V,n}-p$ から、すぐに「$\therefore p=Tf(V,n)$」とした。間をつなぐ議論が無い。$V$、$n$ を固定して $(\partial/\partial T)(p/T)=(1/T)(\partial p/\partial T)_{V,n}-p/T^{2}=0$ なので、$p/T$ は $T$ によらない $V$、$n$ だけの任意の関数 $f(V,n)$ になる、と書く。2つの状態方程式の確かめは正しい。
+  \machigai{3}{○}{記述} $\delta W=-p\dd V+\mu\dd n$ と共役な組 $(T,S)$、$(p,V)$、$(\mu,n)$ は正しい。問われている「化学ポテンシャルを $\delta W$ の中の係数として説明せよ」の答えが無い。$\mu\dd n$ は物質の授受に伴う仕事（化学的仕事）で、$\mu$ は $S$ と $V$ を一定に保って物質量を $\dd n$ だけ増やすときに系に与えられる仕事の係数である。
+\end{kotaeran}
+\begin{rikai}
+  \item $T(\partial p/\partial T)=p$ は「$V$、$n$ を固定すると $p\propto T$」という意味である。積分定数にあたるものが $V$、$n$ の任意関数として残るので、$U(T,V)$ だけでは状態方程式が1つに決まらない。
+  \item $-p\dd V$ が体積を変える仕事であるのと同じく、$\mu\dd n$ は物質を出し入れする仕事である。$\dd U=T\dd S+\delta W$ の $\delta W$ の各項が「示強変数 $\times$ 示量変数の変化」の形で、その組が共役な変数の組になる。
+\end{rikai}
+%% mondai 3
+\begin{kotaeran}
+  \machigai{4}{△}{計算} $x_{C}(y)=\ee^{y}+C$ と $g_{C}(y)=f_{C}(x_{C}(y))-yx_{C}(y)=y\ee^{y}-\ee^{y}-y(\ee^{y}+C)$ までは正しい。次の行で $-\ee^{y}+C$ としたが、$-y(\ee^{y}+C)=-y\ee^{y}-Cy$ なので $g_{C}(y)=-\ee^{y}-Cy=g(y)-Cy$ である。そのため「$g(y)$ を $-C$ 平行移動したもの」という結論も違う。単純に代入した $f_{C}(x_{C}(y))=(y-1)\ee^{y}$ が $C$ によらない、は正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 平行移動の情報は、$g_{C}=g-Cy$ の傾き $-C$ の1次の項として残る。$f_{C}$ の接線（傾き $y$）は $f$ の接線を右に $C$ ずらしたもので、$x=0$ での切片は $-Cy$ だけ変わる。
+  \item 検算：Legendre 変換の導関数の関係 $x=-\dd g/\dd y$、つまり $-g_{C}'(y)=x_{C}(y)$ が成り立つかを見る。$g_{C}=-\ee^{y}-Cy$ なら $-g_{C}'=\ee^{y}+C=x_{C}$ で合う。$-\ee^{y}+C$ では $-g_{C}'=\ee^{y}$ となって合わない。
+\end{rikai}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{3}{○}{記述} $(\partial T/\partial S)_{V,n}=a(a-1)U/S^{2}$、$(\partial p/\partial V)_{S,n}=-b(b-1)U/V^{2}$ と、条件 $a>1$、$b<0$ は正しい（$C_{V}=S^{2}T/(a(a-1)U)$ は $T=aU/S$ を入れると $S/(a-1)$ になる）。$C_{V}>0$、$\kappa_{S}>0$ が $U$ の凸性（$T$ が $S$ の非減少関数、$p$ が $V$ の非増加関数）から来る条件であることが書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item $C_{V}=T/(\partial T/\partial S)_{V,n}$ の分母は $\partial^{2}U/\partial S^{2}$、$\kappa_{S}$ の分母の $-(\partial p/\partial V)_{S,n}$ は $\partial^{2}U/\partial V^{2}$ である。$U$ が下に凸ならどちらも正で、$C_{V}>0$、$\kappa_{S}>0$ は「熱力学的な安定性」の条件である。
+\end{rikai}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 定義から求めた $\kappa_{T}$ と $(1/\rho)(\partial\rho/\partial p)_{T}$ が $RT/(p(bp+RT))$ で一致することは正しい。密度の微分で $n$ を固定する添字を外してよい理由（$\rho=n/V=p/(RT+bp)$ は示強変数で $T$ と $p$ だけで決まり、$n$ によらない）が書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item $V$ は示量変数なので $(\partial V/\partial p)_{T,n}$ と $n$ の固定が必要だが、$\rho$ や $v=V/n$ のような示強変数は $(T,p)$ だけの関数なので、$(\partial\rho/\partial p)_{T}$ と書ける。$\kappa_{T}=(1/\rho)(\partial\rho/\partial p)_{T}$ の形はこれを使っている。
+\end{rikai}

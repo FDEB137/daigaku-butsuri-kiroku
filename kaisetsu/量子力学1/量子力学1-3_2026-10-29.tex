@@ -1,0 +1,97 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第3章「確率解釈・期待値・確率流」}{2026-10-29}
+%% kaisetsu-moto	problems\量子力学1\shou03\量子力学1-3.tex	kiroku\kaisetsu\量子力学1\量子力学1-3_2026-10-29_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-025-absorb}{8}}{L3・導出}{◎○◎}{A}{(2)記述}
+\end{saitenichiran}
+\begin{daiji}
+  \item 微分方程式を解いた答えは、$t$ で微分して元の式に戻るかで確かめる。$\dv{N}{t}=-(2\Gamma/\hbar)N$ から $N(0)\ee^{-\Gamma t/\hbar}$ と書くと、微分して係数の 2 が合わないことにすぐ気づける（問題8 (2)）。
+\end{daiji}
+\begin{maemo}
+  \item 係数・因子の書き落とし：量子力学1-2 問題1（平面波，2026-10-14）の (2) で $2\cos x$ と書いて $k$ を落とし、ガウス型の波束の問題（2026-10-18）で $\partial\psi/\partial x$ の項を1つ落とした。今回は指数の 2 を落とした。最後の式を書いたら、1つ前の式（今回は微分方程式）と問題文の結論の形を見比べる。
+\end{maemo}
+
+\mondaihen
+\level{3}
+\mondaibangou{8}
+\begin{mondai}{025-absorb}{導出}{連続の式の導出（ポテンシャルが実数であることの役割）と積分形}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+3次元空間で，質量 $m$ の粒子が複素数のポテンシャル
+  \[
+    V(\vect{r})=U(\vect{r})-\ii\Gamma
+  \]
+  の中を運動する（吸収や崩壊を表す模型）。$U$ は実数値の関数，$\Gamma$ は正の実数の定数である。確率密度と確率流を通常どおり
+  \[
+    \rho=\psi^{*}\psi,\qquad\vect{j}=\frac{\hbar}{2m\ii}\left[\psi^{*}\nabla\psi-\psi\nabla\psi^{*}\right]
+  \]
+  で定める。
+  \begin{shoumon}
+    \item 時間を含むシュレーディンガー方程式とその複素共役から，次の式を示せ。
+      \[
+        \pdv{\rho}{t}+\nabla\cdot\vect{j}=-\frac{2\Gamma}{\hbar}\rho
+      \]
+    \item 全空間で粒子を見いだす確率を $N(t)=\int\rho\dd V$ とする。無限遠の閉曲面での $\vect{j}$ の面積分が0になるとして，$N(t)=N(0)\ee^{-2\Gamma t/\hbar}$ を示せ。
+    \item (2) の結果の物理的な意味を述べ，$N$ が初めの $1/\ee$ 倍になるまでの時間 $\tau$ を求めよ。また，ポテンシャルが実数（$\Gamma=0$）であることが，規格化を保つうえで果たしている役割を説明せよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 全空間で積分してガウスの発散定理で面積分を0にし、$\dv{N}{t}=-(2\Gamma/\hbar)N$ にするところまでは正しい。解を $N(t)=N(0)\ee^{-\Gamma t/\hbar}$ と書いていて、指数の 2 が落ちている。(3) では $\ee^{-2\Gamma\tau/\hbar}$ を使って $\tau=\hbar/(2\Gamma)$ を正しく出しているので、写し間違いである。正しくは $N(t)=N(0)\ee^{-2\Gamma t/\hbar}$。
+\end{kotaeran}
+\begin{rikai}
+  \item $\dv{N}{t}=-aN$（$a$ は定数）の解は $N(t)=N(0)\ee^{-at}$ で、指数の係数は微分方程式の右辺の係数そのものである。ここでは $a=2\Gamma/\hbar$。
+  \item 確かめ方：答えを $t$ で微分して元の微分方程式に戻るかを見る。$N(0)\ee^{-\Gamma t/\hbar}$ を微分すると $-(\Gamma/\hbar)N$ になり、$-(2\Gamma/\hbar)N$ と合わない。「示せ」の問題では、最後の式が問題文の式と一致しているかも見比べる。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{3}
+\kaisetsubangou{8}
+\begin{kaisetsu}{025-absorb}
+\houshin 連続の式を導くときと同じく，シュレーディンガー方程式に $\psi^{*}$，その複素共役に $\psi$ を掛けて引く。ポテンシャルが複素数なので，$V\psi^{*}\psi$ の項が打ち消し合わずに残る。積分形はガウスの発散定理で導く。
+\keisan \shoumonkai{1} シュレーディンガー方程式とその複素共役は
+\[
+  \ii\hbar\pdv{\psi}{t}=-\frac{\hbar^{2}}{2m}\nabla^{2}\psi+(U-\ii\Gamma)\psi,\qquad
+  -\ii\hbar\pdv{\psi^{*}}{t}=-\frac{\hbar^{2}}{2m}\nabla^{2}\psi^{*}+(U+\ii\Gamma)\psi^{*}
+\]
+である。左の式に $\psi^{*}$ を，右の式に $\psi$ を掛けて引くと，$U$ の項は打ち消し合い
+\[
+  \ii\hbar\left(\psi^{*}\pdv{\psi}{t}+\psi\pdv{\psi^{*}}{t}\right)=-\frac{\hbar^{2}}{2m}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)-2\ii\Gamma\psi^{*}\psi
+\]
+となる。左辺の括弧は $\partial\rho/\partial t$ である。微分公式を $f=\psi^{*}$，$g=\psi$ と $f=\psi$，$g=\psi^{*}$ に使って引くと，$\nabla\psi^{*}\cdot\nabla\psi$ の項が打ち消し合い
+\[
+  \nabla\cdot\left(\psi^{*}\nabla\psi-\psi\nabla\psi^{*}\right)=\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}
+\]
+となる。両辺を $\ii\hbar$ で割ると
+\[
+  \pdv{\rho}{t}=-\frac{\hbar}{2m\ii}\nabla\cdot\left(\psi^{*}\nabla\psi-\psi\nabla\psi^{*}\right)-\frac{2\Gamma}{\hbar}\rho=-\nabla\cdot\vect{j}-\frac{2\Gamma}{\hbar}\rho
+\]
+（$-\hbar^{2}/(2m)$ を $\ii\hbar$ で割ると $-\hbar/(2m\ii)$）。よって次の式が成り立つ。
+\[
+  \pdv{\rho}{t}+\nabla\cdot\vect{j}=-\frac{2\Gamma}{\hbar}\rho
+\]
+
+\shoumonkai{2} (1) を，表面 $S$ をもつ十分大きな領域 $\Omega$ で積分し，発散の項にガウスの発散定理を使う（この問題では $V$ がポテンシャルを表すので，積分する領域を $\Omega$ と書く）。
+\[
+  \frac{\dd}{\dd t}\int_{\Omega}\rho\dd V=-\int_{S}\vect{j}\cdot\dd\vect{S}-\frac{2\Gamma}{\hbar}\int_{\Omega}\rho\dd V
+\]
+$\Omega$ を全空間に広げると，左辺の積分は $N$ になり，仮定により面積分は0になるので
+\[
+  \dv{N}{t}=-\frac{2\Gamma}{\hbar}N
+\]
+となる。この1階の線形微分方程式を解いて $N(t)=N(0)\ee^{-2\Gamma t/\hbar}$ を得る。
+
+\shoumonkai{3} 全空間で粒子を見いだす確率が時間とともに指数関数的に減る。粒子が吸収される，あるいは崩壊して別の状態に移り，この波動関数で表される状態から失われていく様子を表す（$\Gamma$ が大きいほど速く失われる）。$N=N(0)/\ee$ となるのは $2\Gamma\tau/\hbar=1$，すなわち $\tau=\hbar/(2\Gamma)$ のときである。
+
+ポテンシャルが実数（$\Gamma=0$）なら $V-V^{*}=0$ で右辺の項が消え，$\dd N/\dd t=0$ となる。すなわち，ある時刻に規格化した波動関数は，時間を含むシュレーディンガー方程式に従って時間発展しても規格化されたままである。全確率が1に保たれることが確率解釈と矛盾しないための条件であり，$V$ が実数であることがそれを保証している。
+\kotae{\shoumonkai{1} $\partial\rho/\partial t+\nabla\cdot\vect{j}=-(2\Gamma/\hbar)\rho$ \shoumonkai{2} $\dd N/\dd t=-(2\Gamma/\hbar)N$ より $N(t)=N(0)\ee^{-2\Gamma t/\hbar}$ \shoumonkai{3} 確率が吸収・崩壊で失われる。$\tau=\hbar/(2\Gamma)$。$V$ が実数なら $\dd N/\dd t=0$ で規格化が保たれる}
+\kenzan 次元：$\Gamma$ はエネルギーなので $\Gamma/\hbar$ は時間の逆数で，$\partial\rho/\partial t$ と $(\Gamma/\hbar)\rho$ の次元が合う。$\tau=\hbar/(2\Gamma)$ も時間の次元をもつ。$\Gamma\to0$ で通常の連続の式と，その積分形で全空間をとった結果（全確率の保存）に戻る。$\Gamma>0$ で $N$ が減るのは，$-\ii\Gamma$ の項が定常状態の因子 $\ee^{-\ii Et/\hbar}$ のエネルギーに $-\ii\Gamma$ を足して $\abs{\ee^{-\ii(E-\ii\Gamma)t/\hbar}}^{2}=\ee^{-2\Gamma t/\hbar}$ とすることとも合う。
+\tsumazuki 複素共役の式でポテンシャルの共役 $V^{*}=U+\ii\Gamma$ をとり忘れると，ポテンシャルの項が通常どおり打ち消し合い，右辺の $-(2\Gamma/\hbar)\rho$ が出てこない。
+\end{kaisetsu}
+
+\end{document}

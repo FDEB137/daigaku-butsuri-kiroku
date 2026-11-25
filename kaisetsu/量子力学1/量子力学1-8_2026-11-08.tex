@@ -1,0 +1,125 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第8章「ブラケット記法・スペクトル分解・並進演算子」}{2026-11-08}
+%% kaisetsu-moto	problems\量子力学1\shou08\量子力学1-8.tex	kiroku\kaisetsu\量子力学1\量子力学1-8_2026-11-08_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-047-shift}{1}}{L1・計算}{◎◎○}{A}{(3)記述}
+  \hyougyou{\hyperlink{bt-m-066-delta}{3}}{L1・計算}{◎○◎△}{B}{(2)記述 (4)記述}
+\end{saitenichiran}
+\begin{daiji}
+  \item 積分の中の微分は，$x$ での微分を積分変数 $x'$ の積分の外に出すか，$x'$ での微分に直して部分積分するかのどちらかで動かす。$\partial\delta(x-x')/\partial x$ の微分を，そのまま $\psi(x')$ に付け替えることはできない（問題3 (4)）。
+  \item 行列要素 $\matrixel{x}{\hat{p}}{x'}$ は $x$ と $x'$ の2変数の関数であり，デルタ関数の引数は $\braket{x}{x'}=\delta(x-x')$ のまま $x-x'$ である（問題3 (2)）。
+  \item $\exp(a\hat{D})f(x)=f(x+a)$ は，テイラー展開が収束する関数について近似ではなく等式として成り立つ。級数を並べて比べたら，その結論を答えとして書く（問題1 (3)）。
+\end{daiji}
+\begin{maemo}
+  \item 答えの式の記号の書き落とし：第3章 問題2（2026-10-18・2026-10-21）で複素定数の $\abs{A}^{2}$ を $A^{2}$ と書いた。今回は $\delta(x-x')$ を $\delta(x)$ と書いた。答えを書いたら，問題に出てくる変数（ここでは $x$ と $x'$）がすべて入っているか，絶対値や引数が落ちていないかを見直す。
+  \item デルタ関数や微分を含む積分の変形の根拠：第4章 問題7 (1)（2026-10-28）で $\delta(cx)$ の置換の後を $f(0)/\abs{c}$ まで書かず，第7章 問題8 (2)（2026-11-07）で部分積分の境界項が消える理由を書かなかった。積分の中の微分を動かすときは，「どの変数での微分か」「積分の外に出すのか，部分積分なのか」を毎回書く。
+  \item 比べた結果を答えとして書かない：第6章 問題1 (1)（2026-11-01）で得られる値と確率を答えとして書かなかった。「何になるか」と問われたら，最後に答えの式を1行書く。
+\end{maemo}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{047-shift}{計算}{演算子の指数関数の級数による定義と，$\exp(a\,\dd/\dd x)$ が関数を平行移動すること}
+$a$ を実定数とし，$\hat{D}=\dd/\dd x$ に対して次のように定める（$\hat{D}^{n}$ は $n$ 回の微分）。
+  \[ \exp(a\hat{D})=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\hat{D}^{n} \]
+  \begin{shoumon}
+    \item $\exp(a\hat{D})$ を $f(x)=x^{2}$ に作用させた結果を，因数分解した形で求めよ。
+    \item $k$ を実定数とする。$\exp(a\hat{D})\ee^{\ii kx}$ を求め，$\ee^{\ii kx}$ が $\exp(a\hat{D})$ の固有関数であることを示して，固有値を求めよ。
+    \item $\hat{p}=-\ii\hbar\hat{D}$ として，$\exp(a\hat{D})$ を $\hat{p}$ で表せ。また，滑らかな関数 $f(x)$ に $\exp(a\hat{D})$ を作用させると何になるかを，$f$ のテイラー展開と比べて答えよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{3}{○}{記述} $\exp(a\hat{D})=\exp(\ii a\hat{p}/\hbar)$ は正しい。続けて $\exp(a\hat{D})f=\sum_{n}(a^{n}/n!)\,\dd^{n}f/\dd x^{n}$ と $f(x+a)\simeq\sum_{n}(a^{n}/n!)\,\dd^{n}f/\dd x^{n}$ を並べたところで終わっている。問われている「何になるか」の答え $\exp(a\hat{D})f(x)=f(x+a)$ が書かれていない。また「$\simeq$」は近似に読めるが，テイラー展開が $f(x+a)$ に収束する関数では2つの級数は項ごとに等しく，等号で成り立つ。その条件（テイラー展開が収束すること）を書き，$\exp(a\hat{D})f(x)=f(x+a)$（グラフを $x$ の負の向きに $a$ だけずらす）と結論する。
+\end{kotaeran}
+\begin{rikai}
+  \item 定義の級数 $\sum_{n}(a^{n}/n!)f^{(n)}(x)$ は，$f(x+a)$ を $x$ のまわりでテイラー展開した式そのものである。展開が収束する関数では両者は等しく，$\exp(a\hat{D})$ は「関数を平行移動する演算子」になる。(1) の $(x+a)^{2}$ と (2) の $\ee^{\ii k(x+a)}$ はその例である。
+  \item 「〜と比べて答えよ」の問いでは，比べた後に答えの式を1行で書く。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{3}
+\begin{mondai}{066-delta}{計算}{連続固有値の固有ケットによる行列要素とデルタ関数}
+区間 $(-\infty,\infty)$ の1次元系で，$\ket{x}$ を $\hat{x}$ の固有値 $x$ の固有ケット，$\ket{k}$ を $\hat{p}$ の固有値 $\hbar k$ の固有ケットとし，$\braket{x}{x'}=\delta(x-x')$，$\braket{x}{k}=\ee^{\ii kx}/\sqrt{2\pi}$ とする。任意のケット $\ket{\psi}$ について
+  \[ \matrixel{x}{\hat{p}}{\psi}=-\ii\hbar\pdv{\braket{x}{\psi}}{x} \]
+  が成り立つものとして，次の問いに答えよ。
+  \begin{shoumon}
+    \item 位置表示の行列要素 $\matrixel{x}{\hat{x}}{x'}$ をデルタ関数で表せ。
+    \item 位置表示の行列要素 $\matrixel{x}{\hat{p}}{x'}$ をデルタ関数で表せ。
+    \item $\matrixel{x}{\hat{p}}{k}$ を，$\hat{p}\ket{k}=\hbar k\ket{k}$ を使う方法と，上の式を使う方法の2通りで求め，一致することを確かめよ。
+    \item $\psi(x)=\braket{x}{\psi}$ とする。(2) の結果を使って $x'$ についての積分
+    \[ \int_{-\infty}^{\infty}\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x' \]
+    を計算し，$\matrixel{x}{\hat{p}}{\psi}$ に一致することを示せ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 与えた式で $\ket{\psi}=\ket{x'}$ とする方針は正しいが，答えを $-\ii\hbar\,\partial\delta(x)/\partial x$ と書いた。$\braket{x}{x'}=\delta(x-x')$ なので，正しくは $\matrixel{x}{\hat{p}}{x'}=-\ii\hbar\,\partial\delta(x-x')/\partial x$。$\delta(x)$ では $x'$ がどこにも入らず，$x'$ によらない量になってしまう（(4) では正しく $\delta(x-x')$ を使っている）。
+  \machigai{4}{△}{記述} 最後の $-\ii\hbar\,\partial\psi/\partial x$ は正しいが，途中で
+  \[ \int_{-\infty}^{\infty}-\ii\hbar\Bigl(\pdv{}{x}\delta(x-x')\Bigr)\psi(x')\dd x'=\int_{-\infty}^{\infty}-\ii\hbar\Bigl(\pdv{}{x}\psi(x')\Bigr)\delta(x-x')\dd x' \]
+  と，微分をデルタ関数から $\psi(x')$ に付け替えた。$\psi(x')$ は $x$ によらないので，書いたとおりに読むと $\partial\psi(x')/\partial x=0$ で，この変形は成り立たない。正しくは，$x$ での微分は積分変数 $x'$ に関係しないので積分の外に出し，$-\ii\hbar\,\partial_{x}\int\delta(x-x')\psi(x')\dd x'=-\ii\hbar\,\dd\psi/\dd x$ とする。また，この積分が $\hat{p}$ と $\ket{\psi}$ の間に位置の完全性 $\int\ket{x'}\bra{x'}\dd x'=\hat{1}$ を挟んだ $\matrixel{x}{\hat{p}}{\psi}$ そのものであることも書く。
+\end{kotaeran}
+\begin{rikai}
+  \item 位置表示の行列要素 $\matrixel{x}{\hat{A}}{x'}$ は $x$ と $x'$ の2変数の関数（連続な添字の「行列」）である。答えに両方の変数が入っているかで確かめる。
+  \item 積分変数でない変数での微分は積分の外に出せる：$\int\partial_{x}F(x,x')\dd x'=\partial_{x}\int F(x,x')\dd x'$。デルタ関数の微分を相手の関数に移したいときは，$\partial\delta(x-x')/\partial x=-\partial\delta(x-x')/\partial x'$ と $x'$ での微分に直してから部分積分する（符号が2回変わって $+\int\delta(x-x')\psi'(x')\dd x'=\psi'(x)$ になる）。
+  \item $\int\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x'$ は，離散の場合の $\sum_{m}A_{nm}c_{m}$（行列と成分の列の積）の和を，連続な添字 $x'$ の積分に置きかえたものである。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{047-shift}
+\houshin 級数の定義に従って $\hat{D}^{n}f$ を計算し，足し合わせる。(3) は定義の級数がテイラー展開と同じ形であることを使う。
+\keisan \shoumonkai{1} $\hat{D}x^{2}=2x$，$\hat{D}^{2}x^{2}=2$ で，$n\ge 3$ では $\hat{D}^{n}x^{2}=0$ だから，級数は3項で終わる。
+\[ \exp(a\hat{D})x^{2}=x^{2}+a\cdot 2x+\frac{a^{2}}{2!}\cdot 2=x^{2}+2ax+a^{2}=(x+a)^{2} \]
+\shoumonkai{2} $\hat{D}^{n}\ee^{\ii kx}=(\ii k)^{n}\ee^{\ii kx}$ だから，複素数の指数関数の級数を使って
+\[ \exp(a\hat{D})\ee^{\ii kx}=\sum_{n=0}^{\infty}\frac{(\ii ka)^{n}}{n!}\ee^{\ii kx}=\ee^{\ii ka}\ee^{\ii kx} \]
+となる。結果が $\ee^{\ii kx}$ の定数倍なので $\ee^{\ii kx}$ は固有関数で，固有値は $\ee^{\ii ka}$ である。
+\shoumonkai{3} $\hat{p}=-\ii\hbar\hat{D}$ より $\hat{D}=\ii\hat{p}/\hbar$ なので，$\exp(a\hat{D})=\exp(\ii a\hat{p}/\hbar)$ である。また，$f(x+a)$ を $x$ のまわりでテイラー展開すると
+\[ f(x+a)=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\dv[n]{f}{x}=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\hat{D}^{n}f \]
+で，これは $\exp(a\hat{D})f$ の定義の級数そのものである。よって，テイラー展開が収束する関数について $\exp(a\hat{D})f(x)=f(x+a)$ となる。(1) の $(x+a)^{2}$，(2) の $\ee^{\ii k(x+a)}$ はその例である。
+\kotae{\shoumonkai{1} $(x+a)^{2}$ \shoumonkai{2} $\ee^{\ii k(x+a)}$，固有値 $\ee^{\ii ka}$ \shoumonkai{3} $\exp(\ii a\hat{p}/\hbar)$，$f(x)$ が $f(x+a)$ になる（グラフを $x$ の負の向きに $a$ だけずらす）}
+\begin{ronten}
+  \item \shoumonkai{1} $n\ge 3$ で $\hat{D}^{n}x^{2}=0$ となり，級数が有限個の項で終わることを述べる。
+  \item \shoumonkai{2} 結果が $\ee^{\ii kx}$ の定数倍になることを根拠に，固有関数であると結論する。
+  \item \shoumonkai{3} 定義の級数が $f(x+a)$ のテイラー展開と項ごとに一致することと，それがテイラー展開の収束する関数について成り立つことを書く。
+\end{ronten}
+\kenzan $a=0$ では恒等演算子になり，どの結果も元の関数に戻る。指数の肩 $\ii a\hat{p}/\hbar$ は（長さ）×（運動量）/$\hbar$ で無次元である。(2) の固有値は絶対値が $1$ で，平行移動で関数の大きさが変わらないことと合う。
+\tsumazuki $\hat{D}^{n}$ は $n$ 回の微分であり，$\hat{D}f$ の $n$ 乗ではない。また，$\exp(a\hat{D})$ は $f$ のグラフを $x$ の正の向きではなく負の向きにずらす（$f(x+a)$ の $x=-a$ での値が $f(0)$）。
+\end{kaisetsu}
+
+\kaisetsubangou{3}
+\begin{kaisetsu}{066-delta}
+\houshin 固有ケットの性質と規格化 $\braket{x}{x'}=\delta(x-x')$ で行列要素を書く。$\hat{p}$ の位置表示の式は任意の $\ket{\psi}$ で成り立つので，$\ket{x'}$ や $\ket{k}$ を代入できる。
+\keisan \shoumonkai{1} $\hat{x}\ket{x'}=x'\ket{x'}$ なので
+\[ \matrixel{x}{\hat{x}}{x'}=x'\braket{x}{x'}=x'\delta(x-x') \]
+$(x-x')\delta(x-x')=0$ なので，これは $x\,\delta(x-x')$ と書いても同じである。
+
+\shoumonkai{2} 与えた式で $\ket{\psi}=\ket{x'}$ とすると，$\braket{x}{x'}=\delta(x-x')$ より
+\[ \matrixel{x}{\hat{p}}{x'}=-\ii\hbar\pdv{\delta(x-x')}{x} \]
+\shoumonkai{3} 1つ目の方法：$\hat{p}\ket{k}=\hbar k\ket{k}$ に左から $\bra{x}$ を掛けて
+\[ \matrixel{x}{\hat{p}}{k}=\hbar k\braket{x}{k}=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx} \]
+2つ目の方法：与えた式で $\ket{\psi}=\ket{k}$ とすると，$\partial\ee^{\ii kx}/\partial x=\ii k\,\ee^{\ii kx}$ より
+\[ \matrixel{x}{\hat{p}}{k}=-\ii\hbar\pdv{}{x}\Bigl(\frac{\ee^{\ii kx}}{\sqrt{2\pi}}\Bigr)=-\ii\hbar\cdot\ii k\frac{\ee^{\ii kx}}{\sqrt{2\pi}}=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx} \]
+両者は一致する。
+
+\shoumonkai{4} (2) を代入する。$x$ での微分は積分変数 $x'$ に関係しないので，積分の外に出せる。
+\begin{align*}
+\int_{-\infty}^{\infty}\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x'
+&=\int_{-\infty}^{\infty}\Bigl(-\ii\hbar\pdv{\delta(x-x')}{x}\Bigr)\psi(x')\dd x'\\
+&=-\ii\hbar\pdv{}{x}\int_{-\infty}^{\infty}\delta(x-x')\psi(x')\dd x'=-\ii\hbar\dv{\psi}{x}
+\end{align*}
+一方，位置の完全性を $\hat{p}$ と $\ket{\psi}$ の間に挟むと，左辺はちょうど $\matrixel{x}{\hat{p}}{\psi}$ であり，与えた式 $-\ii\hbar\,\dd\psi/\dd x$ と一致する。これは，離散の場合の $A_{nm}c_{m}$ の $m$ についての和を，連続な添字 $x'$ についての積分に置きかえたものである。
+\kotae{\shoumonkai{1} $x'\delta(x-x')$（$=x\,\delta(x-x')$） \shoumonkai{2} $-\ii\hbar\,\partial\delta(x-x')/\partial x$ \shoumonkai{3} どちらも $\hbar k\,\ee^{\ii kx}/\sqrt{2\pi}$ \shoumonkai{4} $-\ii\hbar\,\dd\psi/\dd x$（$=\matrixel{x}{\hat{p}}{\psi}$）}
+\begin{ronten}
+  \item \shoumonkai{2} 与えた式が任意の $\ket{\psi}$ で成り立つことを根拠に，$\ket{\psi}=\ket{x'}$ を代入することを述べる。
+  \item \shoumonkai{4} $x$ での微分が積分変数 $x'$ に関係しないので，微分を積分の外に出せる理由を書く。
+  \item \shoumonkai{4} 左辺の積分が，$\hat{p}$ と $\ket{\psi}$ の間に位置の完全性を挟んだ $\matrixel{x}{\hat{p}}{\psi}$ そのものであることを述べる。
+\end{ronten}
+\kenzan $\delta(x-x')$ の次元は $1/\text{長さ}$ で，$\braket{x}{x'}$ と同じである。(2) は $\hbar\times(1/\text{長さ})^{2}$，(4) は $\hbar\times(\psi\text{ の次元})/\text{長さ}$ で，$\hat{p}$（運動量 $=\hbar/\text{長さ}$）を作用させた量として整合する。(3) で固有値 $\hbar k$ が出たことは，与えた式が運動量の固有ケットに正しく働く例である。
+\tsumazuki (2) で $\partial/\partial x'$ にすると符号が逆になる（$\partial\delta(x-x')/\partial x'=-\partial\delta(x-x')/\partial x$）。微分がどちらの変数についてかを確かめる。
+\end{kaisetsu}
+
+\end{document}

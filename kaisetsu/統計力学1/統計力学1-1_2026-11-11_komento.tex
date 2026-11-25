@@ -1,0 +1,29 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+%% matome
+\begin{daiji}
+  \item 偏微分は「何を固定したか」までが式の中身である。$(\partial S/\partial V)_{U}=p/T$（基本関係式の微分）と $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$（$F$ から出るマクスウェルの関係式）は別の量で、取り違えると $p=T(\partial p/\partial T)_{V}$ という誤った式になる（問題4 (2)）。
+  \item 「確かめよ」の問いは、求めた量を実際に代入して両辺が一致する一行まで書く（問題4 (1) のオイラーの関係式）。
+  \item 不可逆過程では、$\Delta U=0$ の理由（熱も仕事も 0）と、$S$ が状態量なので準静的な経路の式の差で $\Delta S$ を求めてよい理由を一言書く（問題3 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 理由の書き落とし：統計力学1-1（旧版）問題2 (4)（2026-10-27）で「$2^{N}$ になる理由」を書かなかった。今回も問題3 (4) で $\Delta U=0$・$\Delta S$ の求め方の理由が無い。結果を出す式の前に「なぜその式を使ってよいか」を一言置く。
+  \item 記号の書き違い：統計力学1-1（旧版）問題4 (3)(4)（2026-10-27）で $S'$ のプライムを落とした。今回は問題4 (2) で $(\partial S/\partial V)_{U}$ を $(\partial p/\partial T)_{V}=(\partial S/\partial V)_{T}$ と書いた。偏微分を書いたら、固定する変数がその式の出どころ（どの関数を何で微分したか）と合っているかを見直す。
+\end{maemo}
+%% mondai 3
+\begin{kotaeran}
+  \machigai{4}{○}{記述} $\Delta U=0$ から $\Delta T=\qty{-5.43}{\kelvin}$，$\Delta S=S(T_{2},2V)-S(T_{1},V)=\qty{5.67}{\joule\per\kelvin}$ と，式も数値も正しい。ただし，なぜ $\Delta U=0$ なのか（断熱容器で熱が 0，真空へ広がるので外への仕事が 0）と，自由膨張は不可逆過程なのに (3) の式（準静的な経路で積分したもの）の差で $\Delta S$ を求めてよい理由（$S$ は状態量で，始状態と終状態だけで決まる）が式にも文にも無い。
+\end{kotaeran}
+\begin{rikai}
+  \item $S$ は状態量なので，不可逆過程の $\Delta S$ は，同じ始状態と終状態を結ぶ準静的な経路の $\int\dd S$ で計算できる。自由膨張そのものは準静的ではないので，「$\dd S=\dd Q/T$ で $\dd Q=0$ だから $\Delta S=0$」とはならない。
+  \item 自由膨張で保存するのは $U$ であって $T$ ではない（$(\partial U/\partial V)_{T}=an^{2}/V^{2}\neq0$ なので，$U$ 一定のまま体積が増えると温度が下がる）。
+\end{rikai}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{1}{○}{記述} 示量性の確認と $T=3U/S$，$p=U/V$，$\mu=-U/N$ は正しい。オイラーの関係式は $U=TS-pV+\mu N$ と書いただけで，求めた $T$・$p$・$\mu$ を代入していない。$TS-pV+\mu N=3U-U-U=U$ の一行で確かめが完成する。
+  \machigai{2}{○}{記述} $p$ を求める途中で $(\partial p/\partial T)_{V}=(\partial S/\partial V)_{T}=\frac{1}{3}A(NU)^{1/3}V^{-2/3}$ と書いた。右辺は $(\partial S/\partial V)_{U}=p/T$ で，マクスウェルの関係式の $(\partial S/\partial V)_{T}$ ではない。実際 $p=(AT/3)^{3/2}(N/V)^{1/2}$ から $(\partial p/\partial T)_{V}=(3/2)\,p/T$ で，$p/T$ とは違う。次の行の $p=\frac{1}{3}AT\,N^{1/3}V^{-2/3}U^{1/3}$ は $p=T\cdot(p/T)$ として正しく，答えの $p$ と $U$・$F$ も正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 基本関係式 $S(U,V,N)$ の偏微分は $U,V,N$ のうち残りを固定したもので，$(\partial S/\partial U)_{V,N}=1/T$，$(\partial S/\partial V)_{U,N}=p/T$，$(\partial S/\partial N)_{U,V}=-\mu/T$。状態方程式はこの $p/T$ に $T$ を掛けて，$U$ を $U(T,V,N)$ で消せば得られる。マクスウェルの関係式（$T$ を固定した微分）はここでは要らない。
+  \item マクスウェルの関係式 $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$ は，$\dd F=-S\,\dd T-p\,\dd V$ の2階微分の順序の入れ替えから出る。固定する変数（$T$ と $V$）は $F$ の自然な変数と同じ組になっている，と覚えておくと取り違えに気づける。
+  \item 確かめ方：$(\partial p/\partial T)_{V}$ と書いた量に $T$ を掛けて $p$ になるのは，$p$ が $T$ の1次式のときだけである。この問題の $p\propto T^{3/2}$ では成り立たない。
+\end{rikai}

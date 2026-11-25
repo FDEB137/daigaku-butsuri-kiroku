@@ -1,0 +1,208 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第2章「波束とシュレーディンガー方程式・定常状態」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou02\量子力学1-2.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-009-phase}{1}}{L1・計算}{○△}{C}{2026-10-14 (1)記述 (2)計算}
+  \ichirangyou{2}{L1・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-011-operator}{3}}{L1・計算}{◎◎◎}{S}{2026-10-14}
+  \ichirangyou{4}{L1・計算}{◎◎○}{A}{2026-11-21 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-012-order}{5}}{L2・計算}{◎◎◎}{S}{2026-10-19 2回目}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L3・導出}{◎△◎}{B}{2026-10-29 (2)方針}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\009_2026-10-14.tex
+\mondaibangou{1}
+\begin{mondai}{009-phase}{計算}{平面波の進む向きと位相速度，進行波と定在波の違い}
+\begin{teisuu}
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  真空中の光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+$k>0$，$\omega>0$ を定数とし，$x$ 軸上の波を表す複素数値の関数を考える。
+  \begin{shoumon}
+    \item 次の3つの波が，それぞれ $x$ の正・負のどちら向きに進むかを，位相が一定の点の動きから答え，その速さ（位相速度）を求めよ。
+    \[ \psi_{a}=\exp[-\ii(kx-\omega t)],\qquad \psi_{b}=\exp[\ii(kx+\omega t)],\qquad \psi_{c}=\exp[-\ii(2kx+\omega t)] \]
+    \item 2つの平面波の和 $\psi_{d}=\exp[\ii(kx-\omega t)]+\exp[\ii(-kx-\omega t)]$ を，$x$ だけの関数と $t$ だけの関数の積に書き直せ。また，$\abs{\psi_{d}}=0$ となる点の位置を求め，$\psi_{d}$ が進む波でないことを説明せよ。
+  \end{shoumon}
+\notekiroku{2026-10-14 C ○△}
+\begin{kotaeutsushi}{2026-10-14}
+\toi{1}{○}{記述}
+\begin{align*}
+&\psi_{a}:\ \text{右},\ \frac{\omega t}{k}\qquad\psi_{b}:\ \text{左}\ -\frac{\omega t}{k}\\
+&\psi_{c}:\ \text{左}\ -\frac{\omega t}{2k}
+\end{align*}
+\naze{向きと速さの答えだけで，位相が一定の点の動きの根拠が無い。たとえば $\psi_{c}$ では位相 $-(2kx+\omega t)=$ 一定 から $2k\,\dv{x}{t}+\omega=0$，$\dv{x}{t}=-\omega/(2k)$ である。書いた $\omega t/k$ などは位相が一定の点の位置（$+$定数）で，速さはその係数 $\omega/k$，$\omega/k$，$\omega/(2k)$（正の量）である。}
+\toi{2}{△}{計算}
+\begin{align*}
+&\ee^{\ii kx}\ee^{-\ii\omega t}+\ee^{-\ii kx}\ee^{-\ii\omega t}\\
+&\quad=(\ee^{\ii kx}+\ee^{-\ii kx})\ee^{-\ii\omega t}\\
+&\quad=\ayamari{2\cos x}{2\cos kx}\,\ee^{-\ii\omega t}
+\end{align*}
+\naze{$\ee^{\ii kx}+\ee^{-\ii kx}=2\cos kx$ で，$k$ が落ちている。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+&\abs{\psi_{d}}=\abs{2\cos x}=0\\
+&\therefore\ x=\frac{\pi}{2}+n\pi\quad(n=\pm\fumei,2,3,\dots)
+\end{align*}
+\naze{正しくは $\abs{\psi_{d}}=\abs{2\cos kx}=0$ から $kx=\pi/2+j\pi$，すなわち $x=(2j+1)\pi/(2k)$（$j$ は $0$ を含むすべての整数）である。}
+$0$ になる点が $t$ に依存しないため，定常波。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 位相が $\theta=\alpha x+\beta t+\text{定数}$ の形なら，$\theta$ が一定の点では $\alpha\,\dv{x}{t}+\beta=0$ で $\dv{x}{t}=-\beta/\alpha$ となる。この1行を書いてから，向き（符号）と速さ（正の量）を分けて答える。
+\item $\cos$ の引数は無次元なので，$\cos x$ や $x=\pi/2+n\pi$ のように $x$ が $k$ を伴わずに出てきたら $k$ の書き落としを疑う。零点の答えに $k$ が入っているかで検算する。
+\end{kizuki}
+\begin{tadashii}
+\houshin 位相 $\theta(x,t)$ が一定の点が時間とともにどう動くかを追う。位相が $\theta=\alpha x+\beta t+\text{定数}$ の形なら，$\theta$ が一定の点では $\alpha\,\dd x/\dd t+\beta=0$ なので，速度は $-\beta/\alpha$ であり，その符号で向きが決まる。
+\keisan
+\shoumonkai{1} 各波の位相の $\alpha$，$\beta$ を読み取る。
+\begin{align*}
+  \psi_{a}&:\ \theta_{a}=-kx+\omega t, & \dv{x}{t}&=-\frac{\omega}{-k}=\frac{\omega}{k}>0,\\
+  \psi_{b}&:\ \theta_{b}=kx+\omega t, & \dv{x}{t}&=-\frac{\omega}{k}<0,\\
+  \psi_{c}&:\ \theta_{c}=-2kx-\omega t, & \dv{x}{t}&=-\frac{-\omega}{-2k}=-\frac{\omega}{2k}<0.
+\end{align*}
+よって $\psi_{a}$ は $x$ の正の向きに速さ $\omega/k$，$\psi_{b}$ は負の向きに速さ $\omega/k$，$\psi_{c}$ は負の向きに速さ $\omega/(2k)$ で進む。
+
+\shoumonkai{2} 共通な因子 $\ee^{-\ii\omega t}$ をくくり出し，Euler の公式を使う。
+\[ \psi_{d}=\ee^{-\ii\omega t}\left(\ee^{\ii kx}+\ee^{-\ii kx}\right)=2\cos(kx)\,\ee^{-\ii\omega t} \]
+$\abs{\ee^{-\ii\omega t}}=1$ なので $\abs{\psi_{d}}=2\abs{\cos kx}$ である。これが0になるのは $kx=(j+1/2)\pi$（$j$ は整数），すなわち
+\[ x=\frac{(2j+1)\pi}{2k} \]
+のときで，この位置は $t$ によらない。$\abs{\psi_{d}}$ の形全体が時間とともに動かないので，$\psi_{d}$ は進む波ではなく定在波である（右向きと左向きの同じ振幅の波の重ね合わせ）。
+\kotae{\shoumonkai{1} $\psi_{a}$：$x$ の正の向き，$\omega/k$；$\psi_{b}$：$x$ の負の向き，$\omega/k$；$\psi_{c}$：$x$ の負の向き，$\omega/(2k)$ \shoumonkai{2} $\psi_{d}=2\cos(kx)\,\ee^{-\ii\omega t}$，$\abs{\psi_{d}}=0$ は $x=(2j+1)\pi/(2k)$（$j$ は整数）で時間によらない（定在波）}
+\begin{ronten}
+  \item \shoumonkai{1} 位相が一定の点の速度を位相の中の $x$ と $t$ の係数の比から求め，その符号で向きを決めたことを書く（位相全体の符号は向きを変えない）。
+  \item \shoumonkai{2} $\abs{\ee^{-\ii\omega t}}=1$ から $\abs{\psi_{d}}$ が $x$ だけで決まり，零点の位置が $t$ によらないことを，進む波でない理由として書く。
+\end{ronten}
+\kenzan 次元：$\omega/k$ は $\unit{\per\second}/\unit{\per\metre}=\unit{\metre\per\second}$ で速さである。$\psi_{a}$ は右向きの波 $\ee^{\ii(kx-\omega t)}$ の複素共役で，実部はどちらも $\cos(kx-\omega t)$ だから同じ向きに進むことと合う。$\psi_{c}$ の実部 $\cos(2kx+\omega t)=\cos[2k(x+\omega t/(2k))]$ は左向きに速さ $\omega/(2k)$ で平行移動する形であり，結果と一致する。
+\tsumazuki 位相全体の符号を反転しても向きは変わらない。向きを決めるのは位相の中の $x$ と $t$ の係数の相対的な符号である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\011_2026-10-14.tex
+\mondaibangou{3}
+\begin{mondai}{011-operator}{計算}{運動量演算子 $\hat{p}_{x}$ の作用と固有関数・固有値（$\hat{p}_{x}$ と $\hat{p}_{x}^{2}$ の違い）}
+\begin{teisuu}
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  真空中の光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+1次元の運動量演算子を $\hat{p}_{x}f=-\ii\hbar\dv{f}{x}$ とし，$k>0$ を定数とする。
+  \begin{shoumon}
+    \item $f_{1}(x)=\ee^{\ii kx}$ に $\hat{p}_{x}$ を作用させ，$f_{1}$ が $\hat{p}_{x}$ の固有関数であることを示して固有値を求めよ。
+    \item $f_{2}(x)=\cos kx$ に $\hat{p}_{x}$ を作用させ，$f_{2}$ が $\hat{p}_{x}$ の固有関数でないことを示せ。また，$f_{2}$ を $\hat{p}_{x}$ の固有関数の和で表し，それぞれの固有値を答えよ。
+    \item $f_{2}$ に $\hat{p}_{x}^{2}$ を作用させ，$f_{2}$ が $\hat{p}_{x}^{2}$ の固有関数であることを示して固有値を求めよ。さらに，自由粒子のハミルトニアン $\hat{H}=\hat{p}_{x}^{2}/(2m)$ について，$f_{2}$ のエネルギー固有値を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-14 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-14}
+\toi{1}{◎}{}
+\[ \hat{p}_{x}f_{1}=-\ii\hbar\frac{\dd}{\dd x}\ee^{\ii kx}=\hbar k\,\ee^{\ii kx} \]
+固有値 $\hbar k$，固有関数 $\ee^{\ii kx}$
+\toi{2}{◎}{}
+\[ \hat{p}_{x}f_{2}=-\ii\hbar\frac{\dd}{\dd x}\cos kx=\ii\hbar k\sin kx \]
+となり，固有関数でない。
+\[ f_{2}=\frac{1}{2}(\ee^{\ii kx}+\ee^{-\ii kx}) \]
+$\ee^{\ii kx}\cdots\hbar k$，\quad $\ee^{-\ii kx}\cdots-\hbar k$
+\toi{3}{◎}{}
+\[ \hat{p}_{x}^{2}f_{2}=-\hbar^{2}\frac{\dd^{2}}{\dd x^{2}}\cos kx=\hbar^{2}k^{2}\cos kx \]
+固有値 $\hbar^{2}k^{2}$
+\[ \hat{H}f_{2}=\frac{\hbar^{2}k^{2}}{2m}\cos kx \]
+エネルギー固有値 $(\hbar k)^{2}/(2m)$
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\012_2026-10-19.tex
+\mondaibangou{5}
+\begin{mondai}{012-order}{計算}{座標と運動量の演算子の順序（交換関係）と，3次元での $\hat{\vect{p}}$ の作用}
+\begin{teisuu}
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  真空中の光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+3次元で，$\hat{\vect{r}}$ は関数に $\vect{r}=(x,y,z)$ を掛け，$\hat{\vect{p}}=-\ii\hbar\nabla$ とする。$f(\vect{r})$ は任意のなめらかな関数とする。
+  \begin{shoumon}
+    \item $(\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x})f$ と $(\hat{x}\hat{p}_{y}-\hat{p}_{y}\hat{x})f$ を計算せよ。
+    \item $\hat{\vect{r}}\cdot\hat{\vect{p}}=\hat{x}\hat{p}_{x}+\hat{y}\hat{p}_{y}+\hat{z}\hat{p}_{z}$，$\hat{\vect{p}}\cdot\hat{\vect{r}}=\hat{p}_{x}\hat{x}+\hat{p}_{y}\hat{y}+\hat{p}_{z}\hat{z}$ とする（右側の演算子から先に作用させる）。(1) の結果を用いて，$(\hat{\vect{p}}\cdot\hat{\vect{r}})f-(\hat{\vect{r}}\cdot\hat{\vect{p}})f$ を $f$ で表せ。
+    \item $b>0$ を定数，$r=\abs{\vect{r}}$ として $\phi(\vect{r})=\exp[-r^{2}/(2b^{2})]$ とする。$\hat{\vect{p}}\phi$，$(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi$，$(\hat{\vect{p}}\cdot\hat{\vect{r}})\phi$ を計算し，(2) の結果を満たすことを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-14 B ◎△○ → 2026-10-19 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-19}
+\toi{1}{◎}{}
+\begin{align*}
+\hat{x}\hat{p}_{x}f&=x\left(-\ii\hbar\frac{\partial}{\partial x}\right)f=-\ii\hbar x\pdv{f}{x}\\
+\hat{p}_{x}\hat{x}f&=-\ii\hbar\frac{\partial}{\partial x}(xf)\\
+&=-\ii\hbar\left(1\cdot f+x\pdv{f}{x}\right)\\
+&=-\ii\hbar\left(f+x\pdv{f}{x}\right)
+\end{align*}
+\begin{align*}
+&(\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x})f\\
+&\quad=-\ii\hbar x\pdv{f}{x}-\left(-\ii\hbar\left(f+x\pdv{f}{x}\right)\right)\\
+&\quad=\ii\hbar f
+\end{align*}
+\begin{align*}
+\hat{x}\hat{p}_{y}f&=x\left(-\ii\hbar\frac{\partial}{\partial y}\right)f=-\ii\hbar x\pdv{f}{y}\\
+\hat{p}_{y}\hat{x}f&=-\ii\hbar\frac{\partial}{\partial y}(xf)=-\ii\hbar\left(0+x\pdv{f}{y}\right)
+\end{align*}
+\begin{align*}
+&(\hat{x}\hat{p}_{y}-\hat{p}_{y}\hat{x})f\\
+&\quad=-\ii\hbar x\pdv{f}{y}-\left(-\ii\hbar x\pdv{f}{y}\right)=0
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&(\hat{\vect{p}}\cdot\hat{\vect{r}})f-(\hat{\vect{r}}\cdot\hat{\vect{p}})f\\
+&\quad=(\hat{p}_{x}\hat{x}+\hat{p}_{y}\hat{y}+\hat{p}_{z}\hat{z})f\\
+&\qquad-(\hat{x}\hat{p}_{x}+\hat{y}\hat{p}_{y}+\hat{z}\hat{p}_{z})f\\
+&\quad=-(\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x})f-(\hat{y}\hat{p}_{y}-\hat{p}_{y}\hat{y})f\\
+&\qquad-(\hat{z}\hat{p}_{z}-\hat{p}_{z}\hat{z})f\\
+&\quad=-3\ii\hbar f
+\end{align*}
+\toi{3}{◎}{}
+\[ \hat{\vect{p}}\phi=-\ii\hbar\nabla\phi \]
+\begin{align*}
+\pdv{\phi}{x}&=\frac{\partial}{\partial x}\left[\exp\left(-\frac{x^{2}+y^{2}+z^{2}}{2b^{2}}\right)\right]\\
+&=-\frac{x}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)
+\end{align*}
+\begin{align*}
+-\ii\hbar\nabla\phi&=\frac{\ii\hbar}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)(x,y,z)\\
+&=\left(\frac{\ii\hbar}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\vect{r}
+\end{align*}
+\begin{align*}
+(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi&=\hat{x}\hat{p}_{x}\phi+\hat{y}\hat{p}_{y}\phi+\hat{z}\hat{p}_{z}\phi\\
+&=x\left(\frac{\ii\hbar x}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&\qquad+y\left(\frac{\ii\hbar y}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&\qquad+z\left(\frac{\ii\hbar z}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&=\left(\frac{\ii\hbar}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)(x^{2}+y^{2}+z^{2})\\
+&=\frac{\ii\hbar r^{2}}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)
+\end{align*}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})\phi=\hat{p}_{x}\hat{x}\phi+\hat{p}_{y}\hat{y}\phi+\hat{p}_{z}\hat{z}\phi \]
+\begin{align*}
+\hat{p}_{x}\hat{x}\phi&=\kakimachigai{\ii\hbar}{-\ii\hbar}\frac{\partial}{\partial x}\left(x\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\\
+&=-\ii\hbar\biggl(\exp\left(-\frac{r^{2}}{2b^{2}}\right)\\
+&\qquad+x\left(-\frac{x}{b^{2}}\exp\left(-\frac{r^{2}}{2b^{2}}\right)\right)\biggr)\\
+&=-\ii\hbar\left(1-\frac{x^{2}}{b^{2}}\right)\exp\left(-\frac{r^{2}}{2b^{2}}\right)
+\end{align*}
+\[ (\hat{\vect{p}}\cdot\hat{\vect{r}})\phi=-\ii\hbar\left(3-\frac{r^{2}}{b^{2}}\right)\exp\left(-\frac{r^{2}}{2b^{2}}\right) \]
+\begin{align*}
+&(\hat{\vect{p}}\cdot\hat{\vect{r}})\phi-(\hat{\vect{r}}\cdot\hat{\vect{p}})\phi\\
+&\quad=-3\ii\hbar\exp\left(-\frac{r^{2}}{2b^{2}}\right)=-3\ii\hbar\phi
+\end{align*}
+\end{kotaeutsushi}
+\begin{maekizuki}{2026-10-14}
+\item 交換子の和は $\sum_{j}(\hat{p}_{j}\hat{x}_{j}-\hat{x}_{j}\hat{p}_{j})f$ と成分ごとの差に分けて1行書き，(1) の $\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x}=\ii\hbar$ と順序が同じか逆かを見てから符号を決める。
+\item 具体的な関数で確かめるときは，(2) と同じ順序の差をとって比べる。順序をそろえていれば (2) の符号の誤りに気付けた。
+\end{maekizuki}
+\end{mondai}
+
+\noteowari
+\end{document}

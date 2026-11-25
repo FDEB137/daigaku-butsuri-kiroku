@@ -1,0 +1,315 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{量子力学1　第9章「時間発展・ハイゼンベルク表示・Ehrenfest の定理」}{2026-11-11}
+%% kaisetsu-moto	problems\量子力学1\shou09\量子力学1-9.tex	kiroku\kaisetsu\量子力学1\量子力学1-9_2026-11-11_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-070-anharm}{4}}{L2・計算}{◎◎◎△}{B}{ヒント1を見た / (4)未着手}
+  \hyougyou{\hyperlink{bt-m-077-oscillator}{5}}{L2・計算}{◎◎○◎}{A}{(3)計算}
+  \hyougyou{\hyperlink{bt-m-080-conserved}{7}}{L3・導出}{◎◎△○}{B}{(3)未着手 (4)記述}
+  \hyougyou{\hyperlink{bt-m-135-timeenergy}{8}}{L3・導出}{◎○◎◎}{C}{ヒント2を見た / (2)記述}
+  \hyougyou{\hyperlink{bt-m-136-powerlaw}{9}}{L4・導出}{○◎×}{C}{(1)記述 (3)未着手}
+\end{saitenichiran}
+\begin{daiji}
+  \item 問いの後半の「説明せよ」「述べよ」まで答えて1問である。式を導いたところで止めず、その式が何を意味するか（どの条件で古典的に運動するか、保存量が期待値の言葉で何を言うか、$\tau_{A}$ が何の時間か）を書く（問題4 (4)・問題7 (3)・問題8 (2)）。
+  \item 位置表示の期待値は、右にある演算子から順に $\varphi$ に作用させて作る。$\expval{\hat{x}\hat{p}}=\int\varphi^{*}\,x\,(-\ii\hbar\varphi')\,\dd x$ で、$-\ii\hbar\,(x\varphi)'$ は $\hat{p}\hat{x}$ の方である（問題5 (3)）。
+  \item ハイゼンベルク表示では $\ee^{\ii\hat{H}t/\hbar}\hat{p}\,\ee^{-\ii\hat{H}t/\hbar}=\hat{p}_{\mathrm{H}}(t)$ で、$\comm{\hat{p}}{\hat{H}}\neq0$ なら $\hat{p}$ のままにはならない（問題7 (4)）。
+\end{daiji}
+\begin{maemo}
+  \item 問いの一部を答えないまま終える：第7章 問題3（2026-11-04）で (3) の縮退と (4) の運動量について言えることを書かず、第6章 問題1（2026-11-01）でも得られる値と確率を答えとして書かなかった。今回も問題4 (4) の条件と問題7 (3) の意味が無い。最後の小問の未着手も第4章 問題7（2026-10-28）・第7章 問題8 (5)（2026-11-07）に続いて問題9 (3) で3回目である。解き終えたら問題文の「求めよ」「述べよ」の数を数え、答えた数と合わせる。
+  \item 符号の誤り：第6章 問題2 (4)（2026-11-01）・第7章 問題2 (2)（2026-11-04）に続き、今回は問題5 (3) で $1+J=-J$ から $J=1/2$ とした。積分の符号は被積分関数の符号（ここでは $x\varphi\varphi'\le0$）で確かめる。
+\end{maemo}
+
+\mondaihen
+\level{2}
+\mondaibangou{4}
+\begin{mondai}{070-anharm}{計算}{力の期待値と期待値での力の違い（非調和ポテンシャル）}
+質量 $m$ の粒子が1次元のポテンシャル $V(x)$ 中を運動する。Ehrenfest の定理 $\dd\expval{p}/\dd t=-\expval{V'(x)}$ について考える。
+  \begin{shoumon}
+    \item $V(x)=c_{0}+c_{1}x+c_{2}x^{2}$（$c_{0},c_{1},c_{2}$ は実定数）なら $\expval{V'(x)}=V'(\expval{x})$ が成り立ち，$\expval{x}$ が古典力学の運動方程式 $m\,\dd^{2}\expval{x}/\dd t^{2}=-V'(\expval{x})$ に正確に従うことを示せ。
+    \item $V(x)=\frac{1}{4}\beta x^{4}$（$\beta>0$）とする。ある時刻の確率密度が
+    \[ \abs{\psi(x,t)}^{2}=\frac{1}{\sqrt{2\pi s^{2}}}\exp\Bigl(-\frac{(x-x_{0})^{2}}{2s^{2}}\Bigr) \]
+    （$x_{0}>0$，$s>0$）であった。$y=x-x_{0}$ の期待値は奇数乗が $0$，2乗が $s^{2}$ であることを使い，$\expval{x}$ と $\expval{V'(x)}$ を求めて $V'(\expval{x})$ と比べよ。
+    \item (2) で $s/x_{0}=\num{0.100}$ のとき，相対的なずれ $[\expval{V'(x)}-V'(\expval{x})]/V'(\expval{x})$ を有効数字3桁で求めよ。
+    \item 一般の $V(x)$ について，$V'(x)$ を $\expval{x}$ のまわりで2次までテイラー展開し，$\expval{V'(x)}-V'(\expval{x})$ を標準偏差 $\delta x$ と $V'''(\expval{x})$ で表せ。それをもとに，$\expval{x}$ がほぼ古典力学に従って運動する条件を説明せよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{4}{△}{未着手} $\expval{V'(x)}-V'(\expval{x})=\frac{1}{2}V'''(\expval{x})(\delta x)^{2}$ までは正しい（1次の項が $\expval{x-\expval{x}}=0$ で消えることも示している）。問われている「$\expval{x}$ がほぼ古典力学に従って運動する条件」の説明が無い。補正を力の大きさと比べた $\frac{1}{2}\abs{V'''(\expval{x})}(\delta x)^{2}\ll\abs{V'(\expval{x})}$、つまり波束の幅 $\delta x$ の範囲で力 $-V'(x)$ がほぼ一定とみなせるとき、まで書く。また3次以上の項を捨てているので、展開の式は $=$ でなく $\approx$ である。
+\end{kotaeran}
+\begin{rikai}
+  \item Ehrenfest の定理の右辺は $-\expval{V'(x)}$ で、古典力学の $-V'(\expval{x})$ との差が量子的な補正である。その大きさは $V'$ の曲がり方 $V'''$ と波束の広がり $(\delta x)^{2}$ の積で決まる。$V$ が2次式以下（$V'''=0$）なら (1) のとおり差は $0$。
+  \item 「条件を説明せよ」には、比べる2つの量の不等式と、その意味（力が変わる長さに比べて波束が狭い）の両方を答える。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{5}
+\begin{mondai}{077-oscillator}{計算}{調和振動子のハイゼンベルク表示の運動方程式の解と，位置の標準偏差の時間変化（幅が変わらない条件）}
+1次元の調和振動子 $\hat{H}=\hat{p}^{2}/(2m)+K\hat{x}^{2}/2$（$K>0$ はばね定数，$\omega=\sqrt{K/m}$）を考える。記号は Level 1 の自由粒子のハイゼンベルク表示の問題と同じとする。
+  \begin{shoumon}
+    \item $\comm{\hat{x}}{\hat{H}}$ と $\comm{\hat{p}}{\hat{H}}$ を求め，$\hat{x}_{\mathrm{H}}(t)$，$\hat{p}_{\mathrm{H}}(t)$ の運動方程式を書け。
+    \item $\hat{x}_{\mathrm{H}}(0)=\hat{x}$，$\hat{p}_{\mathrm{H}}(0)=\hat{p}$ のもとで (1) を解き，$\hat{x}_{\mathrm{H}}(t)$，$\hat{p}_{\mathrm{H}}(t)$ を $\hat{x}$ と $\hat{p}$ の1次結合で表せ。
+    \item 時刻 $0$ の状態の波動関数 $\varphi(x)=\braket{x}{\psi(0)}$ が規格化された実数値の偶関数であるとき，$\expval{\hat{x}}_{0}=\expval{\hat{p}}_{0}=0$ と $\expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=0$ を示せ。さらに，時刻 $t$ の位置の標準偏差 $\delta x(t)$ を $\delta x(0)$，$\delta p(0)$，$m$，$\omega$，$t$ で表せ。
+    \item $\varphi(x)=(b^{2}/\pi)^{1/4}\exp(-b^{2}x^{2}/2)$（$b>0$）のとき，$\delta x(t)$ が時間によらないための $b$ を求めよ。また，そうでないとき $\delta x(t)$ が変化する周期を求めよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{3}{○}{計算} 結論の $\expval{\hat{x}\hat{p}}_{0}=\ii\hbar/2$，$\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar/2$，和が $0$ と、$\delta x(t)$ の式は正しいが、途中に打ち消し合う2つの誤りがある。(a) $\matrixel{\psi(0)}{\hat{x}\hat{p}}{\psi(0)}$ の被積分関数を $-\ii\hbar\,(x\varphi)'\,\varphi$ としたが、これは $\hat{p}\hat{x}$ の式である。$\hat{x}\hat{p}$ は右の $\hat{p}$ が先に $\varphi$ に作用して $\varphi\,x\,(-\ii\hbar\varphi')$ になる。$\hat{p}\hat{x}$ の側も同じく入れ替わっている。(b) $\int\varphi^{2}\dd x+J=-J$（$J=\int x\varphi\varphi'\dd x$）から $J=1/2$ としたが、$1+2J=0$ なので $J=-1/2$。正しくは $\expval{\hat{x}\hat{p}}_{0}=-\ii\hbar J=\ii\hbar/2$，$\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar(1+J)=-\ii\hbar/2$ となる。
+\end{kotaeran}
+\begin{rikai}
+  \item 位置表示では $\matrixel{\psi}{\hat{A}\hat{B}}{\psi}=\int\varphi^{*}\,\hat{A}\bigl(\hat{B}\varphi\bigr)\,\dd x$ で、右にある演算子から順に作用させる。$\hat{x}\hat{p}$ なら $x\cdot(-\ii\hbar\varphi')$、$\hat{p}\hat{x}$ なら $-\ii\hbar\,(x\varphi)'$。
+  \item 検算：$J=\int x(\varphi^{2})'/2\,\dd x$ を部分積分すると1行で $-\frac{1}{2}\int\varphi^{2}\dd x=-1/2$。ガウス関数では $x\varphi\varphi'=-b^{2}x^{2}\varphi^{2}\le0$ なので、$J$ が負であることは被積分関数の符号からも分かる。
+\end{rikai}
+\end{mondai}
+
+\level{3}
+\mondaibangou{7}
+\begin{mondai}{080-conserved}{導出}{2つの表示での期待値の一致と期待値の時間微分，時間をあらわに含む演算子の運動方程式と保存量（自由粒子・一様な力）}
+ハミルトニアン $\hat{H}$ は時間によらないとする。
+  \begin{shoumon}
+    \item $\ket{\psi(t)}=\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}$ のとき $\matrixel{\psi(t)}{\hat{A}_{\mathrm{S}}}{\psi(t)}=\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)}$ を示せ。さらに運動方程式を使って，期待値 $\expval{\hat{A}}_{t}$ の時間変化が
+    \[ \dv{\expval{\hat{A}}_{t}}{t}=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)} \]
+    となること（Level 3 の Ehrenfest の定理の問題の (1) の式）を導け。また，$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}=0$ なら $\hat{A}_{\mathrm{H}}(t)=\hat{A}_{\mathrm{S}}$ であることを示せ。
+    \item 演算子 $\hat{A}_{\mathrm{S}}(t)$ が時間をあらわに含むときも，$\hat{A}_{\mathrm{H}}(t)=\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}$ と定める。次の式を示せ。
+    \[ \dv{\hat{A}_{\mathrm{H}}}{t}=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}}{\hat{H}}+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar} \]
+    \item 自由粒子 $\hat{H}=\hat{p}^{2}/(2m)$ で $\hat{G}_{\mathrm{S}}(t)=\hat{x}-\hat{p}t/m$ とする。(2) を使って $\hat{G}_{\mathrm{H}}(t)$ が時間によらず $\hat{x}$ に等しいことを示し，この保存量の意味を期待値の言葉で述べよ。
+    \item 一様な力 $F$（定数）がはたらく粒子 $\hat{H}=\hat{p}^{2}/(2m)-F\hat{x}$ で，$\hat{Q}_{\mathrm{S}}(t)=\hat{p}-Ft$，$\hat{R}_{\mathrm{S}}(t)=\hat{x}-\hat{p}t/m+Ft^{2}/(2m)$ のハイゼンベルク表示がともに時間によらないことを示せ。これらから $\hat{x}_{\mathrm{H}}(t)$ を $\hat{x}$，$\hat{p}$，$F$，$m$，$t$ で表せ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{3}{△}{未着手} $\dd\hat{G}_{\mathrm{H}}/\dd t=0$ と $\hat{G}_{\mathrm{H}}(t)=\hat{x}$ は正しい。問われている「この保存量の意味を期待値の言葉で述べよ」の答えが無い。$\hat{G}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}(t)-\hat{p}_{\mathrm{H}}(t)t/m$ の期待値をとって $\expval{\hat{x}}_{t}-(t/m)\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0}$（どの状態でも成り立つ）とし、時刻 $t$ の中心の位置から平均の速さ $\expval{\hat{p}}_{t}/m$ で時間を逆にたどると初期位置に戻る、と述べる。
+  \machigai{4}{○}{記述} $\dd\hat{R}_{\mathrm{H}}/\dd t$ の計算で、$\ee^{\ii\hat{H}t/\hbar}(-\hat{p}/m+Ft/m)\ee^{-\ii\hat{H}t/\hbar}$ を次の行で $(-\hat{p}/m+Ft/m)$ とし、交換子の項の $\hat{p}$ も $\hat{p}$ のまま書いている。この系では $\comm{\hat{p}}{\hat{H}}=\ii\hbar F\neq0$ なので、挟んだものは $\hat{p}_{\mathrm{H}}(t)$（$=\hat{p}+Ft$）で、$\hat{p}$ ではない。両方の項が同じ $\hat{p}_{\mathrm{H}}$ になるので打ち消し合い、結論の $0$ と $\hat{x}_{\mathrm{H}}(t)$ は正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 「保存量の意味を述べよ」は、演算子の等式の期待値をとり、測れる量（$\expval{x}$，$\expval{p}$）の関係として言い直す。
+  \item $\ee^{\ii\hat{H}t/\hbar}\hat{A}\,\ee^{-\ii\hat{H}t/\hbar}=\hat{A}$ が言えるのは $\comm{\hat{A}}{\hat{H}}=0$ のときだけ（(1) で示したこと）。(3) の自由粒子では $\hat{p}_{\mathrm{H}}=\hat{p}$ でよかったが、(4) の一様な力では $\hat{p}_{\mathrm{H}}(t)=\hat{p}+Ft$ になる。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{8}
+\begin{mondai}{135-timeenergy}{導出}{時間とエネルギーの不確定性関係 $\delta E\,\tau_{A}\ge\hbar/2$ の導出（第6章の一般の不確定性関係を使う）と，自由粒子の波束・井戸の重ね合わせでの確認}
+ハミルトニアン $\hat{H}$ は時間によらず，エルミート演算子 $\hat{A}$ は時間をあらわに含まないとする。第6章で示した一般の不確定性関係（エルミート演算子 $\hat{A}$，$\hat{B}$ について $\delta A\,\delta B\ge\abs{\expval{\comm{\hat{A}}{\hat{B}}}}/2$）と，Level 3 の Ehrenfest の定理の問題 (1) の式 $\dd\expval{\hat{A}}/\dd t=(\ii/\hbar)\expval{\comm{\hat{H}}{\hat{A}}}$ を使ってよい。
+  \begin{shoumon}
+    \item $\delta E=\delta H$（エネルギーの標準偏差）として，次を示せ。また，$\delta E$ が時間によらないことを示せ。
+    \[ \delta A\,\delta E\ge\frac{\hbar}{2}\left|\dv{\expval{\hat{A}}}{t}\right| \]
+    \item $\tau_{A}=\delta A/\abs{\dd\expval{\hat{A}}/\dd t}$ とおく。$\tau_{A}$ の意味を述べ，$\delta E\,\tau_{A}\ge\hbar/2$ を示せ。
+    \item 自由粒子（質量 $m$）の時刻 $0$ の波動関数が次の形（$\sigma>0$，$k_{0}>0$）のとき，
+    \[ \psi(x,0)=(2\pi\sigma^{2})^{-1/4}\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right) \]
+    運動量の分布（$\hbar k$ の分布）は平均 $\hbar k_{0}$，$k$ の標準偏差 $s=1/(2\sigma)$ のガウス分布になる。時刻 $0$ で $\hat{A}=\hat{x}$ として $\tau_{x}$ と $\delta E$ を求め，$\delta E\,\tau_{x}$ を計算して (2) の不等式を確かめよ。平均 $k_{0}$，分散 $s^{2}$ のガウス分布では $\expval{(k-k_{0})^{2}}=s^{2}$，$\expval{(k-k_{0})^{4}}=3s^{4}$，奇数乗の平均は $0$ である。
+    \item 幅 $L$ の無限に深い井戸の状態 $\psi=(\phi_{1}\ee^{-\ii E_{1}t/\hbar}+\phi_{2}\ee^{-\ii E_{2}t/\hbar})/\sqrt{2}$ では，$\expval{x}$ は周期 $T=2\pi\hbar/(E_{2}-E_{1})$ で振動する。$\delta E$ を求め，$\delta E\cdot T$ を $\hbar/2$ と比べよ。また，エネルギー固有状態では $\tau_{A}$ がどうなるかを述べよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $\delta E\,\tau_{A}\ge\hbar/2$ の導出は正しい。$\tau_{A}$ の意味を「$\hat{A}$ が作用する時間」としたが、$\tau_{A}$ は演算子が作用する時間ではない。$\expval{\hat{A}}$ がその時刻の変化の速さで変わり続けたとき、標準偏差 $\delta A$ だけ変わるのにかかる時間で、$A$ の分布が目に見えて変わる時間の尺度である。
+\end{kotaeran}
+\begin{rikai}
+  \item $\tau_{A}=\delta A/\abs{\dd\expval{\hat{A}}/\dd t}$ は（分布の幅）÷（平均の変化の速さ）＝時間。定義の分子と分母を言葉に直せば意味になる。
+  \item $\delta E\,\tau_{A}\ge\hbar/2$ は「エネルギーの広がりが小さい状態ほど、物理量の分布が変わるのに長い時間がかかる」と読む。エネルギー固有状態では何も変化せず $\tau_{A}=\infty$（(4) で答えたとおり）。
+\end{rikai}
+\end{mondai}
+
+\level{4}
+\mondaibangou{9}
+\begin{mondai}{136-powerlaw}{導出}{ビリアル定理をべき乗のポテンシャルとデルタ関数井戸に使うこと（第4章の $x\delta'(x)=-\delta(x)$，第11章のデルタ関数井戸の結果を使う）と，次元解析によるエネルギーの決まり方}
+質量 $m$ の粒子の1次元の束縛状態（定常状態）を考える。Level 3 の Ehrenfest の定理の問題で示したビリアル定理 $2\expval{\hat{T}}=\expval{xV'(x)}$（$\hat{T}=\hat{p}^{2}/(2m)$）を使ってよい。エネルギー固有値を $E$ とする。
+  \begin{shoumon}
+    \item $V(x)=\lambda\abs{x}^{\nu}$（$\lambda>0$，$\nu>0$）のとき，$\expval{\hat{T}}$ と $\expval{V}$ を $E$ と $\nu$ で表せ。$\nu=2$ と $\nu\to\infty$ の場合をそれぞれ調和振動子と無限に深い井戸の性質と比べよ。
+    \item デルタ関数井戸 $V(x)=-g\,\delta(x)$（$g>0$）に，$x\delta'(x)=-\delta(x)$ を使ってビリアル定理を形式的に適用し，$\expval{\hat{T}}$ と $\expval{V}$ を $E$ で表せ。次に，第11章で求める束縛状態 $\phi(x)=\sqrt{\beta}\,\ee^{-\beta\abs{x}}$（$\beta=mg/\hbar^{2}$），$E=-mg^{2}/(2\hbar^{2})$ から $\expval{V}=-g\abs{\phi(0)}^{2}$ を直接計算し，結果と比べよ。
+    \item (1) のポテンシャルのエネルギー固有値が $\hbar$，$m$，$\lambda$ だけで決まることから，$E$ が $\lambda$ のどのべきに比例するかを次元解析で求めよ。$\nu=1$（$V=F\abs{x}$）と $\nu=2$（$\lambda=m\omega^{2}/2$）の場合に具体的に書け。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $xV'=\nu V$ と $\expval{\hat{T}}=\nu E/(\nu+2)$，$\expval{V}=2E/(\nu+2)$ は正しい。(a) $V'(x)$ を $\lambda\nu\abs{x}^{\nu-1}$ とし、$x\cdot\lambda\nu\abs{x}^{\nu-1}=\lambda\nu\abs{x}^{\nu}$ としたが、$x<0$ ではどちらも符号が違い、2つが打ち消している。$x\neq0$ で $V'(x)=\lambda\nu\abs{x}^{\nu-1}\sgn x$、$x\sgn x=\abs{x}$ から $xV'=\nu V$ となる。(b) $\nu\to\infty$ で $\expval{\hat{T}}=1$ と書いたが、$\expval{\hat{T}}\to E$ である（$1$ に近づくのは係数 $\nu/(\nu+2)$）。
+  \machigai{3}{×}{未着手} 見出しの (3) だけで、解答が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item $\abs{x}$ を含む関数は $x>0$ と $x<0$ に分けて微分する（$\dd\abs{x}/\dd x=\sgn x$）。$x$ を掛けると $x\sgn x=\abs{x}$ で符号が消えるので、結果が合っても途中を確かめる。
+  \item (3) は、エネルギー固有値を作れる定数が $\hbar^{2}/m$ と $\lambda$ だけであることを使う次元解析である。それぞれの次元を（エネルギー）と（長さ）で書くところから始める。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{2}
+\kaisetsubangou{4}
+\begin{kaisetsu}{070-anharm}
+\houshin 期待値の線形性から，$V'$ が $x$ の1次式なら $\expval{V'(x)}=V'(\expval{x})$。3次式以上では $x$ の高次の積率が入り，波束の広がりの分だけずれる。一般の場合はテイラー展開でずれの主要項を求める。
+\keisan \shoumonkai{1} $V'(x)=c_{1}+2c_{2}x$。$\psi$ は規格化されているので $\expval{c_{1}}=c_{1}$，期待値は線形なので
+\[ \expval{V'(x)}=c_{1}+2c_{2}\expval{x}=V'(\expval{x}) \]
+Ehrenfest の定理の2式から
+\[ m\dv[2]{\expval{x}}{t}=\dv{\expval{p}}{t}=-\expval{V'(x)}=-V'(\expval{x}) \]
+となり，古典力学の運動方程式と同じ形になる。
+
+\shoumonkai{2} $x=x_{0}+y$ とすると $\expval{y}=0$ なので $\expval{x}=x_{0}$。$V'(x)=\beta x^{3}$ で，
+\[ \expval{x^{3}}=\expval{(x_{0}+y)^{3}}=x_{0}^{3}+3x_{0}^{2}\expval{y}+3x_{0}\expval{y^{2}}+\expval{y^{3}}=x_{0}^{3}+3x_{0}s^{2} \]
+よって
+\[ \expval{V'(x)}=\beta(x_{0}^{3}+3x_{0}s^{2}),\qquad V'(\expval{x})=\beta x_{0}^{3} \]
+差は $\expval{V'(x)}-V'(\expval{x})=3\beta x_{0}s^{2}$ で，正（$x_{0}>0$）。つまり力の期待値 $-\expval{V'}$ は，期待値の位置での力 $-V'(\expval{x})$ より大きさが大きい。
+
+\shoumonkai{3} 相対的なずれは
+\[ \frac{3\beta x_{0}s^{2}}{\beta x_{0}^{3}}=3\Bigl(\frac{s}{x_{0}}\Bigr)^{2}=3\times(\num{0.100})^{2}=\num{3.00e-2} \]
+\shoumonkai{4} $V'(x)$ を $\expval{x}$ のまわりで2次まで展開し，期待値をとる。$\expval{x-\expval{x}}=0$，$\expval{(x-\expval{x})^{2}}=(\delta x)^{2}$ なので
+\[ \expval{V'(x)}\approx V'(\expval{x})+\frac{1}{2}V'''(\expval{x})(\delta x)^{2} \]
+したがって $\expval{x}$ が $m\,\dd^{2}\expval{x}/\dd t^{2}\approx-V'(\expval{x})$ にほぼ従うのは，補正が力に比べて小さいとき，すなわち
+\[ \frac{1}{2}\abs{V'''(\expval{x})}(\delta x)^{2}\ll\abs{V'(\expval{x})} \]
+のときである。言いかえると，波束の広がり $\delta x$ の範囲で力 $-V'(x)$ がほぼ一定とみなせる（力の変化の尺度に比べて波束が十分狭い）ときに，期待値は古典的な軌道に近い運動をする。$V$ が2次式以下なら $V'''=0$ で，(1) のとおり正確に従う。
+\kotae{\shoumonkai{1} $\expval{V'(x)}=c_{1}+2c_{2}\expval{x}=V'(\expval{x})$ \shoumonkai{2} $\expval{x}=x_{0}$，$\expval{V'(x)}=\beta(x_{0}^{3}+3x_{0}s^{2})$，$V'(\expval{x})=\beta x_{0}^{3}$ \shoumonkai{3} $\num{3.00e-2}$ \shoumonkai{4} $\expval{V'(x)}-V'(\expval{x})\approx\frac{1}{2}V'''(\expval{x})(\delta x)^{2}$。$\frac{1}{2}\abs{V'''}(\delta x)^{2}\ll\abs{V'}$（波束の幅の範囲で力がほぼ一定）のとき古典的に運動する}
+\begin{ronten}
+  \item \shoumonkai{1} 期待値の線形性と $\psi$ の規格化から，1次式の $V'$ では期待値を $V'$ の中に入れてよいことを述べる。
+  \item \shoumonkai{4} 展開の1次の項が期待値で消える理由（$\expval{x-\expval{x}}=0$）を書き，3次以上の項を無視する近似であることを述べる。
+  \item \shoumonkai{4} 古典的に運動する条件は，2次の補正の大きさを力の大きさと比べる形で書く。
+\end{ronten}
+\kenzan (4) を (2) に当てはめると $V'''(x)=6\beta x$ より $\frac{1}{2}\cdot6\beta x_{0}\cdot s^{2}=3\beta x_{0}s^{2}$ で，(2) の差と一致する（$V'$ が3次式なので，3次の項 $\expval{y^{3}}=0$ を除いて展開は正確）。$s\to0$ でずれは $0$ になり，点状の粒子（古典極限）に戻る。次元：$\beta x^{4}$ がエネルギーなので $\beta x_{0}s^{2}$ は（エネルギー）/（長さ）＝力で整合する。
+\tsumazuki $\expval{V'(x)}$ と $V'(\expval{x})$ を同じものと思い込むと，「Ehrenfest の定理から期待値はいつも古典力学に従う」という誤った結論になる。
+\end{kaisetsu}
+
+\kaisetsubangou{5}
+\begin{kaisetsu}{077-oscillator}
+\houshin 交換子から運動方程式を立て，古典の調和振動子と同じ形の方程式を演算子の初期条件で解く。標準偏差は $\hat{x}_{\mathrm{H}}(t)^{2}$ の期待値から求め，そのとき $\hat{x}$ と $\hat{p}$ の順序を保つ。
+\keisan \shoumonkai{1} Level 1 の自由粒子のハイゼンベルク表示の問題 (1) と同じく $\comm{\hat{x}}{\hat{p}^{2}/(2m)}=\ii\hbar\hat{p}/m$ で，$\hat{x}$ は $\hat{x}^{2}$ と交換するので $\comm{\hat{x}}{\hat{H}}=\ii\hbar\hat{p}/m$ である。また
+\[ \comm{\hat{p}}{\hat{H}}=\frac{K}{2}\comm{\hat{p}}{\hat{x}^{2}}=\frac{K}{2}\left(\comm{\hat{p}}{\hat{x}}\hat{x}+\hat{x}\comm{\hat{p}}{\hat{x}}\right)=\frac{K}{2}(-2\ii\hbar\hat{x})=-\ii\hbar K\hat{x} \]
+である。ハイゼンベルク表示にして運動方程式に入れると
+\[ \dv{\hat{x}_{\mathrm{H}}}{t}=\frac{\hat{p}_{\mathrm{H}}}{m},\qquad \dv{\hat{p}_{\mathrm{H}}}{t}=-\frac{\ii}{\hbar}(-\ii\hbar K\hat{x}_{\mathrm{H}})=-K\hat{x}_{\mathrm{H}} \]
+となる。
+
+\shoumonkai{2} 第1式をもう一度微分して第2式を使うと $\dd^{2}\hat{x}_{\mathrm{H}}/\dd t^{2}=-(K/m)\hat{x}_{\mathrm{H}}=-\omega^{2}\hat{x}_{\mathrm{H}}$ である。一般解は $\hat{x}_{\mathrm{H}}=\hat{C}_{1}\cos\omega t+\hat{C}_{2}\sin\omega t$（$\hat{C}_{1}$，$\hat{C}_{2}$ は時間によらない演算子）で，$\hat{x}_{\mathrm{H}}(0)=\hat{x}$ から $\hat{C}_{1}=\hat{x}$，$t=0$ での時間微分が $\hat{p}/m$ であることから $\omega\hat{C}_{2}=\hat{p}/m$ となる。よって
+\[ \hat{x}_{\mathrm{H}}(t)=\hat{x}\cos\omega t+\frac{\hat{p}}{m\omega}\sin\omega t,\qquad \hat{p}_{\mathrm{H}}(t)=m\dv{\hat{x}_{\mathrm{H}}}{t}=\hat{p}\cos\omega t-m\omega\hat{x}\sin\omega t \]
+である。第2式を微分すると $-\omega\hat{p}\sin\omega t-m\omega^{2}\hat{x}\cos\omega t=-K\hat{x}_{\mathrm{H}}$（$m\omega^{2}=K$）となり，運動方程式を満たす。
+
+\shoumonkai{3} $\varphi$ は偶関数なので $\abs{\varphi}^{2}x$ は奇関数で，$\expval{\hat{x}}_{0}=0$ である。$\varphi$ は実数で無限遠で $0$ になるので
+\[ \expval{\hat{p}}_{0}=-\ii\hbar\int_{-\infty}^{\infty}\varphi\varphi'\dd x=-\ii\hbar\left[\frac{\varphi^{2}}{2}\right]_{-\infty}^{\infty}=0 \]
+である。部分積分と規格化から
+\[ \expval{\hat{x}\hat{p}}_{0}=-\ii\hbar\int_{-\infty}^{\infty}x\varphi\varphi'\dd x=-\ii\hbar\int_{-\infty}^{\infty}x\frac{(\varphi^{2})'}{2}\dd x=\frac{\ii\hbar}{2}\int_{-\infty}^{\infty}\varphi^{2}\dd x=\frac{\ii\hbar}{2} \]
+となる。$\hat{p}\hat{x}=\hat{x}\hat{p}-\ii\hbar$ より $\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar/2$ で，$\expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=0$ である。
+
+(2) より $\expval{\hat{x}}_{t}=\expval{\hat{x}}_{0}\cos\omega t+\expval{\hat{p}}_{0}\sin\omega t/(m\omega)=0$ である。順序を保って2乗すると
+\[ \hat{x}_{\mathrm{H}}(t)^{2}=\hat{x}^{2}\cos^{2}\omega t+(\hat{x}\hat{p}+\hat{p}\hat{x})\frac{\sin\omega t\cos\omega t}{m\omega}+\hat{p}^{2}\frac{\sin^{2}\omega t}{m^{2}\omega^{2}} \]
+で，$\expval{\hat{x}^{2}}_{0}=\delta x(0)^{2}$，$\expval{\hat{p}^{2}}_{0}=\delta p(0)^{2}$（期待値が0のため）だから
+\[ \delta x(t)^{2}=\expval{\hat{x}_{\mathrm{H}}(t)^{2}}-\expval{\hat{x}}_{t}^{2}=\delta x(0)^{2}\cos^{2}\omega t+\frac{\delta p(0)^{2}}{m^{2}\omega^{2}}\sin^{2}\omega t \]
+である。
+
+\shoumonkai{4} $\abs{\varphi}^{2}=(b^{2}/\pi)^{1/2}\ee^{-b^{2}x^{2}}$ とガウス積分から $\delta x(0)^{2}=1/(2b^{2})$ である。$\varphi'=-b^{2}x\varphi$ と部分積分から
+\[ \delta p(0)^{2}=\hbar^{2}\int_{-\infty}^{\infty}\varphi'^{2}\dd x=\hbar^{2}b^{4}\expval{\hat{x}^{2}}_{0}=\frac{\hbar^{2}b^{2}}{2} \]
+である。$\delta x(t)$ が時間によらないのは $\cos^{2}\omega t$ と $\sin^{2}\omega t$ の係数が等しいとき（$\cos^{2}+\sin^{2}=1$）で，
+\[ \frac{1}{2b^{2}}=\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\iff b^{4}=\frac{m^{2}\omega^{2}}{\hbar^{2}}\iff b=\sqrt{\frac{m\omega}{\hbar}} \]
+である。それ以外では，$\delta x(0)^{2}=A$，$\delta p(0)^{2}/(m\omega)^{2}=B$ として
+\[ \delta x(t)^{2}=\frac{A+B}{2}+\frac{A-B}{2}\cos2\omega t \]
+となるので，角振動数 $2\omega$，周期 $\pi/\omega$ で変化する。
+\kotae{\shoumonkai{1} $\comm{\hat{x}}{\hat{H}}=\ii\hbar\hat{p}/m$，$\comm{\hat{p}}{\hat{H}}=-\ii\hbar K\hat{x}$；$\dd\hat{x}_{\mathrm{H}}/\dd t=\hat{p}_{\mathrm{H}}/m$，$\dd\hat{p}_{\mathrm{H}}/\dd t=-K\hat{x}_{\mathrm{H}}$ \shoumonkai{2} $\hat{x}_{\mathrm{H}}=\hat{x}\cos\omega t+\frac{\hat{p}}{m\omega}\sin\omega t$，$\hat{p}_{\mathrm{H}}=\hat{p}\cos\omega t-m\omega\hat{x}\sin\omega t$ \shoumonkai{3} $\delta x(t)^{2}=\delta x(0)^{2}\cos^{2}\omega t+\delta p(0)^{2}\sin^{2}\omega t/(m\omega)^{2}$ \shoumonkai{4} $b=\sqrt{m\omega/\hbar}$，周期 $\pi/\omega$}
+\begin{ronten}
+  \item \shoumonkai{1} $\hat{H}$ は $\ee^{\pm\ii\hat{H}t/\hbar}$ と交換するので，運動方程式の交換子が，求めた $\comm{\hat{x}}{\hat{H}}$・$\comm{\hat{p}}{\hat{H}}$ のハイゼンベルク表示になることを書く。
+  \item \shoumonkai{2} 一般解の係数が時間によらない演算子であることと，それを2つの初期条件（$\hat{x}_{\mathrm{H}}(0)=\hat{x}$ と，運動方程式から決まる $t=0$ での時間微分）で決めることを書く。
+  \item \shoumonkai{3} $\expval{\hat{x}}_{0}=0$ は被積分関数が奇関数であることから，$\expval{\hat{p}}_{0}$ と $\expval{\hat{x}\hat{p}}_{0}$ は $\varphi$ が実数で無限遠で $0$ になる（部分積分の境界項が消える）ことから示すと述べる。
+  \item \shoumonkai{3} $\hat{x}$ と $\hat{p}$ が交換しないので $\hat{x}_{\mathrm{H}}(t)^{2}$ の交差項を順序を保って書き，$\expval{\hat{x}}_{0}=\expval{\hat{p}}_{0}=0$（(2) から $\expval{\hat{x}}_{t}=0$ も）なので $\expval{\hat{x}^{2}}_{0}=\delta x(0)^{2}$，$\expval{\hat{p}^{2}}_{0}=\delta p(0)^{2}$，$\delta x(t)^{2}=\expval{\hat{x}_{\mathrm{H}}(t)^{2}}$ となることを述べる。
+  \item \shoumonkai{4} $\cos^{2}\omega t+\sin^{2}\omega t=1$ から係数が等しいことが時間によらない条件であることを述べ（$b^{4}$ の式から $b>0$ の根を選ぶ），そうでないときは $\cos2\omega t$ の形に直して周期を読み取る。
+\end{ronten}
+\kenzan $\delta p/(m\omega)$ の次元は $(\unit{\kilogram\metre\per\second})/(\unit{\kilogram\per\second})=\unit{\metre}$ で位置と合う。$t=0$ で $\delta x(0)$ に戻る。$\omega t=\pi/2$ では $\delta x=\delta p(0)/(m\omega)$ で，位置の広がりと運動量の広がりが入れ替わる（古典の位相空間での回転と同じ）。$b^{2}=m\omega/\hbar$ の次元は $\unit{\kilogram\per\second}/(\unit{\joule\second})=\unit{\per\metre\squared}$ で，$\varphi$ はこのとき第15章で扱う調和振動子の基底状態になり，定常状態なので幅が変わらないことと合う。
+\tsumazuki $\hat{x}_{\mathrm{H}}^{2}$ の交差項を $2\hat{x}\hat{p}$ とすると，期待値が $\ii\hbar\sin\omega t\cos\omega t/(m\omega)$ という虚数になってしまう。周期を $2\pi/\omega$ と答えやすいが，$\cos^{2}$ と $\sin^{2}$ は周期 $\pi/\omega$ である。
+\end{kaisetsu}
+
+\level{3}
+\kaisetsubangou{7}
+\begin{kaisetsu}{080-conserved}
+\houshin (1) は $\ket{\psi(t)}$ のブラを $\ee^{\ii\hat{H}t/\hbar}$ で書き，運動方程式と交換子のハイゼンベルク表示を使う。(2) は3つの因子の積の微分。(3)(4) は (2) の右辺の2項を計算して和が $0$ になることを示し，保存量の値を $t=0$ で決める。
+\keisan \shoumonkai{1} Level 1 のユニタリー性の問題 (3) より $(\ee^{-\ii\hat{H}t/\hbar})^{\dagger}=\ee^{\ii\hat{H}t/\hbar}$ なので，$\ket{\psi(t)}$ に対応するブラは $\bra{\psi(0)}\ee^{\ii\hat{H}t/\hbar}$ である。よって
+\[ \matrixel{\psi(t)}{\hat{A}_{\mathrm{S}}}{\psi(t)}=\matrixel{\psi(0)}{\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}}{\psi(0)}=\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)} \]
+である。$\ket{\psi(0)}$ は時間によらないので，運動方程式と要点整理の交換子のハイゼンベルク表示から
+\begin{align*}
+\dv{\expval{\hat{A}}_{t}}{t}&=\matrixel{\psi(0)}{\dv{\hat{A}_{\mathrm{H}}}{t}}{\psi(0)}=-\frac{\ii}{\hbar}\matrixel{\psi(0)}{\ee^{\ii\hat{H}t/\hbar}\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}}{\psi(0)}\\
+&=-\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}}{\psi(t)}=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)}
+\end{align*}
+となる。$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}=0$ なら，$\hat{A}_{\mathrm{S}}\hat{H}^{n}=\hat{H}\hat{A}_{\mathrm{S}}\hat{H}^{n-1}=\cdots=\hat{H}^{n}\hat{A}_{\mathrm{S}}$ なので $\hat{A}_{\mathrm{S}}$ は級数 $\ee^{\ii\hat{H}t/\hbar}$ の各項と交換し，
+\[ \hat{A}_{\mathrm{H}}(t)=\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}=\hat{A}_{\mathrm{S}} \]
+である（$\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}=\hat{1}$ は Level 1 のユニタリー性の問題 (3)）。
+
+\shoumonkai{2} Level 1 のユニタリー性の問題 (1) と同じ項別微分（$t\to-t$）で
+\[ \frac{\dd}{\dd t}\ee^{\ii\hat{H}t/\hbar}=\frac{\ii}{\hbar}\hat{H}\ee^{\ii\hat{H}t/\hbar}=\ee^{\ii\hat{H}t/\hbar}\frac{\ii}{\hbar}\hat{H},\qquad \frac{\dd}{\dd t}\ee^{-\ii\hat{H}t/\hbar}=-\ee^{-\ii\hat{H}t/\hbar}\frac{\ii}{\hbar}\hat{H} \]
+である（$\hat{H}$ は自分の指数関数と交換する）。積の微分で因子の順序を保つと
+\begin{align*}
+\dv{\hat{A}_{\mathrm{H}}}{t}&=\frac{\ii}{\hbar}\hat{H}\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}-\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}\frac{\ii}{\hbar}\hat{H}\\
+&=\frac{\ii}{\hbar}\left(\hat{H}\hat{A}_{\mathrm{H}}-\hat{A}_{\mathrm{H}}\hat{H}\right)+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}}{\hat{H}}+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+となる。
+
+\shoumonkai{3} Level 1 の自由粒子のハイゼンベルク表示の問題 (1) より
+\[ \comm{\hat{G}_{\mathrm{S}}}{\hat{H}}=\comm{\hat{x}}{\hat{H}}-\frac{t}{m}\comm{\hat{p}}{\hat{H}}=\frac{\ii\hbar}{m}\hat{p} \]
+なので，(2) の第1項は $-(\ii/\hbar)(\ii\hbar/m)\hat{p}_{\mathrm{H}}=\hat{p}_{\mathrm{H}}/m$ である。$\partial\hat{G}_{\mathrm{S}}/\partial t=-\hat{p}/m$ なので第2項は $-\hat{p}_{\mathrm{H}}/m$ である。和は $0$ で，$\hat{G}_{\mathrm{H}}(t)$ は時間によらない。その値は $\hat{G}_{\mathrm{H}}(0)=\hat{G}_{\mathrm{S}}(0)=\hat{x}$ である。$\hat{G}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}(t)-\hat{p}_{\mathrm{H}}(t)t/m$ なので，期待値をとると
+\[ \expval{\hat{x}}_{t}-\frac{t}{m}\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0} \]
+がどの状態でも成り立つ。時刻 $t$ の中心の位置から，平均の速さ $\expval{\hat{p}}_{t}/m$ で時間を逆にたどると，いつでも同じ初期位置に戻る，という意味の保存量である。
+
+\shoumonkai{4} $\comm{\hat{x}}{\hat{H}}=\ii\hbar\hat{p}/m$（$\hat{x}$ は $F\hat{x}$ と交換），$\comm{\hat{p}}{\hat{H}}=-F\comm{\hat{p}}{\hat{x}}=\ii\hbar F$ である。数 $Ft$ は $\hat{H}$ と交換するので $\comm{\hat{Q}_{\mathrm{S}}}{\hat{H}}=\ii\hbar F$ で，(2) より
+\[ \dv{\hat{Q}_{\mathrm{H}}}{t}=-\frac{\ii}{\hbar}(\ii\hbar F)+(-F)=F-F=0 \]
+である。次に
+\[ \comm{\hat{R}_{\mathrm{S}}}{\hat{H}}=\frac{\ii\hbar}{m}\hat{p}-\frac{t}{m}\ii\hbar F=\frac{\ii\hbar}{m}(\hat{p}-Ft),\qquad \pdv{\hat{R}_{\mathrm{S}}}{t}=-\frac{\hat{p}}{m}+\frac{Ft}{m} \]
+なので
+\[ \dv{\hat{R}_{\mathrm{H}}}{t}=\frac{\hat{p}_{\mathrm{H}}-Ft}{m}+\frac{-\hat{p}_{\mathrm{H}}+Ft}{m}=0 \]
+である。値は $t=0$ で決まり，$\hat{Q}_{\mathrm{H}}(t)=\hat{p}$，$\hat{R}_{\mathrm{H}}(t)=\hat{x}$ である。前者から $\hat{p}_{\mathrm{H}}(t)=\hat{p}+Ft$，これを後者 $\hat{x}_{\mathrm{H}}-\hat{p}_{\mathrm{H}}t/m+Ft^{2}/(2m)=\hat{x}$ に入れて
+\[ \hat{x}_{\mathrm{H}}(t)=\hat{x}+\frac{(\hat{p}+Ft)t}{m}-\frac{Ft^{2}}{2m}=\hat{x}+\frac{\hat{p}}{m}t+\frac{F}{2m}t^{2} \]
+を得る。
+\kotae{\shoumonkai{1} $\dd\expval{\hat{A}}_{t}/\dd t=(\ii/\hbar)\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)}$，可換なら $\hat{A}_{\mathrm{H}}=\hat{A}_{\mathrm{S}}$ \shoumonkai{2} 上の式 \shoumonkai{3} $\hat{G}_{\mathrm{H}}(t)=\hat{x}$；$\expval{\hat{x}}_{t}-\expval{\hat{p}}_{t}t/m=\expval{\hat{x}}_{0}$ \shoumonkai{4} $\hat{x}_{\mathrm{H}}(t)=\hat{x}+\hat{p}t/m+Ft^{2}/(2m)$}
+\begin{ronten}
+  \item \shoumonkai{1} $\ket{\psi(t)}$ に対応するブラが $\bra{\psi(0)}\ee^{\ii\hat{H}t/\hbar}$ になることを，$\ee^{-\ii\hat{H}t/\hbar}$ のエルミート共役が $\ee^{\ii\hat{H}t/\hbar}$ であること（$\hat{H}$ のエルミート性による）を根拠に書く。$\ket{\psi(0)}$ が時間によらないので微分が $\hat{A}_{\mathrm{H}}$ にだけかかることと，運動方程式は $\hat{A}_{\mathrm{S}}$ が時間をあらわに含まないときの式であることも述べる。
+  \item \shoumonkai{1} 可換なら $\hat{A}_{\mathrm{S}}$ が $\hat{H}^{n}$ とも交換し，級数の各項と交換することを示す。
+  \item \shoumonkai{2} 積の微分で演算子の順序を保ったことと，$\hat{H}$ が自分の指数関数と交換するので $\hat{H}$ をどちら側に置いてもよいことを書く。
+  \item \shoumonkai{3} 時間によらないことを示した後，その値を $t=0$ での値で決めることを書く（(4) も同じ）。
+\end{ronten}
+\kenzan (4) で $F=0$ とすると Level 1 の自由粒子のハイゼンベルク表示の問題 (2) の $\hat{x}+\hat{p}t/m$ に戻る。$\dd\hat{x}_{\mathrm{H}}/\dd t=\hat{p}/m+Ft/m=\hat{p}_{\mathrm{H}}/m$，$\dd\hat{p}_{\mathrm{H}}/\dd t=F$ で，運動方程式（古典の等加速度運動と同じ形）を満たす。$Ft^{2}/m$ の次元は $\unit{\newton}\cdot\unit{\second\squared}/\unit{\kilogram}=\unit{\metre}$ である。(1) の式は Ehrenfest の定理の問題の (1) の式と同じで，$\hat{A}=\hat{x}$，$\hat{p}$ にすると Ehrenfest の定理になる。
+\tsumazuki 時間をあらわに含む保存量（$\hat{G}_{\mathrm{S}}$，$\hat{Q}_{\mathrm{S}}$，$\hat{R}_{\mathrm{S}}$）は $\hat{H}$ と交換しない。「保存量 $\Leftrightarrow$ $\hat{H}$ と交換」が言えるのは，演算子が時間をあらわに含まないときだけである。
+\end{kaisetsu}
+
+\kaisetsubangou{8}
+\begin{kaisetsu}{135-timeenergy}
+\houshin 一般の不確定性関係で $\hat{B}=\hat{H}$ とし，交換子の期待値を期待値の時間変化で置き換える。具体例では，$\delta E$ と $\expval{\hat{A}}$ の変化の速さを別々に計算して不等式を確かめる。
+\keisan
+\shoumonkai{1} 一般の不確定性関係で $\hat{B}=\hat{H}$ とすると $\delta A\,\delta E\ge\abs{\expval{\comm{\hat{A}}{\hat{H}}}}/2$。$\comm{\hat{A}}{\hat{H}}=-\comm{\hat{H}}{\hat{A}}$ と与えられた式から
+\[ \abs{\expval{\comm{\hat{A}}{\hat{H}}}}=\abs{\expval{\comm{\hat{H}}{\hat{A}}}}=\left|\frac{\hbar}{\ii}\dv{\expval{\hat{A}}}{t}\right|=\hbar\left|\dv{\expval{\hat{A}}}{t}\right| \]
+なので示された不等式が成り立つ。また，与えられた式で $\hat{A}=\hat{H}$，$\hat{H}^{2}$ とすると，どちらも $\hat{H}$ と交換するので $\expval{\hat{H}}$，$\expval{\hat{H}^{2}}$ は時間によらず，$\delta E=\sqrt{\expval{\hat{H}^{2}}-\expval{\hat{H}}^{2}}$ も時間によらない。
+\shoumonkai{2} $\tau_{A}$ は，$\expval{\hat{A}}$ がその時刻の変化の速さで変わり続けたとき，標準偏差 $\delta A$ だけ変わるのにかかる時間で，$A$ の分布が目に見えて変わる時間の尺度である。(1) の両辺を $\abs{\dd\expval{\hat{A}}/\dd t}$（$\neq0$）で割ると $\delta E\,\tau_{A}\ge\hbar/2$ となる。
+\shoumonkai{3} 時刻 $0$ で $\abs{\psi}^{2}\propto\exp(-x^{2}/(2\sigma^{2}))$ なので $\delta x=\sigma$。$\dd\expval{x}/\dd t=\expval{p}/m=\hbar k_{0}/m$ なので
+\[ \tau_{x}=\frac{\sigma}{\hbar k_{0}/m}=\frac{m\sigma}{\hbar k_{0}} \]
+$k=k_{0}+q$ とおくと，$q$ の奇数乗の平均は $0$ なので
+\[ \expval{k^{2}}=k_{0}^{2}+s^{2},\qquad \expval{k^{4}}=k_{0}^{4}+6k_{0}^{2}s^{2}+3s^{4},\qquad \expval{k^{4}}-\expval{k^{2}}^{2}=4k_{0}^{2}s^{2}+2s^{4} \]
+自由粒子では $\hat{H}=\hbar^{2}\hat{k}^{2}/(2m)$ で，運動量の分布は時間によらないので
+\[ \delta E=\frac{\hbar^{2}}{2m}\sqrt{4k_{0}^{2}s^{2}+2s^{4}}=\frac{\hbar^{2}k_{0}s}{m}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}} \]
+よって，$s\sigma=1/2$ を使うと
+\[ \delta E\,\tau_{x}=\frac{\hbar^{2}k_{0}s}{m}\cdot\frac{m\sigma}{\hbar k_{0}}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}}=\frac{\hbar}{2}\sqrt{1+\frac{1}{8k_{0}^{2}\sigma^{2}}}\ \ge\ \frac{\hbar}{2} \]
+で，(2) の不等式を満たす（$k_{0}\sigma\gg1$ では等号に近い）。
+\shoumonkai{4} エネルギーは $E_{1}$，$E_{2}$ が確率 $1/2$ ずつなので，$\expval{E}=(E_{1}+E_{2})/2$，$\delta E=(E_{2}-E_{1})/2$。よって
+\[ \delta E\cdot T=\frac{E_{2}-E_{1}}{2}\cdot\frac{2\pi\hbar}{E_{2}-E_{1}}=\pi\hbar>\frac{\hbar}{2} \]
+で，状態が変化する時間の尺度とエネルギーの広がりの積が $\hbar$ の程度になっている。エネルギー固有状態では $\delta E=0$ で，どの $\hat{A}$ についても $\expval{\hat{A}}$ は時間によらない（定常状態）ので，$\tau_{A}=\infty$ となる。$\delta E\,\tau_{A}\ge\hbar/2$ と矛盾しない（$0\times\infty$ の形で，変化が起きないことを表す）。
+\kotae{\shoumonkai{1} 不等式は一般の不確定性関係で $\hat{B}=\hat{H}$ として示す。$\expval{\hat{H}}$，$\expval{\hat{H}^{2}}$ が保存するので $\delta E$ は一定 \shoumonkai{2} $\tau_{A}$ は $\expval{\hat{A}}$ が $\delta A$ だけ変わる時間の尺度。$\delta E\,\tau_{A}\ge\hbar/2$ \shoumonkai{3} $\tau_{x}=m\sigma/(\hbar k_{0})$，$\delta E=(\hbar^{2}k_{0}s/m)\sqrt{1+s^{2}/(2k_{0}^{2})}$，$\delta E\,\tau_{x}=(\hbar/2)\sqrt{1+1/(8k_{0}^{2}\sigma^{2})}\ge\hbar/2$ \shoumonkai{4} $\delta E=(E_{2}-E_{1})/2$，$\delta E\cdot T=\pi\hbar$。固有状態では $\tau_{A}=\infty$（何も変化しない）}
+\begin{ronten}
+  \item \shoumonkai{1} 一般の不確定性関係を $\hat{B}=\hat{H}$ に使い，交換子の期待値を時間微分に置き換えたことを示す。
+  \item \shoumonkai{1} $\delta E$ が一定であることに $\hat{H}$ と $\hat{H}^{2}$ の期待値の保存を使ったことを書く。
+  \item \shoumonkai{3} 自由粒子では運動量の分布が時間によらないので，時刻 $0$ の分布で $\delta E$ を求めてよいことを書く。
+\end{ronten}
+\kenzan 次元：$\delta E\,\tau$ はエネルギー×時間で $\hbar$ と同じ次元。(3) で $s\to0$（幅の広い波束）では $\delta E\to0$，$\tau_{x}\to\infty$ で，積は $\hbar/2$ に近づく。$\tau_{x}=\sigma/v$（$v=\hbar k_{0}/m$）は波束がその幅だけ進む時間で，波束が「通り過ぎる」時間に当たる。
+\tsumazuki $\delta E$ を運動量の広がりから $\delta E\approx v\,\delta p$ と1次で見積もると，$s^{4}$ の項（分布の2次の効果）が抜ける。$k_{0}\sigma\gg1$ ならこの近似で十分だが，正確には $k^{2}$ の分散を計算する。
+\end{kaisetsu}
+
+\level{4}
+\kaisetsubangou{9}
+\begin{kaisetsu}{136-powerlaw}
+\houshin ポテンシャルが同次関数なら $xV'$ は $V$ の定数倍になり，ビリアル定理と $E=\expval{\hat{T}}+\expval{V}$ から $\expval{\hat{T}}$ と $\expval{V}$ が $E$ だけで決まる。デルタ関数も $x\delta'=-\delta$ で同じ形になる。エネルギーの $\lambda$ 依存性は，使える定数が $\hbar^{2}/m$ と $\lambda$ だけであることから次元で決める。
+\keisan
+\shoumonkai{1} $x\neq0$ で $V'=\nu\lambda\abs{x}^{\nu-1}\sgn x$ なので $xV'=\nu\lambda\abs{x}^{\nu}=\nu V$。ビリアル定理から $2\expval{\hat{T}}=\nu\expval{V}$ で，$E=\expval{\hat{T}}+\expval{V}$ と連立して
+\[ \expval{\hat{T}}=\frac{\nu}{\nu+2}E,\qquad \expval{V}=\frac{2}{\nu+2}E \]
+$\nu=2$ では $\expval{\hat{T}}=\expval{V}=E/2$ で，調和振動子で運動エネルギーとポテンシャルエネルギーの期待値が等しいことと合う。$\nu\to\infty$ では $\abs{x}<1$ で $V\to0$，$\abs{x}>1$ で $V\to\infty$ となり，（長さをある単位で測ったとき）幅 $2$ の無限に深い井戸に近づく。このとき $\expval{V}\to0$，$\expval{\hat{T}}\to E$ で，井戸の中ではエネルギーがすべて運動エネルギーであることと合う。
+\shoumonkai{2} $V=-g\delta(x)$ では $xV'=-gx\delta'(x)=-g\cdot(-\delta(x))=g\delta(x)=-V$。ビリアル定理から $2\expval{\hat{T}}=-\expval{V}$ で，$E=\expval{\hat{T}}+\expval{V}$ と連立して
+\[ \expval{V}=2E,\qquad \expval{\hat{T}}=-E \]
+第11章のデルタ関数井戸の束縛状態（$\phi=\sqrt{\beta}\,\ee^{-\beta\abs{x}}$）では $\expval{V}=-g\abs{\phi(0)}^{2}=-g\beta$ で，$\beta=mg/\hbar^{2}$，$E=-\hbar^{2}\beta^{2}/(2m)=-mg^{2}/(2\hbar^{2})$ なので $\expval{V}=-mg^{2}/\hbar^{2}=2E$ となり，ビリアル定理の結果と一致する。これは $\nu=-1$ の場合（$\delta(x)$ は長さの $-1$ 乗の次元をもち，$\delta(cx)=\delta(x)/\abs{c}$ という $-1$ 次の同次性をもつ）に当たり，(1) の式で $\nu=-1$ とした $\expval{\hat{T}}=-E$，$\expval{V}=2E$ とも合う。
+\shoumonkai{3} $E=C(\hbar^{2}/m)^{\alpha}\lambda^{\gamma}$（$C$ は無次元の数）とおく。エネルギーの次元から $\alpha+\gamma=1$，長さの次元が消える条件から $2\alpha-\nu\gamma=0$。よって
+\[ \gamma=\frac{2}{\nu+2},\qquad \alpha=\frac{\nu}{\nu+2},\qquad E\propto\left(\frac{\hbar^{2}}{m}\right)^{\nu/(\nu+2)}\lambda^{2/(\nu+2)} \]
+$\nu=1$（$\lambda=F$）では $E\propto(\hbar^{2}F^{2}/m)^{1/3}$。$\nu=2$（$\lambda=m\omega^{2}/2$）では $E\propto(\hbar^{2}/m)^{1/2}(m\omega^{2})^{1/2}=\hbar\omega$ で，調和振動子のエネルギーが $\hbar\omega$ に比例することと合う。
+\kotae{\shoumonkai{1} $\expval{\hat{T}}=\frac{\nu}{\nu+2}E$，$\expval{V}=\frac{2}{\nu+2}E$。$\nu=2$ で $E/2$ ずつ，$\nu\to\infty$ で $\expval{V}\to0$（無限に深い井戸） \shoumonkai{2} $\expval{\hat{T}}=-E$，$\expval{V}=2E$ で，第11章の結果（$\expval{V}=-mg^{2}/\hbar^{2}=2E$）と一致 \shoumonkai{3} $E\propto(\hbar^{2}/m)^{\nu/(\nu+2)}\lambda^{2/(\nu+2)}$。$\nu=1$ で $(\hbar^{2}F^{2}/m)^{1/3}$，$\nu=2$ で $\hbar\omega$}
+\begin{ronten}
+  \item \shoumonkai{1} 同次関数の性質 $xV'=\nu V$ を，$x\neq0$ で $\abs{x}$ を微分して示す。
+  \item \shoumonkai{2} デルタ関数ではビリアル定理の導出（なめらかな $V$ を仮定）を形式的に使っていることと，$x\delta'(x)=-\delta(x)$ を根拠にしたことを書く。
+  \item \shoumonkai{3} 次元解析は比例係数を決めないことを述べる。
+\end{ronten}
+\kenzan (1) の $\expval{\hat{T}}$ と $\expval{V}$ の和は $E$ で，どちらも $\nu>0$ で正（$E>0$）。(2) で束縛状態の $E<0$ に対して $\expval{\hat{T}}=-E>0$ となり，運動エネルギーの期待値が正であることと合う。(3) は第2章の Bohr--Sommerfeld の量子化条件の問題で $V=F\abs{x}$ について得た $E_{n}\propto(h^{2}F^{2}/m)^{1/3}n^{2/3}$ と同じべきである。
+\tsumazuki ビリアル定理は定常状態（エネルギー固有状態）で成り立つもので，一般の重ね合わせの状態の期待値には使えない。また，$\abs{x}^{\nu}$ の微分で $x<0$ の符号を落とさない（$xV'$ にすると符号が消える）。
+\end{kaisetsu}
+
+\end{document}

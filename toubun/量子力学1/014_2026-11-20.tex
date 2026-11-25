@@ -1,0 +1,47 @@
+% 量子力学1 量子力学1-11 問題4（014-box） 解いた日 2026-11-20
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}\phi_{n}''(x)=E_{n}\phi_{n}(x)\\
+&\phi_{n}''(x)=-\frac{2mE_{n}}{\hbar^{2}}\phi_{n}(x)\\
+&\phi_{n}(x)=A\cos\frac{\sqrt{2mE_{n}}}{\hbar}x+B\sin\frac{\sqrt{2mE_{n}}}{\hbar}x
+\end{align*}
+\begin{align*}
+&\phi_{n}(0)=A=0\\
+&\phi_{n}(L)=B\sin\frac{\sqrt{2mE_{n}}}{\hbar}L=0
+\end{align*}
+$B\neq0$ より、
+\[ \frac{\sqrt{2mE_{n}}}{\hbar}L=n\pi\quad\nuke{n=1,2,3,\dots} \]
+\naze{$n$ の範囲が無い。$k=\sqrt{2mE_{n}}/\hbar>0$ なので $n$ は正で，$n=0$ は $\phi=0$ になるので除く（負の $n$ は正の $n$ と符号が違うだけの同じ状態）。よって $n=1,2,3,\dots$ である。}
+\begin{align*}
+\therefore\ 2mE_{n}&=\frac{n^{2}\pi^{2}\hbar^{2}}{L^{2}}\\
+\therefore\ E_{n}&=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}
+\end{align*}
+\begin{align*}
+\phi_{n}(x)&=B\sin\frac{\sqrt{\frac{n^{2}\pi^{2}\hbar^{2}}{L^{2}}}}{\hbar}x\\
+&=B\sin\frac{n\pi x}{L}
+\end{align*}
+規格化条件より
+\begin{align*}
+\int_{0}^{L}\abs{\phi_{n}(x)}^{2}\dd x&=\int_{0}^{L}B^{2}\sin^{2}\frac{n\pi x}{L}\dd x\\
+&=B^{2}\int_{0}^{L}\frac{1}{2}\left(1-\cos\frac{2n\pi x}{L}\right)\dd x\\
+&=\frac{B^{2}}{2}\left[x-\frac{L}{2n\pi}\sin\frac{2n\pi x}{L}\right]_{0}^{L}\\
+&=\frac{B^{2}}{2}L
+\end{align*}
+\[ \frac{B^{2}}{2}L=1\qquad\therefore\ B=\sqrt{\frac{2}{L}} \]
+\[ \phi_{n}(x)=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L} \]
+\toi{2}{◎}{}
+\begin{align*}
+E_{n}&=\frac{n^{2}\pi^{2}\hbar^{2}}{2mL^{2}}=\frac{n^{2}h^{2}}{8mL^{2}}\\
+E_{1}&=\frac{h^{2}}{8mL^{2}}=\qty{1.50}{\electronvolt}\\
+E_{2}&=4E_{1}=\qty{6.02}{\electronvolt}\\
+E_{3}&=9E_{1}=\qty{13.5}{\electronvolt}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\lambda_{21}&=\frac{hc}{E_{2}-E_{1}}=\qty{275}{\nano\metre}\\
+\lambda_{21}&=\frac{hc}{\frac{3h^{2}}{8mL^{2}}}=\frac{8mcL^{2}}{3h}
+\end{align*}
+$L\to2$ 倍\qquad $\lambda_{21}\to4$ 倍
+%% kizuki
+\item \mae{第4章 問題3・10-28} 候補の範囲を書かなかった。量子数の範囲は答えの一部である。$k>0$ から $n$ を正に限り，$n=0$ は $\phi=0$ になるので除く（負の $n$ は符号が違うだけの同じ状態）と1行で書く。問題7 (1) も同じ。

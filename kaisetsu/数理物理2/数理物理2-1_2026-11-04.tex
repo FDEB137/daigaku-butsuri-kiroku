@@ -1,0 +1,176 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/kaisetsu.tex}
+\kaisetsuprint{数理物理2　第1章「複素数と複素平面（極形式・$n$ 乗根・振動と波）」}{2026-11-04}
+%% kaisetsu-moto	problems\数理物理2\shou01\数理物理2-1.tex	kiroku\kaisetsu\数理物理2\数理物理2-1_2026-11-04_komento.tex
+\begin{document}
+\matome
+\begin{saitenichiran}
+  \hyougyou{\hyperlink{bt-m-001-enzan}{1}}{L1・計算}{◎○◎◎}{A}{(2)記述}
+  \hyougyou{\hyperlink{bt-m-002-roots}{2}}{L1・計算}{◎○◎}{A}{(2)記述}
+  \hyougyou{\hyperlink{bt-m-006-kyousei}{4}}{L2・計算}{◎○△○}{B}{(2)記述 (3)立式 (4)記述}
+\end{saitenichiran}
+\begin{daiji}
+  \item 複素数の積の実部は、実部どうしの積ではない。$\Re(A\ee^{\ii\omega t})=\abs{A}\cos(\omega t-\delta)=\abs{A}(\cos\delta\cos\omega t+\sin\delta\sin\omega t)$ で、$\Re(A)\cos\omega t$ だけでは $\sin\omega t$ の項が落ちる（問題4 (3)）。
+  \item 極形式の指数には必ず $\ii$ を書く。$\ee^{3\pi/4}$ は実数（約 \num{10.6}）で、$\ee^{3\pi\ii/4}$ とはまったく別の数である（問題1 (2)(4)）。
+  \item 答えの形が指定されていたら、その形まで直す（問題2 (2) の $a+b\ii$）。
+\end{daiji}
+
+\mondaihen
+\level{1}
+\mondaibangou{1}
+\begin{mondai}{001-enzan}{計算}{複素数の四則演算と極形式（積は絶対値の積・偏角の和になる）}
+$z_{1}=\sqrt{3}+\ii$、$z_{2}=-1+\ii$ とする。偏角は $-\pi<\theta\le\pi$ の範囲にとる。
+  \begin{shoumon}
+    \item $z_{1}z_{2}$ と $z_{1}/z_{2}$ を $a+b\ii$（$a,b$ は実数）の形で求めよ。
+    \item $z_{1}$、$z_{2}$ を極形式 $r\ee^{\ii\theta}$ で表せ。
+    \item (2) を用いて $z_{1}z_{2}$ と $z_{1}/z_{2}$ を極形式で表し、(1) と比べることで $\cos(11\pi/12)$ と $\sin(11\pi/12)$ の値を根号を用いて求めよ。
+    \item $z_{1}^{6}$ と $z_{2}^{8}$ を求めよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $z_{2}=\sqrt{2}\,\ee^{3\pi/4}$ と、指数の $\ii$ が抜けたまま答えている（(4) の $16\ee^{6\pi}$ も同じ。こちらは答え $16$ が正しいので減点なし）。正しくは $z_{2}=\sqrt{2}\,\ee^{3\pi\ii/4}$。また、偏角 $3\pi/4$ を決めた根拠（実部が負・虚部が正で第2象限）が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item 偏角は $\arctan(b/a)$ だけで決めず、実部・虚部の符号で象限を先に決める。$z_{2}=-1+\ii$ は第2象限なので $3\pi/4$（$\arctan(-1)=-\pi/4$ は第4象限の値）。
+  \item 書き終えたら、$\ee^{(\text{実数})}$ になっていないかを見直す。$\ee^{\ii\theta}$ の形でなければ絶対値 $1$ の位相因子ではない。
+\end{rikai}
+\end{mondai}
+
+\mondaibangou{2}
+\begin{mondai}{002-roots}{計算}{$n$ 乗根（$n$ 個の値と複素平面上の配置）}
+方程式 $z^{4}=-8+8\sqrt{3}\,\ii$ を考える。
+  \begin{shoumon}
+    \item 右辺を極形式で表せ（偏角は $-\pi<\theta\le\pi$）。
+    \item 解をすべて求め、$a+b\ii$（$a,b$ は実数）の形で表せ。また、解を複素平面上に図示すると、どのような図形の頂点になるか答えよ。
+    \item すべての解の和と積を求めよ。和については、(2) の図形の性質からも説明せよ。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} 4つの解 $2\ee^{-5\pi\ii/6}$、$2\ee^{-\pi\ii/3}$、$2\ee^{\pi\ii/6}$、$2\ee^{2\pi\ii/3}$ と正方形の図は正しいが、問われている $a+b\ii$ の形にしていない。$\sqrt{3}+\ii$、$-1+\sqrt{3}\,\ii$、$-\sqrt{3}-\ii$、$1-\sqrt{3}\,\ii$ まで書く。途中の式 $z^{4}=2^{4}\ee^{\ii(2\pi/3+k\pi/2)}$ は、$z^{4}$ と $z$ が混ざっている。正しくは $z^{4}=2^{4}\ee^{\ii(2\pi/3+2\pi k)}$ から $z=2\ee^{\ii(\pi/6+k\pi/2)}$。
+\end{kotaeran}
+\begin{rikai}
+  \item $n$ 乗根は、偏角に $2\pi k$ を足してから $n$ で割る。$k=0,1,\ldots,n-1$ で $n$ 個が出そろい、$k$ を $n$ だけ変えると偏角が $2\pi$ 変わって同じ解に戻る。絶対値は正の実数なので $r^{4}=16$ から $r=2$ だけをとる。
+\end{rikai}
+\end{mondai}
+
+\level{2}
+\mondaibangou{4}
+\begin{mondai}{006-kyousei}{計算}{複素指数による強制振動の解法（複素振幅・振幅と位相の遅れ）}
+質量 $m$ の質点が、ばね定数 $k$ のばねによる復元力、速度に比例する抵抗力（比例係数 $\gamma$）、外力 $F_{0}\cos\omega t$ を受けて $x$ 軸上を運動する。運動方程式は
+  \[ m\dv[2]{x}{t}+\gamma\dv{x}{t}+kx=F_{0}\cos\omega t \]
+  である（$m,\gamma,k,F_{0},\omega$ は正の実数）。
+  \begin{shoumon}
+    \item 複素数値の関数 $z(t)$ についての次の方程式の解が得られれば、$x(t)=\Re z(t)$ がもとの運動方程式の解になる。その理由を説明せよ。
+    \[ m\dv[2]{z}{t}+\gamma\dv{z}{t}+kz=F_{0}\ee^{\ii\omega t} \]
+    \item $z(t)=A\ee^{\ii\omega t}$（$A$ は複素定数）の形の解を求め、複素振幅 $A$ を $m,\gamma,k,F_{0},\omega$ で表せ。
+    \item $A=\abs{A}\ee^{-\ii\delta}$（$0<\delta<\pi$）と書くとき、$\abs{A}$ と $\tan\delta$ を求めよ。また、このときの $x(t)$ を実数の三角関数で表せ。
+    \item $m=\qty{0.50}{\kilogram}$、$k=\qty{8.0}{\newton\per\metre}$、$\gamma=\qty{1.0}{\newton\second\per\metre}$、$F_{0}=\qty{2.0}{\newton}$ とする。$\omega=\qty{3.0}{\radian\per\second}$ と $\omega=\qty{4.0}{\radian\per\second}$ のそれぞれについて、振幅 $\abs{A}$ と位相の遅れ $\delta$ を有効数字2桁で求めよ（$\delta$ はラジアンで答え、ちょうど $\pi$ の有理数倍になる場合はその形で答えよ）。
+  \end{shoumon}
+
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $A=F_{0}/(k-m\omega^{2}+\ii\gamma\omega)$ は正しい。$\gamma\omega>0$ なので分母が $0$ にならず $A$ が定まる、の一言が無い。
+  \machigai{3}{△}{立式} $\abs{A}$ と $\tan\delta=\gamma\omega/(k-m\omega^{2})$ は正しい。$x(t)=\abs{A}\cos\delta\cos\omega t=(k-m\omega^{2})F_{0}\cos\omega t/\{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}\}$ としたのが誤り。これは $\Re(A)\cos\omega t$ で、$\Re(A\ee^{\ii\omega t})$ ではない。正しくは $x(t)=\Re(\abs{A}\ee^{\ii(\omega t-\delta)})=\abs{A}\cos(\omega t-\delta)$。また、$\tan\delta$ だけでは象限が決まらないので、$\sin\delta=\abs{A}\gamma\omega/F_{0}>0$ から $0<\delta<\pi$ と確かめる。
+  \machigai{4}{○}{記述} 数値（$\abs{A}=\qty{0.43}{\metre}$、$\delta=\qty{0.71}{\radian}$；$\abs{A}=\qty{0.50}{\metre}$、$\delta=\pi/2$）は正しい。$\omega=\qty{4.0}{\radian\per\second}$ では $k-m\omega^{2}=0$ で $\tan\delta$ が定まらないので、$\cos\delta=0$ と $\sin\delta>0$ から $\delta=\pi/2$ とする、の根拠が無い。
+\end{kotaeran}
+\begin{rikai}
+  \item $A=a+b\ii$、$\ee^{\ii\omega t}=\cos\omega t+\ii\sin\omega t$ とすると $\Re(A\ee^{\ii\omega t})=a\cos\omega t-b\sin\omega t$。虚部 $b$ も $\sin\omega t$ の係数として実部に入ってくる。複素振幅の偏角 $-\delta$ が、位相の遅れ $\cos(\omega t-\delta)$ になるのはこのためである。
+  \item 確かめ方：$\omega=\sqrt{k/m}$（共振）で $k-m\omega^{2}=0$ を代入すると、自分の式では $x(t)=0$ になってしまうが、実際は振幅 $F_{0}/(\gamma\omega)$ で振動する。特別な値を入れて物理的におかしくないかを見る。
+  \item 位相は $\tan$ だけで決めず、$\cos\delta$ と $\sin\delta$ の符号で象限を決める（$k<m\omega^{2}$ では第2象限）。
+\end{rikai}
+\end{mondai}
+
+\kaitouhen
+\level{1}
+\kaisetsubangou{1}
+\begin{kaisetsu}{001-enzan}
+\houshin (1) 積は分配法則で展開して $\ii^{2}=-1$ を使う。商は分母の共役を分子・分母に掛けて分母を実数にする。(2) 絶対値を求め、実部・虚部の符号で象限を決めて偏角を求める。(3) 極形式の積・商の公式で求めた形と (1) の形の実部・虚部を比べる。(4) ド・モアブルの定理を使う。
+\keisan \shoumonkai{1} 積は次のとおり。
+\[ z_{1}z_{2}=(\sqrt{3}+\ii)(-1+\ii)=-\sqrt{3}+\sqrt{3}\,\ii-\ii+\ii^{2}=-(\sqrt{3}+1)+(\sqrt{3}-1)\ii \]
+商は、$\overline{z_{2}}=-1-\ii$、$\abs{z_{2}}^{2}=z_{2}\overline{z_{2}}=2$ を使って次のようになる。
+\begin{align*}
+  \frac{z_{1}}{z_{2}}&=\frac{z_{1}\overline{z_{2}}}{\abs{z_{2}}^{2}}=\frac{(\sqrt{3}+\ii)(-1-\ii)}{2}\\
+  &=\frac{-\sqrt{3}-\sqrt{3}\,\ii-\ii-\ii^{2}}{2}=\frac{1-\sqrt{3}}{2}-\frac{1+\sqrt{3}}{2}\ii
+\end{align*}
+\shoumonkai{2} $\abs{z_{1}}=\sqrt{3+1}=2$ で、$\cos\theta_{1}=\sqrt{3}/2$、$\sin\theta_{1}=1/2$ だから $\theta_{1}=\pi/6$ である。$\abs{z_{2}}=\sqrt{1+1}=\sqrt{2}$ で、$\cos\theta_{2}=-1/\sqrt{2}$、$\sin\theta_{2}=1/\sqrt{2}$（第2象限）だから $\theta_{2}=3\pi/4$ である。
+\shoumonkai{3} 積は偏角の和、商は偏角の差になるので、次のようになる。偏角はどちらも $-\pi<\theta\le\pi$ に入っている。
+\[ z_{1}z_{2}=2\sqrt{2}\,\ee^{\ii(\pi/6+3\pi/4)}=2\sqrt{2}\,\ee^{11\pi\ii/12},\qquad \frac{z_{1}}{z_{2}}=\frac{2}{\sqrt{2}}\ee^{\ii(\pi/6-3\pi/4)}=\sqrt{2}\,\ee^{-7\pi\ii/12} \]
+$z_{1}z_{2}$ の極形式の実部・虚部を (1) と比べると次のようになる。
+\begin{align*}
+  \cos\frac{11\pi}{12}&=\frac{-(\sqrt{3}+1)}{2\sqrt{2}}=-\frac{\sqrt{6}+\sqrt{2}}{4},\\
+  \sin\frac{11\pi}{12}&=\frac{\sqrt{3}-1}{2\sqrt{2}}=\frac{\sqrt{6}-\sqrt{2}}{4}
+\end{align*}
+\shoumonkai{4} ド・モアブルの定理より、次のようになる。
+\[ z_{1}^{6}=2^{6}\ee^{6\ii\pi/6}=64\,\ee^{\ii\pi}=-64,\qquad z_{2}^{8}=(\sqrt{2})^{8}\ee^{8\cdot3\pi\ii/4}=16\,\ee^{6\pi\ii}=16 \]
+\kotae{\shoumonkai{1} $z_{1}z_{2}=-(\sqrt{3}+1)+(\sqrt{3}-1)\ii$，$z_{1}/z_{2}=\frac{1}{2}\{(1-\sqrt{3})-(1+\sqrt{3})\ii\}$ \shoumonkai{2} $z_{1}=2\ee^{\ii\pi/6}$，$z_{2}=\sqrt{2}\,\ee^{3\pi\ii/4}$ \shoumonkai{3} $z_{1}z_{2}=2\sqrt{2}\,\ee^{11\pi\ii/12}$，$z_{1}/z_{2}=\sqrt{2}\,\ee^{-7\pi\ii/12}$，$\cos(11\pi/12)=-(\sqrt{6}+\sqrt{2})/4$，$\sin(11\pi/12)=(\sqrt{6}-\sqrt{2})/4$ \shoumonkai{4} $z_{1}^{6}=-64$，$z_{2}^{8}=16$}
+\begin{ronten}
+  \item \shoumonkai{2} 偏角を $\arctan$ だけで決めず，実部・虚部の符号から $z_{2}$ が第2象限にあることを確かめて偏角を決めたことを書く。
+  \item \shoumonkai{3} 偏角の和・差が主値の範囲 $-\pi<\theta\le\pi$ に入っていることを確かめ，極形式と (1) の形の実部どうし・虚部どうしを比べたことを書く。
+\end{ronten}
+\kenzan (1) の積の絶対値は $\sqrt{(\sqrt{3}+1)^{2}+(\sqrt{3}-1)^{2}}=\sqrt{8}=2\sqrt{2}$ で、$\abs{z_{1}}\abs{z_{2}}=2\sqrt{2}$ と一致する。(3) の値は $\cos^{2}+\sin^{2}=\{(8+4\sqrt{3})+(8-4\sqrt{3})\}/16=1$ を満たし、$11\pi/12=\ang{165}$ で $\cos$ が負・$\sin$ が正なのも第2象限と合う（数値は $-0.966$、$0.259$）。
+\tsumazuki $z_{2}$ の偏角を $\arctan(-1)=-\pi/4$ としてしまう誤りが多い。$\arctan$ は第1・第4象限の値しか返さないので、実部・虚部の符号で象限を確かめる。
+\end{kaisetsu}
+
+\kaisetsubangou{2}
+\begin{kaisetsu}{002-roots}
+\houshin (1) 絶対値と、実部・虚部の符号から偏角を求める。(2) $z=r\ee^{\ii\theta}$ とおき、絶対値と偏角を別々に決める。偏角の $2\pi$ の不定性から4個の解が出る。(3) 解が等比数列になっていることを使う。積は解と係数の関係で確かめる。
+\keisan \shoumonkai{1} 絶対値は $\sqrt{8^{2}+(8\sqrt{3})^{2}}=\sqrt{64+192}=16$ である。$\cos\varphi=-8/16=-1/2$、$\sin\varphi=8\sqrt{3}/16=\sqrt{3}/2$ だから $\varphi=2\pi/3$ で、右辺は $16\ee^{2\pi\ii/3}$ である。
+\shoumonkai{2} $z=r\ee^{\ii\theta}$（$r>0$）とおくと $z^{4}=r^{4}\ee^{4\ii\theta}$ だから、絶対値と偏角を比べて次の条件を得る。
+\[ r^{4}=16,\qquad 4\theta=\frac{2\pi}{3}+2\pi k\quad(k\text{ は整数}) \]
+$r$ は正の実数なので $r=2$、$\theta=\pi/6+k\pi/2$ である。$k=0,1,2,3$ で異なる4点が得られ、$k=4$ 以降は $k=0$ からの繰り返しになる。
+\begin{align*}
+  z_{0}&=2\ee^{\ii\pi/6}=\sqrt{3}+\ii, & z_{1}&=2\ee^{2\pi\ii/3}=-1+\sqrt{3}\,\ii,\\
+  z_{2}&=2\ee^{7\pi\ii/6}=-\sqrt{3}-\ii, & z_{3}&=2\ee^{5\pi\ii/3}=1-\sqrt{3}\,\ii
+\end{align*}
+4点はどれも原点から距離2にあり、偏角が $\pi/2$ ずつずれているので、原点を中心とする正方形の頂点になる。
+\shoumonkai{3} 隣り合う解の比は $\ee^{\ii\pi/2}=\ii$ だから $z_{k}=z_{0}\ii^{k}$ である。よって和と積は次のようになる。
+\begin{align*}
+  z_{0}+z_{1}+z_{2}+z_{3}&=z_{0}(1+\ii+\ii^{2}+\ii^{3})=z_{0}(1+\ii-1-\ii)=0,\\
+  z_{0}z_{1}z_{2}z_{3}&=z_{0}^{4}\,\ii^{0+1+2+3}=z_{0}^{4}\,\ii^{6}=-z_{0}^{4}=-(-8+8\sqrt{3}\,\ii)=8-8\sqrt{3}\,\ii
+\end{align*}
+図形で見ると、$z_{2}=-z_{0}$、$z_{3}=-z_{1}$ で、正方形の向かい合う頂点は原点について対称だから、2つずつ打ち消し合って和は0になる（正方形の重心が原点にある）。積は、右辺を $w=-8+8\sqrt{3}\,\ii$ とおいた $z^{4}-w=(z-z_{0})(z-z_{1})(z-z_{2})(z-z_{3})$ の定数項を比べた $z_{0}z_{1}z_{2}z_{3}=-w$ とも一致する。
+\kotae{\shoumonkai{1} $16\ee^{2\pi\ii/3}$ \shoumonkai{2} $\sqrt{3}+\ii$，$-1+\sqrt{3}\,\ii$，$-\sqrt{3}-\ii$，$1-\sqrt{3}\,\ii$（原点を中心とする1辺 $2\sqrt{2}$ の正方形の頂点） \shoumonkai{3} 和 $0$，積 $8-8\sqrt{3}\,\ii$}
+\begin{ronten}
+  \item \shoumonkai{2} $r$ は正の実数なので，$r^{4}=16$ から $r=2$ だけをとることを述べる。
+  \item \shoumonkai{2} 偏角に $2\pi k$ を足してから4で割り，$k=0,1,2,3$ で異なる4個の解が出そろうことと，$k$ を4だけ変えると偏角が $2\pi$ 変わって同じ解になるので，ほかの整数 $k$ からは新しい解が出ないことを書く。
+  \item \shoumonkai{3} 和が0になる理由として，正方形の向かい合う頂点が原点について対称であること（$z_{2}=-z_{0}$，$z_{3}=-z_{1}$）を述べる。
+\end{ronten}
+\kenzan $(\sqrt{3}+\ii)^{2}=2+2\sqrt{3}\,\ii$、$(2+2\sqrt{3}\,\ii)^{2}=4+8\sqrt{3}\,\ii-12=-8+8\sqrt{3}\,\ii$ で、$z_{0}$ が確かに解である。隣り合う頂点の距離は $\abs{z_{0}-z_{1}}=\abs{(\sqrt{3}+1)+(1-\sqrt{3})\ii}=\sqrt{8}=2\sqrt{2}$ で、半径2の円に内接する正方形の1辺と一致する。
+\tsumazuki 主値の偏角を4で割った $z_{0}$ だけで止める誤りが多い。偏角に $2\pi k$ を足してから4で割ることで、4個の解が出る。
+\end{kaisetsu}
+
+\level{2}
+\kaisetsubangou{4}
+\begin{kaisetsu}{006-kyousei}
+\houshin (1) 実係数であることを使い、複素方程式の両辺の実部をとる。(2) $z=A\ee^{\ii\omega t}$ を代入すると微分が $\ii\omega$ を掛ける操作になり、代数方程式になる。(3) $1/A$ の実部・虚部から絶対値と偏角を読む。(4) 数値を代入する。
+\keisan \shoumonkai{1} $z(t)=x(t)+\ii y(t)$（$x,y$ は実数値の関数）とすると、実部をとる操作と微分は交換する。
+\[ \dv{z}{t}=\dv{x}{t}+\ii\dv{y}{t} \]
+係数 $m,\gamma,k$ が実数なので、左辺の実部は次のようになる。
+\[ \Re\left(m\dv[2]{z}{t}+\gamma\dv{z}{t}+kz\right)=m\dv[2]{x}{t}+\gamma\dv{x}{t}+kx \]
+右辺の実部は $\Re(F_{0}\ee^{\ii\omega t})=F_{0}\cos\omega t$ である。よって複素方程式の両辺の実部をとると、$x=\Re z$ がもとの運動方程式を満たす（係数が複素数なら、実部に $y$ が混ざってこの議論は成り立たない）。
+\shoumonkai{2} $z=A\ee^{\ii\omega t}$ のとき、微分は次のようになる。
+\[ \dv{z}{t}=\ii\omega A\ee^{\ii\omega t},\qquad \dv[2]{z}{t}=-\omega^{2}A\ee^{\ii\omega t} \]
+代入して $\ee^{\ii\omega t}$（$\neq0$）で割ると次のようになる。
+\[ (k-m\omega^{2}+\ii\gamma\omega)A=F_{0}\quad\Longrightarrow\quad A=\frac{F_{0}}{k-m\omega^{2}+\ii\gamma\omega} \]
+$\gamma\omega>0$ なので分母は0にならない。
+\shoumonkai{3} 絶対値は次のとおり。
+\[ \abs{A}=\frac{F_{0}}{\abs{k-m\omega^{2}+\ii\gamma\omega}}=\frac{F_{0}}{\sqrt{(k-m\omega^{2})^{2}+\gamma^{2}\omega^{2}}} \]
+$A=\abs{A}\ee^{-\ii\delta}$ から次の式が成り立つ。
+\[ \frac{1}{A}=\frac{\ee^{\ii\delta}}{\abs{A}}=\frac{k-m\omega^{2}+\ii\gamma\omega}{F_{0}} \]
+実部・虚部を比べると $\cos\delta=\abs{A}(k-m\omega^{2})/F_{0}$、$\sin\delta=\abs{A}\gamma\omega/F_{0}>0$ で、$0<\delta<\pi$ と合う。$k\neq m\omega^{2}$ のとき $\tan\delta=\gamma\omega/(k-m\omega^{2})$ であり、$k=m\omega^{2}$ のときは $\cos\delta=0$ で $\delta=\pi/2$ である。このとき $x(t)$ は次のようになる。
+\[ x(t)=\Re\left(\abs{A}\ee^{\ii(\omega t-\delta)}\right)=\abs{A}\cos(\omega t-\delta) \]
+\shoumonkai{4} $\omega=\qty{3.0}{\radian\per\second}$ のとき、$k-m\omega^{2}=8.0-0.50\times9.0=\qty{3.5}{\newton\per\metre}$、$\gamma\omega=\qty{3.0}{\newton\per\metre}$ である。
+\[ \abs{A}=\frac{\qty{2.0}{\newton}}{\sqrt{3.5^{2}+3.0^{2}}\,\unit{\newton\per\metre}}=\frac{2.0}{\sqrt{21.25}}\,\unit{\metre}=\qty{0.434}{\metre} \]
+$\cos\delta>0$ なので $\delta$ は第1象限にあり、$\delta=\arctan(3.0/3.5)=\qty{0.709}{\radian}$ である。$\omega=\qty{4.0}{\radian\per\second}$ のときは $k-m\omega^{2}=8.0-0.50\times16=0$ なので、$\delta=\pi/2$ である。振幅は次のとおり。
+\[ \abs{A}=\frac{F_{0}}{\gamma\omega}=\frac{\qty{2.0}{\newton}}{\qty{4.0}{\newton\per\metre}}=\qty{0.50}{\metre} \]
+\kotae{\shoumonkai{1} 係数が実数で，実部をとる操作と微分が交換するので，複素方程式の両辺の実部をとるともとの方程式になる \shoumonkai{2} $A=\frac{F_{0}}{k-m\omega^{2}+\ii\gamma\omega}$ \shoumonkai{3} $\abs{A}=\frac{F_{0}}{\sqrt{(k-m\omega^{2})^{2}+\gamma^{2}\omega^{2}}}$，$\tan\delta=\gamma\omega/(k-m\omega^{2})$，$x(t)=\abs{A}\cos(\omega t-\delta)$ \shoumonkai{4} $\omega=\qty{3.0}{\radian\per\second}$：$\abs{A}=\qty{0.43}{\metre}$，$\delta=\qty{0.71}{\radian}$．$\omega=\qty{4.0}{\radian\per\second}$：$\abs{A}=\qty{0.50}{\metre}$，$\delta=\pi/2$}
+\begin{ronten}
+  \item \shoumonkai{1} 係数 $m,\gamma,k$ が実数であることと，実部をとる操作と微分が交換することを述べる（係数が複素数なら実部に虚部が混ざって成り立たないことにも触れる）。
+  \item \shoumonkai{2} $\gamma\omega>0$ なので分母 $k-m\omega^{2}+\ii\gamma\omega$ が0にならず，$A$ が定まることを書く。
+  \item \shoumonkai{3} $\tan\delta$ だけでなく $\cos\delta$ と $\sin\delta>0$ の符号から $\delta$ の象限を決めることを書く（$k<m\omega^{2}$ では第2象限）。
+  \item \shoumonkai{4} $\omega=\qty{4.0}{\radian\per\second}$ では $k-m\omega^{2}=0$ で $\tan\delta$ が定まらないので，$\cos\delta=0$ から $\delta=\pi/2$ とすることを書く。
+\end{ronten}
+\kenzan 次元：$\abs{A}$ は $\unit{\newton}/(\unit{\newton\per\metre})=\unit{\metre}$、$\gamma\omega$ は $\unit{\newton\second\per\metre}\times\unit{\per\second}=\unit{\newton\per\metre}$ で $k-m\omega^{2}$ と同じ次元である。極限：$\omega\to0$ では $\abs{A}\to F_{0}/k$（静的なつり合いの変位）、$\delta\to0$。$\omega\to\infty$ では $\abs{A}\to0$、$\delta\to\pi$（外力と逆位相）。$\omega=\sqrt{k/m}=\qty{4.0}{\radian\per\second}$ で $\delta=\pi/2$ になるのは共振の性質と合う。
+\tsumazuki $k<m\omega^{2}$ のとき $\tan\delta<0$ で、$\arctan$ をそのまま使うと負の値が出る。$\sin\delta>0$ から $\delta$ は第2象限にとる。
+\end{kaisetsu}
+
+\end{document}

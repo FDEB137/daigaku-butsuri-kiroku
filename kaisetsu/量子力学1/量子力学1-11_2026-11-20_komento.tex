@@ -1,0 +1,80 @@
+% 解説プリントのコメント（saiten が書く。./tools/kaisetsu.ps1 がこのファイルからプリントを作る）
+% 量子力学1 第11章 問題1〜8（2026-11-20 解答、スキャン 7枚）
+%% matome
+\begin{daiji}
+  \item 引力のデルタ関数 $-g\delta(x)$ では，跳びの式 $\phi'(+0)-\phi'(-0)=(2mg/\hbar^{2})\phi(0)$ の $g$ を $-g$ に置き換える。求めた $\kappa$ が定義どおり正になっているかを必ず確かめる（問題6 (1)）。
+  \item 接続条件の導出は「$\phi'$ が有界である → だから $\phi$ が連続である」の順に進む。積分の大きさは（区間の幅）$\times$（被積分関数の上限）で抑える（問題5 (3)）。
+  \item 部分積分 $\int uv'\dd x=[uv]-\int u'v\dd x$ では $u'$ の係数まで書く。$x^{2}$ の微分は $2x$ である。極限（$n\to\infty$）が合うことは係数の誤りの確かめにならない（問題7 (3)）。
+\end{daiji}
+\begin{maemo}
+  \item 問いの一部を答えないまま終える：第7章 問題3（2026-11-04）、第9章 問題4 (4)・問題7 (3)（2026-11-11）に続き、今回も問題1 (2) の $\lambda_{32}$ と、問題5 (2) の「理由を述べよ」が無い。解き終えたら問題文の「求めよ」「述べよ」の数を数え、答えた数と合わせる。
+  \item 符号の誤り：第6章 問題2 (4)（2026-11-01）・第7章 問題2 (2)（2026-11-04）・第9章 問題5 (3)（2026-11-11）に続き、今回は問題6 (1) の $g$ の符号と問題3 (3) の $\cos(\theta-\pi/2)=-\sin\theta$。結果の符号は、定義（$\kappa>0$）や特別な値（$\theta=\pi/2$ を入れる）で確かめる。
+  \item 候補の中から1つを選ぶ根拠を書かない：第4章 問題3 (2)（2026-10-28）で $x=-1$ が区間の外である根拠が無かった。今回も問題2 (3) で零点の候補から $x=0$ に最も近いものを選んだ理由、問題4 (1)・問題7 (1) で $n$ を正の整数に限る理由が無い。整数 $n$ や $l$ が出たら、その範囲を必ず1行で書く。
+\end{maemo}
+%% mondai 1
+\begin{kotaeran}
+  \machigai{2}{△}{未着手} $E_{1}=\pi^{2}\hbar^{2}/(2\melec L^{2})=\qty{0.861}{\electronvolt}$ は正しい。問われているもう1つの量 $\lambda_{32}$ が書かれていない。$E_{n}\propto n^{2}$ なので $E_{3}-E_{2}=(9-4)E_{1}=5E_{1}$ で、波長は準位の差に反比例するから $\lambda_{32}=hc/(5E_{1})=(3/5)\lambda_{21}=\qty{288}{\nano\metre}$ である。
+\end{kotaeran}
+\begin{rikai}
+  \item 無限井戸の準位の差はどれも $E_{1}$ の整数倍（$E_{n}-E_{m}=(n^{2}-m^{2})E_{1}$）なので、遷移の波長どうしの比は差の逆比で、$L$ を使わずに求まる。
+  \item 確かめ：$E_{n}$ は上の準位ほど間隔が広いので、$\lambda_{32}<\lambda_{21}$ になっているか（$5/3$ 倍ではなく $3/5$ 倍）。
+\end{rikai}
+%% mondai 2
+\begin{kotaeran}
+  \machigai{3}{○}{計算} $k=\kappa=\sqrt{mV_{1}}/\hbar$ と $\phi=C(\cos kx-\sin kx)$ までは正しい。これを $C\sin(kx+3\pi/4)$ と書いたが、$\sin(\theta+3\pi/4)=(\cos\theta-\sin\theta)/\sqrt{2}$ なので正しくは $\sqrt{2}\,C\sin(kx+3\pi/4)$ である。零点の位置には影響しないので、答え $x=-3\pi\hbar/(4\sqrt{mV_{1}})$ は正しい。また、零点は $kx+3\pi/4=l\pi$（$l$ は整数）のすべてであり、そのうち $x<0$ で $x=0$ に最も近いのが $l=0$ であることを書いていない。
+\end{kotaeran}
+\begin{rikai}
+  \item 三角関数の合成は、加法定理で展開し直して元の式に戻るかで確かめる。振幅（ここでは $\sqrt{2}$）は、$\theta=0$ を入れて両辺の値を比べれば落としに気づく。
+  \item 方程式の解が無数にあるときは、一般形（$l$ を整数として）を書いてから、問題の条件（$x<0$，$x=0$ に最も近い）で1つを選ぶ。
+\end{rikai}
+%% mondai 3
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $-2k\sin\alpha=(2mg/\hbar^{2})\cos\alpha$ から $\tan\alpha=-mg/(\hbar^{2}k)$ は正しい。両辺を $\cos\alpha$ で割ってよい理由（$-\pi/2<\alpha\le0$ では $\cos\alpha>0$）が無い。
+  \machigai{3}{○}{記述} $g\to\infty$ で $\phi\to\cos(k\abs{x}-\pi/2)=-\sin k\abs{x}$ と書いたが、$\cos(\theta-\pi/2)=\sin\theta$ なので $\sin k\abs{x}$ である。また、物理的な意味を「$x=0$ で $0$ に近づき対称的な広がりをもつ」としたが、要点は、$\phi(0)=0$ となって原点が無限に高い壁になり、$x>0$ と $x<0$ が切り離されて、それぞれが無限井戸の壁のそばと同じふるまいをすることである。$g\to0$ の「壁が無い状態（自由粒子）」は正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item $\phi(0)=0$ は無限に高い壁での境界条件と同じである。$g\to\infty$ のデルタ関数は「厚さ0の無限に高い壁」で、両側の波は互いに行き来できなくなる。
+  \item $\cos(\theta-\pi/2)$ は $\theta=\pi/2$ を入れると $\cos0=1$ になるので、$+\sin\theta$ だと確かめられる。
+\end{rikai}
+%% mondai 4
+\begin{kotaeran}
+  \machigai{1}{○}{記述} $B\neq0$ から $\sqrt{2mE_{n}}\,L/\hbar=n\pi$ としたところは正しいが、$n$ の範囲が無い。$k=\sqrt{2mE}/\hbar>0$ なので $n=1,2,3,\dots$ に限る（$n=0$ は $\phi=0$ になり、負の $n$ は正の $n$ と符号が違うだけの同じ状態）。
+\end{kotaeran}
+\begin{rikai}
+  \item 量子数の範囲は答えの一部である。$n=0$ が除かれる理由（0でない解を求める）と、負の $n$ が新しい状態を与えない理由（定数倍の違い）をセットで書く。
+\end{rikai}
+%% mondai 5
+\begin{kotaeran}
+  \machigai{2}{○}{記述} $g=0$ で $\phi'(a+0)=\phi'(a-0)$ は正しい。段差の大きさ $V_{2}-V_{1}$ によらない理由が書かれていない。(1) で $U$ の項が $V_{1}\bigl(\Phi(a)-\Phi(a-\varepsilon)\bigr)+V_{2}\bigl(\Phi(a+\varepsilon)-\Phi(a)\bigr)$ になり、$V_{1}$、$V_{2}$ が有限である限り $\varepsilon\to+0$ で $0$ になること、$V_{2}\to\infty$（無限井戸の壁）ではこの評価が使えないこと、まで述べる。
+  \machigai{3}{×}{未着手} 左辺の積分 $-(\hbar^{2}/2m)\bigl(\phi'(x)-\phi'(x_{0})\bigr)$ の1行で止まっている。続きは、方程式から $\phi'(x)=\phi'(x_{0})+(2m/\hbar^{2})\int_{x_{0}}^{x}[U-E]\phi\dd x'+(2mg/\hbar^{2})\phi(a)\theta(x-a)$ と書き、右辺のどの項も有界なので $\abs{\phi'}\le M'$、よって $\abs{\phi(a+\varepsilon)-\phi(a-\varepsilon)}\le 2\varepsilon M'\to0$ とする。
+  \machigai{4}{△}{記述} 図は $x=a$ で上に尖った形で正しいが、問われている「(1) の結果の符号から」の根拠が無い。$g<0$、$\phi(a)>0$ なら右辺 $2mg\phi(a)/\hbar^{2}<0$ で $\phi'(a+0)<\phi'(a-0)$、つまり傾きが $x=a$ で急に減るので $\wedge$ 形になる、と書く。
+\end{kotaeran}
+\begin{rikai}
+  \item (3) の論理の順序：有界な関数（$U-E$、$\phi$）の積分は区間の長さに比例して抑えられ、デルタ関数の積分は高さ $g\phi(a)$ の段になるだけなので、$\phi'$ は有限の範囲に収まる。傾きが有限なら、幅 $2\varepsilon$ の区間での $\phi$ の変化は $2\varepsilon$ に比例して $0$ になる。これが「$\phi$ は連続」の中身である。
+  \item 跳びの符号と形：$\phi'$ が増える向きに跳べば $\vee$ 形（斥力 $g>0$）、減る向きなら $\wedge$ 形（引力 $g<0$）。問題6 のデルタ関数井戸の $\ee^{-\kappa\abs{x}}$ が $\wedge$ 形になるのと同じである。
+\end{rikai}
+%% mondai 6
+\begin{kotaeran}
+  \machigai{1}{▲}{立式} ポテンシャルは $-g\delta(x)$ なのに、跳びの式を $\phi'(+0)-\phi'(-0)=(2mg/\hbar^{2})\phi(0)$ と $+g$ のまま使い、$-2C\kappa=(2mg/\hbar^{2})C$ から $\kappa=-mg/\hbar^{2}$ とした。$g>0$ なのでこれは $\kappa>0$ と矛盾する。正しくは $-2\kappa C=-(2mg/\hbar^{2})C$ で $\kappa=mg/\hbar^{2}$。$E=-mg^{2}/(2\hbar^{2})$ が合ったのは2乗で符号が消えたからである（(3) では $\kappa=mg/\hbar^{2}$ を使っていて (1) と食い違う）。また $C_{1}=C_{2}$ を「対称性より」としたが、対称なポテンシャルでも奇関数の解（$C_{1}=-C_{2}$）は許される。$C_{1}=C_{2}$ は $x=0$ での $\phi$ の連続から出し、そこから「奇関数の解は無く、$\kappa$ はただ1つに決まるので束縛状態は1つ」と結論する。
+\end{kotaeran}
+\begin{rikai}
+  \item 跳びの式は $V$ に含まれる $g\delta(x-a)$ の係数 $g$ をそのまま入れる。$V=-g\delta(x)$ なら係数は $-g$。引力なので $\phi'$ は減る向きに跳び、$\phi'(+0)-\phi'(-0)=-2\kappa C<0$ と符号がそろう。
+  \item $\kappa$ や $\abs{E}$ のように正と決めた量は、答えを出したら符号を確かめる。負になったら、どこかの符号を取り違えている。
+\end{rikai}
+%% mondai 7
+\begin{kotaeran}
+  \machigai{1}{○}{記述} 2つの場合 $ka/2=\pi/2+n\pi$、$ka/2=n\pi$ に分けて $E_{n}=n^{2}\pi^{2}\hbar^{2}/(2ma^{2})$ にまとめたところは正しい（2つの場合で同じ文字 $n$ を別の意味に使っている）。最後の $n$ を $n=1,2,3,\dots$ に限る理由（$k>0$、$\phi=0$ を除く）が無い。
+  \machigai{3}{△}{計算} 部分積分で $\int_{0}^{a/2}x^{2}\cos(2n\pi x/a)\dd x=\bigl[x^{2}\cdot\frac{a}{2n\pi}\sin\frac{2n\pi x}{a}\bigr]-\int_{0}^{a/2}x\cdot\frac{a}{2n\pi}\sin\frac{2n\pi x}{a}\dd x$ と、$x^{2}$ の微分を $2x$ でなく $x$ にした。正しくは第2項が $-\frac{a}{n\pi}\int_{0}^{a/2}x\sin\frac{2n\pi x}{a}\dd x$ で、$\expval{x^{2}}=a^{2}/12-a^{2}/(2n^{2}\pi^{2})$（$n$ が偶数でも同じ）になる。あなたの答え $a^{2}/12-a^{2}/(4n^{2}\pi^{2})$ は第2項が半分である。$\expval{x}=0$ と、$n\to\infty$ で $a^{2}/12$ に近づくことの確かめは正しい。
+\end{kotaeran}
+\begin{rikai}
+  \item 部分積分は $u=x^{2}$、$v'=\cos qx$ と役割を書いてから $u'=2x$ を代入する。2回続けるときは、1回ごとに係数を書き出す。
+  \item 検算：得た原始関数 $\frac{x^{2}}{q}\sin qx+\frac{2x}{q^{2}}\cos qx-\frac{2}{q^{3}}\sin qx$ を微分して $x^{2}\cos qx$ に戻るかを見る。$n\to\infty$ の極限は第2項の係数によらないので、係数の誤りを見つけられない。
+\end{rikai}
+%% mondai 8
+\begin{kotaeran}
+  \machigai{4}{○}{記述} $\expval{\hat{P}}=\ee^{-x_{0}^{2}/\sigma^{2}}$ と $P_{\pm}=(1\pm\ee^{-x_{0}^{2}/\sigma^{2}})/2$ は正しい。$\int\abs{\psi_{\pm}}^{2}\dd x$ がパリティを測って $\pm1$ を得る確率になる根拠（$\psi_{+}$ と $\psi_{-}$ は $\hat{P}$ の異なる固有値の固有関数で、$\hat{P}$ がエルミートなので直交する）が書かれていない。
+\end{kotaeran}
+\begin{rikai}
+  \item 測定で固有値 $\pm1$ を得る確率は、$\psi$ を固有関数どうしの直交する成分に分けたときの、各成分の規格化の積分である。直交していなければ $\int\abs{\psi}^{2}=\int\abs{\psi_{+}}^{2}+\int\abs{\psi_{-}}^{2}$ が成り立たず、確率と読めない。(2) のエルミート性がここで使われる。
+  \item 確かめ：$P_{+}+P_{-}=1$、$x_{0}=0$（偶関数）で $P_{+}=1$。
+\end{rikai}
