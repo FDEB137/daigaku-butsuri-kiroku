@@ -1,0 +1,28 @@
+% 量子力学1 量子力学1-12 問題2（048-free。当時は 量子力学1-6 問題3） 解いた日 2026-11-01
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\comm{V}{\hat{p}}\psi&=\bigl(V(x)\hat{p}-\hat{p}V(x)\bigr)\psi\\
+&=-\ii\hbar V\psi'+\ii\hbar(V'\psi+V\psi')\\
+&=\ii\hbar V'(x)\psi
+\end{align*}
+\begin{align*}
+\comm{\hat{H}}{\hat{p}}&=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{p}}+\comm{V}{\hat{p}}\\
+&=\ii\hbar V'(x)
+\end{align*}
+\toi{2}{◎}{}
+$V=0$ なら $\comm{\hat{H}}{\hat{p}}=0$ より同時に観測可能。
+\[ \psi=C\ee^{\ii kx} \]
+\[ \hat{p}\psi=\kakimachigai{C\hbar k\psi}{\hbar k\psi},\qquad p=\hbar k \]
+\begin{align*}
+\hat{H}\psi&=\frac{1}{2m}\hat{p}^{2}\psi\\
+&=\kakimachigai{C\frac{\hbar^{2}k^{2}}{2m}\psi}{\frac{\hbar^{2}k^{2}}{2m}\psi}
+\end{align*}
+\[ E=\frac{\hbar^{2}k^{2}}{2m} \]
+\toi{3}{○}{記述}
+\[ \comm{\hat{H}}{\hat{p}}=\ii\hbar\cdot(-F)\neq0 \]
+より同時観測不可能。\nuke{背理法}
+\naze{交換子が $0$ でないことだけでは，同時固有関数が1つも無いとは言えない（交換しない行列にも共通の固有ベクトルが1本だけあることがある）。同時固有関数 $\phi$（$\hat{H}\phi=E\phi$，$\hat{p}\phi=p\phi$）があったとすると $\comm{\hat{H}}{\hat{p}}\phi=pE\phi-Ep\phi=0$ となるが，左辺は $-\ii\hbar F\phi$ で $F\neq0$ なので $\phi=0$ となり，固有関数であることに反する，まで書く。}
+%% kizuki
+\item 「交換子が $0$ でないから同時に定められない」で止めない。要点は交換子が $0$ でない「定数」であること：同時固有関数に作用させると $0$ になるはずだが，$0$ でない定数をかけて $0$ になる関数は $0$ しか無いので矛盾する。交換子が演算子（行列）のときは，作用させて $0$ になる特定の状態がありうる。
+\item \mae{第5章 問題7・10-30} 前回も「成り立たない」ことを示しただけで理由の1文を書き落とした。結論を書く前に「何を仮定すると何と矛盾するか」を1行書く。

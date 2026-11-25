@@ -1,0 +1,34 @@
+% 量子力学1 量子力学1-12 問題1（046-comm。当時は 量子力学1-6 問題2） 解いた日 2026-11-01
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{A}\hat{B}}{\hat{C}}&=\hat{A}\hat{B}\hat{C}-\hat{C}\hat{A}\hat{B}\quad\cdots\text{①}\\
+\hat{A}\comm{\hat{B}}{\hat{C}}&=\hat{A}(\hat{B}\hat{C}-\hat{C}\hat{B})\\
+&=\hat{A}\hat{B}\hat{C}-\hat{A}\hat{C}\hat{B}\quad\cdots\text{②}\\
+\comm{\hat{A}}{\hat{C}}\hat{B}&=(\hat{A}\hat{C}-\hat{C}\hat{A})\hat{B}\\
+&=\hat{A}\hat{C}\hat{B}-\hat{C}\hat{A}\hat{B}\quad\cdots\text{③}
+\end{align*}
+②$+$③$=$①より
+\[ \comm{\hat{A}\hat{B}}{\hat{C}}=\hat{A}\comm{\hat{B}}{\hat{C}}+\comm{\hat{A}}{\hat{C}}\hat{B} \]
+\toi{2}{◎}{}
+\begin{align*}
+\comm{\hat{x}^{2}}{\hat{p}}&=\hat{x}\comm{\hat{x}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}\\
+&=2\ii\hbar\hat{x}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\comm{\hat{x}}{\hat{p}^{2}}&=-\comm{\hat{p}^{2}}{\hat{x}}\\
+&=-\bigl(\hat{p}\comm{\hat{p}}{\hat{x}}+\comm{\hat{p}}{\hat{x}}\hat{p}\bigr)\\
+&=2\ii\hbar\hat{p}
+\end{align*}
+\toi{4}{△}{計算}
+\begin{align*}
+\comm{\hat{p}}{\hat{x}^{3}}&=-\comm{\hat{x}\hat{x}^{2}}{\hat{p}}\\
+&=-\bigl(\hat{x}\comm{\hat{x}^{2}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}^{2}\bigr)\\
+&=-2\ii\hbar\hat{x}^{2}\ayamari{+\ii\hbar\hat{x}^{2}}{-\ii\hbar\hat{x}^{2}}\\
+&=-\ii\hbar\hat{x}^{2}
+\end{align*}
+\naze{負号をかけた括弧を外すときは，括弧の中のすべての項の符号を変える。$-(2\ii\hbar\hat{x}^{2}+\ii\hbar\hat{x}^{2})$ なので2項目も $-\ii\hbar\hat{x}^{2}$ になる。以降はこの誤りを引き継ぎ，正しい答えは $\comm{\hat{p}}{\hat{x}^{3}}=-3\ii\hbar\hat{x}^{2}$ である。}
+%% kizuki
+\item \mae{第2章 問題4・10-14} 前回も交換子の符号を誤った（$-3\ii\hbar$ の符号を逆にした）。今回は負号をかけた括弧を外すとき，2項目の符号を変えなかった。交換子を出したら関数 $\psi$ に作用させて直接計算する検算を1行入れる：$\hat{p}(x^{3}\psi)-x^{3}\hat{p}\psi=-\ii\hbar(3x^{2}\psi+x^{3}\psi')+\ii\hbar x^{3}\psi'=-3\ii\hbar x^{2}\psi$。
+\item 問題3 (1) の $\comm{V}{\hat{p}}=\ii\hbar V'(x)$ で $V=x^{3}$ とおくと $\comm{\hat{x}^{3}}{\hat{p}}=3\ii\hbar\hat{x}^{2}$ がすぐ出る。$x^{n}$ の微分と同じ係数 $n$ が付くかで，係数と符号を確かめる。

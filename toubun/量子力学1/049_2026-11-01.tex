@@ -1,0 +1,66 @@
+% 量子力学1 量子力学1-16 問題2（049-expo。当時は 量子力学1-6 問題4） 解いた日 2026-11-01
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\expval{x}&=\int_{-\infty}^{\infty}\sqrt{k}\ee^{-k\abs{x}}x\sqrt{k}\ee^{-k\abs{x}}\dd x\\
+&=\int_{-\infty}^{0}kx\ee^{2kx}\dd x+\int_{0}^{\infty}kx\ee^{-2kx}\dd x\\
+&=\int_{0}^{\infty}(-kx\ee^{-2kx})\dd x+\int_{0}^{\infty}kx\ee^{-2kx}\dd x\\
+&=0
+\end{align*}
+\begin{align*}
+\expval{x^{2}}&=\int_{-\infty}^{\infty}\sqrt{k}\ee^{-k\abs{x}}x^{2}\sqrt{k}\ee^{-k\abs{x}}\dd x\\
+&=2\int_{0}^{\infty}kx^{2}\ee^{-2kx}\dd x\\
+&=2\biggl(\biggl[\frac{kx^{2}}{-2k}\ee^{-2kx}\biggr]_{0}^{\infty}\\
+&\qquad+\int_{0}^{\infty}\frac{2kx}{2k}\ee^{-2kx}\dd x\biggr)\\
+&=2\biggl(\biggl[-\frac{x}{2k}\ee^{-2kx}\biggr]_{0}^{\infty}\\
+&\qquad+\int_{0}^{\infty}\frac{1}{2k}\ee^{-2kx}\dd x\biggr)\\
+&=2\biggl[-\frac{1}{4k^{2}}\ee^{-2kx}\biggr]_{0}^{\infty}\\
+&=\frac{2}{4k^{2}}=\frac{1}{2k^{2}}
+\end{align*}
+\[ \delta x=\sqrt{\expval{x^{2}}-\expval{x}^{2}}=\frac{1}{\sqrt{2}k} \]
+\toi{2}{◎}{}
+\begin{align*}
+\expval{p}&=\int_{-\infty}^{\infty}\sqrt{k}\ee^{-k\abs{x}}\Bigl(-\ii\hbar\frac{\dd}{\dd x}\Bigr)\sqrt{k}\ee^{-k\abs{x}}\dd x\\
+&=\int_{-\infty}^{0}k\ee^{kx}(-\ii\hbar)k\ee^{kx}\dd x\\
+&\qquad+\int_{0}^{\infty}k\ee^{-kx}(-\ii\hbar)\cdot(-k\ee^{-kx})\dd x\\
+&=-\ii\hbar\Bigl(\int_{-\infty}^{0}k^{2}\ee^{2kx}\dd x\\
+&\qquad-\int_{0}^{\infty}k^{2}\ee^{-2kx}\dd x\Bigr)\\
+&=-\ii\hbar k^{2}\Bigl(\int_{0}^{\infty}\ee^{-2kx}\dd x-\int_{0}^{\infty}\ee^{-2kx}\dd x\Bigr)\\
+&=0
+\end{align*}
+\begin{align*}
+\expval{p^{2}}&=\hbar^{2}\Bigl(\int_{-\infty}^{0}\abs{k\sqrt{k}\ee^{kx}}^{2}\dd x\\
+&\qquad+\int_{0}^{\infty}\abs{-k\sqrt{k}\ee^{-kx}}^{2}\dd x\Bigr)\\
+&=\hbar^{2}k^{3}\Bigl(\int_{-\infty}^{0}\ee^{2kx}\dd x+\int_{0}^{\infty}\ee^{-2kx}\dd x\Bigr)\\
+&=\hbar^{2}k^{3}\cdot2\int_{0}^{\infty}\ee^{-2kx}\dd x\\
+&=2\hbar^{2}k^{3}\Bigl[\frac{1}{-2k}\ee^{-2kx}\Bigr]_{0}^{\infty}\\
+&=\hbar^{2}k^{2}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int\phi^{*}\phi''\dd x&=k^{2}\cdot k\int\ee^{-2k\abs{x}}\dd x\\
+&=2k^{3}\int_{0}^{\infty}\ee^{-2kx}\dd x\\
+&=2k^{3}\Bigl[\frac{1}{-2k}\ee^{-2kx}\Bigr]_{0}^{\infty}\\
+&=k^{2}
+\end{align*}
+\[ \expval{p^{2}}=-\hbar^{2}k^{2} \]
+\begin{align*}
+J&=\phi'(0+0)-\phi'(0-0)\\
+&=-k\sqrt{k}-k\sqrt{k}=-2k\sqrt{k}
+\end{align*}
+\[ \phi''=k^{2}\phi-2k\sqrt{k}\,\delta(x) \]
+\begin{align*}
+\int\phi^{*}\phi''\dd x&=k^{3}\int\ee^{-2k\abs{x}}\dd x\\
+&\qquad-2k^{2}\int\ee^{-k\abs{x}}\delta(x)\dd x\\
+&=k^{2}-2k^{2}\\
+&=-k^{2}
+\end{align*}
+\[ \expval{p^{2}}=\hbar^{2}k^{2} \]
+(2) と一致。
+\toi{4}{◎}{}
+\[ \delta p=\sqrt{\expval{p^{2}}-\expval{p}^{2}}=\hbar k \]
+\[ \delta x\,\delta p=\frac{\hbar k}{\sqrt{2}k}=\frac{\hbar}{\sqrt{2}}>\frac{\hbar}{2} \]
+\[ \delta x'\delta p'=\frac{1}{\sqrt{2}k}\cdot\delta p'=\frac{\hbar}{2} \]
+\[ \delta p'=\frac{\hbar k}{\sqrt{2}} \]
+$1/\sqrt{2}$ 倍。
+%% kizuki

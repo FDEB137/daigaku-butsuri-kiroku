@@ -1,0 +1,62 @@
+% 量子力学1 量子力学1-16 問題1（038-well。当時は 量子力学1-6 問題1） 解いた日 2026-11-01
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+\int\dd x\abs{\psi}^{2}&=\frac{1}{25}\int(3\phi_{1}^{*}-4\ii\phi_{2}^{*})\\
+&\qquad\times(3\phi_{1}+4\ii\phi_{2})\dd x\\
+&=\frac{1}{25}\int 9\abs{\phi_{1}}^{2}+16\abs{\phi_{2}}^{2}\dd x\\
+&=\frac{1}{25}\cdot 25=1
+\end{align*}
+\nuke{得られる値と確率}
+\naze{規格化の確認だけで，問われている「得られる値とその確率」が答えとして書かれていない（(2) の $\expval{E}$ の重みには出ている）。得られる値は $E_{1}$（確率 $\abs{3/5}^{2}=9/25$）と $E_{2}=4E_{1}$（確率 $\abs{4\ii/5}^{2}=16/25$）の2つだけである。}
+\toi{2}{◎}{}
+\begin{align*}
+\expval{E}&=\frac{9}{25}E_{1}+\frac{16}{25}E_{2}\\
+&=\frac{9}{25}E_{1}+\frac{64}{25}E_{1}=\frac{73}{25}E_{1}
+\end{align*}
+\[ \delta E=\sqrt{\expval{E^{2}}-\expval{E}^{2}} \]
+\begin{align*}
+\expval{E^{2}}&=\frac{9}{25}E_{1}^{2}+\frac{16}{25}E_{2}^{2}\\
+&=\frac{9}{25}E_{1}^{2}+\frac{256}{25}E_{1}^{2}\\
+&=\frac{265}{25}\kakimachigai{E_{1}}{E_{1}^{2}}\\
+&=\frac{53}{5}\kakimachigai{E_{1}}{E_{1}^{2}}
+\end{align*}
+\begin{align*}
+\delta E&=\sqrt{\frac{1296}{625}E_{1}^{2}}\\
+&=\frac{36}{25}E_{1}
+\end{align*}
+$\expval{E}$ は平均値。1回では測定できない。
+\toi{3}{◎}{}
+$\phi_{2}$。確率 $1$ で $E_{2}$。
+\toi{4}{○}{記述}
+\[ \expval{E}_{\chi}=\frac{73}{25}E_{1} \]
+で同じ。
+\naze{問われているのはエネルギーの確率で，期待値ではない。期待値が同じでも確率が同じとは限らない。$\chi$ の係数 $3/5$，$4/5$ の絶対値は $\psi$ の $3/5$，$4\ii/5$ と同じなので，確率（$E_{1}$ が $9/25$，$4E_{1}$ が $16/25$）が同じ，と書く。}
+\begin{align*}
+\expval{x}_{\psi}&=\frac{1}{25}\int_{0}^{L}\biggl(9\cdot\frac{2x}{L}\sin^{2}\frac{\pi x}{L}\\
+&\qquad+16\cdot\frac{2x}{L}\sin^{2}\frac{2\pi x}{L}\biggr)\dd x
+\end{align*}
+\begin{align*}
+\int_{0}^{L}x\sin^{2}\frac{\pi x}{L}\dd x&=\int_{0}^{L}\frac{x}{2}\Bigl(1-\cos\frac{2\pi x}{L}\Bigr)\dd x\\
+&=\frac{1}{4}L^{2}-\frac{1}{2}\int_{0}^{L}\kakimachigai{\cos}{x\cos}\frac{2\pi x}{L}\dd x
+\end{align*}
+（矢印で第2項の積分につなぐ）
+\[ \Bigl[\frac{L}{2\pi}\sin\frac{2\pi x}{L}\Bigr]_{0}^{L}=0 \]
+\begin{align*}
+\int_{0}^{L}x\sin^{2}\frac{2\pi x}{L}\dd x&=\int_{0}^{L}\frac{x}{2}\Bigl(1-\cos\frac{4\pi x}{L}\Bigr)\dd x\\
+&=\frac{1}{4}L^{2}-\frac{1}{2}\int_{0}^{L}\kakimachigai{\cos}{x\cos}\frac{4\pi x}{L}\dd x
+\end{align*}
+（矢印で第2項の積分につなぐ）
+\[ \int_{0}^{L}\cos\frac{4\pi x}{L}\dd x=\Bigl[\frac{L}{4\pi}\sin\frac{4\pi x}{L}\Bigr]_{0}^{L}=0 \]
+\[ \expval{x}_{\psi}=\frac{2}{25L}\Bigl(9\cdot\frac{1}{4}L^{2}+16\cdot\frac{1}{4}L^{2}\Bigr)=\frac{L}{2} \]
+\begin{align*}
+\expval{x}_{\chi}&=\expval{x}_{\psi}+\frac{24}{25}\int_{0}^{L}\phi_{1}x\phi_{2}\dd x\\
+&=\frac{L}{2}-\frac{24\cdot16\cdot L}{25\cdot9\cdot\pi^{2}}\\
+&=\kakimachigai{\frac{128}{75\pi^{2}}L}{\frac{L}{2}-\frac{128}{75\pi^{2}}L}\\
+&\approx 0.327L
+\end{align*}
+\[ \expval{x}_{\psi}>\expval{x}_{\chi} \]
+%% kizuki
+\item 問われたものをそのまま答える。「得られる値と確率」には固有値 $E_{n}$ と係数の絶対値の2乗 $\abs{c_{n}}^{2}$ を並べて書く。期待値 $\sum_{n}E_{n}\abs{c_{n}}^{2}$ は確率から決まるが，期待値が同じでも確率が同じとは限らないので，「確率を比べよ」に期待値で答えない。答えの行に，問いの語（値・確率・期待値）が入っているかを照らす。
+\item 係数の位相（$4\ii$ か $4$ か）は確率を変えないが，交差項 $2\Re(c_{1}^{*}c_{2})X_{12}$ を通して $\expval{x}$ を変える。$\psi$ では $c_{1}^{*}c_{2}$ が純虚数で交差項が消え，$\chi$ では残る。
+\item 書き落としが3か所あった（$\expval{E^{2}}$ の $E_{1}^{2}$ の2乗，$\int x\cos$ の $x$，$\expval{x}_{\chi}$ の $L/2-$）。どれも値は合ったが，$\int_{0}^{L}x\cos(2\pi x/L)\dd x$ は $x$ が付くと部分積分が要る別の積分である。前の行から写すときに因子を1つずつ照らし，答えの次元（$\expval{E^{2}}$ は $E_{1}^{2}$）で確かめる。

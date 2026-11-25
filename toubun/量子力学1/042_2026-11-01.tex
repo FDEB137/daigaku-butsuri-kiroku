@@ -1,0 +1,42 @@
+% 量子力学1 量子力学1-16 問題3（042-matrix。当時は 量子力学1-6 問題5） 解いた日 2026-11-01
+%% kotae
+\toi{1}{◎}{}
+\[ \abs{A-\lambda I}=(1-\lambda)^{2}(-1-\lambda)=0\quad\therefore\ \lambda=1,\,-1 \]
+i) $\lambda=-1$ のとき
+\[ \begin{pmatrix}2&0&0\\0&2&0\\0&0&0\end{pmatrix}\begin{pmatrix}0\\0\\1\end{pmatrix}=0,\qquad\vect{a}_{1}=\begin{pmatrix}0\\0\\1\end{pmatrix} \]
+ii) $\lambda=1$ のとき
+\[ \begin{pmatrix}0&0&0\\0&0&0\\0&0&-2\end{pmatrix}\begin{pmatrix}1\\0\\0\end{pmatrix}=0,\qquad\vect{a}_{2}=\begin{pmatrix}1\\0\\0\end{pmatrix} \]
+\[ \begin{pmatrix}0&0&0\\0&0&0\\0&0&-2\end{pmatrix}\begin{pmatrix}0\\1\\0\end{pmatrix}=0,\qquad\vect{a}_{3}=\begin{pmatrix}0\\1\\0\end{pmatrix} \]
+\[ \vect{a}_{1}\cdot\vect{a}_{2}=0,\quad\vect{a}_{2}\cdot\vect{a}_{3}=0,\quad\vect{a}_{3}\cdot\vect{a}_{1}=0 \]
+\begin{align*}
+\abs{B-\lambda I}&=\lambda^{2}(1-\lambda)-(1-\lambda)\\
+&=(1-\lambda)(\lambda^{2}-1)\\
+&=-(\lambda-1)^{2}(\lambda+1)=0
+\end{align*}
+$\therefore\ \lambda=1,\,-1$
+
+i) $\lambda=-1$ のとき
+\[ \begin{pmatrix}2&0&0\\0&1&1\\0&1&1\end{pmatrix}\begin{pmatrix}0\\1\\-1\end{pmatrix}=0,\qquad\vect{b}_{1}=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\end{pmatrix} \]
+ii) $\lambda=1$ のとき
+\[ \begin{pmatrix}0&0&0\\0&-1&1\\0&1&-1\end{pmatrix}\begin{pmatrix}1\\0\\0\end{pmatrix}=0,\qquad\vect{b}_{2}=\begin{pmatrix}1\\0\\0\end{pmatrix} \]
+\[ \begin{pmatrix}0&0&0\\0&-1&1\\0&1&-1\end{pmatrix}\begin{pmatrix}0\\1\\1\end{pmatrix}=0,\qquad\vect{b}_{3}=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\1\end{pmatrix} \]
+\[ \vect{b}_{1}\cdot\vect{b}_{2}=0,\quad\vect{b}_{2}\cdot\vect{b}_{3}=0,\quad\vect{b}_{3}\cdot\vect{b}_{1}=0 \]
+\toi{2}{◎}{}
+\[ \vect{u}=\frac{2}{3}\vect{a}_{1}+\frac{1}{3}\vect{a}_{2}+\frac{2\ii}{3}\vect{a}_{3} \]
+\[ \frac{4}{9}\cdots-1,\qquad\frac{1}{9}+\frac{4}{9}=\frac{5}{9}\cdots1 \]
+$4/9$ で $-1$，$5/9$ で $1$。
+\[ \vect{v}=\frac{1}{\sqrt{5}}\begin{pmatrix}1\\2\ii\\0\end{pmatrix} \]
+\toi{3}{◎}{}
+\[ \vect{v}=\frac{1}{\sqrt{5}}\vect{b}_{2}+\sqrt{\frac{2}{5}}\,\ii(\vect{b}_{1}+\vect{b}_{3}) \]
+$2/5$ で $-1$，$3/5$ で $1$。
+\[ \vect{w}=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\end{pmatrix}=\frac{1}{\sqrt{2}}\kakimachigai{\vect{a}_{2}}{\vect{a}_{3}}-\frac{1}{\sqrt{2}}\vect{a}_{1} \]
+$1/2$ で $-1$，$1/2$ で $1$。
+\toi{4}{○}{計算}
+\[ AB=\begin{pmatrix}1&0&0\\0&0&1\\0&-1&0\end{pmatrix},\qquad BA=\begin{pmatrix}1&0&0\\0&0&-1\\0&1&0\end{pmatrix} \]
+\[ AB-BA=\begin{pmatrix}0&0&0\\0&0&2\\0&\ayamari{2}{-2}&0\end{pmatrix}\neq0 \]
+よって，$B$ の測定によって $A=-1$ となる状態が含まれるから。
+\naze{$AB-BA$ の $(3,2)$ 成分は $(-1)-1=-2$ である（$\neq0$ という結論は変わらない）。また理由の前に，$AB\neq BA$ なので $A$，$B$ の両方の固有ベクトルだけで規格直交な3本の組はつくれない（つくれれば各ベクトルで $AB\vect{y}=BA\vect{y}$ となり $AB=BA$ になる），だから $B$ の測定後の状態 $\vect{w}$ が $A$ の固有ベクトルとは限らない，という論理をつなぐ。}
+%% kizuki
+\item $A$，$B$ が実対称行列なら $(AB-BA)^{\mathrm{T}}=BA-AB$ なので，$AB-BA$ は反対称行列になる。対角成分が $0$ で，$(2,3)$ 成分と $(3,2)$ 成分が符号違いかで検算する。
+\item 問題3 (3) と同じく，「交換しない」から結論へ飛ばない。「両方の固有ベクトルだけの規格直交な組が無い」$\to$「$B$ の測定後の状態は $A$ の固有ベクトルとは限らない」$\to$「$A=-1$ の成分を含みうる」とつなぐ。
+\item (3) で $\vect{w}$ を展開したとき，自分で付けた番号（$\vect{a}_{1}$ が $\lambda=-1$，$\vect{a}_{3}=(0,1,0)^{\mathrm{T}}$）と違う $\vect{a}_{2}$ を書いた。展開したら成分を足し戻して元のベクトルになるかを確かめる。

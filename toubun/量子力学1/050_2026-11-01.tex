@@ -1,0 +1,67 @@
+% 量子力学1 量子力学1-16 問題4（050-gauss。当時は 量子力学1-6 問題6） 解いた日 2026-11-01
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\int\abs{\phi}^{2}\dd x&=N^{2}\int\exp\Bigl(-\frac{x^{2}}{\sigma^{2}}\Bigr)\dd x\\
+&=N^{2}\sqrt{\pi\sigma^{2}}=1
+\end{align*}
+\[ \therefore\ N=(\pi\sigma^{2})^{-1/4} \]
+\toi{2}{◎}{}
+\begin{align*}
+\expval{x}&=\int\phi^{*}x\phi\dd x\\
+&=\int\underbrace{(\pi\sigma^{2})^{-1/2}x\exp\Bigl(-\frac{x^{2}}{\sigma^{2}}\Bigr)}_{\text{奇}}\dd x\\
+&=0
+\end{align*}
+\begin{align*}
+\expval{x^{2}}&=\int\phi^{*}x^{2}\phi\dd x\\
+&=\int(\pi\sigma^{2})^{-1/2}x^{2}\exp\Bigl(-\frac{x^{2}}{\sigma^{2}}\Bigr)\dd x\\
+&=(\pi\sigma^{2})^{-1/2}\cdot\frac{\sigma^{2}}{2}(\pi\sigma^{2})^{1/2}\\
+&=\frac{\sigma^{2}}{2}
+\end{align*}
+\[ \delta x=\sqrt{\expval{x^{2}}-\expval{x}^{2}}=\frac{\sigma}{\sqrt{2}} \]
+\toi{3}{◎}{}
+\begin{align*}
+\expval{p}&=-\ii\hbar\int\phi^{*}\phi'\dd x\\
+&=-\ii\hbar(\pi\sigma^{2})^{-1/2}\\
+&\qquad\times\int\Bigl(-\frac{x}{\sigma^{2}}+\ii k_{0}\Bigr)\exp\Bigl(-\frac{x^{2}}{\sigma^{2}}\Bigr)\dd x\\
+&=\hbar k_{0}(\pi\sigma^{2})^{-1/2}\int\exp\Bigl(-\frac{x^{2}}{\sigma^{2}}\Bigr)\dd x\\
+&=\hbar k_{0}(\pi\sigma^{2})^{-1/2}(\pi\sigma^{2})^{1/2}\\
+&=\hbar k_{0}
+\end{align*}
+\[ \expval{p^{2}}=-\hbar^{2}\int\phi^{*}\phi''\dd x \]
+\begin{align*}
+\phi'&=(\pi\sigma^{2})^{-1/4}\Bigl(-\frac{x}{\sigma^{2}}+\ii k_{0}\Bigr)\\
+&\qquad\times\underbrace{\exp\Bigl(-\frac{x^{2}}{2\sigma^{2}}+\ii k_{0}x\Bigr)}_{A}
+\end{align*}
+\begin{align*}
+\phi''&=(\pi\sigma^{2})^{-1/4}\biggl(-\frac{A}{\sigma^{2}}-\frac{x}{\sigma^{2}}\Bigl(-\frac{x}{\sigma^{2}}+\ii k_{0}\Bigr)A\\
+&\qquad+\ii k_{0}\Bigl(-\frac{x}{\sigma^{2}}+\ii k_{0}\Bigr)A\biggr)\\
+&=(\pi\sigma^{2})^{-1/4}\biggl(-\frac{A}{\sigma^{2}}+\Bigl(-\frac{x}{\sigma^{2}}+\ii k_{0}\Bigr)^{2}A\biggr)\\
+&=(\pi\sigma^{2})^{-1/4}\biggl(\frac{x^{2}}{\sigma^{4}}-\frac{2\ii k_{0}}{\sigma^{2}}x\\
+&\qquad-\Bigl(k_{0}^{2}+\frac{1}{\sigma^{2}}\Bigr)\biggr)A
+\end{align*}
+\begin{align*}
+\int\phi^{*}\phi''\dd x&=\int(\pi\sigma^{2})^{-1/2}\biggl(\frac{x^{2}}{\sigma^{4}}-\frac{2\ii k_{0}}{\sigma^{2}}x\\
+&\qquad-\Bigl(k_{0}^{2}+\frac{1}{\sigma^{2}}\Bigr)\biggr)\exp\Bigl(-\frac{x^{2}}{\sigma^{2}}\Bigr)\dd x\\
+&=(\pi\sigma^{2})^{-1/2}\biggl(\frac{1}{\sigma^{4}}\cdot\frac{\sigma^{2}}{2}\kakimachigai{(\pi\sigma^{2})^{-1/2}}{(\pi\sigma^{2})^{1/2}}\\
+&\qquad-\Bigl(k_{0}^{2}+\frac{1}{\sigma^{2}}\Bigr)\kakimachigai{(\pi\sigma^{2})^{-1/2}}{(\pi\sigma^{2})^{1/2}}\biggr)\\
+&=\frac{1}{2\sigma^{2}}-\Bigl(k_{0}^{2}+\frac{1}{\sigma^{2}}\Bigr)\\
+&=-k_{0}^{2}-\frac{1}{2\sigma^{2}}
+\end{align*}
+\[ \expval{p^{2}}=\hbar^{2}k_{0}^{2}+\frac{\hbar^{2}}{2\sigma^{2}} \]
+\begin{align*}
+\delta p&=\sqrt{\expval{p^{2}}-\expval{p}^{2}}\\
+&=\sqrt{\hbar^{2}k_{0}^{2}+\frac{\hbar^{2}}{2\sigma^{2}}-\hbar^{2}k_{0}^{2}}\\
+&=\frac{\hbar}{\sqrt{2}\sigma}
+\end{align*}
+\toi{4}{◎}{}
+\[ \delta x\,\delta p=\frac{\sigma}{\sqrt{2}}\cdot\frac{\hbar}{\sqrt{2}\sigma}=\frac{\hbar}{2} \]
+$k_{0}$ によらない。
+\toi{5}{○}{単位}
+\[ \delta p=\num{7.46e-25}\,\ayamari{\unit{\metre}}{\unit{\kilogram\metre\per\second}} \]
+\[ \delta v=\qty{8.19e5}{\metre\per\second} \]
+\[ \frac{\expval{p}}{\melec}=\qty{2.32e6}{\metre\per\second} \]
+\naze{数値は正しいが，運動量の単位は \unit{\kilogram\metre\per\second} である。$\hbar/\sigma$ は \unit{\joule\second}/\unit{\metre} $=$ \unit{\kilogram\metre\per\second} で，式の次元から単位を出す。}
+%% kizuki
+\item 数値に単位を付けるときは，式の次元から出す：$\delta p=\hbar/(\sqrt{2}\sigma)$ は \unit{\joule\second}/\unit{\metre} $=$ \unit{\kilogram\metre\per\second}。続けて書いた $\delta v=\delta p/\melec$ の単位 \unit{\metre\per\second} に \unit{\kilogram} をかけたものが $\delta p$ の単位になるかで確かめる。
+\item (3) でガウス積分の結果の $(\pi\sigma^{2})^{1/2}$ を $(\pi\sigma^{2})^{-1/2}$ と書いた（次の行は正しい）。$\int\ee^{-ax^{2}}\dd x=\sqrt{\pi/a}$ は $a=1/\sigma^{2}$ で $\sqrt{\pi\sigma^{2}}$ と正のべきになり，規格化の因子 $(\pi\sigma^{2})^{-1/2}$ と打ち消し合う形になる。
