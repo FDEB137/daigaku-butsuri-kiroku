@@ -1,0 +1,326 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{統計力学1　第3章「理想気体のエントロピー（位相空間・$N!$ 因子・Sackur--Tetrode の式）」}{2026-11-25}
+%% note-moto	problems\統計力学1\shou03\統計力学1-3.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-002-ratio}{1}}{L1・計算}{◎○◎△}{B}{2026-10-27 (2)単位 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-004-extensive}{2}}{L2・導出}{◎◎○◎}{A}{2026-11-24 2回目 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-005-helium}{3}}{L2・計算}{◎○○○}{B}{2026-10-27 (2)単位 (3)単位 (4)計算}
+  \ichirangyou{\hyperlink{bt-m-006-2dgas}{4}}{L2・計算}{◎◎◎◎}{S}{2026-11-24 2回目}
+  \ichirangyou{5}{L2・計算}{◎◎◎×}{C}{2026-11-24 (4)未着手}
+  \ichirangyou{6}{L3・導出}{}{未着手}{}
+  \ichirangyou{7}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 理想気体のミクロカノニカル分配関数 % 出典: p.5
+    \[ w(U,V)=\frac{3N}{2}\,\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)}\,\frac{\delta U}{U} \notetag{3.1} \]
+  \item Stirling の公式を使い，$\log N$ 程度の項を落とした $\log w$ % 出典: p.6
+    \[ \log w(U,V)\simeq N\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]+\log\frac{\delta U}{U} \notetag{3.2} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\統計力学1\002_2026-10-27.tex
+\mondaibangou{1}
+\begin{mondai}{002-ratio}{計算}{ボルツマン公式の意味（エントロピー差と状態数の比），Sackur--Tetrode の式の体積依存性}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.2 式(1)，p.6 式(18)
+物質量 $n=\qty{1.00}{\mole}$ の単原子理想気体が，断熱壁で囲まれた容器の左半分（体積 $V$）に閉じ込められ，右半分は真空である。仕切りを取り除くと気体は容器全体（体積 $2V$）に広がり，新しい平衡状態に達した。この過程で気体は外部と熱も仕事もやりとりしないので，内部エネルギー $U$ と粒子数 $N$ は変わらない。理想気体のエントロピーは Sackur--Tetrode の式
+\[S(U,V,N)=N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]\]
+で与えられる。必要なら $\log 2=\num{0.6931}$，$\log_{10}2=\num{0.3010}$ を用いよ。
+\begin{shoumon}
+  \item エントロピー変化 $\Delta S=S(U,2V,N)-S(U,V,N)$ を $N$ と $\kB$ で表せ。
+  \item $\Delta S$ の値を有効数字3桁で求めよ。
+  \item ボルツマン公式を用いて，前後のミクロカノニカル分配関数の比 $w_{\text{後}}/w_{\text{前}}$ を $N$ で表せ。また，この比を $10^{x}$ と書いたときの $x$ を有効数字3桁で求めよ。
+  \item (3) の比が $N$ だけで決まり，$U$ や $m$ によらない理由を，「各粒子が動ける範囲」という観点から1〜2文で説明せよ。
+\end{shoumon}
+\notekiroku{2026-10-27 B ◎○◎△}
+\begin{kotaeutsushi}{2026-10-27}
+\toi{1}{◎}{}
+（(1)(2) をまとめて書いている）
+\begin{align*}
+\Delta S&=N\kB\left(\log\frac{2V}{N}-\log\frac{V}{N}\right)\\
+&=N\kB\log2
+\end{align*}
+\toi{2}{○}{単位}
+\[ =5.76\,\nuke{\unit{\joule\per\kelvin}} \]
+\naze{エントロピーの値には単位 \unit{\joule\per\kelvin} が要る。正しくは $\Delta S=\qty{5.76}{\joule\per\kelvin}$ である。}
+\toi{3}{◎}{}
+\[ w_{\text{後}}=\ee^{S(U,2V,N)/\kB} \]
+\[ w_{\text{前}}=\ee^{S(U,V,N)/\kB} \]
+\begin{align*}
+\frac{w_{\text{後}}}{w_{\text{前}}}&=\ee^{\Delta S/\kB}\\
+&=2^{N}
+\end{align*}
+\begin{align*}
+2^{N}&=10^{x}\\
+x&=N\log_{10}2\\
+&=\num{1.81e23}
+\end{align*}
+\toi{4}{△}{記述}
+粒子が動ける範囲は\ayamari{$N$ によってのみ決まる}{体積で決まり，粒子1個ごとに2倍になる}ため。
+\naze{動ける範囲を決めるのは $N$ ではなく体積 $V$ である。$w\propto V^{N}$ で，$V$ 以外の因子は $U$・$N$・$m$ だけで決まり，$U$ が変わらないので運動量側は変わらない。粒子間に相互作用がないので各粒子は独立に容器全体を動け，位置の範囲が粒子1個ごとに $V$ から $2V$ の2倍になり，$N$ 個で $2^{N}$ 倍になる。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 状態数の比 $w_{\text{後}}/w_{\text{前}}$ が何で決まるかは，$w\propto V^{N}$ の形から読む。$V$ が2倍で各粒子の位置の範囲が2倍，粒子は互いに独立なので全体で $2^{N}$ 倍になる。運動量側は $U$ と $N$ だけで決まるので変わらない。
+\item 数値の答えには単位を付ける。エントロピーは \unit{\joule\per\kelvin} で，書き終えたら「この数値の単位は何か」を確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin Sackur--Tetrode の式で $U$ と $N$ を固定し，$V$ だけを変える。状態数の比はボルツマン公式 $w=\ee^{S/\kB}$ から求める。
+\keisan
+\shoumonkai{1} $V$ を含むのは第1項だけなので，
+\[\Delta S=N\kB\left[\log\frac{2V}{N}-\log\frac{V}{N}\right]=N\kB\log2\]
+
+\shoumonkai{2} $N\kB=nN_{\mathrm{A}}\kB=nR$ を用いる：$\Delta S=\num{1.00}\times\num{8.314}\times\num{0.6931}=\qty{5.76}{\joule\per\kelvin}$。
+
+\shoumonkai{3} ボルツマン公式から $w=\ee^{S/\kB}$ なので，
+\[\frac{w_{\text{後}}}{w_{\text{前}}}=\exp\frac{\Delta S}{\kB}=\exp(N\log2)=2^{N}\]
+両辺の常用対数をとると $x=N\log_{10}2=\num{6.022e23}\times\num{0.3010}=\num{1.81e23}$。
+
+\shoumonkai{4} 式\noteshiki{3.1}で $w\propto V^{N}$ であり，$V$ 以外の因子は $U,N,m$ だけで決まる。運動量側の自由度は $U$ が変わらないので変化せず，各粒子の位置の取り得る範囲だけが2倍になる。
+\kotae{\shoumonkai{1} $\Delta S=N\kB\log2$ \shoumonkai{2} $\qty{5.76}{\joule\per\kelvin}$ \shoumonkai{3} $2^{N}$，$x=\num{1.81e23}$ \shoumonkai{4} 各粒子が動ける範囲（配置空間の体積）が2倍になり，$U$ で決まる運動量側の数は変わらないので，粒子1個あたり2倍，全体で $2^{N}$ 倍になる。}
+\begin{ronten}
+  \item \shoumonkai{1} 自由膨張は準静的過程ではないが，エントロピーは状態量なので始状態と終状態の Sackur--Tetrode の式の値の差で求めてよいことを述べる。
+  \item \shoumonkai{1} $U$ と $N$ が変わらないので，変化するのは体積を含む項だけであることを書く。
+  \item \shoumonkai{4} 粒子間に相互作用がないので各粒子の位置は互いに独立に容器全体を動け，粒子1個ごとに位置の範囲が $V$ から $2V$ になること（$w\propto V^{N}$），運動量側の因子は $U$ と $N$ が変わらないので変化しないことを述べる。
+\end{ronten}
+\kenzan $\Delta S>0$ であり，断熱系での不可逆過程でエントロピーが増えるという第二法則と整合する。$N=1$ なら比は2（1粒子が倍の体積を動ける）で直観と一致する。単位は $\unit{\joule\per\kelvin}$ で正しい。
+\tsumazuki 自由膨張は準静的過程ではないが，$S$ は状態量なので始状態と終状態の値の差で計算してよい。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\統計力学1\004_2026-10-27.tex
+\mondaibangou{2}
+\begin{mondai}{004-extensive}{導出}{$N!$ 因子の必要性（エントロピーの示量性）}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.3（1.4節），p.4--6 式(13)--(18)
+要点整理のとおり，理想気体のミクロカノニカル分配関数
+\[w(U,V)=\frac{3N}{2}\,\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)}\,\frac{\delta U}{U}\]
+から，Sackur--Tetrode の式
+\[S(U,V,N)=N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]\]
+が得られる。ここで，仮に同種粒子が区別できないことを無視して $N!$ で割らなかったとし，そのときの分配関数を $w'=N!\,w$，エントロピーを $S'=\kB\log w'$ とする。$N\gg1$ とし，Stirling の公式 $\log N!\simeq N\log N-N$ を用い，$N$ に比例しない項（$\log N$ 程度の項や $\log(\delta U/U)$）は無視する。
+\begin{shoumon}
+  \item $S'(U,V,N)$ を求めよ。
+  \item 正しいエントロピー $S(U,V,N)$ が示量的であること，すなわち任意の正の数 $\lambda$ に対して $S(\lambda U,\lambda V,\lambda N)=\lambda S(U,V,N)$ となることを示せ。
+  \item $S'(2U,2V,2N)-2S'(U,V,N)$ を求め，$S'$ が示量的でないことを示せ。
+  \item 同じ種類の理想気体が，同じ状態 $(U,V,N)$ で，仕切りで隔てられた2つの部屋に入っている。仕切りを静かに取り除いても巨視的には何も変化しない。このときのエントロピー変化を $S'$ を用いて計算するとどうなるか。また $S$ を用いるとどうなるか。この結果から，$N!$ で割ることがなぜ必要かを説明せよ。
+\end{shoumon}
+\notekiroku{2026-10-27 A ◎◎○○ → 2026-11-24 A ◎◎○◎}
+\begin{kotaeutsushi}{2026-10-27}
+\toi{1}{◎}{}
+（$w'=N!\,w$ の $N!$ を約分し，$3N/2$ と $\delta U/U$ を斜線で落とす）
+\[ S'=\kB\log\left[\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\right] \]
+\begin{align*}
+&=\kB\biggl[N\log V+\frac{3}{2}N\log(2\pi mU)\\
+&\qquad-3N\log h-\log\Gamma\left(\frac{3N}{2}+1\right)\biggr]\\
+&=N\kB\biggl[\log V+\frac{3}{2}\log(2\pi mU)-\frac{3}{2}\log h^{2}\\
+&\qquad-\frac{3}{2}\log\frac{3N}{2}+\frac{3}{2}\biggr]\\
+&=N\kB\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&S(\lambda U,\lambda V,\lambda N)\\
+&=\lambda N\kB\biggl[\log\frac{\lambda V}{\lambda N}+\frac{3}{2}\log\frac{4\pi m\lambda U}{3\lambda Nh^{2}}+\frac{5}{2}\biggr]\\
+&=\lambda N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]\\
+&=\lambda S(U,V,N)
+\end{align*}
+\toi{3}{○}{記述}
+\begin{align*}
+&S'(2U,2V,2N)\\
+&=2N\kB\left[\log2V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]
+\end{align*}
+\begin{align*}
+&S'(2U,2V,2N)-2\ayamari{S}{S'}(U,V,N)\\
+&=2N\kB\left[\log2V-\log V\right]\\
+&=2N\kB\log2\neq0
+\end{align*}
+示量的でない。
+\naze{引く側も $S'$ でなければならない。書いた式のままだと $S'(2U,2V,2N)-2S(U,V,N)=2N\kB(\log2N-1)$ という別の量になる。計算は $S'$ で行っていて，結果 $2N\kB\log2$ は正しい。}
+\toi{4}{○}{記述}
+\[ S'(2U,2V,2N)-2\ayamari{S}{S'}(U,V,N)=2N\kB\log2\neq0 \]
+\[ S(2U,2V,2N)-2S(U,V,N)=0 \]
+$S$ が変化しないために $N!$ で割る必要がある。
+\naze{(3) と同じプライムの抜けである。説明は「仕切りを外しても巨視的には何も変わらないので，状態量のエントロピーは変わってはならない。$N!$ で割らないと，同種粒子の入れ替えで得られる同じ状態を別々に数えてしまい，$\Delta S'=2N\kB\log2>0$ という矛盾が出る」まで書く。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $S$ と $S'$ は別の関数なので，差をとるときは両方に同じ記号（$S'$ どうし，$S$ どうし）を付ける。書き終えたら，差の式の左辺と右辺で記号がそろっているかを見直す。
+\item $N!$ で割る理由は「巨視的に何も変わらない操作でエントロピーが変わってはならない」ことと，「同種粒子の入れ替えで得られる状態は同じ1つの状態である」ことの2つで言う。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\log w'=\log w+\log N!$ に Stirling の公式を使う。示量性は $U,V,N$ を同時に $\lambda$ 倍して調べる。(4) は仕切りを外す前後の $S'$ を比べる。
+\keisan
+\shoumonkai{1} Sackur--Tetrode の式は $\log w$ から $N$ に比例しない項を落としたものなので，それに $\log N!\simeq N\log N-N$ を加える。
+\[\log w'\simeq N\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]+N\log N-N=N\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]\]
+
+\shoumonkai{2} $S$ の中の $V/N$ と $U/N$ は，$U,V,N$ を同時に $\lambda$ 倍しても変わらない。
+\[S(\lambda U,\lambda V,\lambda N)=\lambda N\kB\left[\log\frac{\lambda V}{\lambda N}+\frac{3}{2}\log\frac{4\pi m\lambda U}{3\lambda Nh^{2}}+\frac{5}{2}\right]=\lambda S(U,V,N)\]
+
+\shoumonkai{3} $S'$ では $\log V$ の中の $V$ が $N$ で割られていないので，
+\begin{align*}
+S'(2U,2V,2N)&=2N\kB\left[\log2V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]\\
+&=2S'(U,V,N)+2N\kB\log2
+\end{align*}
+よって差は $2N\kB\log2\neq0$ であり，$S'$ は示量的でない。
+
+\shoumonkai{4} 仕切りを外す前のエントロピーは2つの部屋の和 $2S(U,V,N)$，外した後は $(2U,2V,2N)$ の1つの系なので $S(2U,2V,2N)$。$S'$ を用いると $\Delta S'=2N\kB\log2>0$ となる。$S$ を用いると (2) より $\Delta S=0$ である。仕切りを外しても（また戻しても）巨視的な状態は変わらないので，状態量であるエントロピーは変わってはならない。$N!$ で割らないと，同種粒子の入れ替えで得られる同じ状態を別々に数えてしまい，この矛盾が生じる。
+\kotae{\shoumonkai{1} $S'=N\kB[\log V+(3/2)\log\{4\pi mU/(3Nh^{2})\}+3/2]$ \shoumonkai{2} $V/N$，$U/N$ が不変なので $S(\lambda U,\lambda V,\lambda N)=\lambda S$ \shoumonkai{3} $2N\kB\log2$（$\neq0$） \shoumonkai{4} $S'$ では $\Delta S'=2N\kB\log2>0$，$S$ では $\Delta S=0$。何も変化しないのにエントロピーが増えるという矛盾を，$N!$ で割ることが解消する。}
+\begin{ronten}
+  \item \shoumonkai{1} $N\gg1$ で Stirling の公式を使い，Sackur--Tetrode の式が $\log w$ から $N$ に比例しない項を落としたものであることを踏まえて $\log N!$ を加えたことを書く。
+  \item \shoumonkai{2} 対数の中が $V/N$ と $U/N$ の組み合わせだけで書かれていて $U,V,N$ を同時に $\lambda$ 倍しても変わらず，前の係数 $N\kB$ だけが $\lambda$ 倍になることを述べる。
+  \item \shoumonkai{3} $S'$ では対数の中の $V$ が $N$ で割られていないため，差が残ることを書く。
+  \item \shoumonkai{4} 仕切りを外す前は2つの部屋の和，外した後は1つの系として比べ，巨視的に何も変わらない以上，状態量のエントロピーは変わってはならないこと，$N!$ で割らないと同種粒子の入れ替えで得られる同じ状態を別々に数えてしまうことを述べる。
+\end{ronten}
+\kenzan $S'=S+\kB\log N!$ であり $S$ は示量的なので，(3) の差には $N!$ 因子の寄与だけが残る。
+\[\kB\left[\log(2N)!-2\log N!\right]\simeq\kB\left[2N\log(2N)-2N-2(N\log N-N)\right]=2N\kB\log2\]
+これは (3) の結果と一致し，まさに落とした $N!$ 因子の寄与である。単位は $\unit{\joule\per\kelvin}$ で正しい。
+\tsumazuki 異なる種類の気体を混ぜる場合は，仕切りを外すと実際にエントロピーが増える（混合エントロピー）。同種の気体の場合と混同しない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\005_2026-10-27.tex
+\mondaibangou{3}
+\begin{mondai}{005-helium}{計算}{Sackur--Tetrode の式の数値評価と，$\delta U$ を含む項が無視できること}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.5--6 式(17)(18)
+単原子理想気体のエントロピーは，式\noteshiki{3.2}から
+\[S=N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]+\kB\log\frac{\delta U}{U}\]
+である（最後の項は Sackur--Tetrode の式で無視した項）。温度 $T=\qty{300}{\kelvin}$，圧力 $p=\qty{1.00e5}{\pascal}$ の He 気体 $\qty{1.00}{\mole}$ を考える。第1項（$N$ に比例する部分）を $S_{0}$ と書く。
+\begin{shoumon}
+  \item $U=3N\kB T/2$ を代入すると，$S_{0}$ が次のように書けることを示せ。
+  \[S_{0}=N\kB\left[\log\frac{V}{N\lambda^{3}}+\frac{5}{2}\right],\qquad \lambda=\frac{h}{\sqrt{2\pi m\kB T}}\]
+  \item $pV=N\kB T$ を用いて $V/N$ を求めよ。また $\lambda$ と $V/(N\lambda^{3})$ を求めよ。いずれも有効数字3桁とする。
+  \item $S_{0}$ の値を有効数字3桁で求めよ。
+  \item $\delta U/U=\num{1.0e-10}$ とするとき，最後の項と $S_{0}$ の比 $\abs{\kB\log(\delta U/U)}/S_{0}$ のオーダーを求めよ。
+\end{shoumon}
+\notekiroku{2026-10-27 B ◎○○○}
+\begin{kotaeutsushi}{2026-10-27}
+\toi{1}{◎}{}
+\begin{align*}
+S_{0}&=N\kB\biggl[\log\frac{V}{N}\\
+&\qquad+\frac{3}{2}\log\frac{4\pi m\cdot\frac{3}{2}N\kB T}{3Nh^{2}}+\frac{5}{2}\biggr]\\
+&=N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{2\pi m\kB T}{h^{2}}+\frac{5}{2}\right]\\
+&=N\kB\left[\log\frac{V}{N}+\log\left(\frac{1}{\lambda^{2}}\right)^{3/2}+\frac{5}{2}\right]\\
+&=N\kB\left[\log\frac{V}{N\lambda^{3}}+\frac{5}{2}\right]
+\end{align*}
+\toi{2}{○}{単位}
+\[ \frac{V}{N}=\frac{\kB T}{p}=\num{4.14e-26}\,\nuke{\unit{\metre\cubed}} \]
+\[ \lambda=\num{5.04e-11}\,\nuke{\unit{\metre}} \]
+\[ \frac{V}{N\lambda^{3}}=\num{3.24e5} \]
+\naze{$V/N$ と $\lambda$ は次元をもつ量なので単位が要る。正しくは $V/N=\qty{4.14e-26}{\metre\cubed}$，$\lambda=\qty{5.04e-11}{\metre}$ である（$V/(N\lambda^{3})$ は無次元で正しい）。}
+\toi{3}{○}{単位}
+\[ S_{0}=126\,\nuke{\unit{\joule\per\kelvin}} \]
+\naze{正しくは $S_{0}=\qty{126}{\joule\per\kelvin}$ である。}
+\toi{4}{○}{計算}
+\[ \frac{\abs{\kB\log(\Delta U/U)}}{S}=\ayamari{\num{1.09e-24}}{\num{2.5e-24}} \]
+$-24$ オーダー
+\naze{この教材の $\log$ は自然対数で，$\abs{\log(\num{1.0e-10})}=\num{23.0}$ である。$S_{0}=\num{15.19}\,N\kB$ なので比は $\num{23.0}/(\num{15.19}\times\num{6.022e23})=\num{2.5e-24}$ になる。常用対数の $10$ を使うと $\num{1.09e-24}$ になるので，$\log$ を常用対数で計算したと考えられる。オーダー $10^{-24}$ は正しい。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 物理の式の $\log$ は自然対数である。電卓で $\log$ を押す前に $\ln$ か $\log_{10}$ かを確かめ，$\log(\num{1.0e-10})=-10\log10=-\num{23.0}$ のように手で概算して見比べる。
+\item 問題2 (2) と同じく，数値の答えに単位を書き落とした。$V/N$ は \unit{\metre\cubed}，$\lambda$ は \unit{\metre}，$S_{0}$ は \unit{\joule\per\kelvin} で，無次元になるのは対数の中身の $V/(N\lambda^{3})$ だけである。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は $U$ を代入して対数をまとめる。(2)(3) は数値を代入する。(4) は $N$ に比例する項と比例しない項の大きさを比べる。
+\keisan
+\shoumonkai{1} $U=3N\kB T/2$ を代入する。
+\[\frac{4\pi mU}{3Nh^{2}}=\frac{4\pi m}{3Nh^{2}}\cdot\frac{3N\kB T}{2}=\frac{2\pi m\kB T}{h^{2}}=\frac{1}{\lambda^{2}}\]
+よって $\frac{3}{2}\log\lambda^{-2}=\log\lambda^{-3}$ となり，第1項と合わせて $\log\{V/(N\lambda^{3})\}$ を得る。
+
+\shoumonkai{2} $V/N=\kB T/p=\num{1.381e-23}\times300/\num{1.00e5}=\qty{4.14e-26}{\metre\cubed}$。次に，
+\[2\pi m_{\mathrm{He}}\kB T=2\pi\times\num{6.646e-27}\times\num{1.381e-23}\times300=\qty{1.730e-46}{\kilogram\joule}\]
+\[\lambda=\frac{\num{6.626e-34}}{\sqrt{\num{1.730e-46}}}\,\unit{\metre}=\frac{\num{6.626e-34}}{\num{1.315e-23}}\,\unit{\metre}=\qty{5.04e-11}{\metre}\]
+$\lambda^{3}=\qty{1.279e-31}{\metre\cubed}$ より $V/(N\lambda^{3})=\num{4.143e-26}/\num{1.279e-31}=\num{3.24e5}$。
+
+\shoumonkai{3} $\log(\num{3.24e5})=\num{12.69}$ なので $S_{0}/(N\kB)=\num{12.69}+\num{2.5}=\num{15.19}$。$N\kB=nR=\qty{8.314}{\joule\per\kelvin}$ より $S_{0}=\num{8.314}\times\num{15.19}=\qty{126}{\joule\per\kelvin}$。
+
+\shoumonkai{4} $\log(\num{1.0e-10})=-\num{23.0}$ なので，最後の項は $-\num{23.0}\,\kB$。一方 $S_{0}=\num{15.19}\,N\kB$ なので，
+\[\frac{\abs{\kB\log(\delta U/U)}}{S_{0}}=\frac{\num{23.0}}{\num{15.19}\times\num{6.022e23}}=\num{2.5e-24}\sim\num{e-24}\]
+\kotae{\shoumonkai{1} $4\pi mU/(3Nh^{2})=\lambda^{-2}$ を代入すれば示される \shoumonkai{2} $V/N=\qty{4.14e-26}{\metre\cubed}$，$\lambda=\qty{5.04e-11}{\metre}$，$V/(N\lambda^{3})=\num{3.24e5}$ \shoumonkai{3} $S_{0}=\qty{126}{\joule\per\kelvin}$ \shoumonkai{4} $\sim\num{e-24}$（完全に無視できる）}
+\kenzan $V/(N\lambda^{3})$ は無次元（対数の中身として正しい）。粒子間の平均距離 $(V/N)^{1/3}=\qty{3.46e-9}{\metre}$ は $\lambda$ より2桁近く大きい。得られた値は He の実測のモルエントロピー（約 $\qty{126}{\joule\per\kelvin\per\mole}$）とよく一致する。
+\tsumazuki $\log$ は自然対数である。対数の中身が無次元になるよう $\lambda$ でまとめてから数値を入れると間違えにくい。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\006_2026-10-27.tex
+\mondaibangou{4}
+\begin{mondai}{006-2dgas}{計算}{次元を変えた理想気体でのミクロカノニカル分配関数（球殻内の格子点数・象限・$N!$）と熱力学量}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.4--6（1.5節）
+一辺 $L$ の正方形の平面（面積 $A=L^{2}$）の上を自由に運動する，質量 $m$ の同種原子 $N$ 個からなる2次元理想気体を考える。原子間の相互作用は無視し，平面の縁で波動関数がゼロになるとする。このとき1原子のエネルギー固有値は $E_{0}(n_{x}^{2}+n_{y}^{2})$（$n_{x},n_{y}=1,2,\dots$）であり，$E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$ である。$D$ 次元の半径 $R$ の球の体積を $C(D)R^{D}$ とし（$C(D)=\pi^{D/2}/\Gamma(D/2+1)$），$N\gg1$ とする。
+\begin{shoumon}
+  \item 全エネルギーが $[U,U+\delta U]$ にある状態を，$2N$ 次元の量子数空間の球殻内の格子点とみなす。この球殻の半径 $R$ と厚み $\delta R$ を $U,\delta U,m,L,\hbar$ で表せ。
+  \item 量子数がすべて正であることと $N!$ 因子に注意して，ミクロカノニカル分配関数が次式となることを示せ。
+  \[w(U,A)=\frac{N\,(2\pi mU)^{N}A^{N}}{(N!)^{2}\,h^{2N}}\,\frac{\delta U}{U}\]
+  \item Stirling の公式を用い，$N$ に比例しない項を無視して，エントロピー $S(U,A)$ を求めよ。
+  \item 内部エネルギー $U$ と温度 $T$ の関係，および面積一定の熱容量 $C_{A}$ を求めよ。また，2次元の圧力（単位長さあたりの力）$\Pi$ を $\Pi/T=(\partial S/\partial A)_{U}$ で定義するとき，$\Pi$，$A$，$N$，$T$ の間に成り立つ関係式を求めよ。
+\end{shoumon}
+\notekiroku{2026-10-27 S ◎◎◎◎ → 2026-11-24 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-27}
+\toi{1}{◎}{}
+\[ U=R^{2}\kakimachigai{E}{E_{0}},\quad\therefore\ R=\sqrt{\frac{U}{\kakimachigai{E}{E_{0}}}}=\frac{\sqrt{2mL^{2}U}}{\pi\hbar} \]
+\begin{align*}
+\delta R&=\dv{R}{U}\,\delta U=\frac{2mL^{2}\,\delta U}{2\pi\hbar\sqrt{2mL^{2}U}}\\
+&=\frac{\sqrt{2mL^{2}U}}{\pi\hbar}\,\frac{\delta U}{2U}\\
+&=\frac{R}{2U}\,\delta U
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+w&=\frac{C(2N)}{2^{2N}N!}\left((R+\delta R)^{2N}-R^{2N}\right)\\
+&=\frac{\pi^{N}}{2^{2N}N!\,\Gamma(N+1)}\biggl(R^{2N}\left(1+\frac{\delta U}{2U}\right)^{2N}\\
+&\qquad-R^{2N}\biggr)\\
+&=\frac{\pi^{N}}{2^{2N}(N!)^{2}}R^{2N}\biggl(\Bigl(1+N\frac{\delta U}{U}\\
+&\qquad+O\Bigl(\Bigl(\frac{\delta U}{2U}\Bigr)^{2}\Bigr)\Bigr)-1\biggr)\\
+&=\frac{\pi^{N}(2mL^{2}U)^{N}}{2^{2N}(N!)^{2}\pi^{2N}\hbar^{2N}}\,N\frac{\delta U}{U}\\
+&=\frac{N(2\pi mU)^{N}A^{N}}{(N!)^{2}h^{2N}}\,\frac{\delta U}{U}
+\end{align*}
+\toi{3}{◎}{}
+\[ S=\kB\log\frac{N(2\pi mU)^{N}A^{N}}{(N!)^{2}h^{2N}}\,\frac{\delta U}{U} \]
+（$\log N$ と $\log(\delta U/U)$ は斜線で消して落とす）
+\begin{align*}
+&=\kB\bigl[N\log(2\pi mU)+N\log A\\
+&\qquad-2\log N!-2N\log h\bigr]\\
+&=\kB N\bigl[\log(2\pi mU)+\log A-2\log N\\
+&\qquad+2-2\log h\bigr]\\
+&=\kB N\left[2\log\frac{1}{Nh}+\log(2\pi mUA)+2\right]
+\end{align*}
+\toi{4}{◎}{}
+\[ \frac{1}{T}=\left(\pdv{S}{U}\right)_{A}=\frac{\kB N}{U}\qquad\therefore\ U=\kB NT \]
+\[ C_{A}=\left(\pdv{U}{T}\right)_{A}=\kB N \]
+\[ \frac{\Pi}{T}=\left(\pdv{S}{A}\right)_{U}=\frac{\kB N}{A}\qquad\Pi A=\kB NT \]
+\end{kotaeutsushi}
+\end{mondai}
+
+\noteowari
+\end{document}
