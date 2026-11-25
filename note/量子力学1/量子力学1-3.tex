@@ -13,7 +13,7 @@
   \ichirangyou{\hyperlink{bt-m-022-box}{7}}{L2・計算}{◎◎◎◎}{S}{2026-10-18}
   \ichirangyou{8}{L2・計算}{}{未着手}{}
   \ichirangyou{9}{L2・計算}{◎◎◎△}{B}{2026-11-11 ヒント1 (4)未着手}
-  \ichirangyou{10}{L3・導出}{◎◎◎}{S}{2026-10-29}
+  \ichirangyou{\hyperlink{bt-m-025-absorb}{10}}{L3・導出}{◎◎◎}{S}{2026-10-29}
   \ichirangyou{11}{L3・計算}{}{未着手}{}
   \ichirangyou{12}{L3・導出}{}{未着手}{}
   \ichirangyou{13}{L3・導出}{◎◎◎◎}{B}{2026-11-11 ヒント1}
@@ -548,6 +548,84 @@ T&=\frac{2\pi}{\omega_{21}}\\
 &=3.6644\cdots\times10^{-15}
 \end{align*}
 \[ \qty{3.66e-15}{\second} \]
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{3}
+% toubun: kiroku\toubun\量子力学1\025_2026-10-29.tex
+\mondaibangou{10}
+\begin{mondai}{025-absorb}{導出}{連続の式の導出（ポテンシャルが実数であることの役割）と積分形}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+3次元空間で，質量 $m$ の粒子が複素数のポテンシャル
+  \[
+    V(\vect{r})=U(\vect{r})-\ii\Gamma
+  \]
+  の中を運動する（吸収や崩壊を表す模型）。$U$ は実数値の関数，$\Gamma$ は正の実数の定数である。確率密度と確率流を通常どおり
+  \[
+    \rho=\psi^{*}\psi,\qquad\vect{j}=\frac{\hbar}{2m\ii}\left[\psi^{*}\nabla\psi-\psi\nabla\psi^{*}\right]
+  \]
+  で定める。
+  \begin{shoumon}
+    \item 時間を含むシュレーディンガー方程式とその複素共役から，次の式を示せ。
+      \[
+        \pdv{\rho}{t}+\nabla\cdot\vect{j}=-\frac{2\Gamma}{\hbar}\rho
+      \]
+    \item 全空間で粒子を見いだす確率を $N(t)=\int\rho\dd V$ とする。無限遠の閉曲面での $\vect{j}$ の面積分が0になるとして，$N(t)=N(0)\ee^{-2\Gamma t/\hbar}$ を示せ。
+    \item (2) の結果の物理的な意味を述べ，$N$ が初めの $1/\ee$ 倍になるまでの時間 $\tau$ を求めよ。また，ポテンシャルが実数（$\Gamma=0$）であることが，規格化を保つうえで果たしている役割を説明せよ。
+  \end{shoumon}
+\notekiroku{2026-10-29 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-29}
+\toi{1}{◎}{}
+\[ V(\vect{r})=U(\vect{r})-\ii\Gamma \]
+\begin{align*}
+\ii\hbar\pdv{\psi}{t}&=\left(\frac{\hat{p}^{2}}{2m}+V(\vect{r})\right)\psi&&\cdots\text{①}\\
+-\ii\hbar\pdv{\psi^{*}}{t}&=\left(\frac{\hat{p}^{*2}}{2m}+V^{*}(\vect{r})\right)\psi^{*}&&\cdots\text{②}
+\end{align*}
+①の両辺に $\psi^{*}$ をかけて整理。
+\begin{align*}
+\psi^{*}\pdv{\psi}{t}&=\frac{1}{\ii\hbar}\left(-\frac{\hbar^{2}}{2m}\nabla^{2}+U(\vect{r})-\ii\Gamma\right)\psi\cdot\psi^{*}\\
+&\qquad\cdots\text{③}
+\end{align*}
+②の両辺に $\psi$ をかけて整理。
+\begin{align*}
+-\psi\pdv{\psi^{*}}{t}&=\frac{1}{\ii\hbar}\left(-\frac{\hbar^{2}}{2m}\nabla^{2}+U(\vect{r})+\ii\Gamma\right)\psi^{*}\cdot\psi\\
+&\qquad\cdots\text{④}
+\end{align*}
+③\kakimachigai{$+$}{$-$}④より，
+\begin{align*}
+&\psi^{*}\pdv{\psi}{t}+\psi\pdv{\psi^{*}}{t}\\
+&=\frac{1}{\ii\hbar}\biggl(-\frac{\hbar^{2}}{2m}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)\\
+&\qquad-2\ii\Gamma\psi^{*}\psi\biggr)
+\end{align*}
+\begin{align*}
+\pdv{\rho}{t}&=-\frac{\hbar}{2m\ii}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)-\frac{2\Gamma}{\hbar}\rho
+\end{align*}
+\begin{align*}
+\nabla\cdot\vect{j}&=\frac{\hbar}{2m\ii}\bigl(\nabla\psi^{*}\cdot\nabla\psi+\psi^{*}\nabla^{2}\psi\\
+&\qquad-\nabla\psi\cdot\nabla\psi^{*}-\psi\nabla^{2}\psi^{*}\bigr)\\
+&=\frac{\hbar}{2m\ii}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)
+\end{align*}
+より
+\[ \pdv{\rho}{t}+\nabla\cdot\vect{j}=-\frac{2\Gamma}{\hbar}\rho \]
+\toi{2}{◎}{}
+\begin{align*}
+&\int_{V}\pdv{\rho}{t}\dd V+\int_{V}\nabla\cdot\vect{j}\dd V\\
+&\qquad=\int_{V}-\frac{2\Gamma}{\hbar}\rho\dd V\\
+&\pdv{}{t}N(t)+\underbrace{\int_{S}\vect{j}\cdot\dd\vect{S}}_{0}=-\frac{2\Gamma}{\hbar}N(t)
+\end{align*}
+\[ N(t)=N(0)\ee^{-\frac{2\Gamma}{\hbar}t} \]
+\toi{3}{◎}{}
+\begin{align*}
+\frac{1}{\ee}N(0)&=N(0)\ee^{-\frac{2\Gamma}{\hbar}\tau}\\
+\ee^{\frac{2\Gamma}{\hbar}\tau}&=\ee\qquad\frac{2\Gamma}{\hbar}\tau=1\\
+\tau&=\frac{\hbar}{2\Gamma}
+\end{align*}
+確率がだんだん失われる。
+
+$\Gamma=0$ で $N(t)$ は保存する。規格化が保たれている。
 \end{kotaeutsushi}
 \end{mondai}
 

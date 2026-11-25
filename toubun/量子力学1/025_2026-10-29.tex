@@ -1,0 +1,51 @@
+% 量子力学1 量子力学1-3 問題10（025-absorb。当時は問題8） 解いた日 2026-10-29
+%% kotae
+\toi{1}{◎}{}
+\[ V(\vect{r})=U(\vect{r})-\ii\Gamma \]
+\begin{align*}
+\ii\hbar\pdv{\psi}{t}&=\left(\frac{\hat{p}^{2}}{2m}+V(\vect{r})\right)\psi&&\cdots\text{①}\\
+-\ii\hbar\pdv{\psi^{*}}{t}&=\left(\frac{\hat{p}^{*2}}{2m}+V^{*}(\vect{r})\right)\psi^{*}&&\cdots\text{②}
+\end{align*}
+①の両辺に $\psi^{*}$ をかけて整理。
+\begin{align*}
+\psi^{*}\pdv{\psi}{t}&=\frac{1}{\ii\hbar}\left(-\frac{\hbar^{2}}{2m}\nabla^{2}+U(\vect{r})-\ii\Gamma\right)\psi\cdot\psi^{*}\\
+&\qquad\cdots\text{③}
+\end{align*}
+②の両辺に $\psi$ をかけて整理。
+\begin{align*}
+-\psi\pdv{\psi^{*}}{t}&=\frac{1}{\ii\hbar}\left(-\frac{\hbar^{2}}{2m}\nabla^{2}+U(\vect{r})+\ii\Gamma\right)\psi^{*}\cdot\psi\\
+&\qquad\cdots\text{④}
+\end{align*}
+③\kakimachigai{$+$}{$-$}④より，
+\begin{align*}
+&\psi^{*}\pdv{\psi}{t}+\psi\pdv{\psi^{*}}{t}\\
+&=\frac{1}{\ii\hbar}\biggl(-\frac{\hbar^{2}}{2m}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)\\
+&\qquad-2\ii\Gamma\psi^{*}\psi\biggr)
+\end{align*}
+\begin{align*}
+\pdv{\rho}{t}&=-\frac{\hbar}{2m\ii}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)-\frac{2\Gamma}{\hbar}\rho
+\end{align*}
+\begin{align*}
+\nabla\cdot\vect{j}&=\frac{\hbar}{2m\ii}\bigl(\nabla\psi^{*}\cdot\nabla\psi+\psi^{*}\nabla^{2}\psi\\
+&\qquad-\nabla\psi\cdot\nabla\psi^{*}-\psi\nabla^{2}\psi^{*}\bigr)\\
+&=\frac{\hbar}{2m\ii}\left(\psi^{*}\nabla^{2}\psi-\psi\nabla^{2}\psi^{*}\right)
+\end{align*}
+より
+\[ \pdv{\rho}{t}+\nabla\cdot\vect{j}=-\frac{2\Gamma}{\hbar}\rho \]
+\toi{2}{◎}{}
+\begin{align*}
+&\int_{V}\pdv{\rho}{t}\dd V+\int_{V}\nabla\cdot\vect{j}\dd V\\
+&\qquad=\int_{V}-\frac{2\Gamma}{\hbar}\rho\dd V\\
+&\pdv{}{t}N(t)+\underbrace{\int_{S}\vect{j}\cdot\dd\vect{S}}_{0}=-\frac{2\Gamma}{\hbar}N(t)
+\end{align*}
+\[ N(t)=N(0)\ee^{-\frac{2\Gamma}{\hbar}t} \]
+\toi{3}{◎}{}
+\begin{align*}
+\frac{1}{\ee}N(0)&=N(0)\ee^{-\frac{2\Gamma}{\hbar}\tau}\\
+\ee^{\frac{2\Gamma}{\hbar}\tau}&=\ee\qquad\frac{2\Gamma}{\hbar}\tau=1\\
+\tau&=\frac{\hbar}{2\Gamma}
+\end{align*}
+確率がだんだん失われる。
+
+$\Gamma=0$ で $N(t)$ は保存する。規格化が保たれている。
+%% kizuki
