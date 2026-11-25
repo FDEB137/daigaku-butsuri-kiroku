@@ -1,0 +1,158 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第12章「交換子・同時固有状態・演算子の関数」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou12\量子力学1-12.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-046-comm}{1}}{L1・計算}{◎◎◎△}{A}{2026-11-01 (4)計算}
+  \ichirangyou{\hyperlink{bt-m-048-free}{2}}{L1・計算}{◎◎○}{A}{2026-11-01 (3)記述}
+  \ichirangyou{3}{L1・計算}{◎◎○}{A}{2026-11-08 (3)記述}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L1・計算}{}{未着手}{}
+  \ichirangyou{6}{L2・説明}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{◎◎◎◎}{B}{2026-11-08 ヒント1}
+  \ichirangyou{8}{L2・導出}{}{未着手}{}
+  \ichirangyou{9}{L3・導出}{}{未着手}{}
+  \ichirangyou{10}{L3・導出}{}{未着手}{}
+  \ichirangyou{11}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\046_2026-11-01.tex
+\mondaibangou{1}
+\begin{mondai}{046-comm}{計算}{交換子の積の公式と正準交換関係 $\comm{\hat{x}}{\hat{p}}=\ii\hbar$ を使った交換子の計算}
+1次元で，$\hat{x}$ を $x$ をかける演算子，$\hat{p}=-\ii\hbar\,\dd/\dd x$ とする。$\comm{\hat{x}}{\hat{p}}=\ii\hbar$ と，要点整理の積の公式を用いてよい。
+  \begin{shoumon}
+    \item 任意の演算子 $\hat{A}$，$\hat{B}$，$\hat{C}$ に対して，次を示せ。
+      \[ \comm{\hat{A}\hat{B}}{\hat{C}}=\hat{A}\comm{\hat{B}}{\hat{C}}+\comm{\hat{A}}{\hat{C}}\hat{B} \]
+    \item $\comm{\hat{x}^{2}}{\hat{p}}$ を $\hat{x}$ で表せ。
+    \item $\comm{\hat{x}}{\hat{p}^{2}}$ を $\hat{p}$ で表せ。
+    \item $\comm{\hat{p}}{\hat{x}^{3}}$ を $\hat{x}$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-11-01 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-11-01}
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{A}\hat{B}}{\hat{C}}&=\hat{A}\hat{B}\hat{C}-\hat{C}\hat{A}\hat{B}\quad\cdots\text{①}\\
+\hat{A}\comm{\hat{B}}{\hat{C}}&=\hat{A}(\hat{B}\hat{C}-\hat{C}\hat{B})\\
+&=\hat{A}\hat{B}\hat{C}-\hat{A}\hat{C}\hat{B}\quad\cdots\text{②}\\
+\comm{\hat{A}}{\hat{C}}\hat{B}&=(\hat{A}\hat{C}-\hat{C}\hat{A})\hat{B}\\
+&=\hat{A}\hat{C}\hat{B}-\hat{C}\hat{A}\hat{B}\quad\cdots\text{③}
+\end{align*}
+②$+$③$=$①より
+\[ \comm{\hat{A}\hat{B}}{\hat{C}}=\hat{A}\comm{\hat{B}}{\hat{C}}+\comm{\hat{A}}{\hat{C}}\hat{B} \]
+\toi{2}{◎}{}
+\begin{align*}
+\comm{\hat{x}^{2}}{\hat{p}}&=\hat{x}\comm{\hat{x}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}\\
+&=2\ii\hbar\hat{x}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\comm{\hat{x}}{\hat{p}^{2}}&=-\comm{\hat{p}^{2}}{\hat{x}}\\
+&=-\bigl(\hat{p}\comm{\hat{p}}{\hat{x}}+\comm{\hat{p}}{\hat{x}}\hat{p}\bigr)\\
+&=2\ii\hbar\hat{p}
+\end{align*}
+\toi{4}{△}{計算}
+\begin{align*}
+\comm{\hat{p}}{\hat{x}^{3}}&=-\comm{\hat{x}\hat{x}^{2}}{\hat{p}}\\
+&=-\bigl(\hat{x}\comm{\hat{x}^{2}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}^{2}\bigr)\\
+&=-2\ii\hbar\hat{x}^{2}\ayamari{+\ii\hbar\hat{x}^{2}}{-\ii\hbar\hat{x}^{2}}\\
+&=-\ii\hbar\hat{x}^{2}
+\end{align*}
+\naze{負号をかけた括弧を外すときは，括弧の中のすべての項の符号を変える。$-(2\ii\hbar\hat{x}^{2}+\ii\hbar\hat{x}^{2})$ なので2項目も $-\ii\hbar\hat{x}^{2}$ になる。以降はこの誤りを引き継ぎ，正しい答えは $\comm{\hat{p}}{\hat{x}^{3}}=-3\ii\hbar\hat{x}^{2}$ である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第2章 問題4・10-14} 前回も交換子の符号を誤った（$-3\ii\hbar$ の符号を逆にした）。今回は負号をかけた括弧を外すとき，2項目の符号を変えなかった。交換子を出したら関数 $\psi$ に作用させて直接計算する検算を1行入れる：$\hat{p}(x^{3}\psi)-x^{3}\hat{p}\psi=-\ii\hbar(3x^{2}\psi+x^{3}\psi')+\ii\hbar x^{3}\psi'=-3\ii\hbar x^{2}\psi$。
+\item 問題3 (1) の $\comm{V}{\hat{p}}=\ii\hbar V'(x)$ で $V=x^{3}$ とおくと $\comm{\hat{x}^{3}}{\hat{p}}=3\ii\hbar\hat{x}^{2}$ がすぐ出る。$x^{n}$ の微分と同じ係数 $n$ が付くかで，係数と符号を確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 交換子を定義で展開し，積の公式（または (1)）で $\comm{\hat{x}}{\hat{p}}$ の形に分解してから $\ii\hbar$ を入れる。
+\keisan \shoumonkai{1} 右辺を定義どおりに展開する。演算子の積の順序は入れ替えない。
+\begin{align*}
+\hat{A}\comm{\hat{B}}{\hat{C}}+\comm{\hat{A}}{\hat{C}}\hat{B}
+&=\hat{A}\hat{B}\hat{C}-\hat{A}\hat{C}\hat{B}+\hat{A}\hat{C}\hat{B}-\hat{C}\hat{A}\hat{B}\\
+&=\hat{A}\hat{B}\hat{C}-\hat{C}\hat{A}\hat{B}=\comm{\hat{A}\hat{B}}{\hat{C}}
+\end{align*}
+\shoumonkai{2} (1) で $\hat{A}=\hat{B}=\hat{x}$，$\hat{C}=\hat{p}$ とおく。$\ii\hbar$ は数なので演算子と交換し，前後どちらに置いてもよい。
+\[ \comm{\hat{x}^{2}}{\hat{p}}=\hat{x}\comm{\hat{x}}{\hat{p}}+\comm{\hat{x}}{\hat{p}}\hat{x}=\ii\hbar\hat{x}+\ii\hbar\hat{x}=2\ii\hbar\hat{x} \]
+\shoumonkai{3} 積の公式で $\hat{A}=\hat{x}$，$\hat{B}=\hat{C}=\hat{p}$ とおく。
+\[ \comm{\hat{x}}{\hat{p}^{2}}=\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}}=2\ii\hbar\hat{p} \]
+\shoumonkai{4} 反対称性から $\comm{\hat{p}}{\hat{x}^{3}}=-\comm{\hat{x}^{3}}{\hat{p}}$ である。右辺の交換子は，(1) で $\hat{A}=\hat{x}^{2}$，$\hat{B}=\hat{x}$，$\hat{C}=\hat{p}$ とおき，(2) の結果を入れて求める。
+\begin{align*}
+\comm{\hat{x}^{3}}{\hat{p}}&=\hat{x}^{2}\comm{\hat{x}}{\hat{p}}+\comm{\hat{x}^{2}}{\hat{p}}\hat{x}\\
+&=\ii\hbar\hat{x}^{2}+2\ii\hbar\hat{x}^{2}=3\ii\hbar\hat{x}^{2}
+\end{align*}
+よって $\comm{\hat{p}}{\hat{x}^{3}}=-3\ii\hbar\hat{x}^{2}$ である。
+\kotae{\shoumonkai{1} 右辺の展開で中央の2項が消える \shoumonkai{2} $2\ii\hbar\hat{x}$ \shoumonkai{3} $2\ii\hbar\hat{p}$ \shoumonkai{4} $-3\ii\hbar\hat{x}^{2}$}
+\kenzan \shoumonkai{4} を関数 $\psi(x)$ に直接作用させて確かめる。
+\[ \hat{p}(x^{3}\psi)-x^{3}\hat{p}\psi=-\ii\hbar\left(3x^{2}\psi+x^{3}\psi'\right)+\ii\hbar x^{3}\psi'=-3\ii\hbar x^{2}\psi \]
+で一致する。次元：$\hbar$ は（長さ）×（運動量）の次元をもつので，$\hbar\hat{x}^{2}$ は $\comm{\hat{x}^{3}}{\hat{p}}$ と同じ（長さ）$^{3}$×（運動量）の次元になる。
+\tsumazuki $\comm{\hat{x}^{2}}{\hat{p}}=2\hat{x}\comm{\hat{x}}{\hat{p}}$ のように微分の積の公式の感覚で係数をまとめられるのは，$\comm{\hat{x}}{\hat{p}}$ が数（$\ii\hbar$）だからである。一般の演算子では (1) の順序を守る。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\048_2026-11-01.tex
+\mondaibangou{2}
+\begin{mondai}{048-free}{計算}{$\comm{\hat{H}}{\hat{p}}$ の計算によるエネルギーと運動量の同時測定可能性の判定（1次元）}
+1次元で質量 $m$ の粒子のハミルトニアンを $\hat{H}=\hat{p}^{2}/(2m)+V(x)$，$\hat{p}=-\ii\hbar\,\dd/\dd x$ とする（$V(x)$ は $V(x)$ をかける演算子）。
+  \begin{shoumon}
+    \item 微分可能な $V(x)$ と任意の関数 $\psi(x)$ について $\comm{V}{\hat{p}}\psi=\ii\hbar V'(x)\psi$ を示せ。これを用いて $\comm{\hat{H}}{\hat{p}}$ を $V'(x)$ で表せ。
+    \item 自由粒子（$V=0$）で，エネルギー $E$ と運動量 $p$ を同時に正確に定めることができるか。理由とともに答えよ。できるなら，同時固有関数の例と，そのときの $E$ と $p$ の値を波数 $k$ で表せ。
+    \item 一様な力 $F$（$F>0$，$x$ の正の向き）を受ける粒子（$V(x)=-Fx$）で，$E$ と $p$ を同時に正確に定めることができるか。理由とともに答えよ。
+  \end{shoumon}
+\notekiroku{2026-11-01 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-01}
+\toi{1}{◎}{}
+\begin{align*}
+\comm{V}{\hat{p}}\psi&=\bigl(V(x)\hat{p}-\hat{p}V(x)\bigr)\psi\\
+&=-\ii\hbar V\psi'+\ii\hbar(V'\psi+V\psi')\\
+&=\ii\hbar V'(x)\psi
+\end{align*}
+\begin{align*}
+\comm{\hat{H}}{\hat{p}}&=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{p}}+\comm{V}{\hat{p}}\\
+&=\ii\hbar V'(x)
+\end{align*}
+\toi{2}{◎}{}
+$V=0$ なら $\comm{\hat{H}}{\hat{p}}=0$ より同時に観測可能。
+\[ \psi=C\ee^{\ii kx} \]
+\[ \hat{p}\psi=\kakimachigai{C\hbar k\psi}{\hbar k\psi},\qquad p=\hbar k \]
+\begin{align*}
+\hat{H}\psi&=\frac{1}{2m}\hat{p}^{2}\psi\\
+&=\kakimachigai{C\frac{\hbar^{2}k^{2}}{2m}\psi}{\frac{\hbar^{2}k^{2}}{2m}\psi}
+\end{align*}
+\[ E=\frac{\hbar^{2}k^{2}}{2m} \]
+\toi{3}{○}{記述}
+\[ \comm{\hat{H}}{\hat{p}}=\ii\hbar\cdot(-F)\neq0 \]
+より同時観測不可能。\nuke{背理法}
+\naze{交換子が $0$ でないことだけでは，同時固有関数が1つも無いとは言えない（交換しない行列にも共通の固有ベクトルが1本だけあることがある）。同時固有関数 $\phi$（$\hat{H}\phi=E\phi$，$\hat{p}\phi=p\phi$）があったとすると $\comm{\hat{H}}{\hat{p}}\phi=pE\phi-Ep\phi=0$ となるが，左辺は $-\ii\hbar F\phi$ で $F\neq0$ なので $\phi=0$ となり，固有関数であることに反する，まで書く。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「交換子が $0$ でないから同時に定められない」で止めない。要点は交換子が $0$ でない「定数」であること：同時固有関数に作用させると $0$ になるはずだが，$0$ でない定数をかけて $0$ になる関数は $0$ しか無いので矛盾する。交換子が演算子（行列）のときは，作用させて $0$ になる特定の状態がありうる。
+\item \mae{第5章 問題7・10-30} 前回も「成り立たない」ことを示しただけで理由の1文を書き落とした。結論を書く前に「何を仮定すると何と矛盾するか」を1行書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は関数に作用させて交換子を計算する。(2)(3) は要点整理の「同時測定」を使い，交換すれば同時固有関数があり，交換子が $0$ でない数なら同時固有関数が無いことを示す。
+\keisan \shoumonkai{1} 任意の $\psi$ に作用させ，積の微分を使う。
+\[ V\hat{p}\psi-\hat{p}(V\psi)=-\ii\hbar V\psi'+\ii\hbar\left(V'\psi+V\psi'\right)=\ii\hbar V'\psi \]
+よって $\comm{V}{\hat{p}}=\ii\hbar V'(x)$ である。$\comm{\hat{p}^{2}}{\hat{p}}=\hat{p}^{3}-\hat{p}^{3}=0$ なので
+\[ \comm{\hat{H}}{\hat{p}}=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{p}}+\comm{V}{\hat{p}}=\ii\hbar V'(x) \]
+\shoumonkai{2} $V=0$ なら $\comm{\hat{H}}{\hat{p}}=0$ で交換するので，同時固有関数系がとれ，$E$ と $p$ を同時に正確に定められる。実際，$\phi=\ee^{\ii kx}$ について
+\[ \hat{p}\phi=-\ii\hbar(\ii k)\ee^{\ii kx}=\hbar k\phi,\qquad \hat{H}\phi=\frac{(-\ii\hbar)^{2}(\ii k)^{2}}{2m}\ee^{\ii kx}=\frac{\hbar^{2}k^{2}}{2m}\phi \]
+で，両方の固有関数になっている。
+\shoumonkai{3} $V'=-F$ なので $\comm{\hat{H}}{\hat{p}}=-\ii\hbar F$ である。同時固有関数 $\phi$（$\hat{H}\phi=E\phi$，$\hat{p}\phi=p\phi$）があったとすると
+\[ \comm{\hat{H}}{\hat{p}}\phi=\hat{H}(p\phi)-\hat{p}(E\phi)=pE\phi-Ep\phi=0 \]
+となるが，左辺は $-\ii\hbar F\phi$ で，$F\ne 0$ だから $\phi=0$ でなければならない。これは固有関数であることに反する。よって同時固有関数は無く，$E$ と $p$ を同時に正確に定めることはできない。古典的にも，力 $F$ を受けると運動量は時間とともに変わり，一定の値をとらない。
+\kotae{\shoumonkai{1} $\comm{\hat{H}}{\hat{p}}=\ii\hbar V'(x)$ \shoumonkai{2} できる（交換する）。例 $\ee^{\ii kx}$，$p=\hbar k$，$E=\hbar^{2}k^{2}/(2m)$ \shoumonkai{3} できない（$\comm{\hat{H}}{\hat{p}}=-\ii\hbar F\ne 0$）}
+\begin{ronten}
+  \item \shoumonkai{1} 演算子の等式を任意の関数 $\psi$ に作用させて示し，$\hat{p}^{2}$ と $\hat{p}$ が交換することを述べる。
+  \item \shoumonkai{2} 交換子が $0$ なので同時固有関数系がとれることを根拠にし，例の関数が $\hat{H}$ と $\hat{p}$ の両方の固有関数であることを確かめる。
+  \item \shoumonkai{3} 同時固有関数があると仮定すると交換子を作用させて $0$ になることと，交換子が $0$ でない定数なので $\phi=0$ となり固有関数であることに反すること（背理法）を書く。
+\end{ronten}
+\kenzan 次元：$\hbar V'$ は（長さ）×（運動量）×（エネルギー）/（長さ）で，$\hat{H}\hat{p}$ と同じ（エネルギー）×（運動量）である。(2) の $E=p^{2}/(2m)$ は古典的な自由粒子の関係と同じ。(3) で $F\to 0$ とすると交換子が $0$ になり，(2) に戻る。
+\tsumazuki 交換子が $0$ でないことだけでは「同時固有関数が1つも無い」ことは言えない。(3) では交換子が $0$ でない数なので，作用させて $0$ になる関数が $0$ しか無いことを使っている。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
