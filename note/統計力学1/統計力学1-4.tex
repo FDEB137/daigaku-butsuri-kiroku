@@ -1,48 +1,214 @@
 \documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
 \input{../../../templates/note.tex}
-\noteprint{統計力学1　第4章「カノニカル分布と分配関数」}{2026-11-25}
+\noteprint{統計力学1　第4章「カノニカル集団」}{2026-11-25}
 %% note-moto	problems\統計力学1\shou04\統計力学1-4.tex
 \begin{document}
 \begin{kirokuichiran}
-  \ichirangyou{\hyperlink{bt-m-010-sumform}{1}}{L1・計算}{◎○◎◎}{A}{2026-11-24 (2)記述}
-  \ichirangyou{\hyperlink{bt-m-011-excluded}{2}}{L1・計算}{◎◎◎○}{A}{2026-11-24 (4)記述}
-  \ichirangyou{3}{L1・説明}{}{未着手}{}
-  \ichirangyou{4}{L1・計算}{}{未着手}{}
-  \ichirangyou{5}{L2・計算}{}{未着手}{}
-  \ichirangyou{6}{L3・導出}{}{未着手}{}
-  \ichirangyou{7}{L4・導出}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-017-micro}{1}}{L1・計算}{◎○◎}{A}{2026-11-25 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-010-sumform}{2}}{L1・計算}{◎○◎◎}{A}{2026-11-24 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-011-excluded}{3}}{L1・計算}{◎◎◎○}{A}{2026-11-24 (4)記述}
+  \ichirangyou{4}{L1・説明}{}{未着手}{}
+  \ichirangyou{5}{L1・計算}{}{未着手}{}
+  \ichirangyou{6}{L1・説明}{}{未着手}{}
+  \ichirangyou{7}{L1・計算}{}{未着手}{}
+  \ichirangyou{8}{L1・説明}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-064-nijun}{9}}{L2・計算}{◎◎◎◎}{S}{2026-11-25}
+  \ichirangyou{10}{L2・計算}{}{未着手}{}
+  \ichirangyou{11}{L2・計算}{}{未着手}{}
+  \ichirangyou{12}{L2・計算}{}{未着手}{}
+  \ichirangyou{13}{L2・計算}{}{未着手}{}
+  \ichirangyou{14}{L3・導出}{}{未着手}{}
+  \ichirangyou{15}{L3・計算}{}{未着手}{}
+  \ichirangyou{16}{L3・導出}{}{未着手}{}
+  \ichirangyou{17}{L3・計算}{}{未着手}{}
+  \ichirangyou{18}{L4・導出}{}{未着手}{}
+  \ichirangyou{19}{L4・計算}{}{未着手}{}
 \end{kirokuichiran}
 
 \youtenseiri
 \begin{noteshikilist}
   \item ヘルムホルツ自由エネルギーの計算式 % 出典: p.3
-  \[F=-\kB T\log Z \notetag{4.2}\]
+  \[F=-\kB T\log Z \notetag{4-2}\]
   \item 分配関数（エネルギーごとの和） % 出典: p.3
-  \[Z=\sum_{0\le\mathcal{E}<\infty}w_{1}(\mathcal{E})\,\ee^{-\mathcal{E}/\kB T} \notetag{4.3}\]
+  \[Z=\sum_{0\le\mathcal{E}<\infty}W_{1}(\mathcal{E})\,\ee^{-\mathcal{E}/\kB T} \notetag{4-3}\]
   \item 分配関数（力学的状態ごとの和） % 出典: p.4
-  \[Z=\sum_{\text{microstates}}\ee^{-\mathcal{E}/\kB T} \notetag{4.4}\]
+  \[Z=\sum_{\text{microstates}}\ee^{-\mathcal{E}/\kB T} \notetag{4-4}\]
   \item 理想気体の圧力 % 出典: p.6
-  \[p=-\left(\pdv{F}{V}\right)_{T}=\frac{N\kB T}{V} \notetag{4.8}\]
+  \[p=-\left(\pdv{F}{V}\right)_{T}=\frac{N\kB T}{V} \notetag{4-8}\]
   \item 理想気体のエントロピー % 出典: p.6
-  \[S=-\left(\pdv{F}{T}\right)_{V}=N\kB\log\frac{V}{N}+\frac{3N}{2}\kB\log\kB T+\frac{5N}{2}\kB+\frac{3N}{2}\kB\log\frac{m}{2\pi\hbar^{2}} \notetag{4.9}\]
+  \[S=-\left(\pdv{F}{T}\right)_{V}=N\kB\log\frac{V}{N}+\frac{3N}{2}\kB\log\kB T+\frac{5N}{2}\kB+\frac{3N}{2}\kB\log\frac{m}{2\pi\hbar^{2}} \notetag{4-9}\]
   \item 定積熱容量 % 出典: p.6
-  \[C_{V}=T\left(\pdv{S}{T}\right)_{V}=\frac{3N\kB}{2} \notetag{4.10}\]
+  \[C_{V}=T\left(\pdv{S}{T}\right)_{V}=\frac{3N\kB}{2} \notetag{4-10}\]
   \item 内部エネルギー（ギブス--ヘルムホルツの関係） % 出典: p.6
-  \[U=\left(\pdv{(F/T)}{(1/T)}\right)_{V}=\frac{3N}{2}\kB T \notetag{4.11}\]
+  \[U=\left(\pdv{(F/T)}{(1/T)}\right)_{V}=\frac{3N}{2}\kB T \notetag{4-11}\]
+  \item Gibbs--Helmholtz 関係式から得る内部エネルギー % 出典: p.1
+    \[ U=-\kB\pdv{\log Z}{(1/T)}=-\frac{1}{Z}\pdv{Z}{\beta}=\frac{1}{Z}\sum_{0\le\mathcal{E}<\infty}\mathcal{E}\,W_{1}(\mathcal{E})\ee^{-\beta\mathcal{E}} \notetag{4-12} \]
+  \item カノニカル分布（分配関数で書いた形） % 出典: p.3
+    \[ P(\mathcal{E})=\frac{1}{Z}W_{1}(\mathcal{E})\ee^{-\beta\mathcal{E}} \notetag{4-14} \]
+  \item 系のエネルギーが $\mathcal{E}$ という条件のもとでの，力学的状態1つの実現確率 % 出典: p.4
+    \[ p_{\mathrm{micro}}=\frac{W_{2}(U_{0}-\mathcal{E})}{W_{1}(\mathcal{E})W_{2}(U_{0}-\mathcal{E})}=\frac{1}{W_{1}(\mathcal{E})} \notetag{4-15} \]
 \end{noteshikilist}
 
 \mondaihen
 \level{1}
-% toubun: kiroku\toubun\統計力学1\010_2026-11-24.tex
+% toubun: kiroku\toubun\統計力学1\017_2026-11-25.tex
 \mondaibangou{1}
+\begin{mondai}{017-micro}{計算}{カノニカル分布での微視的状態1つの確率とエネルギーの確率の違い，内部エネルギーを期待値として求めること}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  重力加速度 & $g$ & \qty{9.80}{\metre\per\second\squared}\\
+  Ar 原子の質量 & $m_{\mathrm{Ar}}$ & \qty{6.634e-26}{\kilogram}\\
+  ${}^{87}$Rb 原子の質量 & $m_{\mathrm{Rb}}$ & \qty{1.443e-25}{\kilogram}\\
+  N$_{2}$ 分子の質量 & $m_{\mathrm{N_{2}}}$ & \qty{4.652e-26}{\kilogram}\\
+\end{teisuu}
+互いに区別できる3個の粒子からなる系を考える。各粒子は状態 $s=0,1,2$ のいずれかをとり，そのエネルギーは $s\epsilon$（$\epsilon>0$）である。粒子間の相互作用は無く，系のエネルギーは $\mathcal{E}=(s_{1}+s_{2}+s_{3})\epsilon$ である。この系が温度 $T$ の熱浴と接してカノニカル分布に従っている。$x:=\ee^{-\beta\epsilon}$ とおく。
+  \begin{shoumon}
+    \item 系のエネルギーが $\mathcal{E}=n\epsilon$（$n=0,1,\dots,6$）である力学的状態の数 $W_{1}(n\epsilon)$ をすべて求め，その和が全状態数 $3^{3}=27$ に一致することを確かめよ。
+    \item 温度が $x=1/2$ を満たすとき，次を有効数字3桁で求めよ。(a) 力学的状態 $(s_{1},s_{2},s_{3})=(2,0,0)$ が実現する確率。(b) 系のエネルギーが $2\epsilon$ である確率。(c) 最も実現しやすい力学的状態とその確率，および最も実現しやすいエネルギーとその確率。
+    \item 内部エネルギー $U$ を \noteshiki{4-12} の $U=-\partial\log Z/\partial\beta$ から $x$ と $\epsilon$ で表せ。さらに $x=1/2$ のときの $U$ を，$\epsilon$ の何倍かとして有効数字3桁で求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-25 A ◎○◎}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\begin{align*}
+W_{1}(0)&=1, & W_{1}(3\epsilon)&=7,\\
+W_{1}(\epsilon)&=3, & W_{1}(4\epsilon)&=6,\\
+W_{1}(2\epsilon)&=6, & W_{1}(5\epsilon)&=3,\\
+& & W_{1}(6\epsilon)&=1
+\end{align*}
+計 27
+\toi{2}{○}{記述}
+\begin{align*}
+Z&=\sum_{n=0}^{6}W_{1}(n\epsilon)x^{n}\\
+&=1+3x+6x^{2}+7x^{3}+6x^{4}+3x^{5}+x^{6}\\
+&=1+\frac{3}{2}+\frac{6}{4}+\frac{7}{8}\\
+&\qquad+\frac{6}{16}+\frac{3}{32}+\frac{1}{64}\\
+&=4+\frac{5}{4}+\frac{7}{64}\\
+&=\frac{343}{64}
+\end{align*}
+(a)(b)
+\begin{align*}
+P(2\epsilon)&=\frac{1}{Z}W_{1}(2\epsilon)x^{2}\\
+&=\frac{64}{343}\cdot6\cdot\frac{1}{4}\\
+&=\frac{96}{343}\nuke{\simeq\num{0.280}}
+\end{align*}
+系のエネルギーが $2\epsilon$ である確率。
+\[ P(2\epsilon)\cdot\frac{1}{W_{1}(2\epsilon)}=\frac{16}{343}\nuke{\simeq\num{0.0466}} \]
+$(s_{1},s_{2},s_{3})=(2,0,0)$ である確率。
+
+(c) $W_{1}(n\epsilon)x^{n}$ の大小を比較すると，最大は $n=1,2$ のときで $3/2$。
+\[ P(\epsilon)=P(2\epsilon)=\frac{96}{343} \]
+最も実現しやすい力学的状態は
+\[ (s_{1},s_{2},s_{3})=(0,0,0)\quad\nuke{\text{$x^{n}/Z$ は $n$ で単調減少}} \]
+\begin{align*}
+P(0)&=\frac{1}{Z}W_{1}(0)x^{0}\\
+&=\frac{64}{343}\nuke{\simeq\num{0.187}}
+\end{align*}
+\naze{最も実現しやすい力学的状態を $(0,0,0)$ と決めた根拠が式にも文にも無い（答案に必要な論点）。力学的状態1つの確率は $x^{n}/Z$ で，$0<x<1$ なので $n$ について単調に減少するから，エネルギー0の状態が最大になる。エネルギーの確率は状態の数 $W_{1}$ 倍されるので最大が $n=1,2$ に移る，という対比まで書く。また問いは有効数字3桁なので，分数の後に小数の値も書く。}
+\toi{3}{◎}{}
+\begin{align*}
+Z&=x^{3}\biggl(\Bigl(x^{3}+\frac{1}{x^{3}}\Bigr)+3\Bigl(x^{2}+\frac{1}{x^{2}}\Bigr)\\
+&\qquad+6\Bigl(x+\frac{1}{x}\Bigr)+7\biggr)
+\end{align*}
+\begin{align*}
+x+\frac{1}{x}&=t\\
+x^{2}+\frac{1}{x^{2}}&=t^{2}-2\\
+x^{3}+\kakimachigai{\frac{1}{x}}{\frac{1}{x^{3}}}&=t(t^{2}-2)-t\\
+&=t(t^{2}-3)
+\end{align*}
+\begin{align*}
+&t^{3}-3t+3t^{2}-6+6t+7\\
+&=t^{3}+3t^{2}+3t+1\\
+&=(t+1)^{3}
+\end{align*}
+\begin{align*}
+Z&=x^{3}(t+1)^{3}\\
+&=(x^{2}+x+1)^{3}
+\end{align*}
+\begin{align*}
+U&=-\pdv{}{\beta}(\log Z)\\
+&=-\pdv{}{x}(\log Z)\cdot\pdv{x}{\beta}\\
+&=-\pdv{}{x}\bigl(3\log(x^{2}+x+1)\bigr)\cdot(-\epsilon x)\\
+&=3\epsilon x\cdot\frac{2x+1}{x^{2}+x+1}\\
+&=\frac{3\epsilon x(2x+1)}{x^{2}+x+1}
+\end{align*}
+$x=1/2$ のとき
+\begin{align*}
+\frac{3\epsilon}{7/4}&=\frac{12}{7}\epsilon\\
+&=1.71\epsilon
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「最も実現しやすい状態」と「最も実現しやすいエネルギー」は別の確率である。力学的状態1つの確率 $x^{n}/Z$ は $0<x<1$ なので $n$ について単調に減少し，最大はエネルギー0の $(0,0,0)$ である。エネルギーの確率 $W_{1}(n\epsilon)x^{n}/Z$ は状態の数 $W_{1}$ の増加と競合するので，最大が $n=1,2$ に移る。答案ではこの対比を根拠の1行として書く。
+\item \mae{統計力学1-2（組み替え前）問題1 (1)・11-24} 「最も〜」「低い方から〜」を答えるときは，選んだ根拠（単調性・漏れなく調べたこと）を一言書く。前回は準位の間に別の値が無いことを書かず，今回は確率が単調減少することを書かなかった。答えを書いたら「なぜそれが最大（最小）か」を自問して1行足す。
+\item 有効数字の指定がある問いでは，分数で出した後に $96/343\simeq\num{0.280}$ のように小数の値も書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 力学的状態1つの確率は $\ee^{-\beta\mathcal{E}}/Z$（カノニカル分布）であり，エネルギーが $\mathcal{E}$ である確率は，それを状態の数 $W_{1}(\mathcal{E})$ だけ足した \noteshiki{4-14} である。内部エネルギーは \noteshiki{4-12} で分配関数から求め，\noteshiki{4-12} の最右辺（期待値の形）で確かめる。
+\keisan \shoumonkai{1} 各粒子の状態 $s$ に $t^{s}$ を対応させると，$(1+t+t^{2})^{3}$ を展開した各項が力学的状態1つに対応し，$t$ の指数が $s_{1}+s_{2}+s_{3}=n$ になる。展開すると
+\[ (1+t+t^{2})^{3}=1+3t+6t^{2}+7t^{3}+6t^{4}+3t^{5}+t^{6} \]
+となるので，$W_{1}(n\epsilon)$ は $n=0,1,\dots,6$ の順に $1,3,6,7,6,3,1$ である。和は $1+3+6+7+6+3+1=27=3^{3}$ で，全状態数に一致する。
+
+\shoumonkai{2} 分配関数は，(1) の展開で $t=x$ とおいたものである。
+\[ Z=\sum_{n=0}^{6}W_{1}(n\epsilon)\ee^{-\beta n\epsilon}=\sum_{n=0}^{6}W_{1}(n\epsilon)x^{n}=(1+x+x^{2})^{3} \]
+$x=1/2$ では
+\[ Z=\left(1+\frac{1}{2}+\frac{1}{4}\right)^{3}=\left(\frac{7}{4}\right)^{3}=\frac{343}{64} \]
+となる。
+
+(a) 状態 $(2,0,0)$ のエネルギーは $2\epsilon$ なので，その確率は次のとおりである。
+\[ \frac{x^{2}}{Z}=\frac{1}{4}\cdot\frac{64}{343}=\frac{16}{343}\simeq\num{0.0466} \]
+
+(b) エネルギーが $2\epsilon$ の状態は $W_{1}(2\epsilon)=6$ 個あり，どれも (a) と同じ確率なので
+\[ P(2\epsilon)=\frac{6x^{2}}{Z}=\frac{96}{343}\simeq\num{0.280} \]
+
+(c) 力学的状態1つの確率 $x^{n}/Z$ は，$0<x<1$ なので $n$ について単調に減少する。よって最も実現しやすい状態はエネルギー0の $(0,0,0)$ で，確率は $1/Z=64/343\simeq\num{0.187}$ である。一方，エネルギーの確率の分子 $W_{1}(n\epsilon)x^{n}$ は $n=0,1,\dots,6$ の順に
+\[ 1,\quad\frac{3}{2},\quad\frac{3}{2},\quad\frac{7}{8},\quad\frac{3}{8},\quad\frac{3}{32},\quad\frac{1}{64} \]
+となる。よって最も実現しやすいエネルギーは $\epsilon$ と $2\epsilon$（同率）で，確率はどちらも $96/343\simeq\num{0.280}$ である。
+
+\shoumonkai{3} $\log Z=3\log(1+x+x^{2})$ を $\beta$ で微分する。$\partial x/\partial\beta=-\epsilon x$ なので
+\begin{align*}
+U=-\pdv{\log Z}{\beta}&=-\frac{3(1+2x)}{1+x+x^{2}}\pdv{x}{\beta}\\
+&=\frac{3\epsilon(x+2x^{2})}{1+x+x^{2}}
+\end{align*}
+となる。$x=1/2$ を代入すると
+\[ U=\frac{3\epsilon(1/2+1/2)}{7/4}=\frac{12}{7}\epsilon\simeq\num{1.71}\epsilon \]
+である。
+\kotae{\shoumonkai{1} $W_{1}(n\epsilon)=1,3,6,7,6,3,1$（$n=0,\dots,6$），和は27 \shoumonkai{2} (a) \num{0.0466} (b) \num{0.280} (c) 状態は $(0,0,0)$ で確率 \num{0.187}，エネルギーは $\epsilon$ と $2\epsilon$（同率）で確率 \num{0.280} \shoumonkai{3} $U=3\epsilon(x+2x^{2})/(1+x+x^{2})$，$U\simeq\num{1.71}\epsilon$}
+\begin{ronten}
+  \item \shoumonkai{1} 粒子が区別できるので，エネルギーが同じでも各粒子の状態の組 $(s_{1},s_{2},s_{3})$ が違えば別の力学的状態として数えることを書く。
+  \item \shoumonkai{2} 力学的状態1つの確率が $x^{n}/Z$ で，エネルギーの確率はそれを状態の数 $W_{1}$ 倍したものであることを区別して書く。
+  \item \shoumonkai{2} (c) で，$0<x<1$ より状態1つの確率が $n$ について単調に減少することを，最も実現しやすい状態を決める根拠として述べる。
+\end{ronten}
+\kenzan \noteshiki{4-12} の最右辺（期待値の形）で直接計算すると，$Z=343/64$ を使って
+\[ \frac{1}{Z}\sum_{n=0}^{6}n\epsilon\,W_{1}(n\epsilon)x^{n}=\frac{64}{343}\times\num{9.1875}\,\epsilon=\frac{12}{7}\epsilon \]
+となり一致する。極限：$T\to\infty$（$x\to1$）で $U\to3\epsilon$（各粒子のエネルギーが $0,\epsilon,2\epsilon$ の平均 $\epsilon$），$T\to0$（$x\to0$）で $U\to0$ となり妥当である。また (b) を (a) で割ると $6=W_{1}(2\epsilon)$ で，エネルギーが $2\epsilon$ という条件のもとで状態1つの確率が $1/W_{1}$ になること（\noteshiki{4-15}）と合う。
+\tsumazuki 「エネルギーが高い状態ほど確率が小さい」のは力学的状態1つについての話である。エネルギーの確率は状態の数 $W_{1}$ の増加と競合するので，$\mathcal{E}>0$ で最大になりうる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\010_2026-11-24.tex
+\mondaibangou{2}
 \begin{mondai}{010-sumform}{計算}{分配関数の2つの書き方（エネルギーごとの和と状態ごとの和）と，独立な自由度での和の因数分解}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  重力加速度 & $g$ & \qty{9.80}{\metre\per\second\squared}\\
+  Ar 原子の質量 & $m_{\mathrm{Ar}}$ & \qty{6.634e-26}{\kilogram}\\
+  ${}^{87}$Rb 原子の質量 & $m_{\mathrm{Rb}}$ & \qty{1.443e-25}{\kilogram}\\
+  N$_{2}$ 分子の質量 & $m_{\mathrm{N_{2}}}$ & \qty{4.652e-26}{\kilogram}\\
+\end{teisuu}
 % 出典: 講義ノート 第2章 p.3--5 式(10)(11)(16)
-区別できる2個の粒子 A，B からなる系が，温度 $T$ の熱浴と接している。各粒子はそれぞれ独立に，エネルギー $0$，$\varepsilon$，$2\varepsilon$（$\varepsilon>0$）の3つの状態のどれかをとる（各準位は縮退していない）。粒子間の相互作用は無視する。$q=\ee^{-\beta\varepsilon}$ とおく。
+区別できる2個の粒子 A，B からなる系が，温度 $T$ の熱浴と接している。各粒子はそれぞれ独立に，エネルギー $0$，$\epsilon$，$2\epsilon$（$\epsilon>0$）の3つの状態のどれかをとる（各準位は縮退していない）。粒子間の相互作用は無視する。$q=\ee^{-\beta\epsilon}$ とおく。
 \begin{shoumon}
-  \item 系の全エネルギー $\mathcal{E}$ のとりうる値と，それぞれの値をもつ力学的状態の数 $w_{1}(\mathcal{E})$ を表にまとめよ。式\noteshiki{4.3} を用いて，分配関数 $Z$ を $q$ の多項式で表せ。
-  \item 式\noteshiki{4.4} の状態についての和を，粒子ごとの和の積に分けて $Z$ を求め，(1) と一致することを確かめよ。
-  \item $q=1/2$ のとき，$\kB T$ を $\varepsilon$ で表し，ヘルムホルツ自由エネルギー $F$ が $\varepsilon$ の何倍かを有効数字3桁で求めよ。必要なら $\log2=\num{0.6931}$，$\log(7/4)=\num{0.5596}$ を用いよ。
-  \item $U=-\partial\log Z/\partial\beta$ を用いて，内部エネルギー $U$ を $q$ と $\varepsilon$ で表せ。$q=1/2$ のときの値を求めよ。また，$T\to0$ と $T\to\infty$ の極限での $U$ を求め，それぞれの値になる理由を述べよ。
+  \item 系の全エネルギー $\mathcal{E}$ のとりうる値と，それぞれの値をもつ力学的状態の数 $W_{1}(\mathcal{E})$ を表にまとめよ。式\noteshiki{4-3} を用いて，分配関数 $Z$ を $q$ の多項式で表せ。
+  \item 式\noteshiki{4-4} の状態についての和を，粒子ごとの和の積に分けて $Z$ を求め，(1) と一致することを確かめよ。
+  \item $q=1/2$ のとき，$\kB T$ を $\epsilon$ で表し，ヘルムホルツ自由エネルギー $F$ が $\epsilon$ の何倍かを有効数字3桁で求めよ。必要なら $\log2=\num{0.6931}$，$\log(7/4)=\num{0.5596}$ を用いよ。
+  \item $U=-\partial\log Z/\partial\beta$ を用いて，内部エネルギー $U$ を $q$ と $\epsilon$ で表せ。$q=1/2$ のときの値を求めよ。また，$T\to0$ と $T\to\infty$ の極限での $U$ を求め，それぞれの値になる理由を述べよ。
 \end{shoumon}
 \notekiroku{2026-11-24 A ◎○◎◎}
 \begin{kotaeutsushi}{2026-11-24}
@@ -115,11 +281,11 @@ $U\to2\varepsilon$　平均エネルギー
 \item (4) は初め $U=-\partial Z/\partial\beta$ と $\log$ を落として計算し，消して書き直した。$U=-\partial\log Z/\partial\beta=-(1/Z)\,\partial Z/\partial\beta$ で，$\log$ を落とすと $1/Z$ が抜ける（$q=1/2$ で $8\varepsilon/7$ でなく $7\varepsilon/2$ になる）。$T\to0$ で $U\to0$，$T\to\infty$ で $U\to2\varepsilon$（9状態の単純平均）になるかで検算する。
 \end{kizuki}
 \begin{tadashii}
-\houshin (1) 9通りの状態を全エネルギーで分類して $w_{1}(\mathcal{E})$ を数え，式\noteshiki{4.3} に代入する。(2) 2粒子が独立なので，式\noteshiki{4.4} の和は粒子ごとの和の積に分かれる。(3) $F=-\kB T\log Z$（式\noteshiki{4.2}）。(4) $U=-\partial\log Z/\partial\beta$。
+\houshin (1) 9通りの状態を全エネルギーで分類して $W_{1}(\mathcal{E})$ を数え，式\noteshiki{4-3} に代入する。(2) 2粒子が独立なので，式\noteshiki{4-4} の和は粒子ごとの和の積に分かれる。(3) $F=-\kB T\log Z$（式\noteshiki{4-2}）。(4) $U=-\partial\log Z/\partial\beta$。
 \keisan
-\shoumonkai{1} 状態 $(\varepsilon_{\mathrm{A}},\varepsilon_{\mathrm{B}})$ を全エネルギーで分けると次のようになる。
-$0$：$(0,0)$ → 1。$\varepsilon$：$(\varepsilon,0),(0,\varepsilon)$ → 2。$2\varepsilon$：$(2\varepsilon,0),(\varepsilon,\varepsilon),(0,2\varepsilon)$ → 3。$3\varepsilon$：$(2\varepsilon,\varepsilon),(\varepsilon,2\varepsilon)$ → 2。$4\varepsilon$：$(2\varepsilon,2\varepsilon)$ → 1。
-合計 9 で，$3\times3=9$ 通りと一致する。式\noteshiki{4.3} より，$\ee^{-\beta k\varepsilon}=q^{k}$ を使って
+\shoumonkai{1} 状態 $(\epsilon_{\mathrm{A}},\epsilon_{\mathrm{B}})$ を全エネルギーで分けると次のようになる。
+$0$：$(0,0)$ → 1。$\epsilon$：$(\epsilon,0),(0,\epsilon)$ → 2。$2\epsilon$：$(2\epsilon,0),(\epsilon,\epsilon),(0,2\epsilon)$ → 3。$3\epsilon$：$(2\epsilon,\epsilon),(\epsilon,2\epsilon)$ → 2。$4\epsilon$：$(2\epsilon,2\epsilon)$ → 1。
+合計 9 で，$3\times3=9$ 通りと一致する。式\noteshiki{4-3} より，$\ee^{-\beta k\epsilon}=q^{k}$ を使って
 \[Z=1+2q+3q^{2}+2q^{3}+q^{4}\]
 
 \shoumonkai{2} 粒子 A，B の状態は独立に選べるので，指数関数を粒子ごとの因子の積に分けて和をとる。
@@ -127,38 +293,48 @@ $0$：$(0,0)$ → 1。$\varepsilon$：$(\varepsilon,0),(0,\varepsilon)$ → 2。
 展開すると次のようになり，(1) と一致する。
 \[\left(1+q+q^{2}\right)^{2}=1+2q+3q^{2}+2q^{3}+q^{4}\]
 
-\shoumonkai{3} $q=\ee^{-\beta\varepsilon}=1/2$ より $\beta\varepsilon=\log2$，すなわち $\kB T=\varepsilon/\log2=\num{1.443}\varepsilon$。このとき $Z=(1+1/2+1/4)^{2}=(7/4)^{2}$ なので，
+\shoumonkai{3} $q=\ee^{-\beta\epsilon}=1/2$ より $\beta\epsilon=\log2$，すなわち $\kB T=\epsilon/\log2=\num{1.443}\epsilon$。このとき $Z=(1+1/2+1/4)^{2}=(7/4)^{2}$ なので，
 \begin{align*}
-F&=-\kB T\log Z=-\frac{\varepsilon}{\log2}\cdot2\log\frac{7}{4}\\
-&=-\frac{2\times\num{0.5596}}{\num{0.6931}}\,\varepsilon=-\num{1.61}\,\varepsilon
+F&=-\kB T\log Z=-\frac{\epsilon}{\log2}\cdot2\log\frac{7}{4}\\
+&=-\frac{2\times\num{0.5596}}{\num{0.6931}}\,\epsilon=-\num{1.61}\,\epsilon
 \end{align*}
 
-\shoumonkai{4} $\log Z=2\log(1+q+q^{2})$ と $\dv{q}{\beta}=-\varepsilon q$ から，
+\shoumonkai{4} $\log Z=2\log(1+q+q^{2})$ と $\dv{q}{\beta}=-\epsilon q$ から，
 \begin{align*}
 U&=-\pdv{\log Z}{\beta}=-\frac{2(1+2q)}{1+q+q^{2}}\dv{q}{\beta}\\
-&=\frac{2\varepsilon\left(q+2q^{2}\right)}{1+q+q^{2}}
+&=\frac{2\epsilon\left(q+2q^{2}\right)}{1+q+q^{2}}
 \end{align*}
-$q=1/2$ では分子が $2\varepsilon(1/2+1/2)=2\varepsilon$，分母が $7/4$ なので $U=8\varepsilon/7=\num{1.14}\varepsilon$。
-$T\to0$ では $q\to0$ で $U\to0$：重み $\ee^{-\beta\mathcal{E}}$ が基底状態 $(0,0)$ 以外で 0 に近づき，基底状態だけが寄与する。$T\to\infty$ では $q\to1$ で $U\to2\varepsilon\cdot3/3=2\varepsilon$：全ての状態の重みが1になり，$U$ は9状態のエネルギーの単純平均 $(0+2\cdot1+3\cdot2+2\cdot3+1\cdot4)\varepsilon/9=2\varepsilon$ に等しくなる。
-\kotae{\shoumonkai{1} $w_{1}(0)=1$，$w_{1}(\varepsilon)=2$，$w_{1}(2\varepsilon)=3$，$w_{1}(3\varepsilon)=2$，$w_{1}(4\varepsilon)=1$；$Z=1+2q+3q^{2}+2q^{3}+q^{4}$ \shoumonkai{2} $Z=(1+q+q^{2})^{2}$（展開すると小問1の結果と一致） \shoumonkai{3} $\kB T=\varepsilon/\log2=\num{1.44}\varepsilon$，$F=-\num{1.61}\varepsilon$ \shoumonkai{4} $U=\frac{2\varepsilon(q+2q^{2})}{1+q+q^{2}}$；$q=1/2$ で $U=8\varepsilon/7=\num{1.14}\varepsilon$；$T\to0$ で $0$，$T\to\infty$ で $2\varepsilon$}
+$q=1/2$ では分子が $2\epsilon(1/2+1/2)=2\epsilon$，分母が $7/4$ なので $U=8\epsilon/7=\num{1.14}\epsilon$。
+$T\to0$ では $q\to0$ で $U\to0$：重み $\ee^{-\beta\mathcal{E}}$ が基底状態 $(0,0)$ 以外で 0 に近づき，基底状態だけが寄与する。$T\to\infty$ では $q\to1$ で $U\to2\epsilon\cdot3/3=2\epsilon$：全ての状態の重みが1になり，$U$ は9状態のエネルギーの単純平均 $(0+2\cdot1+3\cdot2+2\cdot3+1\cdot4)\epsilon/9=2\epsilon$ に等しくなる。
+\kotae{\shoumonkai{1} $W_{1}(0)=1$，$W_{1}(\epsilon)=2$，$W_{1}(2\epsilon)=3$，$W_{1}(3\epsilon)=2$，$W_{1}(4\epsilon)=1$；$Z=1+2q+3q^{2}+2q^{3}+q^{4}$ \shoumonkai{2} $Z=(1+q+q^{2})^{2}$（展開すると小問1の結果と一致） \shoumonkai{3} $\kB T=\epsilon/\log2=\num{1.44}\epsilon$，$F=-\num{1.61}\epsilon$ \shoumonkai{4} $U=\frac{2\epsilon(q+2q^{2})}{1+q+q^{2}}$；$q=1/2$ で $U=8\epsilon/7=\num{1.14}\epsilon$；$T\to0$ で $0$，$T\to\infty$ で $2\epsilon$}
 \begin{ronten}
   \item \shoumonkai{1} 粒子 A，B は区別できるので，粒子を入れ替えた組を別の力学的状態として数えることを書く。
   \item \shoumonkai{2} 2粒子の状態が独立に選べる（相互作用が無い）ので，状態についての和が粒子ごとの和の積に分かれることを述べる。
   \item \shoumonkai{4} $T\to0$ では基底状態以外の重み $\ee^{-\beta\mathcal{E}}$ が $0$ に近づき，基底状態だけが寄与することを述べる。
   \item \shoumonkai{4} $T\to\infty$ では全ての状態の重みが $1$ になり，$U$ が全状態のエネルギーの単純平均になることを述べる。
 \end{ronten}
-\kenzan 式\noteshiki{4.3} の形を直接 $\beta$ で微分しても次式となる。
-\[U=\frac{1}{Z}\sum_{\mathcal{E}}\mathcal{E}\,w_{1}(\mathcal{E})\ee^{-\beta\mathcal{E}}\]
+\kenzan 式\noteshiki{4-3} の形を直接 $\beta$ で微分しても次式となる。
+\[U=\frac{1}{Z}\sum_{\mathcal{E}}\mathcal{E}\,W_{1}(\mathcal{E})\ee^{-\beta\mathcal{E}}\]
 $q=1/2$ では次のようになって一致する。
-\[U=\frac{(2q+6q^{2}+6q^{3}+4q^{4})\varepsilon}{Z}=\frac{(1+\num{1.5}+\num{0.75}+\num{0.25})\varepsilon}{49/16}=\frac{8}{7}\varepsilon\]
-$T\to0$ で $Z\to1$，$F\to0$（基底状態のエネルギー 0 と一致）。$F$・$U$ はどちらも $\varepsilon$ の次元をもつ。
-\tsumazuki 粒子 A，B は区別できるので，$(\varepsilon,0)$ と $(0,\varepsilon)$ は別の状態として数える（$w_{1}(\varepsilon)=1$ としない）。
+\[U=\frac{(2q+6q^{2}+6q^{3}+4q^{4})\epsilon}{Z}=\frac{(1+\num{1.5}+\num{0.75}+\num{0.25})\epsilon}{49/16}=\frac{8}{7}\epsilon\]
+$T\to0$ で $Z\to1$，$F\to0$（基底状態のエネルギー 0 と一致）。$F$・$U$ はどちらも $\epsilon$ の次元をもつ。
+\tsumazuki 粒子 A，B は区別できるので，$(\epsilon,0)$ と $(0,\epsilon)$ は別の状態として数える（$W_{1}(\epsilon)=1$ としない）。
 \end{tadashii}
 \end{mondai}
 
 % toubun: kiroku\toubun\統計力学1\011_2026-11-24.tex
-\mondaibangou{2}
+\mondaibangou{3}
 \begin{mondai}{011-excluded}{計算}{与えられた分配関数から $F$ を求め，熱力学関係式で $p$・$S$・$U$・$C_{V}$ を導くこと（$F$ の示量性）}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  重力加速度 & $g$ & \qty{9.80}{\metre\per\second\squared}\\
+  Ar 原子の質量 & $m_{\mathrm{Ar}}$ & \qty{6.634e-26}{\kilogram}\\
+  ${}^{87}$Rb 原子の質量 & $m_{\mathrm{Rb}}$ & \qty{1.443e-25}{\kilogram}\\
+  N$_{2}$ 分子の質量 & $m_{\mathrm{N_{2}}}$ & \qty{4.652e-26}{\kilogram}\\
+\end{teisuu}
 % 出典: 講義ノート 第2章 p.6 式(18)--(23)（理想気体の例を排除体積のあるモデルに変えた）
 体積 $V$ の容器に，質量 $m$ の同種の単原子分子 $N$ 個（$N\gg1$）からなる気体が入り，温度 $T$ の熱浴と接している。分子の大きさの効果を「1分子が動ける体積が $V-Nb$ に減る」とする簡単なモデル（$b>0$ は定数，$V>Nb$）では，分配関数は
 \[Z=\frac{1}{N!}\left(\frac{V-Nb}{\lambda^{3}}\right)^{N},\qquad\lambda=\frac{h}{\sqrt{2\pi m\kB T}}\]
@@ -166,7 +342,7 @@ $T\to0$ で $Z\to1$，$F\to0$（基底状態のエネルギー 0 と一致）。
 \begin{shoumon}
   \item ヘルムホルツ自由エネルギー $F(T,V,N)$ を求めよ。
   \item 圧力 $p$ を求め，$b\to0$ で理想気体の状態方程式に戻ることを確かめよ。
-  \item エントロピー $S$，内部エネルギー $U$（式\noteshiki{4.11} を用いよ），定積熱容量 $C_{V}$ を求めよ。
+  \item エントロピー $S$，内部エネルギー $U$（式\noteshiki{4-11} を用いよ），定積熱容量 $C_{V}$ を求めよ。
   \item $\alpha>0$ として $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$ が成り立つこと（$F$ が示量変数であること）を確かめよ。
 \end{shoumon}
 \notekiroku{2026-11-24 A ◎◎◎○}
@@ -227,7 +403,7 @@ U&=\pdv{}{(1/T)}\left(-N\kB\cdot\left(-\frac{3}{2}\log\frac{1}{T}\right)\right)\
 \item 確かめ方：$\alpha=2$ にして読み直す。$2F(T,2V,2N)$ は「2倍の系を2つ」で元の系の4倍になり，左辺の $F(T,2V,2N)$（元の2倍）と合わない。
 \end{kizuki}
 \begin{tadashii}
-\houshin $\log Z$ に Stirling の公式を使って $F$ を求め，式\noteshiki{4.8}--\noteshiki{4.11} と同じ熱力学関係式で微分する。$\lambda$ が $T$ を含むことに注意する。
+\houshin $\log Z$ に Stirling の公式を使って $F$ を求め，式\noteshiki{4-8}--\noteshiki{4-11} と同じ熱力学関係式で微分する。$\lambda$ が $T$ を含むことに注意する。
 \keisan
 \shoumonkai{1} $\log N!\simeq N\log N-N$ を使うと，
 \begin{align*}
@@ -246,7 +422,7 @@ $b\to0$ で $p=N\kB T/V$，すなわち $pV=N\kB T$ に戻る。
 S=-\left(\pdv{F}{T}\right)_{V}&=N\kB\left[\log\frac{V-Nb}{N\lambda^{3}}+1\right]+N\kB T\cdot\frac{3}{2T}\\
 &=N\kB\left[\log\frac{V-Nb}{N\lambda^{3}}+\frac{5}{2}\right]
 \end{align*}
-$U$ は式\noteshiki{4.11} で求める。$\log(1/\lambda^{3})=-(3/2)\log(1/T)+c$（$c$ は $T$ に依らない）と書くと，
+$U$ は式\noteshiki{4-11} で求める。$\log(1/\lambda^{3})=-(3/2)\log(1/T)+c$（$c$ は $T$ に依らない）と書くと，
 \[\frac{F}{T}=-N\kB\left[\log\frac{V-Nb}{N}-\frac{3}{2}\log\frac{1}{T}+c+1\right]\]
 となり，$1/T$ で微分して
 \[U=\left(\pdv{(F/T)}{(1/T)}\right)_{V}=N\kB\cdot\frac{3}{2}\cdot T=\frac{3}{2}N\kB T\]
@@ -254,9 +430,74 @@ $U$ は式\noteshiki{4.11} で求める。$\log(1/\lambda^{3})=-(3/2)\log(1/T)+c
 
 \shoumonkai{4} $V\to\alpha V$，$N\to\alpha N$ とすると $(\alpha V-\alpha Nb)/(\alpha N\lambda^{3})=(V-Nb)/(N\lambda^{3})$ で $\log$ の中身は変わらず，前の因子 $N$ だけが $\alpha$ 倍になる。よって $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$。
 \kotae{\shoumonkai{1} $F=-N\kB T\left[\log\frac{V-Nb}{N\lambda^{3}}+1\right]$ \shoumonkai{2} $p=N\kB T/(V-Nb)$（$b\to0$ で $pV=N\kB T$） \shoumonkai{3} $S=N\kB\left[\log\frac{V-Nb}{N\lambda^{3}}+5/2\right]$，$U=3N\kB T/2$，$C_{V}=3N\kB/2$ \shoumonkai{4} $\log$ の中身が不変で前の $N$ が $\alpha$ 倍になるので成り立つ}
-\kenzan $U=F+TS=-N\kB T[\cdots+1]+N\kB T[\cdots+5/2]=3N\kB T/2$ で (3) と一致する。$C_{V}=T(\partial S/\partial T)_{V}=T\cdot N\kB\cdot3/(2T)=3N\kB/2$（式\noteshiki{4.10} の形）とも一致する。$b\to0$ で $S$ は式\noteshiki{4.9} に戻る（$\lambda$ を展開すると同じ式になる）。$(V-Nb)/(N\lambda^{3})$ は無次元である。
+\kenzan $U=F+TS=-N\kB T[\cdots+1]+N\kB T[\cdots+5/2]=3N\kB T/2$ で (3) と一致する。$C_{V}=T(\partial S/\partial T)_{V}=T\cdot N\kB\cdot3/(2T)=3N\kB/2$（式\noteshiki{4-10} の形）とも一致する。$b\to0$ で $S$ は式\noteshiki{4-9} に戻る（$\lambda$ を展開すると同じ式になる）。$(V-Nb)/(N\lambda^{3})$ は無次元である。
 \tsumazuki $S$ の計算で $\lambda$ の $T$ 依存（$5/2$ のうち $3/2$ の部分）を落としやすい。$b$ は $Z$ の $T$ 依存を変えないので，$U$・$C_{V}$ は理想気体と同じになり，$b$ の影響は $p$ と $S$ にだけ現れる。
 \end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\統計力学1\064_2026-11-25.tex
+\mondaibangou{9}
+\begin{mondai}{064-nijun}{計算}{二準位系の集まりのカノニカル分布での分配関数・自由エネルギー・内部エネルギー，第3章のミクロカノニカル分布の結果との一致，分配関数の2つの書き方（二項定理），正の温度で実現するエネルギーの範囲}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  重力加速度 & $g$ & \qty{9.80}{\metre\per\second\squared}\\
+  Ar 原子の質量 & $m_{\mathrm{Ar}}$ & \qty{6.634e-26}{\kilogram}\\
+  ${}^{87}$Rb 原子の質量 & $m_{\mathrm{Rb}}$ & \qty{1.443e-25}{\kilogram}\\
+  N$_{2}$ 分子の質量 & $m_{\mathrm{N_{2}}}$ & \qty{4.652e-26}{\kilogram}\\
+\end{teisuu}
+第3章の Level 1 の二準位系の問題と同じ系（格子点に固定された区別できる $N$ 個の粒子。各粒子はエネルギー $0$ か $\epsilon>0$ の状態をとる）が，温度 $T$ の熱浴と接している。$\beta=1/(\kB T)$ とする。
+\begin{shoumon}
+  \item 粒子1個の分配関数 $Z_{1}$，系の分配関数 $Z$，ヘルムホルツ自由エネルギー $F$ を求めよ。
+  \item 内部エネルギー $U(T)$ を求め，第3章でミクロカノニカル分布から得た $U$ と $T$ の関係と一致することを確かめよ。
+  \item 分配関数を，励起している粒子の数 $n$ ごとの和
+  \[ Z=\sum_{n=0}^{N}W(n)\,\ee^{-\beta n\epsilon} \]
+  （$W(n)$ は第3章で求めた状態の数）として書き，(1) の $Z$ と一致することを示せ。
+  \item $T$ が $0$ から $\infty$ まで変わるとき，$U$ のとりうる範囲を求めよ。第3章で負の温度に対応した $U>N\epsilon/2$ の状態が，正の温度の熱浴との平衡では実現しない理由を述べよ。
+\end{shoumon}
+\notekiroku{2026-11-25 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\begin{align*}
+z&=1\cdot\ee^{0}+1\cdot\ee^{-\beta\epsilon}\\
+&=1+\ee^{-\beta\epsilon}
+\end{align*}
+\begin{align*}
+Z&=z^{N}\\
+&=(1+\ee^{-\beta\epsilon})^{N}
+\end{align*}
+\begin{align*}
+F&=-\kB T\log Z\\
+&=-N\kB T\log(1+\ee^{-\beta\epsilon})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+U&=-\pdv{}{\beta}(\log Z)\\
+&=-N\pdv{}{\beta}\bigl(\log(1+\ee^{-\beta\epsilon})\bigr)\\
+&=-N\cdot\frac{-\epsilon\ee^{-\beta\epsilon}}{1+\ee^{-\beta\epsilon}}\\
+&=\frac{N\epsilon\ee^{-\beta\epsilon}}{1+\ee^{-\beta\epsilon}}\\
+&=\frac{N\epsilon}{\ee^{\beta\epsilon}+1}
+\end{align*}
+\begin{align*}
+x=\frac{U}{N\epsilon}&=\frac{1}{\ee^{\beta\epsilon}+1}\\
+&=\frac{1}{\ee^{\epsilon/(\kB T)}+1}
+\end{align*}
+一致。
+\toi{3}{◎}{}
+\begin{align*}
+Z&=\sum_{n=0}^{N}\frac{N!}{n!\,(N-n)!}\ee^{-\beta n\epsilon}\\
+&=\sum_{n=0}^{N}\frac{N!}{n!\,(N-n)!}(\ee^{-\beta\epsilon})^{n}\\
+&=(1+\ee^{-\beta\epsilon})^{N}
+\end{align*}
+より一致。
+\toi{4}{◎}{}
+（表：$T$ が $0\to\infty$ のとき，$\beta$ は $\infty\to0$，$U$ は $0\to N\epsilon/2$）
+\[ 0\le U\le\frac{N\epsilon}{2} \]
+エネルギーが高いほど確率が低くなり，$1/2$ を超えないため。
+\end{kotaeutsushi}
 \end{mondai}
 
 \noteowari

@@ -1,0 +1,61 @@
+% 量子力学1 量子力学1-20 問題3（107-comm） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}&=\comm{\hat{a}}{\hat{a}^{\dagger}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}}{\hat{a}^{\dagger}}\hat{a}^{\dagger}+\hat{a}^{\dagger}\comm{\hat{a}}{\hat{a}^{\dagger}}\\
+&=2\hat{a}^{\dagger}
+\end{align*}
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{3}}&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}\hat{a}^{\dagger}+(\hat{a}^{\dagger})^{2}\comm{\hat{a}}{\hat{a}^{\dagger}}\\
+&=2(\hat{a}^{\dagger})^{2}+(\hat{a}^{\dagger})^{2}\\
+&=3(\hat{a}^{\dagger})^{2}
+\end{align*}
+\toi{2}{◎}{}
+仮定：$\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}=n(\hat{a}^{\dagger})^{n-1}$
+
+i) $n=1$ のとき
+\[ \comm{\hat{a}}{(\hat{a}^{\dagger})^{1}}=1\cdot(\hat{a}^{\dagger})^{1-1}=1 \]
+より成立。
+
+ii) $n=k$ で仮定が成り立つとき
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{k+1}}&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{k}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{k}}\hat{a}^{\dagger}+(\hat{a}^{\dagger})^{k}\comm{\hat{a}}{\hat{a}^{\dagger}}\\
+&=k(\hat{a}^{\dagger})^{k-1}\hat{a}^{\dagger}+(\hat{a}^{\dagger})^{k}\\
+&=(k+1)(\hat{a}^{\dagger})^{k}
+\end{align*}
+i)，ii) から数学的帰納法により，仮定は正しいことが示された。
+\toi{3}{◎}{}
+\begin{align*}
+(\comm{\hat{A}}{\hat{B}})^{\dagger}&=(\hat{A}\hat{B}-\hat{B}\hat{A})^{\dagger}\\
+&=\hat{B}^{\dagger}\hat{A}^{\dagger}-\hat{A}^{\dagger}\hat{B}^{\dagger}\\
+&=\comm{\hat{B}^{\dagger}}{\hat{A}^{\dagger}}
+\end{align*}
+\[ (\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}})^{\dagger}=\comm{\hat{a}^{n}}{\hat{a}^{\dagger}} \]
+\[ \bigl(n(\hat{a}^{\dagger})^{n-1}\bigr)^{\dagger}=n\hat{a}^{n-1} \]
+\[ \therefore\ \comm{\hat{a}^{n}}{\hat{a}^{\dagger}}=n\hat{a}^{n-1} \]
+\toi{4}{○}{記述}
+\[ \ket{n}=\frac{1}{\sqrt{n!}}(\hat{a}^{\dagger})^{n}\ket{0} \]
+\[ \hat{a}\ket{n}=\frac{1}{\sqrt{n!}}\hat{a}(\hat{a}^{\dagger})^{n}\ket{0} \]
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}&=\hat{a}(\hat{a}^{\dagger})^{n}-(\hat{a}^{\dagger})^{n}\hat{a}\\
+&=n(\hat{a}^{\dagger})^{n-1}
+\end{align*}
+\[ \therefore\ \hat{a}(\hat{a}^{\dagger})^{n}=(\hat{a}^{\dagger})^{n}\hat{a}+n(\hat{a}^{\dagger})^{n-1} \]
+\begin{align*}
+\hat{a}\ket{n}&=\frac{1}{\sqrt{n!}}\Bigl((\hat{a}^{\dagger})^{n}\underbrace{\hat{a}\ket{0}}_{0}+n(\hat{a}^{\dagger})^{n-1}\ket{0}\Bigr)\\
+&=\frac{n}{\sqrt{n}\sqrt{(n-1)!}}(\hat{a}^{\dagger})^{n-1}\ket{0}\\
+&=\sqrt{n}\ket{n-1}\quad\nuke{(n\ge1)}
+\end{align*}
+\nuke{$n=0$ の確認}
+\naze{$(\hat{a}^{\dagger})^{n-1}$ と $\ket{n-1}$ は $n\ge1$ でしか意味をもたないので，この計算は $n\ge1$ の場合である。$n=0$ では $\hat{a}\ket{0}=0$ で，右辺の係数 $\sqrt{0}=0$ と合うことを別に一言書く（答案に必要な論点）。計算と答えは正しい。}
+\begin{align*}
+\hat{a}^{\dagger}\ket{n}&=\frac{1}{\sqrt{n!}}(\hat{a}^{\dagger})^{n+1}\ket{0}\\
+&=\frac{\sqrt{n+1}}{\sqrt{(n+1)!}}(\hat{a}^{\dagger})^{n+1}\ket{0}\\
+&=\sqrt{n+1}\ket{n+1}
+\end{align*}
+%% kizuki
+\item 一般の $n$ で導いた式が $(\hat{a}^{\dagger})^{n-1}$ や $\ket{n-1}$ を含むときは，$n\ge1$ でしか使えない。端の $n=0$ は $\hat{a}\ket{0}=0$ と係数 $\sqrt{0}=0$ が合うことを別に確かめる。
+\item \mae{量子力学1-11（組み替え前）問題4 (1)・11-20} 整数 $n$ の範囲の扱いを書かなかった（前回は $kL=n\pi$ で $n$ を正の整数に限る理由）。$n$ を含む答えを書いたら「この式はどの $n$ で成り立つか」「端の $n$ は別扱いか」を1行添える。

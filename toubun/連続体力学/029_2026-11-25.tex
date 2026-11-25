@@ -1,0 +1,34 @@
+% 連続体力学 連続体力学-4 問題3（029-hooke） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+P_{ij}&=\sum_{k,\ell}C_{ijk\ell}E_{k\ell}\\
+&=\sum_{k,\ell}\bigl(\lambda\delta_{ij}\delta_{k\ell}\\
+&\qquad+\mu(\delta_{ik}\delta_{j\ell}+\delta_{i\ell}\delta_{jk})\bigr)E_{k\ell}\\
+&=\sum_{k}\lambda E_{kk}\delta_{ij}+\underbrace{\mu(E_{ij}+E_{ji})}_{\text{$\tens{E}$ は対称テンソル}}\\
+&=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}
+\end{align*}
+\toi{2}{◎}{}
+\[ \lambda\Tr(\tens{E})=60\times0.2=\kakimachigai{\qty{12}{\giga\pascal}}{\qty{12}{\mega\pascal}} \]
+\[ P_{ij}= \]
+\[ \setlength{\arraycolsep}{2pt}\begin{pmatrix}50\times1.0+12&50\times0.5&0\\50\times0.5&50\times(-0.4)+12&0\\0&0&50\times(-0.4)+12\end{pmatrix} \]
+\begin{align*}
+&\qquad\times10^{-3}\,\unit{\giga\pascal}\\
+&=\begin{pmatrix}62&25&0\\25&-8.0&0\\0&0&-8.0\end{pmatrix}\unit{\mega\pascal}
+\end{align*}
+\toi{3}{○}{単位}
+\begin{align*}
+\Tr(\tens{P})&=\kakimachigai{\sum_{i}}{\sum_{i,j}}P_{ij}\delta_{ij}\\
+&=\sum_{i}(\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}\delta_{ij})\\
+&=3\lambda\Tr(\tens{E})+2\mu\Tr(\tens{E})\\
+&=(3\lambda+2\mu)\Tr(\tens{E})
+\end{align*}
+\[ \Tr(\tens{P})=62-8-8=46\nuke{\unit{\mega\pascal}} \]
+\begin{align*}
+&(3\lambda+2\mu)\times0.2\\
+&=(180+50)\times\frac{1}{5}\\
+&=46\nuke{\unit{\mega\pascal}}
+\end{align*}
+\naze{数値には単位が要る。両辺とも $\qty{46}{\mega\pascal}$ で，右辺は $\qty{230}{\giga\pascal}\times\num{0.20e-3}$ である（$0.2$ は $\num{0.20e-3}$ の $10^{-3}$ を省いた形）。式の変形と数値の一致は正しい。}
+%% kizuki
+\item 歪みの $10^{-3}$ を頭の中で持ち運ぶと，(2) の $\lambda\Tr(\tens{E})=\qty{12}{\giga\pascal}$ や (3) の単位なしの 46 のように，書いた数値と単位がずれる。$\qty{1}{\giga\pascal}\times10^{-3}=\qty{1}{\mega\pascal}$ と書いてから計算し，数値の答えには毎回単位を付ける。

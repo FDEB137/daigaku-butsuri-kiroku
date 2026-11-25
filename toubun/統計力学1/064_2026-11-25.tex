@@ -1,0 +1,40 @@
+% 統計力学1 統計力学1-4 問題9（064-nijun） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+z&=1\cdot\ee^{0}+1\cdot\ee^{-\beta\epsilon}\\
+&=1+\ee^{-\beta\epsilon}
+\end{align*}
+\begin{align*}
+Z&=z^{N}\\
+&=(1+\ee^{-\beta\epsilon})^{N}
+\end{align*}
+\begin{align*}
+F&=-\kB T\log Z\\
+&=-N\kB T\log(1+\ee^{-\beta\epsilon})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+U&=-\pdv{}{\beta}(\log Z)\\
+&=-N\pdv{}{\beta}\bigl(\log(1+\ee^{-\beta\epsilon})\bigr)\\
+&=-N\cdot\frac{-\epsilon\ee^{-\beta\epsilon}}{1+\ee^{-\beta\epsilon}}\\
+&=\frac{N\epsilon\ee^{-\beta\epsilon}}{1+\ee^{-\beta\epsilon}}\\
+&=\frac{N\epsilon}{\ee^{\beta\epsilon}+1}
+\end{align*}
+\begin{align*}
+x=\frac{U}{N\epsilon}&=\frac{1}{\ee^{\beta\epsilon}+1}\\
+&=\frac{1}{\ee^{\epsilon/(\kB T)}+1}
+\end{align*}
+一致。
+\toi{3}{◎}{}
+\begin{align*}
+Z&=\sum_{n=0}^{N}\frac{N!}{n!\,(N-n)!}\ee^{-\beta n\epsilon}\\
+&=\sum_{n=0}^{N}\frac{N!}{n!\,(N-n)!}(\ee^{-\beta\epsilon})^{n}\\
+&=(1+\ee^{-\beta\epsilon})^{N}
+\end{align*}
+より一致。
+\toi{4}{◎}{}
+（表：$T$ が $0\to\infty$ のとき，$\beta$ は $\infty\to0$，$U$ は $0\to N\epsilon/2$）
+\[ 0\le U\le\frac{N\epsilon}{2} \]
+エネルギーが高いほど確率が低くなり，$1/2$ を超えないため。
+%% kizuki

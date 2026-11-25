@@ -1,0 +1,32 @@
+% 連続体力学 連続体力学-4 問題4（030-shear） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&0\\\alpha&0&0\end{pmatrix} \]
+\[ \tens{E}=\begin{pmatrix}0&0&\alpha/2\\0&0&0\\\alpha/2&0&0\end{pmatrix},\quad \tens{F}=\begin{pmatrix}0&0&-\alpha/2\\0&0&0\\\alpha/2&0&0\end{pmatrix} \]
+\[ \vect{\Omega}=\vect{\nabla}\times\vect{r}=(0,-\alpha,0) \]
+$x_{2}$ 軸，時計回り，$\alpha/2$
+\toi{2}{◎}{}
+\begin{align*}
+P_{ij}&=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}\\
+&=\begin{pmatrix}0&0&\mu\alpha\\0&0&0\\\mu\alpha&0&0\end{pmatrix}
+\end{align*}
+\[ \frac{\delta V'-\delta V}{\delta V}=\Tr(\tens{E})=0 \]
+\toi{3}{△}{未着手}
+\[ F_{k\ell}=-F_{\ell k} \]
+$C_{ijk\ell}=C_{ij\ell k}$ より
+\[ C_{ijk\ell}F_{k\ell}=-C_{ij\ell k}F_{\ell k} \]
+よって
+\[ \sum C_{ijk\ell}F_{k\ell}=0 \]
+\nuke{回転部分が応力に寄与しない理由}
+\naze{問いの後半（(1) の回転部分が応力に寄与しない理由）が無い。$\tens{D}=\tens{E}+\tens{F}$ なので $\sum C_{ijk\ell}D_{k\ell}=\sum C_{ijk\ell}E_{k\ell}+\sum C_{ijk\ell}F_{k\ell}=P_{ij}$ となり，回転 $\tens{F}$ を含めても応力は変わらない（回転は物体を剛体的に回すだけ），まで書く。前半は，和の添字の名前 $k,\ell$ を入れ替えると和が自分自身の $-1$ 倍になる，という形で書くと項ごとの式から和への移りがはっきりする。}
+\toi{4}{△}{未着手}
+(2) より体積変化はない。
+
+（図：軸の上の正方形が，横にずれた平行四辺形に変わり，さらに縦にずれた平行四辺形に変わる図）
+
+\nuke{$P_{31}/\alpha=\mu$}
+\naze{$\mu$ が剪断弾性率と呼ばれる理由が書かれていない。$P_{31}=\mu\alpha$ は法線が $\vect{e}_{1}$ の面（$x_{1}=\text{一定}$）に働く力の $x_{3}$ 成分，すなわち面に沿った剪断応力である。その面は $x_{3}$ 方向に $\alpha x_{1}$ だけずれ，$x_{1}$ 軸に平行だった線は角度 $\alpha$ だけ傾く。剪断応力と剪断の角度の比が $P_{31}/\alpha=\mu$ なので，$\mu$ は剪断に対する硬さを表す。体積が変わらないことだけでは $\mu$ の意味にならない。}
+%% kizuki
+\item 小問の後半に「理由を述べよ」「説明せよ」があると，前半の計算で止まりやすい（(3)(4)）。(3) は $\tens{D}=\tens{E}+\tens{F}$ と前半の結果から $\sum C_{ijk\ell}D_{k\ell}=\sum C_{ijk\ell}E_{k\ell}$ を1行書けば結論になる。問題文の問いの数と答えの文の数がそろっているかを最後に数える。
+\item \mae{第3回 問題2 (1)・10-28} 物理的な意味を問われて，答えの文を最後まで書かなかった（前回は平行移動 $\vect{c}$ の意味が書きかけ）。$\mu$ の意味は「$P_{31}$ がどの面のどの向きの力か」と「その変形での角度」を並べ，比が $\mu$ になることを書く。
+\item 回転角を $\abs{\vect{\Omega}}$ の半分の $\alpha/2$ と正しく書けた（第3回 問題4 (4)・問題7 (3)・10-28 で取り違えたところ）。

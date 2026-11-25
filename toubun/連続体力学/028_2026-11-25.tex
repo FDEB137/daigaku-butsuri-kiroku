@@ -1,0 +1,53 @@
+% 連続体力学 連続体力学-4 問題2（028-count） 解いた日 2026-11-25
+%% kotae
+\toi{1}{△}{計算}
+i) $2^{4}=16$
+
+ii)
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=2pt]
+\item[①] $i\neq j$，$k\neq\ell$ … 1通り
+\item[②] $i=j$ または $k=\ell$ … 4通り
+\item[③] $i=j$ かつ $k=\ell$ … 4通り
+\end{itemize}
+9通り
+
+iii)
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=2pt]
+\item[①] 1通り
+\item[②] \ayamari{4通り}{2通り}
+\item[③] \ayamari{1通り}{3通り}
+\end{itemize}
+6通り
+\naze{大対称性 $C_{ijk\ell}=C_{k\ell ij}$ では2つの組の順序を区別しないので，② の $C_{11\,12}$ と $C_{12\,11}$ は同じ成分になり，② は $C_{11\,12}$，$C_{22\,12}$ の2通りである。③ は $C_{11\,11}$，$C_{22\,22}$，$C_{11\,22}$（$=C_{22\,11}$）の3通り。合計6は合っているが内訳が違い，(2) の一般式（② $n\cdot{}_{n}\mathrm{C}_{2}=2$，③ $(n^{2}+n)/2=3$）とも食い違う。}
+\toi{2}{◎}{}
+(ii)
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=2pt]
+\item[①] $({}_{n}\mathrm{C}_{2})^{2}=\frac{1}{4}n^{2}(n-1)^{2}$
+\item[②] $2\cdot n\cdot{}_{n}\mathrm{C}_{2}=n^{2}(n-1)$
+\item[③] $n^{2}$
+\end{itemize}
+\begin{align*}
+&\frac{1}{4}(n^{4}-2n^{3}+n^{2})+n^{3}-n^{2}+n^{2}\\
+&=\frac{1}{4}n^{2}(n+1)^{2}
+\end{align*}
+$n=3$ で $\frac{1}{4}\cdot9\cdot16=36$ 一致。
+
+(iii)
+①
+\begin{align*}
+&\frac{1}{2}\bigl(({}_{n}\mathrm{C}_{2})^{2}-{}_{n}\mathrm{C}_{2}\bigr)+{}_{n}\mathrm{C}_{2}\\
+&=\frac{n(n-1)(n^{2}-n+2)}{8}
+\end{align*}
+② \[ n\cdot{}_{n}\mathrm{C}_{2}=\frac{1}{2}n^{2}(n-1) \]
+③ \[ \frac{1}{2}(n^{2}-n)+n=\frac{n^{2}+n}{2} \]
+\begin{align*}
+&\frac{1}{8}(n^{4}-2n^{3}+3n^{2}-2n)+\frac{4}{8}(n^{3}-n^{2})\\
+&\qquad+\frac{4}{8}(n^{2}+n)\\
+&=\frac{1}{8}(n^{4}+2n^{3}+3n^{2}+2n)
+\end{align*}
+$n=3$ で 21 一致。
+\toi{3}{×}{未着手}
+\mikai
+%% kizuki
+\item 大対称性は「組の組」の順序を区別しないことである。異なる組からなる成分（$C_{11\,12}$ と $C_{12\,11}$）は1つに数え，同じ種類の組どうしの $C_{11\,22}$ も数え落とさない。(1) を書いたら (2) の一般式に $n=2$ を入れて内訳ごとに照合する（(2) は正しく数えられている）。
+\item (3) の答え：$i\leftrightarrow j$ は応力テンソルの対称性 $P_{ij}=P_{ji}$（微小要素のトルクのつり合い）から来る。$k\leftrightarrow\ell$ は歪みテンソルが対称で，$C_{ijk\ell}$ と $C_{ij\ell k}$ が同じ $E_{k\ell}=E_{\ell k}$ に掛かるので，平均に置き換えて対称に選べる，という定義上の選び方である。

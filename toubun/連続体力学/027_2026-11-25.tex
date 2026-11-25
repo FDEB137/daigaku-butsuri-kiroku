@@ -1,0 +1,27 @@
+% 連続体力学 連続体力学-4 問題1（027-volume） 解いた日 2026-11-25
+%% kotae
+\toi{1}{△}{記述}
+\begin{align*}
+\det(\tens{I}+\tens{D})&=\Bigl(1+\pdv{r_{1}}{x_{1}}\Bigr)\Bigl(1+\pdv{r_{2}}{x_{2}}\Bigr)\\
+&\qquad\times\Bigl(1+\pdv{r_{3}}{x_{3}}\Bigr)\nuke{+(\text{2次以上})}\\
+&\ayamari{=}{\simeq}1+\underbrace{\pdv{r_{1}}{x_{1}}+\pdv{r_{2}}{x_{2}}+\pdv{r_{3}}{x_{3}}}_{\Tr(\tens{E})}
+\end{align*}
+\[ \therefore\ \frac{\delta V'}{\delta V}=1+\Tr(\tens{E}) \]
+\[ \therefore\ \frac{\delta V'-\delta V}{\delta V}=\Tr(\tens{E}) \]
+\naze{行列式は置換についての和で，対角成分の積は恒等置換の項にすぎない。ほかの置換の項は非対角成分 $D_{i\sigma(i)}$ を2つ以上含むので $\tens{D}$ の2次以上として捨てられる，という一言が要の論点である（答案に必要な論点）。これが無いと1行目は一般には誤った等式になる。恒等置換の項も展開して2次以上を捨てるので2行目は $\simeq$。また $\partial r_{i}/\partial x_{i}=D_{ii}=E_{ii}$ となるのは $\tens{F}$ の対角成分が0だからである。}
+\toi{2}{△}{計算}
+\[ \tens{D}=\begin{pmatrix}a&\gamma&0\\0&b&0\\0&0&c\end{pmatrix},\quad \tens{E}=\begin{pmatrix}a&\gamma/2&0\\\gamma/2&b&0\\0&0&c\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}\ayamari{a}{0}&\gamma/2&0\\-\gamma/2&\ayamari{b}{0}&0\\0&0&\ayamari{c}{0}\end{pmatrix} \]
+\naze{$\tens{F}=(\tens{D}-\tens{D}^{\mathrm{T}})/2$ は反対称で，対角成分は必ず0である。対角の $a,b,c$ は $\tens{E}$ だけに入る（書いたままだと $\tens{E}+\tens{F}$ の対角が $2a,2b,2c$ になり $\tens{D}$ に戻らない）。}
+\[ \Tr(\tens{E})=a+b+c \]
+\toi{3}{◎}{}
+\[ \det\begin{pmatrix}1+a&\gamma&0\\0&1+b&0\\0&0&1+c\end{pmatrix}=(1+a)(1+b)(1+c) \]
+体積変化率
+\[ (1+a)(1+b)(1+c)-1\simeq\num{1.498499e-3} \]
+\[ a+b+c=\num{1.50e-3} \]
+\[ \text{差}=\num{-1.5e-6} \]
+（歪みの2次以上の量）
+%% kizuki
+\item 行列式の1次の展開は「置換についての和」から考える。恒等置換以外の項は非対角成分を2つ以上含むので2次以上になり，残るのは対角成分の和だけである。「$\det$＝対角成分の積」が厳密に成り立つのは (3) のような三角行列のときだけなので，(1) では捨てた項が2次以上である理由を一言書く。
+\item 反対称テンソル $\tens{F}$ の対角成分は常に0である。$\tens{E}$・$\tens{F}$ を書いたら，$\tens{E}+\tens{F}=\tens{D}$ と $\tens{F}^{\mathrm{T}}=-\tens{F}$ の2つで検算する。
+\item \mae{第3回 問題5 (2)・10-28} 「示せ」の問いで，主張の要の段（前回は分解の一意性，今回は1次の項だけが残る理由）を飛ばした。示す式の各等号が一般に成り立つかを見直し，近似で捨てた項には「2次以上」と書き添える。

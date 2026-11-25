@@ -1,0 +1,32 @@
+% 数理物理1 数理物理1-11 問題1（080-renzoku。当時は 数理物理1-9 問題1・shou09-l1-renzoku） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  \hat f_\mu&=\int_{-L/2}^{L/2}\dd y\,\frac{\ee^{-\ii2\pi y\mu/L}}{\sqrt L}\ee^{-a\abs{y}}\\
+  &=\frac{1}{\sqrt L}\int_{-L/2}^{0}\dd y\,\ee^{(a-\ii2\pi\mu/L)y}\\
+  &\qquad+\frac{1}{\sqrt L}\int_{0}^{L/2}\dd y\,\ee^{-(a+\ii2\pi\mu/L)y}\\
+  &=\frac{1}{\sqrt L}\Bigl[\frac{1}{a-\ii k_\mu}\ee^{(a-\ii k_\mu)y}\Bigr]_{-L/2}^{0}\\
+  &\qquad+\frac{1}{\sqrt L}\Bigl[\frac{1}{-(a+\ii k_\mu)}\ee^{-(a+\ii k_\mu)y}\Bigr]_{0}^{L/2}\\
+  &=\frac{1}{\sqrt L}\biggl(\frac{1}{a-\ii k_\mu}\Bigl(1-\ee^{-(a-\ii k_\mu)L/2}\Bigr)\\
+  &\qquad+\frac{1}{-(a+\ii k_\mu)}\Bigl(\ee^{-(a+\ii k_\mu)L/2}-1\Bigr)\biggr)
+\end{align*}
+（脇に，端点の値を $\ee^{-aL/2}\ee^{\pm\ii k_\mu L/2}$ に分け，$\cos$・$\sin$ を $c$・$s$ と略して $c\mp si$ と書く）
+\begin{align*}
+  &=\frac{1}{\sqrt L}\biggl(\frac{2a}{(a-\ii k_\mu)(a+\ii k_\mu)}\\
+  &\qquad+\frac{a-\ee^{-aL/2}(c-si)-\ee^{-aL/2}(c+si)}{(a-\ii k_\mu)(a+\ii k_\mu)}\biggr)\\
+  &=\frac{1}{\sqrt L}\biggl(\frac{2a}{a^{2}+k_\mu^{2}}+\frac{\kakimachigai{-2\ee^{-aL/2}}{-2a\ee^{-aL/2}}\cos(k_\mu L/2)}{a^{2}+k_\mu^{2}}\biggr)\\
+  &=\frac{2\bigl(a-a\ee^{-aL/2}\cos(k_\mu L/2)\bigr)}{(a^{2}+k_\mu^{2})\sqrt L}
+\end{align*}
+（矢印で $\cos(k_\mu L/2)$ を $\cos\pi\mu$ につなぐ）
+\[ =\frac{1}{\sqrt L}\frac{2a}{a^{2}+k_\mu^{2}}\bigl(1-(-1)^{\mu}\ee^{-aL/2}\bigr) \]
+\toi{2}{◎}{}
+\begin{align*}
+  g(k_\mu)&=\sqrt{\frac{L}{2\pi}}\cdot\sqrt{\frac{1}{L}}\cdot\frac{2a}{a^{2}+k_\mu^{2}}\bigl(1-(-1)^{\mu}\ee^{-aL/2}\bigr)\\
+  &=\frac{1}{\sqrt{2\pi}}\frac{2a}{a^{2}+k^{2}}\bigl(1-(-1)^{\mu}\ee^{-aL/2}\bigr)\\
+  &\xrightarrow{L\to\infty}\frac{1}{\sqrt{2\pi}}\frac{2a}{a^{2}+k^{2}}
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+%% kizuki
+\item (3) は手を付けていない。$g(k)$ の定義に $\tilde U^{*}(y,k)=\ee^{-\ii ky}/\sqrt{2\pi}$ を入れると $g(k)=\tilde f(k)/\sqrt{2\pi}$ になる。$\tilde U$ による展開は $1/\sqrt{2\pi}$ を変換と逆変換に等しく振り分け，フーリエ変換の定義は $1/(2\pi)$ を逆変換に寄せているので，$\sqrt{2\pi}$ だけ違う。(2) の答えは $\tilde f=2a/(a^{2}+k^{2})$ を $\sqrt{2\pi}$ で割った形になっていて，比べるところまで来ていた。
+\item (1) の途中で分子の $a$ が一度抜けている（次の行で戻っている）。$\ee^{-aL/2}$ の項の係数は，$L\to\infty$ の前の答えで $\mu=0$ とおいた値 $\hat f_0=(2/(a\sqrt L))(1-\ee^{-aL/2})$ と比べて確かめる。

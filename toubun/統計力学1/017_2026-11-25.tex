@@ -1,0 +1,74 @@
+% 統計力学1 統計力学1-4 問題1（017-micro） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+W_{1}(0)&=1, & W_{1}(3\epsilon)&=7,\\
+W_{1}(\epsilon)&=3, & W_{1}(4\epsilon)&=6,\\
+W_{1}(2\epsilon)&=6, & W_{1}(5\epsilon)&=3,\\
+& & W_{1}(6\epsilon)&=1
+\end{align*}
+計 27
+\toi{2}{○}{記述}
+\begin{align*}
+Z&=\sum_{n=0}^{6}W_{1}(n\epsilon)x^{n}\\
+&=1+3x+6x^{2}+7x^{3}+6x^{4}+3x^{5}+x^{6}\\
+&=1+\frac{3}{2}+\frac{6}{4}+\frac{7}{8}\\
+&\qquad+\frac{6}{16}+\frac{3}{32}+\frac{1}{64}\\
+&=4+\frac{5}{4}+\frac{7}{64}\\
+&=\frac{343}{64}
+\end{align*}
+(a)(b)
+\begin{align*}
+P(2\epsilon)&=\frac{1}{Z}W_{1}(2\epsilon)x^{2}\\
+&=\frac{64}{343}\cdot6\cdot\frac{1}{4}\\
+&=\frac{96}{343}\nuke{\simeq\num{0.280}}
+\end{align*}
+系のエネルギーが $2\epsilon$ である確率。
+\[ P(2\epsilon)\cdot\frac{1}{W_{1}(2\epsilon)}=\frac{16}{343}\nuke{\simeq\num{0.0466}} \]
+$(s_{1},s_{2},s_{3})=(2,0,0)$ である確率。
+
+(c) $W_{1}(n\epsilon)x^{n}$ の大小を比較すると，最大は $n=1,2$ のときで $3/2$。
+\[ P(\epsilon)=P(2\epsilon)=\frac{96}{343} \]
+最も実現しやすい力学的状態は
+\[ (s_{1},s_{2},s_{3})=(0,0,0)\quad\nuke{\text{$x^{n}/Z$ は $n$ で単調減少}} \]
+\begin{align*}
+P(0)&=\frac{1}{Z}W_{1}(0)x^{0}\\
+&=\frac{64}{343}\nuke{\simeq\num{0.187}}
+\end{align*}
+\naze{最も実現しやすい力学的状態を $(0,0,0)$ と決めた根拠が式にも文にも無い（答案に必要な論点）。力学的状態1つの確率は $x^{n}/Z$ で，$0<x<1$ なので $n$ について単調に減少するから，エネルギー0の状態が最大になる。エネルギーの確率は状態の数 $W_{1}$ 倍されるので最大が $n=1,2$ に移る，という対比まで書く。また問いは有効数字3桁なので，分数の後に小数の値も書く。}
+\toi{3}{◎}{}
+\begin{align*}
+Z&=x^{3}\biggl(\Bigl(x^{3}+\frac{1}{x^{3}}\Bigr)+3\Bigl(x^{2}+\frac{1}{x^{2}}\Bigr)\\
+&\qquad+6\Bigl(x+\frac{1}{x}\Bigr)+7\biggr)
+\end{align*}
+\begin{align*}
+x+\frac{1}{x}&=t\\
+x^{2}+\frac{1}{x^{2}}&=t^{2}-2\\
+x^{3}+\kakimachigai{\frac{1}{x}}{\frac{1}{x^{3}}}&=t(t^{2}-2)-t\\
+&=t(t^{2}-3)
+\end{align*}
+\begin{align*}
+&t^{3}-3t+3t^{2}-6+6t+7\\
+&=t^{3}+3t^{2}+3t+1\\
+&=(t+1)^{3}
+\end{align*}
+\begin{align*}
+Z&=x^{3}(t+1)^{3}\\
+&=(x^{2}+x+1)^{3}
+\end{align*}
+\begin{align*}
+U&=-\pdv{}{\beta}(\log Z)\\
+&=-\pdv{}{x}(\log Z)\cdot\pdv{x}{\beta}\\
+&=-\pdv{}{x}\bigl(3\log(x^{2}+x+1)\bigr)\cdot(-\epsilon x)\\
+&=3\epsilon x\cdot\frac{2x+1}{x^{2}+x+1}\\
+&=\frac{3\epsilon x(2x+1)}{x^{2}+x+1}
+\end{align*}
+$x=1/2$ のとき
+\begin{align*}
+\frac{3\epsilon}{7/4}&=\frac{12}{7}\epsilon\\
+&=1.71\epsilon
+\end{align*}
+%% kizuki
+\item 「最も実現しやすい状態」と「最も実現しやすいエネルギー」は別の確率である。力学的状態1つの確率 $x^{n}/Z$ は $0<x<1$ なので $n$ について単調に減少し，最大はエネルギー0の $(0,0,0)$ である。エネルギーの確率 $W_{1}(n\epsilon)x^{n}/Z$ は状態の数 $W_{1}$ の増加と競合するので，最大が $n=1,2$ に移る。答案ではこの対比を根拠の1行として書く。
+\item \mae{統計力学1-2（組み替え前）問題1 (1)・11-24} 「最も〜」「低い方から〜」を答えるときは，選んだ根拠（単調性・漏れなく調べたこと）を一言書く。前回は準位の間に別の値が無いことを書かず，今回は確率が単調減少することを書かなかった。答えを書いたら「なぜそれが最大（最小）か」を自問して1行足す。
+\item 有効数字の指定がある問いでは，分数で出した後に $96/343\simeq\num{0.280}$ のように小数の値も書く。

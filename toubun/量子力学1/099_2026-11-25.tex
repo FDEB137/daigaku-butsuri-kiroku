@@ -1,0 +1,54 @@
+% 量子力学1 量子力学1-20 問題1（099-ladder） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\[ \hat{a}^{\dagger}=\sqrt{\frac{m\omega}{2\hbar}}\,\hat{x}^{\dagger}-\ii\sqrt{\frac{1}{2m\hbar\omega}}\,\hat{p}^{\dagger} \]
+$\hat{x}$，$\hat{p}$ はエルミート演算子なので，
+\[ \hat{a}^{\dagger}=\underbrace{\sqrt{\frac{m\omega}{2\hbar}}}_{\alpha}\,\hat{x}-\ii\underbrace{\sqrt{\frac{1}{2m\hbar\omega}}}_{\beta}\,\hat{p} \]
+よりエルミート共役。
+\[ \sqrt{\frac{m\omega}{2\hbar}}=\alpha,\quad\sqrt{\frac{1}{2m\hbar\omega}}=\beta \]
+とする。
+\begin{align*}
+\hat{a}&=\alpha\hat{x}+\ii\beta\hat{p}\\
+\hat{a}^{\dagger}&=\alpha\hat{x}-\ii\beta\hat{p}
+\end{align*}
+\[ \comm{\hat{a}}{\hat{a}^{\dagger}}=\hat{a}\hat{a}^{\dagger}-\hat{a}^{\dagger}\hat{a} \]
+\begin{align*}
+\hat{a}\hat{a}^{\dagger}&=(\alpha\hat{x}+\ii\beta\hat{p})(\alpha\hat{x}-\ii\beta\hat{p})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta(\hat{p}\hat{x}-\hat{x}\hat{p})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta\comm{\hat{p}}{\hat{x}}\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\hbar\alpha\beta
+\end{align*}
+\begin{align*}
+\hat{a}^{\dagger}\hat{a}&=(\alpha\hat{x}-\ii\beta\hat{p})(\alpha\hat{x}+\ii\beta\hat{p})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta(\hat{x}\hat{p}-\hat{p}\hat{x})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta\comm{\hat{x}}{\hat{p}}\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}-\hbar\alpha\beta
+\end{align*}
+\begin{align*}
+\comm{\hat{a}}{\hat{a}^{\dagger}}&=2\hbar\alpha\beta\\
+&=2\hbar\sqrt{\frac{m\omega}{2\hbar}}\sqrt{\frac{1}{2m\hbar\omega}}\\
+&=1
+\end{align*}
+\toi{2}{◎}{}
+\[ \hat{a}+\hat{a}^{\dagger}=2\alpha\hat{x} \]
+\begin{align*}
+\therefore\ \hat{x}&=\frac{1}{2\alpha}(\hat{a}+\hat{a}^{\dagger})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}\,(\hat{a}+\hat{a}^{\dagger})
+\end{align*}
+\[ \hat{a}-\hat{a}^{\dagger}=2\ii\beta\hat{p} \]
+\begin{align*}
+\hat{p}&=\frac{1}{2\ii\beta}(\hat{a}-\hat{a}^{\dagger})\\
+&=\ii\sqrt{\frac{m\hbar\omega}{2}}\,(\hat{a}^{\dagger}-\hat{a})
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\hat{a}\hat{a}^{\dagger}&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\hbar\alpha\beta\\
+&=\frac{m\omega}{2\hbar}\hat{x}^{2}+\frac{1}{2m\hbar\omega}\hat{p}^{2}+\frac{1}{2}\\
+&=\frac{1}{\hbar\omega}\Bigl(\frac{m\omega^{2}}{2}\hat{x}^{2}+\frac{1}{2m}\hat{p}^{2}\Bigr)+\frac{1}{2}\\
+&=\frac{1}{\hbar\omega}\hat{H}+\frac{1}{2}
+\end{align*}
+\[ \therefore\ \hat{H}=\hbar\omega\Bigl(\hat{a}\hat{a}^{\dagger}-\frac{1}{2}\Bigr) \]
+\[ \comm{\hat{a}}{\hat{a}^{\dagger}}=\hat{a}\hat{a}^{\dagger}-\hat{a}^{\dagger}\hat{a}=1 \]
+\[ \therefore\ \hat{a}\hat{a}^{\dagger}=\hat{a}^{\dagger}\hat{a}+1 \]
+\[ \hat{H}=\hbar\omega\Bigl(\hat{a}^{\dagger}\hat{a}+\frac{1}{2}\Bigr) \]
+%% kizuki

@@ -1,0 +1,67 @@
+% 量子力学1 量子力学1-20 問題2（100-number） 解いた日 2026-11-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\matrixel{n}{(\hat{a}^{\dagger})^{2}\hat{a}^{2}}{n}\\
+&=\sqrt{n}\matrixel{n}{(\hat{a}^{\dagger})^{2}\hat{a}}{n-1}\\
+&=\sqrt{n}\sqrt{n-1}\matrixel{n}{(\hat{a}^{\dagger})^{2}}{n-2}\\
+&=\sqrt{n}(n-1)\matrixel{n}{\hat{a}^{\dagger}}{n-1}\\
+&=n(n-1)\braket{n}{n}\\
+&=n(n-1)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\matrixel{n}{\hat{a}^{2}(\hat{a}^{\dagger})^{2}}{n}\\
+&=\sqrt{n+1}\matrixel{n}{\hat{a}^{2}\hat{a}^{\dagger}}{n+1}\\
+&=\sqrt{n+1}\sqrt{n+2}\matrixel{n}{\hat{a}^{2}}{n+2}\\
+&=\sqrt{n+1}(n+2)\matrixel{n}{\hat{a}}{n+1}\\
+&=(n+1)(n+2)\braket{n}{n}\\
+&=(n+1)(n+2)
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+&\matrixel{n}{\hat{a}\hat{a}^{\dagger}\hat{a}^{\dagger}\hat{a}}{n}\\
+&=\sqrt{n}\matrixel{n}{\hat{a}\hat{a}^{\dagger}\hat{a}^{\dagger}}{n-1}\\
+&=n\matrixel{n}{\hat{a}\hat{a}^{\dagger}}{n}\\
+&=n\sqrt{n+1}\matrixel{n}{\hat{a}}{n+1}\\
+&=n(n+1)\braket{n}{n}\\
+&=n(n+1)
+\end{align*}
+\toi{4}{◎}{}
+\[ \hat{a}^{2}(\hat{a}^{\dagger})^{2}-(\hat{a}^{\dagger})^{2}\hat{a}^{2}=\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}} \]
+\begin{align*}
+\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}}&=\comm{\hat{a}^{2}}{\hat{a}^{\dagger}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}^{2}}{\hat{a}^{\dagger}}\hat{a}^{\dagger}+\hat{a}^{\dagger}\comm{\hat{a}^{2}}{\hat{a}^{\dagger}}
+\end{align*}
+\begin{align*}
+\comm{\hat{a}^{2}}{\hat{a}^{\dagger}}&=\comm{\hat{a}\hat{a}}{\hat{a}^{\dagger}}\\
+&=\hat{a}\comm{\hat{a}}{\hat{a}^{\dagger}}+\comm{\hat{a}}{\hat{a}^{\dagger}}\hat{a}\\
+&=2\hat{a}
+\end{align*}
+\begin{align*}
+\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}}&=(2\hat{a})\hat{a}^{\dagger}+\hat{a}^{\dagger}(2\hat{a})\\
+&=2\hat{a}\hat{a}^{\dagger}+2\hat{a}^{\dagger}\hat{a}
+\end{align*}
+\[ \comm{\hat{a}}{\hat{a}^{\dagger}}=\hat{a}\hat{a}^{\dagger}-\hat{a}^{\dagger}\hat{a}=1 \]
+\[ \therefore\ \hat{a}\hat{a}^{\dagger}=\hat{a}^{\dagger}\hat{a}+1 \]
+\begin{align*}
+\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}}&=2\hat{a}^{\dagger}\hat{a}+2(\hat{a}^{\dagger}\hat{a}+1)\\
+&=4\hat{a}^{\dagger}\hat{a}+2
+\end{align*}
+(1)，(2) の答えより
+\begin{align*}
+&\matrixel{n}{\hat{a}^{2}(\hat{a}^{\dagger})^{2}-(\hat{a}^{\dagger})^{2}\hat{a}^{2}}{n}\\
+&=(n+1)(n+2)-n(n-1)\\
+&=n^{2}+3n+2-n^{2}+n\\
+&=4n+2
+\end{align*}
+また，
+\begin{align*}
+&\matrixel{n}{4\hat{a}^{\dagger}\hat{a}+2}{n}\\
+&=4\matrixel{n}{\hat{a}^{\dagger}\hat{a}}{n}+2\braket{n}{n}\\
+&=4\sqrt{n}\matrixel{n}{\hat{a}^{\dagger}}{n-1}+2\\
+&=4n\braket{n}{n}+2\\
+&=4n+2
+\end{align*}
+以上より正しいと分かる。
+%% kizuki
