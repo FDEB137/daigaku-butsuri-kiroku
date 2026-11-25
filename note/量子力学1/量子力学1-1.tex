@@ -1,0 +1,125 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第1章「量子論の誕生」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou01\量子力学1-1.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{1}{L1・計算}{}{未着手}{}
+  \ichirangyou{2}{L1・計算}{}{未着手}{}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{4}{L2・計算}{}{未着手}{}
+  \ichirangyou{5}{L2・計算}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-119-bohr}{7}}{L2・計算}{△△△△}{C}{2026-11-24 2回目 ヒント1 (1)計算 (2)計算 (3)計算 (4)計算}
+  \ichirangyou{8}{L2・計算}{}{未着手}{}
+  \ichirangyou{9}{L2・計算}{}{未着手}{}
+  \ichirangyou{10}{L3・導出}{}{未着手}{}
+  \ichirangyou{11}{L3・導出}{}{未着手}{}
+  \ichirangyou{12}{L3・導出}{}{未着手}{}
+  \ichirangyou{13}{L4・計算}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{2}
+% toubun: kiroku\toubun\量子力学1\119_2026-10-29.tex
+\mondaibangou{7}
+\begin{mondai}{119-bohr}{計算}{Bohr の原子論（量子条件と振動数条件）による水素原子の軌道半径・エネルギー準位と，水素のスペクトルの波長}
+\begin{teisuu}
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  陽子の質量 & $\mprot$ & \qty{1.673e-27}{\kilogram}\\
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  電子の静止エネルギー & $\melec c^{2}$ & \qty{0.511}{\mega\electronvolt}\\
+  真空の誘電率 & $\varepsilon_{0}$ & \qty{8.854e-12}{\farad\per\metre}\\
+\end{teisuu}
+水素原子を，静止した陽子（電荷 $e$）のまわりを電子（質量 $\melec$，電荷 $-e$）が半径 $r$ の等速円運動をするものとして，要点整理の Bohr の原子論で考える。数値は定数表の値と $\hbar=h/(2\pi)$ を使い，$\qty{1}{\electronvolt}=\qty{1.602e-19}{\joule}$ とする。
+  \begin{shoumon}
+    \item クーロン力が向心力になる条件と量子条件から，許される軌道の半径 $r_{n}$ と，電子の力学的エネルギー（運動エネルギーとクーロン力の位置エネルギーの和）$E_{n}$ を，$n$，$\melec$，$e$，$\varepsilon_{0}$，$\hbar$ で表せ。
+    \item $r_{1}$（Bohr 半径）を \unit{\nano\metre} 単位で，$E_{1}$ を \unit{\electronvolt} 単位で，それぞれ有効数字3桁で求めよ。
+    \item 電子が $n=3$ の軌道から $n=2$ の軌道に移るときに放出される光の波長を，有効数字3桁で求めよ。
+    \item $n\ge3$ の軌道から $n=2$ の軌道に移るときに出る光の波長には下限がある。その値（$n\to\infty$ の極限）を有効数字3桁で求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-29 C ◎◎◎◎ (ヒント2) → 2026-11-24 C △△△△ (ヒント1)}
+\begin{kotaeutsushi}{2026-10-29}
+\toi{1}{◎}{}
+\[ \frac{\melec v^{2}}{r}=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}},\qquad \melec vr=n\hbar \]
+\[ v=\frac{n\hbar}{\melec r} \]
+\begin{align*}
+\frac{\melec}{r}\left(\frac{n\hbar}{\melec r}\right)^{2}&=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}}\\
+\frac{n^{2}\hbar^{2}}{\melec r^{3}}&=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}}\\
+r_{n}&=\frac{4\pi\varepsilon_{0}n^{2}\hbar^{2}}{\melec e^{2}}
+\end{align*}
+\begin{align*}
+E_{n}&=\frac{1}{2}\melec\left(\frac{n\hbar}{\melec r_{n}}\right)^{2}-\frac{e^{2}}{4\pi\varepsilon_{0}r_{n}}\\
+&=\frac{n^{2}\hbar^{2}}{2\melec}\cdot\frac{\melec^{2}e^{4}}{16\pi^{2}\varepsilon_{0}^{2}n^{4}\hbar^{4}}\\
+&\qquad-\frac{e^{2}}{4\pi\varepsilon_{0}}\cdot\frac{\melec e^{2}}{4\pi\varepsilon_{0}n^{2}\hbar^{2}}\\
+&=\frac{\melec e^{4}-\kakimachigai{2\melec e^{2}}{2\melec e^{4}}}{32\pi^{2}\varepsilon_{0}^{2}n^{2}\hbar^{2}}\\
+&=-\frac{\melec e^{4}}{32\pi^{2}\varepsilon_{0}^{2}\hbar^{2}}\,\frac{1}{n^{2}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+r_{1}&=\frac{\varepsilon_{0}h^{2}}{\pi\melec e^{2}}=5.29\times10^{-80}\times10^{+69}\,\unit{\metre}\\
+&=\qty{5.29e-11}{\metre}\\
+&=\qty{0.0529}{\nano\metre}
+\end{align*}
+\begin{align*}
+E_{1}&=-\frac{\melec e^{3}}{8\varepsilon_{0}^{2}h^{2}}\,\unit{\electronvolt}\\
+&=-1.36\times10^{-3}\times10^{-88}\times10^{92}\\
+&=\qty{-13.6}{\electronvolt}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\lambda&=\frac{hc}{E_{3}-E_{2}}\\
+&=\frac{36\times\num{6.626e-34}\times\num{2.998e8}}{5\times13.6\times\num{1.602e-19}}\\
+&=\qty{6.56e-7}{\metre}=\qty{656}{\nano\metre}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\frac{hc}{-E_{2}}&=\frac{4\times\num{6.626e-34}\times\num{2.998e8}}{13.6\times\num{1.602e-19}}\\
+&=\qty{365}{\nano\metre}
+\end{align*}
+\end{kotaeutsushi}
+\begin{tadashii}
+\houshin 円運動の運動方程式（クーロン力が向心力）と量子条件 $\melec vr=n\hbar$ を連立して $r$ と $v$ を決め，力学的エネルギーを求める。遷移で出る光の波長は，振動数条件 $h\nu=E_{n}-E_{n'}$ と $\lambda=c/\nu$ から求める。
+\keisan
+\shoumonkai{1} 運動方程式と量子条件は
+\[ \frac{\melec v^{2}}{r}=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}},\qquad \melec vr=n\hbar \]
+である。第2式の $v=n\hbar/(\melec r)$ を第1式に代入すると
+\[ \frac{n^{2}\hbar^{2}}{\melec r^{3}}=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}}\quad\text{より}\quad r_{n}=\frac{4\pi\varepsilon_{0}\hbar^{2}}{\melec e^{2}}\,n^{2} \]
+運動方程式の両辺に $r/2$ をかけると，運動エネルギーは $\melec v^{2}/2=e^{2}/(8\pi\varepsilon_{0}r)$ で，位置エネルギー $-e^{2}/(4\pi\varepsilon_{0}r)$ の $-1/2$ 倍である。よって
+\[ E_{n}=\frac{e^{2}}{8\pi\varepsilon_{0}r_{n}}-\frac{e^{2}}{4\pi\varepsilon_{0}r_{n}}=-\frac{e^{2}}{8\pi\varepsilon_{0}r_{n}}=-\frac{\melec e^{4}}{2(4\pi\varepsilon_{0})^{2}\hbar^{2}}\,\frac{1}{n^{2}} \]
+\shoumonkai{2} $\hbar=h/(2\pi)=\qty{1.0546e-34}{\joule\second}$ を使うと
+\begin{align*}
+  r_{1}&=\frac{4\pi\times\num{8.854e-12}\times(\num{1.0546e-34})^{2}}{\num{9.109e-31}\times(\num{1.602e-19})^{2}}\,\unit{\metre}=\qty{5.29e-11}{\metre}=\qty{0.0529}{\nano\metre},\\
+  E_{1}&=-\frac{e^{2}}{8\pi\varepsilon_{0}r_{1}}=-\frac{(\num{1.602e-19})^{2}}{8\pi\times\num{8.854e-12}\times\num{5.293e-11}}\,\unit{\joule}=\qty{-2.179e-18}{\joule}=\qty{-13.6}{\electronvolt}.
+\end{align*}
+\shoumonkai{3} $E_{n}=E_{1}/n^{2}$ なので，放出される光子のエネルギーは
+\[ h\nu=E_{3}-E_{2}=\abs{E_{1}}\left(\frac{1}{4}-\frac{1}{9}\right)=\frac{5}{36}\abs{E_{1}} \]
+で，波長は
+\[ \lambda_{32}=\frac{hc}{E_{3}-E_{2}}=\frac{36hc}{5\abs{E_{1}}}=\frac{36\times\num{6.626e-34}\times\num{2.998e8}}{5\times\num{2.179e-18}}\,\unit{\metre}=\qty{6.56e-7}{\metre}=\qty{656}{\nano\metre} \]
+\shoumonkai{4} $n$ が大きいほど $E_{n}-E_{2}$ は大きく，波長は短い。$n\to\infty$ で $E_{n}\to0$ なので，波長の下限は
+\[ \lambda_{\infty}=\frac{hc}{0-E_{2}}=\frac{4hc}{\abs{E_{1}}}=\frac{4\times\num{6.626e-34}\times\num{2.998e8}}{\num{2.179e-18}}\,\unit{\metre}=\qty{365}{\nano\metre} \]
+\zu[水素原子のエネルギー準位と，$n=2$ への遷移（矢印）]{\begin{tikzpicture}[x=1cm,y=0.22cm]
+  \draw[jiku] (0,-14.8) -- (0,2.2) node[above]{$E$／\unit{\electronvolt}};
+  \foreach \E/\n in {-13.6/1,-3.40/2,-1.51/3}{\draw[junni] (0,\E) -- (4.5,\E) node[right]{$n=\n$};}
+  \draw[junni] (0,-0.85) -- (4.5,-0.85);
+  \draw[junni] (0,0) -- (4.5,0) node[right]{$n=\infty$};
+  \foreach \E in {-13.6,-3.40,-1.51}{\node[left,font=\small] at (0,\E) {$\E$};}
+  \node[left,font=\small] at (0,0) {$0$};
+  \draw[yajirushi] (1.5,-1.51) -- (1.5,-3.40) node[midway,right,font=\small]{\qty{656}{\nano\metre}};
+  \draw[yajirushi] (3.2,0) -- (3.2,-3.40) node[midway,right,font=\small]{\qty{365}{\nano\metre}};
+\end{tikzpicture}}
+\kotae{\shoumonkai{1} $r_{n}=\frac{4\pi\varepsilon_{0}\hbar^{2}}{\melec e^{2}}n^{2}$，$E_{n}=-\frac{\melec e^{4}}{2(4\pi\varepsilon_{0})^{2}\hbar^{2}n^{2}}$ \shoumonkai{2} $r_{1}=\qty{0.0529}{\nano\metre}$，$E_{1}=\qty{-13.6}{\electronvolt}$ \shoumonkai{3} \qty{656}{\nano\metre} \shoumonkai{4} \qty{365}{\nano\metre}}
+\begin{ronten}
+  \item \shoumonkai{1} 力学的エネルギーを運動エネルギーと位置エネルギー（無限遠を基準）の和とし，運動方程式から運動エネルギーが位置エネルギーの $-1/2$ 倍になることを使ったと書く。
+  \item \shoumonkai{4} $n$ が大きいほど $E_{n}-E_{2}$ が大きく波長が短いこと（単調性）から，下限が $n\to\infty$ の極限で与えられることを述べる。
+\end{ronten}
+\kenzan 次元：$\varepsilon_{0}$ は（電荷）$^{2}$／（エネルギー×長さ）の次元をもつので，$\varepsilon_{0}\hbar^{2}/(\melec e^{2})$ は（エネルギー×時間）$^{2}$／（質量×エネルギー×長さ）になり，エネルギー＝質量×（長さ／時間）$^{2}$ を使うと長さになる。$E_{n}$ は $e^{2}/(\varepsilon_{0}r)$ の形でエネルギーである。$\lambda_{32}=\qty{656}{\nano\metre}$ は赤色の可視光（水素の Hα 線）で，$\lambda_{\infty}$ はそれより短い。また $v_{1}=\hbar/(\melec r_{1})=\qty{2.19e6}{\metre\per\second}$ は光速の約 $1/137$ で，非相対論的に扱ってよい。
+\tsumazuki 力学的エネルギーは運動エネルギーと位置エネルギーの和で，運動エネルギーは位置エネルギーの大きさの半分である。位置エネルギーだけを $E_{n}$ としない。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
