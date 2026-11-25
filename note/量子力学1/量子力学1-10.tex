@@ -175,7 +175,7 @@ $b$ を正の定数とし，規格化された実数の波動関数 $\psi(x)=(\p
 \toi{1}{◎}{}
 \[ I_{1}=\int\psi^{*}(\hat{p}\psi)\dd x \]
 \begin{align*}
-\hat{p}\psi&=-\ii\hbar\dv{x}\Bigl((\pi b^{2})^{-1/4}\ee^{-x^{2}/(2b^{2})}\Bigr)\\
+\hat{p}\psi&=-\ii\hbar\frac{\dd}{\dd x}\Bigl((\pi b^{2})^{-1/4}\ee^{-x^{2}/(2b^{2})}\Bigr)\\
 &=-\ii\hbar(\pi b^{2})^{-1/4}\cdot\Bigl(-\frac{x}{b^{2}}\Bigr)\ee^{-x^{2}/(2b^{2})}\\
 &=\ii\hbar(\pi b^{2})^{-1/4}\cdot\frac{x}{b^{2}}\ee^{-x^{2}/(2b^{2})}
 \end{align*}
@@ -190,7 +190,7 @@ I_{1}&=-\frac{1}{2}\ii\hbar(\pi b^{2})^{-1/2}\int\frac{-2x}{b^{2}}\ee^{-x^{2}/b^
 &=0
 \end{align*}
 \begin{align*}
-I_{2}&=\int\psi^{*}x\Bigl(-\ii\hbar\dv{x}(\psi)\Bigr)\dd x\\
+I_{2}&=\int\psi^{*}x\Bigl(-\ii\hbar\frac{\dd}{\dd x}(\psi)\Bigr)\dd x\\
 &=\int\ii\hbar(\pi b^{2})^{-1/2}\frac{x^{2}}{b^{2}}\ee^{-x^{2}/b^{2}}\dd x\\
 &=\ii\hbar(\pi b^{2})^{-1/2}\cdot\Bigl(-\frac{1}{2}\Bigr)\int x\cdot\bigl(\ee^{-x^{2}/b^{2}}\bigr)'\dd x\\
 &=-\frac{\ii\hbar}{2}(\pi b^{2})^{-1/2}\biggl(\Bigl[x\ee^{-x^{2}/b^{2}}\Bigr]_{-\infty}^{\infty}\\
@@ -198,15 +198,15 @@ I_{2}&=\int\psi^{*}x\Bigl(-\ii\hbar\dv{x}(\psi)\Bigr)\dd x\\
 &=\frac{\ii\hbar}{2}\frac{1}{\sqrt{\pi b^{2}}}\cdot\sqrt{\pi b^{2}}\\
 &=\frac{\ii\hbar}{2}
 \end{align*}
-\[ I_{3}=\int\psi^{*}\Bigl(-\ii\hbar\dv{x}(x\psi)\Bigr)\dd x \]
+\[ I_{3}=\int\psi^{*}\Bigl(-\ii\hbar\frac{\dd}{\dd x}(x\psi)\Bigr)\dd x \]
 \begin{align*}
-\dv{x}(x\psi)&=\psi+\kakimachigai{x\psi^{*}}{x\psi'}\\
+\frac{\dd}{\dd x}(x\psi)&=\psi+\kakimachigai{x\psi^{*}}{x\psi'}\\
 &=(\pi b^{2})^{-1/4}\ee^{-x^{2}/(2b^{2})}\\
 &\qquad-\frac{x^{2}}{b^{2}}(\pi b^{2})^{-1/4}\ee^{-x^{2}/(2b^{2})}\\
 &=(\pi b^{2})^{-1/4}\Bigl(1-\frac{x^{2}}{b^{2}}\Bigr)\ee^{-x^{2}/(2b^{2})}
 \end{align*}
 \begin{align*}
-&\psi^{*}\Bigl(-\ii\hbar\dv{x}(x\psi)\Bigr)\\
+&\psi^{*}\Bigl(-\ii\hbar\frac{\dd}{\dd x}(x\psi)\Bigr)\\
 &=-\ii\hbar(\pi b^{2})^{-1/2}\Bigl(1-\frac{x^{2}}{b^{2}}\Bigr)\ee^{-x^{2}/b^{2}}
 \end{align*}
 \begin{align*}
