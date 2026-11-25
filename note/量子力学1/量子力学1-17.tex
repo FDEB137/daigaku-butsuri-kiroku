@@ -1,0 +1,684 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第17章「ブラ・ケットと表示」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou17\量子力学1-17.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-065-matrix}{1}}{L1・計算}{◎◎◎}{S}{2026-11-08}
+  \ichirangyou{\hyperlink{bt-m-066-delta}{2}}{L1・計算}{◎○◎△}{B}{2026-11-08 (2)記述 (4)記述}
+  \ichirangyou{3}{L1・導出}{}{未着手}{}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L1・導出}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-068-spectral}{6}}{L2・計算}{◎◎◎◎}{S}{2026-11-08}
+  \ichirangyou{\hyperlink{bt-m-069-momrep}{7}}{L2・計算}{◎◎◎◎◎}{S}{2026-11-08}
+  \ichirangyou{8}{L2・導出}{}{未着手}{}
+  \ichirangyou{9}{L2・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-072-translation}{10}}{L3・導出}{◎◎◎△◎}{B}{2026-11-08 ヒント1 (4)方針}
+  \ichirangyou{11}{L3・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-134-propagator}{12}}{L4・導出}{◎◎◎▲}{B}{2026-11-08 (4)方針}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\065_2026-11-08.tex
+\mondaibangou{1}
+\begin{mondai}{065-matrix}{計算}{完全系での行列要素とエルミート性，成分による期待値の計算}
+$\ket{u_{1}},\ket{u_{2}}$ を2次元の空間の完全系をなす規格直交なケットとし，$\varepsilon$ を正の実定数とする。演算子
+  \[ \hat{A}=3\varepsilon\ket{u_{1}}\bra{u_{1}}+4\ii\varepsilon\ket{u_{1}}\bra{u_{2}}-4\ii\varepsilon\ket{u_{2}}\bra{u_{1}}-3\varepsilon\ket{u_{2}}\bra{u_{2}} \]
+  について，次の問いに答えよ。
+  \begin{shoumon}
+    \item 行列要素 $A_{nm}=\matrixel{u_{n}}{\hat{A}}{u_{m}}$（$n,m=1,2$）をすべて求めよ。
+    \item $A_{nm}=A_{mn}^{*}$ を確かめ，$\hat{A}$ がエルミートであることを示せ。
+    \item $\ket{\psi}=(\ket{u_{1}}+\ii\ket{u_{2}})/\sqrt{2}$ について，$\braket{\psi}{\psi}=1$ を確かめよ。さらに成分 $\matrixel{u_{n}}{\hat{A}}{\psi}$（$n=1,2$）と期待値 $\matrixel{\psi}{\hat{A}}{\psi}$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-08 S ◎◎◎}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+\begin{align*}
+&\matrixel{u_{1}}{\hat{A}}{u_{1}}\\
+&=3\varepsilon\braket{u_{1}}{u_{1}}\braket{u_{1}}{u_{1}}\\
+&\qquad+4\ii\varepsilon\braket{u_{1}}{u_{1}}\kakimachigai{\braket{u_{1}}{u_{2}}}{\braket{u_{2}}{u_{1}}}\\
+&\qquad-4\ii\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{1}}{u_{1}}\\
+&\qquad-3\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{2}}{u_{1}}\\
+&=3\varepsilon
+\end{align*}
+\begin{gather*}
+\matrixel{u_{1}}{\hat{A}}{u_{2}}=4\ii\varepsilon\\
+\matrixel{u_{2}}{\hat{A}}{u_{1}}=-4\ii\varepsilon\\
+\matrixel{u_{2}}{\hat{A}}{u_{2}}=-3\varepsilon\\
+\hat{A}=\begin{pmatrix}3\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-3\varepsilon\end{pmatrix}
+\end{gather*}
+\toi{2}{◎}{}
+\begin{gather*}
+\hat{A}^{*}=\begin{pmatrix}3\varepsilon&-4\ii\varepsilon\\4\ii\varepsilon&-3\varepsilon\end{pmatrix}\\
+\hat{A}^{\dagger}=\begin{pmatrix}3\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-3\varepsilon\end{pmatrix}=\hat{A}
+\end{gather*}
+\toi{3}{◎}{}
+\begin{align*}
+\braket{\psi}{\psi}&=\frac{1}{2}\kakimachigai{(\ket{u_{1}}+\ii\ket{u_{2}})^{*}}{(\cdots)^{\dagger}}\\
+&\qquad\times(\ket{u_{1}}+\ii\ket{u_{2}})\\
+&=\frac{1}{2}(\bra{u_{1}}-\ii\bra{u_{2}})(\ket{u_{1}}+\ii\ket{u_{2}})\\
+&=\frac{1}{2}(\braket{u_{1}}{u_{1}}+\braket{u_{2}}{u_{2}})\\
+&=1
+\end{align*}
+\begin{align*}
+&\matrixel{u_{1}}{\hat{A}}{\psi}\\
+&=3\varepsilon\braket{u_{1}}{u_{1}}\braket{u_{1}}{\psi}\\
+&\qquad+4\ii\varepsilon\braket{u_{1}}{u_{1}}\braket{u_{2}}{\psi}\\
+&\qquad-4\ii\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{1}}{\psi}\\
+&\qquad-3\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{2}}{\psi}\\
+&=\frac{3}{\sqrt{2}}\varepsilon+\frac{4\ii\varepsilon}{\sqrt{2}}\ii\\
+&=-\frac{1}{\sqrt{2}}\varepsilon
+\end{align*}
+\[ \matrixel{u_{2}}{\hat{A}}{\psi}=-\frac{4\ii\varepsilon}{\sqrt{2}}-\frac{3\varepsilon\ii}{\sqrt{2}}=-\frac{7\varepsilon}{\sqrt{2}}\ii \]
+\begin{align*}
+&\matrixel{\psi}{\hat{A}}{\psi}\\
+&=\frac{1}{\sqrt{2}}\bigl(\matrixel{u_{1}}{\hat{A}}{\psi}-\ii\matrixel{u_{2}}{\hat{A}}{\psi}\bigr)\\
+&=\frac{1}{\sqrt{2}}\Bigl(-\frac{\varepsilon}{\sqrt{2}}-\frac{7\varepsilon}{\sqrt{2}}\Bigr)\\
+&=-4\varepsilon
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\066_2026-11-08.tex
+\mondaibangou{2}
+\begin{mondai}{066-delta}{計算}{連続固有値の固有ケットによる行列要素とデルタ関数}
+区間 $(-\infty,\infty)$ の1次元系で，$\ket{x}$ を $\hat{x}$ の固有値 $x$ の固有ケット，$\ket{k}$ を $\hat{p}$ の固有値 $\hbar k$ の固有ケットとし，$\braket{x}{x'}=\delta(x-x')$，$\braket{x}{k}=\ee^{\ii kx}/\sqrt{2\pi}$ とする。任意のケット $\ket{\psi}$ について
+  \[ \matrixel{x}{\hat{p}}{\psi}=-\ii\hbar\pdv{\braket{x}{\psi}}{x} \]
+  が成り立つものとして，次の問いに答えよ。
+  \begin{shoumon}
+    \item 位置表示の行列要素 $\matrixel{x}{\hat{x}}{x'}$ をデルタ関数で表せ。
+    \item 位置表示の行列要素 $\matrixel{x}{\hat{p}}{x'}$ をデルタ関数で表せ。
+    \item $\matrixel{x}{\hat{p}}{k}$ を，$\hat{p}\ket{k}=\hbar k\ket{k}$ を使う方法と，上の式を使う方法の2通りで求め，一致することを確かめよ。
+    \item $\psi(x)=\braket{x}{\psi}$ とする。(2) の結果を使って $x'$ についての積分
+    \[ \int_{-\infty}^{\infty}\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x' \]
+    を計算し，$\matrixel{x}{\hat{p}}{\psi}$ に一致することを示せ。
+  \end{shoumon}
+\notekiroku{2026-11-08 B ◎○◎△}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+\[ x'\braket{x}{x'}=x'\delta(x-x') \]
+\toi{2}{○}{記述}
+\begin{align*}
+\matrixel{x}{\hat{p}}{x'}&=-\ii\hbar\pdv{\braket{x}{x'}}{x}\\
+&=-\ii\hbar\pdv{}{x}\ayamari{\delta(x)}{\delta(x-x')}
+\end{align*}
+\naze{$\braket{x}{x'}=\delta(x-x')$ なので，デルタ関数の引数は $x-x'$ のままである。$\delta(x)$ では $x'$ がどこにも入らず，$x'$ によらない量になってしまう。}
+\toi{3}{◎}{}
+\begin{align*}
+\matrixel{x}{\hat{p}}{k}&=-\ii\hbar\pdv{\braket{x}{k}}{x}\\
+&=-\ii\hbar\pdv{}{x}\frac{\ee^{\ii kx}}{\sqrt{2\pi}}\\
+&=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx}
+\end{align*}
+\begin{align*}
+\matrixel{x}{\hat{p}}{k}&=\hbar k\braket{x}{k}\\
+&=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx}
+\end{align*}
+\toi{4}{△}{記述}
+\begin{align*}
+&\int_{-\infty}^{\infty}\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x'\\
+&=\int_{-\infty}^{\infty}-\ii\hbar\Bigl(\pdv{}{x}\delta(x-x')\Bigr)\psi(x')\dd x'\\
+&=\int_{-\infty}^{\infty}-\ii\hbar\Bigl(\ayamari{\pdv{}{x}\psi(x')}{\pdv{\psi(x')}{x'}}\Bigr)\\
+&\qquad\times\delta(x-x')\dd x'\\
+&=-\ii\hbar\pdv{}{x}\psi(x)
+\end{align*}
+\naze{$\psi(x')$ は $x$ によらないので，書いたとおりに読むと $\partial\psi(x')/\partial x=0$ で，この変形は成り立たない。$x$ での微分は積分変数 $x'$ に関係しないので積分の外に出し，$-\ii\hbar\,\partial_{x}\int\delta(x-x')\psi(x')\dd x'=-\ii\hbar\,\dd\psi/\dd x$ とする（または $\partial_{x}\delta(x-x')=-\partial_{x'}\delta(x-x')$ と直して部分積分すると，$\psi$ の微分は $x'$ での微分になる）。}
+\[ \matrixel{x}{\hat{p}}{\psi}\nuke{=}-\ii\hbar\pdv{}{x}\psi(x) \]
+\naze{左辺の積分が，$\hat{p}$ と $\ket{\psi}$ の間に位置の完全性 $\int\ket{x'}\bra{x'}\dd x'=\hat{1}$ を挟んだ $\matrixel{x}{\hat{p}}{\psi}$ そのものであることを書いて，2つを等号で結ぶ。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 位置表示の行列要素 $\matrixel{x}{\hat{A}}{x'}$ は $x$ と $x'$ の2変数の関数（連続な添字の「行列」）である。答えに両方の変数が入っているかで確かめる。
+\item \mae{第3章 問題2・10-18，10-21} 答えの式の記号の書き落とし（前回は複素定数の $\abs{A}^{2}$ を $A^{2}$ と書いた）。答えを書いたら，問題に出てくる変数（ここでは $x$ と $x'$）がすべて入っているか，絶対値や引数が落ちていないかを見直す。
+\item \mae{第4章 問題7 (1)・10-28，第7章 問題8 (2)・11-07} デルタ関数や微分を含む積分の変形の根拠が無い。積分の中の微分を動かすときは，「どの変数での微分か」「積分の外に出すのか，部分積分なのか」を毎回書く。積分変数でない変数での微分は $\int\partial_{x}F(x,x')\dd x'=\partial_{x}\int F(x,x')\dd x'$ と外に出せる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 固有ケットの性質と規格化 $\braket{x}{x'}=\delta(x-x')$ で行列要素を書く。$\hat{p}$ の位置表示の式は任意の $\ket{\psi}$ で成り立つので，$\ket{x'}$ や $\ket{k}$ を代入できる。
+\keisan \shoumonkai{1} $\hat{x}\ket{x'}=x'\ket{x'}$ なので
+\[ \matrixel{x}{\hat{x}}{x'}=x'\braket{x}{x'}=x'\delta(x-x') \]
+$(x-x')\delta(x-x')=0$ なので，これは $x\,\delta(x-x')$ と書いても同じである。
+
+\shoumonkai{2} 与えた式で $\ket{\psi}=\ket{x'}$ とすると，$\braket{x}{x'}=\delta(x-x')$ より
+\[ \matrixel{x}{\hat{p}}{x'}=-\ii\hbar\pdv{\delta(x-x')}{x} \]
+\shoumonkai{3} 1つ目の方法：$\hat{p}\ket{k}=\hbar k\ket{k}$ に左から $\bra{x}$ を掛けて
+\[ \matrixel{x}{\hat{p}}{k}=\hbar k\braket{x}{k}=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx} \]
+2つ目の方法：与えた式で $\ket{\psi}=\ket{k}$ とすると，$\partial\ee^{\ii kx}/\partial x=\ii k\,\ee^{\ii kx}$ より
+\[ \matrixel{x}{\hat{p}}{k}=-\ii\hbar\pdv{}{x}\Bigl(\frac{\ee^{\ii kx}}{\sqrt{2\pi}}\Bigr)=-\ii\hbar\cdot\ii k\frac{\ee^{\ii kx}}{\sqrt{2\pi}}=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx} \]
+両者は一致する。
+
+\shoumonkai{4} (2) を代入する。$x$ での微分は積分変数 $x'$ に関係しないので，積分の外に出せる。
+\begin{align*}
+\int_{-\infty}^{\infty}\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x'
+&=\int_{-\infty}^{\infty}\Bigl(-\ii\hbar\pdv{\delta(x-x')}{x}\Bigr)\psi(x')\dd x'\\
+&=-\ii\hbar\pdv{}{x}\int_{-\infty}^{\infty}\delta(x-x')\psi(x')\dd x'=-\ii\hbar\dv{\psi}{x}
+\end{align*}
+一方，位置の完全性を $\hat{p}$ と $\ket{\psi}$ の間に挟むと，左辺はちょうど $\matrixel{x}{\hat{p}}{\psi}$ であり，与えた式 $-\ii\hbar\,\dd\psi/\dd x$ と一致する。これは，離散の場合の $A_{nm}c_{m}$ の $m$ についての和を，連続な添字 $x'$ についての積分に置きかえたものである。
+\kotae{\shoumonkai{1} $x'\delta(x-x')$（$=x\,\delta(x-x')$） \shoumonkai{2} $-\ii\hbar\,\partial\delta(x-x')/\partial x$ \shoumonkai{3} どちらも $\hbar k\,\ee^{\ii kx}/\sqrt{2\pi}$ \shoumonkai{4} $-\ii\hbar\,\dd\psi/\dd x$（$=\matrixel{x}{\hat{p}}{\psi}$）}
+\begin{ronten}
+  \item \shoumonkai{2} 与えた式が任意の $\ket{\psi}$ で成り立つことを根拠に，$\ket{\psi}=\ket{x'}$ を代入することを述べる。
+  \item \shoumonkai{4} $x$ での微分が積分変数 $x'$ に関係しないので，微分を積分の外に出せる理由を書く。
+  \item \shoumonkai{4} 左辺の積分が，$\hat{p}$ と $\ket{\psi}$ の間に位置の完全性を挟んだ $\matrixel{x}{\hat{p}}{\psi}$ そのものであることを述べる。
+\end{ronten}
+\kenzan $\delta(x-x')$ の次元は $1/\text{長さ}$ で，$\braket{x}{x'}$ と同じである。(2) は $\hbar\times(1/\text{長さ})^{2}$，(4) は $\hbar\times(\psi\text{ の次元})/\text{長さ}$ で，$\hat{p}$（運動量 $=\hbar/\text{長さ}$）を作用させた量として整合する。(3) で固有値 $\hbar k$ が出たことは，与えた式が運動量の固有ケットに正しく働く例である。
+\tsumazuki (2) で $\partial/\partial x'$ にすると符号が逆になる（$\partial\delta(x-x')/\partial x'=-\partial\delta(x-x')/\partial x$）。微分がどちらの変数についてかを確かめる。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\068_2026-11-08.tex
+\mondaibangou{6}
+\begin{mondai}{068-spectral}{計算}{固有ケットによるスペクトル分解と演算子の関数}
+$\ket{u_{1}},\ket{u_{2}}$ を2次元の空間の完全系をなす規格直交なケット，$\varepsilon$ を正の実定数とし，エルミート演算子
+  \[ \hat{A}=3\varepsilon\ket{u_{1}}\bra{u_{1}}+4\ii\varepsilon\ket{u_{1}}\bra{u_{2}}-4\ii\varepsilon\ket{u_{2}}\bra{u_{1}}-3\varepsilon\ket{u_{2}}\bra{u_{2}} \]
+  を考える。
+  \begin{shoumon}
+    \item $\hat{A}$ の固有値 $a_{+}>a_{-}$ と，規格化された固有ケット $\ket{a_{\pm}}$ を $\ket{u_{1}},\ket{u_{2}}$ の重ね合わせで求めよ。位相は $\ket{u_{1}}$ の係数が正の実数になるように選べ。
+    \item $\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}}=\hat{1}$ と，スペクトル分解 $\ket{a_{+}}a_{+}\bra{a_{+}}+\ket{a_{-}}a_{-}\bra{a_{-}}=\hat{A}$ を，$\ket{u_{p}}\bra{u_{q}}$ の係数を比べて確かめよ。
+    \item $\ket{\psi}=(\ket{u_{1}}+\ii\ket{u_{2}})/\sqrt{2}$ について，$P_{\pm}=\abs{\braket{a_{\pm}}{\psi}}^{2}$ を求め，$a_{+}P_{+}+a_{-}P_{-}$ を計算せよ。
+    \item $\theta$ を実数とし，$\hat{U}(\theta)=\exp(-\ii\theta\hat{A}/(5\varepsilon))$ をべき級数で定義する。$\hat{A}^{n}\ket{a_{\pm}}=a_{\pm}^{n}\ket{a_{\pm}}$ とスペクトル分解を使って
+    \[ \hat{U}(\theta)=\cos\theta\,\hat{1}-\ii\sin\theta\,\frac{\hat{A}}{5\varepsilon} \]
+    を示し，$\abs{\matrixel{u_{2}}{\hat{U}(\theta)}{u_{1}}}^{2}$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-08 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+\[ \hat{A}=\begin{pmatrix}3\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-3\varepsilon\end{pmatrix} \]
+\begin{align*}
+\abs{\hat{A}-\lambda\hat{I}}&=-(3\varepsilon-\lambda)(3\varepsilon+\lambda)\\
+&\qquad+4\ii\varepsilon\cdot4\ii\varepsilon=0
+\end{align*}
+\begin{gather*}
+\therefore\ 9\varepsilon^{2}-\lambda^{2}+16\varepsilon^{2}=0\\
+\therefore\ \lambda^{2}=25\varepsilon^{2},\qquad \lambda=\pm5\varepsilon\\
+a_{+}=5\varepsilon,\qquad a_{-}=-5\varepsilon
+\end{gather*}
+\[ \begin{pmatrix}-2\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-8\varepsilon\end{pmatrix}\ket{a_{+}'}=0 \]
+\[ \therefore\ \ket{a_{+}'}=\begin{pmatrix}2\\-\ii\end{pmatrix},\qquad \ket{a_{+}}=\frac{1}{\sqrt{5}}\begin{pmatrix}2\\-\ii\end{pmatrix} \]
+\[ \begin{pmatrix}8\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&2\varepsilon\end{pmatrix}\ket{a_{-}'}=0 \]
+\[ \therefore\ \ket{a_{-}'}=\begin{pmatrix}1\\2\ii\end{pmatrix},\qquad \ket{a_{-}}=\frac{1}{\sqrt{5}}\begin{pmatrix}1\\2\ii\end{pmatrix} \]
+\begin{gather*}
+\ket{a_{+}}=\frac{2}{\sqrt{5}}\ket{u_{1}}-\frac{\ii}{\sqrt{5}}\ket{u_{2}}\\
+\ket{a_{-}}=\frac{1}{\sqrt{5}}\ket{u_{1}}+\frac{2\ii}{\sqrt{5}}\ket{u_{2}}
+\end{gather*}
+\toi{2}{◎}{}
+\begin{align*}
+&\ket{a_{+}}\bra{a_{+}}\\
+&=\frac{1}{5}(2\ket{u_{1}}-\ii\ket{u_{2}})(2\bra{u_{1}}+\ii\bra{u_{2}})\\
+&=\frac{1}{5}\bigl(4\ket{u_{1}}\bra{u_{1}}+\ket{u_{2}}\bra{u_{2}}\\
+&\qquad+2\ii\ket{u_{1}}\bra{u_{2}}-2\ii\ket{u_{2}}\bra{u_{1}}\bigr)
+\end{align*}
+\begin{align*}
+&\ket{a_{-}}\bra{a_{-}}\\
+&=\frac{1}{5}(\ket{u_{1}}+2\ii\ket{u_{2}})(\bra{u_{1}}-2\ii\bra{u_{2}})\\
+&=\frac{1}{5}\bigl(\ket{u_{1}}\bra{u_{1}}+4\ket{u_{2}}\bra{u_{2}}\\
+&\qquad-2\ii\ket{u_{1}}\bra{u_{2}}+2\ii\ket{u_{2}}\bra{u_{1}}\bigr)
+\end{align*}
+\begin{align*}
+&\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}}\\
+&=\ket{u_{1}}\bra{u_{1}}+\ket{u_{2}}\bra{u_{2}}
+\end{align*}
+\begin{align*}
+&\ket{a_{+}}a_{+}\bra{a_{+}}+\ket{a_{-}}a_{-}\bra{a_{-}}\\
+&=\kakimachigai{\varepsilon}{5\varepsilon}(\ket{a_{+}}\bra{a_{+}}-\ket{a_{-}}\bra{a_{-}})\\
+&=3\varepsilon\ket{u_{1}}\bra{u_{1}}-3\varepsilon\ket{u_{2}}\bra{u_{2}}\\
+&\qquad+4\ii\varepsilon\ket{u_{1}}\bra{u_{2}}-4\ii\varepsilon\ket{u_{2}}\bra{u_{1}}\\
+&=\hat{A}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\braket{a_{+}}{\psi}&=\Bigl(\frac{2}{\sqrt{5}}\bra{u_{1}}+\frac{\ii}{\sqrt{5}}\bra{u_{2}}\Bigr)\\
+&\qquad\times\Bigl(\frac{1}{\sqrt{2}}\ket{u_{1}}+\frac{\ii}{\sqrt{2}}\ket{u_{2}}\Bigr)\\
+&=\frac{2}{\sqrt{10}}\braket{u_{1}}{u_{1}}-\frac{1}{\sqrt{10}}\braket{u_{2}}{u_{2}}\\
+&=\frac{1}{\sqrt{10}}
+\end{align*}
+\begin{align*}
+\braket{a_{-}}{\psi}&=\Bigl(\frac{1}{\sqrt{5}}\bra{u_{1}}-\frac{2\ii}{\sqrt{5}}\bra{u_{2}}\Bigr)\\
+&\qquad\times\Bigl(\frac{1}{\sqrt{2}}\ket{u_{1}}+\frac{\ii}{\sqrt{2}}\ket{u_{2}}\Bigr)\\
+&=\frac{1}{\sqrt{10}}\braket{u_{1}}{u_{1}}+\frac{2}{\sqrt{10}}\braket{u_{2}}{u_{2}}\\
+&=\frac{3}{\sqrt{10}}
+\end{align*}
+\[ P_{+}=\frac{1}{10},\qquad P_{-}=\frac{9}{10} \]
+\[ a_{+}P_{+}+a_{-}P_{-}=\frac{5\varepsilon}{10}-\frac{5\cdot9\varepsilon}{10}=-4\varepsilon \]
+\toi{4}{◎}{}
+\begin{align*}
+&\hat{U}(\theta)\\
+&=\cos\theta(\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}})\\
+&\qquad-\ii\sin\theta\,\frac{1}{5\varepsilon}\kakimachigai{}{(}\ket{a_{+}}a_{+}\bra{a_{+}}\\
+&\qquad+\ket{a_{-}}a_{-}\bra{a_{-}}\kakimachigai{}{)}\\
+&=\cos\theta(\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}})\\
+&\qquad-\ii\sin\theta(\ket{a_{+}}\bra{a_{+}}-\ket{a_{-}}\bra{a_{-}})\\
+&=(\cos\theta-\ii\sin\theta)\ket{a_{+}}\bra{a_{+}}\\
+&\qquad+(\cos\theta+\ii\sin\theta)\ket{a_{-}}\bra{a_{-}}\\
+&=\ee^{-\ii\theta}\ket{a_{+}}\bra{a_{+}}+\ee^{\ii\theta}\ket{a_{-}}\bra{a_{-}}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}(-\ii\theta)^{n}\ket{a_{+}}\bra{a_{+}}\\
+&\qquad+\frac{1}{n!}\kakimachigai{(\ii\theta)}{(\ii\theta)^{n}}\ket{a_{-}}\bra{a_{-}}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii\theta}{5\varepsilon}\Bigr)^{n}a_{+}^{n}\ket{a_{+}}\bra{a_{+}}\\
+&\qquad+\frac{1}{n!}\kakimachigai{\Bigl(-\frac{\ii\theta}{5\varepsilon}\Bigr)}{(\cdots)^{n}}a_{-}^{n}\ket{a_{-}}\bra{a_{-}}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii\theta}{5\varepsilon}\Bigr)^{n}\hat{A}^{n}\\
+&\qquad\times(\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}})\\
+&=\hat{U}(\theta)\hat{1}
+\end{align*}
+より
+\[ \hat{U}(\theta)=\cos\theta\,\hat{1}-\ii\sin\theta\,\frac{\hat{A}}{5\varepsilon} \]
+\begin{align*}
+&\matrixel{u_{2}}{\hat{U}(\theta)}{u_{1}}\\
+&=\bra{u_{2}}\Bigl(\cos\theta\,\hat{1}\ket{u_{1}}-\ii\sin\theta\,\frac{\hat{A}}{5\varepsilon}\ket{u_{1}}\Bigr)\\
+&=\cos\theta\underbrace{\braket{u_{2}}{u_{1}}}_{0}-\ii\sin\theta\,\frac{1}{5\varepsilon}\matrixel{u_{2}}{\hat{A}}{u_{1}}\\
+&=\frac{4\ii^{2}\varepsilon}{5\varepsilon}\sin\theta\braket{u_{2}}{u_{2}}\braket{u_{1}}{u_{1}}
+\end{align*}
+\begin{align*}
+\abs{\matrixel{u_{2}}{\hat{U}(\theta)}{u_{1}}}^{2}&=\Bigl\lvert-\frac{4}{5}\sin\theta\Bigr\rvert^{2}\\
+&=\frac{16}{25}\sin^{2}\theta
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\069_2026-11-08.tex
+\mondaibangou{7}
+\begin{mondai}{069-momrep}{計算}{運動量表示での位置演算子と表示の変換}
+区間 $(-\infty,\infty)$ の1次元系で，記号と規約は Level 1 のデルタ関数の問題と同じとし，さらに $\braket{k}{k'}=\delta(k-k')$ と位置・運動量の完全性
+  \[ \int_{-\infty}^{\infty}\ket{x}\bra{x}\dd x=\int_{-\infty}^{\infty}\ket{k}\bra{k}\dd k=\hat{1} \]
+  を使ってよい。
+  \begin{shoumon}
+    \item $\ket{k}$ を位置の固有ケットで展開し，$\hat{x}\ket{k}=-\ii\,\partial\ket{k}/\partial k$ を示せ。
+    \item $\hat{x}$ がエルミートであることを使い，任意の $\ket{\psi}$ について $\matrixel{k}{\hat{x}}{\psi}=\ii\,\partial\braket{k}{\psi}/\partial k$ を示せ。
+    \item (2) と $\hat{p}\ket{k}=\hbar k\ket{k}$ を使い，$\matrixel{k}{(\hat{x}\hat{p}-\hat{p}\hat{x})}{\psi}=\ii\hbar\braket{k}{\psi}$ を示せ。
+    \item $\kappa$ を正の定数とし，$\braket{x}{\psi}=\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}$ とする。運動量表示 $\tilde{\psi}(k)=\braket{k}{\psi}$ を求めよ。
+    \item (2) と (4) を使い，$\matrixel{\psi}{\hat{x}^{2}}{\psi}$ を運動量表示で計算せよ。また位置表示で計算した値と一致することを確かめよ。必要なら次の積分を使ってよい（$b>0$）。
+    \[ \int_{-\infty}^{\infty}\frac{k^{2}}{(k^{2}+\kappa^{2})^{4}}\dd k=\frac{\pi}{16\kappa^{5}},\qquad \int_{0}^{\infty}x^{2}\ee^{-bx}\dd x=\frac{2}{b^{3}} \]
+  \end{shoumon}
+\notekiroku{2026-11-08 S ◎◎◎◎◎}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+\begin{align*}
+\ket{k}&=\int_{-\infty}^{\infty}\ket{x}\braket{x}{k}\dd x\\
+&=\int_{-\infty}^{\infty}\ket{x}\frac{1}{\sqrt{2\pi}}\ee^{\ii kx}\dd x
+\end{align*}
+\begin{align*}
+\hat{x}\ket{k}&=\int_{-\infty}^{\infty}\ket{x}\frac{1}{\sqrt{2\pi}}x\ee^{\ii kx}\dd x\\
+&=\int_{-\infty}^{\infty}\ket{x}\frac{1}{\sqrt{2\pi}}\Bigl(-\ii\pdv{}{k}\ee^{\ii kx}\Bigr)\dd x\\
+&=\int_{-\infty}^{\infty}\ket{x}\bra{x}-\ii\pdv{}{k}\ket{k}\dd x\\
+&=-\ii\pdv{}{k}\ket{k}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\matrixel{k}{\hat{x}}{\psi}&=\matrixel{\psi}{\hat{x}^{\dagger}}{k}^{*}\\
+&=\bra{\psi}-\ii\pdv{}{k}\ket{k}^{*}\\
+&=\ii\pdv{}{k}\braket{k}{\psi}
+\end{align*}
+\toi{3}{◎}{}
+$\hat{x}$，$\hat{p}$ はエルミート
+\begin{align*}
+&\matrixel{k}{\hat{x}\hat{p}}{\psi}-\matrixel{k}{\hat{p}\hat{x}}{\psi}\\
+&=\bigl(\matrixel{\psi}{\hat{p}^{\dagger}\hat{x}^{\dagger}}{k}-\matrixel{\psi}{\hat{x}^{\dagger}\hat{p}^{\dagger}}{k}\bigr)^{*}\\
+&=\Bigl(\bra{\psi}\hat{p}\Bigl(-\ii\pdv{}{k}\Bigr)\ket{k}\\
+&\qquad-\hbar k\matrixel{\psi}{\hat{x}}{k}\Bigr)^{*}\\
+&=\ii\pdv{}{k}\matrixel{\psi}{\hat{p}}{k}^{*}\\
+&\qquad-\hbar k\cdot\ii\pdv{}{k}\braket{k}{\psi}\\
+&=\ii\pdv{}{k}(\hbar k\braket{k}{\psi})-\ii\hbar k\pdv{}{k}\braket{k}{\psi}\\
+&=\ii\hbar\Bigl(\braket{k}{\psi}+k\pdv{}{k}\braket{k}{\psi}\Bigr)\\
+&\qquad-\ii\hbar k\pdv{}{k}\braket{k}{\psi}\\
+&=\ii\hbar\braket{k}{\psi}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\tilde{\psi}(k)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\,\ee^{-\ii kx}\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\\
+&\qquad\times(\cos kx-\ii\sin kx)\\
+&=\frac{2}{\sqrt{2\pi}}\int_{0}^{\infty}\dd x\sqrt{\kappa}\,\ee^{-\kappa x}\\
+&\qquad\times\Bigl(\frac{\ee^{\ii kx}+\ee^{-\ii kx}}{2}\Bigr)\\
+&=\sqrt{\frac{\kappa}{2\pi}}\int_{0}^{\infty}\dd x\\
+&\qquad\times\kakimachigai{\ee^{(-\kappa+\ii k)x}+\ee^{-(\kappa+\ii k)x}}{(\cdots)}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\biggl[\frac{1}{-\kappa+\ii k}\ee^{(-\kappa+\ii k)x}\\
+&\qquad+\frac{1}{-\kappa-\ii k}\ee^{(-\kappa-\ii k)x}\biggr]_{0}^{\infty}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\Bigl(\frac{1}{\kappa-\ii k}+\frac{1}{\kappa+\ii k}\Bigr)\\
+&=\sqrt{\frac{2\kappa^{3}}{\pi}}\cdot\frac{1}{k^{2}+\kappa^{2}}
+\end{align*}
+\toi{5}{◎}{}
+\begin{align*}
+&\matrixel{\psi}{\hat{x}^{2}}{\psi}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{x}}{k}\matrixel{k}{\hat{x}}{\psi}\dd k\\
+&=\int_{-\infty}^{\infty}\Bigl(\ii\pdv{}{k}\braket{k}{\psi}\Bigr)^{*}\\
+&\qquad\times\Bigl(\ii\pdv{}{k}\braket{k}{\psi}\Bigr)\dd k\\
+&=\int_{-\infty}^{\infty}\kakimachigai{\Bigl(\pdv{}{k}\braket{k}{\psi}\Bigr)^{2}}{\abs{\cdots}^{2}}\dd k
+\end{align*}
+\[ \pdv{}{k}\braket{k}{\psi}=\sqrt{\frac{2\kappa^{3}}{\pi}}\cdot\frac{-2k}{(k^{2}+\kappa^{2})^{2}} \]
+\begin{align*}
+\matrixel{\psi}{\hat{x}^{2}}{\psi}&=\int_{-\infty}^{\infty}\frac{8\kappa^{3}}{\pi}\cdot\frac{k^{2}}{(k^{2}+\kappa^{2})^{4}}\dd k\\
+&=\frac{8\kappa^{3}}{\pi}\cdot\frac{\pi}{16\kappa^{5}}=\frac{1}{2\kappa^{2}}
+\end{align*}
+\begin{align*}
+\matrixel{\psi}{\hat{x}^{2}}{\psi}&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{x}^{2}}{x}\braket{x}{\psi}\dd x\\
+&=\int_{-\infty}^{\infty}x^{2}\abs{\braket{x}{\psi}}^{2}\dd x\\
+&=\int_{-\infty}^{\infty}\kappa x^{2}\ee^{-2\kappa\abs{x}}\dd x\\
+&=\int_{0}^{\infty}2\kappa x^{2}\ee^{-2\kappa x}\dd x\\
+&=2\kappa\cdot\frac{2}{(2\kappa)^{3}}\\
+&=\frac{1}{2\kappa^{2}}
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{3}
+% toubun: kiroku\toubun\量子力学1\072_2026-11-08.tex
+\mondaibangou{10}
+\begin{mondai}{072-translation}{導出}{連続固有値のスペクトル分解と並進演算子}
+区間 $(-\infty,\infty)$ の1次元系で，記号と規約は Level 2 の運動量表示での位置演算子の問題と同じとする。$a$ を実定数とし，並進演算子を $\hat{T}(a)=\exp(-\ii a\hat{p}/\hbar)$（べき級数で定義）とする。
+  \begin{shoumon}
+    \item $\hat{p}^{n}$ と $\hat{T}(a)$ が次のように書けることを示せ（和と積分の順序は入れかえてよい）。
+    \[ \hat{p}^{n}=\int_{-\infty}^{\infty}(\hbar k)^{n}\ket{k}\bra{k}\dd k,\qquad \hat{T}(a)=\int_{-\infty}^{\infty}\ee^{-\ii ka}\ket{k}\bra{k}\dd k \]
+    \item $\hat{T}(a)\ket{x}=\ket{x+a}$ を示せ。
+    \item $\hat{T}(a)^{\dagger}=\hat{T}(-a)$ と $\hat{T}(a)^{\dagger}\hat{T}(a)=\hat{1}$ を示せ。さらに $\psi(x)=\braket{x}{\psi}$ として，$\matrixel{x}{\hat{T}(a)}{\psi}=\psi(x-a)$ を示せ。
+    \item $\psi(x)$ が $x$ のまわりでテイラー展開できるとする。$\matrixel{x}{\hat{p}^{n}}{\psi}$ を使って $\hat{T}(a)$ のべき級数を直接位置表示にし，(3) の結果を確かめよ。
+    \item $\ket{\psi_{a}}=\hat{T}(a)\ket{\psi}$ とする（$\ket{\psi}$ は規格化されている）。$\matrixel{\psi_{a}}{\hat{x}}{\psi_{a}}=\matrixel{\psi}{\hat{x}}{\psi}+a$ と $\matrixel{\psi_{a}}{\hat{p}}{\psi_{a}}=\matrixel{\psi}{\hat{p}}{\psi}$ を示せ。
+  \end{shoumon}
+\notekiroku{2026-11-08 B ◎◎◎△◎ (ヒント1)}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+$\hat{p}\ket{k}=(\hbar k)\ket{k}$ より $\hat{p}^{n}\ket{k}=(\hbar k)^{n}\ket{k}$ より
+\begin{align*}
+\hat{p}^{n}\hat{1}&=\int_{-\infty}^{\infty}\hat{p}^{n}\ket{k}\bra{k}\dd k\\
+&=\int_{-\infty}^{\infty}(\hbar k)^{n}\ket{k}\bra{k}\dd k
+\end{align*}
+（脇で $\hat{T}(a)\ket{k}$ を計算）
+\begin{align*}
+\hat{T}(a)\ket{k}&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\ket{k}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}(-\ii ak)^{n}\ket{k}\\
+&=\ee^{-\ii ka}\ket{k}
+\end{align*}
+\begin{align*}
+\hat{T}(a)\hat{1}&=\int_{-\infty}^{\infty}\hat{T}(a)\ket{k}\bra{k}\dd k\\
+&=\int_{-\infty}^{\infty}\ee^{-\ii ka}\ket{k}\bra{k}\dd k
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\hat{1}\ket{x}&=\int_{-\infty}^{\infty}\ket{k}\braket{k}{x}\dd k\\
+&=\int_{-\infty}^{\infty}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k
+\end{align*}
+\begin{align*}
+&\hat{T}(a)\ket{x}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\\
+&\qquad\times\int_{-\infty}^{\infty}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
+&=\int_{-\infty}^{\infty}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}(\hbar k)^{n}\\
+&\qquad\times\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
+&=\int_{-\infty}^{\infty}\ee^{-\ii ka}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
+&=\int_{-\infty}^{\infty}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii k(x+a)}\dd k\\
+&=\int_{-\infty}^{\infty}\ket{k}\braket{k}{x+a}\dd k\\
+&=\ket{x+a}
+\end{align*}
+\toi{3}{◎}{}
+$\hat{p}^{\dagger}=\hat{p}$
+\begin{align*}
+\hat{T}(a)^{\dagger}&=\Bigl(\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\Bigr)^{\dagger}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii(-a)}{\hbar}\Bigr)^{n}\hat{p}^{n}\\
+&=\hat{T}(-a)
+\end{align*}
+\begin{align*}
+\hat{T}(a)^{\dagger}\hat{T}(a)&=\hat{T}(-a)\hat{T}(a)\\
+&=\exp(\ii a\hat{p}/\hbar)\exp(-\ii a\hat{p}/\hbar)\\
+&=\exp(\ii a\hat{p}/\hbar)\exp(\ii a\hat{p}/\hbar)^{-1}\\
+&=\hat{1}
+\end{align*}
+\begin{align*}
+\matrixel{x}{\hat{T}(a)}{\psi}&=\kakimachigai{(\hat{T}(a)^{\dagger}\ket{x})^{*}}{(\cdots)^{\dagger}}\ket{\psi}\\
+&=\kakimachigai{\ket{x-a}^{*}}{\ket{x-a}^{\dagger}}\ket{\psi}\\
+&=\braket{x-a}{\psi}\\
+&=\psi(x-a)
+\end{align*}
+\toi{4}{△}{方針}
+\begin{align*}
+&\matrixel{x}{\hat{p}^{n}}{\psi}\\
+&=\ayamari{\int_{-\infty}^{\infty}(\hbar k)^{n}\braket{x}{k}\braket{k}{\psi}\dd k}{(-\ii\hbar)^{n}\psi^{(n)}(x)}
+\end{align*}
+\naze{運動量の完全性を挟んで $\hat{p}^{n}$ を固有値 $(\hbar k)^{n}$ に置きかえると，(1)〜(3) と同じ道筋になり，問われた「直接位置表示にする」確かめにならない（テイラー展開の仮定も使わない）。位置表示の $\matrixel{x}{\hat{p}^{n}}{\psi}=(-\ii\hbar)^{n}\psi^{(n)}(x)$ を使う。以降はこの道筋を引き継ぐ。}
+\begin{align*}
+&\matrixel{x}{\hat{T}(a)}{\psi}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\matrixel{x}{\hat{p}^{n}}{\psi}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\\
+&\qquad\times\int_{-\infty}^{\infty}(\hbar k)^{n}\braket{x}{k}\braket{k}{\psi}\dd k\\
+&=\int_{-\infty}^{\infty}\sum_{n=0}^{\infty}\frac{1}{n!}(-\ii ka)^{n}\\
+&\qquad\times\frac{1}{\sqrt{2\pi}}\ee^{\ii kx}\tilde{\psi}(k)\dd k\\
+&=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}\ee^{\ii k(x-a)}\tilde{\psi}(k)\dd k\\
+&=\psi(x-a)
+\end{align*}
+\naze{正しくは，第 $n$ 項の係数が $(-\ii a/\hbar)^{n}(-\ii\hbar)^{n}/n!=(-a)^{n}/n!$ になり，$\sum_{n}(-a)^{n}\psi^{(n)}(x)/n!$ が $\psi(x-a)$ の $x$ のまわりのテイラー展開と項ごとに一致することで (3) を確かめる。}
+\toi{5}{◎}{}
+\begin{align*}
+\bra{\psi_{a}}&=\kakimachigai{(\hat{T}(a)\ket{\psi})^{*}}{(\cdots)^{\dagger}}\\
+&=\bra{\psi}\hat{T}(a)^{\dagger}
+\end{align*}
+\begin{align*}
+&\matrixel{\psi_{a}}{\hat{x}}{\psi_{a}}\\
+&=\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{x}\hat{T}(a)}{\psi}
+\end{align*}
+（$\hat{x}$ と $\hat{T}(a)$ の間に $\hat{1}$ を挟む）
+\begin{align*}
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{x}}{x}\\
+&\qquad\times\matrixel{x}{\hat{T}(a)}{\psi}\dd x\\
+&=\int_{-\infty}^{\infty}x\matrixel{x}{\hat{T}(a)}{\psi}^{*}\psi(x-a)\dd x\\
+&=\int_{-\infty}^{\infty}x\braket{\psi}{x-a}\braket{x-a}{\psi}\dd x
+\end{align*}
+$x-a=x'$ とする。
+\begin{align*}
+&=\int_{-\infty}^{\infty}(x'+a)\braket{\psi}{x'}\braket{x'}{\psi}\dd x'\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{x'}{x'}\braket{x'}{\psi}\dd x'\\
+&\qquad+a\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}\\
+&=\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\hat{x}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}\\
+&\qquad+a\braket{\psi}{\psi}\\
+&=\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\hat{x}\ket{x}\bra{x}\dd x\Bigr)\ket{\psi}+a\\
+&=\matrixel{\psi}{\hat{x}}{\psi}+a
+\end{align*}
+\[ \matrixel{\psi_{a}}{\hat{p}}{\psi_{a}}=\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{p}\hat{T}(a)}{\psi} \]
+\begin{align*}
+&\comm{\hat{p}}{\hat{T}(a)}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\underbrace{\comm{\hat{p}}{\hat{p}^{n}}}_{0}=0\\
+&\matrixel{\psi_{a}}{\hat{p}}{\psi_{a}}\\
+&=\bra{\psi}\underbrace{\hat{T}(a)^{\dagger}\hat{T}(a)}_{\hat{1}}\hat{p}\ket{\psi}=\matrixel{\psi}{\hat{p}}{\psi}
+\end{align*}
+（ここまでを括弧でくくり）←これでいい？
+\begin{align*}
+&\matrixel{\psi_{a}}{\hat{p}}{\psi_{a}}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{p}}{x}\\
+&\qquad\times\matrixel{x}{\hat{T}(a)}{\psi}\dd x\\
+&=\int_{-\infty}^{\infty}\matrixel{x}{\hat{p}\hat{T}(a)}{\psi}^{*}\psi(x-a)\dd x\\
+&=\int_{-\infty}^{\infty}\Bigl(-\ii\hbar\frac{\dd}{\dd x}\psi(x-a)\Bigr)^{*}\\
+&\qquad\times\psi(x-a)\dd x\\
+&=\int_{-\infty}^{\infty}\ii\hbar\kakimachigai{\Bigl(\frac{\dd}{\dd x}\psi(x-a)\Bigr)}{(\cdots)^{*}}\\
+&\qquad\times\psi(x-a)\dd x
+\end{align*}
+$x-a=x'$
+\begin{align*}
+&=\int_{-\infty}^{\infty}\ii\hbar\kakimachigai{\Bigl(\frac{\dd}{\dd x'}\psi(x')\Bigr)}{(\cdots)^{*}}\\
+&\qquad\times\psi(x')\dd x'\\
+&=\int_{-\infty}^{\infty}\matrixel{x'}{\hat{p}}{\psi}^{*}\braket{x'}{\psi}\dd x'\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{p}}{x'}\braket{x'}{\psi}\dd x'\\
+&=\bra{\psi}\hat{p}\Bigl(\int_{-\infty}^{\infty}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}\\
+&=\matrixel{\psi}{\hat{p}}{\psi}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 位置表示では $\hat{p}$ は $-\ii\hbar\,\dd/\dd x$ なので，$\matrixel{x}{\hat{p}^{n}}{\psi}=(-\ii\hbar)^{n}\psi^{(n)}(x)$ で，$\hat{T}(a)=\exp(-\ii a\hat{p}/\hbar)$ は $\exp(-a\,\dd/\dd x)$ になる。これは問題1 (3)（047-shift）の $\exp(a\hat{D})f(x)=f(x+a)$ で $a$ を $-a$ にしたものである。運動量表示と位置表示の両方で同じ $\psi(x-a)$ が出ることが「確かめ」の中身なので，「確かめよ」と問われたら前の小問と別の道筋で計算する。
+\item \mae{第3章 問題2・10-18，10-21，第5章 問題7・10-30} 複素共役とエルミート共役の書き方（減点なし）。ブラを $(\hat{T}(a)^{\dagger}\ket{x})^{*}$，$\ket{x-a}^{*}$ と書き，位置表示の計算で $(\dd\psi/\dd x)^{*}$ の $*$ を2行落とした。ケットからブラへは $\dagger$，数には $*$ と使い分け，$\abs{f}^{2}=f^{*}f$ の $*$ を落とさない。
+\item \jibunmemo 交換関係の方法に「これでいい？」。この方法は正しく，解答と同じである。$\hat{T}(a)$ は $\hat{p}$ のべき級数なので $\comm{\hat{p}}{\hat{T}(a)}=0$ で，(3) の $\hat{T}(a)^{\dagger}\hat{T}(a)=\hat{1}$ と合わせれば $\hat{p}$ の期待値は変わらない。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\hat{p}$ の固有ケットによる完全性を使って，$\hat{p}$ の関数を固有値 $\hbar k$ の関数に直す（離散の場合のスペクトル分解の連続版）。その後は $\braket{k}{x}$ の形を使って $\ket{x+a}$ を作り，エルミート共役で位置表示に移る。
+\keisan \shoumonkai{1} $\hat{p}\ket{k}=\hbar k\ket{k}$ を $n$ 回使うと $\hat{p}^{n}\ket{k}=(\hbar k)^{n}\ket{k}$。運動量の完全性を右から掛けて
+\[ \hat{p}^{n}=\hat{p}^{n}\int_{-\infty}^{\infty}\ket{k}\bra{k}\dd k=\int_{-\infty}^{\infty}(\hbar k)^{n}\ket{k}\bra{k}\dd k \]
+べき級数に入れ，和と積分を入れかえると，$(-\ii a/\hbar)^{n}(\hbar k)^{n}=(-\ii ka)^{n}$ より
+\[ \hat{T}(a)=\int_{-\infty}^{\infty}\Bigl[\sum_{n=0}^{\infty}\frac{(-\ii ka)^{n}}{n!}\Bigr]\ket{k}\bra{k}\dd k=\int_{-\infty}^{\infty}\ee^{-\ii ka}\ket{k}\bra{k}\dd k \]
+\shoumonkai{2} $\braket{k}{x}=\braket{x}{k}^{*}=\ee^{-\ii kx}/\sqrt{2\pi}$ なので
+\[ \hat{T}(a)\ket{x}=\int_{-\infty}^{\infty}\ket{k}\,\ee^{-\ii ka}\frac{\ee^{-\ii kx}}{\sqrt{2\pi}}\dd k=\int_{-\infty}^{\infty}\ket{k}\frac{\ee^{-\ii k(x+a)}}{\sqrt{2\pi}}\dd k=\int_{-\infty}^{\infty}\ket{k}\braket{k}{x+a}\dd k=\ket{x+a} \]
+最後は運動量の完全性を使った。
+
+\shoumonkai{3} $(c\ket{k}\bra{k})^{\dagger}=c^{*}\ket{k}\bra{k}$ を被積分関数に使うと
+\[ \hat{T}(a)^{\dagger}=\int_{-\infty}^{\infty}\ee^{\ii ka}\ket{k}\bra{k}\dd k=\hat{T}(-a) \]
+積は，$\braket{k'}{k}=\delta(k-k')$ で $k'$ の積分を実行して
+\[ \hat{T}(a)^{\dagger}\hat{T}(a)=\int_{-\infty}^{\infty}\!\!\int_{-\infty}^{\infty}\ee^{\ii k'a}\ee^{-\ii ka}\ket{k'}\braket{k'}{k}\bra{k}\dd k\,\dd k'=\int_{-\infty}^{\infty}\ket{k}\bra{k}\dd k=\hat{1} \]
+ブラ $\bra{x}\hat{T}(a)$ はケット $\hat{T}(a)^{\dagger}\ket{x}=\hat{T}(-a)\ket{x}=\ket{x-a}$（(2) で $a\to-a$）のエルミート共役なので $\bra{x}\hat{T}(a)=\bra{x-a}$。よって
+\[ \matrixel{x}{\hat{T}(a)}{\psi}=\braket{x-a}{\psi}=\psi(x-a) \]
+\shoumonkai{4} $\matrixel{x}{\hat{p}^{n}}{\psi}$ は $\psi$ に $-\ii\hbar\,\dd/\dd x$ を $n$ 回作用させたもの $(-\ii\hbar)^{n}\psi^{(n)}(x)$ である。べき級数の各項に左から $\bra{x}$ を掛けると
+\[ \matrixel{x}{\hat{T}(a)}{\psi}=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}(-\ii\hbar)^{n}\psi^{(n)}(x)=\sum_{n=0}^{\infty}\frac{(-a)^{n}}{n!}\psi^{(n)}(x) \]
+（$(-\ii a/\hbar)(-\ii\hbar)=\ii^{2}a=-a$。）右辺は $\psi(x-a)$ を $x$ のまわりでテイラー展開したものそのものであり，(3) と一致する。
+
+\shoumonkai{5} $\braket{x}{\psi_{a}}=\psi(x-a)$ なので，位置の完全性を挟み $y=x-a$ と置換して
+\[ \matrixel{\psi_{a}}{\hat{x}}{\psi_{a}}=\int_{-\infty}^{\infty}x\abs{\psi(x-a)}^{2}\dd x=\int_{-\infty}^{\infty}(y+a)\abs{\psi(y)}^{2}\dd y=\matrixel{\psi}{\hat{x}}{\psi}+a \]
+（$\ket{\psi}$ の規格化 $\int\abs{\psi(y)}^{2}\dd y=1$ を使った。）$\hat{T}(a)$ は $\hat{p}$ のべき級数なので $\hat{p}$ と交換する。(3) の $\hat{T}^{\dagger}\hat{T}=\hat{1}$ と合わせて
+\[ \matrixel{\psi_{a}}{\hat{p}}{\psi_{a}}=\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{p}\hat{T}(a)}{\psi}=\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{T}(a)\hat{p}}{\psi}=\matrixel{\psi}{\hat{p}}{\psi} \]
+\kotae{\shoumonkai{1} 示した \shoumonkai{2} 示した \shoumonkai{3} $\hat{T}(a)^{\dagger}=\hat{T}(-a)$，$\hat{T}^{\dagger}\hat{T}=\hat{1}$，$\matrixel{x}{\hat{T}(a)}{\psi}=\psi(x-a)$ \shoumonkai{4} 係数が $(-a)^{n}/n!$ となり $\psi(x-a)$ のテイラー展開に一致 \shoumonkai{5} $\expval{x}$ は $a$ だけ増え，$\expval{p}$ は変わらない}
+\begin{ronten}
+  \item \shoumonkai{1} $\hat{p}^{n}\ket{k}=(\hbar k)^{n}\ket{k}$ を述べてから運動量の完全性を右から掛け，べき級数の和と積分の順序を入れかえて指数関数にまとめることを書く。
+  \item \shoumonkai{2} $\braket{k}{x}=\braket{x}{k}^{*}$ から被積分関数が $\braket{k}{x+a}$ になることを示し，運動量の完全性で $\ket{x+a}$ に戻すことを述べる。
+  \item \shoumonkai{3} $\hat{T}(a)^{\dagger}$ は被積分関数の係数を複素共役にして求めることと，$\bra{x}\hat{T}(a)$ をケット $\hat{T}(a)^{\dagger}\ket{x}=\ket{x-a}$ のエルミート共役として扱うことを書く。
+  \item \shoumonkai{4} べき級数の各項に左から $\bra{x}$ を掛けて $\matrixel{x}{\hat{p}^{n}}{\psi}=(-\ii\hbar)^{n}\psi^{(n)}(x)$ を使い，得た級数が $\psi(x-a)$ の $x$ のまわりのテイラー展開と項ごとに一致すること（テイラー展開できるという仮定を使うこと）を書く。
+  \item \shoumonkai{5} $\hat{x}$ の期待値では置換の後に $\ket{\psi}$ の規格化を使うこと，$\hat{p}$ の期待値では $\hat{T}(a)$ が $\hat{p}$ のべき級数なので $\hat{p}$ と交換することと $\hat{T}(a)^{\dagger}\hat{T}(a)=\hat{1}$ を根拠に挙げる。
+\end{ronten}
+\kenzan $a=0$ で $\hat{T}=\hat{1}$ となり，すべての式が自明に成り立つ。$-\ii a\hat{p}/\hbar$ は（長さ）$\times$（運動量）/（作用）で無次元であり，指数関数の引数として整合する。運動量表示では $\braket{k}{\psi_{a}}=\ee^{-\ii ka}\tilde{\psi}(k)$ で，$\abs{\braket{k}{\psi_{a}}}^{2}=\abs{\tilde{\psi}(k)}^{2}$ となるので，運動量の分布が変わらないこととも整合する。
+\tsumazuki $\hat{T}(a)$ はケット $\ket{x}$ を $\ket{x+a}$ に移すが，波動関数は $\psi(x)\to\psi(x-a)$ となる（グラフが $+a$ だけ右に動く）。$\psi(x+a)$ と書く誤りが多い。
+\end{tadashii}
+\end{mondai}
+
+\level{4}
+% toubun: kiroku\toubun\量子力学1\134_2026-11-08.tex
+\mondaibangou{12}
+\begin{mondai}{134-propagator}{導出}{運動量の固有ケットの完全性による時間発展の演算子の位置表示（自由粒子の伝播関数）と，その性質}
+1次元の自由粒子 $\hat{H}=\hat{p}^{2}/(2m)$ について，時刻 $t>0$ の時間発展の演算子の位置表示
+  \[ K(x,t;x')=\matrixel{x}{\ee^{-\ii\hat{H}t/\hbar}}{x'} \]
+  を考える（伝播関数という）。状態は $\ket{\psi(t)}=\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}$ と時間発展する（第18章）。要点整理の $\ket{k}$ の完全性と $\braket{x}{k}$ を使い，次の積分（$a$ は $\Re a\ge0$，$a\neq0$ の複素数，$\sqrt{a}$ は実部が正の分枝）を使ってよい。
+  \[ \int_{-\infty}^{\infty}\ee^{-ak^{2}+bk}\dd k=\sqrt{\frac{\pi}{a}}\,\ee^{b^{2}/(4a)} \]
+  \begin{shoumon}
+    \item $K$ を $k$ についての積分で表し，次の形になることを示せ。
+    \[ K(x,t;x')=\sqrt{\frac{m}{2\pi\ii\hbar t}}\exp\left[\frac{\ii m(x-x')^{2}}{2\hbar t}\right] \]
+    \item 時刻 $0$ の波動関数 $\psi(x',0)$ から，時刻 $t$ の波動関数が $\psi(x,t)=\int K(x,t;x')\psi(x',0)\dd x'$ で得られる理由を述べよ。また，$K$ が $x$ と $t$ の関数として自由粒子の時間を含むシュレーディンガー方程式を満たすことを確かめよ。
+    \item $\psi(x',0)=\ee^{\ii k_{0}x'}$（平面波）を (2) の式で時間発展させ，結果がエネルギー $\hbar^{2}k_{0}^{2}/(2m)$ の定常状態になることを確かめよ。
+    \item $\abs{K}^{2}$ が $x$ によらないことを示し，時刻 $0$ に $x'$ に局在していた粒子が，どれほど短い時間 $t$ の後にも全空間に同じ確率密度で広がることを，運動量の分布の言葉で説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-08 B ◎◎◎▲}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+\begin{align*}
+K&=\int_{-\infty}^{\infty}\bra{x}\exp\Bigl(-\frac{\ii t}{\hbar}\hat{H}\Bigr)\ket{k}\\
+&\qquad\times\braket{k}{x'}\dd k\\
+&=\int_{-\infty}^{\infty}\bra{x}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(\frac{-\ii t}{2m\hbar}\Bigr)^{n}\hat{p}^{2n}\ket{k}\\
+&\qquad\times\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx'}\dd k\\
+&=\int_{-\infty}^{\infty}\bra{x}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(\frac{-\ii t}{2m\hbar}\Bigr)^{n}\\
+&\qquad\times(\hbar k)^{2n}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx'}\dd k\\
+&=\int_{-\infty}^{\infty}\exp\Bigl(\frac{-\ii\hbar tk^{2}}{2m}\Bigr)\\
+&\qquad\times\frac{1}{2\pi}\ee^{\ii k(x-x')}\dd k\\
+&=\frac{1}{2\pi}\int_{-\infty}^{\infty}\exp\Bigl(\frac{-\ii\hbar tk^{2}}{2m}\\
+&\qquad+\ii k(x-x')\Bigr)\dd k
+\end{align*}
+$a=\ii\hbar t/(2m)$，$b=\ii(x-x')$
+\begin{align*}
+&=\frac{1}{2\pi}\sqrt{\frac{2\pi m}{\ii\hbar t}}\exp\biggl[\frac{\ii^{2}(x-x')^{2}}{4\cdot\frac{\ii\hbar t}{2m}}\biggr]\\
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\psi(x,t)&=\int\bra{x}\ee^{-\ii\hat{H}t/\hbar}\ket{x'}\braket{x'}{\psi(0)}\dd x'\\
+&=\bra{x}\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}\\
+&=\braket{x}{\psi(t)}
+\end{align*}
+より $\psi(x,t)$ が得られる。
+\[ \ii\hbar\pdv{}{t}K(x,t;x')=\hat{H}K(x,t;x') \]
+\[ C=\sqrt{\frac{m}{2\pi\ii\hbar}},\qquad d=\frac{\ii m(x-x')^{2}}{2\hbar} \]
+\begin{align*}
+\pdv{K}{t}&=\pdv{}{t}\bigl(Ct^{-1/2}\exp(dt^{-1})\bigr)\\
+&=-\frac{1}{2}Ct^{-3/2}\exp(dt^{-1})\\
+&\qquad+Ct^{-1/2}\cdot(-dt^{-2})\exp(dt^{-1})\\
+&=\Bigl(-\frac{1}{2}t-d\Bigr)Ct^{-5/2}\exp(dt^{-1})
+\end{align*}
+\[ \hat{H}K=\frac{\hat{p}^{2}}{2m}K=-\frac{\hbar^{2}}{2m}\frac{\dd^{2}}{\dd x^{2}}K \]
+\begin{align*}
+\frac{\dd}{\dd x}K&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\cdot\frac{\ii m\cdot2(x-x')}{2\hbar t}\\
+&\qquad\times\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]
+\end{align*}
+\begin{align*}
+&\frac{\dd^{2}}{\dd x^{2}}K\\
+&=Ct^{-1/2}\biggl(\frac{\ii m}{\hbar t}\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]\\
+&\qquad+\Bigl(\frac{\ii m(x-x')}{\hbar t}\Bigr)^{2}\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]\biggr)\\
+&=Ct^{-1/2}\Bigl(\frac{\ii m}{\hbar t}-\frac{m^{2}(x-x')^{2}}{\hbar^{2}t^{2}}\Bigr)\\
+&\qquad\times\exp(dt^{-1})
+\end{align*}
+\begin{align*}
+\hat{H}K&=Ct^{-5/2}\biggl(\frac{-\hbar^{2}t^{2}\ii m}{2m\hbar t}\\
+&\qquad-\frac{-\hbar^{2}t^{2}m^{2}(x-x')^{2}}{2m\hbar^{2}t^{2}}\biggr)\exp(dt^{-1})\\
+&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}+\frac{m(x-x')^{2}}{2}\Bigr)\\
+&\qquad\times\exp(dt^{-1})\quad\cdots\text{①}
+\end{align*}
+\begin{align*}
+\ii\hbar\pdv{K}{t}&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}-\frac{\ii m(x-x')^{2}}{2\hbar}\cdot\ii\hbar\Bigr)\\
+&\qquad\times\exp(dt^{-1})\\
+&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}+\frac{m(x-x')^{2}}{2}\Bigr)\\
+&\qquad\times\exp(dt^{-1})\quad\cdots\text{②}
+\end{align*}
+① $=$ ② より $\ii\hbar\,\partial K/\partial t=\hat{H}K$
+\toi{3}{◎}{}
+\begin{align*}
+&\int K\ee^{\ii k_{0}x'}\dd x'\\
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}(x'-x)^{2}\\
+&\qquad+\ii k_{0}x'\Bigr]\dd x'
+\end{align*}
+$x'-x=z$
+\begin{align*}
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}z^{2}\\
+&\qquad+\ii k_{0}(x+z)\Bigr]\dd z
+\end{align*}
+$a=-\ii m/(2\hbar t)$，$b=\ii k_{0}$
+\begin{align*}
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\ee^{\ii k_{0}x}\\
+&\qquad\times\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}z^{2}+\ii k_{0}z\Bigr]\dd z\\
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\ee^{\ii k_{0}x}\cdot\sqrt{-\frac{2\pi\hbar t}{\ii m}}\\
+&\qquad\times\exp\biggl[\frac{(\ii k_{0})^{2}}{4\cdot\frac{-\ii m}{2\hbar t}}\biggr]\\
+&=\exp\Bigl[\ii k_{0}x-\frac{\ii\hbar k_{0}^{2}t}{2m}\Bigr]\\
+&=\exp[\ii k_{0}x]\exp\Bigl[-\ii\Bigl(\frac{\hbar^{2}k_{0}^{2}}{2m}\Bigr)t/\hbar\Bigr]
+\end{align*}
+エネルギー $\hbar^{2}k_{0}^{2}/(2m)$ の定常状態
+\toi{4}{▲}{方針}
+\begin{align*}
+\abs{K}^{2}&=\sqrt{\frac{-m}{2\pi\ii\hbar t}}\cdot\sqrt{\frac{m}{2\pi\ii\hbar t}}\\
+&\qquad\times\exp\Bigl[\frac{-\ii m(x-x')^{2}}{2\hbar t}+\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]\\
+&=\frac{m}{2\pi\hbar t}
+\end{align*}
+$x$ によらない。
+
+\ayamari{エネルギーが一定 $\to$ 運動量が一意に定まる。}{運動量の分布は一様}不確定性原理 $\Delta x\,\Delta p\ge\hbar/2$ より，\ayamari{運動量が決まれば}{運動量が定まらないので}位置の確率は全空間に広がる。
+\naze{時刻 $0$ の状態 $\ket{x'}$ は位置が確定した状態で，エネルギーの固有状態でも運動量の固有状態でもない。その運動量表示は $\braket{k}{x'}=\ee^{-\ii kx'}/\sqrt{2\pi}$ で，運動量の分布 $\abs{\braket{k}{x'}}^{2}=1/(2\pi)$ はすべての $k$ で同じである。$\Delta x\to0$ なので $\Delta p\to\infty$ で，不確定性関係の向きが逆である。また運動量が定まった平面波は時刻 $0$ から全空間に広がっているので，局在した粒子が広がる説明にもならない。正しくは，どれほど大きな運動量の成分も同じ重みで含まれ，大きな運動量の成分ほど速く（速さ $\hbar k/m$）遠くへ進むので，どれほど短い時間の後にも全空間に広がる。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 位置の固有ケット $\ket{x'}$ の運動量表示 $\braket{k}{x'}$ は絶対値が $k$ によらない。位置の不確定さが $0$ の極限では運動量の不確定さは無限大で，運動量の分布は一様になる（デルタ関数のフーリエ変換が定数になることと同じ）。自由粒子では運動量 $\hbar k$ の成分は速さ $\hbar k/m$ で進み，$\abs{k}$ に上限が無いので，どれほど短い $t>0$ でもどれほど遠くまで届く成分がある。
+\item \mae{第7章 問題3 (4)・11-04，第7章 問題4 (1)・11-07} 運動量の分布を $\abs{\braket{k}{\psi}}^{2}$ で考えていない（前回は井戸のエネルギーの固有状態について運動量で何がいえるかを答えず，$\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率と読める理由を書かなかった）。「エネルギーが定まる」と「運動量が定まる」は別のことである。説明の問題では，まず問題の状態が何の固有状態か（または何の固有状態でもないか）を確かめ，「運動量の分布」と問われたら $\braket{k}{\psi}$ を書いてその絶対値の2乗が $k$ でどう変わるかを見る。
+\end{kizuki}
+\begin{tadashii}
+\houshin 運動量の固有ケットの完全性を挟んで $\hat{H}$ を固有値に置き換え，$k$ についての（複素数の係数の）ガウス積分を公式で計算する。時間発展は $\ket{x'}$ の完全性で位置表示に直す。
+\keisan
+\shoumonkai{1} $\hat{H}\ket{k}=(\hbar^{2}k^{2}/(2m))\ket{k}$ なので，演算子の関数として $\ee^{-\ii\hat{H}t/\hbar}\ket{k}=\ee^{-\ii\hbar k^{2}t/(2m)}\ket{k}$。完全性 $\int\ket{k}\bra{k}\dd k=\hat{1}$ を挟むと
+\[ K=\int_{-\infty}^{\infty}\braket{x}{k}\,\ee^{-\ii\hbar k^{2}t/(2m)}\braket{k}{x'}\dd k=\frac{1}{2\pi}\int_{-\infty}^{\infty}\exp\left[-\frac{\ii\hbar t}{2m}k^{2}+\ii(x-x')k\right]\dd k \]
+公式で $a=\ii\hbar t/(2m)$（$\Re a=0$），$b=\ii(x-x')$ とすると
+\[ \frac{b^{2}}{4a}=\frac{-(x-x')^{2}}{4\ii\hbar t/(2m)}=\frac{\ii m(x-x')^{2}}{2\hbar t},\qquad \frac{1}{2\pi}\sqrt{\frac{\pi}{a}}=\frac{1}{2\pi}\sqrt{\frac{2\pi m}{\ii\hbar t}}=\sqrt{\frac{m}{2\pi\ii\hbar t}} \]
+よって示された形になる。
+\shoumonkai{2} $\ket{\psi(t)}=\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}$ に左から $\bra{x}$ をかけ，$\ket{\psi(0)}$ の前に完全性 $\int\ket{x'}\bra{x'}\dd x'=\hat{1}$ を挟むと
+\[ \psi(x,t)=\int_{-\infty}^{\infty}\matrixel{x}{\ee^{-\ii\hat{H}t/\hbar}}{x'}\braket{x'}{\psi(0)}\dd x'=\int_{-\infty}^{\infty}K(x,t;x')\psi(x',0)\dd x' \]
+次に $D=x-x'$，$K=Ct^{-1/2}\ee^{\ii mD^{2}/(2\hbar t)}$（$C$ は定数）として微分すると
+\begin{align*}
+  \ii\hbar\pdv{K}{t}&=\ii\hbar K\left(-\frac{1}{2t}-\frac{\ii mD^{2}}{2\hbar t^{2}}\right)=K\left(-\frac{\ii\hbar}{2t}+\frac{mD^{2}}{2t^{2}}\right),\\
+  -\frac{\hbar^{2}}{2m}\pdv[2]{K}{x}&=-\frac{\hbar^{2}}{2m}K\left[\left(\frac{\ii mD}{\hbar t}\right)^{2}+\frac{\ii m}{\hbar t}\right]=K\left(\frac{mD^{2}}{2t^{2}}-\frac{\ii\hbar}{2t}\right)
+\end{align*}
+で両者は等しく，$K$ は自由粒子のシュレーディンガー方程式を満たす。
+\shoumonkai{3} (2) の式に代入し，公式を $x'$ について使う。$x'$ の2次の係数は $a=-\ii m/(2\hbar t)$ で $\Re a=0$，1次の係数は $b=-\ii mx/(\hbar t)+\ii k_{0}$，定数項は $\ii mx^{2}/(2\hbar t)$ である。
+\[ \frac{b^{2}}{4a}=\frac{-(k_{0}-mx/(\hbar t))^{2}}{-2\ii m/(\hbar t)}=-\frac{\ii\hbar t}{2m}\left(k_{0}-\frac{mx}{\hbar t}\right)^{2}=-\frac{\ii\hbar k_{0}^{2}t}{2m}+\ii k_{0}x-\frac{\ii mx^{2}}{2\hbar t} \]
+最後の項は定数項と打ち消し合い，係数は $\sqrt{m/(2\pi\ii\hbar t)}\sqrt{\pi/a}=\sqrt{m/(2\pi\ii\hbar t)}\sqrt{2\pi\hbar t/(-\ii m)}=1$（$\ii(-\ii)=1$）である。よって
+\[ \psi(x,t)=\exp\left[\ii\left(k_{0}x-\frac{\hbar k_{0}^{2}}{2m}t\right)\right] \]
+で，$\ee^{\ii k_{0}x}$ に $\ee^{-\ii Et/\hbar}$（$E=\hbar^{2}k_{0}^{2}/(2m)$）がかかった定常状態になる。これは $\ket{k_{0}}$ に $\ee^{-\ii\hat{H}t/\hbar}$ を直接作用させた結果と一致する。
+\shoumonkai{4} $\abs{\ee^{\ii\theta}}=1$（$\theta$ は実数）なので $\abs{K}^{2}=m/(2\pi\hbar t)$ で，$x$ によらない。時刻 $0$ の状態 $\ket{x'}$ は位置が確定した状態で，運動量表示は $\braket{k}{x'}=\ee^{-\ii kx'}/\sqrt{2\pi}$，すなわち運動量の分布は $\abs{\braket{k}{x'}}^{2}=1/(2\pi)$ で一様である。どれほど大きな運動量の成分も同じ重みで含まれ，運動量が大きい成分ほど速く遠くへ進むので，どれほど短い時間の後にも確率密度は全空間に一様に広がる。（位置の不確定さが $0$ の極限では，運動量の不確定さは無限大になる。）
+\kotae{\shoumonkai{1} $K=(1/2\pi)\int\exp\bigl[\ii k(x-x')-\ii\hbar tk^{2}/(2m)\bigr]\dd k=\sqrt{m/(2\pi\ii\hbar t)}\,\exp\bigl[\ii m(x-x')^{2}/(2\hbar t)\bigr]$ \shoumonkai{2} 完全性 $\int\ket{x'}\bra{x'}\dd x'=\hat{1}$ を挟む。$K$ はシュレーディンガー方程式を満たす（計算は本文） \shoumonkai{3} $\psi(x,t)=\exp[\ii(k_{0}x-\hbar k_{0}^{2}t/(2m))]$ \shoumonkai{4} $\abs{K}^{2}=m/(2\pi\hbar t)$。位置が確定した状態は運動量の分布が一様で，大きな運動量の成分がいくらでも速く広がるため}
+\begin{ronten}
+  \item \shoumonkai{1} 完全性を挟んで $\hat{H}$ を固有値に置き換えたことと，公式を $\Re a=0$ の場合に使ったこと（係数の平方根の分枝）を書く。
+  \item \shoumonkai{2} $\ket{\psi(t)}=\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}$ と $\ket{x'}$ の完全性から積分の式を導く。
+  \item \shoumonkai{4} 位置が確定した状態の運動量の分布が一様であることを根拠にする。
+\end{ronten}
+\kenzan 次元：$\sqrt{m/(\hbar t)}$ は $\sqrt{\text{質量}/(\text{エネルギー}\times\text{時間}^{2})}=1/\text{長さ}$ で，$K$ は $\delta(x-x')$ と同じ 1／長さの次元をもつ。指数 $m(x-x')^{2}/(\hbar t)$ は無次元。(3) の結果は $t=0$ で $\ee^{\ii k_{0}x}$ に戻る。
+\tsumazuki 公式の $\sqrt{\pi/a}$ で，$a=\ii\hbar t/(2m)$ の平方根は $\ee^{\ii\pi/4}\sqrt{\hbar t/(2m)}$（実部が正の分枝）をとる。$\sqrt{\ii}$ の分枝を誤ると全体の位相がずれる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

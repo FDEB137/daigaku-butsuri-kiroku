@@ -2,13 +2,16 @@
 %% kotae
 \toi{1}{◎}{}
 \begin{align*}
-K&=\int_{-\infty}^{\infty}\bra{x}\exp\Bigl(-\frac{\ii t}{\hbar}\hat{H}\Bigr)\ket{k}\braket{k}{x'}\dd k\\
+K&=\int_{-\infty}^{\infty}\bra{x}\exp\Bigl(-\frac{\ii t}{\hbar}\hat{H}\Bigr)\ket{k}\\
+&\qquad\times\braket{k}{x'}\dd k\\
 &=\int_{-\infty}^{\infty}\bra{x}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(\frac{-\ii t}{2m\hbar}\Bigr)^{n}\hat{p}^{2n}\ket{k}\\
 &\qquad\times\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx'}\dd k\\
-&=\int_{-\infty}^{\infty}\bra{x}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(\frac{-\ii t}{2m\hbar}\Bigr)^{n}(\hbar k)^{2n}\ket{k}\\
-&\qquad\times\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx'}\dd k\\
-&=\int_{-\infty}^{\infty}\exp\Bigl(\frac{-\ii\hbar tk^{2}}{2m}\Bigr)\cdot\frac{1}{2\pi}\ee^{\ii k(x-x')}\dd k\\
-&=\frac{1}{2\pi}\int_{-\infty}^{\infty}\exp\Bigl(\frac{-\ii\hbar tk^{2}}{2m}+\ii k(x-x')\Bigr)\dd k
+&=\int_{-\infty}^{\infty}\bra{x}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(\frac{-\ii t}{2m\hbar}\Bigr)^{n}\\
+&\qquad\times(\hbar k)^{2n}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx'}\dd k\\
+&=\int_{-\infty}^{\infty}\exp\Bigl(\frac{-\ii\hbar tk^{2}}{2m}\Bigr)\\
+&\qquad\times\frac{1}{2\pi}\ee^{\ii k(x-x')}\dd k\\
+&=\frac{1}{2\pi}\int_{-\infty}^{\infty}\exp\Bigl(\frac{-\ii\hbar tk^{2}}{2m}\\
+&\qquad+\ii k(x-x')\Bigr)\dd k
 \end{align*}
 $a=\ii\hbar t/(2m)$，$b=\ii(x-x')$
 \begin{align*}
@@ -36,33 +39,40 @@ $a=\ii\hbar t/(2m)$，$b=\ii(x-x')$
 &\qquad\times\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]
 \end{align*}
 \begin{align*}
-\frac{\dd^{2}}{\dd x^{2}}K&=Ct^{-1/2}\biggl(\frac{\ii m}{\hbar t}\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]\\
+&\frac{\dd^{2}}{\dd x^{2}}K\\
+&=Ct^{-1/2}\biggl(\frac{\ii m}{\hbar t}\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]\\
 &\qquad+\Bigl(\frac{\ii m(x-x')}{\hbar t}\Bigr)^{2}\exp\Bigl[\frac{\ii m(x-x')^{2}}{2\hbar t}\Bigr]\biggr)\\
-&=Ct^{-1/2}\Bigl(\frac{\ii m}{\hbar t}-\frac{m^{2}(x-x')^{2}}{\hbar^{2}t^{2}}\Bigr)\exp(dt^{-1})
+&=Ct^{-1/2}\Bigl(\frac{\ii m}{\hbar t}-\frac{m^{2}(x-x')^{2}}{\hbar^{2}t^{2}}\Bigr)\\
+&\qquad\times\exp(dt^{-1})
 \end{align*}
 \begin{align*}
-\hat{H}K&=Ct^{-5/2}\Bigl(\frac{-\hbar^{2}t^{2}\ii m}{2m\hbar t}-\frac{-\hbar^{2}t^{2}m^{2}(x-x')^{2}}{2m\hbar^{2}t^{2}}\Bigr)\\
-&\qquad\times\exp(dt^{-1})\\
-&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}+\frac{m(x-x')^{2}}{2}\Bigr)\exp(dt^{-1})\quad\cdots\text{①}
+\hat{H}K&=Ct^{-5/2}\biggl(\frac{-\hbar^{2}t^{2}\ii m}{2m\hbar t}\\
+&\qquad-\frac{-\hbar^{2}t^{2}m^{2}(x-x')^{2}}{2m\hbar^{2}t^{2}}\biggr)\exp(dt^{-1})\\
+&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}+\frac{m(x-x')^{2}}{2}\Bigr)\\
+&\qquad\times\exp(dt^{-1})\quad\cdots\text{①}
 \end{align*}
 \begin{align*}
 \ii\hbar\pdv{K}{t}&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}-\frac{\ii m(x-x')^{2}}{2\hbar}\cdot\ii\hbar\Bigr)\\
 &\qquad\times\exp(dt^{-1})\\
-&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}+\frac{m(x-x')^{2}}{2}\Bigr)\exp(dt^{-1})\quad\cdots\text{②}
+&=Ct^{-5/2}\Bigl(\frac{-\ii\hbar t}{2}+\frac{m(x-x')^{2}}{2}\Bigr)\\
+&\qquad\times\exp(dt^{-1})\quad\cdots\text{②}
 \end{align*}
 ① $=$ ② より $\ii\hbar\,\partial K/\partial t=\hat{H}K$
 \toi{3}{◎}{}
 \begin{align*}
 &\int K\ee^{\ii k_{0}x'}\dd x'\\
-&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}(x'-x)^{2}+\ii k_{0}x'\Bigr]\dd x'
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}(x'-x)^{2}\\
+&\qquad+\ii k_{0}x'\Bigr]\dd x'
 \end{align*}
 $x'-x=z$
 \begin{align*}
-&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}z^{2}+\ii k_{0}(x+z)\Bigr]\dd z
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}z^{2}\\
+&\qquad+\ii k_{0}(x+z)\Bigr]\dd z
 \end{align*}
 $a=-\ii m/(2\hbar t)$，$b=\ii k_{0}$
 \begin{align*}
-&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\ee^{\ii k_{0}x}\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}z^{2}+\ii k_{0}z\Bigr]\dd z\\
+&=\sqrt{\frac{m}{2\pi\ii\hbar t}}\ee^{\ii k_{0}x}\\
+&\qquad\times\int_{-\infty}^{\infty}\exp\Bigl[\frac{\ii m}{2\hbar t}z^{2}+\ii k_{0}z\Bigr]\dd z\\
 &=\sqrt{\frac{m}{2\pi\ii\hbar t}}\ee^{\ii k_{0}x}\cdot\sqrt{-\frac{2\pi\hbar t}{\ii m}}\\
 &\qquad\times\exp\biggl[\frac{(\ii k_{0})^{2}}{4\cdot\frac{-\ii m}{2\hbar t}}\biggr]\\
 &=\exp\Bigl[\ii k_{0}x-\frac{\ii\hbar k_{0}^{2}t}{2m}\Bigr]\\

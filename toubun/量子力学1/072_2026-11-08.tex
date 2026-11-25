@@ -52,7 +52,10 @@ $\hat{p}^{\dagger}=\hat{p}$
 &=\psi(x-a)
 \end{align*}
 \toi{4}{△}{方針}
-\[ \matrixel{x}{\hat{p}^{n}}{\psi}=\ayamari{\int_{-\infty}^{\infty}(\hbar k)^{n}\braket{x}{k}\braket{k}{\psi}\dd k}{(-\ii\hbar)^{n}\psi^{(n)}(x)} \]
+\begin{align*}
+&\matrixel{x}{\hat{p}^{n}}{\psi}\\
+&=\ayamari{\int_{-\infty}^{\infty}(\hbar k)^{n}\braket{x}{k}\braket{k}{\psi}\dd k}{(-\ii\hbar)^{n}\psi^{(n)}(x)}
+\end{align*}
 \naze{運動量の完全性を挟んで $\hat{p}^{n}$ を固有値 $(\hbar k)^{n}$ に置きかえると，(1)〜(3) と同じ道筋になり，問われた「直接位置表示にする」確かめにならない（テイラー展開の仮定も使わない）。位置表示の $\matrixel{x}{\hat{p}^{n}}{\psi}=(-\ii\hbar)^{n}\psi^{(n)}(x)$ を使う。以降はこの道筋を引き継ぐ。}
 \begin{align*}
 &\matrixel{x}{\hat{T}(a)}{\psi}\\
@@ -66,13 +69,18 @@ $\hat{p}^{\dagger}=\hat{p}$
 \end{align*}
 \naze{正しくは，第 $n$ 項の係数が $(-\ii a/\hbar)^{n}(-\ii\hbar)^{n}/n!=(-a)^{n}/n!$ になり，$\sum_{n}(-a)^{n}\psi^{(n)}(x)/n!$ が $\psi(x-a)$ の $x$ のまわりのテイラー展開と項ごとに一致することで (3) を確かめる。}
 \toi{5}{◎}{}
-\begin{gather*}
-\bra{\psi_{a}}=\kakimachigai{(\hat{T}(a)\ket{\psi})^{*}}{(\cdots)^{\dagger}}=\bra{\psi}\hat{T}(a)^{\dagger}\\
-\matrixel{\psi_{a}}{\hat{x}}{\psi_{a}}=\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{x}\hat{T}(a)}{\psi}
-\end{gather*}
+\begin{align*}
+\bra{\psi_{a}}&=\kakimachigai{(\hat{T}(a)\ket{\psi})^{*}}{(\cdots)^{\dagger}}\\
+&=\bra{\psi}\hat{T}(a)^{\dagger}
+\end{align*}
+\begin{align*}
+&\matrixel{\psi_{a}}{\hat{x}}{\psi_{a}}\\
+&=\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{x}\hat{T}(a)}{\psi}
+\end{align*}
 （$\hat{x}$ と $\hat{T}(a)$ の間に $\hat{1}$ を挟む）
 \begin{align*}
-&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{x}}{x}\matrixel{x}{\hat{T}(a)}{\psi}\dd x\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{x}}{x}\\
+&\qquad\times\matrixel{x}{\hat{T}(a)}{\psi}\dd x\\
 &=\int_{-\infty}^{\infty}x\matrixel{x}{\hat{T}(a)}{\psi}^{*}\psi(x-a)\dd x\\
 &=\int_{-\infty}^{\infty}x\braket{\psi}{x-a}\braket{x-a}{\psi}\dd x
 \end{align*}
@@ -81,7 +89,8 @@ $x-a=x'$ とする。
 &=\int_{-\infty}^{\infty}(x'+a)\braket{\psi}{x'}\braket{x'}{\psi}\dd x'\\
 &=\int_{-\infty}^{\infty}\matrixel{\psi}{x'}{x'}\braket{x'}{\psi}\dd x'\\
 &\qquad+a\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}\\
-&=\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\hat{x}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}+a\braket{\psi}{\psi}\\
+&=\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\hat{x}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}\\
+&\qquad+a\braket{\psi}{\psi}\\
 &=\bra{\psi}\Bigl(\int_{-\infty}^{\infty}\hat{x}\ket{x}\bra{x}\dd x\Bigr)\ket{\psi}+a\\
 &=\matrixel{\psi}{\hat{x}}{\psi}+a
 \end{align*}
@@ -95,14 +104,18 @@ $x-a=x'$ とする。
 （ここまでを括弧でくくり）←これでいい？
 \begin{align*}
 &\matrixel{\psi_{a}}{\hat{p}}{\psi_{a}}\\
-&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{p}}{x}\matrixel{x}{\hat{T}(a)}{\psi}\dd x\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{T}(a)^{\dagger}\hat{p}}{x}\\
+&\qquad\times\matrixel{x}{\hat{T}(a)}{\psi}\dd x\\
 &=\int_{-\infty}^{\infty}\matrixel{x}{\hat{p}\hat{T}(a)}{\psi}^{*}\psi(x-a)\dd x\\
-&=\int_{-\infty}^{\infty}\Bigl(-\ii\hbar\frac{\dd}{\dd x}\psi(x-a)\Bigr)^{*}\psi(x-a)\dd x\\
-&=\int_{-\infty}^{\infty}\ii\hbar\kakimachigai{\Bigl(\frac{\dd}{\dd x}\psi(x-a)\Bigr)}{(\cdots)^{*}}\psi(x-a)\dd x
+&=\int_{-\infty}^{\infty}\Bigl(-\ii\hbar\frac{\dd}{\dd x}\psi(x-a)\Bigr)^{*}\\
+&\qquad\times\psi(x-a)\dd x\\
+&=\int_{-\infty}^{\infty}\ii\hbar\kakimachigai{\Bigl(\frac{\dd}{\dd x}\psi(x-a)\Bigr)}{(\cdots)^{*}}\\
+&\qquad\times\psi(x-a)\dd x
 \end{align*}
 $x-a=x'$
 \begin{align*}
-&=\int_{-\infty}^{\infty}\ii\hbar\kakimachigai{\Bigl(\frac{\dd}{\dd x'}\psi(x')\Bigr)}{(\cdots)^{*}}\psi(x')\dd x'\\
+&=\int_{-\infty}^{\infty}\ii\hbar\kakimachigai{\Bigl(\frac{\dd}{\dd x'}\psi(x')\Bigr)}{(\cdots)^{*}}\\
+&\qquad\times\psi(x')\dd x'\\
 &=\int_{-\infty}^{\infty}\matrixel{x'}{\hat{p}}{\psi}^{*}\braket{x'}{\psi}\dd x'\\
 &=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{p}}{x'}\braket{x'}{\psi}\dd x'\\
 &=\bra{\psi}\hat{p}\Bigl(\int_{-\infty}^{\infty}\ket{x'}\bra{x'}\dd x'\Bigr)\ket{\psi}\\
