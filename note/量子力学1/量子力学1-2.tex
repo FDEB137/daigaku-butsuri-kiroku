@@ -7,7 +7,7 @@
   \ichirangyou{\hyperlink{bt-m-009-phase}{1}}{L1・計算}{○△}{C}{2026-10-14 (1)記述 (2)計算}
   \ichirangyou{2}{L1・計算}{}{未着手}{}
   \ichirangyou{\hyperlink{bt-m-011-operator}{3}}{L1・計算}{◎◎◎}{S}{2026-10-14}
-  \ichirangyou{4}{L1・計算}{◎◎○}{A}{2026-11-21 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-075-dispersion}{4}}{L1・計算}{◎◎○}{A}{2026-11-21 (3)記述}
   \ichirangyou{\hyperlink{bt-m-012-order}{5}}{L2・計算}{◎◎◎}{S}{2026-10-19 2回目}
   \ichirangyou{6}{L2・計算}{}{未着手}{}
   \ichirangyou{\hyperlink{bt-m-016-stationary}{7}}{L3・導出}{◎△◎}{B}{2026-10-29 (2)方針}
@@ -117,6 +117,95 @@ $\ee^{\ii kx}\cdots\hbar k$，\quad $\ee^{-\ii kx}\cdots-\hbar k$
 \[ \hat{H}f_{2}=\frac{\hbar^{2}k^{2}}{2m}\cos kx \]
 エネルギー固有値 $(\hbar k)^{2}/(2m)$
 \end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\075_2026-11-21.tex
+\mondaibangou{4}
+\begin{mondai}{075-dispersion}{計算}{相対論的な物質波の分散関係での位相速度・群速度と，群速度が粒子の速さを表すこと（エネルギーの原点への依存）}
+\begin{teisuu}
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  真空中の光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+相対論的な自由粒子のエネルギー $E=\sqrt{p^{2}c^{2}+m^{2}c^{4}}$（第1章）に $E=\hbar\omega$，$p=\hbar k$ を入れると，物質波の分散関係
+  \[ \omega(k)=c\sqrt{k^{2}+\mu^{2}},\qquad \mu=\frac{mc}{\hbar} \]
+  を得る（$k>0$）。
+  \begin{shoumon}
+    \item 位相速度 $v_{\mathrm{p}}=\omega/k$ と群速度 $v_{\mathrm{g}}=\dd\omega/\dd k$ を求めよ。積 $v_{\mathrm{p}}v_{\mathrm{g}}$ の値と，$v_{\mathrm{p}}$，$v_{\mathrm{g}}$ のそれぞれが $c$ より大きいか小さいかを答えよ。
+    \item 速さ $v$ の相対論的な粒子では $p=Ev/c^{2}$ である。$v_{\mathrm{g}}$ が粒子の速さ $v$ に一致することを示せ。
+    \item $k\ll\mu$ のとき，$\omega(k)$ を $k^{2}$ の1次まで展開し，$v_{\mathrm{g}}$ と $v_{\mathrm{p}}$ の近似式を求めよ。非相対論の分散関係 $\omega=\hbar k^{2}/(2m)$（要点整理）から求めた $v_{\mathrm{g}}$，$v_{\mathrm{p}}$ と比べ，一致するのはどちらかと，その理由を述べよ。
+  \end{shoumon}
+\notekiroku{2026-11-21 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-21}
+\toi{1}{◎}{}
+\begin{align*}
+v_{\mathrm{p}}&=\frac{\omega}{k}=c\sqrt{1+\frac{\mu^{2}}{k^{2}}}>c\\
+v_{\mathrm{g}}&=\dv{\omega}{k}=\frac{1}{2}c\,\frac{2k}{\sqrt{k^{2}+\mu^{2}}}\\
+&=\frac{ck}{\sqrt{k^{2}+\mu^{2}}}<c
+\end{align*}
+\[ v_{\mathrm{p}}v_{\mathrm{g}}=c^{2} \]
+\toi{2}{◎}{}
+\begin{align*}
+p&=\frac{E\cdot\frac{ck}{\sqrt{k^{2}+\mu^{2}}}}{c^{2}}\\
+&=\kakimachigai{\frac{Ek}{\sqrt{k^{2}+\mu^{2}}}}{\frac{Ek}{c\sqrt{k^{2}+\mu^{2}}}}\\
+&=\frac{\hbar\omega k}{\omega}=\hbar k
+\end{align*}
+よって $v_{\mathrm{g}}=v$
+\toi{3}{○}{記述}
+\begin{align*}
+\omega(k)&=c\mu\sqrt{\frac{k^{2}}{\mu^{2}}+1}\\
+&=c\mu\biggl(\frac{\sqrt{0+1}}{0!}\Bigl(\frac{k^{2}}{\mu^{2}}\Bigr)^{0}\\
+&\qquad+\frac{\frac{1}{2\sqrt{1+0}}}{1!}\Bigl(\frac{k^{2}}{\mu^{2}}\Bigr)^{1}\\
+&\qquad+\kakimachigai{O(k^{2})}{O(k^{4})}\biggr)\\
+&=c\mu\Bigl(1+\frac{1}{2}\cdot\frac{k^{2}}{\mu^{2}}\Bigr)\\
+&=c\mu+\frac{ck^{2}}{2\mu}\\
+&=\frac{mc^{2}}{\hbar}+\frac{\hbar k^{2}}{2m}
+\end{align*}
+\begin{align*}
+v_{\mathrm{p}}&=\frac{mc^{2}}{\hbar k}+\frac{\hbar k}{2m}\\
+v_{\mathrm{g}}&=\frac{\hbar k}{m}\\
+\omega'&=\frac{\hbar k^{2}}{2m}\\
+v_{\mathrm{p}}'&=\frac{\omega'}{k}=\frac{\hbar k}{2m}\\
+v_{\mathrm{g}}'&=\dv{\omega'}{k}=\frac{\hbar k}{m}
+\end{align*}
+$v_{\mathrm{g}}$ が一致。$v_{\mathrm{p}}$ は静止エネルギーの分ずれる。
+\naze{一致する理由の中心が無い。定数項 $mc^{2}/\hbar$ は $k$ で微分すると消えるので $v_{\mathrm{g}}$ に効かず，しかも全体に共通の位相 $\ee^{-\ii mc^{2}t/\hbar}$ をかけるだけで $\abs{\psi}^{2}$ を変えないので，観測される粒子の運動は変わらない，まで書く。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 分散関係に定数 $\omega_{0}$ を足しても，$\psi$ に共通の位相 $\ee^{-\ii\omega_{0}t}$ がかかるだけで $\abs{\psi}^{2}$ は変わらない。観測される運動は $\dv{\omega}{k}$ だけで決まる。
+\item \mae{第2章 問題5・10-29} $v_{\mathrm{p}}=\omega/k$ はエネルギーの原点で変わり，粒子の速さではない。今回は正しく分けられた。「一致する理由」には，微分で定数が消えることと共通の位相が観測されないことの両方を書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 分散関係を微分して群速度を求め，$p=\hbar k$，$E=\hbar\omega$ で粒子の速さと比べる。(3) は展開で現れる定数項が $\dd\omega/\dd k$ には効かず，$\omega/k$ には効くことに注目する。
+\keisan \shoumonkai{1} 定義より
+\[ v_{\mathrm{p}}=\frac{\omega}{k}=\frac{c\sqrt{k^{2}+\mu^{2}}}{k}=c\sqrt{1+\frac{\mu^{2}}{k^{2}}}>c \]
+である。合成関数の微分で
+\[ v_{\mathrm{g}}=\dv{\omega}{k}=c\cdot\frac{2k}{2\sqrt{k^{2}+\mu^{2}}}=\frac{ck}{\sqrt{k^{2}+\mu^{2}}}<c \]
+となる（$\mu>0$ なので分母は $k$ より大きい）。積は
+\[ v_{\mathrm{p}}v_{\mathrm{g}}=\frac{c\sqrt{k^{2}+\mu^{2}}}{k}\cdot\frac{ck}{\sqrt{k^{2}+\mu^{2}}}=c^{2} \]
+である。別解として，$\omega^{2}=c^{2}(k^{2}+\mu^{2})$ を $k$ で微分すると $2\omega\,\dd\omega/\dd k=2c^{2}k$ で，両辺を $2k$ で割ると $(\omega/k)(\dd\omega/\dd k)=c^{2}$ となる。
+
+\shoumonkai{2} $p=Ev/c^{2}$ より $v=pc^{2}/E$ である。$p=\hbar k$，$E=\hbar\omega$ を入れると
+\[ v=\frac{\hbar kc^{2}}{\hbar\omega}=\frac{kc^{2}}{c\sqrt{k^{2}+\mu^{2}}}=\frac{ck}{\sqrt{k^{2}+\mu^{2}}}=v_{\mathrm{g}} \]
+となる。
+
+\shoumonkai{3} $k\ll\mu$ では $\sqrt{k^{2}+\mu^{2}}=\mu\sqrt{1+k^{2}/\mu^{2}}\approx\mu(1+k^{2}/(2\mu^{2}))$ なので，$\mu=mc/\hbar$ を戻すと
+\[ \omega(k)\approx c\mu+\frac{ck^{2}}{2\mu}=\frac{mc^{2}}{\hbar}+\frac{\hbar k^{2}}{2m} \]
+である。これから
+\[ v_{\mathrm{g}}\approx\frac{\hbar k}{m},\qquad v_{\mathrm{p}}\approx\frac{mc^{2}}{\hbar k}+\frac{\hbar k}{2m} \]
+となる。非相対論の $\omega=\hbar k^{2}/(2m)$ からは $v_{\mathrm{g}}=\hbar k/m$，$v_{\mathrm{p}}=\hbar k/(2m)$ なので，$v_{\mathrm{g}}$ は一致するが $v_{\mathrm{p}}$ は一致しない。違いは定数項 $\omega_{0}=mc^{2}/\hbar$（静止エネルギー，すなわちエネルギーの原点の取り方）だけから来る。定数は $k$ で微分すると消えるので $v_{\mathrm{g}}$ には効かないが，$\omega/k$ には $\omega_{0}/k$ として残る。定数項は波動関数全体に共通の位相 $\ee^{-\ii\omega_{0}t}$ をかけるだけで $\abs{\psi}^{2}$ を変えないので，観測される粒子の運動（包絡の速さ $v_{\mathrm{g}}$）は変わらない。$v_{\mathrm{p}}$ はエネルギーの原点に依存し，粒子の速さを表す量ではない。
+\kotae{\shoumonkai{1} $v_{\mathrm{p}}=c\sqrt{k^{2}+\mu^{2}}/k>c$，$v_{\mathrm{g}}=ck/\sqrt{k^{2}+\mu^{2}}<c$，$v_{\mathrm{p}}v_{\mathrm{g}}=c^{2}$ \shoumonkai{2} $v=pc^{2}/E=ck/\sqrt{k^{2}+\mu^{2}}=v_{\mathrm{g}}$ \shoumonkai{3} $v_{\mathrm{g}}\approx\hbar k/m$（一致する），$v_{\mathrm{p}}\approx mc^{2}/(\hbar k)+\hbar k/(2m)$（静止エネルギーの分だけ一致しない）}
+\begin{ronten}
+  \item \shoumonkai{1} $\mu>0$ なので $\sqrt{k^{2}+\mu^{2}}>k$ であることを，$v_{\mathrm{p}}>c$，$v_{\mathrm{g}}<c$ の根拠として書く。
+  \item \shoumonkai{3} $k\ll\mu$ なので $k^{2}/\mu^{2}$ を小さい量として平方根を展開したことを書く。
+  \item \shoumonkai{3} 展開で現れる定数項が $k$ で微分すると消えるので $v_{\mathrm{g}}$ には効かず，$\omega/k$ には残ることを述べる。
+  \item \shoumonkai{3} 定数項は全体に共通の位相をかけるだけで $\abs{\psi}^{2}$ を変えないので，観測される粒子の運動は変わらないことを書く。
+\end{ronten}
+\kenzan $\mu\to0$（光子）では $v_{\mathrm{p}}=v_{\mathrm{g}}=c$，$k\to\infty$（超相対論）でも両方とも $c$ に近づく。$c\mu$ は $\unit{\metre\per\second}\cdot\unit{\per\metre}=\unit{\per\second}$ で角振動数の次元をもつ。(3) の $v_{\mathrm{p}}$ の主要項 $c\mu/k$ は $k\ll\mu$ で $c$ よりはるかに大きく，(1) の $v_{\mathrm{p}}>c$ と合う。
+\tsumazuki $v_{\mathrm{p}}>c$ は相対論に反しない。位相が一定の点は情報やエネルギーを運ばないからである。
+\end{tadashii}
 \end{mondai}
 
 \level{2}

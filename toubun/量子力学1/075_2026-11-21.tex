@@ -1,0 +1,38 @@
+% 量子力学1 量子力学1-2 問題4（075-dispersion。当時は量子力学1-10 問題1） 解いた日 2026-11-21
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+v_{\mathrm{p}}&=\frac{\omega}{k}=c\sqrt{1+\frac{\mu^{2}}{k^{2}}}>c\\
+v_{\mathrm{g}}&=\dv{\omega}{k}=\frac{1}{2}c\,\frac{2k}{\sqrt{k^{2}+\mu^{2}}}\\
+&=\frac{ck}{\sqrt{k^{2}+\mu^{2}}}<c
+\end{align*}
+\[ v_{\mathrm{p}}v_{\mathrm{g}}=c^{2} \]
+\toi{2}{◎}{}
+\begin{align*}
+p&=\frac{E\cdot\frac{ck}{\sqrt{k^{2}+\mu^{2}}}}{c^{2}}\\
+&=\kakimachigai{\frac{Ek}{\sqrt{k^{2}+\mu^{2}}}}{\frac{Ek}{c\sqrt{k^{2}+\mu^{2}}}}\\
+&=\frac{\hbar\omega k}{\omega}=\hbar k
+\end{align*}
+よって $v_{\mathrm{g}}=v$
+\toi{3}{○}{記述}
+\begin{align*}
+\omega(k)&=c\mu\sqrt{\frac{k^{2}}{\mu^{2}}+1}\\
+&=c\mu\biggl(\frac{\sqrt{0+1}}{0!}\Bigl(\frac{k^{2}}{\mu^{2}}\Bigr)^{0}\\
+&\qquad+\frac{\frac{1}{2\sqrt{1+0}}}{1!}\Bigl(\frac{k^{2}}{\mu^{2}}\Bigr)^{1}\\
+&\qquad+\kakimachigai{O(k^{2})}{O(k^{4})}\biggr)\\
+&=c\mu\Bigl(1+\frac{1}{2}\cdot\frac{k^{2}}{\mu^{2}}\Bigr)\\
+&=c\mu+\frac{ck^{2}}{2\mu}\\
+&=\frac{mc^{2}}{\hbar}+\frac{\hbar k^{2}}{2m}
+\end{align*}
+\begin{align*}
+v_{\mathrm{p}}&=\frac{mc^{2}}{\hbar k}+\frac{\hbar k}{2m}\\
+v_{\mathrm{g}}&=\frac{\hbar k}{m}\\
+\omega'&=\frac{\hbar k^{2}}{2m}\\
+v_{\mathrm{p}}'&=\frac{\omega'}{k}=\frac{\hbar k}{2m}\\
+v_{\mathrm{g}}'&=\dv{\omega'}{k}=\frac{\hbar k}{m}
+\end{align*}
+$v_{\mathrm{g}}$ が一致。$v_{\mathrm{p}}$ は静止エネルギーの分ずれる。
+\naze{一致する理由の中心が無い。定数項 $mc^{2}/\hbar$ は $k$ で微分すると消えるので $v_{\mathrm{g}}$ に効かず，しかも全体に共通の位相 $\ee^{-\ii mc^{2}t/\hbar}$ をかけるだけで $\abs{\psi}^{2}$ を変えないので，観測される粒子の運動は変わらない，まで書く。}
+%% kizuki
+\item 分散関係に定数 $\omega_{0}$ を足しても，$\psi$ に共通の位相 $\ee^{-\ii\omega_{0}t}$ がかかるだけで $\abs{\psi}^{2}$ は変わらない。観測される運動は $\dv{\omega}{k}$ だけで決まる。
+\item \mae{第2章 問題5・10-29} $v_{\mathrm{p}}=\omega/k$ はエネルギーの原点で変わり，粒子の速さではない。今回は正しく分けられた。「一致する理由」には，微分で定数が消えることと共通の位相が観測されないことの両方を書く。
