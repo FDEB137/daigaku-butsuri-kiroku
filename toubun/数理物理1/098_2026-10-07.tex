@@ -1,0 +1,65 @@
+% 数理物理1 数理物理1-12 問題4（098-impulse。当時は 数理物理1-10 問題7・shou10-l2-impulse） 解いた日 2026-10-07
+%% kotae
+\toi{1}{◎}{}
+\[ \Fourier\Bigl[\kakimachigai{\pdv{\phi}{t}}{\pdv{\phi}{z}}\Bigr]=\ii k\tilde{\phi} \]
+\[ \Fourier\Bigl[\kakimachigai{\frac{\partial\phi^{2}}{\partial t}}{\pdv[2]{\phi}{z}}\Bigr]=-k^{2}\tilde{\phi} \]
+\[ \frac{1}{v_s^{2}}\pdv[2]{\tilde{\phi}}{t}+k^{2}\tilde{\phi}=0 \]
+\[ \therefore\ \pdv[2]{\tilde{\phi}}{t}=-k^{2}v_s^{2}\tilde{\phi} \]
+\begin{align*}
+  \tilde{\phi}(k,t)&=C_1\cos(kv_st)+C_2\sin(kv_st)\\
+  \tilde{\phi}(k,0)&=C_1=\tilde{\phi}_0(k)\\
+  \pdv{\tilde{\phi}}{t}&=-C_1kv_s\sin(kv_st)\\
+  &\qquad+C_2kv_s\cos(kv_st)\\
+  \left.\pdv{\tilde{\phi}}{t}\right|_{t=0}&=C_2kv_s=\tilde{\psi}_0(\kakimachigai{z}{k})\\
+  \therefore\ C_2&=\frac{\tilde{\psi}_0(\kakimachigai{z}{k})}{kv_s}
+\end{align*}
+以上より，
+\begin{align*}
+  \tilde{\phi}(k,t)&=\cos(kv_st)\tilde{\phi}_0(k)\\
+  &\qquad+\frac{1}{kv_s}\sin(kv_st)\tilde{\psi}_0(k)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  &\int\frac{\dd k}{2\pi}\ee^{\ii k\kakimachigai{x}{z}}\frac{\sin(kv_st)}{kv_s}\\
+  &\qquad=t\int\frac{\dd k}{2\pi}\ee^{\ii k\kakimachigai{x}{z}}\frac{\sin(kv_st)}{kv_st}\\
+  &\qquad=t\cdot\frac{1}{2v_st}\theta(v_st-\abs{z})\\
+  &\qquad=\frac{1}{2v_s}\theta(v_st-\abs{z})
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  &\cos(kv_st)\tilde{\phi}_0(k)\\
+  &\qquad=\frac{1}{2}\bigl(\ee^{\ii kv_st}+\ee^{-\ii kv_st}\bigr)\tilde{\phi}_0(k)\\
+  &\qquad\longrightarrow\frac{1}{2}\bigl(\phi_0(z+v_st)+\phi_0(z-v_st)\bigr)
+\end{align*}
+\begin{align*}
+  &\frac{\sin(kv_st)}{kv_s}\tilde{\psi}_0(\kakimachigai{z}{k})\\
+  &\qquad\longrightarrow\frac{1}{2v_s}\theta(v_st-\abs{z})\star\psi_0(z)\\
+  &\qquad=\int\dd s\,\frac{1}{2v_s}\theta(v_st-\abs{z-s})\psi_0(s)\\
+  &\qquad=\frac{1}{2v_s}\int_{z-v_st}^{z+v_st}\dd s\,\psi_0(s)
+\end{align*}
+\toi{4}{◎}{}
+\[ \phi(0,t)=\frac{1}{2v_s}\int_{-v_st}^{v_st}\dd s\,\psi_0(s) \]
+i) $0<v_st<w$ のとき
+\[ \frac{1}{2v_s}\cdot2v_st\cdot u_0=u_0t \]
+ii) $v_st>w$ のとき
+\[ \frac{1}{2v_s}\cdot2wu_0=\frac{u_0w}{v_s} \]
+（図：$z$ 軸に $-v_st$，$-w$，$0$，$w$，$v_st$ をとり，$\psi_0$ が $-w<z<w$ で一定の矩形であることを描いたもの）
+
+（図：$\phi(z,t)$ のグラフ。$z=-v_st-w$ から $-v_st+w$ まで直線的に増え，$-v_st+w<z<v_st-w$ で高さ $u_0w/v_s$ の平らな部分，$v_st-w$ から $v_st+w$ まで直線的に $0$ まで下がる台形）
+\toi{5}{◎}{}
+\begin{align*}
+  \int\dd z\,\phi(z,t)&=2(v_st-w)\cdot\frac{u_0w}{v_s}\\
+  &\qquad+2w\cdot\frac{u_0w}{v_s}\\
+  &=2u_0wt
+\end{align*}
+\[ \lim_{k\to0}\tilde{\phi}(k,t)=\underbrace{\tilde{\phi}_0(k)}_{0}+\underbrace{\frac{\sin(kv_st)}{kv_s}}_{t}\tilde{\psi}_0(k) \]
+\begin{align*}
+  \tilde{\psi}_0(k)&=\int\dd x\,\ee^{-\ii kx}\psi_0(x)\\
+  &=\int_{-w}^{w}\dd x\,u_0\ee^{-\ii kx}\\
+  &=\Bigl[\frac{u_0}{-\ii k}\ee^{-\ii kx}\Bigr]_{-w}^{w}\\
+  &=\frac{\ii u_0}{k}\bigl(\ee^{-\ii kw}-\ee^{\ii kw}\bigr)\\
+  &=\frac{\ii u_0}{k}\cdot(-2\ii\sin kw)=\frac{2u_0}{k}\sin kw\\
+  &\xrightarrow[k\to0]{}2u_0w
+\end{align*}
+\[ \lim_{k\to0}\tilde{\phi}(k,t)=2u_0wt \]
+%% kizuki

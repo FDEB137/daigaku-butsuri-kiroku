@@ -1,0 +1,49 @@
+% 数理物理1 数理物理1-12 問題3（094-pulse。当時は 数理物理1-10 問題3・shou10-l1-pulse） 解いた日 2026-10-07
+%% kotae
+\toi{1}{△}{記述}
+\begin{align*}
+  \pdv[2]{\phi}{t}&=\ayamari{\pdv[2]{F}{z}\cdot\pdv[2]{z}{t}}{F''\Bigl(\pdv{\xi}{t}\Bigr)^{2}}\\
+  &\qquad+\ayamari{\pdv[2]{G}{z}\cdot\pdv[2]{z}{t}}{G''\Bigl(\pdv{\eta}{t}\Bigr)^{2}}\\
+  &=v_s^{2}\ayamari{\Bigl(\pdv[2]{F}{t}+\pdv[2]{G}{t}\Bigr)}{(F''+G'')}
+\end{align*}
+\begin{align*}
+  &\frac{1}{v_s^{2}}\pdv[2]{\phi}{t}-\pdv[2]{\phi}{z}\\
+  &\qquad=\Bigl(\pdv[2]{F}{t}+\pdv[2]{G}{t}\Bigr)\\
+  &\qquad\qquad-\ayamari{\Bigl(\pdv[2]{F}{t}+\pdv[2]{G}{t}\Bigr)}{(F''+G'')}\\
+  &\qquad=0
+\end{align*}
+\naze{合成関数の微分は，引数 $\xi=z-v_st$，$\eta=z+v_st$ の1階微分 $\pdv{\xi}{t}=-v_s$，$\pdv{\eta}{t}=v_s$ を2回掛けるもので，2階微分どうしの積ではない（$\pdv[2]{\xi}{t}=0$）。括弧の中も $t$ での2階微分ではなく引数での2階微分 $F''$，$G''$ で，$\pdv[2]{\phi}{t}=v_s^{2}(F''+G'')$，$\pdv[2]{\phi}{z}=F''+G''$ だから打ち消す。結論は合っている。}
+\toi{2}{△}{記述}
+\begin{align*}
+  \left.\pdv{\phi}{t}\right|_{t=0}&=\left.\pdv{F}{z}\pdv{z}{t}+\pdv{G}{z}\pdv{z}{t}\right|_{t=0}\\
+  &=-v_s\Bigl(\pdv{}{z}F(z)-\pdv{}{z}G(z)\Bigr)=0
+\end{align*}
+\[ \therefore\ \pdv{}{z}F(z)=\pdv{}{z}G(z)\quad\nuke{\therefore\ G=F+c} \]
+\[ \phi(z,0)=\phi_0(z)=F(z)+G(z) \]
+\[ \therefore\ F(z)=\frac{1}{2}\phi_0(z)\nuke{-c/2},\quad G(z)=\frac{1}{2}\phi_0(z)\nuke{+c/2} \]
+\[ \therefore\ \phi(z,t)=\frac{1}{2}\bigl(\phi_0(z-v_st)+\phi_0(z+v_st)\bigr) \]
+\naze{$F'=G'$ から言えるのは $G=F+c$（$c$ は定数）までで，$F=G$ とは限らない。$c$ を残すと $F=(\phi_0-c)/2$，$G=(\phi_0+c)/2$ で，$\phi=F+G$ では $c$ が打ち消すので最後の式は正しい。}
+\toi{3}{△}{計算}
+\[ \phi\Bigl(z,\frac{w}{2v_s}\Bigr)=\frac{1}{2}\Bigl(\phi_0\Bigl(z-\frac{w}{2}\Bigr)+\phi_0\Bigl(z+\frac{w}{2}\Bigr)\Bigr) \]
+i) $\abs{z-w/2}<w$ かつ $\abs{z+w/2}<w$ のとき
+\begin{align*}
+  \therefore\ &\Bigl(-w<z-\frac{w}{2}<w\Bigr)\cap\Bigl(-w<z+\frac{w}{2}<w\Bigr)\\
+  &\Bigl(-\frac{w}{2}<z<\frac{3}{2}w\Bigr)\cap\Bigl(-\frac{3}{2}w<z<\frac{w}{2}\Bigr)\\
+  \therefore\ &-\frac{w}{2}<z<\frac{w}{2}\qquad\therefore\ \abs{z}<\frac{w}{2}\text{ で }h
+\end{align*}
+ii) $w/2\le z<3w/2$，$-3w/2<z\le-w/2$ のとき，$w/2\le\abs{z}<3w/2$ で $h/2$。片方が $h$，もう片方が $0$ になるので $h/2$。
+
+iii) $z\le-3w/2$，$3w/2\le z$ のとき，$\abs{z}\ge3w/2$ で $0$。
+\[ \phi\Bigl(z,\frac{w}{2v_s}\Bigr)=\begin{cases}h&(\abs{z}<w/2)\\ h/2&(w/2\le\abs{z}<3w/2)\\ 0&(3w/2\le\abs{z})\end{cases} \]
+\[ \phi\Bigl(z,\frac{2w}{v_s}\Bigr)=\frac{1}{2}\bigl(\phi_0(z-2w)+\phi_0(z+2w)\bigr) \]
+\[ \abs{z-2w}<w\quad\therefore\ w<z<3w \]
+\[ \abs{z+2w}<w\quad\therefore\ -3w<z<-w \]
+\[ \phi\Bigl(z,\frac{2w}{v_s}\Bigr)=\begin{cases}0&(3w<\abs{z})\\ h/2&(\ayamari{\abs{z}<3w}{w<\abs{z}<3w})\\ \nuke{0}&(\nuke{\abs{z}<w})\end{cases} \]
+\naze{範囲 $w<z<3w$，$-3w<z<-w$ は正しく出したのに，まとめで $\abs{z}<w$ を含めた。2つのパルスはすでに離れていて，$\abs{z}<w$ では $0$ である。面積で検算すると，答えでは $\frac{h}{2}\cdot6w=3wh$ で，保存するはずの $2wh$ と合わない。}
+\toi{4}{×}{立式}
+$t=\ayamari{2w/v_s}{w/v_s}$，高さ $h/2$，$\phi_0(z-v_st)$ 右向き，$\phi_0(z+v_st)$ 左向き
+\naze{重ならなくなる条件を立てずに時刻を書いている。右向きのパルスの範囲 $(v_st-w,v_st+w)$ と左向きの範囲 $(-v_st-w,-v_st+w)$ が重ならない条件 $v_st-w\ge-v_st+w$ から $t=w/v_s$。高さ $h/2$ と向きは正しい。}
+%% kizuki
+\item 合成関数の2階微分は，引数 $\xi=z-v_st$ とおいて $\pdv{\phi}{t}=F'(\xi)\pdv{\xi}{t}=-v_sF'$，もう一度微分して $v_s^{2}F''$ と1階ずつ進める。$F''$ は引数での微分なので，$t$ や $z$ での微分と書き分ける。
+\item \mae{数理物理1-10（組み替え前）問題3 (2)・10-03} $F$，$G$ を決める段で，前回は $c$ を残したが符号を逆にし，今回は $c$ を落とした。$F'=G'$ を積分したら必ず $G=F+c$ と書き，$F=(\phi_0-c)/2$，$G=(\phi_0+c)/2$ として，$\phi$ で $c$ が消えることまで書く。
+\item \mae{数理物理1-10（組み替え前）問題3 (3)(4)・10-03} 前回の気付きどおり2つの区間を書き出せたが，まとめで重ならない部分を取り違えた。答えを書いたら面積 $\int\phi\,\dd z=2wh$ で検算する。(4) は時刻を先に書かず，右向きのパルスの左端 $v_st-w$ と左向きのパルスの右端 $-v_st+w$ を比べる不等式から出す（前回の気付きと同じ）。

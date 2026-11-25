@@ -1,0 +1,27 @@
+% 数理物理1 数理物理1-12 問題2（093-renzoku。当時は 数理物理1-10 問題2・shou10-l1-renzoku） 解いた日 2026-10-07
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  x(z\pm a,t)&=x\pm a\pdv{x}{z}+\frac{a^{2}}{2!}\pdv[2]{x}{z}\\
+  &\qquad\pm\frac{a^{3}}{3!}\pdv[3]{x}{z}+\frac{a^{4}}{4!}\pdv[4]{x}{z}\cdots\\
+  x_{n+1}+x_{n-1}&=2x+a^{2}\pdv[2]{x}{z}\\
+  &\qquad+\frac{a^{4}}{12}\pdv[4]{x}{z}+\cdots
+\end{align*}
+\[ \therefore\ x_{n+1}+x_{n-1}-2x_n=a^{2}\pdv[2]{x}{z}+O(a^{4}) \]
+\toi{2}{◎}{}
+\[ m\pdv[2]{x_n}{t}=Ka^{2}\pdv[2]{x}{z} \]
+\[ \therefore\ \frac{1}{v_s^{2}}\kakimachigai{\pdv[2]{x_n}{t}}{\pdv[2]{x}{t}}-\pdv[2]{x}{z}=0 \]
+\toi{3}{◎}{}
+\[ v_s=a\sqrt{\frac{K}{m}}\xrightarrow[a\to0]{}0 \]
+\[ v_s=a\sqrt{\frac{\kakimachigai{K}{\kappa}/a}{\rho a}}=\sqrt{\frac{\kakimachigai{K}{\kappa}}{\rho}} \]
+\toi{4}{×}{方針}
+\begin{align*}
+  &\frac{1}{v_s^{2}}(-\ii\omega)^{2}\ee^{\ii(kz-\omega t)}-(\ii k)^{2}\ee^{\ii(kz-\omega t)}\\
+  &\qquad=\Bigl(-\frac{\omega^{2}}{v_s^{2}}+k^{2}\Bigr)\ee^{\ii(kz-\omega t)}=0
+\end{align*}
+\[ \therefore\ -\frac{\omega^{2}}{v_s^{2}}+k^{2}=0\qquad\therefore\ \omega=\pm v_sk \]
+$+$：\ayamari{左向き}{右向き（$+z$ 向き）}，$-$：\ayamari{右向き}{左向き（$-z$ 向き）}
+\naze{向きが逆である。$\omega=+v_sk$ なら位相は $kz-\omega t=k(z-v_st)$ で，位相が一定の点 $z=v_st+\text{一定}$ は $t$ とともに $+z$ 向きに動く。$\omega=-v_sk$ は位相 $k(z+v_st)$ で $-z$ 向きに動く。どちらも速さは $v_s$。}
+%% kizuki
+\item \mae{数理物理1-10（組み替え前）問題2 (4)・10-03} 前回は進む向きを書かず，今回は書いたが逆になった。向きは勘で決めず，「$\omega$ の符号 → 位相の形 $k(z\mp v_st)$ → 位相一定の点 $z=\pm v_st+\text{一定}$ の動き」の順に1行書いてから答える。同じ日の問題3 (4) では $\phi_0(z-v_st)$ を右向きと正しく書けているので，$\ee^{\ii k(z-v_st)}$ も同じく $+z$ 向きだと照らし合わせる。
+\item \mae{数理物理1-10（組み替え前）問題2 (2)・10-03} 前回と同じく，(2) の最後の式で連続の場 $x(z,t)$ の方程式なのに $\pdv[2]{x_n}{t}$ と書いた（減点なし）。$z$ でも微分する式は $x_n$ ではなく $x$ で書く。

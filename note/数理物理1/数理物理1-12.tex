@@ -7,7 +7,7 @@
   \ichirangyou{\hyperlink{bt-m-092-bunsan}{1}}{L1・計算}{○◎○△}{B}{2026-10-21 3回目 ヒント1 (1)立式 (3)単位 (4)計算}
   \ichirangyou{\hyperlink{bt-m-093-renzoku}{2}}{L1・導出}{◎◎◎×}{D}{2026-10-07 2回目 解答を見た (4)方針}
   \ichirangyou{\hyperlink{bt-m-094-pulse}{3}}{L1・計算}{△△△×}{D}{2026-10-07 2回目 (1)記述 (2)記述 (3)計算 (4)立式}
-  \ichirangyou{4}{L2・導出}{◎◎◎◎◎}{D}{2026-10-07 解答を見た}
+  \ichirangyou{\hyperlink{bt-m-098-impulse}{4}}{L2・導出}{◎◎◎◎◎}{D}{2026-10-07 解答を見た}
   \ichirangyou{5}{L2・計算}{}{未着手}{}
   \ichirangyou{6}{L2・計算}{}{未着手}{}
   \ichirangyou{7}{L3・導出}{}{未着手}{}
@@ -25,11 +25,16 @@
     \[ \omega_\mu=\sqrt{\frac{2K}{m}\Bigl(1-\cos\frac{2\pi\mu}{N}\Bigr)} \notetag{12.4} \]
   \item 波の速さ $v_s$ % 出典: p.91
     \[ v_s=a\sqrt{\frac{K}{m}} \notetag{12.5} \]
+  \item 初期条件を満たす解のフーリエ像（$\tilde{\psi}_0$ は初期速度 $\psi_0$ のフーリエ変換） % 出典: p.94
+    \begin{align*}
+      \tilde{\phi}(k,t)&=C_+(k)\ee^{-\ii kv_st}+C_-(k)\ee^{\ii kv_st}\\
+      &=\cos(kv_st)\tilde{\phi}_0(k)+\frac{\sin(kv_st)}{kv_s}\tilde{\psi}_0(k) \notetag{12.6}
+    \end{align*}
 \end{noteshikilist}
 
 \mondaihen
 \level{1}
-% toubun: kiroku\toubun\数理物理1\092_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\092_2026-10-07.tex
 \mondaibangou{1}
 \begin{mondai}{092-bunsan}{計算}{連成振動の分散関係と，長波長極限での線形分散関係・位相速度}
 質量 $m$ の質点 $N$ 個が間隔 $a$ で輪状に並び，隣どうしがばね定数 $K$ のばねでつながれている（\noteshiki{12.2}）。モード $\mu$ の固有振動数は \noteshiki{12.4} より次のとおりである。波数は $k_\mu=2\pi\mu/(Na)$ とする。
@@ -41,26 +46,43 @@
     \item $k_\mu a=1$ のとき $\omega_\mu/(v_sk_\mu)$ の値を求めよ。また，この比が $0.99$ になる $k_\mu a$ のおおよその値を $\sin x\simeq x-x^{3}/6$ を用いて求め，そのときの波長 $\lambda_\mu$ が $a$ の何倍かを答えよ。
   \end{shoumon}
 \notekiroku{2026-10-03 C ◎◎×× → 2026-10-07 C ◎◎△× → 2026-10-21 B ○◎○△ (ヒント1)}
-\begin{kotaeutsushi}{2026-10-03}
+\begin{kotaeutsushi}{2026-10-07}
 \toi{1}{◎}{}
-（図：質点を輪状に並べた図）
 \begin{align*}
-  \omega_\mu&=\sqrt{\frac{2K}{m}\cdot2\sin^{2}\Bigl(\frac{\pi\mu}{N}\Bigr)}\\
+  \omega_\mu&=\sqrt{\frac{2K}{m}\cdot2\sin^{2}\frac{\pi\mu}{N}}\\
   &=2\sqrt{\frac{K}{m}}\sin\Bigl(\frac{\pi\mu}{N}\Bigr)\\
-  &=2\sqrt{\frac{K}{m}}\abs*{\sin\Bigl(\frac{ak_\mu}{2}\Bigr)}
+  &=2\sqrt{\frac{K}{m}}\sin\frac{k_\mu a}{2}
 \end{align*}
-（脇に $k_\mu=2\pi\mu/(Na)$，$ak_\mu/2=\pi\mu/N$）
 \toi{2}{◎}{}
-\[ =2\sqrt{\frac{K}{m}}\cdot\frac{ak_\mu}{2}=\underbrace{a\sqrt{\frac{K}{m}}}_{v_s}k_\mu \]
-\toi{3}{×}{未着手}
-\mikai
-\toi{4}{×}{未着手}
-\mikai
+$\sin(k_\mu a/2)\simeq k_\mu a/2$ より，
+\[ \omega_\mu=\underbrace{a\sqrt{\frac{K}{m}}}_{v_s}k_\mu,\qquad v_s=a\sqrt{\frac{K}{m}} \]
+\toi{3}{△}{単位}
+\begin{align*}
+  v_s&=2.5\times10^{-10}\cdot\sqrt{\frac{15}{4.5\times10^{-26}}}\\
+  &=2.5\cdot\frac{\sqrt{10}}{\sqrt{3}}\cdot10^{3}\\
+  &=\ayamari{4.56\times10^{3}}{\qty{4.6e3}{\metre\per\second}}\\
+  \omega_{\max}&=2\sqrt{\frac{15}{4.5\times10^{-26}}}\\
+  &=\ayamari{3.65\times10^{13}}{\qty{3.7e13}{\per\second}}\\
+  \nu_{\max}&=\frac{\omega_{\max}}{2\pi}=\ayamari{5.81\times10^{12}}{\qty{5.8e12}{\hertz}}
+\end{align*}
+\naze{数値は正しいが，3つとも単位が無く，指定の有効数字2桁にもなっていない。$\omega_{\max}$ は $\abs{\sin(k_\mu a/2)}=1$（$k_\mu a=\pi$，$\mu=N/2$）のときであることも一言添える。}
+\toi{4}{×}{立式}
+\begin{align*}
+  \frac{\omega_\mu}{v_sk_\mu}&=\frac{2\sqrt{K/m}\,\sin(k_\mu a/2)}{a\sqrt{K/m}\,k_\mu}\\
+  &=2\sin\frac{1}{2}=2\Bigl(\frac{1}{2}-\frac{1}{6}\Bigl(\frac{1}{2}\Bigr)^{3}\Bigr)\\
+  &=1-\frac{1}{24}=\frac{23}{24}
+\end{align*}
+\[ \ayamari{2\sin x}{\frac{2\sin(x/2)}{x}}=\frac{99}{100}\qquad\therefore\ 2x-\frac{1}{3}x^{3}=\frac{99}{100} \]
+\naze{比は $x=k_\mu a$ の関数として $2\sin(x/2)/x$ である。1行目では $k_\mu a=1$ を入れたので分母が 1 になって消えたが，一般の $x$ では分母が残る。正しくは $2\sin(x/2)/x\simeq1-x^{2}/24=0.99$ から $x^{2}=0.24$，$k_\mu a\simeq0.49$，$\lambda_\mu=2\pi a/x\simeq13a$。ここで止まっていて，$k_\mu a$ と $\lambda_\mu/a$ が出ていない。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item 数値の答えには単位を付け，問題の指定（有効数字2桁）に丸めてから書く。$v_s$ は \unit{\metre\per\second}，$\omega_{\max}$ は \unit{\per\second}，$\nu_{\max}$ は \unit{\hertz} である。
+\item 「この比が $0.99$ になる $x$」を求めるときは，値を代入する前の一般の式に戻って立式する。$x=k_\mu a$ とおくと比は $2\sin(x/2)/x$ で，$\sin(x/2)\simeq x/2-x^{3}/48$ を入れると $1-x^{2}/24$ になる。前半で $x=1$ を入れたときの $2\sin(1/2)$ をそのまま使うと分母の $x$ が消える。立てた式に $x=1$ を入れて前半の値 $0.96$ に戻るかで確かめる。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item (3)(4) は手を付けていない。(3) は先に $\sqrt{K/m}$ の値を出し，$v_s=a\sqrt{K/m}$ と $\omega_{\max}=2\sqrt{K/m}$（$\abs{\sin}=1$ となる $k_\mu a=\pi$，$\mu=N/2$）を有効数字2桁と単位つきで答える。
 \item (4) は $x=k_\mu a$ とおくと比が $\omega_\mu/(v_sk_\mu)=2\sin(x/2)/x$ と $x$ だけの関数になる。$\sin(x/2)\simeq x/2-x^{3}/48$ で $1-x^{2}/24$ とし，波長は $\lambda_\mu=2\pi a/x$ で求める。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin 半角の公式で $\omega_\mu$ を $\sin$ に書き直し，小さな $k_\mu a$ では $\sin$ を展開する。
 \keisan
@@ -76,7 +98,7 @@
 \end{tadashii}
 \end{mondai}
 
-% toubun: kiroku\toubun\数理物理1\093_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\093_2026-10-07.tex
 \mondaibangou{2}
 \begin{mondai}{093-renzoku}{導出}{連続極限で波動方程式が得られる条件（$m/a$ と $Ka$ を固定）}
 質点が $z$ 軸上に間隔 $a$ で並び，$n$ 番目の質点の位置を $z_n=na$ とする。変位 $x_n(t)$ を連続な場 $x(z,t)$ の $z=z_n$ での値 $x_n(t)=x(z_n,t)$ とみなす。質点の質量は $m$，ばね定数は $K$ で，運動方程式は \noteshiki{12.3} である。
@@ -88,45 +110,38 @@
     \item (2) の方程式に $x=\ee^{\ii(kz-\omega t)}$ を代入して $\omega$ と $k$ の関係を求め，$\omega=\pm v_sk$ の波がそれぞれ進む向きを述べよ。
   \end{shoumon}
 \notekiroku{2026-10-03 A ◎◎◎△ → 2026-10-07 D ◎◎◎× (解答を見た)}
-\begin{kotaeutsushi}{2026-10-03}
+\begin{kotaeutsushi}{2026-10-07}
 \toi{1}{◎}{}
-（図：間隔 $a$ で並んだ質点）
 \begin{align*}
-  x(z\pm a,t)&=x\pm a\pdv{x}{z}+\frac{a^{2}}{2}\pdv[2]{x}{z}\\
-  &\qquad\pm\frac{a^{3}}{6}\pdv[3]{x}{z}+\cdots
+  x(z\pm a,t)&=x\pm a\pdv{x}{z}+\frac{a^{2}}{2!}\pdv[2]{x}{z}\\
+  &\qquad\pm\frac{a^{3}}{3!}\pdv[3]{x}{z}+\frac{a^{4}}{4!}\pdv[4]{x}{z}\cdots\\
+  x_{n+1}+x_{n-1}&=2x+a^{2}\pdv[2]{x}{z}\\
+  &\qquad+\frac{a^{4}}{12}\pdv[4]{x}{z}+\cdots
 \end{align*}
-\begin{align*}
-  &x(z+a,t)+x(z-a,t)\\
-  &\qquad=2\Bigl(x+\frac{a^{2}}{2}\pdv[2]{x}{z}+O(a^{4})\Bigr)\\
-  &x(z_{n+1},t)+x(z_{n-1},t)-2x(z_n,t)\\
-  &\qquad=a^{2}\Bigl(\pdv[2]{x}{z}\Bigr)+O(a^{4})\\
-  &x_{n+1}+x_{n-1}-2x_n=a^{2}\Bigl(\pdv[2]{x}{z}\Bigr)
-\end{align*}
+\[ \therefore\ x_{n+1}+x_{n-1}-2x_n=a^{2}\pdv[2]{x}{z}+O(a^{4}) \]
 \toi{2}{◎}{}
-\begin{align*}
-  m\dv[2]{x_n}{t}&=K(x_{n+1}-x_n)-K(x_n-x_{n-1})\\
-  \dv[2]{x_n}{t}&=\frac{K}{m}a^{2}\pdv[2]{x}{z}\\
-  \dv[2]{x_n}{t}&=v_s^{2}\pdv[2]{x_n}{z}
-\end{align*}
-\[ \frac{1}{v_s^{2}}\kakimachigai{\pdv[2]{x_n}{t}}{\pdv[2]{x}{t}}-\pdv[2]{x}{z}=0 \]
-\[ v_s=a\sqrt{\frac{K}{m}} \]
+\[ m\pdv[2]{x_n}{t}=Ka^{2}\pdv[2]{x}{z} \]
+\[ \therefore\ \frac{1}{v_s^{2}}\kakimachigai{\pdv[2]{x_n}{t}}{\pdv[2]{x}{t}}-\pdv[2]{x}{z}=0 \]
 \toi{3}{◎}{}
-$a\to0$ で $v_s\to0$。
-\[ \rho=\frac{m}{a},\qquad\kappa=Ka \]
-\[ v_s=\kakimachigai{\frac{Ka}{m/a}}{\sqrt{\frac{Ka}{m/a}}}=\sqrt{\frac{\kappa}{\rho}} \]
-\toi{4}{△}{記述}
+\[ v_s=a\sqrt{\frac{K}{m}}\xrightarrow[a\to0]{}0 \]
+\[ v_s=a\sqrt{\frac{\kakimachigai{K}{\kappa}/a}{\rho a}}=\sqrt{\frac{\kakimachigai{K}{\kappa}}{\rho}} \]
+\toi{4}{×}{方針}
 \begin{align*}
-  &\frac{1}{v_s^{2}}\pdv[2]{}{t}\bigl(\ee^{\ii(kz-\omega t)}\bigr)=\pdv[2]{}{z}\ee^{\ii(kz-\omega t)}\\
-  &\frac{1}{v_s^{2}}(-\omega^{2})\ee^{\ii(kz-\omega t)}=(\ii k)^{2}\ee^{\ii(kz-\omega t)}
+  &\frac{1}{v_s^{2}}(-\ii\omega)^{2}\ee^{\ii(kz-\omega t)}-(\ii k)^{2}\ee^{\ii(kz-\omega t)}\\
+  &\qquad=\Bigl(-\frac{\omega^{2}}{v_s^{2}}+k^{2}\Bigr)\ee^{\ii(kz-\omega t)}=0
 \end{align*}
-\[ \frac{\omega^{2}}{v_s^{2}}=k^{2},\qquad\omega=\pm v_sk \]
-\nuke{進む向き}
-\naze{問われている「それぞれ進む向き」が書かれていない。$\omega=+v_sk$ は位相が $k(z-v_st)$ で $+z$ 向き，$\omega=-v_sk$ は位相が $k(z+v_st)$ で $-z$ 向きに，ともに速さ $v_s$ で進む。}
+\[ \therefore\ -\frac{\omega^{2}}{v_s^{2}}+k^{2}=0\qquad\therefore\ \omega=\pm v_sk \]
+$+$：\ayamari{左向き}{右向き（$+z$ 向き）}，$-$：\ayamari{右向き}{左向き（$-z$ 向き）}
+\naze{向きが逆である。$\omega=+v_sk$ なら位相は $kz-\omega t=k(z-v_st)$ で，位相が一定の点 $z=v_st+\text{一定}$ は $t$ とともに $+z$ 向きに動く。$\omega=-v_sk$ は位相 $k(z+v_st)$ で $-z$ 向きに動く。どちらも速さは $v_s$。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{数理物理1-10（組み替え前）問題2 (4)・10-03} 前回は進む向きを書かず，今回は書いたが逆になった。向きは勘で決めず，「$\omega$ の符号 → 位相の形 $k(z\mp v_st)$ → 位相一定の点 $z=\pm v_st+\text{一定}$ の動き」の順に1行書いてから答える。同じ日の問題3 (4) では $\phi_0(z-v_st)$ を右向きと正しく書けているので，$\ee^{\ii k(z-v_st)}$ も同じく $+z$ 向きだと照らし合わせる。
+\item \mae{数理物理1-10（組み替え前）問題2 (2)・10-03} 前回と同じく，(2) の最後の式で連続の場 $x(z,t)$ の方程式なのに $\pdv[2]{x_n}{t}$ と書いた（減点なし）。$z$ でも微分する式は $x_n$ ではなく $x$ で書く。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item 「向きを述べよ」には，位相 $kz-\omega t=k(z\mp v_st)$ が一定の点が $z=\pm v_st+\text{一定}$ と動くことから答える。$\omega=+v_sk$ は $+z$ 向き，$\omega=-v_sk$ は $-z$ 向きである。
 \item 小問の問いを最後に読み直し，求めた式（$\omega=\pm v_sk$）のほかに述べることが残っていないかを確かめる。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin テイラー展開で奇数次を消し，$m,K$ を $a$ の関数として固定する量を選び直す。
 \keisan
@@ -148,7 +163,7 @@ $v_s^{2}=Ka^{2}/m$ とおいて次を得る。
 \end{tadashii}
 \end{mondai}
 
-% toubun: kiroku\toubun\数理物理1\094_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\094_2026-10-07.tex
 \mondaibangou{3}
 \begin{mondai}{094-pulse}{計算}{ダランベール解と，初期速度 0 の矩形パルスが左右に分かれて進むこと}
 $v_s>0$，$w>0$，$h>0$ とし，$-\infty<z<\infty$ で次の波動方程式を考える。
@@ -162,36 +177,61 @@ $v_s>0$，$w>0$，$h>0$ とし，$-\infty<z<\infty$ で次の波動方程式を�
     \item 2つのパルスが重ならなくなる最初の時刻と，そのとき各パルスの高さと進む向きを求めよ。
   \end{shoumon}
 \notekiroku{2026-10-03 D ◎△×× → 2026-10-07 D △△△×}
-\begin{kotaeutsushi}{2026-10-03}
-\toi{1}{◎}{}
+\begin{kotaeutsushi}{2026-10-07}
+\toi{1}{△}{記述}
 \begin{align*}
-  &\frac{1}{v_s^{2}}\biggl(\pdv[2]{F}{z}\cdot(-v_s)^{2}+\pdv[2]{G}{z}v_s^{2}\biggr)\\
-  &\qquad-\pdv[2]{F}{z}-\kakimachigai{\frac{\partial^{2}F}{\partial G^{2}}}{\pdv[2]{G}{z}}=0
+  \pdv[2]{\phi}{t}&=\ayamari{\pdv[2]{F}{z}\cdot\pdv[2]{z}{t}}{F''\Bigl(\pdv{\xi}{t}\Bigr)^{2}}\\
+  &\qquad+\ayamari{\pdv[2]{G}{z}\cdot\pdv[2]{z}{t}}{G''\Bigl(\pdv{\eta}{t}\Bigr)^{2}}\\
+  &=v_s^{2}\ayamari{\Bigl(\pdv[2]{F}{t}+\pdv[2]{G}{t}\Bigr)}{(F''+G'')}
 \end{align*}
+\begin{align*}
+  &\frac{1}{v_s^{2}}\pdv[2]{\phi}{t}-\pdv[2]{\phi}{z}\\
+  &\qquad=\Bigl(\pdv[2]{F}{t}+\pdv[2]{G}{t}\Bigr)\\
+  &\qquad\qquad-\ayamari{\Bigl(\pdv[2]{F}{t}+\pdv[2]{G}{t}\Bigr)}{(F''+G'')}\\
+  &\qquad=0
+\end{align*}
+\naze{合成関数の微分は，引数 $\xi=z-v_st$，$\eta=z+v_st$ の1階微分 $\pdv{\xi}{t}=-v_s$，$\pdv{\eta}{t}=v_s$ を2回掛けるもので，2階微分どうしの積ではない（$\pdv[2]{\xi}{t}=0$）。括弧の中も $t$ での2階微分ではなく引数での2階微分 $F''$，$G''$ で，$\pdv[2]{\phi}{t}=v_s^{2}(F''+G'')$，$\pdv[2]{\phi}{z}=F''+G''$ だから打ち消す。結論は合っている。}
 \toi{2}{△}{記述}
-\[ \phi(z,0)=F(z)+G(z)=\ayamari{h}{\phi_0(z)} \]
-\[ \dot{F}(-v_s)+\dot{G}v_s=0 \]
-\[ \dot{F}=\dot{G}\qquad\therefore\ F=G+c \]
-\[ F+G=h,\qquad F-G=c \]
-\[ F=\ayamari{\frac{h-c}{2}}{\frac{\phi_0+c}{2}},\qquad G=\ayamari{\frac{h+c}{2}}{\frac{\phi_0-c}{2}} \]
-\naze{初期条件は関数としての等式 $F(z)+G(z)=\phi_0(z)$ で，$h$ は $\abs{z}<w$ での値にすぎない。また $F-G=c$ からは $F=(\phi_0+c)/2$，$G=(\phi_0-c)/2$ で，書いたものとは $c$ の符号が逆である（$c$ は $F+G$ で打ち消すので結論は変わらない）。}
-\[ \phi(z,t)=\frac{1}{2}\bigl(\phi_0(z-v_st)+\phi_0(z+v_st)\bigr) \]
-\toi{3}{×}{方針}
 \begin{align*}
-  \phi\Bigl(z,\frac{w}{2v_s}\Bigr)&=\frac{1}{2}\Bigl(\phi_0\Bigl(z-\frac{w}{2}\Bigr)+\phi_0\Bigl(z+\frac{w}{2}\Bigr)\Bigr)\\
-  &=\ayamari{h}{\text{$z$ の範囲で変わる}}\\
-  \phi\Bigl(z,\frac{2w}{v_s}\Bigr)&=\frac{1}{2}\bigl(\phi_0(z-2w)+\phi_0(z+2w)\bigr)\\
-  &=\ayamari{0}{\text{$z$ の範囲で変わる}}
+  \left.\pdv{\phi}{t}\right|_{t=0}&=\left.\pdv{F}{z}\pdv{z}{t}+\pdv{G}{z}\pdv{z}{t}\right|_{t=0}\\
+  &=-v_s\Bigl(\pdv{}{z}F(z)-\pdv{}{z}G(z)\Bigr)=0
 \end{align*}
-\naze{$\phi$ は $z$ の関数で，値は1つではない。各項 $\phi_0(z\mp v_st)$ は区間 $(\pm v_st-w,\pm v_st+w)$ でだけ $h$ になるので，2つの区間を書き出して重ねる。$t=w/(2v_s)$：$\abs{z}<w/2$ で $h$，$w/2<\abs{z}<3w/2$ で $h/2$，他は 0。$t=2w/v_s$：$w<\abs{z}<3w$ で $h/2$，他は 0。}
-\toi{4}{×}{未着手}
-\mikai
+\[ \therefore\ \pdv{}{z}F(z)=\pdv{}{z}G(z)\quad\nuke{\therefore\ G=F+c} \]
+\[ \phi(z,0)=\phi_0(z)=F(z)+G(z) \]
+\[ \therefore\ F(z)=\frac{1}{2}\phi_0(z)\nuke{-c/2},\quad G(z)=\frac{1}{2}\phi_0(z)\nuke{+c/2} \]
+\[ \therefore\ \phi(z,t)=\frac{1}{2}\bigl(\phi_0(z-v_st)+\phi_0(z+v_st)\bigr) \]
+\naze{$F'=G'$ から言えるのは $G=F+c$（$c$ は定数）までで，$F=G$ とは限らない。$c$ を残すと $F=(\phi_0-c)/2$，$G=(\phi_0+c)/2$ で，$\phi=F+G$ では $c$ が打ち消すので最後の式は正しい。}
+\toi{3}{△}{計算}
+\[ \phi\Bigl(z,\frac{w}{2v_s}\Bigr)=\frac{1}{2}\Bigl(\phi_0\Bigl(z-\frac{w}{2}\Bigr)+\phi_0\Bigl(z+\frac{w}{2}\Bigr)\Bigr) \]
+i) $\abs{z-w/2}<w$ かつ $\abs{z+w/2}<w$ のとき
+\begin{align*}
+  \therefore\ &\Bigl(-w<z-\frac{w}{2}<w\Bigr)\cap\Bigl(-w<z+\frac{w}{2}<w\Bigr)\\
+  &\Bigl(-\frac{w}{2}<z<\frac{3}{2}w\Bigr)\cap\Bigl(-\frac{3}{2}w<z<\frac{w}{2}\Bigr)\\
+  \therefore\ &-\frac{w}{2}<z<\frac{w}{2}\qquad\therefore\ \abs{z}<\frac{w}{2}\text{ で }h
+\end{align*}
+ii) $w/2\le z<3w/2$，$-3w/2<z\le-w/2$ のとき，$w/2\le\abs{z}<3w/2$ で $h/2$。片方が $h$，もう片方が $0$ になるので $h/2$。
+
+iii) $z\le-3w/2$，$3w/2\le z$ のとき，$\abs{z}\ge3w/2$ で $0$。
+\[ \phi\Bigl(z,\frac{w}{2v_s}\Bigr)=\begin{cases}h&(\abs{z}<w/2)\\ h/2&(w/2\le\abs{z}<3w/2)\\ 0&(3w/2\le\abs{z})\end{cases} \]
+\[ \phi\Bigl(z,\frac{2w}{v_s}\Bigr)=\frac{1}{2}\bigl(\phi_0(z-2w)+\phi_0(z+2w)\bigr) \]
+\[ \abs{z-2w}<w\quad\therefore\ w<z<3w \]
+\[ \abs{z+2w}<w\quad\therefore\ -3w<z<-w \]
+\[ \phi\Bigl(z,\frac{2w}{v_s}\Bigr)=\begin{cases}0&(3w<\abs{z})\\ h/2&(\ayamari{\abs{z}<3w}{w<\abs{z}<3w})\\ \nuke{0}&(\nuke{\abs{z}<w})\end{cases} \]
+\naze{範囲 $w<z<3w$，$-3w<z<-w$ は正しく出したのに，まとめで $\abs{z}<w$ を含めた。2つのパルスはすでに離れていて，$\abs{z}<w$ では $0$ である。面積で検算すると，答えでは $\frac{h}{2}\cdot6w=3wh$ で，保存するはずの $2wh$ と合わない。}
+\toi{4}{×}{立式}
+$t=\ayamari{2w/v_s}{w/v_s}$，高さ $h/2$，$\phi_0(z-v_st)$ 右向き，$\phi_0(z+v_st)$ 左向き
+\naze{重ならなくなる条件を立てずに時刻を書いている。右向きのパルスの範囲 $(v_st-w,v_st+w)$ と左向きの範囲 $(-v_st-w,-v_st+w)$ が重ならない条件 $v_st-w\ge-v_st+w$ から $t=w/v_s$。高さ $h/2$ と向きは正しい。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item 合成関数の2階微分は，引数 $\xi=z-v_st$ とおいて $\pdv{\phi}{t}=F'(\xi)\pdv{\xi}{t}=-v_sF'$，もう一度微分して $v_s^{2}F''$ と1階ずつ進める。$F''$ は引数での微分なので，$t$ や $z$ での微分と書き分ける。
+\item \mae{数理物理1-10（組み替え前）問題3 (2)・10-03} $F$，$G$ を決める段で，前回は $c$ を残したが符号を逆にし，今回は $c$ を落とした。$F'=G'$ を積分したら必ず $G=F+c$ と書き，$F=(\phi_0-c)/2$，$G=(\phi_0+c)/2$ として，$\phi$ で $c$ が消えることまで書く。
+\item \mae{数理物理1-10（組み替え前）問題3 (3)(4)・10-03} 前回の気付きどおり2つの区間を書き出せたが，まとめで重ならない部分を取り違えた。答えを書いたら面積 $\int\phi\,\dd z=2wh$ で検算する。(4) は時刻を先に書かず，右向きのパルスの左端 $v_st-w$ と左向きのパルスの右端 $-v_st+w$ を比べる不等式から出す（前回の気付きと同じ）。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item 初期条件 $\phi(z,0)=\phi_0(z)$ は $z$ の関数どうしの等式で，$\phi_0$ を $h$ と書くと $\abs{z}<w$ の外が抜ける。連立方程式を解いたら $F-G=c$ に戻して $c$ の符号を確かめる。
 \item ダランベール解の値は $z$ の範囲ごとに決まる。$\phi_0(z-v_st)$ と $\phi_0(z+v_st)$ が $h$ になる区間を数直線に書き出して重ね，面積 $\int\phi\,\dd z=2wh$ で検算する。
 \item (4) は，右向きのパルスの左端 $v_st-w$ と左向きのパルスの右端 $-v_st+w$ を比べれば，重ならなくなる時刻 $t=w/v_s$ が出る。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin (1) は合成関数の微分。(2) は初期条件を $F,G$ の連立方程式にする。(3)(4) は $\phi_0$ を $\pm v_st$ ずらして足す。
 \keisan
@@ -207,6 +247,90 @@ $t=2w/v_s$（$v_st=2w$）：右向きは $w<z<3w$，左向きは $-3w<z<-w$。�
 \kenzan 面積 $\int\phi\,\dd z$ は初期 $2wh$。$t=w/(2v_s)$ では $h\cdot w+2\cdot\frac{h}{2}\cdot w=2wh$，$t=2w/v_s$ では $2\cdot\frac{h}{2}\cdot2w=2wh$ で一致する。
 \tsumazuki 初期速度が 0 でも，パルスは高さが半分になって左右に分かれて進む。
 \end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\数理物理1\098_2026-10-07.tex
+\mondaibangou{4}
+\begin{mondai}{098-impulse}{導出}{初期条件つき波動方程式の解 \noteshiki{12.6} の導出と，逆変換でダランベールの公式を得ること}
+$-\infty<z<\infty$ で次の波動方程式を考える。
+  \[ \frac{1}{v_s^{2}}\pdv[2]{\phi}{t}-\pdv[2]{\phi}{z}=0 \]
+  初期条件を $\phi(z,0)=\phi_0(z)$，$\left.\pdv{\phi}{t}\right|_{t=0}=\psi_0(z)$ とし，$\tilde{\phi}(k,t)=\int\dd z\,\ee^{-\ii kz}\phi(z,t)$，$\tilde{\phi}_0$，$\tilde{\psi}_0$ を $\phi_0$，$\psi_0$ のフーリエ変換とする。
+  \begin{shoumon}
+    \item 波動方程式をフーリエ変換して $\tilde{\phi}(k,t)$ に対する $t$ の微分方程式を導き，初期条件を満たす解が次であることを示せ。
+      \[ \tilde{\phi}(k,t)=\cos(kv_st)\tilde{\phi}_0(k)+\frac{\sin(kv_st)}{kv_s}\tilde{\psi}_0(k) \]
+    \item 第11章の次の結果（$b>0$）を用いて，$t>0$ で $\sin(kv_st)/(kv_s)$ の逆変換が $\frac{1}{2v_s}\theta(v_st-\abs{z})$ になることを示せ。
+      \[ \int\frac{\dd k}{2\pi}\ee^{\ii kx}\frac{\sin(kb)}{kb}=\frac{1}{2b}\theta(b-\abs{x}) \]
+    \item 並進の性質と畳み込みの性質を用いて (1) を逆変換し，次を導け。
+      \[ \phi(z,t)=\frac{1}{2}\{\phi_0(z-v_st)+\phi_0(z+v_st)\}+\frac{1}{2v_s}\int_{z-v_st}^{z+v_st}\dd s\,\psi_0(s) \]
+    \item $\phi_0=0$，$\psi_0(z)=u_0$（$\abs{z}<w$），$0$（$\abs{z}>w$）（$u_0,w>0$）とする。$\phi(0,t)$ を $0<v_st<w$ と $v_st>w$ に分けて求め，$v_st>w$ のときの $\phi(z,t)$ の $z$ 依存性（グラフの概形）を述べよ。
+    \item (4) で $\int\dd z\,\phi(z,t)$ を (4) の形から直接求め，(1) の $k\to0$ の値と比べよ。
+  \end{shoumon}
+\notekiroku{2026-10-07 D ◎◎◎◎◎ (解答を見た)}
+\begin{kotaeutsushi}{2026-10-07}
+\toi{1}{◎}{}
+\[ \Fourier\Bigl[\kakimachigai{\pdv{\phi}{t}}{\pdv{\phi}{z}}\Bigr]=\ii k\tilde{\phi} \]
+\[ \Fourier\Bigl[\kakimachigai{\frac{\partial\phi^{2}}{\partial t}}{\pdv[2]{\phi}{z}}\Bigr]=-k^{2}\tilde{\phi} \]
+\[ \frac{1}{v_s^{2}}\pdv[2]{\tilde{\phi}}{t}+k^{2}\tilde{\phi}=0 \]
+\[ \therefore\ \pdv[2]{\tilde{\phi}}{t}=-k^{2}v_s^{2}\tilde{\phi} \]
+\begin{align*}
+  \tilde{\phi}(k,t)&=C_1\cos(kv_st)+C_2\sin(kv_st)\\
+  \tilde{\phi}(k,0)&=C_1=\tilde{\phi}_0(k)\\
+  \pdv{\tilde{\phi}}{t}&=-C_1kv_s\sin(kv_st)\\
+  &\qquad+C_2kv_s\cos(kv_st)\\
+  \left.\pdv{\tilde{\phi}}{t}\right|_{t=0}&=C_2kv_s=\tilde{\psi}_0(\kakimachigai{z}{k})\\
+  \therefore\ C_2&=\frac{\tilde{\psi}_0(\kakimachigai{z}{k})}{kv_s}
+\end{align*}
+以上より，
+\begin{align*}
+  \tilde{\phi}(k,t)&=\cos(kv_st)\tilde{\phi}_0(k)\\
+  &\qquad+\frac{1}{kv_s}\sin(kv_st)\tilde{\psi}_0(k)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  &\int\frac{\dd k}{2\pi}\ee^{\ii k\kakimachigai{x}{z}}\frac{\sin(kv_st)}{kv_s}\\
+  &\qquad=t\int\frac{\dd k}{2\pi}\ee^{\ii k\kakimachigai{x}{z}}\frac{\sin(kv_st)}{kv_st}\\
+  &\qquad=t\cdot\frac{1}{2v_st}\theta(v_st-\abs{z})\\
+  &\qquad=\frac{1}{2v_s}\theta(v_st-\abs{z})
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  &\cos(kv_st)\tilde{\phi}_0(k)\\
+  &\qquad=\frac{1}{2}\bigl(\ee^{\ii kv_st}+\ee^{-\ii kv_st}\bigr)\tilde{\phi}_0(k)\\
+  &\qquad\longrightarrow\frac{1}{2}\bigl(\phi_0(z+v_st)+\phi_0(z-v_st)\bigr)
+\end{align*}
+\begin{align*}
+  &\frac{\sin(kv_st)}{kv_s}\tilde{\psi}_0(\kakimachigai{z}{k})\\
+  &\qquad\longrightarrow\frac{1}{2v_s}\theta(v_st-\abs{z})\star\psi_0(z)\\
+  &\qquad=\int\dd s\,\frac{1}{2v_s}\theta(v_st-\abs{z-s})\psi_0(s)\\
+  &\qquad=\frac{1}{2v_s}\int_{z-v_st}^{z+v_st}\dd s\,\psi_0(s)
+\end{align*}
+\toi{4}{◎}{}
+\[ \phi(0,t)=\frac{1}{2v_s}\int_{-v_st}^{v_st}\dd s\,\psi_0(s) \]
+i) $0<v_st<w$ のとき
+\[ \frac{1}{2v_s}\cdot2v_st\cdot u_0=u_0t \]
+ii) $v_st>w$ のとき
+\[ \frac{1}{2v_s}\cdot2wu_0=\frac{u_0w}{v_s} \]
+（図：$z$ 軸に $-v_st$，$-w$，$0$，$w$，$v_st$ をとり，$\psi_0$ が $-w<z<w$ で一定の矩形であることを描いたもの）
+
+（図：$\phi(z,t)$ のグラフ。$z=-v_st-w$ から $-v_st+w$ まで直線的に増え，$-v_st+w<z<v_st-w$ で高さ $u_0w/v_s$ の平らな部分，$v_st-w$ から $v_st+w$ まで直線的に $0$ まで下がる台形）
+\toi{5}{◎}{}
+\begin{align*}
+  \int\dd z\,\phi(z,t)&=2(v_st-w)\cdot\frac{u_0w}{v_s}\\
+  &\qquad+2w\cdot\frac{u_0w}{v_s}\\
+  &=2u_0wt
+\end{align*}
+\[ \lim_{k\to0}\tilde{\phi}(k,t)=\underbrace{\tilde{\phi}_0(k)}_{0}+\underbrace{\frac{\sin(kv_st)}{kv_s}}_{t}\tilde{\psi}_0(k) \]
+\begin{align*}
+  \tilde{\psi}_0(k)&=\int\dd x\,\ee^{-\ii kx}\psi_0(x)\\
+  &=\int_{-w}^{w}\dd x\,u_0\ee^{-\ii kx}\\
+  &=\Bigl[\frac{u_0}{-\ii k}\ee^{-\ii kx}\Bigr]_{-w}^{w}\\
+  &=\frac{\ii u_0}{k}\bigl(\ee^{-\ii kw}-\ee^{\ii kw}\bigr)\\
+  &=\frac{\ii u_0}{k}\cdot(-2\ii\sin kw)=\frac{2u_0}{k}\sin kw\\
+  &\xrightarrow[k\to0]{}2u_0w
+\end{align*}
+\[ \lim_{k\to0}\tilde{\phi}(k,t)=2u_0wt \]
+\end{kotaeutsushi}
 \end{mondai}
 
 \noteowari
