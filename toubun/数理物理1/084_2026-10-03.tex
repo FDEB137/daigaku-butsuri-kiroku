@@ -1,0 +1,18 @@
+% 数理物理1 数理物理1-11 問題6（084-gyaku。当時は 数理物理1-9 問題5・shou09-l2-gyaku） 解いた日 2026-10-03
+%% kotae
+\toi{1}{×}{方針}
+\[ I_1(x)=\int\frac{\dd k}{2\pi}\underbrace{\ee^{\ii kx}\frac{1}{a+\ii k}}_{\ee^{-ax}\theta(x)}\frac{2a}{a-\ii k} \]
+（脇に $2a/(a-\ii k)$ の $k$ での微分 $-2a\cdot(-\ii)/(a-\ii k)^{2}$ を書く）
+\begin{align*}
+  &=\Bigl[\ee^{-ax}\theta(x)\frac{2a}{a-\ii k}\Bigr]_{-\infty}^{\infty}\\
+  &\qquad-\int\frac{2a\ii}{(a-\ii k)^{2}}\ee^{-ax}\theta(x)
+\end{align*}
+\naze{$2a/(a^{2}+k^{2})$ を $1/(a+\ii k)$ と $2a/(a-\ii k)$ の積に分けて部分積分しようとしているが，$k$ で積分する式の中で $\ee^{\ii kx}/(a+\ii k)$ だけを $x$ の関数 $\ee^{-ax}\theta(x)$ に置き換えることはできない（逆向きの関係は $k$ 積分を済ませた結果である）。和に部分分数分解する：$2a/(a^{2}+k^{2})=1/(a+\ii k)+1/(a-\ii k)$。第1項の逆変換は $\ee^{-ax}\theta(x)$，第2項は $k\to-k$ と置換して $\ee^{ax}\theta(-x)$ で，$I_1=\ee^{-a\abs{x}}$。}
+\toi{2}{×}{未着手}
+\mikai
+\toi{3}{×}{未着手}
+\mikai
+%% kizuki
+\item 逆変換の公式 $\int\frac{\dd k}{2\pi}\frac{\ee^{\ii kx}}{a+\ii k}=\ee^{-ax}\theta(x)$ は「$k$ について積分し終えた値」なので，被積分関数の一部だけに当てはめて別の $k$ の関数と掛けたままにはできない。使える形にするには，被積分関数を $\frac{1}{a\pm\ii k}$ の定数倍の和（部分分数分解）にして，項ごとに公式を使う。
+\item $\frac{1}{a-\ii k}$ の項は $k=-k'$ と置換すると公式の $x$ を $-x$ にした形になり，$\ee^{ax}\theta(-x)$ が出る。検算は $x=0$ で $I_1=\int\frac{\dd k}{2\pi}\frac{2a}{a^{2}+k^{2}}=1$。
+\item (2)(3) は手を付けていない。(2) は $\frac{1}{a-\ii k}-\frac{1}{a+\ii k}=\frac{2\ii k}{a^{2}+k^{2}}$，(3) は $\frac{1}{(a+\ii k)(b+\ii k)}=\frac{1}{b-a}\bigl(\frac{1}{a+\ii k}-\frac{1}{b+\ii k}\bigr)$ と分ける。

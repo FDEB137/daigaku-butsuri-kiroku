@@ -1,0 +1,35 @@
+% 数理物理1 数理物理1-11 問題5（083-tsui。当時は 数理物理1-9 問題4・shou09-l2-tsui） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\[ \dd k=2\pi\,\dd\nu \]
+\[ \delta(x-y)=\int_{-\infty}^{\infty}\ee^{+\ii2\pi\nu(x-y)}\,\dd\nu \]
+\toi{2}{◎}{}
+\begin{align*}
+  f(x)&=\int\dd y\Bigl[\int\ee^{\ii2\pi\nu(x-y)}\,\dd\nu\Bigr]f(y)\\
+  &=\int\dd y\Bigl[\int\dd\nu\,\ee^{\ii2\pi x\nu}\ee^{-\ii2\pi y\nu}\Bigr]f(y)
+\end{align*}
+\begin{align*}
+  F(\nu)&=\int\dd y\,\ee^{-\ii2\pi y\nu}f(y)\\
+  f(x)&=\int\dd\nu\,\ee^{\ii2\pi x\nu}F(\nu)
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{△}{計算}
+\[ f(x)=\ee^{-\pi x^{2}} \]
+\begin{align*}
+  F(\nu)&=\int_{-\infty}^{\infty}\dd y\,\ee^{-2\pi\ii\nu y}\ee^{-\pi y^{2}}\\
+  &=\int_{-\infty}^{\infty}\dd y\,\ee^{-2\pi\ii\nu y-\pi y^{2}}
+\end{align*}
+（指数の下に $-\pi(y+\ii\nu)^{2}\ayamari{+\pi\nu^{2}}{-\pi\nu^{2}}$ と書く）
+\naze{$-\pi(y+\ii\nu)^{2}=-\pi y^{2}-2\pi\ii\nu y+\pi\nu^{2}$ なので，元の指数に戻すには $\pi\nu^{2}$ を引く。正しくは $-\pi y^{2}-2\pi\ii\nu y=-\pi(y+\ii\nu)^{2}-\pi\nu^{2}$。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+  &=\int_{-\infty}^{\infty}\dd y\,\ee^{\pi\nu^{2}-\pi(y+\ii\nu)^{2}}\\
+  &=\sqrt{\frac{\pi}{\pi}}\,\ee^{\pi\nu^{2}}\\
+  &=\ayamari{\ee^{\pi\nu^{2}}}{\ee^{-\pi\nu^{2}}}
+\end{align*}
+\toi{5}{×}{未着手}
+\mikai
+%% kizuki
+\item 平方完成は，括弧を展開して元の式に戻るかを1行で確かめる。$-\pi(y+\ii\nu)^{2}$ を展開すると $+\pi\nu^{2}$ が余るので，それを引く（$-\pi\nu^{2}$）。答えの検算として $F(0)=\int\ee^{-\pi x^{2}}\dd x=1$ と，$\nu\to\infty$ で $F$ が減衰する（$\ee^{+\pi\nu^{2}}$ は発散するのでおかしい）ことを見る。
+\item (3) は手を付けていない。$F(\nu)=\int\dd y\,\ee^{-\ii(2\pi\nu)y}f(y)$ は $\tilde f$ の $k$ に $2\pi\nu$ を入れたもので $F(\nu)=\tilde f(2\pi\nu)$。これを使えば (4) は例4（$a=\pi$）の $\ee^{-k^{2}/(4\pi)}$ に $k=2\pi\nu$ を入れて1行で $\ee^{-\pi\nu^{2}}$ になる。
+\item (5) は手を付けていない。係数をどちらも 1 にすると，順序を交換したときに $\int\dd k\,\ee^{\ii k(x-y)}=2\pi\delta(x-y)$ が出て，右辺が $2\pi f(x)$ になり元に戻らない。
