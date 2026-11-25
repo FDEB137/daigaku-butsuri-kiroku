@@ -1,0 +1,51 @@
+% 数理物理1 数理物理1-10 問題1（067-complex-real。当時は 数理物理1-8 問題1・shou08-l1-complex-real） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  f(x)&=\sum_{-\infty}^{\infty}\ee^{\ii2\pi x\mu/L}\hat{f}_{\mu},\\
+  \hat{f}_{\mu}&=\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{-\ii2\pi x\mu/L}f(x)
+\end{align*}
+\begin{align*}
+  a_0&=\frac{2}{L}\int_{c}^{c+L}\dd x\,f(x)\cos0\\
+  &=2\cdot\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{0}f(x)=2\hat{f}_0
+\end{align*}
+\begin{align*}
+  a_n&=\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{-\ii2\pi xn/L}f(x)\\
+  &\qquad+\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{\ii2\pi xn/L}f(x)\\
+  &=\frac{2}{L}\int_{c}^{c+L}\dd x\,f(x)\cos(2\pi xn/L)
+\end{align*}
+\begin{align*}
+  b_n&=\ii\Bigl(\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{-\ii2\pi xn/L}f(x)\\
+  &\qquad-\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{\ii2\pi xn/L}f(x)\Bigr)\\
+  &=\frac{2}{L}\int_{c}^{c+L}\dd x\,f(x)\sin(2\pi xn/L)
+\end{align*}
+\toi{2}{◎}{}
+\[ \hat{f}_n+\hat{f}_{-n}=a_n,\quad -\hat{f}_n+\hat{f}_{-n}=\ii b_n \]
+\[ \hat{f}_{-n}=\frac{a_n+\ii b_n}{2},\quad \hat{f}_n=\frac{a_n-\ii b_n}{2} \]
+\toi{3}{◎}{}
+\begin{align*}
+  &\sum_{-\infty}^{-1}\ee^{\ii2\pi x\mu/L}\hat{f}_{\mu}+\ee^{0}\hat{f}_0\\
+  &\qquad+\sum_{1}^{\infty}\ee^{\ii2\pi x\mu/L}\hat{f}_{\mu}\\
+  &=\frac{a_0}{2}+\sum_{1}^{\infty}\Bigl(\ee^{-\ii2\pi xn/L}\hat{f}_{-n}\\
+  &\qquad+\ee^{\ii2\pi xn/L}\hat{f}_{n}\Bigr)\\
+  &=\frac{a_0}{2}+\sum_{1}^{\infty}\Bigl(\ee^{-\ii2\pi xn/L}\frac{a_n+\ii b_n}{2}\\
+  &\qquad+\ee^{\ii2\pi xn/L}\frac{a_n-\ii b_n}{2}\Bigr)\\
+  &=\frac{a_0}{2}+\frac{1}{2}\sum\bigl((c-\ii s)(a_n+\ii b_n)\\
+  &\qquad+(c+\ii s)(a_n-\ii b_n)\bigr)
+\end{align*}
+（下に展開を書き，$\ii$ を含む項を線で消し合わせる）
+\begin{align*}
+  &ca_n+\ii cb_n-\ii sa_n+sb_n\\
+  &\qquad+ca_n-\ii cb_n+\ii sa_n+sb_n
+\end{align*}
+\begin{align*}
+  &=\frac{a_0}{2}+\sum_{1}^{\infty}\bigl[a_n\cos(2\pi xn/L)\\
+  &\qquad+b_n\sin(2\pi xn/L)\bigr]
+\end{align*}
+\toi{4}{△}{記述}
+\[ a_n=a_n^{*},\quad b_n=b_n^{*} \]
+\[ \hat{f}_n^{*}=\frac{a_n^{*}+\ii b_n^{*}}{2}=\frac{a_n+\ii b_n}{2}=\hat{f}_{-n} \]
+\[ a_n=2\Re\hat{f}_n,\quad \nuke{b_n=-2\Im\hat{f}_n} \]
+\naze{$b_n$ を $\hat{f}_n$ の虚部で表す式が無い。$b_n=\ii(\hat{f}_n-\hat{f}_n^{*})=\ii\cdot2\ii\Im\hat{f}_n=-2\Im\hat{f}_n$ である。また $a_n=a_n^{*}$，$b_n=b_n^{*}$ には「$f$ が実関数なので，実関数の積分である $a_n$，$b_n$ は実数」と1言添える。}
+%% kizuki
+\item 実関数では $\hat{f}_{-n}=\hat{f}_n^{*}$ なので，(1) の関係は $a_n=\hat{f}_n+\hat{f}_n^{*}=2\Re\hat{f}_n$，$b_n=\ii(\hat{f}_n-\hat{f}_n^{*})=-2\Im\hat{f}_n$ となる。問われた量（$a_n$ と $b_n$ の両方）が答えにそろっているかを最後に確かめる。

@@ -4,17 +4,17 @@
 %% note-moto	problems\数理物理1\shou10\数理物理1-10.tex
 \begin{document}
 \begin{kirokuichiran}
-  \ichirangyou{1}{L1・導出}{◎◎◎△}{A}{2026-10-03 (4)記述}
-  \ichirangyou{2}{L1・計算}{◎△○}{B}{2026-10-14 2回目 (2)計算 (3)記述}
-  \ichirangyou{3}{L1・計算}{◎◎◎}{S}{2026-10-03}
-  \ichirangyou{4}{L1・計算}{◎◎×}{C}{2026-10-03 (3)未着手}
-  \ichirangyou{5}{L1・計算}{◎△◎◎}{A}{2026-10-03 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-067-complex-real}{1}}{L1・導出}{◎◎◎△}{A}{2026-10-03 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-068-trigprod}{2}}{L1・計算}{◎△○}{B}{2026-10-14 2回目 (2)計算 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-069-pulse}{3}}{L1・計算}{◎◎◎}{S}{2026-10-03}
+  \ichirangyou{\hyperlink{bt-m-070-sawtooth}{4}}{L1・計算}{◎◎×}{C}{2026-10-03 (3)未着手}
+  \ichirangyou{\hyperlink{bt-m-071-primitive}{5}}{L1・計算}{◎△◎◎}{A}{2026-10-03 (2)記述}
   \ichirangyou{\hyperlink{bt-m-062-zl-fourier}{6}}{L2・計算}{◎△◎◎}{A}{2026-10-03 (2)計算}
-  \ichirangyou{7}{L2・導出}{××◎◎}{C}{2026-10-03 (1)未着手 (2)未着手}
-  \ichirangyou{8}{L2・計算}{△◎◎◎}{A}{2026-10-03 (1)記述}
-  \ichirangyou{9}{L2・計算}{◎◎◎◎◎}{S}{2026-10-03}
-  \ichirangyou{10}{L2・計算}{◎△◎△}{B}{2026-10-03 (2)記述 (4)記述}
-  \ichirangyou{11}{L2・計算}{△△◎×}{C}{2026-10-03 (1)記述 (2)記述 (4)未着手}
+  \ichirangyou{\hyperlink{bt-m-072-parseval}{7}}{L2・導出}{××◎◎}{C}{2026-10-03 (1)未着手 (2)未着手}
+  \ichirangyou{\hyperlink{bt-m-073-abssin}{8}}{L2・計算}{△◎◎◎}{A}{2026-10-03 (1)記述}
+  \ichirangyou{\hyperlink{bt-m-074-expfunc}{9}}{L2・計算}{◎◎◎◎◎}{S}{2026-10-03}
+  \ichirangyou{\hyperlink{bt-m-075-halfrange}{10}}{L2・計算}{◎△◎△}{B}{2026-10-03 (2)記述 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-076-forced}{11}}{L2・計算}{△△◎×}{C}{2026-10-03 (1)記述 (2)記述 (4)未着手}
   \ichirangyou{12}{L2・計算}{}{未着手}{}
   \ichirangyou{13}{L3・導出}{}{未着手}{}
   \ichirangyou{14}{L3・導出}{}{未着手}{}
@@ -46,6 +46,422 @@ f(z)=\sum_{\mu=-\infty}^{\infty}U(z,\mu)\hat{f}_{\mu},\quad \hat{f}_{\mu}&=\int_
 \end{noteshikilist}
 
 \mondaihen
+\level{1}
+% toubun: kiroku\toubun\数理物理1\067_2026-10-03.tex
+\mondaibangou{1}
+\begin{mondai}{067-complex-real}{導出}{複素形式と実形式の係数の関係}
+周期 $L$ の関数 $f(x)$ の複素形式の係数 $\hat{f}_{\mu}$ と実形式の係数 $a_n,b_n$ を、要点整理の定義の積分（同じ $c$ を用いる）で定める。
+\begin{shoumon}
+  \item $a_0=2\hat{f}_0$、$a_n=\hat{f}_n+\hat{f}_{-n}$、$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$（$n\ge1$）を示せ。
+  \item (1) を $\hat{f}_{\pm n}$ について解き、$a_n,b_n$ で表せ。
+  \item (2) を複素形式の展開に代入して、実形式の展開が得られることを示せ。
+  \item $f(x)$ が実関数のとき、$\hat{f}_{-n}=\hat{f}_n^{*}$ を示し、$a_n,b_n$ を $\hat{f}_n$ の実部・虚部で表せ。
+\end{shoumon}
+\notekiroku{2026-10-03 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  f(x)&=\sum_{-\infty}^{\infty}\ee^{\ii2\pi x\mu/L}\hat{f}_{\mu},\\
+  \hat{f}_{\mu}&=\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{-\ii2\pi x\mu/L}f(x)
+\end{align*}
+\begin{align*}
+  a_0&=\frac{2}{L}\int_{c}^{c+L}\dd x\,f(x)\cos0\\
+  &=2\cdot\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{0}f(x)=2\hat{f}_0
+\end{align*}
+\begin{align*}
+  a_n&=\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{-\ii2\pi xn/L}f(x)\\
+  &\qquad+\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{\ii2\pi xn/L}f(x)\\
+  &=\frac{2}{L}\int_{c}^{c+L}\dd x\,f(x)\cos(2\pi xn/L)
+\end{align*}
+\begin{align*}
+  b_n&=\ii\Bigl(\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{-\ii2\pi xn/L}f(x)\\
+  &\qquad-\frac{1}{L}\int_{c}^{c+L}\dd x\,\ee^{\ii2\pi xn/L}f(x)\Bigr)\\
+  &=\frac{2}{L}\int_{c}^{c+L}\dd x\,f(x)\sin(2\pi xn/L)
+\end{align*}
+\toi{2}{◎}{}
+\[ \hat{f}_n+\hat{f}_{-n}=a_n,\quad -\hat{f}_n+\hat{f}_{-n}=\ii b_n \]
+\[ \hat{f}_{-n}=\frac{a_n+\ii b_n}{2},\quad \hat{f}_n=\frac{a_n-\ii b_n}{2} \]
+\toi{3}{◎}{}
+\begin{align*}
+  &\sum_{-\infty}^{-1}\ee^{\ii2\pi x\mu/L}\hat{f}_{\mu}+\ee^{0}\hat{f}_0\\
+  &\qquad+\sum_{1}^{\infty}\ee^{\ii2\pi x\mu/L}\hat{f}_{\mu}\\
+  &=\frac{a_0}{2}+\sum_{1}^{\infty}\Bigl(\ee^{-\ii2\pi xn/L}\hat{f}_{-n}\\
+  &\qquad+\ee^{\ii2\pi xn/L}\hat{f}_{n}\Bigr)\\
+  &=\frac{a_0}{2}+\sum_{1}^{\infty}\Bigl(\ee^{-\ii2\pi xn/L}\frac{a_n+\ii b_n}{2}\\
+  &\qquad+\ee^{\ii2\pi xn/L}\frac{a_n-\ii b_n}{2}\Bigr)\\
+  &=\frac{a_0}{2}+\frac{1}{2}\sum\bigl((c-\ii s)(a_n+\ii b_n)\\
+  &\qquad+(c+\ii s)(a_n-\ii b_n)\bigr)
+\end{align*}
+（下に展開を書き，$\ii$ を含む項を線で消し合わせる）
+\begin{align*}
+  &ca_n+\ii cb_n-\ii sa_n+sb_n\\
+  &\qquad+ca_n-\ii cb_n+\ii sa_n+sb_n
+\end{align*}
+\begin{align*}
+  &=\frac{a_0}{2}+\sum_{1}^{\infty}\bigl[a_n\cos(2\pi xn/L)\\
+  &\qquad+b_n\sin(2\pi xn/L)\bigr]
+\end{align*}
+\toi{4}{△}{記述}
+\[ a_n=a_n^{*},\quad b_n=b_n^{*} \]
+\[ \hat{f}_n^{*}=\frac{a_n^{*}+\ii b_n^{*}}{2}=\frac{a_n+\ii b_n}{2}=\hat{f}_{-n} \]
+\[ a_n=2\Re\hat{f}_n,\quad \nuke{b_n=-2\Im\hat{f}_n} \]
+\naze{$b_n$ を $\hat{f}_n$ の虚部で表す式が無い。$b_n=\ii(\hat{f}_n-\hat{f}_n^{*})=\ii\cdot2\ii\Im\hat{f}_n=-2\Im\hat{f}_n$ である。また $a_n=a_n^{*}$，$b_n=b_n^{*}$ には「$f$ が実関数なので，実関数の積分である $a_n$，$b_n$ は実数」と1言添える。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 実関数では $\hat{f}_{-n}=\hat{f}_n^{*}$ なので，(1) の関係は $a_n=\hat{f}_n+\hat{f}_n^{*}=2\Re\hat{f}_n$，$b_n=\ii(\hat{f}_n-\hat{f}_n^{*})=-2\Im\hat{f}_n$ となる。問われた量（$a_n$ と $b_n$ の両方）が答えにそろっているかを最後に確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 同じ関数の複素形式の係数と実形式の係数の対応を、係数の積分表示から導き、展開どうしが一致することと、実関数での係数の性質を確かめる。使う定理：係数の積分表示（要点整理の定義）、オイラーの公式 $\ee^{\pm\ii\theta}=\cos\theta\pm\ii\sin\theta$、および
+\[
+\cos\theta=\frac{\ee^{\ii\theta}+\ee^{-\ii\theta}}{2},\qquad \sin\theta=\frac{\ee^{\ii\theta}-\ee^{-\ii\theta}}{2\ii}
+\]
+以下 $\theta_n=2\pi nx/L$ とし、積分は区間 $c\le x\le c+L$ で行うものとする。
+\keisan
+\shoumonkai{1}
+\begin{align*}
+\hat{f}_n+\hat{f}_{-n}&=\frac{1}{L}\int(\ee^{-\ii\theta_n}+\ee^{\ii\theta_n})f\,\dd x=\frac{2}{L}\int f\cos\theta_n\,\dd x=a_n,\\
+\hat{f}_n-\hat{f}_{-n}&=\frac{1}{L}\int(\ee^{-\ii\theta_n}-\ee^{\ii\theta_n})f\,\dd x=-\frac{2\ii}{L}\int f\sin\theta_n\,\dd x=-\ii b_n .
+\end{align*}
+第2式に $\ii$ をかけると $b_n=\ii(\hat{f}_n-\hat{f}_{-n})$。また $a_0=\frac{2}{L}\int f\,\dd x=2\hat{f}_0$。
+\shoumonkai{2} $\hat{f}_n+\hat{f}_{-n}=a_n$、$\hat{f}_n-\hat{f}_{-n}=-\ii b_n$ を解いて
+\[
+\hat{f}_n=\frac{a_n-\ii b_n}{2},\qquad \hat{f}_{-n}=\frac{a_n+\ii b_n}{2}\qquad(n\ge1),\qquad \hat{f}_0=\frac{a_0}{2}.
+\]
+\shoumonkai{3} $\mu=0$ と $\mu=\pm n$（$n\ge1$）に分けて代入すると
+\begin{align*}
+\sum_{\mu}\ee^{\ii\theta_{\mu}}\hat{f}_{\mu}&=\frac{a_0}{2}+\sum_{n=1}^{\infty}\Bigl[\ee^{\ii\theta_n}\frac{a_n-\ii b_n}{2}+\ee^{-\ii\theta_n}\frac{a_n+\ii b_n}{2}\Bigr]\\
+&=\frac{a_0}{2}+\sum_{n=1}^{\infty}\Bigl[a_n\frac{\ee^{\ii\theta_n}+\ee^{-\ii\theta_n}}{2}+b_n\frac{\ee^{\ii\theta_n}-\ee^{-\ii\theta_n}}{2\ii}\Bigr]\\
+&=\frac{a_0}{2}+\sum_{n=1}^{\infty}\bigl[a_n\cos\theta_n+b_n\sin\theta_n\bigr].
+\end{align*}
+（$-\ii\cdot\ee^{\ii\theta}+\ii\ee^{-\ii\theta}=-\ii(\ee^{\ii\theta}-\ee^{-\ii\theta})=\frac{\ee^{\ii\theta}-\ee^{-\ii\theta}}{\ii}$ を用いた。）
+\shoumonkai{4} $f$ が実数なら
+\[
+\hat{f}_n^{*}=\frac{1}{L}\int\ee^{\ii\theta_n}f\,\dd x=\frac{1}{L}\int\ee^{-\ii\theta_{-n}}f\,\dd x=\hat{f}_{-n}.
+\]
+(1) より
+\[
+a_n=\hat{f}_n+\hat{f}_n^{*}=2\,\Re\hat{f}_n,\qquad b_n=\ii(\hat{f}_n-\hat{f}_n^{*})=\ii\cdot2\ii\,\Im\hat{f}_n=-2\,\Im\hat{f}_n .
+\]
+\kotae{\shoumonkai{1} $a_0=2\hat{f}_0$、$a_n=\hat{f}_n+\hat{f}_{-n}$、$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$。\shoumonkai{2} $\hat{f}_{\pm n}=\frac{a_n\mp\ii b_n}{2}$、$\hat{f}_0=\frac{a_0}{2}$。\shoumonkai{3} 実形式 $\frac{a_0}{2}+\sum[a_n\cos\theta_n+b_n\sin\theta_n]$ が得られる。\shoumonkai{4} $\hat{f}_{-n}=\hat{f}_n^{*}$、$a_n=2\,\Re\hat{f}_n$、$b_n=-2\,\Im\hat{f}_n$。}
+\kenzan (3) で複素形式の展開から実形式の展開がそのまま再現されることが、(1)(2) の関係が正しいことの確認になっている。また (4) で $f$ が実数のとき $a_n,b_n$ が実数になることは、$a_n=2\,\Re\hat{f}_n$、$b_n=-2\,\Im\hat{f}_n$ と整合する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\068_2026-10-03.tex
+\mondaibangou{2}
+\begin{mondai}{068-trigprod}{計算}{三角関数の積で書かれた周期関数}
+周期 $2\pi$（$L=2\pi$）の関数を考える。
+\begin{shoumon}
+  \item $f(x)=\cos^{3}x$ の複素形式の係数 $\hat{f}_{\mu}$ と実形式の係数 $a_n,b_n$ を求めよ。
+  \item $g(x)=\sin x\cos2x$ の複素形式の係数 $\hat{g}_{\mu}$ と実形式の係数 $a_n,b_n$ を求めよ。
+  \item (1)(2) で、係数の積分を実行しなくても係数が決まってよい理由を、要点整理の正規直交性を用いて説明せよ。
+\end{shoumon}
+\notekiroku{2026-10-03 E △×× → 2026-10-14 B ◎△○}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{△}{記述}
+\begin{align*}
+  f(x)=\cos^{3}x&=\frac{1}{8}\ee^{3\ii x}+\frac{3}{8}\ee^{\ii x}\\
+  &\qquad+\frac{3}{8}\ee^{-\ii x}+\frac{1}{8}\ee^{-3\ii x}
+\end{align*}
+\[ \hat{f}_{\pm3}=\frac{1}{8},\quad \hat{f}_{\pm1}=\frac{3}{8} \]
+\begin{align*}
+  a_n&=\frac{2}{2\pi}\int_{c}^{c+2\pi}\dd x\,\cos^{3}x\cos nx\\
+  &=\frac{1}{\pi}\int_{0}^{2\pi}\dd x\,\cos nx\\
+  &=
+\end{align*}
+（2行目の被積分関数を $\cos x$，$\cos3x$ の和に書きかけて消し，$=$ のまま止まっている）
+\nuke{$a_n$，$b_n$ の値}
+\naze{実形式の係数が無い。$\hat{f}_{\mu}$ が求まっているので，問題1 の関係 $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ を使えば積分は要らない。$a_1=\frac{3}{8}+\frac{3}{8}=\frac{3}{4}$，$a_3=\frac{1}{4}$，ほかの $a_n$（$a_0$ も）と全ての $b_n$ は 0 である。}
+\toi{2}{×}{未着手}
+\mikai
+\toi{3}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 複素形式の係数が出たら，実形式は問題1（067）の関係 $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ で1行で出る。積分をやり直さない。
+\item 有限個の指数関数の和で書けた関数は，係数の定義式に代入すると正規直交性で $\delta_{\mu\nu}$ が残り，各指数関数の前の数がそのまま $\hat{f}_{\mu}$ になる（展開は一意）。これが (3) で問われている「積分しなくてよい理由」である。
+\end{kizuki}
+\begin{tadashii}
+\houshin 三角関数の積をオイラーの公式で指数関数の有限和に直し、その係数を読み取る。係数の積分を計算しなくてよい理由を正規直交性から説明する。使う定理：オイラーの公式、$L=2\pi$ のとき $\ee^{\ii2\pi x\mu/L}=\ee^{\ii\mu x}$。正規直交性（要点整理）。実形式との関係 $a_n=\hat{f}_n+\hat{f}_{-n}$、$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$（Level 1 の係数の関係の問題）。
+\keisan
+\shoumonkai{1}
+\[
+\cos^{3}x=\Bigl(\frac{\ee^{\ii x}+\ee^{-\ii x}}{2}\Bigr)^{3}=\frac{1}{8}\bigl(\ee^{3\ii x}+3\ee^{\ii x}+3\ee^{-\ii x}+\ee^{-3\ii x}\bigr).
+\]
+よって $\hat{f}_{\pm1}=\frac{3}{8}$、$\hat{f}_{\pm3}=\frac{1}{8}$、他は $0$。実形式は $a_1=\frac{3}{4}$、$a_3=\frac{1}{4}$、他の $a_n$ と全ての $b_n$ は $0$（$\cos^{3}x=(3\cos x+\cos3x)/4$）。
+\shoumonkai{2} 積和公式 $\sin A\cos B=\frac{1}{2}\{\sin(A+B)+\sin(A-B)\}$ より
+\[
+g(x)=\frac{1}{2}(\sin3x-\sin x)=\frac{\ee^{3\ii x}-\ee^{-3\ii x}}{4\ii}-\frac{\ee^{\ii x}-\ee^{-\ii x}}{4\ii}.
+\]
+$1/(4\ii)=-\ii/4$ より $\hat{g}_{3}=-\frac{\ii}{4}$、$\hat{g}_{-3}=\frac{\ii}{4}$、$\hat{g}_{1}=\frac{\ii}{4}$、$\hat{g}_{-1}=-\frac{\ii}{4}$、他は $0$。実形式は $b_1=-\frac{1}{2}$、$b_3=\frac{1}{2}$、他は $0$。複素形式と実形式の係数の関係で確認すると
+\[
+b_3=\ii(\hat{g}_3-\hat{g}_{-3})=\ii\Bigl(-\frac{\ii}{2}\Bigr)=\frac{1}{2}.
+\]
+\shoumonkai{3} $f(x)=\sum c_{\nu}\ee^{\ii\nu x}$（$\nu$ についての有限和）と書けたとする。係数の定義式に代入して正規直交性を使うと
+\[
+\hat{f}_{\mu}=\frac{1}{2\pi}\int_{-\pi}^{\pi}\ee^{-\ii\mu x}\sum_{\nu}c_{\nu}\ee^{\ii\nu x}\dd x=\sum_{\nu}c_{\nu}\delta_{\mu\nu}=c_{\mu}.
+\]
+つまり、指数関数の和で書いたときの係数がそのままフーリエ係数になる（展開は一意）。
+\kotae{\shoumonkai{1} $\hat{f}_{\pm1}=\frac{3}{8}$、$\hat{f}_{\pm3}=\frac{1}{8}$、$a_1=\frac{3}{4}$、$a_3=\frac{1}{4}$、他は $0$。\shoumonkai{2} $\hat{g}_{\pm1}=\pm\frac{\ii}{4}$、$\hat{g}_{\pm3}=\mp\frac{\ii}{4}$、$b_1=-\frac{1}{2}$、$b_3=\frac{1}{2}$、他は $0$。\shoumonkai{3} 正規直交性により、指数関数の和で書いたときの係数がフーリエ係数と一致するため。}
+\kenzan (1) は $x=0$ を代入すると $a_1+a_3=3/4+1/4=1=\cos^{3}0$ となって合う。(2) は複素形式の係数から係数の関係で求めた $b_3$ が、積和公式で得た $\frac{1}{2}\sin3x$ の係数と一致する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\069_2026-10-03.tex
+\mondaibangou{3}
+\begin{mondai}{069-pulse}{計算}{周期的な矩形パルス}
+$0<d<L$ とし、$-L/2\le x<L/2$ で
+\[
+f(x)=\begin{cases}1&(\abs{x}<d/2)\\0&(d/2\le\abs{x}\le L/2)\end{cases}
+\]
+と定義し、周期 $L$ で拡張した関数を考える。
+\begin{shoumon}
+  \item 複素形式の係数 $\hat{f}_{\mu}$ を求めよ（$\mu=0$ と $\mu\neq0$ に分けよ）。
+  \item 実形式の係数 $a_n,b_n$ を求めよ。
+  \item $d\to L$ としたとき $\hat{f}_{\mu}$ がどうなるかを調べ、$f(x)=1$（定数関数）の展開と一致することを確かめよ。
+\end{shoumon}
+\notekiroku{2026-10-03 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+（図：$-L/2$ から $L/2$ の区間で，$-d/2<x<d/2$ だけ高さ 1 の矩形パルス）
+\[ \hat{f}_0=\frac{1}{L}\int_{-L/2}^{L/2}\dd x\,f(x)=\frac{d}{L} \]
+\begin{align*}
+  \hat{f}_{\mu}&=\frac{1}{L}\int_{-L/2}^{L/2}\dd x\,\ee^{-\ii2\pi x\mu/L}f(x)\\
+  &=\frac{1}{L}\int_{-d/2}^{d/2}\dd x\,\ee^{-\ii2\pi x\mu/L}\\
+  &=\frac{1}{L}\Bigl[\frac{-L}{\ii2\pi\mu}\ee^{-\ii2\pi x\mu/L}\Bigr]_{-d/2}^{d/2}\\
+  &=\frac{1}{L}\cdot\frac{-L}{\ii2\pi\mu}\bigl(\ee^{-\ii\pi\kakimachigai{x}{\mu}d/L}-\ee^{\ii\pi xd/L}\bigr)\\
+  &=\frac{-1}{\ii2\pi\mu}\bigl(-2\ii\sin(\pi xd/L)\bigr)\\
+  &=\frac{1}{\mu\pi}\sin\Bigl(\pi\frac{d\kakimachigai{x}{\mu}}{L}\Bigr)
+\end{align*}
+（$-2\ii\sin$ の上に $c-\ii s-(c+\ii s)$ と添える）
+\toi{2}{◎}{}
+\begin{align*}
+  a_n&=\frac{2}{L}\int_{-L/2}^{L/2}\dd x\,f(x)\cos\frac{2\pi nx}{L}\\
+  &=\frac{4}{L}\int_{0}^{d/2}\dd x\,\cos\frac{2\pi nx}{L}\\
+  &=\frac{4}{L}\cdot\frac{L}{2\pi n}\Bigl[\sin\frac{2\pi nx}{L}\Bigr]_{0}^{d/2}\\
+  &=\frac{2}{\pi n}\sin\frac{\pi nd}{L}
+\end{align*}
+\[ a_0=2\hat{f}_0=\frac{2d}{L},\quad b_n=0 \]
+\toi{3}{◎}{}
+\[ d\to L\qquad\hat{f}_{\mu}\to0 \]
+\[ \hat{f}_0\to1 \]
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\070_2026-10-03.tex
+\mondaibangou{4}
+\begin{mondai}{070-sawtooth}{計算}{区間 $0\le x<L$ の1次関数（のこぎり波）}
+$0\le x<L$ で $f(x)=x$ と定義し、周期 $L$ で拡張した関数を考える。
+\begin{shoumon}
+  \item 複素形式の係数 $\hat{f}_{\mu}$ を求めよ（$\mu=0$ と $\mu\neq0$ に分けよ）。
+  \item 実形式の係数 $a_n,b_n$ を求め、$0<x<L$ での $f(x)$ の実形式の展開を書け。
+  \item $a_n=0$（$n\ge1$）となる理由を、$h(x)=f(x)-L/2$ の周期的な拡張が奇関数であることから説明せよ。
+\end{shoumon}
+\notekiroku{2026-10-03 C ◎◎×}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  \hat{f}_0&=\frac{1}{L}\int_{0}^{L}\dd x\,x\\
+  &=\frac{1}{L}\cdot\frac{1}{2}L^{2}=\frac{L}{2}
+\end{align*}
+\begin{align*}
+  \hat{f}_{\mu}&=\frac{1}{L}\int_{0}^{L}\dd x\,\ee^{-\ii2\pi\mu x/L}x\\
+  &=\frac{1}{L}\Bigl[\frac{L}{-\ii2\pi\mu}\ee^{-\ii2\pi\mu x/L}x\Bigr]_{0}^{L}\\
+  &\qquad-\frac{1}{L}\int_{0}^{L}\dd x\,\kakimachigai{\ee^{-2\pi\mu x/L}}{\frac{L}{-\ii2\pi\mu}\ee^{\cdots}}\\
+  &=\frac{1}{-\ii2\pi\mu}\ee^{\kakimachigai{-2\pi\mu}{-\ii2\pi\mu}}\cdot L\\
+  &\qquad-\frac{1}{L}\Bigl[\frac{L}{-\ii2\pi\mu}\ee^{-2\pi\mu x/L}\Bigr]_{0}^{L}\\
+  &=\frac{L}{-\ii2\pi\mu}+\frac{\ii}{2\pi\mu}(\ee^{-2\pi\mu}-\ee^{0})\\
+  &=\frac{-L}{\ii2\pi\mu}=\frac{\ii L}{2\pi\mu}
+\end{align*}
+（以降の指数でも $\ii$ を書き落としている）
+\toi{2}{◎}{}
+（図：山形の曲線の略図）
+\[ a_0=2\hat{f}_0=L \]
+\begin{align*}
+  a_n&=\frac{2}{L}\int_{0}^{L}\kakimachigai{x}{\dd x\,x}\cos\frac{2\pi nx}{L}\\
+  &=\frac{2}{L}\biggl(\Bigl[\frac{xL}{2\pi n}\sin\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd x\,\frac{L}{2\pi n}\sin\frac{2\pi nx}{L}\biggr)\\
+  &=\Bigl[\frac{x}{\pi n}\sin\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad+\frac{1}{\pi n}\Bigl[\frac{L}{2\pi n}\cos\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &=\frac{L}{\pi n}\sin2\pi n\\
+  &\qquad+\frac{1}{\pi n}\Bigl(\frac{L}{2\pi n}(\cos2\pi n-\cos0)\Bigr)\\
+  &=0+0\\
+  &=0
+\end{align*}
+（脇に部分積分のメモ $\frac{L}{2\pi n}\sin$，$x$）
+\begin{align*}
+  b_n&=\frac{2}{L}\int_{0}^{L}\kakimachigai{x}{\dd x\,x}\sin\frac{2\pi nx}{L}\\
+  &=\frac{2}{L}\Bigl[\frac{-xL}{2\pi n}\cos\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad+\frac{2}{L}\int_{0}^{L}\dd x\,\frac{L}{2\pi n}\cos\frac{2\pi nx}{L}\\
+  &=\Bigl[\frac{-x}{\pi n}\cos\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad+\frac{2}{L}\Bigl[\frac{L}{2\pi n}\cdot\frac{L}{2\pi n}\sin\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &=\frac{-L}{\pi n}\cos2\pi n\\
+  &\qquad+\kakimachigai{\frac{1}{2\pi^{2}n^{2}}}{\frac{L}{2\pi^{2}n^{2}}}(\sin2\pi n-\sin0)\\
+  &=-\frac{L}{\pi n}
+\end{align*}
+\begin{align*}
+  f(x)&=\frac{a_0}{2}+\sum\Bigl[a_n\cos\frac{2\pi nx}{L}\\
+  &\qquad+b_n\sin\frac{2\pi nx}{L}\Bigr]\\
+  &=\frac{L}{2}+\sum_{n=1}^{\infty}\Bigl(-\frac{L}{\pi n}\sin\frac{2\pi nx}{L}\Bigr)\\
+  &=\frac{L}{2}-\frac{L}{\pi}\sum_{1}^{\infty}\frac{1}{n}\sin\frac{2\pi nx}{L}
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $h(x)=f(x)-L/2$ は $0<x<L$ で $h(-x)=h(L-x)=(L-x)-L/2=-h(x)$ なので奇関数である。$c=-L/2$ にとると奇関数の $\cos$ の係数は 0 で，定数 $L/2$ は $a_0$ にしか寄与しないから $a_n=0$（$n\ge1$）になる。
+\item (1) で $\hat{f}_{\mu}$ が出ているので，(2) は $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ で求めれば部分積分をやり直さずに済む（問題2（068）(1) と同じ）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 区間 $0\le x<L$ の1次関数を周期的に拡張したのこぎり波の係数を部分積分で求め、実形式に直す。コサイン項が消える理由を対称性から説明する。使う定理：係数の積分表示（要点整理の定義、$c=0$）、部分積分、$q_{\mu}=\frac{2\pi\mu}{L}$ のとき $\ee^{-\ii q_{\mu}L}=1$。複素形式と実形式の係数の関係（Level 1 の問題）。奇関数では $a_n=0$（要点整理）。
+\keisan
+\shoumonkai{1} $\mu=0$ のとき
+\[
+\hat{f}_0=\frac{1}{L}\int_{0}^{L}x\,\dd x=\frac{L}{2}.
+\]
+$\mu\neq0$ のとき、$q=q_{\mu}$ とし、$\int\ee^{-\ii qx}\dd x=\frac{\ii}{q}\ee^{-\ii qx}$ を用いて部分積分すると
+\[
+\int_{0}^{L}x\,\ee^{-\ii qx}\dd x=\Bigl[\frac{\ii}{q}x\,\ee^{-\ii qx}\Bigr]_{0}^{L}-\frac{\ii}{q}\int_{0}^{L}\ee^{-\ii qx}\dd x=\frac{\ii L}{q}-0 .
+\]
+よって
+\[
+\hat{f}_{\mu}=\frac{1}{L}\cdot\frac{\ii L}{q_{\mu}}=\frac{\ii}{q_{\mu}}=\frac{\ii L}{2\pi\mu}.
+\]
+\shoumonkai{2} $a_0=2\hat{f}_0=L$ であり、
+\begin{align*}
+a_n&=\hat{f}_n+\hat{f}_{-n}=\frac{\ii L}{2\pi n}-\frac{\ii L}{2\pi n}=0,\\
+b_n&=\ii(\hat{f}_n-\hat{f}_{-n})=\ii\cdot\frac{2\ii L}{2\pi n}=-\frac{L}{\pi n}
+\end{align*}
+となる。よって
+\[
+f(x)=\frac{L}{2}-\frac{L}{\pi}\sum_{n=1}^{\infty}\frac{1}{n}\sin\frac{2\pi nx}{L}\qquad(0<x<L).
+\]
+\shoumonkai{3} $0<x<L$ で $h(x)=x-L/2$。$0<x<L$ のとき $-x$ は $-L<-x<0$ にあり、周期性から
+\[
+h(-x)=h(L-x)=(L-x)-\frac{L}{2}=\frac{L}{2}-x=-h(x)
+\]
+となる。よって $h$ は奇関数で、$c=-L/2$ にとれば $h$ の $a_n$ は $0$。$f=h+L/2$ で、定数 $L/2$ は $a_0$ だけに寄与するので、$f$ でも $a_n=0$（$n\ge1$）。
+\kotae{\shoumonkai{1} $\hat{f}_0=\frac{L}{2}$、$\hat{f}_{\mu}=\frac{\ii L}{2\pi\mu}$（$\mu\neq0$）。\shoumonkai{2} $a_0=L$、$a_n=0$、$b_n=-\frac{L}{\pi n}$、$f(x)=L/2-(L/\pi)\sum\sin(2\pi nx/L)/n$（和は $n\ge1$ についての和）。\shoumonkai{3} $x-\frac{L}{2}$ の周期的な拡張は奇関数なので、コサイン項が現れない。}
+\kenzan (2) の展開に $x=L/2$ を代入すると、$\sin(\pi n)=0$ より右辺は $\frac{L}{2}$ となり $f(L/2)=\frac{L}{2}$ と一致する。(3) の対称性の議論は、(2) で $a_n=0$ となった結果と整合する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\071_2026-10-03.tex
+\mondaibangou{5}
+\begin{mondai}{071-primitive}{計算}{のこぎり波の原始関数}
+$0\le x<L$ で $h(x)=x-L/2$ と定義し周期 $L$ で拡張した関数を考える。その係数は $\hat{h}_0=0$、$\hat{h}_{\mu}=\ii L/(2\pi\mu)$（$\mu\neq0$）である（Level 1 ののこぎり波の問題の結果から得られる）。$0\le x\le L$ で
+\[
+F(x)=\int_{0}^{x}h(x')\,\dd x'
+\]
+とする。
+\begin{shoumon}
+  \item $F(x)$ を求め、$F(0)=F(L)$ であること、すなわち $F$ が周期 $L$ の連続な関数として拡張できることを確かめよ。
+  \item 項別積分を用いて $\hat{F}_{\mu}$（$\mu\neq0$）を求めよ。
+  \item $\hat{F}_0$ を積分で求めよ。
+  \item $F(x)$ の実形式の展開を書き、$x=0$ を代入して次の和を求めよ。
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^{2}}
+\]
+\end{shoumon}
+\notekiroku{2026-10-03 A ◎△◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  F(x)&=\int_{0}^{x}\Bigl(x'-\frac{L}{2}\Bigr)\dd x'\\
+  &=\Bigl[\frac{1}{2}x'^{2}-\frac{L}{2}x'\Bigr]_{0}^{x}\\
+  &=\frac{1}{2}x^{2}-\frac{1}{2}Lx
+\end{align*}
+\[ F(0)=0,\quad F(L)=0 \]
+\toi{2}{△}{記述}
+\begin{align*}
+  \hat{F}_{\mu}&=\frac{1}{L}\int_{0}^{L}\dd x\,\ee^{-\ii2\pi x\mu/L}\\
+  &\qquad\times\Bigl(\frac{1}{2}x^{2}-\frac{1}{2}Lx\Bigr)
+\end{align*}
+\begin{align*}
+  I_1&=\int_{0}^{L}\dd x\,x\,\ee^{-\ii2\pi x\mu/L}\\
+  &=\Bigl[\frac{-L}{\ii2\pi\mu}\ee^{-\ii2\pi x\mu/L}x\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd x\,\kakimachigai{\ee^{-\ii2\pi x\mu/L}}{\frac{-L}{\ii2\pi\mu}\ee^{\cdots}}\\
+  &=\frac{-L^{2}}{\ii2\pi\mu}\ee^{-\ii2\pi\mu}\\
+  &\qquad-\frac{-L}{\ii2\pi\mu}\Bigl[\ee^{-\ii2\pi x\mu/L}\Bigr]_{0}^{L}\\
+  &=\frac{\ii L^{2}}{2\pi\mu}
+\end{align*}
+（脇に部分積分のメモ $x^{2}$，$2x$）
+\begin{align*}
+  I_2&=\int_{0}^{L}\dd x\,x^{2}\ee^{-\ii2\pi x\mu/L}\\
+  &=\Bigl[\frac{-L}{\ii2\pi\mu}\ee^{-\ii2\pi x\mu/L}x^{2}\Bigr]_{0}^{L}\\
+  &\qquad-2\,\frac{-L}{\ii2\pi\mu}I_1\\
+  &=\frac{-L^{3}}{\ii2\pi\mu}+\frac{L}{\ii\pi\mu}\cdot\frac{\ii L^{2}}{2\pi\mu}\\
+  &=\frac{\ii L^{3}}{2\pi\mu}+\frac{L^{3}}{2\pi^{2}\mu^{2}}
+\end{align*}
+\begin{align*}
+  \hat{F}_{\mu}&=\frac{1}{2L}I_2-\frac{1}{2}I_1\\
+  &=\frac{1}{2L}\Bigl(\frac{\ii L^{3}}{2\pi\mu}+\frac{L^{3}}{2\pi^{2}\mu^{2}}\Bigr)\\
+  &\qquad-\frac{1}{2}\cdot\frac{\ii L^{2}}{2\pi\mu}\\
+  &=\frac{1}{4\pi\mu}\Bigl(\ii L^{2}+\frac{L^{2}}{\pi\mu}-\ii L^{2}\Bigr)\\
+  &=\frac{L^{2}}{4\pi^{2}\mu^{2}}
+\end{align*}
+\naze{答えは正しいが，問題は「項別積分を用いて」と方法を指定している。$F$ は周期 $L$ の連続な関数なので $\hat{F}_{\mu}=\frac{L}{\ii2\pi\mu}\hat{h}_{\mu}$（$\mu\neq0$）が使え，与えられた $\hat{h}_{\mu}=\ii L/(2\pi\mu)$ を代入すると1行で $\hat{F}_{\mu}=\frac{L^{2}}{4\pi^{2}\mu^{2}}$ になる。この公式を使うことが問題の要点である。}
+\toi{3}{◎}{}
+\begin{align*}
+  \hat{F}_0&=\frac{1}{L}\int_{0}^{L}\dd x\,\Bigl(\frac{1}{2}x^{2}-\frac{1}{2}Lx\Bigr)\\
+  &=\frac{1}{2L}\Bigl[\frac{1}{3}x^{3}-\frac{1}{2}Lx^{2}\Bigr]_{0}^{L}\\
+  &=\frac{1}{2L}\Bigl(\frac{1}{3}L^{3}-\frac{1}{2}L^{3}\Bigr)\\
+  &=-\frac{L^{2}}{12}
+\end{align*}
+\toi{4}{◎}{}
+$F(x)$：$\frac{a_0}{2}=\hat{F}_0=-\frac{L^{2}}{12}$，$b_n=0$
+\begin{align*}
+  a_n&=\frac{2}{L}\int_{0}^{L}\dd x\,F(x)\cos\frac{2\pi nx}{L}\\
+  &=\frac{2}{L}\int_{0}^{L}\dd x\,\Bigl(\frac{1}{2}x^{2}-\frac{1}{2}Lx\Bigr)\\
+  &\qquad\times\cos\frac{2\pi nx}{L}
+\end{align*}
+（ここで止め，複素形式から書く）
+\begin{align*}
+  F(x)&=\sum_{-\infty}^{\infty}\ee^{\ii2\pi x\mu/L}\hat{F}_{\mu}\\
+  &=2\sum_{1}^{\infty}\kakimachigai{\ee^{\ii2\pi x\mu/L}}{\cos\frac{2\pi x\mu}{L}}\hat{F}_{\mu}\\
+  &\qquad+\Bigl(-\frac{L^{2}}{12}\Bigr)\\
+  &=2\sum_{1}^{\infty}\cos(2\pi x\mu/L)\frac{L^{2}}{4\pi^{2}\mu^{2}}\\
+  &\qquad-\frac{L^{2}}{12}
+\end{align*}
+\begin{align*}
+  F(0)=0&=2\sum_{1}^{\infty}\frac{L^{2}}{4\pi^{2}\mu^{2}}-\frac{L^{2}}{12}\\
+  \frac{L^{2}}{12}&=2\sum\frac{L^{2}}{4\pi^{2}\mu^{2}}\\
+  \frac{\pi^{2}}{6}&=\sum_{1}^{\infty}\frac{1}{\mu^{2}}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「項別積分を用いて」と指定されたら，$\hat{F}_{\mu}=\frac{L}{\ii2\pi\mu}\hat{h}_{\mu}$ を使う。直接の部分積分は検算に回す。項別積分で決まらないのは $\mu=0$ の係数だけで，(3) で別に積分する。
+\item 部分積分 $\int x\,\ee^{-\ii qx}\dd x$ の第2項は $-\int\frac{\ee^{-\ii qx}}{-\ii q}\dd x$ で，$1/(-\ii q)$ の因子が付く。今回は 0 になる項なので答えに響かなかったが，問題4（070）(1) でも同じ書き落としがある。
+\end{kizuki}
+\begin{tadashii}
+\houshin 平均が0ののこぎり波の原始関数（放物線）が周期関数になることを確かめ、項別積分の公式で係数を求める。定数項は別に積分で求め、展開の $x=0$ での値から級数の和を得る。使う定理：項別積分 $\hat{F}_{\mu}=\frac{L}{\ii2\pi\mu}\hat{h}_{\mu}$（$\mu\neq0$、$F$ が周期 $L$ のとき。要点整理）。$\mu=0$ の係数は項別積分では決まらないので直接積分する。複素形式と実形式の係数の関係（Level 1 の問題）。
+\keisan
+\shoumonkai{1}
+\[
+F(x)=\int_{0}^{x}\bigl(x'-L/2\bigr)\dd x'=\frac{x^{2}}{2}-\frac{Lx}{2}=-\frac{x(L-x)}{2}
+\]
+である。$F(0)=0$、$F(L)=0$ で等しいので、周期 $L$ で連続に拡張できる（$\hat{h}_0=0$、すなわち1周期の積分が $0$ であることに対応する）。
+\shoumonkai{2}
+\[
+\hat{F}_{\mu}=\frac{L}{\ii2\pi\mu}\cdot\frac{\ii L}{2\pi\mu}=\frac{L^{2}}{4\pi^{2}\mu^{2}}\qquad(\mu\neq0).
+\]
+\shoumonkai{3}
+\[
+\hat{F}_0=\frac{1}{L}\int_{0}^{L}\Bigl(\frac{x^{2}}{2}-\frac{Lx}{2}\Bigr)\dd x=\frac{1}{L}\Bigl(\frac{L^{3}}{6}-\frac{L^{3}}{4}\Bigr)=-\frac{L^{2}}{12}.
+\]
+\shoumonkai{4} $\hat{F}_{-\mu}=\hat{F}_{\mu}$ は実数なので、$a_0=2\hat{F}_0=-\frac{L^{2}}{6}$、$a_n=2\hat{F}_n=\frac{L^{2}}{2\pi^{2}n^{2}}$、$b_n=0$。
+\[
+F(x)=-\frac{L^{2}}{12}+\frac{L^{2}}{2\pi^{2}}\sum_{n=1}^{\infty}\frac{1}{n^{2}}\cos\frac{2\pi nx}{L}.
+\]
+$F$ は連続なので $x=0$ を代入して
+\[
+0=-\frac{L^{2}}{12}+\frac{L^{2}}{2\pi^{2}}\sum_{n=1}^{\infty}\frac{1}{n^{2}},\qquad\text{よって}\qquad\sum_{n=1}^{\infty}\frac{1}{n^{2}}=\frac{\pi^{2}}{6}.
+\]
+\kotae{\shoumonkai{1} $F(x)=-\frac{x(L-x)}{2}$、$F(0)=F(L)=0$。\shoumonkai{2} $\hat{F}_{\mu}=\frac{L^{2}}{4\pi^{2}\mu^{2}}$。\shoumonkai{3} $\hat{F}_0=-\frac{L^{2}}{12}$。\shoumonkai{4} $F(x)=-L^{2}/12+(L^{2}/(2\pi^{2}))\sum\cos(2\pi nx/L)/n^{2}$、$\sum1/n^{2}=\pi^{2}/6$（いずれも和は $n\ge1$ についての和）。}
+\kenzan (4) で得た $\sum1/n^{2}=\pi^{2}/6$ は既知の値と一致する。(1) の $F(0)=F(L)=0$ は、項別積分の前提（$F$ が周期 $L$ の連続関数）と $\hat{h}_0=0$ の整合も確かめている。
+\end{tadashii}
+\end{mondai}
+
 \level{2}
 % toubun: kiroku\toubun\数理物理1\062_2026-10-03.tex
 \mondaibangou{6}
@@ -220,6 +636,624 @@ $z=L/2$ で $f=L^{2}/4$、$\cos\pi\mu=(-1)^{\mu}$ なので
 \]
 \kotae{\shoumonkai{1} $\int\dd z\,U^{*}(z,\nu)U(z,\mu)=\delta_{\mu\nu}$（積分区間は $0\le z\le L$）。\shoumonkai{2} $\hat{f}_0=\frac{L^{5/2}}{6}$、$\hat{f}_{\mu}=-\frac{L^{5/2}}{2\pi^{2}\mu^{2}}$（$\mu\neq0$）。\shoumonkai{3} $\sum(-1)^{\mu-1}/\mu^{2}=\pi^{2}/12$。\shoumonkai{4} $\sum1/\mu^{4}=\pi^{4}/90$（$\sum$ は(3)(4)とも $\mu=1,2,3,\dots$ についての和）。}
 \kenzan 次元は、$f$ の次元が $L^{2}$、$\hat{f}_{\mu}$ が $L^{2}\cdot L^{1/2}=L^{5/2}$ で、(2) の結果と一致する。(3)(4) で得た $\pi^{2}/12$ と $\pi^{4}/90$ は、よく知られた級数和の値（交代級数 $\sum(-1)^{\mu-1}/\mu^{2}$ と $\sum1/\mu^{4}$）と一致する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\072_2026-10-03.tex
+\mondaibangou{7}
+\begin{mondai}{072-parseval}{導出}{Parseval の等式と矩形パルス}
+周期 $L$ の関数 $f(x)$ を要点整理のようにフーリエ級数展開する。
+\begin{shoumon}
+  \item 要点整理の定義と正規直交性を用いて、次の式を示せ（和と積分の順序は交換してよい）。
+\[
+\int_{c}^{c+L}\abs{f(x)}^{2}\dd x=L\sum_{\mu=-\infty}^{\infty}\abs{\hat{f}_{\mu}}^{2}
+\]
+  \item $f$ が実関数のとき、(1) を実形式の係数で表すと
+\[
+\frac{2}{L}\int_{c}^{c+L}f(x)^{2}\dd x=\frac{a_0^{2}}{2}+\sum_{n=1}^{\infty}(a_n^{2}+b_n^{2})
+\]
+となることを示せ。
+  \item Level 1 の周期的な矩形パルスの問題の $f$ に (2) を適用して、次の和を $d,L$ で表せ。
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^{2}}\sin^{2}\frac{\pi nd}{L}
+\]
+  \item (3) で $d=L/2$ および $d=L/3$ とおき、次の2つの和を求めよ（後者は $3$ の倍数でない自然数 $n$ についての和）。
+\[
+\sum_{m=0}^{\infty}\frac{1}{(2m+1)^{2}},\qquad\sum_{3\nmid n}\frac{1}{n^{2}}
+\]
+\end{shoumon}
+\notekiroku{2026-10-03 C ××◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{×}{未着手}
+\mikai
+\toi{2}{×}{未着手}
+\mikai
+\toi{3}{◎}{}
+\begin{align*}
+  &\frac{2}{L}\int_{-L/2}^{L/2}f(x)^{2}\dd x\\
+  &\qquad=\frac{a_0^{2}}{2}+\sum_{1}^{\infty}\kakimachigai{a_n^{2}+b_n^{2}}{(a_n^{2}+b_n^{2})}
+\end{align*}
+\begin{align*}
+  \frac{2d}{L}&=\frac{1}{2}\Bigl(\frac{2d}{L}\Bigr)^{2}\\
+  &\qquad+\sum_{1}^{\infty}\Bigl(\frac{2\sin(\pi nd/L)}{\pi n}\Bigr)^{2}
+\end{align*}
+\begin{align*}
+  \sum_{1}^{\infty}\frac{4}{\pi^{2}n^{2}}\sin^{2}\frac{\pi nd}{L}&=\frac{2d}{L}-\frac{2d^{2}}{L^{2}}\\
+  \sum\frac{1}{n^{2}}\sin^{2}\frac{\pi nd}{L}&=\pi^{2}\Bigl(\frac{dL}{2L^{2}}-\frac{d^{2}}{2L^{2}}\Bigr)\\
+  &=\pi^{2}\frac{dL-d^{2}}{2L^{2}}\\
+  &=\frac{\pi^{2}d(L-d)}{2L^{2}}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+  \sum\frac{1}{n^{2}}\sin^{2}\frac{\pi n}{2}&=\frac{\pi^{2}(L/2)^{2}}{2L^{2}}\\
+  \sum\frac{1}{(2m+1)^{2}}&=\frac{\pi^{2}}{8}
+\end{align*}
+\begin{align*}
+  \sum\frac{1}{n^{2}}\sin^{2}\frac{\pi n}{3}&=\frac{\pi^{2}\cdot\frac{L}{3}\cdot\frac{2L}{3}}{2L^{2}}=\frac{\pi^{2}}{9}\\
+  \frac{3}{4}\sum\frac{1}{n^{2}}&=\frac{\pi^{2}}{9}
+\end{align*}
+\[ \frac{4\pi^{2}}{27} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item (1) は $\abs{f}^{2}=f^{*}f$ に展開を2つ代入して二重和にし，正規直交性 $\int_c^{c+L}\ee^{-\ii q_{\mu}x}\ee^{\ii q_{\nu}x}\dd x=L\delta_{\mu\nu}$ で一重の和にする。導出を問われた式は，使う前にこの1段を書く。
+\item (2) は (1) の右辺を $\mu=0$ と $\mu=\pm n$ に分け，実関数では $\hat{f}_0=a_0/2$，$\abs{\hat{f}_{\pm n}}^{2}=(a_n^{2}+b_n^{2})/4$ を使うと出る（問題1（067）の関係）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 要点整理の規格化（係数側に $1/L$）でのフーリエ級数について Parseval の等式を複素形式・実形式で導き、矩形パルスに適用して級数の和を求める。使う定理：正規直交性（要点整理）：
+\[
+\int_{c}^{c+L}\ee^{-\ii q_{\mu}x}\ee^{\ii q_{\nu}x}\dd x=L\delta_{\mu\nu}
+\]
+ただし $q_{\mu}=2\pi\mu/L$。実関数では $\hat{f}_0=\frac{a_0}{2}$、$\abs{\hat{f}_{\pm n}}^{2}=\frac{a_n^{2}+b_n^{2}}{4}$（Level 1 の係数の関係の問題）。矩形パルスの係数（Level 1 の矩形パルスの問題）: $a_0=\frac{2d}{L}$、$a_n=\frac{2\sin(\pi nd/L)}{\pi n}$、$b_n=0$。（参考）\noteshiki{10.10}。 % 出典: p.75
+\keisan
+\shoumonkai{1} $\abs{f}^{2}=f^{*}f$ に展開を代入して
+\[
+\int_{c}^{c+L}\abs{f}^{2}\dd x=\sum_{\mu,\nu}\hat{f}_{\mu}^{*}\hat{f}_{\nu}\int_{c}^{c+L}\ee^{-\ii q_{\mu}x}\ee^{\ii q_{\nu}x}\dd x=\sum_{\mu,\nu}\hat{f}_{\mu}^{*}\hat{f}_{\nu}L\delta_{\mu\nu}=L\sum_{\mu}\abs{\hat{f}_{\mu}}^{2}.
+\]
+\shoumonkai{2} (1) の右辺を $\mu=0$ と $\mu=\pm n$ に分けると
+\[
+L\sum_{\mu}\abs{\hat{f}_{\mu}}^{2}=L\Bigl[\frac{a_0^{2}}{4}+\sum_{n=1}^{\infty}2\cdot\frac{a_n^{2}+b_n^{2}}{4}\Bigr]=\frac{L}{2}\Bigl[\frac{a_0^{2}}{2}+\sum_{n=1}^{\infty}(a_n^{2}+b_n^{2})\Bigr].
+\]
+両辺に $\frac{2}{L}$ をかければよい。
+\shoumonkai{3} 左辺は
+\[
+\frac{2}{L}\int_{-d/2}^{d/2}1\,\dd x=\frac{2d}{L}
+\]
+であり、右辺は
+\[
+\frac{2d^{2}}{L^{2}}+\frac{4}{\pi^{2}}\sum_{n\ge1}\frac{1}{n^{2}}\sin^{2}\frac{\pi nd}{L}
+\]
+である。よって
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^{2}}\sin^{2}\frac{\pi nd}{L}=\frac{\pi^{2}}{4}\Bigl(\frac{2d}{L}-\frac{2d^{2}}{L^{2}}\Bigr)=\frac{\pi^{2}d(L-d)}{2L^{2}}.
+\]
+\shoumonkai{4} $d=L/2$ のとき、$\sin^{2}\frac{\pi n}{2}$ は $n$ が奇数で $1$、偶数で $0$。右辺は
+\[
+\frac{\pi^{2}}{2}\cdot\frac{1}{4}=\frac{\pi^{2}}{8}
+\]
+である。よって
+\[
+\sum_{m=0}^{\infty}\frac{1}{(2m+1)^{2}}=\frac{\pi^{2}}{8}.
+\]
+$d=L/3$ のとき、$\sin^{2}\frac{\pi n}{3}$ は $3\nmid n$ で $\frac{3}{4}$、$3\mid n$ で $0$。右辺は
+\[
+\frac{\pi^{2}}{2}\cdot\frac{1}{3}\cdot\frac{2}{3}=\frac{\pi^{2}}{9}
+\]
+である。よって
+\[
+\frac{3}{4}\sum_{3\nmid n}\frac{1}{n^{2}}=\frac{\pi^{2}}{9}
+\]
+となり
+\[
+\sum_{3\nmid n}\frac{1}{n^{2}}=\frac{4\pi^{2}}{27}.
+\]
+（検算: 次の関係から、上と一致する。）
+\[
+\sum_{3\nmid n}\frac{1}{n^{2}}=\Bigl(1-\frac{1}{9}\Bigr)\sum_{n\ge1}\frac{1}{n^{2}}=\frac{8}{9}\cdot\frac{\pi^{2}}{6}=\frac{4\pi^{2}}{27}.
+\]
+\kotae{\shoumonkai{1} $\int\abs{f}^{2}\dd x=L\sum\abs{\hat{f}_{\mu}}^{2}$（積分は区間 $c\le x\le c+L$、和は $\mu$ についての和）。\shoumonkai{2} $(2/L)\int f^{2}\dd x=a_0^{2}/2+\sum(a_n^{2}+b_n^{2})$（積分は1周期、和は $n\ge1$ についての和）。\shoumonkai{3} $\sum\sin^{2}(\pi nd/L)/n^{2}=\pi^{2}d(L-d)/(2L^{2})$（和は $n\ge1$ についての和）。\shoumonkai{4} $\sum1/(2m+1)^{2}=\pi^{2}/8$（和は $m\ge0$ についての和）、$\sum1/n^{2}=4\pi^{2}/27$（和は $3\nmid n$ である $n$ についての和）。}
+\kenzan (4) の $3\nmid n$ の和は $\sum1/n^{2}=\pi^{2}/6$ から別に求めた値 $\frac{4\pi^{2}}{27}$ と一致する。また (3) の右辺は $d\to L$ で $0$ となり、このとき $\sin^{2}(\pi n)=0$ で左辺も $0$ になって整合する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\073_2026-10-03.tex
+\mondaibangou{8}
+\begin{mondai}{073-abssin}{計算}{全波整流波 $\abs{\sin x}$}
+$-\pi\le x\le\pi$ で $f(x)=\abs{\sin x}$ とし、周期 $2\pi$ の関数として扱う。
+\begin{shoumon}
+  \item 実形式の係数 $a_n$（$n\ge0$）と $b_n$ を求めよ。
+  \item $f(x)$ の実形式の展開を書け。
+  \item $x=0$、$x=\pi/2$ を代入して、次の2つの和を求めよ。
+\[
+\sum_{m=1}^{\infty}\frac{1}{4m^{2}-1},\qquad\sum_{m=1}^{\infty}\frac{(-1)^{m}}{4m^{2}-1}
+\]
+  \item Level 2 の Parseval の等式の問題の (2) の等式を用いて、次の和を求めよ。
+\[
+\sum_{m=1}^{\infty}\frac{1}{(4m^{2}-1)^{2}}
+\]
+\end{shoumon}
+\notekiroku{2026-10-03 A △◎◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{△}{記述}
+（図：$-\pi\le x\le\pi$ の $\sin x$ と $\abs{\sin x}$ のグラフ）
+\[ \hat{f}_{\mu}=\frac{1}{2\pi}\int_{-\pi}^{\pi}\dd x\,\ee^{-\ii\mu x}\abs{\sin x} \]
+\[ \hat{f}_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}\dd x\,\abs{\sin x}=\frac{2}{\pi} \]
+\[ a_0=2\hat{f}_0=\frac{4}{\pi},\quad b_n=0 \]
+\begin{align*}
+  a_n&=\frac{2}{2\pi}\int_{-\pi}^{\pi}\dd x\,\abs{\sin x}\cos nx\\
+  &=\frac{2}{\pi}\int_{0}^{\pi}\dd x\,\sin x\cos nx\\
+  &=\frac{1}{\pi}\int_{0}^{\pi}\dd x\,\bigl(\sin(n+1)x-\sin(n-1)x\bigr)\\
+  &=\frac{1}{\pi}\Bigl[\frac{-1}{n+1}\cos(n+1)x\\
+  &\qquad-\frac{-1}{n-1}\cos(n-1)x\Bigr]_{0}^{\pi}\\
+  &=\frac{1}{\pi}\Bigl(\frac{-1}{n+1}\cos(n+1)\pi+\frac{1}{n-1}\cos(n-1)\pi\\
+  &\qquad+\frac{1}{n+1}-\frac{1}{n-1}\Bigr)
+\end{align*}
+（脇に $\sin(x\pm nx)$ の加法定理のメモ。$n=2k$，$2k+1$ に分けた計算を書いて消し，矢印で次の行につなぐ）
+\begin{align*}
+  &=\frac{1}{\pi}\Bigl(\frac{1}{n+1}(-1)^{n}+\frac{1}{n-1}\cdot\bigl(-(-1)^{n}\bigr)\\
+  &\qquad+\frac{1}{n+1}-\frac{1}{n-1}\Bigr)\\
+  &=\frac{1}{\pi}\Bigl(\frac{1+(-1)^{n}}{n+1}-\frac{1+(-1)^{n}}{n-1}\Bigr)\\
+  &=\frac{1}{\pi}\bigl(1+(-1)^{n}\bigr)\frac{-2}{n^{2}-1}\\
+  &=\frac{2\bigl(1+(-1)^{n}\bigr)}{\pi(1-n^{2})}\quad\nuke{n\neq1}
+\end{align*}
+$n$ が奇数 $a_n=0$，偶数 $4/(\pi(1-n^{2}))$
+\naze{$\int\sin(n-1)x\,\dd x=-\frac{\cos(n-1)x}{n-1}$ を使ったので，この式は $n=1$ では分母が 0 になり使えない。「奇数なら $a_n=0$」の $n=1$ は，$a_1=\frac{1}{\pi}\int_0^{\pi}\sin2x\,\dd x=0$ と別に示す（結果は同じ 0）。}
+\toi{2}{◎}{}
+\begin{align*}
+  f(x)&=\frac{2}{\pi}+\sum_{n=1}^{\infty}a_n\cos nx\\
+  &=\frac{2}{\pi}+\sum_{m=1}^{\infty}a_{2m}\cos2mx\\
+  &=\frac{2}{\pi}+\sum_{m=1}^{\infty}\frac{4\cos2mx}{\pi(1-4m^{2})}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  f(0)&=\frac{2}{\pi}+\sum\frac{4}{\pi(1-4m^{2})}=0\\
+  \sum\frac{2}{4m^{2}-1}&=1\\
+  \sum\frac{1}{4m^{2}-1}&=\frac{1}{2}
+\end{align*}
+\[ f(x)=\frac{2}{\pi}+\sum\frac{4\cos2mx}{\pi(1-4m^{2})} \]
+\begin{align*}
+  f\Bigl(\frac{\pi}{2}\Bigr)=1&=\frac{2}{\pi}+\sum\frac{4\cos m\pi}{\pi(1-4m^{2})}\\
+  \frac{4}{\pi}\sum\frac{(-1)^{m}}{4m^{2}-1}&=\frac{2}{\pi}-1\\
+  \sum\frac{(-1)^{m}}{4m^{2}-1}&=\frac{1}{2}-\frac{\pi}{4}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+  &\frac{2}{2\pi}\int_{-\pi}^{\pi}\sin^{2}x\,\dd x\\
+  &\qquad=\frac{1}{2}\Bigl(\frac{4}{\pi}\Bigr)^{2}+\sum_{1}^{\infty}\frac{16}{\pi^{2}(1-4m^{2})^{2}}\\
+  &\frac{4}{2\pi}\int_{0}^{\pi}\frac{1-\cos2x}{2}\dd x\\
+  &\qquad=\frac{8}{\pi^{2}}+\sum\frac{16}{\pi^{2}}\cdot\frac{1}{(1-4m^{2})^{2}}
+\end{align*}
+\[ \frac{2}{\pi}\underbrace{\Bigl[\frac{x}{2}-\frac{\sin2x}{4}\Bigr]_{0}^{\pi}}_{\pi/2}=\frac{8}{\pi^{2}}+ \]
+（右辺の続きを消して次の行で書き直す）
+\[ \pi^{2}=8+\sum16\frac{1}{(4m^{2}-1)^{2}} \]
+（右に答えとして）
+\[ \frac{\pi^{2}-8}{16} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 積和公式で $\int\sin(n-1)x\,\dd x=-\frac{\cos(n-1)x}{n-1}$ のように $n-1$ で割ったら，その一般式は $n=1$ で使えない。$n=1$ は元の積分に戻して別に計算し，一般式の後に「$(n\neq1)$」と書いておく。
+\end{kizuki}
+\begin{tadashii}
+\houshin 偶関数 $\abs{\sin x}$ の実フーリエ係数を積和公式で求め、展開の特定の点での値と Parseval の等式から3つの級数の和を得る。使う定理：周期 $2\pi$ の係数の定義（要点整理）
+\[
+a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f\cos nx\,\dd x
+\]
+偶関数では $b_n=0$ で
+\[
+a_n=\frac{2}{\pi}\int_{0}^{\pi}f\cos nx\,\dd x
+\]
+積和公式 $\sin A\cos B=\frac{1}{2}\{\sin(A+B)+\sin(A-B)\}$。Parseval（Level 2 の Parseval の等式の問題の (2)、$L=2\pi$）:
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi}f^{2}\dd x=\frac{a_0^{2}}{2}+\sum(a_n^{2}+b_n^{2})
+\]
+% 出典: p.79--80（参考: 三角波 $f(x)=\pi-\abs{x}$ の例）
+\keisan
+\shoumonkai{1} 偶関数なので $b_n=0$。$0\le x\le\pi$ では $\abs{\sin x}=\sin x$ だから
+\[
+a_n=\frac{2}{\pi}\int_{0}^{\pi}\sin x\cos nx\,\dd x=\frac{1}{\pi}\int_{0}^{\pi}\bigl[\sin(1+n)x+\sin(1-n)x\bigr]\dd x .
+\]
+$n\neq1$ のとき、
+\[
+\int_{0}^{\pi}\sin kx\,\dd x=\frac{1-\cos k\pi}{k}
+\]
+と $\cos(1\pm n)\pi=-(-1)^{n}$ より
+\[
+a_n=\frac{1+(-1)^{n}}{\pi}\Bigl(\frac{1}{1+n}+\frac{1}{1-n}\Bigr)=\frac{1+(-1)^{n}}{\pi}\cdot\frac{2}{1-n^{2}}.
+\]
+$n=1$ のとき
+\[
+a_1=\frac{2}{\pi}\int_{0}^{\pi}\sin x\cos x\,\dd x=\frac{1}{\pi}\int_0^{\pi}\sin2x\,\dd x=0 .
+\]
+よって $n$ が奇数なら $a_n=0$、$n=2m$（$m\ge0$）なら $a_{2m}=\frac{4}{\pi(1-4m^{2})}$。特に $a_0=\frac{4}{\pi}$。
+\shoumonkai{2}
+\[
+\abs{\sin x}=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{\cos2mx}{4m^{2}-1}.
+\]
+\shoumonkai{3} 周期的に拡張した $f$ は連続で区分的に滑らかなので、要点整理の各点での収束より、各点で展開を使ってよい。
+$x=0$ のとき
+\[
+0=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{4m^{2}-1}\qquad\text{より}\qquad\sum_{m=1}^{\infty}\frac{1}{4m^{2}-1}=\frac{1}{2}.
+\]
+（検算: 次の式の和は $1/2$ である。）
+\[
+\frac{1}{4m^{2}-1}=\frac{1}{2}\Bigl(\frac{1}{2m-1}-\frac{1}{2m+1}\Bigr)
+\]
+$x=\pi/2$ のとき、$\cos m\pi=(-1)^{m}$ より
+\[
+1=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{(-1)^{m}}{4m^{2}-1},\qquad\text{よって}\qquad\sum_{m=1}^{\infty}\frac{(-1)^{m}}{4m^{2}-1}=\frac{2-\pi}{4}=\frac{1}{2}-\frac{\pi}{4}.
+\]
+\shoumonkai{4} 左辺は
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi}\sin^{2}x\,\dd x=\frac{1}{\pi}\cdot\pi=1
+\]
+である。右辺は
+\[
+\frac{1}{2}\cdot\frac{16}{\pi^{2}}+\sum_{m=1}^{\infty}\frac{16}{\pi^{2}(4m^{2}-1)^{2}}.
+\]
+よって
+\[
+\sum_{m=1}^{\infty}\frac{1}{(4m^{2}-1)^{2}}=\frac{\pi^{2}}{16}\Bigl(1-\frac{8}{\pi^{2}}\Bigr)=\frac{\pi^{2}-8}{16}.
+\]
+\kotae{\shoumonkai{1} $b_n=0$、$a_0=4/\pi$、$a_{2m}=-\frac{4}{\pi(4m^{2}-1)}$（$m\ge1$）、奇数番目の $a_n=0$。\shoumonkai{2} $\abs{\sin x}=2/\pi-(4/\pi)\sum\cos(2mx)/(4m^{2}-1)$（和は $m\ge1$ についての和）。\shoumonkai{3} $\sum1/(4m^{2}-1)=1/2$、$\sum(-1)^{m}/(4m^{2}-1)=1/2-\pi/4$（いずれも和は $m\ge1$ についての和）。\shoumonkai{4} $\sum1/(4m^{2}-1)^{2}=(\pi^{2}-8)/16$（和は $m\ge1$ についての和）。}
+\kenzan (3) の $x=0$ での和 $\frac{1}{2}$ は、部分分数に分解した和が望遠鏡和になることで別に確かめた。また定数項 $a_0/2=2/\pi$ は、次の $\abs{\sin x}$ の1周期の平均と一致する（$n=1$ は一般式の分母 $1-n^{2}$ が $0$ になるので、別に直接積分して $a_1=0$ を求めた）。
+\[
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\abs{\sin x}\,\dd x=\frac{1}{\pi}\int_{0}^{\pi}\sin x\,\dd x=\frac{2}{\pi}
+\]
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\074_2026-10-03.tex
+\mondaibangou{9}
+\begin{mondai}{074-expfunc}{計算}{指数関数 $\ee^{\alpha x}$ のフーリエ級数}
+$\alpha>0$ とし、$-\pi<x<\pi$ で $f(x)=\ee^{\alpha x}$ と定義し、周期 $2\pi$ で拡張した関数を考える。
+\begin{shoumon}
+  \item 複素形式の係数 $\hat{f}_{\mu}$ を求め、$\sinh(\alpha\pi)$ を用いて表せ。
+  \item 実形式の係数 $a_n,b_n$ を求めよ。
+  \item $x=0$ での値を考えて、次の和を求めよ。
+\[
+\sum_{\mu=-\infty}^{\infty}\frac{(-1)^{\mu}}{\alpha^{2}+\mu^{2}}
+\]
+  \item Level 2 の Parseval の等式の問題の (1) の等式を用いて、次の和を求めよ。
+\[
+\sum_{\mu=-\infty}^{\infty}\frac{1}{\alpha^{2}+\mu^{2}}
+\]
+  \item (4) の結果で $\alpha\to+0$ の極限を考え、次の和を求めよ。
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^{2}}
+\]
+$y\to0$ で次の展開を用いてよい。
+\[
+\coth y=\frac{1}{y}+\frac{y}{3}+O(y^{3})
+\]
+\end{shoumon}
+\notekiroku{2026-10-03 S ◎◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  \hat{f}_{\mu}&=\frac{1}{2\pi}\int_{-\pi}^{\pi}\ee^{-\ii\mu x}\ee^{\alpha x}\dd x\\
+  &=\frac{1}{2\pi}\int_{-\pi}^{\pi}\dd x\,\ee^{(\alpha-\ii\mu)x}\\
+  &=\frac{1}{2\pi}\Bigl[\frac{1}{\alpha-\ii\mu}\ee^{(\alpha-\ii\mu)x}\Bigr]_{-\pi}^{\pi}\\
+  &=\frac{1}{2\pi(\alpha-\ii\mu)}\\
+  &\qquad\times\bigl(\ee^{\alpha\pi}\ee^{-\ii\mu\pi}-\ee^{-\alpha\pi}\ee^{\ii\mu\pi}\bigr)\\
+  &=\frac{(-1)^{\mu}}{2\pi(\alpha-\ii\mu)}\bigl(\ee^{\alpha\pi}-\ee^{-\alpha\pi}\bigr)\\
+  &=\frac{(-1)^{\mu}\sinh(\alpha\pi)}{\pi(\alpha-\ii\mu)}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  a_n&=\hat{f}_n+\hat{f}_{-n}\\
+  &=\frac{(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha-\ii n)}\\
+  &\qquad+\frac{(-1)^{-n}\sinh(\alpha\pi)}{\pi(\alpha+\ii n)}\\
+  &=\frac{1}{\pi(\alpha-\ii n)(\alpha+\ii n)}\\
+  &\qquad\times\bigl((\alpha+\ii n)(-1)^{n}\sinh(\alpha\pi)\\
+  &\qquad\quad+(\alpha-\ii n)(-1)^{n}\sinh(\alpha\pi)\bigr)\\
+  &=\frac{2\alpha(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}
+\end{align*}
+\begin{align*}
+  b_n&=\ii(\hat{f}_n-\hat{f}_{-n})\\
+  &=\ii\Bigl(\frac{2\ii n(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}\Bigr)\\
+  &=\frac{2n(-1)^{n-1}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}
+\end{align*}
+（右にまとめて）
+\begin{align*}
+  a_n&=\frac{2\alpha(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}\\
+  b_n&=-\frac{2n(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}\\
+  a_0&=\frac{2\sinh(\alpha\pi)}{\pi\alpha}
+\end{align*}
+\toi{3}{◎}{}
+\[ f(0)=1 \]
+\begin{align*}
+  f(x)&=\frac{\sinh(\alpha\pi)}{\pi\alpha}\\
+  &\qquad+\sum_{n=1}^{\infty}\biggl[\frac{2\alpha(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}\cos nx\\
+  &\qquad-\frac{2n(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}\sin nx\biggr]
+\end{align*}
+\begin{align*}
+  f(0)&=\frac{\sinh(\alpha\pi)}{\pi\alpha}\\
+  &\qquad+\sum_{n=1}^{\infty}\frac{2\alpha(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}\\
+  &=\sum_{-\infty}^{\infty}\frac{\alpha(-1)^{n}\sinh(\alpha\pi)}{\pi(\alpha^{2}+n^{2})}=1
+\end{align*}
+\[ \therefore\ \sum_{-\infty}^{\infty}\frac{(-1)^{n}}{\alpha^{2}+n^{2}}=\frac{\pi}{\alpha\sinh(\alpha\pi)} \]
+\toi{4}{◎}{}
+\[ \int_{c}^{c+L}\abs{f(x)}^{2}\dd x=L\sum_{\mu=-\infty}^{\infty}\abs{\hat{f}_{\mu}}^{2} \]
+\begin{align*}
+  &\int_{-\pi}^{\pi}\ee^{2\alpha x}\dd x\\
+  &\qquad=L\sum_{-\infty}^{\infty}\frac{(-1)^{2\mu}\sinh^{2}(\alpha\pi)}{\pi^{2}(\alpha-\ii\mu)(\alpha+\ii\mu)}
+\end{align*}
+\begin{align*}
+  \text{左辺}&=\Bigl[\frac{1}{2\alpha}\ee^{2\alpha x}\Bigr]_{-\pi}^{\pi}\\
+  &=\frac{1}{2\alpha}\bigl[\ee^{2\alpha\pi}-\ee^{-2\alpha\pi}\bigr]\\
+  &=\frac{\sinh(2\alpha\pi)}{\alpha}
+\end{align*}
+\begin{align*}
+  \text{右辺}&=2\pi\sum_{-\infty}^{\infty}\frac{\bigl((\ee^{\alpha\pi}-\ee^{-\alpha\pi})/2\bigr)^{2}}{\pi^{2}(\alpha^{2}+\mu^{2})}\\
+  &=2\pi\sum_{-\infty}^{\infty}\frac{\ee^{2\alpha\pi}+\ee^{-2\alpha\pi}-2}{4\pi^{2}(\alpha^{2}+\mu^{2})}
+\end{align*}
+\begin{align*}
+  \frac{2\pi\sinh(2\alpha\pi)}{\alpha(\ee^{2\alpha\pi}+\ee^{-2\alpha\pi}-2)}&=\sum_{-\infty}^{\infty}\frac{1}{\alpha^{2}+\mu^{2}}\\
+  \frac{2\pi\sinh(2\alpha\pi)}{2\alpha\frac{\ee^{2\alpha\pi}+\ee^{-2\alpha\pi}}{2}-2\alpha}&=\sum
+\end{align*}
+\begin{align*}
+  &\frac{\kakimachigai{2\pi}{\pi}\sinh(2\alpha\pi)}{\alpha(\cosh(2\alpha\pi)-1)}\\
+  &\qquad=\frac{2\pi\sinh(\alpha\pi)\cosh(\alpha\pi)}{2\alpha\sinh^{2}(\alpha\pi)}\\
+  &\qquad=\frac{\pi}{\alpha}\coth(\alpha\pi)
+\end{align*}
+\toi{5}{◎}{}
+$\alpha\to+0$
+\begin{align*}
+  &\kakimachigai{\sum_{-\infty}^{\infty}\frac{1}{n^{2}}}{\sum_{-\infty}^{\infty}\frac{1}{\alpha^{2}+n^{2}}}\\
+  &\qquad=\lim_{\alpha\to+0}\frac{\pi}{\alpha}\Bigl(\frac{1}{\alpha\pi}+\frac{\alpha\pi}{3}\Bigr)\\
+  &\kakimachigai{2\sum_{1}^{\infty}\frac{1}{n^{2}}}{\frac{1}{\alpha^{2}}+2\sum_{1}^{\infty}\frac{1}{\alpha^{2}+n^{2}}}\\
+  &\qquad=\lim_{\alpha\to+0}\frac{1}{\alpha^{2}}+\frac{\pi^{2}}{3}\\
+  &2\sum_{1}^{\infty}\frac{1}{n^{2}}=\frac{\pi^{2}}{3}\\
+  &\sum_{1}^{\infty}\frac{1}{n^{2}}=\frac{\pi^{2}}{6}
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\075_2026-10-03.tex
+\mondaibangou{10}
+\begin{mondai}{075-halfrange}{計算}{半区間で定義された $\cos x$ の正弦展開と余弦展開}
+$0<x<\pi$ で定義された関数 $f(x)=\cos x$ を、周期 $2\pi$ の関数に2通りに拡張する。
+\begin{itemize}
+  \item 偶関数としての拡張 $f_{\mathrm{e}}$: $-\pi<x<0$ で $f_{\mathrm{e}}(x)=f(-x)$
+  \item 奇関数としての拡張 $f_{\mathrm{o}}$: $-\pi<x<0$ で $f_{\mathrm{o}}(x)=-f(-x)$
+\end{itemize}
+\begin{shoumon}
+  \item $f_{\mathrm{e}}$ の実形式の係数 $a_n$（$n\ge0$）を求めよ。
+  \item $f_{\mathrm{o}}$ の実形式の係数 $b_n$（$n\ge1$）を求め、$0<x<\pi$ での $\cos x$ の正弦関数だけによる展開を書け。
+  \item (2) の展開に $x=\pi/4$ を代入して、次の和を求めよ。
+\[
+\sum_{k=0}^{\infty}\frac{(-1)^{k}(2k+1)}{(4k+1)(4k+3)}
+\]
+  \item (2) の級数の $x=0$ での値を求め、$\cos0=1$ と一致しない理由を、$f_{\mathrm{o}}$ の $x=0$ での振る舞いから説明せよ。また (1) と (2) で係数の個数・減り方が大きく違う理由を述べよ。
+\end{shoumon}
+\notekiroku{2026-10-03 B ◎△◎△}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+（図：$f_{\mathrm{o}}$（原点で跳ぶ）と $f_{\mathrm{e}}$（$x=0$ で山になる）の略図）
+\begin{align*}
+  a_n&=\frac{2}{2\pi}\int_{-\pi}^{\pi}\dd x\,\cos x\cos nx\\
+  &=\frac{2}{\pi}\int_{0}^{\pi}\dd x\,\cos x\cos nx=\delta_{n1}
+\end{align*}
+（積和公式で計算しかけて消し，矢印でこの行につなぐ）
+\toi{2}{△}{記述}
+\begin{align*}
+  b_n&=\frac{2}{2\pi}\int_{-\pi}^{\pi}\dd x\,f(x)\sin nx\\
+  &=\frac{1}{\pi}\int_{-\pi}^{0}\dd x\,(-\cos x\sin nx)\\
+  &\qquad+\frac{1}{\pi}\int_{0}^{\pi}\kakimachigai{\cos x\sin nx}{\cos x\sin nx\,\dd x}\\
+  &=\frac{2}{\pi}\int_{0}^{\pi}\dd x\,\cos x\sin nx\\
+  &=\frac{1}{\pi}\int_{0}^{\pi}\bigl(\sin(n+1)x+\sin(n-1)x\bigr)\dd x\\
+  &=-\frac{1}{\pi}\Bigl[\frac{1}{n+1}\cos(n+1)x\\
+  &\qquad+\frac{1}{n-1}\cos(n-1)x\Bigr]_{0}^{\pi}\\
+  &=-\frac{1}{\pi}\Bigl(\frac{(-1)^{n+1}}{n+1}+\frac{(-1)^{n-1}}{n-1}\\
+  &\qquad-\frac{1}{n+1}-\frac{1}{n-1}\Bigr)\\
+  &=\frac{1}{\pi}\Bigl(\frac{(-1)^{n}}{n+1}+\frac{(-1)^{n}}{n-1}\\
+  &\qquad+\Bigl(\frac{1}{n+1}+\frac{1}{n-1}\Bigr)\Bigr)\\
+  &=\frac{1}{\pi}\bigl((-1)^{n}+1\bigr)\Bigl(\frac{2n}{n^{2}-1}\Bigr)\quad\nuke{n\neq1}
+\end{align*}
+\naze{$\int\sin(n-1)x\,\dd x=-\frac{\cos(n-1)x}{n-1}$ を使ったので，この式は $n=1$ では分母が 0 になり使えない。$b_1=\frac{2}{\pi}\int_0^{\pi}\sin x\cos x\,\dd x=0$ を別に示す。}
+\begin{align*}
+  b_{2m}&=\frac{\kakimachigai{-1}{1}+(-1)^{2m}}{\pi}\cdot\frac{2\cdot2m}{(2m)^{2}-1}\\
+  &=\frac{8m}{\pi(4m^{2}-1)}
+\end{align*}
+\begin{align*}
+  \cos x&=\sum b_n\sin nx\\
+  &=\sum b_{2m}\sin2mx\\
+  &=\sum\frac{8m\sin2mx}{\pi(4m^{2}-1)}
+\end{align*}
+\toi{3}{◎}{}
+\[ \frac{1}{\sqrt{2}}=\frac{8}{\pi}\sum m\sin\frac{m\pi}{2} \]
+（分母を書いて消し，$m=2k+1$ とおいた式を2行書いて消して，矢印で次の式へ）
+\begin{align*}
+  \frac{\pi}{8\sqrt{2}}&=\sum\frac{(2k+1)(-1)^{k}}{\bigl(2(2k+1)-1\bigr)\bigl(2(2k+1)+1\bigr)}\\
+  &=\sum\frac{(2k+1)(-1)^{k}}{(4k+1)(4k+3)}
+\end{align*}
+\[ \frac{\pi}{8\sqrt{2}} \]
+\toi{4}{△}{記述}
+\[ 1=0 \]
+（図：$f_{\mathrm{o}}$ が $x=0$ で $-1$ から $1$ へ跳ぶ様子）
+\nuke{理由の説明}
+\naze{$x=0$ で級数が 0 になる理由と，係数の個数・減り方の違いの説明が無い。$f_{\mathrm{o}}$ は $x=0$ で左の極限 $-1$ から右の極限 $1$ へ跳ぶので，級数は跳びの平均 $0$ に収束し，$\cos0=1$ とは一致しない。また (1) は $f_{\mathrm{e}}=\cos x$ そのものなので係数は $a_1$ の1つだけだが，(2) は跳びのある関数を表すので無限個の係数が要り，$b_{2m}\approx\frac{2}{\pi m}$ と $1/m$ でしか減らない。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 積和公式で $n-1$ で割る計算は $n=1$ を別に扱う。問題8（073）(1) と同じ。
+\item 「なぜ一致しないか」「なぜ違うか」の問いは，図だけでなく1文で答える。跳びのある点では級数は左右の極限の平均に収束し，跳びのある関数の係数は $1/n$ 程度でしか減らない。
+\end{kizuki}
+\begin{tadashii}
+\houshin 半区間 $0<x<\pi$ の関数を偶関数・奇関数として周期的に拡張し、それぞれの展開（余弦展開・正弦展開）を求める。正弦展開の特定の点での値から級数の和を得て、拡張の連続性と係数の違いの関係を説明する。使う定理（要点整理）：偶関数なら $b_n=0$ で
+\[
+a_n=\frac{2}{\pi}\int_{0}^{\pi}f\cos nx\,\dd x
+\]
+奇関数なら $a_n=0$ で
+\[
+b_n=\frac{2}{\pi}\int_{0}^{\pi}f\sin nx\,\dd x
+\]
+積和公式、三角関数の直交性（要点整理）。 % 出典: p.78，p.80--81（参考: $c$ の選び方と偶関数・奇関数，符号関数の例）
+\keisan
+\shoumonkai{1} 区間 $[0,\pi]$ での直交性
+\[
+\int_0^{\pi}\cos x\cos nx\,\dd x=\frac{\pi}{2}\delta_{n1}\qquad(n\ge1)
+\]
+と
+\[
+\int_0^{\pi}\cos x\,\dd x=0
+\]
+より
+\[
+a_n=\frac{2}{\pi}\int_{0}^{\pi}\cos x\cos nx\,\dd x=\delta_{n1}\quad(n\ge0).
+\]
+すなわち $f_{\mathrm{e}}(x)=\cos x$ そのもので、展開は1項だけ。
+（$n\ge2$ の場合を直接確かめると次のようになる。）
+\[
+\frac{1}{\pi}\int_0^{\pi}[\cos(n+1)x+\cos(n-1)x]\dd x=0
+\]
+\shoumonkai{2} 次の積和公式と積分を用いる。
+\[
+\sin nx\cos x=\frac{1}{2}\{\sin(n+1)x+\sin(n-1)x\},\qquad \int_0^{\pi}\sin kx\,\dd x=\frac{1-\cos k\pi}{k}
+\]
+また $\cos(n\pm1)\pi=-(-1)^{n}$ である。
+$n=1$ のとき
+\[
+b_1=\frac{2}{\pi}\int_0^{\pi}\sin x\cos x\,\dd x=0
+\]
+である。
+$n\ge2$ のとき
+\[
+b_n=\frac{1}{\pi}\Bigl[\frac{1+(-1)^{n}}{n+1}+\frac{1+(-1)^{n}}{n-1}\Bigr]=\frac{1+(-1)^{n}}{\pi}\cdot\frac{2n}{n^{2}-1}.
+\]
+$n$ が奇数なら $0$、$n=2m$ なら $b_{2m}=\frac{8m}{\pi(4m^{2}-1)}$。よって
+\[
+\cos x=\frac{8}{\pi}\sum_{m=1}^{\infty}\frac{m\sin2mx}{4m^{2}-1}\qquad(0<x<\pi).
+\]
+\shoumonkai{3} $f_{\mathrm{o}}$ は $x=\pi/4$ で連続。$\sin\frac{m\pi}{2}$ は $m$ が偶数で $0$、$m=2k+1$ で $(-1)^{k}$。$4(2k+1)^{2}-1=(4k+1)(4k+3)$ より
+\[
+\frac{\sqrt{2}}{2}=\frac{8}{\pi}\sum_{k=0}^{\infty}\frac{(-1)^{k}(2k+1)}{(4k+1)(4k+3)}
+\quad\Longrightarrow\quad
+\sum_{k=0}^{\infty}\frac{(-1)^{k}(2k+1)}{(4k+1)(4k+3)}=\frac{\sqrt{2}\,\pi}{16}.
+\]
+\shoumonkai{4} $x=0$ では各項 $\sin0=0$ なので級数の値は $0$。一方 $f_{\mathrm{o}}$ は $x\to+0$ で $1$、$x\to-0$ で $-1$ に近づき、$x=0$ で不連続である（左右の値の平均が $0$）。展開は $0<x<\pi$ の内部の点で $\cos x$ を表すが、拡張した関数が不連続な点では元の関数の値を表さない（符号関数で $\mathrm{sgn}(0)=0$ と定めるのと同じ状況）。
+係数の違い: $f_{\mathrm{e}}$ は $x=0,\pm\pi$ でもなめらかにつながり、実は $\cos x$ そのものなので1項で済む。$f_{\mathrm{o}}$ は $x=0$ と $x=\pm\pi$（$f_{\mathrm{o}}(\pi-0)=-1$、$f_{\mathrm{o}}(-\pi+0)=1$）で跳びをもつので、跳びを表すために無限個の項が必要で、係数も $b_{2m}\simeq\frac{2}{\pi m}$ と $1/m$ 程度でしか減らない。
+\kotae{\shoumonkai{1} $a_n=\delta_{n1}$（展開は $\cos x$ の1項だけ）。\shoumonkai{2} $b_{2m}=\frac{8m}{\pi(4m^{2}-1)}$、奇数番目は $0$、$\cos x=(8/\pi)\sum m\sin(2mx)/(4m^{2}-1)$（和は $m\ge1$ についての和、$0<x<\pi$）。\shoumonkai{3} $\frac{\sqrt{2}\,\pi}{16}$。\shoumonkai{4} 級数は $x=0$ で $0$。奇関数としての拡張が $x=0$ で不連続（左右の値 $\mp1$）だから。偶関数の拡張はなめらかで1項、奇関数の拡張は跳びがあるので無限項が必要で係数は $1/m$ 程度でしか減らない。}
+\kenzan (1) は $n\ge2$ の場合を直接積分して $0$ を確かめており、$f_{\mathrm{e}}=\cos x$ 自身が展開の1項になることと整合する。(4) では級数が $x=0$ で $0$ となり、左右の極限 $\pm1$ の平均と一致する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\076_2026-10-03.tex
+\mondaibangou{11}
+\begin{mondai}{076-forced}{計算}{矩形波の外力による周期的な強制振動}
+$T>0$、$\Omega=2\pi/T$、$s_0>0$ とし、周期 $T$ の矩形波
+\[
+s(t)=\begin{cases}s_0&(0<t<T/2)\\-s_0&(-T/2<t<0)\end{cases}
+\]
+を考える（周期 $T$ で拡張する）。$\omega_0>0$ として、方程式
+\[
+\dv[2]{y}{t}+\omega_0^{2}y=s(t)
+\]
+の、周期 $T$ の解 $y(t)$ を求める。ただし $y$ と $\dv{y}{t}$ は周期 $T$ の連続な関数とする。
+\begin{shoumon}
+  \item $s(t)$ の複素形式の係数を求めよ。係数は次の式で定義される。
+\[
+\hat{s}_{\mu}=\frac{1}{T}\int_{-T/2}^{T/2}\ee^{-\ii\mu\Omega t}s(t)\,\dd t
+\]
+  \item 項別微分を用いて、次の展開の係数 $\hat{y}_{\mu}$ が満たす式を導け。
+\[
+y(t)=\sum_{\mu}\ee^{\ii\mu\Omega t}\hat{y}_{\mu}
+\]
+項別微分が使える理由も述べよ。
+  \item $\omega_0$ がどの $\abs{\mu}\Omega$（$\mu$ は奇数）とも異なり、かつ $\Omega$ の偶数倍とも異なるとき、$y(t)$ を実形式（正弦関数の和）で書け。
+  \item $\omega_0=3\Omega$ のとき、および $\omega_0=2\Omega$ のときに、周期 $T$ の解がどうなるかをそれぞれ述べよ。
+\end{shoumon}
+\notekiroku{2026-10-03 C △△◎×}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{△}{記述}
+\begin{align*}
+  \hat{s}_{\mu}&=\frac{1}{T}\int_{-T/2}^{T/2}\ee^{-\ii\mu\Omega t}s(t)\,\dd t\\
+  &=\frac{1}{T}\Bigl(\int_{-T/2}^{0}\ee^{-\ii\mu\Omega t}(-s_0)\,\dd t\\
+  &\qquad+\int_{0}^{T/2}\ee^{-\ii\mu\Omega t}s_0\,\dd t\Bigr)\\
+  &=\frac{s_0}{T}\biggl(\Bigl[\frac{+1}{+\ii\mu\Omega}\ee^{-\ii\mu\Omega t}\Bigr]_{-T/2}^{0}\\
+  &\qquad+\Bigl[\frac{1}{-\ii\mu\Omega}\ee^{-\ii\mu\Omega t}\Bigr]_{0}^{T/2}\biggr)\\
+  &=\frac{s_0}{T}\Bigl(\frac{1}{\ii\mu\Omega}\bigl(1-\ee^{\ii\frac{T}{2}\mu\Omega}\bigr)\\
+  &\qquad+\frac{1}{\ii\mu\Omega}\bigl(-\ee^{-\ii\frac{T}{2}\mu\Omega}+1\bigr)\Bigr)\\
+  &=\frac{s_0}{\ii\mu\Omega T}\bigl(2-2\cos(\pi\mu)\bigr)\\
+  &=\frac{s_0}{\ii\pi\mu}\bigl(1-(-1)^{\mu}\bigr)
+\end{align*}
+（2つの指数関数の上に $c+\ii s$，$c-\ii s$ と添える）
+\[ \hat{s}_{\mu}=\frac{s_0}{\ii\pi\mu}\bigl(1-(-1)^{\mu}\bigr)\quad\nuke{\mu\neq0} \]
+\naze{$\frac{1}{\ii\mu\Omega}$ が現れる式なので $\mu=0$ では使えない。$\hat{s}_0=\frac{1}{T}\bigl(-s_0\frac{T}{2}+s_0\frac{T}{2}\bigr)=0$ を別に書く。}
+\toi{2}{△}{記述}
+\begin{align*}
+  &\sum_{\mu}(\ii\mu\Omega)^{2}\ee^{\ii\mu\Omega t}\hat{y}_{\mu}\\
+  &\qquad+\omega_0^{2}\sum_{\mu}\ee^{\ii\mu\Omega t}\hat{y}_{\mu}=\sum_{\mu}\ee^{\ii\mu\Omega t}\hat{s}_{\mu}
+\end{align*}
+（$\ee^{\ii\mu\Omega t}$ を線で消して係数を比べる）
+\[ (\omega_0^{2}-\mu^{2}\Omega^{2})\hat{y}_{\mu}=\hat{s}_{\mu} \]
+\nuke{項別微分が使える理由}
+\naze{項別微分が使える理由が無い。$y$ と $\dv{y}{t}$ が周期 $T$ の連続な関数なので，要点整理の項別微分の条件をそれぞれ満たし，$\dv{y}{t}$，$\dv[2]{y}{t}$ の係数が $\ii\mu\Omega\hat{y}_{\mu}$，$(\ii\mu\Omega)^{2}\hat{y}_{\mu}$ になる。係数を比べてよいのは展開が一意だからである。}
+\toi{3}{◎}{}
+\begin{align*}
+  \hat{y}_{\mu}&=\frac{1}{\omega_0^{2}-\mu^{2}\Omega^{2}}\cdot\frac{s_0}{\ii\pi\mu}\bigl(1-(-1)^{\mu}\bigr)\\
+  &=\frac{s_0}{\omega_0^{2}-4m^{2}\Omega^{2}}\cdot\frac{1}{2\ii\pi m}(1-1)=0
+\end{align*}
+\begin{align*}
+  a_n&=\hat{y}_n+\hat{y}_{-n}\\
+  &=\frac{s_0}{\omega_0^{2}-n^{2}\Omega^{2}}\\
+  &\qquad\times\Bigl(\frac{1-(-1)^{n}}{\ii\pi n}-\frac{1-(-1)^{n}}{\ii\pi n}\Bigr)=0
+\end{align*}
+\begin{align*}
+  b_n&=\ii(\hat{y}_n-\hat{y}_{-n})\\
+  &=\frac{\ii s_0}{\omega_0^{2}-n^{2}\Omega^{2}}\Bigl(\frac{2}{\ii\pi n}+\frac{2}{\ii\pi n}\Bigr)\\
+  &=\frac{4s_0}{\pi n(\omega_0^{2}-n^{2}\Omega^{2})}
+\end{align*}
+\begin{align*}
+  y(t)&=\kakimachigai{\sum_{1}^{\infty}}{\sum_{n\,\text{奇数}}}\frac{4s_0\sin(n\Omega t)}{\pi n(\omega_0^{2}-n^{2}\Omega^{2})}\\
+  &=\sum_{\fumei}^{\infty}\frac{4s_0\sin\bigl((2m+1)\Omega t\bigr)}{\pi(2m+1)\bigl(\omega_0^{2}-(2m+1)^{2}\Omega^{2}\bigr)}
+\end{align*}
+\toi{4}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $\frac{1}{\ii\mu\Omega}$ のように $\mu$ で割る式は $\mu=0$ で使えないので，$\hat{s}_0$ は定義の積分で別に求める（$s$ は奇関数なので $\hat{s}_0=0$）。問題8（073）(1)・問題10（075）(2) の $n=1$ と同じ形の見落としである。
+\item 項別微分を使うときは，微分する関数（ここでは $y$ と $\dv{y}{t}$）が周期的に連続であることを1文で書く。これが無いと係数が $\ii\mu\Omega$ 倍になるとは言えない。
+\item (4) は (2) の式で $\omega_0^{2}-\mu^{2}\Omega^{2}=0$ となる $\mu$ を探し，そこで $\hat{s}_{\mu}$ が 0 か（$\mu$ が偶数）0 でないか（$\mu$ が奇数）で場合を分ける。$\omega_0=3\Omega$ では $\mu=\pm3$ で左辺が 0・右辺が 0 でないので周期解が無く，$\omega_0=2\Omega$ では $\hat{y}_{\pm2}$ が決まらない（$\sin2\Omega t$，$\cos2\Omega t$ を任意に足せる）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 矩形波の外力を受ける振動子の周期解を、フーリエ級数の係数ごとの代数方程式に直して求める。外力が特定の成分をもたないことが、共鳴の起こり方にどう影響するかを調べる。使う定理：周期 $T$ のフーリエ級数（要点整理のフーリエ級数展開で $x\to t$、$L\to T$、$\frac{2\pi\mu}{L}\to\mu\Omega$）。項別微分（要点整理）: 周期的に連続な関数の導関数の係数は $\ii\mu\Omega$ 倍。係数の一意性（正規直交性）。複素形式と実形式の係数の関係（Level 1 の問題）。
+\keisan
+\shoumonkai{1} $\mu=0$ のとき
+\[
+\hat{s}_0=\frac{1}{T}\Bigl(s_0\frac{T}{2}-s_0\frac{T}{2}\Bigr)=0
+\]
+である。$\mu\neq0$ のとき、$\ee^{\mp\ii\mu\Omega T/2}=\ee^{\mp\ii\mu\pi}=(-1)^{\mu}$ より
+\begin{align*}
+\int_{0}^{T/2}\ee^{-\ii\mu\Omega t}\dd t&=\frac{1-(-1)^{\mu}}{\ii\mu\Omega},\qquad \int_{-T/2}^{0}\ee^{-\ii\mu\Omega t}\dd t=\frac{(-1)^{\mu}-1}{\ii\mu\Omega},\\
+\hat{s}_{\mu}&=\frac{s_0}{T}\cdot\frac{2(1-(-1)^{\mu})}{\ii\mu\Omega}=\frac{s_0(1-(-1)^{\mu})}{\ii\pi\mu}.
+\end{align*}
+すなわち $\mu$ が偶数なら $\hat{s}_{\mu}=0$、奇数なら
+\[
+\hat{s}_{\mu}=\frac{2s_0}{\ii\pi\mu}=-\frac{2\ii s_0}{\pi\mu}
+\]
+である。
+\shoumonkai{2} $y$ は周期的に連続なので $\dv{y}{t}$ の係数は $\ii\mu\Omega\hat{y}_{\mu}$。さらに $\dv{y}{t}$ も周期的に連続なので、もう一度項別微分でき、$\dv[2]{y}{t}$ の係数は $(\ii\mu\Omega)^{2}\hat{y}_{\mu}=-\mu^{2}\Omega^{2}\hat{y}_{\mu}$。方程式の両辺の係数を比べる（展開の一意性）と
+\[
+(\omega_0^{2}-\mu^{2}\Omega^{2})\hat{y}_{\mu}=\hat{s}_{\mu}\qquad(\text{すべての整数 }\mu).
+\]
+\shoumonkai{3} 条件より $\omega_0^{2}-\mu^{2}\Omega^{2}\neq0$ なので $\hat{y}_{\mu}=\frac{\hat{s}_{\mu}}{\omega_0^{2}-\mu^{2}\Omega^{2}}$。偶数の $\mu$ では $0$。奇数 $n\ge1$ について
+\[
+b_n=\ii(\hat{y}_n-\hat{y}_{-n})=\ii\cdot\frac{2\hat{s}_n}{\omega_0^{2}-n^{2}\Omega^{2}}=\frac{4s_0}{\pi n(\omega_0^{2}-n^{2}\Omega^{2})},\qquad a_n=\hat{y}_n+\hat{y}_{-n}=0.
+\]
+よって
+\[
+y(t)=\frac{4s_0}{\pi}\sum_{m=0}^{\infty}\frac{\sin\bigl((2m+1)\Omega t\bigr)}{(2m+1)\bigl(\omega_0^{2}-(2m+1)^{2}\Omega^{2}\bigr)}.
+\]
+\shoumonkai{4} $\omega_0=3\Omega$ のとき、$\mu=\pm3$ の式が $0\cdot\hat{y}_{\pm3}=\hat{s}_{\pm3}\neq0$ となり満たせない。周期 $T$ の解は存在しない（外力の $3\Omega$ 成分と共鳴し、振幅が時間とともに増大する）。
+$\omega_0=2\Omega$ のとき、$\mu=\pm2$ の式は $0\cdot\hat{y}_{\pm2}=\hat{s}_{\pm2}=0$ で常に成り立つ。矩形波には偶数倍の成分がないので共鳴は起こらず、周期解は存在する。ただし $\hat{y}_{\pm2}$ は任意（自由振動 $A\cos2\Omega t+B\sin2\Omega t$ も周期 $T$ の解なので、それを加えてよい）で、(3) の式に任意の $A\cos2\Omega t+B\sin2\Omega t$ を加えたものが周期解の全体になる。
+\kotae{\shoumonkai{1} $\hat{s}_{\mu}=\frac{s_0(1-(-1)^{\mu})}{\ii\pi\mu}$（偶数 $\mu$ と $\mu=0$ で $0$）。\shoumonkai{2} $(\omega_0^{2}-\mu^{2}\Omega^{2})\hat{y}_{\mu}=\hat{s}_{\mu}$（$y$, $\dv{y}{t}$ が周期的に連続なので項別微分できる）。\shoumonkai{3} $y(t)=\frac{4s_0}{\pi}\sum y_m(t)$（和は $m\ge0$ についての和）。ただし $y_m(t)=\frac{\sin((2m+1)\Omega t)}{(2m+1)(\omega_0^{2}-(2m+1)^{2}\Omega^{2})}$。\shoumonkai{4} $\omega_0=3\Omega$ では周期解なし（共鳴）。$\omega_0=2\Omega$ では周期解は存在するが一意でなく、$A\cos2\Omega t+B\sin2\Omega t$ を加えてよい。}
+\kenzan 次元: $\hat{s}_{\mu}$ は $y$ の次元を時間の2乗で割った次元、$\omega_0^{2}-\mu^{2}\Omega^{2}$ は時間の $-2$ 乗の次元なので、$\hat{y}_{\mu}=\hat{s}_{\mu}/(\omega_0^{2}-\mu^{2}\Omega^{2})$ は $y$ の次元をもつ。特殊ケース: (1) の係数から、矩形波の正弦展開は $b_n=\ii(\hat{s}_n-\hat{s}_{-n})$ より次のようになる。
+\[
+s(t)=\frac{4s_0}{\pi}\sum_{m=0}^{\infty}\frac{\sin\bigl((2m+1)\Omega t\bigr)}{2m+1}
+\]
+$\omega_0\gg\Omega$ では (3) の分母を $\omega_0^{2}$ で近似でき
+\[
+y(t)\simeq\frac{1}{\omega_0^{2}}\cdot\frac{4s_0}{\pi}\sum_{m=0}^{\infty}\frac{\sin\bigl((2m+1)\Omega t\bigr)}{2m+1}=\frac{s(t)}{\omega_0^{2}}
+\]
+となり、復元力が外力とつり合う準静的な応答 $\omega_0^{2}y=s$ に一致する。(4) では、分母が $0$ になる $\mu$ で $\hat{s}_{\mu}\neq0$ なら解なし、$\hat{s}_{\mu}=0$ なら解が任意性をもつ、という場合分けが成り立っている。
 \end{tadashii}
 \end{mondai}
 

@@ -1,0 +1,50 @@
+% 数理物理1 数理物理1-10 問題10（075-halfrange。当時は 数理物理1-8 問題9・shou08-l2-halfrange） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（図：$f_{\mathrm{o}}$（原点で跳ぶ）と $f_{\mathrm{e}}$（$x=0$ で山になる）の略図）
+\begin{align*}
+  a_n&=\frac{2}{2\pi}\int_{-\pi}^{\pi}\dd x\,\cos x\cos nx\\
+  &=\frac{2}{\pi}\int_{0}^{\pi}\dd x\,\cos x\cos nx=\delta_{n1}
+\end{align*}
+（積和公式で計算しかけて消し，矢印でこの行につなぐ）
+\toi{2}{△}{記述}
+\begin{align*}
+  b_n&=\frac{2}{2\pi}\int_{-\pi}^{\pi}\dd x\,f(x)\sin nx\\
+  &=\frac{1}{\pi}\int_{-\pi}^{0}\dd x\,(-\cos x\sin nx)\\
+  &\qquad+\frac{1}{\pi}\int_{0}^{\pi}\kakimachigai{\cos x\sin nx}{\cos x\sin nx\,\dd x}\\
+  &=\frac{2}{\pi}\int_{0}^{\pi}\dd x\,\cos x\sin nx\\
+  &=\frac{1}{\pi}\int_{0}^{\pi}\bigl(\sin(n+1)x+\sin(n-1)x\bigr)\dd x\\
+  &=-\frac{1}{\pi}\Bigl[\frac{1}{n+1}\cos(n+1)x\\
+  &\qquad+\frac{1}{n-1}\cos(n-1)x\Bigr]_{0}^{\pi}\\
+  &=-\frac{1}{\pi}\Bigl(\frac{(-1)^{n+1}}{n+1}+\frac{(-1)^{n-1}}{n-1}\\
+  &\qquad-\frac{1}{n+1}-\frac{1}{n-1}\Bigr)\\
+  &=\frac{1}{\pi}\Bigl(\frac{(-1)^{n}}{n+1}+\frac{(-1)^{n}}{n-1}\\
+  &\qquad+\Bigl(\frac{1}{n+1}+\frac{1}{n-1}\Bigr)\Bigr)\\
+  &=\frac{1}{\pi}\bigl((-1)^{n}+1\bigr)\Bigl(\frac{2n}{n^{2}-1}\Bigr)\quad\nuke{n\neq1}
+\end{align*}
+\naze{$\int\sin(n-1)x\,\dd x=-\frac{\cos(n-1)x}{n-1}$ を使ったので，この式は $n=1$ では分母が 0 になり使えない。$b_1=\frac{2}{\pi}\int_0^{\pi}\sin x\cos x\,\dd x=0$ を別に示す。}
+\begin{align*}
+  b_{2m}&=\frac{\kakimachigai{-1}{1}+(-1)^{2m}}{\pi}\cdot\frac{2\cdot2m}{(2m)^{2}-1}\\
+  &=\frac{8m}{\pi(4m^{2}-1)}
+\end{align*}
+\begin{align*}
+  \cos x&=\sum b_n\sin nx\\
+  &=\sum b_{2m}\sin2mx\\
+  &=\sum\frac{8m\sin2mx}{\pi(4m^{2}-1)}
+\end{align*}
+\toi{3}{◎}{}
+\[ \frac{1}{\sqrt{2}}=\frac{8}{\pi}\sum m\sin\frac{m\pi}{2} \]
+（分母を書いて消し，$m=2k+1$ とおいた式を2行書いて消して，矢印で次の式へ）
+\begin{align*}
+  \frac{\pi}{8\sqrt{2}}&=\sum\frac{(2k+1)(-1)^{k}}{\bigl(2(2k+1)-1\bigr)\bigl(2(2k+1)+1\bigr)}\\
+  &=\sum\frac{(2k+1)(-1)^{k}}{(4k+1)(4k+3)}
+\end{align*}
+\[ \frac{\pi}{8\sqrt{2}} \]
+\toi{4}{△}{記述}
+\[ 1=0 \]
+（図：$f_{\mathrm{o}}$ が $x=0$ で $-1$ から $1$ へ跳ぶ様子）
+\nuke{理由の説明}
+\naze{$x=0$ で級数が 0 になる理由と，係数の個数・減り方の違いの説明が無い。$f_{\mathrm{o}}$ は $x=0$ で左の極限 $-1$ から右の極限 $1$ へ跳ぶので，級数は跳びの平均 $0$ に収束し，$\cos0=1$ とは一致しない。また (1) は $f_{\mathrm{e}}=\cos x$ そのものなので係数は $a_1$ の1つだけだが，(2) は跳びのある関数を表すので無限個の係数が要り，$b_{2m}\approx\frac{2}{\pi m}$ と $1/m$ でしか減らない。}
+%% kizuki
+\item 積和公式で $n-1$ で割る計算は $n=1$ を別に扱う。問題8（073）(1) と同じ。
+\item 「なぜ一致しないか」「なぜ違うか」の問いは，図だけでなく1文で答える。跳びのある点では級数は左右の極限の平均に収束し，跳びのある関数の係数は $1/n$ 程度でしか減らない。

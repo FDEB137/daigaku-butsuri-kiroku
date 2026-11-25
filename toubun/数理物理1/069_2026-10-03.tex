@@ -1,0 +1,26 @@
+% 数理物理1 数理物理1-10 問題3（069-pulse。当時は 数理物理1-8 問題3・shou08-l1-pulse） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（図：$-L/2$ から $L/2$ の区間で，$-d/2<x<d/2$ だけ高さ 1 の矩形パルス）
+\[ \hat{f}_0=\frac{1}{L}\int_{-L/2}^{L/2}\dd x\,f(x)=\frac{d}{L} \]
+\begin{align*}
+  \hat{f}_{\mu}&=\frac{1}{L}\int_{-L/2}^{L/2}\dd x\,\ee^{-\ii2\pi x\mu/L}f(x)\\
+  &=\frac{1}{L}\int_{-d/2}^{d/2}\dd x\,\ee^{-\ii2\pi x\mu/L}\\
+  &=\frac{1}{L}\Bigl[\frac{-L}{\ii2\pi\mu}\ee^{-\ii2\pi x\mu/L}\Bigr]_{-d/2}^{d/2}\\
+  &=\frac{1}{L}\cdot\frac{-L}{\ii2\pi\mu}\bigl(\ee^{-\ii\pi\kakimachigai{x}{\mu}d/L}-\ee^{\ii\pi xd/L}\bigr)\\
+  &=\frac{-1}{\ii2\pi\mu}\bigl(-2\ii\sin(\pi xd/L)\bigr)\\
+  &=\frac{1}{\mu\pi}\sin\Bigl(\pi\frac{d\kakimachigai{x}{\mu}}{L}\Bigr)
+\end{align*}
+（$-2\ii\sin$ の上に $c-\ii s-(c+\ii s)$ と添える）
+\toi{2}{◎}{}
+\begin{align*}
+  a_n&=\frac{2}{L}\int_{-L/2}^{L/2}\dd x\,f(x)\cos\frac{2\pi nx}{L}\\
+  &=\frac{4}{L}\int_{0}^{d/2}\dd x\,\cos\frac{2\pi nx}{L}\\
+  &=\frac{4}{L}\cdot\frac{L}{2\pi n}\Bigl[\sin\frac{2\pi nx}{L}\Bigr]_{0}^{d/2}\\
+  &=\frac{2}{\pi n}\sin\frac{\pi nd}{L}
+\end{align*}
+\[ a_0=2\hat{f}_0=\frac{2d}{L},\quad b_n=0 \]
+\toi{3}{◎}{}
+\[ d\to L\qquad\hat{f}_{\mu}\to0 \]
+\[ \hat{f}_0\to1 \]
+%% kizuki

@@ -1,0 +1,23 @@
+% 数理物理1 数理物理1-10 問題2（068-trigprod。当時は 数理物理1-8 問題2・shou08-l1-trigprod） 解いた日 2026-10-03
+%% kotae
+\toi{1}{△}{記述}
+\begin{align*}
+  f(x)=\cos^{3}x&=\frac{1}{8}\ee^{3\ii x}+\frac{3}{8}\ee^{\ii x}\\
+  &\qquad+\frac{3}{8}\ee^{-\ii x}+\frac{1}{8}\ee^{-3\ii x}
+\end{align*}
+\[ \hat{f}_{\pm3}=\frac{1}{8},\quad \hat{f}_{\pm1}=\frac{3}{8} \]
+\begin{align*}
+  a_n&=\frac{2}{2\pi}\int_{c}^{c+2\pi}\dd x\,\cos^{3}x\cos nx\\
+  &=\frac{1}{\pi}\int_{0}^{2\pi}\dd x\,\cos nx\\
+  &=
+\end{align*}
+（2行目の被積分関数を $\cos x$，$\cos3x$ の和に書きかけて消し，$=$ のまま止まっている）
+\nuke{$a_n$，$b_n$ の値}
+\naze{実形式の係数が無い。$\hat{f}_{\mu}$ が求まっているので，問題1 の関係 $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ を使えば積分は要らない。$a_1=\frac{3}{8}+\frac{3}{8}=\frac{3}{4}$，$a_3=\frac{1}{4}$，ほかの $a_n$（$a_0$ も）と全ての $b_n$ は 0 である。}
+\toi{2}{×}{未着手}
+\mikai
+\toi{3}{×}{未着手}
+\mikai
+%% kizuki
+\item 複素形式の係数が出たら，実形式は問題1（067）の関係 $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ で1行で出る。積分をやり直さない。
+\item 有限個の指数関数の和で書けた関数は，係数の定義式に代入すると正規直交性で $\delta_{\mu\nu}$ が残り，各指数関数の前の数がそのまま $\hat{f}_{\mu}$ になる（展開は一意）。これが (3) で問われている「積分しなくてよい理由」である。

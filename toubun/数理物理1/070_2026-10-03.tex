@@ -1,0 +1,53 @@
+% 数理物理1 数理物理1-10 問題4（070-sawtooth。当時は 数理物理1-8 問題4・shou08-l1-sawtooth） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  \hat{f}_0&=\frac{1}{L}\int_{0}^{L}\dd x\,x\\
+  &=\frac{1}{L}\cdot\frac{1}{2}L^{2}=\frac{L}{2}
+\end{align*}
+\begin{align*}
+  \hat{f}_{\mu}&=\frac{1}{L}\int_{0}^{L}\dd x\,\ee^{-\ii2\pi\mu x/L}x\\
+  &=\frac{1}{L}\Bigl[\frac{L}{-\ii2\pi\mu}\ee^{-\ii2\pi\mu x/L}x\Bigr]_{0}^{L}\\
+  &\qquad-\frac{1}{L}\int_{0}^{L}\dd x\,\kakimachigai{\ee^{-2\pi\mu x/L}}{\frac{L}{-\ii2\pi\mu}\ee^{\cdots}}\\
+  &=\frac{1}{-\ii2\pi\mu}\ee^{\kakimachigai{-2\pi\mu}{-\ii2\pi\mu}}\cdot L\\
+  &\qquad-\frac{1}{L}\Bigl[\frac{L}{-\ii2\pi\mu}\ee^{-2\pi\mu x/L}\Bigr]_{0}^{L}\\
+  &=\frac{L}{-\ii2\pi\mu}+\frac{\ii}{2\pi\mu}(\ee^{-2\pi\mu}-\ee^{0})\\
+  &=\frac{-L}{\ii2\pi\mu}=\frac{\ii L}{2\pi\mu}
+\end{align*}
+（以降の指数でも $\ii$ を書き落としている）
+\toi{2}{◎}{}
+（図：山形の曲線の略図）
+\[ a_0=2\hat{f}_0=L \]
+\begin{align*}
+  a_n&=\frac{2}{L}\int_{0}^{L}\kakimachigai{x}{\dd x\,x}\cos\frac{2\pi nx}{L}\\
+  &=\frac{2}{L}\biggl(\Bigl[\frac{xL}{2\pi n}\sin\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd x\,\frac{L}{2\pi n}\sin\frac{2\pi nx}{L}\biggr)\\
+  &=\Bigl[\frac{x}{\pi n}\sin\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad+\frac{1}{\pi n}\Bigl[\frac{L}{2\pi n}\cos\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &=\frac{L}{\pi n}\sin2\pi n\\
+  &\qquad+\frac{1}{\pi n}\Bigl(\frac{L}{2\pi n}(\cos2\pi n-\cos0)\Bigr)\\
+  &=0+0\\
+  &=0
+\end{align*}
+（脇に部分積分のメモ $\frac{L}{2\pi n}\sin$，$x$）
+\begin{align*}
+  b_n&=\frac{2}{L}\int_{0}^{L}\kakimachigai{x}{\dd x\,x}\sin\frac{2\pi nx}{L}\\
+  &=\frac{2}{L}\Bigl[\frac{-xL}{2\pi n}\cos\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad+\frac{2}{L}\int_{0}^{L}\dd x\,\frac{L}{2\pi n}\cos\frac{2\pi nx}{L}\\
+  &=\Bigl[\frac{-x}{\pi n}\cos\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &\qquad+\frac{2}{L}\Bigl[\frac{L}{2\pi n}\cdot\frac{L}{2\pi n}\sin\frac{2\pi nx}{L}\Bigr]_{0}^{L}\\
+  &=\frac{-L}{\pi n}\cos2\pi n\\
+  &\qquad+\kakimachigai{\frac{1}{2\pi^{2}n^{2}}}{\frac{L}{2\pi^{2}n^{2}}}(\sin2\pi n-\sin0)\\
+  &=-\frac{L}{\pi n}
+\end{align*}
+\begin{align*}
+  f(x)&=\frac{a_0}{2}+\sum\Bigl[a_n\cos\frac{2\pi nx}{L}\\
+  &\qquad+b_n\sin\frac{2\pi nx}{L}\Bigr]\\
+  &=\frac{L}{2}+\sum_{n=1}^{\infty}\Bigl(-\frac{L}{\pi n}\sin\frac{2\pi nx}{L}\Bigr)\\
+  &=\frac{L}{2}-\frac{L}{\pi}\sum_{1}^{\infty}\frac{1}{n}\sin\frac{2\pi nx}{L}
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+%% kizuki
+\item $h(x)=f(x)-L/2$ は $0<x<L$ で $h(-x)=h(L-x)=(L-x)-L/2=-h(x)$ なので奇関数である。$c=-L/2$ にとると奇関数の $\cos$ の係数は 0 で，定数 $L/2$ は $a_0$ にしか寄与しないから $a_n=0$（$n\ge1$）になる。
+\item (1) で $\hat{f}_{\mu}$ が出ているので，(2) は $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ で求めれば部分積分をやり直さずに済む（問題2（068）(1) と同じ）。

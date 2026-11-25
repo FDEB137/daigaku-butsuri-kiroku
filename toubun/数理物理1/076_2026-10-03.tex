@@ -1,0 +1,51 @@
+% 数理物理1 数理物理1-10 問題11（076-forced。当時は 数理物理1-8 問題10・shou08-l2-forced） 解いた日 2026-10-03
+%% kotae
+\toi{1}{△}{記述}
+\begin{align*}
+  \hat{s}_{\mu}&=\frac{1}{T}\int_{-T/2}^{T/2}\ee^{-\ii\mu\Omega t}s(t)\,\dd t\\
+  &=\frac{1}{T}\Bigl(\int_{-T/2}^{0}\ee^{-\ii\mu\Omega t}(-s_0)\,\dd t\\
+  &\qquad+\int_{0}^{T/2}\ee^{-\ii\mu\Omega t}s_0\,\dd t\Bigr)\\
+  &=\frac{s_0}{T}\biggl(\Bigl[\frac{+1}{+\ii\mu\Omega}\ee^{-\ii\mu\Omega t}\Bigr]_{-T/2}^{0}\\
+  &\qquad+\Bigl[\frac{1}{-\ii\mu\Omega}\ee^{-\ii\mu\Omega t}\Bigr]_{0}^{T/2}\biggr)\\
+  &=\frac{s_0}{T}\Bigl(\frac{1}{\ii\mu\Omega}\bigl(1-\ee^{\ii\frac{T}{2}\mu\Omega}\bigr)\\
+  &\qquad+\frac{1}{\ii\mu\Omega}\bigl(-\ee^{-\ii\frac{T}{2}\mu\Omega}+1\bigr)\Bigr)\\
+  &=\frac{s_0}{\ii\mu\Omega T}\bigl(2-2\cos(\pi\mu)\bigr)\\
+  &=\frac{s_0}{\ii\pi\mu}\bigl(1-(-1)^{\mu}\bigr)
+\end{align*}
+（2つの指数関数の上に $c+\ii s$，$c-\ii s$ と添える）
+\[ \hat{s}_{\mu}=\frac{s_0}{\ii\pi\mu}\bigl(1-(-1)^{\mu}\bigr)\quad\nuke{\mu\neq0} \]
+\naze{$\frac{1}{\ii\mu\Omega}$ が現れる式なので $\mu=0$ では使えない。$\hat{s}_0=\frac{1}{T}\bigl(-s_0\frac{T}{2}+s_0\frac{T}{2}\bigr)=0$ を別に書く。}
+\toi{2}{△}{記述}
+\begin{align*}
+  &\sum_{\mu}(\ii\mu\Omega)^{2}\ee^{\ii\mu\Omega t}\hat{y}_{\mu}\\
+  &\qquad+\omega_0^{2}\sum_{\mu}\ee^{\ii\mu\Omega t}\hat{y}_{\mu}=\sum_{\mu}\ee^{\ii\mu\Omega t}\hat{s}_{\mu}
+\end{align*}
+（$\ee^{\ii\mu\Omega t}$ を線で消して係数を比べる）
+\[ (\omega_0^{2}-\mu^{2}\Omega^{2})\hat{y}_{\mu}=\hat{s}_{\mu} \]
+\nuke{項別微分が使える理由}
+\naze{項別微分が使える理由が無い。$y$ と $\dv{y}{t}$ が周期 $T$ の連続な関数なので，要点整理の項別微分の条件をそれぞれ満たし，$\dv{y}{t}$，$\dv[2]{y}{t}$ の係数が $\ii\mu\Omega\hat{y}_{\mu}$，$(\ii\mu\Omega)^{2}\hat{y}_{\mu}$ になる。係数を比べてよいのは展開が一意だからである。}
+\toi{3}{◎}{}
+\begin{align*}
+  \hat{y}_{\mu}&=\frac{1}{\omega_0^{2}-\mu^{2}\Omega^{2}}\cdot\frac{s_0}{\ii\pi\mu}\bigl(1-(-1)^{\mu}\bigr)\\
+  &=\frac{s_0}{\omega_0^{2}-4m^{2}\Omega^{2}}\cdot\frac{1}{2\ii\pi m}(1-1)=0
+\end{align*}
+\begin{align*}
+  a_n&=\hat{y}_n+\hat{y}_{-n}\\
+  &=\frac{s_0}{\omega_0^{2}-n^{2}\Omega^{2}}\\
+  &\qquad\times\Bigl(\frac{1-(-1)^{n}}{\ii\pi n}-\frac{1-(-1)^{n}}{\ii\pi n}\Bigr)=0
+\end{align*}
+\begin{align*}
+  b_n&=\ii(\hat{y}_n-\hat{y}_{-n})\\
+  &=\frac{\ii s_0}{\omega_0^{2}-n^{2}\Omega^{2}}\Bigl(\frac{2}{\ii\pi n}+\frac{2}{\ii\pi n}\Bigr)\\
+  &=\frac{4s_0}{\pi n(\omega_0^{2}-n^{2}\Omega^{2})}
+\end{align*}
+\begin{align*}
+  y(t)&=\kakimachigai{\sum_{1}^{\infty}}{\sum_{n\,\text{奇数}}}\frac{4s_0\sin(n\Omega t)}{\pi n(\omega_0^{2}-n^{2}\Omega^{2})}\\
+  &=\sum_{\fumei}^{\infty}\frac{4s_0\sin\bigl((2m+1)\Omega t\bigr)}{\pi(2m+1)\bigl(\omega_0^{2}-(2m+1)^{2}\Omega^{2}\bigr)}
+\end{align*}
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item $\frac{1}{\ii\mu\Omega}$ のように $\mu$ で割る式は $\mu=0$ で使えないので，$\hat{s}_0$ は定義の積分で別に求める（$s$ は奇関数なので $\hat{s}_0=0$）。問題8（073）(1)・問題10（075）(2) の $n=1$ と同じ形の見落としである。
+\item 項別微分を使うときは，微分する関数（ここでは $y$ と $\dv{y}{t}$）が周期的に連続であることを1文で書く。これが無いと係数が $\ii\mu\Omega$ 倍になるとは言えない。
+\item (4) は (2) の式で $\omega_0^{2}-\mu^{2}\Omega^{2}=0$ となる $\mu$ を探し，そこで $\hat{s}_{\mu}$ が 0 か（$\mu$ が偶数）0 でないか（$\mu$ が奇数）で場合を分ける。$\omega_0=3\Omega$ では $\mu=\pm3$ で左辺が 0・右辺が 0 でないので周期解が無く，$\omega_0=2\Omega$ では $\hat{y}_{\pm2}$ が決まらない（$\sin2\Omega t$，$\cos2\Omega t$ を任意に足せる）。

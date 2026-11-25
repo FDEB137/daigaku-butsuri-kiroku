@@ -1,0 +1,68 @@
+% 数理物理1 数理物理1-10 問題5（071-primitive。当時は 数理物理1-8 問題5・shou08-l1-primitive） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  F(x)&=\int_{0}^{x}\Bigl(x'-\frac{L}{2}\Bigr)\dd x'\\
+  &=\Bigl[\frac{1}{2}x'^{2}-\frac{L}{2}x'\Bigr]_{0}^{x}\\
+  &=\frac{1}{2}x^{2}-\frac{1}{2}Lx
+\end{align*}
+\[ F(0)=0,\quad F(L)=0 \]
+\toi{2}{△}{記述}
+\begin{align*}
+  \hat{F}_{\mu}&=\frac{1}{L}\int_{0}^{L}\dd x\,\ee^{-\ii2\pi x\mu/L}\\
+  &\qquad\times\Bigl(\frac{1}{2}x^{2}-\frac{1}{2}Lx\Bigr)
+\end{align*}
+\begin{align*}
+  I_1&=\int_{0}^{L}\dd x\,x\,\ee^{-\ii2\pi x\mu/L}\\
+  &=\Bigl[\frac{-L}{\ii2\pi\mu}\ee^{-\ii2\pi x\mu/L}x\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd x\,\kakimachigai{\ee^{-\ii2\pi x\mu/L}}{\frac{-L}{\ii2\pi\mu}\ee^{\cdots}}\\
+  &=\frac{-L^{2}}{\ii2\pi\mu}\ee^{-\ii2\pi\mu}\\
+  &\qquad-\frac{-L}{\ii2\pi\mu}\Bigl[\ee^{-\ii2\pi x\mu/L}\Bigr]_{0}^{L}\\
+  &=\frac{\ii L^{2}}{2\pi\mu}
+\end{align*}
+（脇に部分積分のメモ $x^{2}$，$2x$）
+\begin{align*}
+  I_2&=\int_{0}^{L}\dd x\,x^{2}\ee^{-\ii2\pi x\mu/L}\\
+  &=\Bigl[\frac{-L}{\ii2\pi\mu}\ee^{-\ii2\pi x\mu/L}x^{2}\Bigr]_{0}^{L}\\
+  &\qquad-2\,\frac{-L}{\ii2\pi\mu}I_1\\
+  &=\frac{-L^{3}}{\ii2\pi\mu}+\frac{L}{\ii\pi\mu}\cdot\frac{\ii L^{2}}{2\pi\mu}\\
+  &=\frac{\ii L^{3}}{2\pi\mu}+\frac{L^{3}}{2\pi^{2}\mu^{2}}
+\end{align*}
+\begin{align*}
+  \hat{F}_{\mu}&=\frac{1}{2L}I_2-\frac{1}{2}I_1\\
+  &=\frac{1}{2L}\Bigl(\frac{\ii L^{3}}{2\pi\mu}+\frac{L^{3}}{2\pi^{2}\mu^{2}}\Bigr)\\
+  &\qquad-\frac{1}{2}\cdot\frac{\ii L^{2}}{2\pi\mu}\\
+  &=\frac{1}{4\pi\mu}\Bigl(\ii L^{2}+\frac{L^{2}}{\pi\mu}-\ii L^{2}\Bigr)\\
+  &=\frac{L^{2}}{4\pi^{2}\mu^{2}}
+\end{align*}
+\naze{答えは正しいが，問題は「項別積分を用いて」と方法を指定している。$F$ は周期 $L$ の連続な関数なので $\hat{F}_{\mu}=\frac{L}{\ii2\pi\mu}\hat{h}_{\mu}$（$\mu\neq0$）が使え，与えられた $\hat{h}_{\mu}=\ii L/(2\pi\mu)$ を代入すると1行で $\hat{F}_{\mu}=\frac{L^{2}}{4\pi^{2}\mu^{2}}$ になる。この公式を使うことが問題の要点である。}
+\toi{3}{◎}{}
+\begin{align*}
+  \hat{F}_0&=\frac{1}{L}\int_{0}^{L}\dd x\,\Bigl(\frac{1}{2}x^{2}-\frac{1}{2}Lx\Bigr)\\
+  &=\frac{1}{2L}\Bigl[\frac{1}{3}x^{3}-\frac{1}{2}Lx^{2}\Bigr]_{0}^{L}\\
+  &=\frac{1}{2L}\Bigl(\frac{1}{3}L^{3}-\frac{1}{2}L^{3}\Bigr)\\
+  &=-\frac{L^{2}}{12}
+\end{align*}
+\toi{4}{◎}{}
+$F(x)$：$\frac{a_0}{2}=\hat{F}_0=-\frac{L^{2}}{12}$，$b_n=0$
+\begin{align*}
+  a_n&=\frac{2}{L}\int_{0}^{L}\dd x\,F(x)\cos\frac{2\pi nx}{L}\\
+  &=\frac{2}{L}\int_{0}^{L}\dd x\,\Bigl(\frac{1}{2}x^{2}-\frac{1}{2}Lx\Bigr)\\
+  &\qquad\times\cos\frac{2\pi nx}{L}
+\end{align*}
+（ここで止め，複素形式から書く）
+\begin{align*}
+  F(x)&=\sum_{-\infty}^{\infty}\ee^{\ii2\pi x\mu/L}\hat{F}_{\mu}\\
+  &=2\sum_{1}^{\infty}\kakimachigai{\ee^{\ii2\pi x\mu/L}}{\cos\frac{2\pi x\mu}{L}}\hat{F}_{\mu}\\
+  &\qquad+\Bigl(-\frac{L^{2}}{12}\Bigr)\\
+  &=2\sum_{1}^{\infty}\cos(2\pi x\mu/L)\frac{L^{2}}{4\pi^{2}\mu^{2}}\\
+  &\qquad-\frac{L^{2}}{12}
+\end{align*}
+\begin{align*}
+  F(0)=0&=2\sum_{1}^{\infty}\frac{L^{2}}{4\pi^{2}\mu^{2}}-\frac{L^{2}}{12}\\
+  \frac{L^{2}}{12}&=2\sum\frac{L^{2}}{4\pi^{2}\mu^{2}}\\
+  \frac{\pi^{2}}{6}&=\sum_{1}^{\infty}\frac{1}{\mu^{2}}
+\end{align*}
+%% kizuki
+\item 「項別積分を用いて」と指定されたら，$\hat{F}_{\mu}=\frac{L}{\ii2\pi\mu}\hat{h}_{\mu}$ を使う。直接の部分積分は検算に回す。項別積分で決まらないのは $\mu=0$ の係数だけで，(3) で別に積分する。
+\item 部分積分 $\int x\,\ee^{-\ii qx}\dd x$ の第2項は $-\int\frac{\ee^{-\ii qx}}{-\ii q}\dd x$ で，$1/(-\ii q)$ の因子が付く。今回は 0 になる項なので答えに響かなかったが，問題4（070）(1) でも同じ書き落としがある。

@@ -1,0 +1,58 @@
+% 数理物理1 数理物理1-10 問題8（073-abssin。当時は 数理物理1-8 問題7・shou08-l2-abssin） 解いた日 2026-10-03
+%% kotae
+\toi{1}{△}{記述}
+（図：$-\pi\le x\le\pi$ の $\sin x$ と $\abs{\sin x}$ のグラフ）
+\[ \hat{f}_{\mu}=\frac{1}{2\pi}\int_{-\pi}^{\pi}\dd x\,\ee^{-\ii\mu x}\abs{\sin x} \]
+\[ \hat{f}_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}\dd x\,\abs{\sin x}=\frac{2}{\pi} \]
+\[ a_0=2\hat{f}_0=\frac{4}{\pi},\quad b_n=0 \]
+\begin{align*}
+  a_n&=\frac{2}{2\pi}\int_{-\pi}^{\pi}\dd x\,\abs{\sin x}\cos nx\\
+  &=\frac{2}{\pi}\int_{0}^{\pi}\dd x\,\sin x\cos nx\\
+  &=\frac{1}{\pi}\int_{0}^{\pi}\dd x\,\bigl(\sin(n+1)x-\sin(n-1)x\bigr)\\
+  &=\frac{1}{\pi}\Bigl[\frac{-1}{n+1}\cos(n+1)x\\
+  &\qquad-\frac{-1}{n-1}\cos(n-1)x\Bigr]_{0}^{\pi}\\
+  &=\frac{1}{\pi}\Bigl(\frac{-1}{n+1}\cos(n+1)\pi+\frac{1}{n-1}\cos(n-1)\pi\\
+  &\qquad+\frac{1}{n+1}-\frac{1}{n-1}\Bigr)
+\end{align*}
+（脇に $\sin(x\pm nx)$ の加法定理のメモ。$n=2k$，$2k+1$ に分けた計算を書いて消し，矢印で次の行につなぐ）
+\begin{align*}
+  &=\frac{1}{\pi}\Bigl(\frac{1}{n+1}(-1)^{n}+\frac{1}{n-1}\cdot\bigl(-(-1)^{n}\bigr)\\
+  &\qquad+\frac{1}{n+1}-\frac{1}{n-1}\Bigr)\\
+  &=\frac{1}{\pi}\Bigl(\frac{1+(-1)^{n}}{n+1}-\frac{1+(-1)^{n}}{n-1}\Bigr)\\
+  &=\frac{1}{\pi}\bigl(1+(-1)^{n}\bigr)\frac{-2}{n^{2}-1}\\
+  &=\frac{2\bigl(1+(-1)^{n}\bigr)}{\pi(1-n^{2})}\quad\nuke{n\neq1}
+\end{align*}
+$n$ が奇数 $a_n=0$，偶数 $4/(\pi(1-n^{2}))$
+\naze{$\int\sin(n-1)x\,\dd x=-\frac{\cos(n-1)x}{n-1}$ を使ったので，この式は $n=1$ では分母が 0 になり使えない。「奇数なら $a_n=0$」の $n=1$ は，$a_1=\frac{1}{\pi}\int_0^{\pi}\sin2x\,\dd x=0$ と別に示す（結果は同じ 0）。}
+\toi{2}{◎}{}
+\begin{align*}
+  f(x)&=\frac{2}{\pi}+\sum_{n=1}^{\infty}a_n\cos nx\\
+  &=\frac{2}{\pi}+\sum_{m=1}^{\infty}a_{2m}\cos2mx\\
+  &=\frac{2}{\pi}+\sum_{m=1}^{\infty}\frac{4\cos2mx}{\pi(1-4m^{2})}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  f(0)&=\frac{2}{\pi}+\sum\frac{4}{\pi(1-4m^{2})}=0\\
+  \sum\frac{2}{4m^{2}-1}&=1\\
+  \sum\frac{1}{4m^{2}-1}&=\frac{1}{2}
+\end{align*}
+\[ f(x)=\frac{2}{\pi}+\sum\frac{4\cos2mx}{\pi(1-4m^{2})} \]
+\begin{align*}
+  f\Bigl(\frac{\pi}{2}\Bigr)=1&=\frac{2}{\pi}+\sum\frac{4\cos m\pi}{\pi(1-4m^{2})}\\
+  \frac{4}{\pi}\sum\frac{(-1)^{m}}{4m^{2}-1}&=\frac{2}{\pi}-1\\
+  \sum\frac{(-1)^{m}}{4m^{2}-1}&=\frac{1}{2}-\frac{\pi}{4}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+  &\frac{2}{2\pi}\int_{-\pi}^{\pi}\sin^{2}x\,\dd x\\
+  &\qquad=\frac{1}{2}\Bigl(\frac{4}{\pi}\Bigr)^{2}+\sum_{1}^{\infty}\frac{16}{\pi^{2}(1-4m^{2})^{2}}\\
+  &\frac{4}{2\pi}\int_{0}^{\pi}\frac{1-\cos2x}{2}\dd x\\
+  &\qquad=\frac{8}{\pi^{2}}+\sum\frac{16}{\pi^{2}}\cdot\frac{1}{(1-4m^{2})^{2}}
+\end{align*}
+\[ \frac{2}{\pi}\underbrace{\Bigl[\frac{x}{2}-\frac{\sin2x}{4}\Bigr]_{0}^{\pi}}_{\pi/2}=\frac{8}{\pi^{2}}+ \]
+（右辺の続きを消して次の行で書き直す）
+\[ \pi^{2}=8+\sum16\frac{1}{(4m^{2}-1)^{2}} \]
+（右に答えとして）
+\[ \frac{\pi^{2}-8}{16} \]
+%% kizuki
+\item 積和公式で $\int\sin(n-1)x\,\dd x=-\frac{\cos(n-1)x}{n-1}$ のように $n-1$ で割ったら，その一般式は $n=1$ で使えない。$n=1$ は元の積分に戻して別に計算し，一般式の後に「$(n\neq1)$」と書いておく。
