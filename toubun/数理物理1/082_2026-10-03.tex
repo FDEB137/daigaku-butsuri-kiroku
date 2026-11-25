@@ -27,18 +27,22 @@
 （脇に $(c-\ii s)-(c+\ii s)$。$c$・$s$ は $\cos kb$・$\sin kb$ の略）
 \begin{align*}
   &=\frac{2}{k}\sin(kb)+\frac{2}{bk^{2}}\\
-  &\qquad-\frac{1}{b}\Bigl(\Bigl(\frac{1}{k^{2}}+\frac{b}{\ii k}\Bigr)(c+\ii s)+\Bigl(\frac{1}{k^{2}}-\frac{b}{\ii k}\Bigr)(c-\ii s)\Bigr)
+  &\qquad-\frac{1}{b}\biggl(\Bigl(\frac{1}{k^{2}}+\frac{b}{\ii k}\Bigr)(c+\ii s)\\
+  &\qquad+\Bigl(\frac{1}{k^{2}}-\frac{b}{\ii k}\Bigr)(c-\ii s)\biggr)
 \end{align*}
 （脇で $(a+b)(c+\ii s)+(a-b)(c-\ii s)=ac+bc+a\ii s+b\ii s+ac-bc-a\ii s+b\ii s=2(ac+\ii bs)$ を計算）
 \begin{align*}
-  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}-\frac{2}{b}\Bigl(\frac{1}{k^{2}}\cos kb+\frac{b}{k}\sin kb\Bigr)\\
-  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}-\frac{2}{bk^{2}}\cos kb-\frac{2}{k}\sin kb\\
+  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}\\
+  &\qquad-\frac{2}{b}\Bigl(\frac{1}{k^{2}}\cos kb+\frac{b}{k}\sin kb\Bigr)\\
+  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}\\
+  &\qquad-\frac{2}{bk^{2}}\cos kb-\frac{2}{k}\sin kb\\
   &=\frac{2}{bk^{2}}(1-\cos kb)=\frac{4}{bk^{2}}\sin^{2}\frac{kb}{2}
 \end{align*}
 （$\sin kb$ の2つの項を消し合わせる）
 \toi{2}{◎}{}
 \begin{align*}
-  \tilde f(k)&=\frac{4}{b}\cdot\frac{\sin^{2}(kb/2)}{k^{2}}=\frac{\sin^{2}(kb/2)}{(kb/2)^{2}}\cdot\frac{4}{b}\frac{1}{(2/b)^{2}}\\
+  \tilde f(k)&=\frac{4}{b}\cdot\frac{\sin^{2}(kb/2)}{k^{2}}\\
+  &=\frac{\sin^{2}(kb/2)}{(kb/2)^{2}}\cdot\frac{4}{b}\frac{1}{(2/b)^{2}}\\
   &\xrightarrow{k\to0}\frac{4}{b(4/b^{2})}=b
 \end{align*}
 \[ \int\dd x\,f(x)=\text{（図：底辺 $2b$ の三角形）}=\frac{1}{2}b\cdot2=b \]

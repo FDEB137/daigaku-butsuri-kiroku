@@ -1,0 +1,421 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{数理物理1　第11章「フーリエ変換とデルタ関数」}{2026-11-25}
+%% note-moto	problems\数理物理1\shou11\数理物理1-11.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-080-renzoku}{1}}{L1・計算}{◎◎×}{C}{2026-10-03 (3)未着手}
+  \ichirangyou{\hyperlink{bt-m-081-seishitsu}{2}}{L1・計算}{◎◎△×}{C}{2026-10-03 (3)記述 (4)未着手}
+  \ichirangyou{\hyperlink{bt-m-082-sankaku}{3}}{L1・計算}{◎◎◎}{S}{2026-10-18 2回目}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-083-tsui}{5}}{L2・導出}{◎◎×△×}{C}{2026-10-03 (3)未着手 (4)計算 (5)未着手}
+  \ichirangyou{\hyperlink{bt-m-084-gyaku}{6}}{L2・計算}{×××}{E}{2026-10-03 (1)方針 (2)未着手 (3)未着手}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L2・導出}{}{未着手}{}
+  \ichirangyou{9}{L2・計算}{}{未着手}{}
+  \ichirangyou{10}{L2・計算}{}{未着手}{}
+  \ichirangyou{11}{L3・導出}{}{未着手}{}
+  \ichirangyou{12}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item フーリエ級数展開（$L\to\infty$ 極限の出発点） % 出典: p.82
+    \[ f(x)=\sum_{\mu=-\infty}^{\infty}U(x,\mu)\hat f_\mu,\qquad \hat f_\mu=\int_{-L/2}^{L/2}\dd y\,U^{*}(y,\mu)f(y) \notetag{11.1} \]
+  \item 基底関数 % 出典: p.82
+    \[ U(x,\mu)=\frac{\ee^{\ii2\pi x\mu/L}}{\sqrt{L}} \notetag{11.2} \]
+  \item $L\to\infty$ 極限での展開と係数 % 出典: p.82
+    \[ f(x)=\int_{-\infty}^{\infty}\dd k\,\tilde U(x,k)g(k),\qquad g(k)=\int_{-\infty}^{\infty}\dd y\,\tilde U^{*}(y,k)f(y) \notetag{11.3} \]
+  \item 連続化した基底関数 % 出典: p.83
+    \[ \tilde U(x,k)=\frac{U(x,\mu)}{\sqrt{\Delta k}}=\frac{\ee^{\ii kx}}{\sqrt{2\pi}} \notetag{11.4} \]
+  \item デルタ関数の積分表示 % 出典: p.83
+    \[ \int_{-\infty}^{\infty}\dd k\,\tilde U(x,k)\tilde U^{*}(y,k)=\int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\,\ee^{\ii k(x-y)}=\delta(x-y) \notetag{11.5} \]
+  \item フーリエ変換・逆変換の定義 % 出典: p.83
+    \[ f(x)=\int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\,\ee^{\ii kx}\tilde f(k),\qquad \tilde f(k)=\int_{-\infty}^{\infty}\dd y\,\ee^{-\ii ky}f(y) \notetag{11.7} \]
+  \item 逆向きの関係 % 出典: p.84
+    \[ \int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\frac{\ee^{\ii kx}}{a+\ii k}=\ee^{-ax}\theta(x) \notetag{11.9} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\数理物理1\080_2026-10-03.tex
+\mondaibangou{1}
+\begin{mondai}{080-renzoku}{計算}{フーリエ級数の $L\to\infty$ 極限で展開係数がフーリエ変換に移ること}
+$a>0$ とし，$f(x)=\ee^{-a\abs{x}}$ を区間 $-L/2<x<L/2$ で\noteshiki{11.1}\noteshiki{11.2} の形に展開する。
+  \begin{align*}
+    f(x)&=\sum_{\mu=-\infty}^{\infty}U(x,\mu)\hat{f}_{\mu},\qquad
+    \hat{f}_{\mu}=\int_{-L/2}^{L/2}\dd y\,U^{*}(y,\mu)f(y),\\
+    U(x,\mu)&=\frac{\ee^{\ii2\pi x\mu/L}}{\sqrt{L}}
+  \end{align*}
+  $k_\mu=2\pi\mu/L$，$\Delta k=2\pi/L$ とおく。
+  \begin{shoumon}
+    \item $\hat f_\mu$ を $a$，$L$，$\mu$，$k_\mu$ で表せ。
+    \item $g(k_\mu)=\hat f_\mu/\sqrt{\Delta k}$ とおく。$k_\mu=k$ を固定して $L\to\infty$ としたときの極限 $g(k)$ を求めよ。
+    \item (2) の $g(k)$ と \noteshiki{11.7} の $\tilde f(k)$ の一般的な関係を述べ，$\tilde f(k)=2a/(a^{2}+k^{2})$ と比べて確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 C ◎◎×}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  \hat f_\mu&=\int_{-L/2}^{L/2}\dd y\,\frac{\ee^{-\ii2\pi y\mu/L}}{\sqrt L}\ee^{-a\abs{y}}\\
+  &=\frac{1}{\sqrt L}\int_{-L/2}^{0}\dd y\,\ee^{(a-\ii2\pi\mu/L)y}\\
+  &\qquad+\frac{1}{\sqrt L}\int_{0}^{L/2}\dd y\,\ee^{-(a+\ii2\pi\mu/L)y}\\
+  &=\frac{1}{\sqrt L}\Bigl[\frac{1}{a-\ii k_\mu}\ee^{(a-\ii k_\mu)y}\Bigr]_{-L/2}^{0}\\
+  &\qquad+\frac{1}{\sqrt L}\Bigl[\frac{1}{-(a+\ii k_\mu)}\ee^{-(a+\ii k_\mu)y}\Bigr]_{0}^{L/2}\\
+  &=\frac{1}{\sqrt L}\biggl(\frac{1}{a-\ii k_\mu}\Bigl(1-\ee^{-(a-\ii k_\mu)L/2}\Bigr)\\
+  &\qquad+\frac{1}{-(a+\ii k_\mu)}\Bigl(\ee^{-(a+\ii k_\mu)L/2}-1\Bigr)\biggr)
+\end{align*}
+（脇に，端点の値を $\ee^{-aL/2}\ee^{\pm\ii k_\mu L/2}$ に分け，$\cos$・$\sin$ を $c$・$s$ と略して $c\mp si$ と書く）
+\begin{align*}
+  &=\frac{1}{\sqrt L}\biggl(\frac{2a}{(a-\ii k_\mu)(a+\ii k_\mu)}\\
+  &\qquad+\frac{a-\ee^{-aL/2}(c-si)-\ee^{-aL/2}(c+si)}{(a-\ii k_\mu)(a+\ii k_\mu)}\biggr)\\
+  &=\frac{1}{\sqrt L}\biggl(\frac{2a}{a^{2}+k_\mu^{2}}\\
+  &\qquad+\frac{\kakimachigai{-2\ee^{-aL/2}}{-2a\ee^{-aL/2}}\cos(k_\mu L/2)}{a^{2}+k_\mu^{2}}\biggr)\\
+  &=\frac{2\bigl(a-a\ee^{-aL/2}\cos(k_\mu L/2)\bigr)}{(a^{2}+k_\mu^{2})\sqrt L}
+\end{align*}
+（矢印で $\cos(k_\mu L/2)$ を $\cos\pi\mu$ につなぐ）
+\[ =\frac{1}{\sqrt L}\frac{2a}{a^{2}+k_\mu^{2}}\bigl(1-(-1)^{\mu}\ee^{-aL/2}\bigr) \]
+\toi{2}{◎}{}
+\begin{align*}
+  g(k_\mu)&=\sqrt{\frac{L}{2\pi}}\cdot\sqrt{\frac{1}{L}}\cdot\frac{2a}{a^{2}+k_\mu^{2}}\\
+  &\qquad\times\bigl(1-(-1)^{\mu}\ee^{-aL/2}\bigr)\\
+  &=\frac{1}{\sqrt{2\pi}}\frac{2a}{a^{2}+k^{2}}\bigl(1-(-1)^{\mu}\ee^{-aL/2}\bigr)\\
+  &\xrightarrow{L\to\infty}\frac{1}{\sqrt{2\pi}}\frac{2a}{a^{2}+k^{2}}
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item (3) は手を付けていない。$g(k)$ の定義に $\tilde U^{*}(y,k)=\ee^{-\ii ky}/\sqrt{2\pi}$ を入れると $g(k)=\tilde f(k)/\sqrt{2\pi}$ になる。$\tilde U$ による展開は $1/\sqrt{2\pi}$ を変換と逆変換に等しく振り分け，フーリエ変換の定義は $1/(2\pi)$ を逆変換に寄せているので，$\sqrt{2\pi}$ だけ違う。(2) の答えは $\tilde f=2a/(a^{2}+k^{2})$ を $\sqrt{2\pi}$ で割った形になっていて，比べるところまで来ていた。
+\item (1) の途中で分子の $a$ が一度抜けている（次の行で戻っている）。$\ee^{-aL/2}$ の項の係数は，$L\to\infty$ の前の答えで $\mu=0$ とおいた値 $\hat f_0=(2/(a\sqrt L))(1-\ee^{-aL/2})$ と比べて確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 定義どおりに積分する。$\abs{y}$ を外すため $y<0$ と $y>0$ に分ける。端点では $\ee^{\mp\ii k_\mu L/2}=\ee^{\mp\ii\pi\mu}=(-1)^{\mu}$ となることを使う。
+\keisan
+\shoumonkai{1} $U^{*}(y,\mu)=\ee^{-\ii k_\mu y}/\sqrt{L}$ なので，$y<0$ と $y>0$ に分けて
+\begin{align*}
+  \hat f_\mu&=\frac{1}{\sqrt L}\int_{-L/2}^{L/2}\dd y\,\ee^{-\ii k_\mu y}\ee^{-a\abs{y}}\\
+  &=\frac{1}{\sqrt L}\Bigl[\int_{-L/2}^{0}\dd y\,\ee^{(a-\ii k_\mu)y}+\int_{0}^{L/2}\dd y\,\ee^{-(a+\ii k_\mu)y}\Bigr]
+\end{align*}
+それぞれの積分は，$\ee^{\pm\ii k_\mu L/2}=\ee^{\pm\ii\pi\mu}=(-1)^{\mu}$ を用いて
+\begin{align*}
+  \int_{-L/2}^{0}\dd y\,\ee^{(a-\ii k_\mu)y}&=\frac{1-\ee^{-(a-\ii k_\mu)L/2}}{a-\ii k_\mu}=\frac{1-(-1)^{\mu}\ee^{-aL/2}}{a-\ii k_\mu}\\
+  \int_{0}^{L/2}\dd y\,\ee^{-(a+\ii k_\mu)y}&=\frac{1-\ee^{-(a+\ii k_\mu)L/2}}{a+\ii k_\mu}=\frac{1-(-1)^{\mu}\ee^{-aL/2}}{a+\ii k_\mu}
+\end{align*}
+和をとると
+\[ \frac{1}{a-\ii k_\mu}+\frac{1}{a+\ii k_\mu}=\frac{2a}{a^{2}+k_\mu^{2}} \]
+より
+\[ \hat f_\mu=\frac{1}{\sqrt L}\bigl\{1-(-1)^{\mu}\ee^{-aL/2}\bigr\}\frac{2a}{a^{2}+k_\mu^{2}} \]
+\shoumonkai{2} $\sqrt{\Delta k}=\sqrt{2\pi/L}$ で割ると $\sqrt{L}$ が消えて
+\[ g(k_\mu)=\frac{1}{\sqrt{2\pi}}\bigl\{1-(-1)^{\mu}\ee^{-aL/2}\bigr\}\frac{2a}{a^{2}+k_\mu^{2}} \]
+$(-1)^{\mu}$ は大きさ 1 で，$\ee^{-aL/2}\to0$ なので，$k_\mu=k$ を固定した $L\to\infty$ で
+\[ g(k)=\frac{1}{\sqrt{2\pi}}\frac{2a}{a^{2}+k^{2}} \]
+\shoumonkai{3} \noteshiki{11.3}\noteshiki{11.4} より
+\[ g(k)=\int\dd y\,\tilde U^{*}(y,k)f(y)=\frac{1}{\sqrt{2\pi}}\int\dd y\,\ee^{-\ii ky}f(y)=\frac{\tilde f(k)}{\sqrt{2\pi}} \]
+$\tilde U(x,k)$ による展開は $1/\sqrt{2\pi}$ を変換と逆変換に等しく振り分け，\noteshiki{11.7} は $1/(2\pi)$ を逆変換に寄せたためである。実際 $\tilde f(k)=2a/(a^{2}+k^{2})$ を $\sqrt{2\pi}$ で割ると (2) と一致する。逆変換も $\int\dd k\,\tilde U(x,k)g(k)=\int\frac{\dd k}{2\pi}\ee^{\ii kx}\tilde f(k)$ となり \noteshiki{11.7} と同じである。
+\kotae{\shoumonkai{1} $\hat f_\mu=\frac{2a\{1-(-1)^{\mu}\ee^{-aL/2}\}}{\sqrt{L}\,(a^{2}+k_\mu^{2})}$ \shoumonkai{2} $g(k)=\frac{2a}{\sqrt{2\pi}\,(a^{2}+k^{2})}$\shoumonkai{3} $g(k)=\tilde f(k)/\sqrt{2\pi}$}
+\kenzan 次元：$f$ は無次元なので $\hat f_\mu\propto L^{-1/2}\times(\text{長さ})$ は 長さ$^{1/2}$。答えも $L^{-1/2}\times 2a/(a^2+k^2)$ で 長さ$^{1/2}$ となり一致する。$\mu=0$ では
+\[ \hat f_0=\frac{2}{\sqrt L}\int_0^{L/2}\dd y\,\ee^{-ay}=\frac{1}{\sqrt L}\bigl(1-\ee^{-aL/2}\bigr)\frac{2}{a} \]
+となり，答えで $\mu=0$，$k_0=0$ とおいたものと一致する。
+\tsumazuki $\ee^{-\ii k_\mu L/2}$ は 1 ではなく $(-1)^{\mu}$ である。$\tilde U(x,k)$ による展開の係数 $g(k)$ と \noteshiki{11.7} の $\tilde f$ は $\sqrt{2\pi}$ 倍違う。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\081_2026-10-03.tex
+\mondaibangou{2}
+\begin{mondai}{081-seishitsu}{計算}{並進・$x$ を掛ける・微分・複素共役の性質を使ってフーリエ変換を求めること}
+$a>0$，$b$ は実数とする。次を用いてよい。
+  \begin{align*}
+    \Fourier[\ee^{-a\abs{x}}]&=\frac{2a}{a^{2}+k^{2}},\\
+    \Fourier[\ee^{-ax^{2}}]&=\sqrt{\frac{\pi}{a}}\,\ee^{-k^{2}/(4a)},\\
+    \Fourier[\ee^{-ax}\theta(x)]&=\frac{1}{a+\ii k}
+  \end{align*}
+  \begin{shoumon}
+    \item 並進の性質を用いて $\Fourier[\ee^{-a\abs{x-b}}]$ を求めよ。
+    \item $\Fourier[x\ee^{-ax^{2}}]$ を，(i) 性質 $\Fourier[xf(x)]=\ii\,\dd\tilde f/\dd k$ を用いる方法，(ii) $\ee^{-ax^{2}}$ の導関数に性質 $\Fourier[\dd f/\dd x]=\ii k\tilde f(k)$ を用いる方法，の2通りで求め，一致することを確かめよ。
+    \item $f(x)$ が実数値のとき $\tilde f^{*}(k)=\tilde f(-k)$ が成り立つことを複素共役の性質から示せ。また $f(x)=\ee^{-ax}\theta(x)$ で確かめよ。
+    \item $f(x)$ が実数値の偶関数ならば $\tilde f(k)$ は実数値の偶関数であることを示し，$f(x)=\ee^{-a\abs{x}}$ で確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 C ◎◎△×}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  \Fourier[\ee^{-a\abs{x-b}}]&=\ee^{-\ii kb}\Fourier[\ee^{-a\abs{x}}]\\
+  &=\frac{2a}{a^{2}+k^{2}}\ee^{-\ii kb}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  \Fourier[x\ee^{-ax^{2}}]&=\ii\dv{}{k}\Bigl(\sqrt{\frac{\pi}{a}}\ee^{-k^{2}/(4a)}\Bigr)\\
+  &=\ii\sqrt{\frac{\pi}{a}}\Bigl(-\frac{1}{4a}\ee^{-k^{2}/(4a)}\cdot2k\Bigr)\\
+  &=-\ii\sqrt{\frac{\pi}{a}}\kakimachigai{\frac{k^{2}}{2a}}{\frac{k}{2a}}\ee^{-k^{2}/(4a)}\\
+  &=-\frac{\ii k}{2a}\sqrt{\frac{\pi}{a}}\ee^{-k^{2}/(4a)}
+\end{align*}
+\begin{align*}
+  \Fourier\Bigl[\dv{}{x}\ee^{-ax^{2}}\Bigr]&=\Fourier[-2ax\ee^{-ax^{2}}]\\
+  &=-2a\Fourier[x\ee^{-ax^{2}}]\\
+  &=\ii k\sqrt{\frac{\pi}{a}}\kakimachigai{\ee^{k^{2}/(4a)}}{\ee^{-k^{2}/(4a)}}
+\end{align*}
+\[ \therefore\ \Fourier[x\ee^{-ax^{2}}]=-\frac{\ii k}{2a}\sqrt{\frac{\pi}{a}}\ee^{-k^{2}/(4a)} \]
+\toi{3}{△}{記述}
+\begin{align*}
+  f(x)&=\ee^{-ax}\theta(x)\\
+  \tilde f(k)&=\frac{1}{a+\ii k}\\
+  \tilde f^{*}(k)&=\frac{1}{a-\ii k}\\
+  \tilde f(-k)&=\frac{1}{a-\ii k}
+\end{align*}
+\naze{例 $\ee^{-ax}\theta(x)$ での確かめだけで，一般の $f$ についての証明が無い。複素共役の性質 $\Fourier[f^{*}(x)]=\tilde f^{*}(-k)$ で $f^{*}=f$ とおくと $\tilde f(k)=\tilde f^{*}(-k)$ となり，$k$ を $-k$ に置き換えて $\tilde f(-k)=\tilde f^{*}(k)$ が出る。}
+\toi{4}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「示せ」と「確かめよ」は別の作業である。(3) の一般の証明は「実数値」を $f^{*}=f$ と式にして複素共役の性質に入れるだけで，例の計算はその後の確かめである。
+\item (4) は手を付けていない。偶関数 $f(-x)=f(x)$ を反転の性質に入れると $\tilde f(-k)=\tilde f(k)$，これと (3) の $\tilde f^{*}(k)=\tilde f(-k)$ を合わせて $\tilde f^{*}=\tilde f$（実数値）になる。
+\item (2) の途中で $k$ を $k^{2}$ と書いたり指数の負号を落としたりしている（答えは正しい）。$\ee^{-k^{2}/(4a)}$ を写すたびに，$k\to\infty$ で減衰する形かを見る。
+\end{kizuki}
+\begin{tadashii}
+\houshin 与えられた3つの変換に性質（並進・$x$ を掛ける・微分・線形性・反転・複素共役）を当てはめる。
+\keisan
+\shoumonkai{1} 並進の性質 $\Fourier[f(x+c)]=\ee^{\ii kc}\tilde f(k)$ で $f=\ee^{-a\abs{x}}$，$c=-b$ とすると
+\[ \Fourier[\ee^{-a\abs{x-b}}]=\ee^{-\ii kb}\frac{2a}{a^{2}+k^{2}} \]
+直接確かめると，$x=y+b$ と置換して $\int\dd x\,\ee^{-\ii kx}\ee^{-a\abs{x-b}}=\ee^{-\ii kb}\int\dd y\,\ee^{-\ii ky}\ee^{-a\abs{y}}$ となり一致する。
+\shoumonkai{2} (i) $\tilde f(k)=\sqrt{\pi/a}\,\ee^{-k^{2}/(4a)}$ を $k$ で微分すると
+\[ \dv{\tilde f}{k}=\sqrt{\frac{\pi}{a}}\Bigl(-\frac{k}{2a}\Bigr)\ee^{-k^{2}/(4a)} \]
+よって
+\[ \Fourier[x\ee^{-ax^{2}}]=\ii\dv{\tilde f}{k}=-\frac{\ii k}{2a}\sqrt{\frac{\pi}{a}}\,\ee^{-k^{2}/(4a)} \]
+(ii) $\dv{}{x}\ee^{-ax^{2}}=-2ax\ee^{-ax^{2}}$ なので
+\[ x\ee^{-ax^{2}}=-\frac{1}{2a}\dv{}{x}\ee^{-ax^{2}} \]
+線形性と微分の性質より
+\[ \Fourier[x\ee^{-ax^{2}}]=-\frac{1}{2a}\cdot\ii k\sqrt{\frac{\pi}{a}}\,\ee^{-k^{2}/(4a)} \]
+となり，(i) と一致する。
+\shoumonkai{3} 複素共役の性質 $\Fourier[f^{*}(x)]=\tilde f^{*}(-k)$ で，$f$ が実数値なら $f^{*}=f$ なので $\tilde f(k)=\tilde f^{*}(-k)$。$k$ を $-k$ に置き換えると $\tilde f(-k)=\tilde f^{*}(k)$。$f=\ee^{-ax}\theta(x)$ では $\tilde f(-k)=1/(a-\ii k)$，$\tilde f^{*}(k)=\bigl(1/(a+\ii k)\bigr)^{*}=1/(a-\ii k)$（$a$ は実数）で一致する。
+\shoumonkai{4} 偶関数 $f(-x)=f(x)$ に反転の性質を使うと $\tilde f(-k)=\Fourier[f(-x)]=\Fourier[f(x)]=\tilde f(k)$ で偶関数。さらに (3) より $\tilde f^{*}(k)=\tilde f(-k)=\tilde f(k)$ なので実数値。$\Fourier[\ee^{-a\abs{x}}]=2a/(a^{2}+k^{2})$ は実数で $k\to-k$ で不変である。
+\kotae{\shoumonkai{1} $\frac{2a\,\ee^{-\ii kb}}{a^{2}+k^{2}}$ \shoumonkai{2} $-\frac{\ii k}{2a}\sqrt{\pi/a}\,\ee^{-k^{2}/(4a)}$ \shoumonkai{3} 本文のとおり \shoumonkai{4} 本文のとおり}
+\kenzan $k=0$ の値は $\int f\,\dd x$ に等しいはずである。(1) は $2/a=\int\ee^{-a\abs{x-b}}\dd x$ で一致する。(2) は 0 で，奇関数 $x\ee^{-ax^{2}}$ の積分 0 と一致する。次元：$\Fourier[xf]$ は $\Fourier[f]$ の 長さ 倍で，$k/a$ は 長さ$^{-1}$/長さ$^{-2}$ = 長さ（(2) の $a$ は 長さ$^{-2}$）なので合う。
+\tsumazuki $f(x-b)$ に対応する因子は $\ee^{-\ii kb}$（符号に注意）。$\Fourier[xf]$ の係数は $+\ii$。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\082_2026-10-03.tex
+\mondaibangou{3}
+\begin{mondai}{082-sankaku}{計算}{定義式からフーリエ変換を直接計算すること}
+$b>0$ とし，三角形関数を次のように定める。
+  \[ f(x)=\begin{cases}1-\abs{x}/b & (\abs{x}<b)\\ 0 & (\abs{x}\ge b)\end{cases} \]
+  \begin{shoumon}
+    \item $k\neq0$ のとき $\tilde f(k)$ を求め，$\sin$ の2乗を用いて表せ。
+    \item $k\to0$ の極限を求め，$\int\dd x\,f(x)$ と一致することを確かめよ。
+    \item $\tilde f(k)=0$ となる $k$ をすべて求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 B ◎◎△ → 2026-10-18 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+（図：$x=0$ で高さ 1，$x=\pm b$ で 0 の三角形のグラフ）
+\begin{align*}
+  \tilde f(k)&=\int\dd x\,\ee^{-\ii kx}f(x)\\
+  &=\int_{-b}^{0}\dd x\,\ee^{-\ii kx}\Bigl(1+\frac{x}{b}\Bigr)\\
+  &\qquad+\int_{0}^{b}\dd x\,\ee^{-\ii kx}\Bigl(1-\frac{x}{b}\Bigr)\\
+  &=\int_{-b}^{b}\dd x\,\ee^{-\ii kx}\\
+  &\qquad+\frac{1}{b}\Bigl(\int_{-b}^{0}\dd x\,x\ee^{-\ii kx}-\int_{0}^{b}\dd x\,x\ee^{-\ii kx}\Bigr)
+\end{align*}
+（脇で部分積分を計算）
+\begin{align*}
+  \int\dd x\,x\ee^{-\ii kx}&=-\frac{x}{\ii k}\ee^{-\ii kx}+\int\dd x\,\frac{1}{\ii k}\ee^{-\ii kx}\\
+  &=-\frac{x}{\ii k}\ee^{-\ii kx}+\frac{1}{\ii k}\cdot\frac{1}{-\ii k}\ee^{-\ii kx}\\
+  &=-\frac{x}{\ii k}\ee^{-\ii kx}+\frac{1}{k^{2}}\ee^{-\ii kx}\\
+  &=\Bigl(\frac{1}{k^{2}}-\frac{x}{\ii k}\Bigr)\ee^{-\ii kx}
+\end{align*}
+\begin{align*}
+  &=\Bigl[\frac{1}{-\ii k}\ee^{-\ii kx}\Bigr]_{-b}^{b}\\
+  &\qquad+\frac{1}{b}\biggl(\Bigl[\Bigl(\frac{1}{k^{2}}-\frac{x}{\ii k}\Bigr)\ee^{-\ii kx}\Bigr]_{-b}^{0}\\
+  &\qquad-\Bigl[\Bigl(\frac{1}{k^{2}}-\frac{x}{\ii k}\Bigr)\ee^{-\ii kx}\Bigr]_{0}^{b}\biggr)\\
+  &=\frac{1}{-\ii k}\bigl(\ee^{-\ii kb}-\ee^{\ii kb}\bigr)\\
+  &\qquad+\frac{1}{b}\biggl(\frac{1}{k^{2}}-\Bigl(\frac{1}{k^{2}}+\frac{b}{\ii k}\Bigr)\ee^{\ii kb}\\
+  &\qquad-\Bigl(\frac{1}{k^{2}}-\frac{b}{\ii k}\Bigr)\ee^{-\ii kb}+\frac{1}{k^{2}}\biggr)
+\end{align*}
+（脇に $(c-\ii s)-(c+\ii s)$。$c$・$s$ は $\cos kb$・$\sin kb$ の略）
+\begin{align*}
+  &=\frac{2}{k}\sin(kb)+\frac{2}{bk^{2}}\\
+  &\qquad-\frac{1}{b}\biggl(\Bigl(\frac{1}{k^{2}}+\frac{b}{\ii k}\Bigr)(c+\ii s)\\
+  &\qquad+\Bigl(\frac{1}{k^{2}}-\frac{b}{\ii k}\Bigr)(c-\ii s)\biggr)
+\end{align*}
+（脇で $(a+b)(c+\ii s)+(a-b)(c-\ii s)=ac+bc+a\ii s+b\ii s+ac-bc-a\ii s+b\ii s=2(ac+\ii bs)$ を計算）
+\begin{align*}
+  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}\\
+  &\qquad-\frac{2}{b}\Bigl(\frac{1}{k^{2}}\cos kb+\frac{b}{k}\sin kb\Bigr)\\
+  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}\\
+  &\qquad-\frac{2}{bk^{2}}\cos kb-\frac{2}{k}\sin kb\\
+  &=\frac{2}{bk^{2}}(1-\cos kb)=\frac{4}{bk^{2}}\sin^{2}\frac{kb}{2}
+\end{align*}
+（$\sin kb$ の2つの項を消し合わせる）
+\toi{2}{◎}{}
+\begin{align*}
+  \tilde f(k)&=\frac{4}{b}\cdot\frac{\sin^{2}(kb/2)}{k^{2}}\\
+  &=\frac{\sin^{2}(kb/2)}{(kb/2)^{2}}\cdot\frac{4}{b}\frac{1}{(2/b)^{2}}\\
+  &\xrightarrow{k\to0}\frac{4}{b(4/b^{2})}=b
+\end{align*}
+\[ \int\dd x\,f(x)=\text{（図：底辺 $2b$ の三角形）}=\frac{1}{2}b\cdot2=b \]
+\toi{3}{△}{記述}
+\[ \frac{4}{bk^{2}}\sin^{2}\frac{kb}{2}=0,\qquad\sin\frac{kb}{2}=0 \]
+（図：単位円）
+\[ \frac{kb}{2}=n\pi,\qquad k=\frac{2n\pi}{b}\ \nuke{n\neq0} \]
+\naze{$n=0$（$k=0$）では $\sin^{2}(kb/2)/k^{2}$ が 0/0 で，(2) より $\tilde f(0)=b\neq0$ なので除く。答えは $k=2\pi n/b$（$n=\pm1,\pm2,\dots$）。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item (3) は，(1) の式が $k\neq0$ で導いたもの（$1/k^{2}$ で割っている）なので，そこから出した解は $k=0$ を (2) の値に戻して確かめる。$\sin(kb/2)=0$ の解に $k=0$ が入るが，$\tilde f(0)=b$ は三角形の面積で 0 ではない。
+\item (1) は区間を分けて部分積分したので長くなった。$f$ が偶関数なら $\sin$ の部分は消え，$\tilde f=2\int_{0}^{b}\dd x\,(1-x/b)\cos kx$ から始めると境界項がすぐ 0 になる。
+\end{kizuki}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\数理物理1\083_2026-10-03.tex
+\mondaibangou{5}
+\begin{mondai}{083-tsui}{導出}{デルタ関数の積分表示と恒等式から変換と逆変換がセットで定まること（$2\pi$ の配分）}
+\noteshiki{11.5} を認める。
+  \[ \int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\,\ee^{\ii k(x-y)}=\delta(x-y) \]
+  $f(x)$ は $-\infty<x<\infty$ で定義された関数とする。
+  \begin{shoumon}
+    \item 変数変換 $k=2\pi\nu$ により，\noteshiki{11.5} を $\nu$ についての積分で書き直せ。
+    \item (1) の結果と自明な恒等式 $f(x)=\int\dd y\,\delta(x-y)f(y)$ を用いて，次の組が成り立つことを示せ。
+      \begin{align*}
+        f(x)&=\int_{-\infty}^{\infty}\dd\nu\,\ee^{\ii2\pi\nu x}F(\nu),\\
+        F(\nu)&=\int_{-\infty}^{\infty}\dd y\,\ee^{-\ii2\pi\nu y}f(y)
+      \end{align*}
+    \item $F(\nu)$ と \noteshiki{11.7} の $\tilde f(k)$ の関係を求めよ。
+    \item $f(x)=\ee^{-\pi x^{2}}$ について $F(\nu)$ を求めよ（例4 の結果を用いてよい）。 % 出典: p.85
+    \item 係数をどちらも 1 にした組 $f(x)=\int\dd k\,\ee^{\ii kx}h(k)$，$h(k)=\int\dd y\,\ee^{-\ii ky}f(y)$ は成り立たない。その理由を \noteshiki{11.5} を用いて説明せよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 C ◎◎×△×}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\[ \dd k=2\pi\,\dd\nu \]
+\[ \delta(x-y)=\int_{-\infty}^{\infty}\ee^{+\ii2\pi\nu(x-y)}\,\dd\nu \]
+\toi{2}{◎}{}
+\begin{align*}
+  f(x)&=\int\dd y\Bigl[\int\ee^{\ii2\pi\nu(x-y)}\,\dd\nu\Bigr]f(y)\\
+  &=\int\dd y\Bigl[\int\dd\nu\,\ee^{\ii2\pi x\nu}\ee^{-\ii2\pi y\nu}\Bigr]f(y)
+\end{align*}
+\begin{align*}
+  F(\nu)&=\int\dd y\,\ee^{-\ii2\pi y\nu}f(y)\\
+  f(x)&=\int\dd\nu\,\ee^{\ii2\pi x\nu}F(\nu)
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{△}{計算}
+\[ f(x)=\ee^{-\pi x^{2}} \]
+\begin{align*}
+  F(\nu)&=\int_{-\infty}^{\infty}\dd y\,\ee^{-2\pi\ii\nu y}\ee^{-\pi y^{2}}\\
+  &=\int_{-\infty}^{\infty}\dd y\,\ee^{-2\pi\ii\nu y-\pi y^{2}}
+\end{align*}
+（指数の下に $-\pi(y+\ii\nu)^{2}\ayamari{+\pi\nu^{2}}{-\pi\nu^{2}}$ と書く）
+\naze{$-\pi(y+\ii\nu)^{2}=-\pi y^{2}-2\pi\ii\nu y+\pi\nu^{2}$ なので，元の指数に戻すには $\pi\nu^{2}$ を引く。正しくは $-\pi y^{2}-2\pi\ii\nu y=-\pi(y+\ii\nu)^{2}-\pi\nu^{2}$。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+  &=\int_{-\infty}^{\infty}\dd y\,\ee^{\pi\nu^{2}-\pi(y+\ii\nu)^{2}}\\
+  &=\sqrt{\frac{\pi}{\pi}}\,\ee^{\pi\nu^{2}}\\
+  &=\ayamari{\ee^{\pi\nu^{2}}}{\ee^{-\pi\nu^{2}}}
+\end{align*}
+\toi{5}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 平方完成は，括弧を展開して元の式に戻るかを1行で確かめる。$-\pi(y+\ii\nu)^{2}$ を展開すると $+\pi\nu^{2}$ が余るので，それを引く（$-\pi\nu^{2}$）。答えの検算として $F(0)=\int\ee^{-\pi x^{2}}\dd x=1$ と，$\nu\to\infty$ で $F$ が減衰する（$\ee^{+\pi\nu^{2}}$ は発散するのでおかしい）ことを見る。
+\item (3) は手を付けていない。$F(\nu)=\int\dd y\,\ee^{-\ii(2\pi\nu)y}f(y)$ は $\tilde f$ の $k$ に $2\pi\nu$ を入れたもので $F(\nu)=\tilde f(2\pi\nu)$。これを使えば (4) は例4（$a=\pi$）の $\ee^{-k^{2}/(4\pi)}$ に $k=2\pi\nu$ を入れて1行で $\ee^{-\pi\nu^{2}}$ になる。
+\item (5) は手を付けていない。係数をどちらも 1 にすると，順序を交換したときに $\int\dd k\,\ee^{\ii k(x-y)}=2\pi\delta(x-y)$ が出て，右辺が $2\pi f(x)$ になり元に戻らない。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は置換積分。(2) は恒等式の $\delta$ に (1) を代入し，積分の順序を入れ替えて $y$ 積分をくくり出す。
+\keisan
+\shoumonkai{1} $k=2\pi\nu$ とすると $\dd k=2\pi\,\dd\nu$ で，積分範囲は $-\infty$ から $\infty$ のまま。\noteshiki{11.5} は
+\[ \int_{-\infty}^{\infty}\dd\nu\,\ee^{\ii2\pi\nu(x-y)}=\delta(x-y) \]
+\shoumonkai{2} 恒等式に (1) を代入し，積分の順序を交換する。
+\begin{align*}
+  f(x)&=\int\dd y\,\delta(x-y)f(y)=\int\dd y\Bigl[\int\dd\nu\,\ee^{\ii2\pi\nu(x-y)}\Bigr]f(y)\\
+  &=\int\dd\nu\,\ee^{\ii2\pi\nu x}\Bigl[\int\dd y\,\ee^{-\ii2\pi\nu y}f(y)\Bigr]
+\end{align*}
+最後の等号で積分の順序を交換し，$\ee^{\ii2\pi\nu(x-y)}=\ee^{\ii2\pi\nu x}\ee^{-\ii2\pi\nu y}$ と分けた。角括弧の中を $F(\nu)$ と定義すれば，与えられた組が得られる。逆変換の係数（$\dd\nu$ の前）と変換の係数がどちらも 1 になるのは，(1) で $2\pi$ が測度に吸収されたためである。
+\shoumonkai{3} $F(\nu)=\int\dd y\,\ee^{-\ii(2\pi\nu)y}f(y)=\tilde f(2\pi\nu)$。逆に $\int\dd\nu\,\ee^{\ii2\pi\nu x}\tilde f(2\pi\nu)=\int\frac{\dd k}{2\pi}\ee^{\ii kx}\tilde f(k)$ となり \noteshiki{11.7} の逆変換と一致する。
+\shoumonkai{4} 例4 で $a=\pi$ とすると $\tilde f(k)=\sqrt{\pi/\pi}\,\ee^{-k^{2}/(4\pi)}=\ee^{-k^{2}/(4\pi)}$。よって
+\[ F(\nu)=\tilde f(2\pi\nu)=\ee^{-4\pi^{2}\nu^{2}/(4\pi)}=\ee^{-\pi\nu^{2}} \]
+$f$ と同じ形である。
+\shoumonkai{5} $h$ を $f$ の式に代入し，順序を交換すると
+\begin{align*}
+  \int\dd k\,\ee^{\ii kx}\int\dd y\,\ee^{-\ii ky}f(y)&=\int\dd y\Bigl[\int\dd k\,\ee^{\ii k(x-y)}\Bigr]f(y)\\
+  &=\int\dd y\,2\pi\delta(x-y)f(y)=2\pi f(x)
+\end{align*}
+\noteshiki{11.5} より角括弧は $2\pi\delta(x-y)$ なので，右辺は $f(x)$ に戻らず $2\pi f(x)$ になる。変換と逆変換の係数の積は（$k$ を使う限り）$1/(2\pi)$ でなければならず，配分は自由だが組として決める必要がある。
+\kotae{\shoumonkai{1} $\int\dd\nu\,\ee^{\ii2\pi\nu(x-y)}=\delta(x-y)$ \shoumonkai{2} 本文のとおり \shoumonkai{3} $F(\nu)=\tilde f(2\pi\nu)$ \shoumonkai{4} $F(\nu)=\ee^{-\pi\nu^{2}}$ \shoumonkai{5} 右辺が $2\pi f(x)$ になる}
+\kenzan $\nu=0$ で $F(0)=\int f\,\dd y=\tilde f(0)$ と一致する。(4) では $F(0)=\int\ee^{-\pi x^{2}}\dd x=1$ で一致する。$\nu$ は 長さ$^{-1}$ の次元（単位長さあたりの波の数）をもち，$\nu x$ は無次元。
+\tsumazuki $\dd k=2\pi\,\dd\nu$ により $1/(2\pi)$ が消える。よく使うのは $k$ 版（\noteshiki{11.7} の導出）なので，(2) の論法を $k$ で書けるようにしておく。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\084_2026-10-03.tex
+\mondaibangou{6}
+\begin{mondai}{084-gyaku}{計算}{部分分数分解と \noteshiki{11.9}・反転を組み合わせて逆変換を求めること}
+$a>0$，$b>a$ とする。\noteshiki{11.9} を用いてよい。
+  \[ \int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\frac{\ee^{\ii kx}}{a+\ii k}=\ee^{-ax}\theta(x) \]
+  次の積分を求めよ。
+  \begin{align*}
+    I_1(x)&=\int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\,\ee^{\ii kx}\,\frac{2a}{a^{2}+k^{2}}\\
+    I_2(x)&=\int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\,\ee^{\ii kx}\,\frac{k}{a^{2}+k^{2}}\quad(x\neq0)\\
+    I_3(x)&=\int_{-\infty}^{\infty}\frac{\dd k}{2\pi}\,\frac{\ee^{\ii kx}}{(a+\ii k)(b+\ii k)}
+  \end{align*}
+  \begin{shoumon}
+    \item $I_1(x)$ を求めよ。
+    \item $I_2(x)$ を求めよ。
+    \item $I_3(x)$ を求め，さらに $b\to a$ の極限を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 E ×××}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{×}{方針}
+\[ I_1(x)=\int\frac{\dd k}{2\pi}\underbrace{\ee^{\ii kx}\frac{1}{a+\ii k}}_{\ee^{-ax}\theta(x)}\frac{2a}{a-\ii k} \]
+（脇に $2a/(a-\ii k)$ の $k$ での微分 $-2a\cdot(-\ii)/(a-\ii k)^{2}$ を書く）
+\begin{align*}
+  &=\Bigl[\ee^{-ax}\theta(x)\frac{2a}{a-\ii k}\Bigr]_{-\infty}^{\infty}\\
+  &\qquad-\int\frac{2a\ii}{(a-\ii k)^{2}}\ee^{-ax}\theta(x)
+\end{align*}
+\naze{$2a/(a^{2}+k^{2})$ を $1/(a+\ii k)$ と $2a/(a-\ii k)$ の積に分けて部分積分しようとしているが，$k$ で積分する式の中で $\ee^{\ii kx}/(a+\ii k)$ だけを $x$ の関数 $\ee^{-ax}\theta(x)$ に置き換えることはできない（逆向きの関係は $k$ 積分を済ませた結果である）。和に部分分数分解する：$2a/(a^{2}+k^{2})=1/(a+\ii k)+1/(a-\ii k)$。第1項の逆変換は $\ee^{-ax}\theta(x)$，第2項は $k\to-k$ と置換して $\ee^{ax}\theta(-x)$ で，$I_1=\ee^{-a\abs{x}}$。}
+\toi{2}{×}{未着手}
+\mikai
+\toi{3}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 逆変換の公式 $\int\frac{\dd k}{2\pi}\frac{\ee^{\ii kx}}{a+\ii k}=\ee^{-ax}\theta(x)$ は「$k$ について積分し終えた値」なので，被積分関数の一部だけに当てはめて別の $k$ の関数と掛けたままにはできない。使える形にするには，被積分関数を $\frac{1}{a\pm\ii k}$ の定数倍の和（部分分数分解）にして，項ごとに公式を使う。
+\item $\frac{1}{a-\ii k}$ の項は $k=-k'$ と置換すると公式の $x$ を $-x$ にした形になり，$\ee^{ax}\theta(-x)$ が出る。検算は $x=0$ で $I_1=\int\frac{\dd k}{2\pi}\frac{2a}{a^{2}+k^{2}}=1$。
+\item (2)(3) は手を付けていない。(2) は $\frac{1}{a-\ii k}-\frac{1}{a+\ii k}=\frac{2\ii k}{a^{2}+k^{2}}$，(3) は $\frac{1}{(a+\ii k)(b+\ii k)}=\frac{1}{b-a}\bigl(\frac{1}{a+\ii k}-\frac{1}{b+\ii k}\bigr)$ と分ける。
+\end{kizuki}
+\begin{tadashii}
+\houshin 被積分関数を $1/(a\pm\ii k)$ の和に部分分数分解し，$1/(a+\ii k)$ には \noteshiki{11.9} を，$1/(a-\ii k)$ には $k\to-k$ と置換してから \noteshiki{11.9} を $x\to-x$ で使う。
+\keisan
+\shoumonkai{1} 部分分数分解の恒等式は
+\[ \frac{1}{a+\ii k}+\frac{1}{a-\ii k}=\frac{(a-\ii k)+(a+\ii k)}{a^{2}+k^{2}}=\frac{2a}{a^{2}+k^{2}} \]
+第1項は \noteshiki{11.9} より $\ee^{-ax}\theta(x)$。第2項は $k=-k'$ と置換すると（積分範囲は向きが反転し $\dd k=-\dd k'$ で元に戻る）
+\[ \int\frac{\dd k}{2\pi}\frac{\ee^{\ii kx}}{a-\ii k}=\int\frac{\dd k'}{2\pi}\frac{\ee^{\ii k'(-x)}}{a+\ii k'}=\ee^{ax}\theta(-x) \]
+よって $I_1=\ee^{-ax}\theta(x)+\ee^{ax}\theta(-x)=\ee^{-a\abs{x}}$。
+\shoumonkai{2} 次の恒等式
+\[ \frac{1}{a-\ii k}-\frac{1}{a+\ii k}=\frac{2\ii k}{a^{2}+k^{2}} \]
+より
+\[ \frac{k}{a^{2}+k^{2}}=\frac{1}{2\ii}\Bigl(\frac{1}{a-\ii k}-\frac{1}{a+\ii k}\Bigr) \]
+(1) と同じく各項を逆変換して
+\begin{align*}
+  I_2&=\frac{1}{2\ii}\bigl\{\ee^{ax}\theta(-x)-\ee^{-ax}\theta(x)\bigr\}\\
+  &=\frac{\ii}{2}\bigl\{\theta(x)-\theta(-x)\bigr\}\ee^{-a\abs{x}}=\frac{\ii}{2}\sgn(x)\,\ee^{-a\abs{x}}
+\end{align*}
+\shoumonkai{3} 右辺を通分すると分子は $(b+\ii k)-(a+\ii k)=b-a$ なので
+\[ \frac{1}{(a+\ii k)(b+\ii k)}=\frac{1}{b-a}\Bigl(\frac{1}{a+\ii k}-\frac{1}{b+\ii k}\Bigr) \]
+各項に \noteshiki{11.9} を使って
+\[ I_3=\frac{\ee^{-ax}-\ee^{-bx}}{b-a}\,\theta(x) \]
+$b=a+h$ とおくと，$h\to0$ で
+\[ \frac{\ee^{-ax}-\ee^{-bx}}{b-a}=\ee^{-ax}\frac{1-\ee^{-hx}}{h}\to x\ee^{-ax} \]
+なので，$b\to a$ で $I_3\to x\ee^{-ax}\theta(x)$。すなわち $1/(a+\ii k)^{2}$ の逆変換は $x\ee^{-ax}\theta(x)$ である。
+\kotae{\shoumonkai{1} $\ee^{-a\abs{x}}$ \shoumonkai{2} $\frac{\ii}{2}\sgn(x)\,\ee^{-a\abs{x}}$ \shoumonkai{3} $\frac{\ee^{-ax}-\ee^{-bx}}{b-a}\theta(x)$，$b\to a$ で $x\ee^{-ax}\theta(x)$}
+\kenzan (1) で $x=0$ とすると
+\[ \int\frac{\dd k}{2\pi}\frac{2a}{a^{2}+k^{2}}=\frac{2a}{2\pi}\cdot\frac{\pi}{a}=1=\ee^{0} \]
+で一致する。(2) は微分の性質でも確かめられる。$\dv{}{x}\ee^{-a\abs{x}}=-a\sgn(x)\ee^{-a\abs{x}}$ の変換は $\ii k\cdot2a/(a^{2}+k^{2})$ なので，$k/(a^{2}+k^{2})$ の逆変換は
+\[ \frac{1}{2\ii a}\bigl(-a\sgn(x)\ee^{-a\abs{x}}\bigr)=\frac{\ii}{2}\sgn(x)\ee^{-a\abs{x}} \]
+で一致する。(3) は $(\ee^{-ax}-\ee^{-bx})\theta(x)/(b-a)$ を順変換すると部分分数の形に戻る。
+\tsumazuki $1/(a-\ii k)$ の逆変換は $\ee^{ax}\theta(-x)$（$\ee^{-ax}\theta(-x)$ ではない。$x<0$ で減衰する）。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
