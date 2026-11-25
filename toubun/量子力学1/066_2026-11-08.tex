@@ -1,0 +1,35 @@
+% 量子力学1 量子力学1-17 問題2（066-delta。当時は 量子力学1-8 問題3） 解いた日 2026-11-08
+%% kotae
+\toi{1}{◎}{}
+\[ x'\braket{x}{x'}=x'\delta(x-x') \]
+\toi{2}{○}{記述}
+\begin{align*}
+\matrixel{x}{\hat{p}}{x'}&=-\ii\hbar\pdv{\braket{x}{x'}}{x}\\
+&=-\ii\hbar\pdv{}{x}\ayamari{\delta(x)}{\delta(x-x')}
+\end{align*}
+\naze{$\braket{x}{x'}=\delta(x-x')$ なので，デルタ関数の引数は $x-x'$ のままである。$\delta(x)$ では $x'$ がどこにも入らず，$x'$ によらない量になってしまう。}
+\toi{3}{◎}{}
+\begin{align*}
+\matrixel{x}{\hat{p}}{k}&=-\ii\hbar\pdv{\braket{x}{k}}{x}\\
+&=-\ii\hbar\pdv{}{x}\frac{\ee^{\ii kx}}{\sqrt{2\pi}}\\
+&=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx}
+\end{align*}
+\begin{align*}
+\matrixel{x}{\hat{p}}{k}&=\hbar k\braket{x}{k}\\
+&=\frac{\hbar k}{\sqrt{2\pi}}\ee^{\ii kx}
+\end{align*}
+\toi{4}{△}{記述}
+\begin{align*}
+&\int_{-\infty}^{\infty}\matrixel{x}{\hat{p}}{x'}\psi(x')\dd x'\\
+&=\int_{-\infty}^{\infty}-\ii\hbar\Bigl(\pdv{}{x}\delta(x-x')\Bigr)\psi(x')\dd x'\\
+&=\int_{-\infty}^{\infty}-\ii\hbar\Bigl(\ayamari{\pdv{}{x}\psi(x')}{\pdv{\psi(x')}{x'}}\Bigr)\\
+&\qquad\times\delta(x-x')\dd x'\\
+&=-\ii\hbar\pdv{}{x}\psi(x)
+\end{align*}
+\naze{$\psi(x')$ は $x$ によらないので，書いたとおりに読むと $\partial\psi(x')/\partial x=0$ で，この変形は成り立たない。$x$ での微分は積分変数 $x'$ に関係しないので積分の外に出し，$-\ii\hbar\,\partial_{x}\int\delta(x-x')\psi(x')\dd x'=-\ii\hbar\,\dd\psi/\dd x$ とする（または $\partial_{x}\delta(x-x')=-\partial_{x'}\delta(x-x')$ と直して部分積分すると，$\psi$ の微分は $x'$ での微分になる）。}
+\[ \matrixel{x}{\hat{p}}{\psi}\nuke{=}-\ii\hbar\pdv{}{x}\psi(x) \]
+\naze{左辺の積分が，$\hat{p}$ と $\ket{\psi}$ の間に位置の完全性 $\int\ket{x'}\bra{x'}\dd x'=\hat{1}$ を挟んだ $\matrixel{x}{\hat{p}}{\psi}$ そのものであることを書いて，2つを等号で結ぶ。}
+%% kizuki
+\item 位置表示の行列要素 $\matrixel{x}{\hat{A}}{x'}$ は $x$ と $x'$ の2変数の関数（連続な添字の「行列」）である。答えに両方の変数が入っているかで確かめる。
+\item \mae{第3章 問題2・10-18，10-21} 答えの式の記号の書き落とし（前回は複素定数の $\abs{A}^{2}$ を $A^{2}$ と書いた）。答えを書いたら，問題に出てくる変数（ここでは $x$ と $x'$）がすべて入っているか，絶対値や引数が落ちていないかを見直す。
+\item \mae{第4章 問題7 (1)・10-28，第7章 問題8 (2)・11-07} デルタ関数や微分を含む積分の変形の根拠が無い。積分の中の微分を動かすときは，「どの変数での微分か」「積分の外に出すのか，部分積分なのか」を毎回書く。積分変数でない変数での微分は $\int\partial_{x}F(x,x')\dd x'=\partial_{x}\int F(x,x')\dd x'$ と外に出せる。

@@ -6,11 +6,11 @@
 \begin{kirokuichiran}
   \ichirangyou{\hyperlink{bt-m-046-comm}{1}}{L1・計算}{◎◎◎△}{A}{2026-11-01 (4)計算}
   \ichirangyou{\hyperlink{bt-m-048-free}{2}}{L1・計算}{◎◎○}{A}{2026-11-01 (3)記述}
-  \ichirangyou{3}{L1・計算}{◎◎○}{A}{2026-11-08 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-047-shift}{3}}{L1・計算}{◎◎○}{A}{2026-11-08 (3)記述}
   \ichirangyou{4}{L1・計算}{}{未着手}{}
   \ichirangyou{5}{L1・計算}{}{未着手}{}
   \ichirangyou{6}{L2・説明}{}{未着手}{}
-  \ichirangyou{7}{L2・計算}{◎◎◎◎}{B}{2026-11-08 ヒント1}
+  \ichirangyou{\hyperlink{bt-m-052-transl}{7}}{L2・計算}{◎◎◎◎}{B}{2026-11-08 ヒント1}
   \ichirangyou{8}{L2・導出}{}{未着手}{}
   \ichirangyou{9}{L3・導出}{}{未着手}{}
   \ichirangyou{10}{L3・導出}{}{未着手}{}
@@ -152,6 +152,141 @@ $V=0$ なら $\comm{\hat{H}}{\hat{p}}=0$ より同時に観測可能。
 \kenzan 次元：$\hbar V'$ は（長さ）×（運動量）×（エネルギー）/（長さ）で，$\hat{H}\hat{p}$ と同じ（エネルギー）×（運動量）である。(2) の $E=p^{2}/(2m)$ は古典的な自由粒子の関係と同じ。(3) で $F\to 0$ とすると交換子が $0$ になり，(2) に戻る。
 \tsumazuki 交換子が $0$ でないことだけでは「同時固有関数が1つも無い」ことは言えない。(3) では交換子が $0$ でない数なので，作用させて $0$ になる関数が $0$ しか無いことを使っている。
 \end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\047_2026-11-08.tex
+\mondaibangou{3}
+\begin{mondai}{047-shift}{計算}{演算子の指数関数の級数による定義と，$\exp(a\,\dd/\dd x)$ が関数を平行移動すること}
+$a$ を実定数とし，$\hat{D}=\dd/\dd x$ に対して次のように定める（$\hat{D}^{n}$ は $n$ 回の微分）。
+  \[ \exp(a\hat{D})=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\hat{D}^{n} \]
+  \begin{shoumon}
+    \item $\exp(a\hat{D})$ を $f(x)=x^{2}$ に作用させた結果を，因数分解した形で求めよ。
+    \item $k$ を実定数とする。$\exp(a\hat{D})\ee^{\ii kx}$ を求め，$\ee^{\ii kx}$ が $\exp(a\hat{D})$ の固有関数であることを示して，固有値を求めよ。
+    \item $\hat{p}=-\ii\hbar\hat{D}$ として，$\exp(a\hat{D})$ を $\hat{p}$ で表せ。また，滑らかな関数 $f(x)$ に $\exp(a\hat{D})$ を作用させると何になるかを，$f$ のテイラー展開と比べて答えよ。
+  \end{shoumon}
+\notekiroku{2026-11-08 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+\begin{align*}
+&\Bigl(\frac{a^{0}}{0!}\hat{D}^{0}+\frac{a^{1}}{1!}\hat{D}^{1}+\frac{a^{2}}{2!}\hat{D}^{2}\\
+&\qquad+\frac{a^{3}}{3!}\hat{D}^{3}+\cdots\Bigr)x^{2}\\
+&=\Bigl(\hat{I}+a\frac{\dd}{\dd x}+\frac{a^{2}}{2}\frac{\dd^{2}}{\dd x^{2}}\\
+&\qquad+\frac{a^{3}}{6}\frac{\dd^{3}}{\dd x^{3}}+\cdots\Bigr)x^{2}\\
+&=x^{2}+2ax+a^{2}+0\cdots\\
+&=x^{2}+2ax+a^{2}\\
+&=(x+a)^{2}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\exp(a\hat{D})\ee^{\ii kx}\\
+&=\Bigl(\hat{I}+a\frac{\dd}{\dd x}+\frac{a^{2}}{2}\frac{\dd^{2}}{\dd x^{2}}\\
+&\qquad+\frac{a^{3}}{6}\frac{\dd^{3}}{\dd x^{3}}+\cdots\Bigr)\ee^{\ii kx}\\
+&=\Bigl(1+a(\ii k)+\frac{a^{2}}{2}(\ii k)^{2}\\
+&\qquad+\frac{a^{3}}{6}(\ii k)^{3}+\cdots\Bigr)\ee^{\ii kx}\\
+&=\ee^{\ii ak}\cdot\ee^{\ii kx}
+\end{align*}
+定数倍なので固有関数，固有値 $\ee^{\ii ak}$
+\toi{3}{○}{記述}
+\[ \hat{D}=\frac{\ii}{\hbar}\hat{p},\qquad \exp(a\hat{D})=\exp\Bigl(\frac{\ii a}{\hbar}\hat{p}\Bigr) \]
+\begin{align*}
+\exp(a\hat{D})f&=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\frac{\dd^{n}f}{\dd x^{n}}\\
+f(x+a)&\ayamari{\simeq}{=}\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\frac{\dd^{n}f}{\dd x^{n}}
+\end{align*}
+\nuke{結論の式} \nuke{収束の条件}
+\naze{2つの級数を並べたところで終わっていて，問われた「何になるか」の答えが無い。テイラー展開が $f(x+a)$ に収束する関数では2つの級数は項ごとに等しく，近似ではなく等式で $\exp(a\hat{D})f(x)=f(x+a)$（グラフを $x$ の負の向きに $a$ だけずらす）が成り立つ。その条件と結論の式を書く。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 定義の級数 $\sum_{n}(a^{n}/n!)f^{(n)}(x)$ は，$f(x+a)$ を $x$ のまわりでテイラー展開した式そのものである。展開が収束する関数では両者は等しい（$\simeq$ ではなく $=$）ので，$\exp(a\hat{D})$ は関数を平行移動する演算子になる。(1) の $(x+a)^{2}$ と (2) の $\ee^{\ii k(x+a)}$ はその例である。
+\item \mae{第6章 問題1 (1)・11-01} 比べた結果を答えとして書かなかった（前回も得られる値と確率を答えとして書かなかった）。「何になるか」「比べて答えよ」と問われたら，並べた後に答えの式 $\exp(a\hat{D})f(x)=f(x+a)$ を1行書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 級数の定義に従って $\hat{D}^{n}f$ を計算し，足し合わせる。(3) は定義の級数がテイラー展開と同じ形であることを使う。
+\keisan \shoumonkai{1} $\hat{D}x^{2}=2x$，$\hat{D}^{2}x^{2}=2$ で，$n\ge 3$ では $\hat{D}^{n}x^{2}=0$ だから，級数は3項で終わる。
+\[ \exp(a\hat{D})x^{2}=x^{2}+a\cdot 2x+\frac{a^{2}}{2!}\cdot 2=x^{2}+2ax+a^{2}=(x+a)^{2} \]
+\shoumonkai{2} $\hat{D}^{n}\ee^{\ii kx}=(\ii k)^{n}\ee^{\ii kx}$ だから，複素数の指数関数の級数を使って
+\[ \exp(a\hat{D})\ee^{\ii kx}=\sum_{n=0}^{\infty}\frac{(\ii ka)^{n}}{n!}\ee^{\ii kx}=\ee^{\ii ka}\ee^{\ii kx} \]
+となる。結果が $\ee^{\ii kx}$ の定数倍なので $\ee^{\ii kx}$ は固有関数で，固有値は $\ee^{\ii ka}$ である。
+\shoumonkai{3} $\hat{p}=-\ii\hbar\hat{D}$ より $\hat{D}=\ii\hat{p}/\hbar$ なので，$\exp(a\hat{D})=\exp(\ii a\hat{p}/\hbar)$ である。また，$f(x+a)$ を $x$ のまわりでテイラー展開すると
+\[ f(x+a)=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\dv[n]{f}{x}=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\hat{D}^{n}f \]
+で，これは $\exp(a\hat{D})f$ の定義の級数そのものである。よって，テイラー展開が収束する関数について $\exp(a\hat{D})f(x)=f(x+a)$ となる。(1) の $(x+a)^{2}$，(2) の $\ee^{\ii k(x+a)}$ はその例である。
+\kotae{\shoumonkai{1} $(x+a)^{2}$ \shoumonkai{2} $\ee^{\ii k(x+a)}$，固有値 $\ee^{\ii ka}$ \shoumonkai{3} $\exp(\ii a\hat{p}/\hbar)$，$f(x)$ が $f(x+a)$ になる（グラフを $x$ の負の向きに $a$ だけずらす）}
+\begin{ronten}
+  \item \shoumonkai{1} $n\ge 3$ で $\hat{D}^{n}x^{2}=0$ となり，級数が有限個の項で終わることを述べる。
+  \item \shoumonkai{2} 結果が $\ee^{\ii kx}$ の定数倍になることを根拠に，固有関数であると結論する。
+  \item \shoumonkai{3} 定義の級数が $f(x+a)$ のテイラー展開と項ごとに一致することと，それがテイラー展開の収束する関数について成り立つことを書く。
+\end{ronten}
+\kenzan $a=0$ では恒等演算子になり，どの結果も元の関数に戻る。指数の肩 $\ii a\hat{p}/\hbar$ は（長さ）×（運動量）/$\hbar$ で無次元である。(2) の固有値は絶対値が $1$ で，平行移動で関数の大きさが変わらないことと合う。
+\tsumazuki $\hat{D}^{n}$ は $n$ 回の微分であり，$\hat{D}f$ の $n$ 乗ではない。また，$\exp(a\hat{D})$ は $f$ のグラフを $x$ の正の向きではなく負の向きにずらす（$f(x+a)$ の $x=-a$ での値が $f(0)$）。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\052_2026-11-08.tex
+\mondaibangou{7}
+\begin{mondai}{052-transl}{計算}{交換子の帰納的な計算と演算子の指数関数を組み合わせた，並進の演算子による $\hat{x}$ の変換}
+1次元で $\comm{\hat{x}}{\hat{p}}=\ii\hbar$ とし，$a$ を実定数として次の演算子を考える。
+  \[ \hat{T}(a)=\exp\left(-\frac{\ii a\hat{p}}{\hbar}\right) \]
+  要点整理の $\exp(-\hat{A})=\exp(\hat{A})^{-1}$ と，滑らかな関数 $g$ について $\exp(b\,\dd/\dd x)g(x)=g(x+b)$（$b$ は実定数）を用いてよい。
+  \begin{shoumon}
+    \item $n=1,2,\dots$ について $\comm{\hat{x}}{\hat{p}^{n}}=\ii\hbar n\hat{p}^{n-1}$ を数学的帰納法で示せ。
+    \item $\comm{\hat{x}}{\hat{T}(a)}$ を $\hat{T}(a)$ で表せ。
+    \item $\hat{T}(a)^{-1}\hat{x}\hat{T}(a)$ を $\hat{x}$ で表せ。
+    \item $\hat{p}=-\ii\hbar\,\dd/\dd x$ のとき $\hat{T}(a)\psi(x)$ を $\psi$ で表せ。また，(3) の結果を任意の関数 $\psi(x)$ に作用させて直接確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-08 B ◎◎◎◎ (ヒント1)}
+\begin{kotaeutsushi}{2026-11-08}
+\toi{1}{◎}{}
+i) $n=1$ のとき
+\[ \comm{\hat{x}}{\hat{p}}=\ii\hbar\cdot1\cdot\hat{p}^{0}=\ii\hbar \]
+ii) $\comm{\hat{x}}{\hat{p}^{k}}=\ii\hbar k\hat{p}^{k-1}$ と仮定する。
+\begin{align*}
+\comm{\hat{x}}{\hat{p}^{k+1}}&=\comm{\hat{x}}{\hat{p}\hat{p}^{k}}\\
+&=\hat{p}\comm{\hat{x}}{\hat{p}^{k}}+\comm{\hat{x}}{\hat{p}}\hat{p}^{k}\\
+&=\ii\hbar k\hat{p}^{k}+\ii\hbar\hat{p}^{k}\\
+&=\ii\hbar(k+1)\hat{p}^{k}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\comm{\hat{x}}{\hat{T}(a)}\\
+&=\Bigl[\hat{x},\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\Bigr]\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\comm{\hat{x}}{\hat{p}^{n}}\\
+&=\frac{1}{0!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{0}\comm{\hat{x}}{\hat{1}}\\
+&\qquad+\sum_{n=1}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\ii\hbar n\hat{p}^{n-1}\\
+&=\sum_{n=1}^{\infty}\frac{1}{(n-1)!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n-1}\\
+&\qquad\times\Bigl(-\frac{\ii a}{\hbar}\Bigr)\ii\hbar\hat{p}^{n-1}\\
+&=a\sum_{n=1}^{\infty}\frac{1}{(n-1)!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n-1}\hat{p}^{n-1}
+\end{align*}
+（$n-1=m$ とおく）
+\begin{align*}
+&=a\sum_{m=0}^{\infty}\frac{1}{m!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{m}\hat{p}^{m}\\
+&=a\hat{T}(a)
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+&\hat{T}(a)^{-1}\comm{\hat{x}}{\hat{T}(a)}\\
+&=\hat{T}(a)^{-1}\hat{x}\hat{T}(a)-\underbrace{\hat{T}(a)^{-1}\hat{T}(a)}_{\hat{1}}\hat{x}
+\end{align*}
+\begin{align*}
+\therefore\ \hat{T}(a)^{-1}\hat{x}\hat{T}(a)&=\hat{T}(a)^{-1}a\hat{T}(a)+\hat{x}\\
+&=a+\hat{x}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\hat{T}(a)\psi&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\\
+&\qquad\times\Bigl(-\ii\hbar\frac{\dd}{\dd x}\Bigr)^{n}\psi(x)\\
+&=\sum_{n=0}^{\infty}\frac{(-a)^{n}}{n!}\frac{\dd^{n}}{\dd x^{n}}\psi(x)\\
+&=\exp\Bigl(-a\frac{\dd}{\dd x}\Bigr)\psi(x)\\
+&=\psi(x-a)
+\end{align*}
+\begin{align*}
+&\hat{T}(a)^{-1}\hat{x}\hat{T}(a)\psi(x)\\
+&=\hat{T}(a)^{-1}\hat{x}\kakimachigai{\psi(x+a)}{\psi(x-a)}\\
+&=\hat{T}(a)^{-1}x\psi(x-a)\\
+&=(x+a)\psi(x+a-a)\\
+&=(x+a)\psi(x)\\
+&=(a+\hat{x})\psi(x)
+\end{align*}
+\end{kotaeutsushi}
 \end{mondai}
 
 \noteowari

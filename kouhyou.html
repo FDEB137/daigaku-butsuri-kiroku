@@ -1,8 +1,13 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>講評</title><style>body{font-family:"Yu Gothic UI","Meiryo",sans-serif;margin:0 auto;max-width:1200px;padding:0 20px 12px;color:#222;background:#fafafa}
-h1{font-size:1.5em;margin:.3em 0}h2{font-size:1.2em;border-bottom:2px solid #557;margin-top:1.6em;padding-bottom:2px;scroll-margin-top:2.6em}
+h1{font-size:1.5em;margin:.3em 0}h2{font-size:1.2em;border-bottom:2px solid #557;margin-top:1.6em;padding-bottom:2px;scroll-margin-top:5em}
 .nav{position:sticky;top:0;z-index:5;background:#fafafa;border-bottom:1px solid #ccd;padding:6px 0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.9em}
 .nav a{color:#335;text-decoration:none;white-space:nowrap}.nav a:hover{text-decoration:underline}
-.made{color:#666;font-size:.9em}.note{color:#666;font-size:.85em}.subjs{font-size:.9em;line-height:1.9}.subjs a{color:#335}
+.top{position:sticky;top:0;z-index:5;background:#fafafa;border-bottom:1px solid #ccd}.top .nav{position:static;border-bottom:none;padding:4px 0 6px}
+.sbar{display:flex;gap:5px;overflow-x:auto;white-space:nowrap;padding:6px 0 2px;font-size:.88em;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.sbar a,.sbar span{flex:0 0 auto;padding:2px 10px;border-radius:12px;background:#e4e7f2;color:#335;text-decoration:none}
+.sbar a:hover{background:#d0d5ea}.sbar .rec{font-weight:bold}.sbar .cur{background:#557;color:#fff;font-weight:bold}
+.made{color:#666;font-size:.9em}.note{color:#666;font-size:.85em}
+.notes p{margin:4px 0;line-height:1.9}.notes a{white-space:nowrap}
 .cards{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
 .card{background:#fff;border:1px solid #ccd;border-radius:6px;padding:8px 16px;min-width:90px;text-align:center}
 .card b{display:block;font-size:1.6em}.card.due b{color:#c50}.card.rest b{color:#888}
@@ -23,7 +28,7 @@ details.file{margin-left:1.2em}
 pre{white-space:pre-wrap;background:#fff;border:1px solid #ccd;padding:8px;font-size:.85em}
 .warn{color:#c33}
 html{-webkit-text-size-adjust:100%}.tw{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-@media (max-width:700px){body{padding:0 10px 8px}h1{font-size:1.3em}.cards{gap:6px}.card{min-width:56px;padding:6px 8px}.card b{font-size:1.3em}
+@media (max-width:700px){body{padding:0 10px 8px}h1{font-size:1.3em}.top .nav{flex-wrap:nowrap;overflow-x:auto}.cards{gap:6px}.card{min-width:56px;padding:6px 8px}.card b{font-size:1.3em}
 table{font-size:.8em}td.w{min-width:10em}.bar{width:90px}details.file{margin-left:.4em}pre{font-size:.8em}
 table.c,table.c tbody,table.c tr,table.c td{display:block}table.c thead{display:none}table.c{border:none;background:none;width:100%}
 table.c tr{background:#fff;border:1px solid #ccd;border-radius:6px;margin:6px 0;padding:4px 8px}

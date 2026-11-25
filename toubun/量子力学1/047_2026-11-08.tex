@@ -1,0 +1,33 @@
+% 量子力学1 量子力学1-12 問題3（047-shift。当時は 量子力学1-8 問題1） 解いた日 2026-11-08
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\Bigl(\frac{a^{0}}{0!}\hat{D}^{0}+\frac{a^{1}}{1!}\hat{D}^{1}+\frac{a^{2}}{2!}\hat{D}^{2}\\
+&\qquad+\frac{a^{3}}{3!}\hat{D}^{3}+\cdots\Bigr)x^{2}\\
+&=\Bigl(\hat{I}+a\frac{\dd}{\dd x}+\frac{a^{2}}{2}\frac{\dd^{2}}{\dd x^{2}}\\
+&\qquad+\frac{a^{3}}{6}\frac{\dd^{3}}{\dd x^{3}}+\cdots\Bigr)x^{2}\\
+&=x^{2}+2ax+a^{2}+0\cdots\\
+&=x^{2}+2ax+a^{2}\\
+&=(x+a)^{2}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\exp(a\hat{D})\ee^{\ii kx}\\
+&=\Bigl(\hat{I}+a\frac{\dd}{\dd x}+\frac{a^{2}}{2}\frac{\dd^{2}}{\dd x^{2}}\\
+&\qquad+\frac{a^{3}}{6}\frac{\dd^{3}}{\dd x^{3}}+\cdots\Bigr)\ee^{\ii kx}\\
+&=\Bigl(1+a(\ii k)+\frac{a^{2}}{2}(\ii k)^{2}\\
+&\qquad+\frac{a^{3}}{6}(\ii k)^{3}+\cdots\Bigr)\ee^{\ii kx}\\
+&=\ee^{\ii ak}\cdot\ee^{\ii kx}
+\end{align*}
+定数倍なので固有関数，固有値 $\ee^{\ii ak}$
+\toi{3}{○}{記述}
+\[ \hat{D}=\frac{\ii}{\hbar}\hat{p},\qquad \exp(a\hat{D})=\exp\Bigl(\frac{\ii a}{\hbar}\hat{p}\Bigr) \]
+\begin{align*}
+\exp(a\hat{D})f&=\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\frac{\dd^{n}f}{\dd x^{n}}\\
+f(x+a)&\ayamari{\simeq}{=}\sum_{n=0}^{\infty}\frac{a^{n}}{n!}\frac{\dd^{n}f}{\dd x^{n}}
+\end{align*}
+\nuke{結論の式} \nuke{収束の条件}
+\naze{2つの級数を並べたところで終わっていて，問われた「何になるか」の答えが無い。テイラー展開が $f(x+a)$ に収束する関数では2つの級数は項ごとに等しく，近似ではなく等式で $\exp(a\hat{D})f(x)=f(x+a)$（グラフを $x$ の負の向きに $a$ だけずらす）が成り立つ。その条件と結論の式を書く。}
+%% kizuki
+\item 定義の級数 $\sum_{n}(a^{n}/n!)f^{(n)}(x)$ は，$f(x+a)$ を $x$ のまわりでテイラー展開した式そのものである。展開が収束する関数では両者は等しい（$\simeq$ ではなく $=$）ので，$\exp(a\hat{D})$ は関数を平行移動する演算子になる。(1) の $(x+a)^{2}$ と (2) の $\ee^{\ii k(x+a)}$ はその例である。
+\item \mae{第6章 問題1 (1)・11-01} 比べた結果を答えとして書かなかった（前回も得られる値と確率を答えとして書かなかった）。「何になるか」「比べて答えよ」と問われたら，並べた後に答えの式 $\exp(a\hat{D})f(x)=f(x+a)$ を1行書く。

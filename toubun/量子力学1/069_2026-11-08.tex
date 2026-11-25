@@ -1,0 +1,69 @@
+% 量子力学1 量子力学1-17 問題7（069-momrep。当時は 量子力学1-8 問題6） 解いた日 2026-11-08
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\ket{k}&=\int_{-\infty}^{\infty}\ket{x}\braket{x}{k}\dd x\\
+&=\int_{-\infty}^{\infty}\ket{x}\frac{1}{\sqrt{2\pi}}\ee^{\ii kx}\dd x
+\end{align*}
+\begin{align*}
+\hat{x}\ket{k}&=\int_{-\infty}^{\infty}\ket{x}\frac{1}{\sqrt{2\pi}}x\ee^{\ii kx}\dd x\\
+&=\int_{-\infty}^{\infty}\ket{x}\frac{1}{\sqrt{2\pi}}\Bigl(-\ii\pdv{}{k}\ee^{\ii kx}\Bigr)\dd x\\
+&=\int_{-\infty}^{\infty}\ket{x}\bra{x}-\ii\pdv{}{k}\ket{k}\dd x\\
+&=-\ii\pdv{}{k}\ket{k}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\matrixel{k}{\hat{x}}{\psi}&=\matrixel{\psi}{\hat{x}^{\dagger}}{k}^{*}\\
+&=\bra{\psi}-\ii\pdv{}{k}\ket{k}^{*}\\
+&=\ii\pdv{}{k}\braket{k}{\psi}
+\end{align*}
+\toi{3}{◎}{}
+$\hat{x}$，$\hat{p}$ はエルミート
+\begin{align*}
+&\matrixel{k}{\hat{x}\hat{p}}{\psi}-\matrixel{k}{\hat{p}\hat{x}}{\psi}\\
+&=\bigl(\matrixel{\psi}{\hat{p}^{\dagger}\hat{x}^{\dagger}}{k}-\matrixel{\psi}{\hat{x}^{\dagger}\hat{p}^{\dagger}}{k}\bigr)^{*}\\
+&=\Bigl(\bra{\psi}\hat{p}\Bigl(-\ii\pdv{}{k}\Bigr)\ket{k}\\
+&\qquad-\hbar k\matrixel{\psi}{\hat{x}}{k}\Bigr)^{*}\\
+&=\ii\pdv{}{k}\matrixel{\psi}{\hat{p}}{k}^{*}\\
+&\qquad-\hbar k\cdot\ii\pdv{}{k}\braket{k}{\psi}\\
+&=\ii\pdv{}{k}(\hbar k\braket{k}{\psi})-\ii\hbar k\pdv{}{k}\braket{k}{\psi}\\
+&=\ii\hbar\Bigl(\braket{k}{\psi}+k\pdv{}{k}\braket{k}{\psi}\Bigr)\\
+&\qquad-\ii\hbar k\pdv{}{k}\braket{k}{\psi}\\
+&=\ii\hbar\braket{k}{\psi}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\tilde{\psi}(k)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\,\ee^{-\ii kx}\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\\
+&\qquad\times(\cos kx-\ii\sin kx)\\
+&=\frac{2}{\sqrt{2\pi}}\int_{0}^{\infty}\dd x\sqrt{\kappa}\,\ee^{-\kappa x}\\
+&\qquad\times\Bigl(\frac{\ee^{\ii kx}+\ee^{-\ii kx}}{2}\Bigr)\\
+&=\sqrt{\frac{\kappa}{2\pi}}\int_{0}^{\infty}\dd x\\
+&\qquad\times\kakimachigai{\ee^{(-\kappa+\ii k)x}+\ee^{-(\kappa+\ii k)x}}{(\cdots)}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\biggl[\frac{1}{-\kappa+\ii k}\ee^{(-\kappa+\ii k)x}\\
+&\qquad+\frac{1}{-\kappa-\ii k}\ee^{(-\kappa-\ii k)x}\biggr]_{0}^{\infty}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\Bigl(\frac{1}{\kappa-\ii k}+\frac{1}{\kappa+\ii k}\Bigr)\\
+&=\sqrt{\frac{2\kappa^{3}}{\pi}}\cdot\frac{1}{k^{2}+\kappa^{2}}
+\end{align*}
+\toi{5}{◎}{}
+\begin{align*}
+&\matrixel{\psi}{\hat{x}^{2}}{\psi}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{x}}{k}\matrixel{k}{\hat{x}}{\psi}\dd k\\
+&=\int_{-\infty}^{\infty}\Bigl(\ii\pdv{}{k}\braket{k}{\psi}\Bigr)^{*}\\
+&\qquad\times\Bigl(\ii\pdv{}{k}\braket{k}{\psi}\Bigr)\dd k\\
+&=\int_{-\infty}^{\infty}\kakimachigai{\Bigl(\pdv{}{k}\braket{k}{\psi}\Bigr)^{2}}{\abs{\cdots}^{2}}\dd k
+\end{align*}
+\[ \pdv{}{k}\braket{k}{\psi}=\sqrt{\frac{2\kappa^{3}}{\pi}}\cdot\frac{-2k}{(k^{2}+\kappa^{2})^{2}} \]
+\begin{align*}
+\matrixel{\psi}{\hat{x}^{2}}{\psi}&=\int_{-\infty}^{\infty}\frac{8\kappa^{3}}{\pi}\cdot\frac{k^{2}}{(k^{2}+\kappa^{2})^{4}}\dd k\\
+&=\frac{8\kappa^{3}}{\pi}\cdot\frac{\pi}{16\kappa^{5}}=\frac{1}{2\kappa^{2}}
+\end{align*}
+\begin{align*}
+\matrixel{\psi}{\hat{x}^{2}}{\psi}&=\int_{-\infty}^{\infty}\matrixel{\psi}{\hat{x}^{2}}{x}\braket{x}{\psi}\dd x\\
+&=\int_{-\infty}^{\infty}x^{2}\abs{\braket{x}{\psi}}^{2}\dd x\\
+&=\int_{-\infty}^{\infty}\kappa x^{2}\ee^{-2\kappa\abs{x}}\dd x\\
+&=\int_{0}^{\infty}2\kappa x^{2}\ee^{-2\kappa x}\dd x\\
+&=2\kappa\cdot\frac{2}{(2\kappa)^{3}}\\
+&=\frac{1}{2\kappa^{2}}
+\end{align*}
+%% kizuki

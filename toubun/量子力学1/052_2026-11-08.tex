@@ -1,0 +1,54 @@
+% 量子力学1 量子力学1-12 問題7（052-transl。当時は 量子力学1-8 問題4） 解いた日 2026-11-08
+%% kotae
+\toi{1}{◎}{}
+i) $n=1$ のとき
+\[ \comm{\hat{x}}{\hat{p}}=\ii\hbar\cdot1\cdot\hat{p}^{0}=\ii\hbar \]
+ii) $\comm{\hat{x}}{\hat{p}^{k}}=\ii\hbar k\hat{p}^{k-1}$ と仮定する。
+\begin{align*}
+\comm{\hat{x}}{\hat{p}^{k+1}}&=\comm{\hat{x}}{\hat{p}\hat{p}^{k}}\\
+&=\hat{p}\comm{\hat{x}}{\hat{p}^{k}}+\comm{\hat{x}}{\hat{p}}\hat{p}^{k}\\
+&=\ii\hbar k\hat{p}^{k}+\ii\hbar\hat{p}^{k}\\
+&=\ii\hbar(k+1)\hat{p}^{k}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\comm{\hat{x}}{\hat{T}(a)}\\
+&=\Bigl[\hat{x},\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\Bigr]\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\comm{\hat{x}}{\hat{p}^{n}}\\
+&=\frac{1}{0!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{0}\comm{\hat{x}}{\hat{1}}\\
+&\qquad+\sum_{n=1}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\ii\hbar n\hat{p}^{n-1}\\
+&=\sum_{n=1}^{\infty}\frac{1}{(n-1)!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n-1}\\
+&\qquad\times\Bigl(-\frac{\ii a}{\hbar}\Bigr)\ii\hbar\hat{p}^{n-1}\\
+&=a\sum_{n=1}^{\infty}\frac{1}{(n-1)!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n-1}\hat{p}^{n-1}
+\end{align*}
+（$n-1=m$ とおく）
+\begin{align*}
+&=a\sum_{m=0}^{\infty}\frac{1}{m!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{m}\hat{p}^{m}\\
+&=a\hat{T}(a)
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+&\hat{T}(a)^{-1}\comm{\hat{x}}{\hat{T}(a)}\\
+&=\hat{T}(a)^{-1}\hat{x}\hat{T}(a)-\underbrace{\hat{T}(a)^{-1}\hat{T}(a)}_{\hat{1}}\hat{x}
+\end{align*}
+\begin{align*}
+\therefore\ \hat{T}(a)^{-1}\hat{x}\hat{T}(a)&=\hat{T}(a)^{-1}a\hat{T}(a)+\hat{x}\\
+&=a+\hat{x}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\hat{T}(a)\psi&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\\
+&\qquad\times\Bigl(-\ii\hbar\frac{\dd}{\dd x}\Bigr)^{n}\psi(x)\\
+&=\sum_{n=0}^{\infty}\frac{(-a)^{n}}{n!}\frac{\dd^{n}}{\dd x^{n}}\psi(x)\\
+&=\exp\Bigl(-a\frac{\dd}{\dd x}\Bigr)\psi(x)\\
+&=\psi(x-a)
+\end{align*}
+\begin{align*}
+&\hat{T}(a)^{-1}\hat{x}\hat{T}(a)\psi(x)\\
+&=\hat{T}(a)^{-1}\hat{x}\kakimachigai{\psi(x+a)}{\psi(x-a)}\\
+&=\hat{T}(a)^{-1}x\psi(x-a)\\
+&=(x+a)\psi(x+a-a)\\
+&=(x+a)\psi(x)\\
+&=(a+\hat{x})\psi(x)
+\end{align*}
+%% kizuki

@@ -1,0 +1,47 @@
+% 量子力学1 量子力学1-17 問題1（065-matrix。当時は 量子力学1-8 問題2） 解いた日 2026-11-08
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\matrixel{u_{1}}{\hat{A}}{u_{1}}\\
+&=3\varepsilon\braket{u_{1}}{u_{1}}\braket{u_{1}}{u_{1}}\\
+&\qquad+4\ii\varepsilon\braket{u_{1}}{u_{1}}\kakimachigai{\braket{u_{1}}{u_{2}}}{\braket{u_{2}}{u_{1}}}\\
+&\qquad-4\ii\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{1}}{u_{1}}\\
+&\qquad-3\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{2}}{u_{1}}\\
+&=3\varepsilon
+\end{align*}
+\begin{gather*}
+\matrixel{u_{1}}{\hat{A}}{u_{2}}=4\ii\varepsilon\\
+\matrixel{u_{2}}{\hat{A}}{u_{1}}=-4\ii\varepsilon\\
+\matrixel{u_{2}}{\hat{A}}{u_{2}}=-3\varepsilon\\
+\hat{A}=\begin{pmatrix}3\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-3\varepsilon\end{pmatrix}
+\end{gather*}
+\toi{2}{◎}{}
+\begin{gather*}
+\hat{A}^{*}=\begin{pmatrix}3\varepsilon&-4\ii\varepsilon\\4\ii\varepsilon&-3\varepsilon\end{pmatrix}\\
+\hat{A}^{\dagger}=\begin{pmatrix}3\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-3\varepsilon\end{pmatrix}=\hat{A}
+\end{gather*}
+\toi{3}{◎}{}
+\begin{align*}
+\braket{\psi}{\psi}&=\frac{1}{2}\kakimachigai{(\ket{u_{1}}+\ii\ket{u_{2}})^{*}}{(\cdots)^{\dagger}}\\
+&\qquad\times(\ket{u_{1}}+\ii\ket{u_{2}})\\
+&=\frac{1}{2}(\bra{u_{1}}-\ii\bra{u_{2}})(\ket{u_{1}}+\ii\ket{u_{2}})\\
+&=\frac{1}{2}(\braket{u_{1}}{u_{1}}+\braket{u_{2}}{u_{2}})\\
+&=1
+\end{align*}
+\begin{align*}
+&\matrixel{u_{1}}{\hat{A}}{\psi}\\
+&=3\varepsilon\braket{u_{1}}{u_{1}}\braket{u_{1}}{\psi}\\
+&\qquad+4\ii\varepsilon\braket{u_{1}}{u_{1}}\braket{u_{2}}{\psi}\\
+&\qquad-4\ii\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{1}}{\psi}\\
+&\qquad-3\varepsilon\braket{u_{1}}{u_{2}}\braket{u_{2}}{\psi}\\
+&=\frac{3}{\sqrt{2}}\varepsilon+\frac{4\ii\varepsilon}{\sqrt{2}}\ii\\
+&=-\frac{1}{\sqrt{2}}\varepsilon
+\end{align*}
+\[ \matrixel{u_{2}}{\hat{A}}{\psi}=-\frac{4\ii\varepsilon}{\sqrt{2}}-\frac{3\varepsilon\ii}{\sqrt{2}}=-\frac{7\varepsilon}{\sqrt{2}}\ii \]
+\begin{align*}
+&\matrixel{\psi}{\hat{A}}{\psi}\\
+&=\frac{1}{\sqrt{2}}\bigl(\matrixel{u_{1}}{\hat{A}}{\psi}-\ii\matrixel{u_{2}}{\hat{A}}{\psi}\bigr)\\
+&=\frac{1}{\sqrt{2}}\Bigl(-\frac{\varepsilon}{\sqrt{2}}-\frac{7\varepsilon}{\sqrt{2}}\Bigr)\\
+&=-4\varepsilon
+\end{align*}
+%% kizuki

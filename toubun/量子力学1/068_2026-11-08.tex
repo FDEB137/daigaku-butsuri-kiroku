@@ -1,0 +1,92 @@
+% 量子力学1 量子力学1-17 問題6（068-spectral。当時は 量子力学1-8 問題5） 解いた日 2026-11-08
+%% kotae
+\toi{1}{◎}{}
+\[ \hat{A}=\begin{pmatrix}3\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-3\varepsilon\end{pmatrix} \]
+\begin{align*}
+\abs{\hat{A}-\lambda\hat{I}}&=-(3\varepsilon-\lambda)(3\varepsilon+\lambda)\\
+&\qquad+4\ii\varepsilon\cdot4\ii\varepsilon=0
+\end{align*}
+\begin{gather*}
+\therefore\ 9\varepsilon^{2}-\lambda^{2}+16\varepsilon^{2}=0\\
+\therefore\ \lambda^{2}=25\varepsilon^{2},\qquad \lambda=\pm5\varepsilon\\
+a_{+}=5\varepsilon,\qquad a_{-}=-5\varepsilon
+\end{gather*}
+\[ \begin{pmatrix}-2\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&-8\varepsilon\end{pmatrix}\ket{a_{+}'}=0 \]
+\[ \therefore\ \ket{a_{+}'}=\begin{pmatrix}2\\-\ii\end{pmatrix},\qquad \ket{a_{+}}=\frac{1}{\sqrt{5}}\begin{pmatrix}2\\-\ii\end{pmatrix} \]
+\[ \begin{pmatrix}8\varepsilon&4\ii\varepsilon\\-4\ii\varepsilon&2\varepsilon\end{pmatrix}\ket{a_{-}'}=0 \]
+\[ \therefore\ \ket{a_{-}'}=\begin{pmatrix}1\\2\ii\end{pmatrix},\qquad \ket{a_{-}}=\frac{1}{\sqrt{5}}\begin{pmatrix}1\\2\ii\end{pmatrix} \]
+\begin{gather*}
+\ket{a_{+}}=\frac{2}{\sqrt{5}}\ket{u_{1}}-\frac{\ii}{\sqrt{5}}\ket{u_{2}}\\
+\ket{a_{-}}=\frac{1}{\sqrt{5}}\ket{u_{1}}+\frac{2\ii}{\sqrt{5}}\ket{u_{2}}
+\end{gather*}
+\toi{2}{◎}{}
+\begin{align*}
+&\ket{a_{+}}\bra{a_{+}}\\
+&=\frac{1}{5}(2\ket{u_{1}}-\ii\ket{u_{2}})(2\bra{u_{1}}+\ii\bra{u_{2}})\\
+&=\frac{1}{5}\bigl(4\ket{u_{1}}\bra{u_{1}}+\ket{u_{2}}\bra{u_{2}}\\
+&\qquad+2\ii\ket{u_{1}}\bra{u_{2}}-2\ii\ket{u_{2}}\bra{u_{1}}\bigr)
+\end{align*}
+\begin{align*}
+&\ket{a_{-}}\bra{a_{-}}\\
+&=\frac{1}{5}(\ket{u_{1}}+2\ii\ket{u_{2}})(\bra{u_{1}}-2\ii\bra{u_{2}})\\
+&=\frac{1}{5}\bigl(\ket{u_{1}}\bra{u_{1}}+4\ket{u_{2}}\bra{u_{2}}\\
+&\qquad-2\ii\ket{u_{1}}\bra{u_{2}}+2\ii\ket{u_{2}}\bra{u_{1}}\bigr)
+\end{align*}
+\begin{align*}
+&\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}}\\
+&=\ket{u_{1}}\bra{u_{1}}+\ket{u_{2}}\bra{u_{2}}
+\end{align*}
+\begin{align*}
+&\ket{a_{+}}a_{+}\bra{a_{+}}+\ket{a_{-}}a_{-}\bra{a_{-}}\\
+&=\kakimachigai{\varepsilon}{5\varepsilon}(\ket{a_{+}}\bra{a_{+}}-\ket{a_{-}}\bra{a_{-}})\\
+&=3\varepsilon\ket{u_{1}}\bra{u_{1}}-3\varepsilon\ket{u_{2}}\bra{u_{2}}\\
+&\qquad+4\ii\varepsilon\ket{u_{1}}\bra{u_{2}}-4\ii\varepsilon\ket{u_{2}}\bra{u_{1}}\\
+&=\hat{A}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\braket{a_{+}}{\psi}&=\Bigl(\frac{2}{\sqrt{5}}\bra{u_{1}}+\frac{\ii}{\sqrt{5}}\bra{u_{2}}\Bigr)\\
+&\qquad\times\Bigl(\frac{1}{\sqrt{2}}\ket{u_{1}}+\frac{\ii}{\sqrt{2}}\ket{u_{2}}\Bigr)\\
+&=\frac{2}{\sqrt{10}}\braket{u_{1}}{u_{1}}-\frac{1}{\sqrt{10}}\braket{u_{2}}{u_{2}}\\
+&=\frac{1}{\sqrt{10}}
+\end{align*}
+\begin{align*}
+\braket{a_{-}}{\psi}&=\Bigl(\frac{1}{\sqrt{5}}\bra{u_{1}}-\frac{2\ii}{\sqrt{5}}\bra{u_{2}}\Bigr)\\
+&\qquad\times\Bigl(\frac{1}{\sqrt{2}}\ket{u_{1}}+\frac{\ii}{\sqrt{2}}\ket{u_{2}}\Bigr)\\
+&=\frac{1}{\sqrt{10}}\braket{u_{1}}{u_{1}}+\frac{2}{\sqrt{10}}\braket{u_{2}}{u_{2}}\\
+&=\frac{3}{\sqrt{10}}
+\end{align*}
+\[ P_{+}=\frac{1}{10},\qquad P_{-}=\frac{9}{10} \]
+\[ a_{+}P_{+}+a_{-}P_{-}=\frac{5\varepsilon}{10}-\frac{5\cdot9\varepsilon}{10}=-4\varepsilon \]
+\toi{4}{◎}{}
+\begin{align*}
+&\hat{U}(\theta)\\
+&=\cos\theta(\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}})\\
+&\qquad-\ii\sin\theta\,\frac{1}{5\varepsilon}\kakimachigai{}{(}\ket{a_{+}}a_{+}\bra{a_{+}}\\
+&\qquad+\ket{a_{-}}a_{-}\bra{a_{-}}\kakimachigai{}{)}\\
+&=\cos\theta(\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}})\\
+&\qquad-\ii\sin\theta(\ket{a_{+}}\bra{a_{+}}-\ket{a_{-}}\bra{a_{-}})\\
+&=(\cos\theta-\ii\sin\theta)\ket{a_{+}}\bra{a_{+}}\\
+&\qquad+(\cos\theta+\ii\sin\theta)\ket{a_{-}}\bra{a_{-}}\\
+&=\ee^{-\ii\theta}\ket{a_{+}}\bra{a_{+}}+\ee^{\ii\theta}\ket{a_{-}}\bra{a_{-}}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}(-\ii\theta)^{n}\ket{a_{+}}\bra{a_{+}}\\
+&\qquad+\frac{1}{n!}\kakimachigai{(\ii\theta)}{(\ii\theta)^{n}}\ket{a_{-}}\bra{a_{-}}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii\theta}{5\varepsilon}\Bigr)^{n}a_{+}^{n}\ket{a_{+}}\bra{a_{+}}\\
+&\qquad+\frac{1}{n!}\kakimachigai{\Bigl(-\frac{\ii\theta}{5\varepsilon}\Bigr)}{(\cdots)^{n}}a_{-}^{n}\ket{a_{-}}\bra{a_{-}}\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii\theta}{5\varepsilon}\Bigr)^{n}\hat{A}^{n}\\
+&\qquad\times(\ket{a_{+}}\bra{a_{+}}+\ket{a_{-}}\bra{a_{-}})\\
+&=\hat{U}(\theta)\hat{1}
+\end{align*}
+より
+\[ \hat{U}(\theta)=\cos\theta\,\hat{1}-\ii\sin\theta\,\frac{\hat{A}}{5\varepsilon} \]
+\begin{align*}
+&\matrixel{u_{2}}{\hat{U}(\theta)}{u_{1}}\\
+&=\bra{u_{2}}\Bigl(\cos\theta\,\hat{1}\ket{u_{1}}-\ii\sin\theta\,\frac{\hat{A}}{5\varepsilon}\ket{u_{1}}\Bigr)\\
+&=\cos\theta\underbrace{\braket{u_{2}}{u_{1}}}_{0}-\ii\sin\theta\,\frac{1}{5\varepsilon}\matrixel{u_{2}}{\hat{A}}{u_{1}}\\
+&=\frac{4\ii^{2}\varepsilon}{5\varepsilon}\sin\theta\braket{u_{2}}{u_{2}}\braket{u_{1}}{u_{1}}
+\end{align*}
+\begin{align*}
+\abs{\matrixel{u_{2}}{\hat{U}(\theta)}{u_{1}}}^{2}&=\Bigl\lvert-\frac{4}{5}\sin\theta\Bigr\rvert^{2}\\
+&=\frac{16}{25}\sin^{2}\theta
+\end{align*}
+%% kizuki
