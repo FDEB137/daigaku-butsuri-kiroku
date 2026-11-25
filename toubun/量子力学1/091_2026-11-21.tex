@@ -1,0 +1,58 @@
+% 量子力学1 量子力学1-13 問題3（091-delta） 解いた日 2026-11-21
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\lim_{x\to-0}\phi=1+r\\
+&\lim_{x\to+0}\phi=t\qquad\therefore\ 1+r=t\\
+&\lim_{x\to-0}\phi'=\ii k(1-r)\\
+&\lim_{x\to+0}\phi'=\ii kt
+\end{align*}
+\begin{align*}
+\phi'(+0)-\phi'(-0)&=\frac{2mg}{\hbar^{2}}t\\
+\ii k(t-1+r)&=2\beta t\\
+2\ii k(t-1)&=2\beta t\\
+(\ii k-\beta)t&=\ii k\\
+t&=\frac{\ii k}{\ii k-\beta}\\
+r=t-1&=\frac{\beta}{\ii k-\beta}
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+j_{\mathrm{in}}&=\frac{\hbar}{m}\Im(\ee^{-\ii kx}\cdot\ii k\ee^{\ii kx})\\
+&=\frac{\hbar k}{m}
+\end{align*}
+\begin{align*}
+j_{\mathrm{ref}}&=\frac{\hbar}{m}\Im\bigl(\ayamari{r}{r^{*}}\ee^{\ii kx}\cdot(-\ii k)r\ee^{-\ii kx}\bigr)\\
+&=-\frac{\hbar k}{m}r^{2}
+\end{align*}
+\begin{align*}
+j_{\mathrm{tr}}&=\frac{\hbar}{m}\Im(\ayamari{t}{t^{*}}\ee^{-\ii kx}\cdot\ii kt\ee^{\ii kx})\\
+&=\frac{\hbar k}{m}t^{2}
+\end{align*}
+\naze{$r=\beta/(\ii k-\beta)$，$t$ は複素数なので，$\phi^{*}$ の係数は $r^{*}$，$t^{*}$ で，$j_{\mathrm{ref}}=-\hbar k\abs{r}^{2}/m$，$j_{\mathrm{tr}}=\hbar k\abs{t}^{2}/m$ である。以降の $R=r^{2}$，$T=t^{2}$ もこの誤りを引き継ぐ（最後に絶対値をとったので値は正しい）。}
+\begin{align*}
+R&=r^{2}=\abs{\frac{\beta}{\ii k-\beta}}^{2}=\frac{\beta^{2}}{\beta^{2}+k^{2}}\\
+T&=t^{2}=\abs{\frac{\ii k}{\ii k-\beta}}^{2}=\frac{k^{2}}{\beta^{2}+k^{2}}\\
+R+T&=\frac{\beta^{2}+k^{2}}{\beta^{2}+k^{2}}=1
+\end{align*}
+$T$ は $\beta^{2}$ すなわち $g^{2}$ に依存。よって $g>0$ と $g<0$ で $T$ が同じ。
+\toi{3}{○}{記述}
+\begin{align*}
+&E\to0\qquad\therefore\ k\to0\\
+&R\to1\qquad T\to0
+\end{align*}
+古典粒子に近づく
+\begin{align*}
+&E\to\infty\qquad\therefore\ k\to\infty\\
+&R\to0\qquad T\to1
+\end{align*}
+壁が無い状態での古典粒子に近づく
+\naze{古典の粒子がどうなるかが無い。デルタ関数障壁（$g>0$）は高さが無限なので古典ではどんなエネルギーでも跳ね返し，井戸（$g<0$）はどんなエネルギーでも通す。量子力学では，高いエネルギーでは障壁でもほとんど透過し，低いエネルギーでは井戸でもほとんど反射する。}
+\toi{4}{◎}{}
+\begin{align*}
+k&=\frac{\sqrt{2mE}}{\hbar}=5.121\times10^{9}\\
+\beta&=\kakimachigai{3.933\times10^{15}}{3.933\times10^{9}}
+\end{align*}
+\[ R=0.371\qquad T=0.629 \]
+%% kizuki
+\item 問題1 (1) と同じ。$r$，$t$ が複素数のときは $\phi^{*}$ で $r^{*}$，$t^{*}$ とし，$R=\abs{r}^{2}$ と書く。
+\item \mae{第7章 問題3・11-04，第9章 問題7・11-11} 「述べよ」の要点が無い。古典との比較は (i) 古典ではどうなるか (ii) 量子ではどうなるか (iii) 違い，の順に書く。障壁と井戸は量子では $T$ が同じでも古典では正反対である。

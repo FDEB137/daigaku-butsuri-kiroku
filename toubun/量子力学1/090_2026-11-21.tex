@@ -1,0 +1,66 @@
+% 量子力学1 量子力学1-13 問題2（090-wall） 解いた日 2026-11-21
+%% kotae
+\toi{1}{◎}{}
+$x\ge0$ に粒子は存在できないため $R=1$，$T=0$
+\[ r=-1\qquad\abs{\phi}^{2}=4\sin^{2}kx \]
+\begin{align*}
+j&=\frac{\hbar}{2m\ii}\Bigl((\ee^{-\ii kx}-\ee^{\ii kx})\\
+&\qquad\times(\ii k\ee^{\ii kx}+\ii k\ee^{-\ii kx})\\
+&\qquad-(\ee^{\ii kx}-\ee^{-\ii kx})\\
+&\qquad\times(-\ii k\ee^{-\ii kx}-\ii k\ee^{\ii kx})\Bigr)\\
+&=\frac{\hbar k}{2m}\Bigl((\ee^{-\ii kx}-\ee^{\ii kx})(\ee^{\ii kx}+\ee^{-\ii kx})\\
+&\qquad+(\ee^{\ii kx}-\ee^{-\ii kx})(\ee^{-\ii kx}+\ee^{\ii kx})\Bigr)\\
+&=\frac{\hbar k}{2m}\Bigl((1-\ee^{2\ii kx}+\ee^{-2\ii kx}-1)\\
+&\qquad+(1+\ee^{2\ii kx}-\ee^{-2\ii kx}-1)\Bigr)\\
+&=0
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+&\lim_{x\to-0}\phi(x)=1+r\\
+&\phi(0)=C\qquad\therefore\ 1+r=C\\
+&\lim_{x\to-0}\phi'(x)=\ii k(1-r)\\
+&\phi'(0)=-\kappa C\qquad\ii k(1-r)=-\kappa C
+\end{align*}
+\begin{align*}
+\therefore\ \ii k(1-r)&=-\kappa(1+r)\\
+\ii k-\ii kr&=-\kappa-\kappa r\\
+(\kappa-\ii k)r&=-\kappa-\ii k\\
+r&=-\frac{\kappa+\ii k}{\kappa-\ii k}
+\end{align*}
+\begin{align*}
+\abs{r}&=\abs{\frac{-(\kappa+\ii k)^{2}}{(\kappa-\ii k)(\kappa+\ii k)}}\\
+&=\abs{\frac{\kakimachigai{\kappa^{2}+2\ii k\kappa-k^{2}}{-(\kappa^{2}+2\ii k\kappa-k^{2})}}{k^{2}+\kappa^{2}}}\\
+&=\frac{\sqrt{(\kappa^{2}-k^{2})^{2}+(2k\kappa)^{2}}}{k^{2}+\kappa^{2}}\\
+&=\frac{\sqrt{\kappa^{4}+2k^{2}\kappa^{2}+k^{4}}}{k^{2}+\kappa^{2}}\\
+&=\frac{k^{2}+\kappa^{2}}{k^{2}+\kappa^{2}}=1
+\end{align*}
+\begin{align*}
+j&=\frac{\hbar k}{m}(1-r^{2})\qquad\ayamari{r^{2}=\abs{r}^{2}=1}{\abs{r}^{2}=1}\\
+&=0
+\end{align*}
+\naze{$r$ は複素数なので $r^{2}\neq\abs{r}^{2}$ である（$r=\ee^{-2\ii\theta}$ なら $r^{2}=\ee^{-4\ii\theta}$）。また問われているのは $x>0$ の確率流で，$x>0$ では $\phi^{*}\phi'=-\kappa\abs{C}^{2}\ee^{-2\kappa x}$ が実数なので $j=0$，と直接示す（$x<0$ から出すなら，定常状態では $j$ が $x$ によらないことを書く）。}
+\[ R=1,\quad T=0 \]
+\toi{3}{◎}{}
+\begin{align*}
+r&=-\frac{\kappa+\ii k}{\kappa-\ii k}=\ee^{-2\ii\theta}\\
+&=\frac{k-\ii\kappa}{k+\ii\kappa}=\frac{(k-\ii\kappa)^{2}}{k^{2}+\kappa^{2}}\\
+&=\ee^{-2\ii\theta}
+\end{align*}
+\begin{align*}
+&\frac{k-\ii\kappa}{\sqrt{k^{2}+\kappa^{2}}}=\ee^{-\ii\theta}\\
+&\tan\theta=\frac{\kappa}{k}
+\end{align*}
+\begin{align*}
+&V_{1}\to\infty\qquad\kappa\to\infty\qquad\theta\to\frac{\pi}{2}\\
+&r\to\ee^{-\ii\pi}=-1\\
+&C\to1-1=0
+\end{align*}
+(1) と同じ状態になる。(1) (2) どちらも全反射。
+\begin{align*}
+&E\to V_{1}-0\qquad\kappa\to+0\qquad\theta\to0\\
+&r\to\ee^{0}=1\\
+&C\to1+1=2
+\end{align*}
+%% kizuki
+\item \mae{第3章 問題2・10-18，10-21} 問題1 (1) と同じく $r^{2}$ と $\abs{r}^{2}$ を混ぜた。$\abs{r}=1$ でも $r^{2}=1$ とは限らない。
+\item $x>0$ の $\phi=C\ee^{-\kappa x}$ は実関数×定数なので $\phi^{*}\phi'$ は実数で $j=0$。しみ込みと透過は別である。

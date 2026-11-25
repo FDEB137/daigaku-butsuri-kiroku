@@ -1,0 +1,85 @@
+% 量子力学1 量子力学1-13 問題1（089-step） 解いた日 2026-11-21
+%% kotae
+\toi{1}{○}{記述}
+（図：$x<0$ で右向きの入射波 $\phi_{1}=\ee^{\ii kx}$ と左向きの反射波 $r\ee^{-\ii kx}$，$x>0$ で透過波 $\phi_{2}=t\ee^{\ii qx}$。段差は $x=0$）
+
+$\phi_{1}$ について
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}(\ii k)^{2}\ee^{\ii kx}=E\ee^{\ii kx}\\
+&\therefore\ \frac{\hbar^{2}k^{2}}{2m}=E\qquad k=\frac{\sqrt{2mE}}{\hbar}
+\end{align*}
+$\phi_{2}$ について
+\begin{align*}
+&-\frac{\hbar^{2}}{2m}(\ii q)^{2}t\ee^{\ii qx}+V_{1}t\ee^{\ii qx}=Et\ee^{\ii qx}\\
+&\therefore\ \frac{\hbar^{2}q^{2}}{2m}=E-V_{1}\\
+&\qquad q=\frac{\sqrt{2m(E-V_{1})}}{\hbar}
+\end{align*}
+\begin{align*}
+j&=\frac{\hbar}{2m\ii}\Bigl((\ee^{-\ii kx}+\ayamari{r}{r^{*}}\ee^{\ii kx})\\
+&\qquad\times(\ii k\ee^{\ii kx}-\ii kr\ee^{-\ii kx})\\
+&\qquad-(\ee^{\ii kx}+r\ee^{-\ii kx})\\
+&\qquad\times(-\ii k\ee^{-\ii kx}+\ii k\ayamari{r}{r^{*}}\ee^{\ii kx})\Bigr)\\
+&=\frac{\hbar k}{2m}\Bigl((\ee^{-\ii kx}+r\ee^{\ii kx})(\ee^{\ii kx}-r\ee^{-\ii kx})\\
+&\qquad-(\ee^{\ii kx}+r\ee^{-\ii kx})(-\ee^{-\ii kx}+r\ee^{\ii kx})\Bigr)\\
+&=\frac{\hbar k}{2m}\Bigl((1+r\ee^{2\ii kx}-r\ee^{-2\ii kx}-r^{2})\\
+&\qquad-(-1+r\ee^{2\ii kx}-r\ee^{-2\ii kx}+r^{2})\Bigr)\\
+&=\frac{\hbar k}{2m}\cdot2(1-r^{2})\quad\text{干渉項は打ち消し合う}\\
+&=\frac{\hbar k}{m}(1-r^{2})\qquad(x<0)
+\end{align*}
+\naze{$\phi^{*}$ では係数も複素共役にするので $\phi^{*}=\ee^{-\ii kx}+r^{*}\ee^{\ii kx}$ である（$x>0$ も $t^{*}\ee^{-\ii qx}$）。以降はこの誤りを引き継ぎ，正しくは $j=\hbar k(1-\abs{r}^{2})/m$（$x<0$），$j=\hbar q\abs{t}^{2}/m$（$x>0$）である。干渉の項は $r^{*}\ee^{2\ii kx}-r\ee^{-2\ii kx}$ で純虚数なので，$\ii k$ を掛けると実数になり虚部に残らない。}
+\begin{align*}
+j&=\frac{\hbar}{2m\ii}\bigl(\ayamari{t}{t^{*}}\ee^{-\ii qx}\cdot\ii qt\ee^{\ii qx}\\
+&\qquad-t\ee^{\ii qx}\cdot(-\ii q)\ayamari{t}{t^{*}}\ee^{-\ii qx}\bigr)\\
+&=\frac{\hbar q}{2m}(t^{2}+t^{2})\\
+&=\frac{\hbar q}{m}t^{2}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\lim_{x\to-0}\phi(x)=1+r\\
+&\phi(0)=t\qquad\therefore\ 1+r=t\quad\cdots\text{①}\\
+&\phi'(x)=\ii k\ee^{\ii kx}-\ii kr\ee^{-\ii kx}\quad(x<0)\\
+&\phi'(x)=\ii qt\ee^{\ii qx}\quad(x>0)\\
+&\lim_{x\to-0}\phi'(x)=\ii k(1-r)\\
+&\phi'(0)=\ii qt\qquad k(1-r)=qt\quad\cdots\text{②}
+\end{align*}
+①，②より
+\begin{align*}
+&k+kr=kt\\
+&k-kr=qt\\
+&2k=(k+q)t\\
+&t=\frac{2k}{k+q}
+\end{align*}
+\begin{align*}
+r&=\frac{k-q}{2k}t\\
+&=\frac{k-q}{2k}\cdot\frac{2k}{k+q}=\frac{k-q}{k+q}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+R&=\frac{\abs{j_{\mathrm{ref}}}}{j_{\mathrm{in}}}=\frac{\abs{-\frac{\hbar k}{m}r^{2}}}{\frac{\hbar k}{m}}=r^{2}\\
+&=\left(\frac{k-q}{k+q}\right)^{2}
+\end{align*}
+\begin{align*}
+T&=\frac{j_{\mathrm{tr}}}{j_{\mathrm{in}}}=\frac{\frac{\hbar q}{m}t^{2}}{\frac{\hbar k}{m}}=\frac{q}{k}t^{2}\\
+&=\frac{4kq}{(k+q)^{2}}
+\end{align*}
+\begin{align*}
+R+T&=\frac{k^{2}-2kq+q^{2}+4kq}{(k+q)^{2}}\\
+&=\frac{(k+q)^{2}}{(k+q)^{2}}=1
+\end{align*}
+$T\neq\abs{t}^{2}$ は $x\ge0$ と $x<0$ で波数が違うから。
+\toi{4}{△}{方針}
+\begin{align*}
+R&=\frac{k^{2}+q^{2}-2kq}{k^{2}+q^{2}+2kq}\\
+&=\frac{2mE+2m(E-V_{1})-4m\sqrt{E(E-V_{1})}}{2mE+2m(E-V_{1})+4m\sqrt{E(E-V_{1})}}\\
+&=\frac{2E-V_{1}-2\sqrt{E(E-V_{1})}}{2E-V_{1}+2\sqrt{E(E-V_{1})}}\\
+&=\frac{6-2\sqrt{5}}{6+2\sqrt{5}}\\
+&=\frac{(6-2\sqrt{5})^{2}}{16}=\ayamari{0.145}{0.146}
+\end{align*}
+\naze{$(6-2\sqrt{5})^{2}/16=\num{0.14590}$ なので，3桁では次の桁を四捨五入して $\num{0.146}$ である（切り捨てたので $R+T=\num{0.999}$ になる）。}
+\[ T=1-R=0.854 \]
+古典粒子では $\ayamari{R=1,\ T=0}{R=0,\ T=1}$
+\naze{$E>V_{1}$ の古典の粒子は段差で減速するだけで必ず越えるので，$R=0$，$T=1$ である。量子力学では越えられるエネルギーでも $\num{0.146}$ の割合で反射する，というのが比べる要点である。}
+%% kizuki
+\item \mae{第3章 問題2・10-18，10-21，問題5・10-18} 複素数の係数を実数として扱った。$\phi^{*}$ を書く行で $r\to r^{*}$，$t\to t^{*}$ と係数すべてに ${}^{*}$ を付け，2乗は $\abs{r}^{2}$ と書く。
+\item 古典との比較は，まず古典の粒子がどうなるかを決める。$E>V_{1}$ の段差は古典では必ず越える（$R=0$，$T=1$）。
+\item 有効数字は次の桁で四捨五入し，$R+T=1$ で検算する。

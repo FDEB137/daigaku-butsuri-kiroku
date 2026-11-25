@@ -1,0 +1,95 @@
+% 量子力学1 量子力学1-13 問題5（101-barrier） 解いた日 2026-11-21
+%% kotae
+\toi{1}{◎}{}
+（図：$0\le x\le a$ に高さ $V_{0}$ の障壁。$x<0$ に右向きの $A\ee^{\ii k_{1}x}$ と左向きの $B\ee^{-\ii k_{1}x}$，障壁内に $C\ee^{\kappa x}$ と $D\ee^{-\kappa x}$，$x>a$ に右向きの $F\ee^{\ii k_{1}x}$）
+\begin{align*}
+&\phi_{1}'(x)=\ii k_{1}(A\ee^{\ii k_{1}x}-B\ee^{-\ii k_{1}x})\\
+&\phi_{2}'(x)=\kappa(C\ee^{\kappa x}-D\ee^{-\kappa x})\\
+&\phi_{3}'(x)=\ii k_{1}F\ee^{\ii k_{1}x}
+\end{align*}
+\begin{align*}
+&\phi_{1}(0)=\phi_{2}(0)\\
+&\quad\therefore\ A+B=C+D\quad\cdots\text{①}\\
+&\phi_{1}'(0)=\phi_{2}'(0)\\
+&\quad\therefore\ \ii k_{1}(A-B)=\kappa(C-D)\quad\cdots\text{②}\\
+&\phi_{2}(a)=\phi_{3}(a)\\
+&\quad\therefore\ C\ee^{\kappa a}+D\ee^{-\kappa a}=F\ee^{\ii k_{1}a}\quad\cdots\text{③}\\
+&\phi_{2}'(a)=\phi_{3}'(a)\\
+&\quad\therefore\ \kappa(C\ee^{\kappa a}-D\ee^{-\kappa a})=\ii k_{1}F\ee^{\ii k_{1}a}\quad\cdots\text{④}
+\end{align*}
+\toi{2}{◎}{}
+③${}\times\kappa$，④
+\begin{align*}
+&\kappa(C\ee^{\kappa a}+D\ee^{-\kappa a})=\kappa F\ee^{\ii k_{1}a}\\
+&\kappa(C\ee^{\kappa a}-D\ee^{-\kappa a})=\ii k_{1}F\ee^{\ii k_{1}a}
+\end{align*}
+\begin{align*}
+2\kappa C\ee^{\kappa a}&=(\kappa+\ii k_{1})F\ee^{\ii k_{1}a}\\
+C&=\frac{\kappa+\ii k_{1}}{2\kappa}\ee^{\ii k_{1}a-\kappa a}F\\
+2\kappa D\ee^{-\kappa a}&=(\kappa-\ii k_{1})F\ee^{\ii k_{1}a}\\
+D&=\frac{\kappa-\ii k_{1}}{2\kappa}\ee^{\ii k_{1}a+\kappa a}F
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\ii k_{1}(A+B)&=\ii k_{1}(C+D)\\
+\ii k_{1}(A-B)&=\kappa(C-D)
+\end{align*}
+\begin{align*}
+2\ii k_{1}A&=(\ii k_{1}+\kappa)C+(\ii k_{1}-\kappa)D\\
+A&=\frac{\ii k_{1}+\kappa}{2\ii k_{1}}C+\frac{\ii k_{1}-\kappa}{2\ii k_{1}}D
+\end{align*}
+\begin{align*}
+A&=\frac{(\kappa+\ii k_{1})^{2}}{4\ii k_{1}\kappa}\ee^{\ii k_{1}a}\ee^{-\kappa a}F\\
+&\qquad-\frac{(\kappa-\ii k_{1})^{2}}{4\ii k_{1}\kappa}\ee^{\ii k_{1}a}\ee^{\kappa a}F\\
+&=\frac{\ee^{\ii k_{1}a}F}{4\ii k_{1}\kappa}\bigl((\kappa+\ii k_{1})^{2}\ee^{-\kappa a}\\
+&\qquad-(\kappa-\ii k_{1})^{2}\ee^{\kappa a}\bigr)
+\end{align*}
+（矢印で括弧の中の計算につなぐ）
+\begin{align*}
+&(\kappa^{2}+2\ii k_{1}\kappa-k_{1}^{2})\ee^{-\kappa a}\\
+&\qquad-(\kappa^{2}-2\ii k_{1}\kappa-k_{1}^{2})\ee^{\kappa a}\\
+&(\kappa^{2}-k_{1}^{2})(\ee^{-\kappa a}-\ee^{\kappa a})\\
+&\qquad+2\ii k_{1}\kappa(\ee^{\kappa a}+\ee^{-\kappa a})\\
+&2(k_{1}^{2}-\kappa^{2})\sinh(\kappa a)+4\ii k_{1}\kappa\cosh(\kappa a)
+\end{align*}
+\begin{align*}
+A&=\left[\frac{k_{1}^{2}-\kappa^{2}}{2\ii k_{1}\kappa}\sinh(\kappa a)+\cosh(\kappa a)\right]\\
+&\qquad\times F\ee^{\ii k_{1}a}
+\end{align*}
+\begin{align*}
+2\ii k_{1}B&=(\ii k_{1}-\kappa)C+(\ii k_{1}+\kappa)D\\
+B&=\frac{\ii k_{1}-\kappa}{2\ii k_{1}}C+\frac{\ii k_{1}+\kappa}{2\ii k_{1}}D
+\end{align*}
+\begin{align*}
+B&=\frac{(\kappa+\ii k_{1})(\ii k_{1}-\kappa)}{4\ii k_{1}\kappa}\ee^{\ii k_{1}a}\ee^{-\kappa a}F\\
+&\qquad+\frac{(\kappa-\ii k_{1})(\kappa+\ii k_{1})}{4\ii k_{1}\kappa}\ee^{\ii k_{1}a}\ee^{\kappa a}F\\
+&=\frac{\ee^{\ii k_{1}a}F}{4\ii k_{1}\kappa}\bigl((-\kappa^{2}-k_{1}^{2})\ee^{-\kappa a}\\
+&\qquad+(\kappa^{2}+k_{1}^{2})\ee^{\kappa a}\bigr)
+\end{align*}
+（矢印で括弧の中の計算につなぐ）
+\begin{align*}
+&(\kappa^{2}+k_{1}^{2})(\ee^{\kappa a}-\ee^{-\kappa a})\\
+&=2(\kappa^{2}+k_{1}^{2})\sinh(\kappa a)
+\end{align*}
+\[ B=\frac{\kappa^{2}+k_{1}^{2}}{2\ii k_{1}\kappa}\sinh(\kappa a)F\ee^{\ii k_{1}a} \]
+\toi{4}{○}{記述}
+\[ R=\frac{\abs{B}^{2}}{\abs{A}^{2}} \]
+\begin{align*}
+\abs{A}^{2}&=\abs{\frac{k_{1}^{2}-\kappa^{2}}{2\ii k_{1}\kappa}\sinh(\kappa a)+\cosh(\kappa a)}^{2}\\
+&\qquad\times\ayamari{F^{2}}{\abs{F}^{2}}\\
+\abs{B}^{2}&=\abs{\frac{\kappa^{2}+k_{1}^{2}}{2\ii k_{1}\kappa}\sinh(\kappa a)}^{2}F^{2}
+\end{align*}
+\naze{$F$ は複素数なので $F^{2}$ ではなく $\abs{F}^{2}$ である（問題1 (1) と同じ）。}
+\[ R=\frac{\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\sinh(\kappa a)\right)^{2}}{\left(\frac{k_{1}^{2}-\kappa^{2}}{2k_{1}\kappa}\sinh(\kappa a)\right)^{2}+\cosh^{2}(\kappa a)} \]
+\[ \nuke{T=\abs{F}^{2}/\abs{A}^{2}} \]
+\[ T=\frac{1}{\left(\frac{k_{1}^{2}-\kappa^{2}}{\kakimachigai{k_{1}\kappa}{2k_{1}\kappa}}\sinh(\kappa a)\right)^{2}+(\cosh(\kappa a))^{2}} \]
+\naze{$T=\abs{F}^{2}/\abs{A}^{2}$ とする根拠が無い。入射側と透過側の波数が同じ $k_{1}$ で速さが等しいので，確率流の比が振幅の2乗の比になる（問題1 の段差のように波数が違えば $q/k$ が付く）。}
+\begin{align*}
+&\left(\frac{k_{1}^{2}-\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)+\cosh^{2}(\kappa a)\\
+&\qquad=1+\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)
+\end{align*}
+\[ T=\left[1+\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)\right]^{-1} \]
+\[ R+T=\frac{1+\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)}{1+\left(\frac{k_{1}^{2}+\kappa^{2}}{2k_{1}\kappa}\right)^{2}\sinh^{2}(\kappa a)}=1 \]
+%% kizuki
+\item 問題1 (1) と同じ。$\abs{A}^{2}$ を書く行で $F$ にも $\abs{\cdot}$ を付ける。
+\item $T=\abs{F}^{2}/\abs{A}^{2}$ が使えるのは両側の波数が同じときだけである。使う前に「両側とも $k_{1}$」と1行書く。
