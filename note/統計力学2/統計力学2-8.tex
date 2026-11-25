@@ -1,0 +1,286 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{統計力学2　第8章「縮退した気体と粒子の統計性」}{2026-11-25}
+%% note-moto	problems\統計力学2\shou08\統計力学2-8.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-001-levels}{1}}{L1・計算}{○◎△}{B}{2026-10-25 (1)記述 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-002-lambda}{2}}{L1・計算}{○◎◎}{A}{2026-10-25 (1)単位}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L1・計算}{}{未着手}{}
+  \ichirangyou{6}{L1・計算}{}{未着手}{}
+  \ichirangyou{7}{L1・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-003-z1}{8}}{L2・導出}{◎◎◎◎}{S}{2026-10-25}
+  \ichirangyou{\hyperlink{bt-m-004-entropy}{9}}{L2・計算}{◎△◎}{B}{2026-10-25 (2)計算}
+  \ichirangyou{10}{L2・計算}{○○◎○}{B}{2026-10-26 (1)記述 (2)単位 (4)記述}
+  \ichirangyou{11}{L2・導出}{}{未着手}{}
+  \ichirangyou{12}{L2・計算}{}{未着手}{}
+  \ichirangyou{13}{L2・導出}{}{未着手}{}
+  \ichirangyou{14}{L2・計算}{}{未着手}{}
+  \ichirangyou{15}{L2・計算}{}{未着手}{}
+  \ichirangyou{16}{L3・導出}{}{未着手}{}
+  \ichirangyou{17}{L3・説明}{}{未着手}{}
+  \ichirangyou{18}{L3・導出}{}{未着手}{}
+  \ichirangyou{19}{L3・計算}{}{未着手}{}
+  \ichirangyou{20}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\統計力学2\001_2026-10-25.tex
+\mondaibangou{1}
+\begin{mondai}{001-levels}{計算}{箱の中の1粒子のエネルギー準位と縮退度，$\beta E_0$ と $\lambda/L$ の関係，和を積分に置き換える根拠}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+  ボルツマン定数 & $\kB$ & \qty{1.38e-23}{\joule\per\kelvin}\\
+  ヘリウム4原子の質量 & $m_{\mathrm{He}}$ &\qty{6.65e-27}{\kilogram}\\
+  電子の質量 & $\melec$ & \qty{9.11e-31}{\kilogram}\\
+\end{teisuu}
+一辺 $L$ の立方体の容器に閉じ込められた質量 $m$ の1粒子のエネルギー固有値は，量子数 $n_x,n_y,n_z$（それぞれ $1,2,3,\dots$）を用いて
+  \[ E_{n_xn_yn_z}=E_0\bigl(n_x^{2}+n_y^{2}+n_z^{2}\bigr),\qquad E_0=\frac{\pi^{2}\hbar^{2}}{2mL^{2}} \]
+  で与えられる。温度を $T$，$\beta=1/(\kB T)$ とする。
+  \begin{shoumon}
+    \item エネルギーの値を低いほうから異なるものを5つ挙げ，それぞれを $E_0$ を単位として表せ。また，各値をとる1粒子状態の数（縮退度）を答えよ。
+    \item 熱的ドブロイ波長 $\lambda=\sqrt{2\pi\hbar^{2}\beta/m}$ を用いて，$\beta E_0$ を $\lambda/L$ で表せ。
+    \item $\beta E_0\ll1$ のとき，最低の準位に対する2番目の準位のボルツマン因子（1つの状態あたりの $\ee^{-\beta E}$）の比を $\beta E_0$ の1次まで求めよ。また，1粒子の分配関数の和を積分に置き換えてよい理由を述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-25 B ○◎△}
+\begin{kotaeutsushi}{2026-10-25}
+\toi{1}{○}{記述}
+$\{n_x,n_y,n_z\}$
+
+i) $=\{1,1,1\}$
+
+$E=3E_0$　縮退：1
+
+ii) $=\{2,1,1\}\{1,2,1\}\{1,1,2\}$
+
+$E=6E_0$　縮退：3
+
+iii) $=\{2,2,1\}\{2,1,2\}\ayamari{\{1,1,2\}}{\{1,2,2\}}$
+
+$E=9E_0$　縮退：3
+\naze{$\{1,1,2\}$ は2乗の和が $6$ で，ii) の $6E_0$ の状態である。$9E_0$ の3つ目は $(2,2,1)$ の並べ替えの $\{1,2,2\}$ である。縮退度3は正しく数えている。}
+
+iv) $=\{3,1,1\}\{1,3,1\}\{1,1,3\}$
+
+$E=11E_0$　縮退：3
+
+v) $=\{2,2,2\}$
+
+$E=12E_0$　縮退：1
+\toi{2}{◎}{}
+\[ \beta E_0=\frac{\pi}{4}\cdot\frac{2\pi\hbar^{2}\beta}{m}\cdot\frac{1}{L^{2}}=\frac{\pi}{4}\Bigl(\frac{\lambda}{L}\Bigr)^{2} \]
+\toi{3}{△}{計算}
+\[ \frac{\ee^{-6\beta E_0}}{\ee^{-3\beta E_0}}=\ee^{-3\beta E_0} \]
+\begin{align*}
+\ee^{x}&=\frac{\ee^{0}}{0!}x^{0}+\ayamari{\frac{\ee^{1}}{1!}}{\frac{\ee^{0}}{1!}}x^{1}+O(x^{2})\\
+&=1+\ee x+O(x^{2})
+\end{align*}
+\[ \ee^{-3\beta E_0}=1-3\ee\beta E_0 \]
+\naze{テイラー展開の係数は $x=0$ での微分係数 $f^{(n)}(0)/n!$ で，$\ee^{x}$ の1階微分の $x=0$ での値は $\ee^{0}=1$ である。よって $\ee^{x}=1+x+O(x^{2})$ で，比は $1-3\beta E_0$ になる。以降はこの誤りを引き継ぐ。}
+
+隣り合う準位のボルツマン因子の比がほぼ1であり，ゆっくりと変化するから。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item テイラー展開 $f(x)=\sum f^{(n)}(0)x^{n}/n!$ の係数は「$x=0$ で」の微分係数である。$\ee^{x}$ は何回微分しても $\ee^{x}$ だが，$x=0$ を入れるので係数はすべて $1$ になり，$\ee^{x}=1+x+x^{2}/2+\cdots$ である。$\ee^{1}=\ee$ は $x=1$ での値で，展開の係数には出てこない。
+\item 確かめ方：近似式で $\beta E_0\to0$ とすると比は $1$ に近づくはずで，$1-3\ee\beta E_0$ もそうなるので1次の係数は別に確かめる。$\ee^{x}\simeq1+x$ は $x=0.01$ で $\ee^{0.01}=1.01005$ と合う（$1+\ee x=1.027$ は合わない）と数値で1回確かめる。
+\item 状態の列は並べ替えで作る。$(2,2,1)$ の並べ替えは「$1$ をどこに置くか」で $\{1,2,2\}\{2,1,2\}\{2,2,1\}$ の3つと書き出し，各組の2乗の和が $9$ になるかを見て確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は $n_x^{2}+n_y^{2}+n_z^{2}$ の値を小さい順に列挙し，並べ替えの数を数える。(2) は $\lambda$ の定義を $\beta E_0$ に代入する。(3) はボルツマン因子の比を展開し，和の項が $n$ についてゆっくり変わることを示す。
+\keisan \shoumonkai{1} $n_x,n_y,n_z\ge1$ なので，2乗の和 $s=n_x^{2}+n_y^{2}+n_z^{2}$ がとりうる値は小さい順に次のとおりである。
+\begin{itemize}
+  \item $s=3$：$(1,1,1)$ の1通り。
+  \item $s=6$：$(2,1,1)$ の並べ替えで3通り。
+  \item $s=9$：$(2,2,1)$ の並べ替えで3通り。
+  \item $s=11$：$(3,1,1)$ の並べ替えで3通り。
+  \item $s=12$：$(2,2,2)$ の1通り。
+\end{itemize}
+$s=4,5,7,8,10$ は，各項が $1,4,9,\dots$ のどれかである3項の和では作れない（例えば $10=9+1+0$ や $8=4+4+0$ は $0$ を含む）。次の値は $s=14$（$(3,2,1)$ の6通り）である。
+\shoumonkai{2} $\lambda^{2}=2\pi\hbar^{2}\beta/m$ より $\hbar^{2}\beta/m=\lambda^{2}/(2\pi)$ なので
+\[ \beta E_0=\frac{\pi^{2}}{2L^{2}}\cdot\frac{\hbar^{2}\beta}{m}=\frac{\pi^{2}}{2L^{2}}\cdot\frac{\lambda^{2}}{2\pi}=\frac{\pi}{4}\Bigl(\frac{\lambda}{L}\Bigr)^{2} \]
+\shoumonkai{3} 最低の準位は $3E_0$，2番目は $6E_0$ なので，ボルツマン因子の比は
+\[ \frac{\ee^{-6\beta E_0}}{\ee^{-3\beta E_0}}=\ee^{-3\beta E_0}\simeq1-3\beta E_0 \]
+である。$\beta E_0\ll1$ ではこの比はほぼ $1$ で，隣り合う準位の寄与はほとんど変わらない。1つの量子数についての和の項 $f(n)=\ee^{-\beta E_0n^{2}}$ が大きく減るのは $n\sim1/\sqrt{\beta E_0}\gg1$ のときなので，$f(n)$ は $n$ を $1$ ずつ変えてもゆっくりとしか変わらない。したがって $n$ を連続変数とみなし，和を積分に置き換えてよい。
+\kotae{\shoumonkai{1} $3E_0$（縮退度1），$6E_0$（3），$9E_0$（3），$11E_0$（3），$12E_0$（1） \shoumonkai{2} $\beta E_0=(\pi/4)(\lambda/L)^{2}$ \shoumonkai{3} 比は $1-3\beta E_0$。$f(n)$ が $n\sim1/\sqrt{\beta E_0}\gg1$ の幅でしか変わらないから}
+\kenzan (1) 縮退度は並べ替えの数 $3!/(\text{同じ数字の個数の階乗の積})$ と一致する（$(2,1,1)$ は $3!/2!=3$，$(3,2,1)$ は $3!=6$）。(2) $\lambda/L$ は無次元で，$\beta E_0$ も無次元である。(3) $\beta E_0\to0$（高温または大きな容器）で比は $1$ に近づき，連続近似がよくなる。
+\tsumazuki 量子数は $1$ から始まる。$0$ を許すと最低エネルギーを $0$ と誤る。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学2\002_2026-10-25.tex
+\mondaibangou{2}
+\begin{mondai}{002-lambda}{計算}{熱的ドブロイ波長，$\lambda^{3}\rho$ と $\beta E_0$ の数値評価による古典的な扱いの判定}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+  ボルツマン定数 & $\kB$ & \qty{1.38e-23}{\joule\per\kelvin}\\
+  ヘリウム4原子の質量 & $m_{\mathrm{He}}$ &\qty{6.65e-27}{\kilogram}\\
+  電子の質量 & $\melec$ & \qty{9.11e-31}{\kilogram}\\
+\end{teisuu}
+ヘリウム4原子の気体を，相互作用の無い同種粒子の気体とみなす。温度は $T=\qty{300}{\kelvin}$，数密度は $\rho=\qty{2.45e25}{\per\metre\cubed}$（ほぼ1気圧に相当）とする。定数は定数表の値を用い，答えは有効数字3桁で求めよ。
+  \begin{shoumon}
+    \item 熱的ドブロイ波長 $\lambda=\sqrt{2\pi\hbar^{2}\beta/m}$ を求めよ。
+    \item $\lambda^{3}\rho$ を求め，この気体を古典的に（$Z_N=Z_1^{N}/N!$ で）扱ってよいかを判定せよ。
+    \item 気体が一辺 $L=\qty{1.00}{\centi\metre}$ の立方体の容器に入っているとして $\beta E_0$ を求め，和を積分に置き換える仮定 $\beta E_0\ll1$ が成り立つかを判定せよ。
+  \end{shoumon}
+\notekiroku{2026-10-25 A ○◎◎}
+\begin{kotaeutsushi}{2026-10-25}
+\toi{1}{○}{単位}
+\[ \lambda=\num{5.02e-11}\,\nuke{\unit{\metre}} \]
+\naze{$\lambda$ は長さなので単位 $\unit{\metre}$ が要る。$\lambda=\qty{5.02e-11}{\metre}$ である。}
+\toi{2}{◎}{}
+\[ \lambda^{3}\rho=\num{3.09e-6}\ll1 \]
+古典的に扱ってよい。
+\toi{3}{◎}{}
+\begin{align*}
+\beta E_0&=\frac{\pi}{4}\Bigl(\frac{\lambda}{L}\Bigr)^{2}\\
+&=\num{1.98e-17}\ll1
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 数値の答えには単位を付ける。$\lambda$ は長さ（$\unit{\metre}$），$\lambda^{3}\rho$ と $\beta E_0$ は無次元なので単位なし，と答えを書く前に次元を1回確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\lambda$ の定義に数値を代入し，$\lambda^{3}\rho$ と $\beta E_0=(\pi/4)(\lambda/L)^{2}$ を計算して，それぞれ $1$ と比べる。途中の値は丸めずに計算する。
+\keisan \shoumonkai{1} $\beta=1/(\kB T)$ を代入すると
+\[ \lambda^{2}=\frac{2\pi\hbar^{2}}{m_{\mathrm{He}}\kB T}=\frac{2\pi\times(\num{1.05e-34})^{2}}{\num{6.65e-27}\times\num{1.38e-23}\times\num{300}}\,\unit{\metre\squared}=\frac{\num{6.927e-68}}{\num{2.753e-47}}\,\unit{\metre\squared}=\qty{2.516e-21}{\metre\squared} \]
+なので $\lambda=\qty{5.016e-11}{\metre}$ である。
+\shoumonkai{2} $\lambda^{3}=\qty{1.262e-31}{\metre\cubed}$ より
+\[ \lambda^{3}\rho=\num{1.262e-31}\times\num{2.45e25}=\num{3.09e-6} \]
+これは $1$ よりはるかに小さいので，1つの1粒子状態の平均の占有数は $1$ よりはるかに小さく，古典的に扱ってよい。
+\shoumonkai{3} $L=\qty{1.00e-2}{\metre}$ より $(\lambda/L)^{2}=\num{2.516e-17}$ なので
+\[ \beta E_0=\frac{\pi}{4}\Bigl(\frac{\lambda}{L}\Bigr)^{2}=\num{0.7854}\times\num{2.516e-17}=\num{1.98e-17} \]
+これは $1$ よりはるかに小さいので，和を積分に置き換える仮定は十分に成り立つ。
+\kotae{\shoumonkai{1} $\lambda=\qty{5.02e-11}{\metre}$ \shoumonkai{2} $\lambda^{3}\rho=\num{3.09e-6}\ll1$，古典的に扱ってよい \shoumonkai{3} $\beta E_0=\num{1.98e-17}\ll1$，仮定は成り立つ}
+\kenzan 次元：$\hbar^{2}/(m\kB T)$ の単位は $\unit{\joule\squared\second\squared}/(\unit{\kilogram\joule})=\unit{\joule\second\squared\per\kilogram}=\unit{\metre\squared}$ で，$\lambda$ は長さである。オーダー：$\lambda\simeq\qty{0.05}{\nano\metre}$ は原子の大きさより小さく，平均の粒子間距離 $\rho^{-1/3}\simeq\qty{3.4}{\nano\metre}$ よりはるかに短いので，$\lambda^{3}\rho\ll1$ と整合する。
+\tsumazuki $\lambda$ の定義の $2\pi$ を落としたり，$\hbar$ の代わりに $h$ を使ったりしないこと。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\統計力学2\003_2026-10-25.tex
+\mondaibangou{8}
+\begin{mondai}{003-z1}{導出}{1粒子の分配関数の計算（和の分解・和から積分への置き換え・ガウス積分），$Z_N$ からの内部エネルギーと自由エネルギー}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+  ボルツマン定数 & $\kB$ & \qty{1.38e-23}{\joule\per\kelvin}\\
+  ヘリウム4原子の質量 & $m_{\mathrm{He}}$ &\qty{6.65e-27}{\kilogram}\\
+  電子の質量 & $\melec$ & \qty{9.11e-31}{\kilogram}\\
+\end{teisuu}
+一辺 $L$（体積 $V=L^{3}$）の立方体の容器の中に，質量 $m$ の $N$ 個の同種粒子（相互作用なし）がある。1粒子のエネルギーは $E_\alpha=E_0(n_x^{2}+n_y^{2}+n_z^{2})$（$n_x,n_y,n_z=1,2,\dots$，$E_0=\pi^{2}\hbar^{2}/(2mL^{2})$）で，分配関数は $Z_N=Z_1^{N}/N!$ とする。温度を $T$，$\beta=1/(\kB T)$，$\lambda=\sqrt{2\pi\hbar^{2}\beta/m}$，$\rho=N/V$ とする。
+  \begin{shoumon}
+    \item $Z_1$ を，1つの量子数 $n$ についての和の3乗で表せ。
+    \item $\beta E_0\ll1$ として和を積分に置き換え（積分の下限は $0$ としてよい），ガウス積分
+    \[ \int_{0}^{\infty}\ee^{-x^{2}}\dd x=\frac{\sqrt{\pi}}{2} \]
+    を用いて $Z_1=V/\lambda^{3}$ を示せ。
+    \item スターリングの公式 $\log N!\simeq N\log N-N$ を用いて，$\log Z_N$ を $N$ と $\lambda^{3}\rho$ で表せ。
+    \item $E=-\pdv{}{\beta}\log Z_N$ を用いて $E=(3/2)N\kB T$ を示せ。また，ヘルムホルツの自由エネルギー $F=-\kB T\log Z_N$ を $N$，$\kB T$，$\lambda^{3}\rho$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-10-25 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-25}
+\toi{1}{◎}{}
+\begin{align*}
+Z_1&=\sum_{n_x=1}^{\infty}\sum_{n_y=1}^{\infty}\sum_{n_z=1}^{\infty}\ee^{-\beta E_0(n_x^{2}+n_y^{2}+n_z^{2})}\\
+&=\biggl(\sum_{n=1}^{\infty}\ee^{-\beta E_0n^{2}}\biggr)^{3}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+Z_1&=\biggl(\int_{0}^{\infty}\ee^{-\beta E_0x^{2}}\dd x\biggr)^{3}\\
+&=\biggl(\frac{\sqrt{\pi}}{2\sqrt{\beta E_0}}\biggr)^{3}=\Bigl(\frac{\pi}{4\beta E_0}\Bigr)^{3/2}\\
+&=\Bigl(\frac{2\pi mL^{2}}{4\pi^{2}\hbar^{2}\beta}\Bigr)^{3/2}=\Bigl(\frac{mL^{2}}{2\pi\hbar^{2}\beta}\Bigr)^{3/2}\\
+&=\biggl(\sqrt{\frac{m}{2\pi\hbar^{2}\beta}}\biggr)^{3}L^{3}=\frac{V}{\lambda^{3}}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\log Z_N&=N\log Z_1-\log N!\\
+&=N\log\frac{V}{\lambda^{3}}-N\log N+N\\
+&=N\log\frac{V}{\lambda^{3}N}+N\\
+&=-N\log\lambda^{3}\rho+N\\
+&=N(1-\log\lambda^{3}\rho)
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+E&=-\pdv{}{\beta}\bigl(N(1-\log\lambda^{3}\rho)\bigr)\\
+&=-\pdv{}{\beta}\Bigl(-\frac{3}{2}N\log\beta\Bigr)\\
+&=\frac{3}{2}\cdot\frac{N}{\beta}\\
+&=\frac{3}{2}N\kB T
+\end{align*}
+\begin{align*}
+F&=-\kB TN(1-\log\lambda^{3}\rho)\\
+&=\kB TN(\log\lambda^{3}\rho-1)
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学2\004_2026-10-25.tex
+\mondaibangou{9}
+\begin{mondai}{004-entropy}{計算}{エントロピーを $\lambda^{3}\rho$ で表すこと，$S<0$ となる条件，古典的な扱いが破れる温度の評価}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+  ボルツマン定数 & $\kB$ & \qty{1.38e-23}{\joule\per\kelvin}\\
+  ヘリウム4原子の質量 & $m_{\mathrm{He}}$ &\qty{6.65e-27}{\kilogram}\\
+  電子の質量 & $\melec$ & \qty{9.11e-31}{\kilogram}\\
+\end{teisuu}
+$N$ 個の同種粒子（質量 $m$，相互作用なし）からなる体積 $V$ の理想気体を，$Z_N=Z_1^{N}/N!$，$\beta E_0\ll1$，スターリングの公式で扱う。このとき
+  \[ \log Z_N=N\bigl[1-\log(\lambda^{3}\rho)\bigr],\qquad E=\frac{3}{2}N\kB T \]
+  である（$\lambda=\sqrt{2\pi\hbar^{2}\beta/m}$，$\rho=N/V$，$\beta=1/(\kB T)$）。これを用いてよい。
+  \begin{shoumon}
+    \item $S=(E-F)/T$ と $F=-\kB T\log Z_N$ を用いて，$S/(N\kB)$ を $\lambda^{3}\rho$ で表せ。
+    \item $S<0$ となる条件を $\lambda^{3}\rho$ で表せ。さらに $\beta$ を消去して，その条件を $E$，$N$，$\rho$，$m$，$\hbar$ で表せ。
+    \item 液体ヘリウム程度の数密度 $\rho=\qty{2.18e28}{\per\metre\cubed}$ のヘリウム4原子の集団を，この理想気体の式で扱うとする。$\lambda^{3}\rho=1$ となる温度 $T_1$ と，(1) で求めた $S$ が $0$ になる温度 $T_0$ を，定数表の値を用いて有効数字3桁で求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-25 B ◎△◎}
+\begin{kotaeutsushi}{2026-10-25}
+\toi{1}{◎}{}
+\begin{align*}
+S&=\frac{3}{2}N\kB-N\kB(\log\lambda^{3}\rho-1)\\
+&=N\kB\Bigl(\frac{5}{2}-\log\lambda^{3}\rho\Bigr)
+\end{align*}
+\[ \frac{S}{N\kB}=\frac{5}{2}-\log\lambda^{3}\rho \]
+\toi{2}{△}{計算}
+\[ S<0\quad\therefore\ \frac{5}{2}-\log\lambda^{3}\rho<0 \]
+\[ \frac{5}{2}<\log\lambda^{3}\rho,\qquad \ee^{5/2}<\lambda^{3}\rho \]
+\[ \Bigl(\frac{\ee^{5/2}}{\rho}\Bigr)^{1/3}<\sqrt{\frac{2\pi\hbar^{2}\beta}{m}} \]
+（脇で $E=3N/(2\beta)$ $\therefore$ $\beta=3N/(2E)$ を求める）
+\[ \Bigl(\frac{\ee^{5/2}}{\rho}\Bigr)^{2/3}<\frac{3\pi N\hbar^{2}}{mE} \]
+\[ E<\frac{3\pi N\hbar^{2}}{m}\,\ayamari{\rho^{3/2}\ee^{-3/5}}{\rho^{2/3}\ee^{-5/3}} \]
+\naze{前の行の左辺は $\ee^{5/3}\rho^{-2/3}$ なので，$E$ について解くと逆数の $\rho^{2/3}\ee^{-5/3}$ が掛かる。指数の分母と分子を入れ換えてはいけない。正しくは $E<N\ee^{-5/3}(3\pi\hbar^{2}/m)\rho^{2/3}$ である。}
+\toi{3}{◎}{}
+\[ \lambda^{3}\rho=1\quad\therefore\ \frac{2\pi\hbar^{2}}{\kB T_1m}=\Bigl(\frac{1}{\rho}\Bigr)^{2/3} \]
+\begin{align*}
+\therefore\ T_1&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\\
+&=\qty{5.89}{\kelvin}
+\end{align*}
+\[ \frac{5}{2}=\log\lambda^{3}\rho\quad\therefore\ \lambda^{3}\rho=\ee^{5/2} \]
+\[ \frac{2\pi\hbar^{2}}{\kB T_0m}=\Bigl(\frac{\ee^{5/2}}{\rho}\Bigr)^{2/3} \]
+\begin{align*}
+T_0&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\ee^{-5/3}\\
+&=\qty{1.11}{\kelvin}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $(a/b)^{2/3}$ の逆数は $(b/a)^{2/3}=b^{2/3}a^{-2/3}$ で，指数は $2/3$ のまま符号だけが変わる。$\bigl(\ee^{5/2}/\rho\bigr)^{2/3}=\ee^{5/3}\rho^{-2/3}$ と先に指数を計算してから $E$ について解くと，$\ee^{-5/3}\rho^{2/3}$ が出る。
+\item 確かめ方：右辺の次元を見る。$\hbar^{2}/m$ は［エネルギー×長さ$^{2}$］なので，エネルギーにするには［長さ$^{-2}$］の $\rho^{2/3}$ が要る（$\rho^{3/2}$ では長さ$^{-9/2}$ になる）。また (3) の $T_0$ では $\rho^{2/3}\ee^{-5/3}$ と書けていたので，同じ条件の式どうしで形をそろえて見比べる。
+\end{kizuki}
+\begin{tadashii}
+\houshin $S=\kB(\beta E+\log Z_N)$ に与えられた式を入れる。$S<0$ の条件は対数の単調性で $\lambda^{3}\rho$ の条件にし，$\beta=3N/(2E)$ で $E$ の条件に直す。(3) は $\lambda^{3}\rho$ を決まった値にする温度を $\lambda\propto T^{-1/2}$ から解く。
+\keisan \shoumonkai{1} $F=-\kB T\log Z_N$ より
+\[ S=\frac{E-F}{T}=\kB\bigl(\beta E+\log Z_N\bigr)=\kB\Bigl\{\frac{3N}{2}+N\bigl[1-\log(\lambda^{3}\rho)\bigr]\Bigr\} \]
+したがって
+\[ \frac{S}{N\kB}=\frac{5}{2}-\log(\lambda^{3}\rho) \]
+\shoumonkai{2} $S<0$ は $\log(\lambda^{3}\rho)>5/2$，すなわち $\lambda^{3}\rho>\ee^{5/2}$ と同じである。$E=3N/(2\beta)$ より $\beta=3N/(2E)$ を $\lambda^{2}=2\pi\hbar^{2}\beta/m$ に代入すると $\lambda^{2}=3\pi\hbar^{2}N/(mE)$ になる。条件 $\lambda^{3}\rho>\ee^{5/2}$ の両辺を $2/3$ 乗すると $\lambda^{2}>\ee^{5/3}\rho^{-2/3}$ なので
+\[ \frac{3\pi\hbar^{2}N}{mE}>\ee^{5/3}\rho^{-2/3}\quad\Longleftrightarrow\quad E<N\ee^{-5/3}\,\frac{3\pi\hbar^{2}}{m}\,\rho^{2/3} \]
+\shoumonkai{3} $\lambda^{3}\rho=1$ は $\lambda^{2}=\rho^{-2/3}$，すなわち $2\pi\hbar^{2}/(m_{\mathrm{He}}\kB T_1)=\rho^{-2/3}$ なので
+\[ T_1=\frac{2\pi\hbar^{2}\rho^{2/3}}{m_{\mathrm{He}}\kB}=\frac{\num{6.927e-68}\times\num{7.804e18}}{\num{6.65e-27}\times\num{1.38e-23}}\,\unit{\kelvin}=\frac{\num{5.406e-49}}{\num{9.177e-50}}\,\unit{\kelvin}=\qty{5.89}{\kelvin} \]
+ここで $\rho^{2/3}=\qty{7.804e18}{\per\metre\squared}$（$\rho^{1/3}=\qty{2.7935e9}{\per\metre}$ の2乗）を使った。$S=0$ は $\lambda^{3}\rho=\ee^{5/2}$，すなわち $\lambda^{2}=\ee^{5/3}\rho^{-2/3}$ である。$\lambda^{2}\propto1/T$ なので
+\[ T_0=\ee^{-5/3}\,T_1=\num{0.1889}\times\qty{5.891}{\kelvin}=\qty{1.11}{\kelvin} \]
+\kotae{\shoumonkai{1} $S/(N\kB)=5/2-\log(\lambda^{3}\rho)$ \shoumonkai{2} $\lambda^{3}\rho>\ee^{5/2}$，$E<N\ee^{-5/3}(3\pi\hbar^{2}/m)\rho^{2/3}$ \shoumonkai{3} $T_1=\qty{5.89}{\kelvin}$，$T_0=\qty{1.11}{\kelvin}$}
+\kenzan (1) に $\lambda^{3}\rho$ を代入して指数をとると $S=\kB\log[\ee^{5/2}/(\lambda^{3}\rho)]^{N}$ となり，要点整理のエントロピーの式の $[\;]$ の中が $\ee^{5/2}/(\lambda^{3}\rho)$ の $N$ 乗になることと一致する。(2) の $E$ の条件は，要点整理のエントロピーの式で $S<0$ とした条件と一致する。(3) 低温ほど $\lambda$ が大きく $\lambda^{3}\rho$ が大きいので，$T<T_0$ で $S<0$ になり，$T_0<T_1$ である。 実際のヘリウム4は約 \qty{2.17}{\kelvin} で超流動になり，古典的な扱いが破れる温度のオーダーは $T_1$ と合っている。
+\tsumazuki $S<0$ になる温度 $T_0$ より高い $T_0<T<T_1$ でも $\lambda^{3}\rho>1$ であり，$S>0$ だからといってこの式が正しいわけではない。$S<0$ は数え間違いが目に見える形で現れた結果である。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

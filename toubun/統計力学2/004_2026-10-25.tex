@@ -1,0 +1,31 @@
+% 統計力学2 統計力学2-1 問題4（kai01-l2-entropy） 解いた日 2026-10-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+S&=\frac{3}{2}N\kB-N\kB(\log\lambda^{3}\rho-1)\\
+&=N\kB\Bigl(\frac{5}{2}-\log\lambda^{3}\rho\Bigr)
+\end{align*}
+\[ \frac{S}{N\kB}=\frac{5}{2}-\log\lambda^{3}\rho \]
+\toi{2}{△}{計算}
+\[ S<0\quad\therefore\ \frac{5}{2}-\log\lambda^{3}\rho<0 \]
+\[ \frac{5}{2}<\log\lambda^{3}\rho,\qquad \ee^{5/2}<\lambda^{3}\rho \]
+\[ \Bigl(\frac{\ee^{5/2}}{\rho}\Bigr)^{1/3}<\sqrt{\frac{2\pi\hbar^{2}\beta}{m}} \]
+（脇で $E=3N/(2\beta)$ $\therefore$ $\beta=3N/(2E)$ を求める）
+\[ \Bigl(\frac{\ee^{5/2}}{\rho}\Bigr)^{2/3}<\frac{3\pi N\hbar^{2}}{mE} \]
+\[ E<\frac{3\pi N\hbar^{2}}{m}\,\ayamari{\rho^{3/2}\ee^{-3/5}}{\rho^{2/3}\ee^{-5/3}} \]
+\naze{前の行の左辺は $\ee^{5/3}\rho^{-2/3}$ なので，$E$ について解くと逆数の $\rho^{2/3}\ee^{-5/3}$ が掛かる。指数の分母と分子を入れ換えてはいけない。正しくは $E<N\ee^{-5/3}(3\pi\hbar^{2}/m)\rho^{2/3}$ である。}
+\toi{3}{◎}{}
+\[ \lambda^{3}\rho=1\quad\therefore\ \frac{2\pi\hbar^{2}}{\kB T_1m}=\Bigl(\frac{1}{\rho}\Bigr)^{2/3} \]
+\begin{align*}
+\therefore\ T_1&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\\
+&=\qty{5.89}{\kelvin}
+\end{align*}
+\[ \frac{5}{2}=\log\lambda^{3}\rho\quad\therefore\ \lambda^{3}\rho=\ee^{5/2} \]
+\[ \frac{2\pi\hbar^{2}}{\kB T_0m}=\Bigl(\frac{\ee^{5/2}}{\rho}\Bigr)^{2/3} \]
+\begin{align*}
+T_0&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\ee^{-5/3}\\
+&=\qty{1.11}{\kelvin}
+\end{align*}
+%% kizuki
+\item $(a/b)^{2/3}$ の逆数は $(b/a)^{2/3}=b^{2/3}a^{-2/3}$ で，指数は $2/3$ のまま符号だけが変わる。$\bigl(\ee^{5/2}/\rho\bigr)^{2/3}=\ee^{5/3}\rho^{-2/3}$ と先に指数を計算してから $E$ について解くと，$\ee^{-5/3}\rho^{2/3}$ が出る。
+\item 確かめ方：右辺の次元を見る。$\hbar^{2}/m$ は［エネルギー×長さ$^{2}$］なので，エネルギーにするには［長さ$^{-2}$］の $\rho^{2/3}$ が要る（$\rho^{3/2}$ では長さ$^{-9/2}$ になる）。また (3) の $T_0$ では $\rho^{2/3}\ee^{-5/3}$ と書けていたので，同じ条件の式どうしで形をそろえて見比べる。
