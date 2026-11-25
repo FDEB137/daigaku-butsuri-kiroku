@@ -1,0 +1,41 @@
+% 量子力学1 量子力学1-5 問題1（026-matrix。今は 量子力学1-10） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+\[ P^{\dagger}=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}=P \]
+よりエルミート
+\[ Q^{\dagger}=\begin{pmatrix}1 & -\ii\\ -\ii & 1\end{pmatrix}\neq Q \]
+よりエルミートでない
+\toi{2}{△}{計算}
+\begin{align*}
+\det(P-\lambda I)&=(1-\lambda)(2-\lambda)\\
+&\qquad-(1+\ii)(1-\ii)\\
+&=\lambda^{2}-3\lambda+2-2\\
+&=\lambda(\lambda-3)
+\end{align*}
+\[ \therefore\ \lambda=0,\ 3 \]
+i) $\lambda_{1}=0$
+\[ \begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}\vect{v}_{1}'=0 \]
+\[ \vect{v}_{1}'=\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \vect{v}_{1}=\ayamari{\frac{1}{\sqrt{5}}}{\frac{1}{\sqrt{3}}}\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+ii) $\lambda_{2}=3$
+\[ \begin{pmatrix}-2 & 1+\ii\\ 1-\ii & -1\end{pmatrix}\vect{v}_{2}'=0 \]
+\[ \vect{v}_{2}'=\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\[ \vect{v}_{2}=\ayamari{\frac{1}{\sqrt{5}}}{\frac{1}{\sqrt{3}}}\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\naze{大きさの2乗は $\abs{1+\ii}^{2}+1=2+1=3$，$1+\abs{1-\ii}^{2}=3$ で，$\abs{1\pm\ii}^{2}$ を 4 とした。また，第1行の式から決めた成分の比が第2行の式も満たすことの確認が要る（例 $(1-\ii)(1+\ii)-2=0$）。}
+\toi{3}{◎}{}
+\begin{align*}
+\vect{v}_{1}^{\dagger}\vect{v}_{2}
+&=\kakimachigai{\frac{1}{5}}{\frac{1}{3}}\bigl(\kakimachigai{1-\ii\cdot 1}{(1-\ii)\cdot 1}\\
+&\qquad-1\cdot(1-\ii)\bigr)=0
+\end{align*}
+\toi{4}{○}{記述}
+\begin{align*}
+\det(Q-\lambda I)&=(1-\lambda)^{2}-\ii^{2}\\
+&=\lambda^{2}-2\lambda+2
+\end{align*}
+\[ \lambda=1\pm\ii \]
+$Q$ はエルミートでないので固有値は\ayamari{実数でない}{実数とは限らない}
+\naze{定理は「エルミートなら固有値は実数」で，その逆は言えない。正しくは「$Q$ はエルミートでなく定理の前提を満たさないので，固有値が実数でなくても矛盾しない」である。}
+%% kizuki
+\item \mae{第3章 問題2・10-18，第13章 問題2・3・11-21} 複素数の大きさの2乗の誤り。$\abs{1+\ii}^{2}=(1+\ii)(1-\ii)=2$ である。規格化したら $\vect{v}^{\dagger}\vect{v}=\frac{1}{3}(2+1)=1$ を1行計算して確かめる。
+\item \mae{第4章 問題1・10-28} 同じ問題で同じ誤り。エルミートでない行列の固有値は「実数とは限らない」と書き，実際の値 $1\pm\ii$ で示す。
