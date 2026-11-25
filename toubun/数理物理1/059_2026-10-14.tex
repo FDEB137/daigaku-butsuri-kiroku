@@ -1,0 +1,57 @@
+% 数理物理1 数理物理1-9 問題3（059-symmetric。当時は 数理物理1-7 問題6・shou07-l2-symmetric） 解いた日 2026-10-14
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+  &\sum_{n=1}^{N}(U^{\dagger})_{\mu n}U_{n\nu}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{\sqrt{N}}\ee^{-\ii2\pi\mu n/N}\cdot\frac{1}{\sqrt{N}}\ee^{\ii2\pi n\nu/N}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{N}\ee^{\ii2\pi n(\nu-\mu)/N}
+\end{align*}
+i) $\mu=\nu$ のとき，
+\[ \sum_{n=1}^{N}\frac{1}{N}\ee^{0}=1 \]
+ii) $\mu\neq\nu$ のとき，
+\[ \sum_{n=1}^{N}\frac{1}{N}\Bigl(\underbrace{\ee^{\ii2\pi(\nu-\mu)/N}}_{z\text{ とする}}\Bigr)^{n} \]
+\[
+  \sum_{n=1}^{N}z^{n}=\kakimachigai{\frac{1-z^{N}}{1-z}}{z\frac{1-z^{N}}{1-z}}\ \nuke{z\neq1}
+\]
+\[ z^{N}=1\text{ より }0 \]
+\[ =0 \]
+よって
+\[ \sum_{n=1}^{N}(U^{\dagger})_{\mu n}U_{n\nu}=\delta_{\mu\nu}\qquad\therefore\ U^{\dagger}U=I \]
+\naze{等比級数の和の公式は $z\neq1$ のときだけ使える。$\mu,\nu$ は $-M$〜$M$ にあるので $0<\abs{\nu-\mu}\le2M=N-1$ となり，$\nu-\mu$ は $N$ の倍数でないから $z\neq1$ である。列の添字を対称にとったこの問題では，この確認が要点である。}
+\toi{2}{▲}{立式}
+\begin{align*}
+  &\ayamari{\sum_{n=1}^{N}U_{\mu n}(U^{\dagger})_{n\nu}}{\sum_{\mu=-M}^{M}U_{n\mu}(U^{\dagger})_{\mu m}}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{\sqrt{N}}\ee^{\ii2\pi\mu n/N}\cdot\frac{1}{\sqrt{N}}\ee^{-\ii2\pi n\nu/N}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{N}\ee^{\ii2\pi n(\mu-\nu)/N}
+\end{align*}
+先ほどと同様にして $\delta_{\mu\nu}$　$\therefore\ UU^{\dagger}=I$
+\naze{$n$ について和をとっていて，(1) と同じ量（の複素共役）を計算している。$U$ は行が $n=1$〜$N$，列が $\mu=-M$〜$M$ なので，$UU^{\dagger}$ の成分は $(UU^{\dagger})_{nm}=\sum_{\mu=-M}^{M}U_{n\mu}U_{m\mu}^{*}=\frac{1}{N}\sum_{\mu=-M}^{M}w^{\mu}$（$w=\ee^{\ii2\pi(n-m)/N}$）で，列の添字 $\mu$ について和をとる。$n\neq m$ では $w\neq1$，$w^{N}=1$ で，$\mu'=\mu+M+1$ とずらすと $w^{-M-1}\sum_{\mu'=1}^{N}w^{\mu'}=0$ になる。「先ほど同様」では済まず，添字をずらす一手が要る。以降はこの誤りを引き継ぐ。}
+\toi{3}{△}{計算}
+\begin{align*}
+  \hat{f}_{-\mu}&=\sum_{n=1}^{N}\frac{1}{\sqrt{N}}\ee^{\ayamari{-}{+}\ii2\pi\mu n/N}f_n\\
+  &=\nuke{f_n\text{ は実数}}\Bigl(\sum_{n=1}^{N}(U^{\dagger})_{\mu n}f_n\Bigr)^{*}=\hat{f}_{\mu}^{*}
+\end{align*}
+\naze{$(U^{\dagger})_{-\mu,n}=\ee^{-\ii2\pi(-\mu)n/N}/\sqrt{N}=\ee^{+\ii2\pi\mu n/N}/\sqrt{N}$ で，書いた式は $\hat{f}_{\mu}$ そのものになっていて次の等号とつながらない。正しくは $\hat{f}_{-\mu}=\sum\ee^{\ii2\pi\mu n/N}f_n/\sqrt{N}=\bigl(\sum\ee^{-\ii2\pi\mu n/N}f_n/\sqrt{N}\bigr)^{*}=\hat{f}_{\mu}^{*}$ で，複素共役を外に出せるのは $f_n$ が実数だからである。}
+\toi{4}{△}{計算}
+\begin{align*}
+  f_n&=\sum_{\mu=-M}^{M}U_{n\mu}\hat{f}_{\mu}\\
+  &=\sum_{\mu=-M}^{-1}U_{n\mu}\hat{f}_{\mu}+U_{n0}\hat{f}_0+\sum_{\mu=1}^{M}U_{n\mu}\hat{f}_{\mu}\\
+  &=\frac{\hat{f}_0}{\sqrt{N}}+\sum_{\mu=1}^{M}\biggl(\frac{\ee^{-\ii2\pi\mu n/N}}{\sqrt{N}}\hat{f}_{\mu}^{*}\\
+  &\qquad+\frac{\ee^{\ii2\pi\mu n/N}}{\sqrt{N}}\hat{f}_{\mu}\biggr)\\
+  &=\frac{\hat{f}_0}{\sqrt{N}}+\sum_{\mu=1}^{M}\biggl(\frac{1}{\sqrt{N}}(\hat{f}_{\mu}^{*}+\hat{f}_{\mu})\cos\frac{2\pi\mu n}{N}\\
+  &\qquad+\ayamari{\frac{1}{\sqrt{N}}(\hat{f}_{\mu}^{*}-\hat{f}_{\mu})}{\frac{\ii}{\sqrt{N}}(\hat{f}_{\mu}-\hat{f}_{\mu}^{*})}\\
+  &\qquad\quad\times\sin\frac{2\pi\mu n}{N}\biggr)
+\end{align*}
+\naze{$\ee^{-\ii\theta}\hat{f}^{*}+\ee^{\ii\theta}\hat{f}=(\hat{f}+\hat{f}^{*})\cos\theta+\ii(\hat{f}-\hat{f}^{*})\sin\theta=2\Re\hat{f}\cos\theta-2\Im\hat{f}\sin\theta$ で，$\sin$ の項に因子 $\ii$ が要る。}
+\begin{align*}
+  a_0&=\frac{\hat{f}_0}{\sqrt{N}}=\frac{1}{N}\sum_{n=1}^{N}f_n\\
+  a_{\mu}&=\frac{2}{\sqrt{N}}\Re\Bigl(\sum_{n=1}^{N}\frac{\ee^{-\ii2\pi\mu n/N}}{\sqrt{N}}f_n\Bigr)\\
+  &=\frac{2}{N}\sum_{n=1}^{N}\cos\frac{2\pi\mu n}{N}f_n\\
+  b_{\mu}&=-\frac{2}{\sqrt{N}}\Im\Bigl(\sum_{n=1}^{N}\frac{\ee^{-\ii2\pi\mu n/N}}{\sqrt{N}}f_n\Bigr)\\
+  &=\ayamari{-\frac{2}{N}}{\frac{2}{N}}\sum_{n=1}^{N}\sin\frac{2\pi\mu n}{N}f_n
+\end{align*}
+\naze{$b_{\mu}=-\frac{2}{\sqrt{N}}\Im\hat{f}_{\mu}$ までは正しいが，$\Im\bigl(\sum\ee^{-\ii2\pi\mu n/N}f_n/\sqrt{N}\bigr)=-\frac{1}{\sqrt{N}}\sum\sin\frac{2\pi\mu n}{N}f_n$ なので $b_{\mu}=+\frac{2}{N}\sum\sin\frac{2\pi\mu n}{N}f_n$ である。$N=3$，$\vect{f}=(1,0,0)$ で確かめると，正しい符号なら $n=1,2,3$ で $1,0,0$ に戻り，書いた符号では $0,1,0$ になる。$a_0,a_{\mu},b_{\mu}$ が実数であること（(3) で $\mu=0$ とおくと $\hat{f}_0$ は実数）にも一言添える。}
+%% kizuki
+\item \mae{数理物理1-7（組み替え前）問題6 (1)(2)・10-03} 前回の気付きと同じところでまた止まった。(1) は「$\abs{\nu-\mu}\le N-1$ だから $z\neq1$」を書いてから等比級数の和を使う。(2) の $UU^{\dagger}$ は $U$ の列の添字 $\mu$（$-M$〜$M$）について和をとる。$n$ について和をとると $U^{\dagger}U$ をもう一度計算したことになる。成分を書く前に「行は $n$，列は $\mu$」と添字の範囲を確かめ，$\mu'=\mu+M+1$ とずらして $1$〜$N$ の和に直す。
+\item (3)(4) は符号と $\ii$ の取り違えである。$-\mu$ を入れたら指数は $-\ii2\pi(-\mu)n/N=+\ii2\pi\mu n/N$，$\Im\ee^{-\ii\theta}=-\sin\theta$。式を書いたら $N=3$，$\vect{f}=(1,0,0)$ のような小さな例で $f_n$ に戻るかを確かめる。
+\item 複素共役を外に出すところは「$f_n$ が実数」が要の根拠である。問題1（057）(4) と同じ。

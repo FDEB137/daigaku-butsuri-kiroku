@@ -1,0 +1,34 @@
+% 数理物理1 数理物理1-11 問題3（082-sankaku。当時は 数理物理1-9 問題3・shou09-l1-sankaku） 解いた日 2026-10-18
+%% kotae
+\toi{1}{◎}{}
+（図：$x=0$ で高さ 1，$x=\pm b$ で 0 の三角形 $f(x)$ のグラフ）
+\begin{align*}
+  \tilde f(k)&=\int\dd x\,\ee^{-\ii kx}f(x)\\
+  &=\int_{-b}^{b}\dd x\,\bigl(\cos(kx)\kakimachigai{+}{-}\ii\sin(kx)\bigr)f(x)\\
+  &=2\int_{0}^{b}\dd x\,\cos(kx)\Bigl(1-\frac{x}{b}\Bigr)
+\end{align*}
+\begin{align*}
+  \int_{0}^{b}\dd x\,\cos(kx)&=\Bigl[\frac{1}{k}\sin(kx)\Bigr]_{0}^{b}=\frac{1}{k}\sin(kb)
+\end{align*}
+\begin{align*}
+  &\int_{0}^{b}\dd x\,x\cos(kx)\\
+  &\qquad=\Bigl[\frac{x}{k}\sin(kx)\Bigr]_{0}^{b}-\int_{0}^{b}\dd x\,\frac{1}{k}\sin(kx)\\
+  &\qquad=\frac{b}{k}\sin(kb)+\Bigl[\frac{1}{k^{2}}\cos(kx)\Bigr]_{0}^{b}\\
+  &\qquad=\frac{b}{k}\sin(kb)+\frac{1}{k^{2}}\cos(kb)-\frac{1}{k^{2}}
+\end{align*}
+\begin{align*}
+  \tilde f(k)&=2\biggl(\frac{1}{k}\sin(kb)\\
+  &\qquad-\frac{1}{b}\Bigl(\frac{b}{k}\sin(kb)+\frac{1}{k^{2}}\cos(kb)-\frac{1}{k^{2}}\Bigr)\biggr)\\
+  &=\frac{2}{bk^{2}}\bigl(1-\cos(kb)\bigr)\\
+  &=\frac{4}{bk^{2}}\sin^{2}\Bigl(\frac{kb}{2}\Bigr)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  \tilde f(k)&=\frac{4}{bk^{2}\cdot\frac{4}{b^{2}k^{2}}}\cdot\Biggl(\frac{\sin\bigl(\frac{kb}{2}\bigr)}{\frac{kb}{2}}\Biggr)^{2}\\
+  &\xrightarrow{k\to0}b\,(1)^{2}=b
+\end{align*}
+\[ \int\dd x\,f(x)=\Bigl(\frac{1}{2}\cdot b\cdot1\Bigr)\times2=b \]
+\toi{3}{◎}{}
+\[ \tilde f(k)=0\qquad\therefore\ \frac{kb}{2}=n\pi\quad(n=\pm1,\pm2,\dots) \]
+\[ k=\frac{2n\pi}{b} \]
+%% kizuki

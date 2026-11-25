@@ -59,7 +59,7 @@ N\to\infty,\quad a\to0,\quad L=Na\ \text{を固定} \notetag{9.10}
 
 \mondaihen
 \level{1}
-% toubun: kiroku\toubun\数理物理1\057_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\057_2026-10-14.tex
 \mondaibangou{1}
 \begin{mondai}{057-dft3}{計算}{$N=3$ の複素離散フーリエ級数展開}
 $N=3$ とし、$\zeta=\ee^{\ii 2\pi/3}$ とおく。$3\times3$ 行列 $U$ を
@@ -78,54 +78,48 @@ U_{n\mu}=\frac{\ee^{\ii 2\pi\mu n/3}}{\sqrt{3}}=\frac{\zeta^{\mu n}}{\sqrt{3}}\q
   \item (2) の結果で $\hat{f}_2=\hat{f}_1^{*}$ となっていることを確かめ、その理由を $U_{n2}$ と $U_{n1}$ の関係から説明せよ。
 \end{shoumon}
 \notekiroku{2026-10-03 E ×××× → 2026-10-14 A ◎◎◎○}
-\begin{kotaeutsushi}{2026-10-03}
-\toi{1}{×}{未着手}
-\[ \zeta^{3}=\ee^{\ii2\pi}=1 \]
-\naze{$\zeta^{3}=1$ を書いただけで，$U$ の行列が無い。$U_{n\mu}=\zeta^{\mu n}/\sqrt{3}$ の指数 $\mu n$ を $\zeta^{3}=1$ で減らすと $U=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta&\zeta^{2}&1\\\zeta^{2}&\zeta&1\\1&1&1\end{pmatrix}$（行が $n$，列が $\mu$）。}
-\toi{2}{×}{立式}
+\begin{kotaeutsushi}{2026-10-14}
+\toi{1}{◎}{}
+\[
+  U=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta&\zeta^{2}&\zeta^{3}\\\zeta^{2}&\zeta^{4}&\zeta^{6}\\\zeta^{3}&\zeta^{6}&\zeta^{9}\end{pmatrix}
+  =\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta&\zeta^{2}&1\\\zeta^{2}&\zeta&1\\1&1&1\end{pmatrix}
+\]
+\toi{2}{◎}{}
 \begin{align*}
-  \hat{f}_1&=(U^{\dagger})_{11}\cdot1+(U^{\dagger})_{12}\cdot2+(U^{\dagger})_{13}\cdot3\\
-  &=\frac{\zeta^{-1}}{\sqrt{3}}\cdot1+\frac{\zeta^{-2}}{\sqrt{3}}\cdot2+\frac{\zeta^{-3}}{\sqrt{3}}\cdot3\\
-  &=\frac{\ee^{\ii\frac{4\pi}{3}}}{\sqrt{3}}+\frac{2\ee^{\ii\frac{2\pi}{3}}}{\sqrt{3}}+\sqrt{3}\\
-  &=\frac{1}{\sqrt{3}}\cos\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\cos\frac{2\pi}{3}+\sqrt{3}\\
-  &\qquad+\Bigl(\frac{1}{\sqrt{3}}\sin\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\sin\frac{2\pi}{3}\Bigr)\ii\\
-  &=\Bigl(-\frac{1}{2\sqrt{3}}-\frac{1}{\sqrt{3}}+\sqrt{3}\Bigr)+\Bigl(-\frac{1}{2}+1\Bigr)\ii\\
-  &=\Bigl(-\frac{\sqrt{3}}{6}-\frac{2\sqrt{3}}{6}+\frac{6\sqrt{3}}{6}\Bigr)+\frac{1}{2}\ii\\
-  &=\frac{\sqrt{3}}{2}+\frac{1}{2}\ii
-\end{align*}
-（脇に複素平面の単位円の図）
-\begin{align*}
-  \hat{f}_2&=(U^{\dagger})_{21}\cdot1+(U^{\dagger})_{22}\cdot2+(U^{\dagger})_{23}\cdot3\\
-  &=\frac{1}{\sqrt{3}}\ayamari{\zeta^{-3}}{\zeta^{-2}}+\frac{2}{\sqrt{3}}\zeta^{-4}+\frac{3}{\sqrt{3}}\ayamari{\zeta^{-5}}{\zeta^{-6}}\\
-  &=\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}\ee^{\ii\frac{4\pi}{3}}+\frac{3}{\sqrt{3}}\ee^{\ii\frac{2\pi}{3}}\\
-  &=\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}\cos\frac{4\pi}{3}+\frac{3}{\sqrt{3}}\cos\frac{2\pi}{3}\\
-  &\qquad+\ii\Bigl(\frac{2}{\sqrt{3}}\sin\frac{4\pi}{3}+\frac{3}{\sqrt{3}}\sin\frac{2\pi}{3}\Bigr)\\
-  &=\frac{1}{\sqrt{3}}-\frac{1}{\sqrt{3}}-\frac{3}{2\sqrt{3}}+\ii\Bigl(-1+\frac{3}{2}\Bigr)\\
-  &=-\frac{\sqrt{3}}{2}+\frac{1}{2}\ii
-\end{align*}
-\begin{align*}
-  \hat{f}_3&=(U^{\dagger})_{31}+(U^{\dagger})_{32}\cdot2+(U^{\dagger})_{33}\cdot3\\
-  &=\frac{1}{\sqrt{3}}\ayamari{\zeta^{-4}}{\zeta^{-3}}+\frac{2}{\sqrt{3}}\ayamari{\zeta^{-5}}{\zeta^{-6}}\\
-  &\qquad+\frac{3}{\sqrt{3}}\ayamari{\zeta^{-6}}{\zeta^{-9}}\\
-  &=\frac{1}{\sqrt{3}}\ee^{\ii\frac{4\pi}{3}}+\frac{2}{\sqrt{3}}\ee^{\ii\frac{2\pi}{3}}+\frac{3}{\sqrt{3}}\\
-  &=\frac{1}{\sqrt{3}}\cos\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\cos\frac{2\pi}{3}+\frac{3}{\sqrt{3}}\\
-  &\qquad+\ii\Bigl(\frac{1}{\sqrt{3}}\sin\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\sin\frac{2\pi}{3}\Bigr)\\
-  &=-\frac{1}{2\sqrt{3}}-\frac{2}{2\sqrt{3}}+\frac{6}{2\sqrt{3}}+\ii\Bigl(-\frac{1}{2}+1\Bigr)\\
-  &=\frac{\sqrt{3}}{2}+\frac{1}{2}\ii
+  \hat{\vect{f}}&=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta^{2}&\zeta&1\\\zeta&\zeta^{2}&1\\1&1&1\end{pmatrix}\begin{pmatrix}1\\2\\3\end{pmatrix}\\
+  &=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta^{2}+2\zeta+3\\\zeta+2\zeta^{2}+3\\1+2+3\end{pmatrix}\\
+  &=\frac{1}{\sqrt{3}}\begin{pmatrix}-\frac{1}{2}-\frac{\sqrt{3}}{2}\ii+2\bigl(-\frac{1}{2}+\frac{\sqrt{3}}{2}\ii\bigr)+3\\-\frac{1}{2}+\frac{\sqrt{3}}{2}\ii+2\bigl(-\frac{1}{2}-\frac{\sqrt{3}}{2}\ii\bigr)+3\\6\end{pmatrix}\\
+  &=\frac{1}{\sqrt{3}}\begin{pmatrix}\frac{3}{2}+\frac{\sqrt{3}}{2}\ii\\\frac{3}{2}-\frac{\sqrt{3}}{2}\ii\\6\end{pmatrix}
+  =\begin{pmatrix}\frac{\sqrt{3}}{2}+\frac{1}{2}\ii\\\frac{\sqrt{3}}{2}-\frac{1}{2}\ii\\2\sqrt{3}\end{pmatrix}
 \end{align*}
 \[
-  \hat{\vect{f}}=\Bigl(\frac{\sqrt{3}}{2}+\frac{1}{2}\ii,\ -\frac{\sqrt{3}}{2}+\frac{1}{2}\ii,\ \frac{\sqrt{3}}{2}+\frac{1}{2}\ii\Bigr)
+  \hat{f}_1=\frac{\sqrt{3}}{2}+\frac{1}{2}\ii,\quad
+  \hat{f}_2=\frac{\sqrt{3}}{2}-\frac{1}{2}\ii,\quad
+  \hat{f}_3=2\sqrt{3}
 \]
-\naze{$(U^{\dagger})_{\mu n}=U_{n\mu}^{*}=\zeta^{-\mu n}/\sqrt{3}$ で，指数は $\mu$ と $n$ の積である。$\hat{f}_2$，$\hat{f}_3$ では指数を $-3,-4,-5$ のように1ずつずらしており，正しくは $\hat{f}_2=\frac{1}{\sqrt{3}}(\zeta^{-2}+2\zeta^{-4}+3\zeta^{-6})=\frac{\sqrt{3}}{2}-\frac{1}{2}\ii$，$\hat{f}_3=\frac{1}{\sqrt{3}}(\zeta^{-3}+2\zeta^{-6}+3\zeta^{-9})=2\sqrt{3}$。以降の三角関数の計算は合っているが，この誤りを引き継ぐ。}
-\toi{3}{×}{未着手}
-\mikai
-\toi{4}{×}{未着手}
-\mikai
+\toi{3}{◎}{}
+\begin{align*}
+  \abs{\vect{f}}^{2}&=1+4+9=14\\
+  \abs{\hat{\vect{f}}}^{2}&=1+1+12=14
+\end{align*}
+\toi{4}{○}{記述}
+\[ \hat{f}_2=\hat{f}_1^{*} \]
+$U_{n2}=U_{n1}^{*}$ \nuke{$\zeta^{3n}=1$ より} より，
+\begin{align*}
+  \hat{f}_2&=\sum U_{n2}^{*}f_n=\sum U_{n1}f_n\\
+  \hat{f}_1&=\sum U_{n1}^{*}f_n
+\end{align*}
+\[ \nuke{f_n\text{ は実数}}\quad\therefore\ \hat{f}_2=\hat{f}_1^{*} \]
+\naze{結論は正しいが根拠が2つ抜けている。$U_{n2}=U_{n1}^{*}$ は $\zeta^{3n}=1$ より $\zeta^{2n}=\zeta^{-n}=(\zeta^{n})^{*}$ だから成り立つ。また $\sum U_{n1}f_n=\bigl(\sum U_{n1}^{*}f_n\bigr)^{*}$ とできるのは $f_n$ が実数だからで，この一言が無いと最後の等号が言えない。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{数理物理1-8（組み替え前）問題1 (4)・10-03} 複素共役をとる式変形 $\sum U_{n1}f_n=(\sum U_{n1}^{*}f_n)^{*}$ は「$f_n$ が実数」が要の条件である。前回も「$f$ が実関数なので係数が実数」の一言が抜けた。複素共役を中に通すときは，どの量が実数かを書いてから等号を引く。
+\item $U_{n2}=U_{n1}^{*}$ のような添字の関係は，$\zeta^{3n}=1$ から $\zeta^{2n}=\zeta^{-n}$ を1行書いて示す。前回（10-03）取り違えた $\zeta$ の指数 $-\mu n$ は，今回 (1) で $U$ を先に書いて正しくできた。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item 離散フーリエ級数展開の係数は $\hat{f}_{\mu}=\frac{1}{\sqrt{N}}\sum_n\ee^{-\ii2\pi\mu n/N}f_n$ で，$\zeta$ の指数は $-\mu n$（積）になる。(1) で $U$ を $\zeta$ の行列として先に書いておけば，$U^{\dagger}$ の行をそのまま読めて指数を取り違えない。
 \item $\hat{f}_N$（ここでは $\hat{f}_3$）は $U_{nN}=1/\sqrt{N}$ なので成分の和 $/\sqrt{N}$ になる。これと (3) の $\abs{\hat{\vect{f}}}^{2}=\abs{\vect{f}}^{2}$（今回の値では $3\neq14$）で検算する。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin $N=3$ の離散フーリエ級数展開の行列を具体的に書き、実ベクトル $\vect{f}$ の展開係数 $\hat{f}_{\mu}$ を求める。さらに長さの保存と、係数どうしの複素共役の関係を確認する。使う定理：
 \[
@@ -217,7 +211,7 @@ $p\neq Nk$：
 \end{mondai}
 
 \level{2}
-% toubun: kiroku\toubun\数理物理1\059_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\059_2026-10-14.tex
 \mondaibangou{3}
 \begin{mondai}{059-symmetric}{導出}{添字 $\mu$ を対称にとった離散フーリエ級数展開}
 $N$ を3以上の奇数とし、$M=(N-1)/2$ とおく。$N\times N$ 行列 $U$ を、行の添字 $n=1,2,\dots,N$、列の添字 $\mu=-M,-M+1,\dots,M$ として
@@ -240,33 +234,68 @@ f_n=a_0+\sum_{\mu=1}^{M}\Bigl[a_{\mu}\cos\frac{2\pi\mu n}{N}+b_{\mu}\sin\frac{2\
 と書けることを示し、$a_0,a_{\mu},b_{\mu}$ を $f_1,\dots,f_N$ を用いて表せ。
 \end{shoumon}
 \notekiroku{2026-10-03 E △××× → 2026-10-14 C ○▲△△}
-\begin{kotaeutsushi}{2026-10-03}
-\toi{1}{△}{記述}
+\begin{kotaeutsushi}{2026-10-14}
+\toi{1}{○}{記述}
 \begin{align*}
-  (U^{\dagger}U)_{\mu\nu}&=\sum_n(U^{\dagger})_{\mu n}U_{n\nu}=\sum_n U_{n\mu}^{*}U_{n\nu}\\
-  &=\sum_n\frac{1}{N}\ee^{-\ii\frac{2\pi n\mu}{N}}\cdot\ee^{\ii\frac{2\pi n\nu}{N}}\\
-  &=\sum_n\frac{1}{N}\ee^{\ii\frac{2\pi n(\nu-\mu)}{N}}
+  &\sum_{n=1}^{N}(U^{\dagger})_{\mu n}U_{n\nu}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{\sqrt{N}}\ee^{-\ii2\pi\mu n/N}\cdot\frac{1}{\sqrt{N}}\ee^{\ii2\pi n\nu/N}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{N}\ee^{\ii2\pi n(\nu-\mu)/N}
 \end{align*}
-$\nu=\mu$ のとき，
-\[ (U^{\dagger}U)_{\mu\nu}=\sum_{n=1}^{N}\frac{1}{N}=1 \]
-$\nu\neq\mu$ のとき，
-\[ (U^{\dagger}U)_{\mu\nu}=\nuke{\text{根拠}}0 \]
-\[ (U^{\dagger}U)_{\mu\nu}=\delta_{\mu\nu} \]
-\naze{$\nu\neq\mu$ で和が 0 になる理由が無い。$\mu,\nu\in\{-M,\dots,M\}$ なので $0<\abs{\nu-\mu}\le2M=N-1$ で，$\nu-\mu$ は $N$ の倍数でない。$z=\ee^{\ii2\pi(\nu-\mu)/N}\neq1$，$z^{N}=1$ だから等比級数の和 $z(1-z^{N})/(1-z)=0$ になる（問題2 (1) の $S_p$）。}
-\toi{2}{×}{未着手}
+i) $\mu=\nu$ のとき，
+\[ \sum_{n=1}^{N}\frac{1}{N}\ee^{0}=1 \]
+ii) $\mu\neq\nu$ のとき，
+\[ \sum_{n=1}^{N}\frac{1}{N}\Bigl(\underbrace{\ee^{\ii2\pi(\nu-\mu)/N}}_{z\text{ とする}}\Bigr)^{n} \]
 \[
-  f_n=\sum_{\mu}U_{n\mu}\Bigl(\sum_{n}U^{\dagger}_{\mu n}f_n\Bigr)
+  \sum_{n=1}^{N}z^{n}=\kakimachigai{\frac{1-z^{N}}{1-z}}{z\frac{1-z^{N}}{1-z}}\ \nuke{z\neq1}
 \]
-\naze{1行で止まっている。$(UU^{\dagger})_{nm}=\frac{1}{N}\sum_{\mu=-M}^{M}w^{\mu}$（$w=\ee^{\ii2\pi(n-m)/N}$）を，$\mu'=\mu+M+1$ とずらして $w^{-M-1}\sum_{\mu'=1}^{N}w^{\mu'}$ に直し，$n\neq m$ で 0 になることを示す。}
-\toi{3}{×}{未着手}
-\mikai
-\toi{4}{×}{未着手}
-\mikai
+\[ z^{N}=1\text{ より }0 \]
+\[ =0 \]
+よって
+\[ \sum_{n=1}^{N}(U^{\dagger})_{\mu n}U_{n\nu}=\delta_{\mu\nu}\qquad\therefore\ U^{\dagger}U=I \]
+\naze{等比級数の和の公式は $z\neq1$ のときだけ使える。$\mu,\nu$ は $-M$〜$M$ にあるので $0<\abs{\nu-\mu}\le2M=N-1$ となり，$\nu-\mu$ は $N$ の倍数でないから $z\neq1$ である。列の添字を対称にとったこの問題では，この確認が要点である。}
+\toi{2}{▲}{立式}
+\begin{align*}
+  &\ayamari{\sum_{n=1}^{N}U_{\mu n}(U^{\dagger})_{n\nu}}{\sum_{\mu=-M}^{M}U_{n\mu}(U^{\dagger})_{\mu m}}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{\sqrt{N}}\ee^{\ii2\pi\mu n/N}\cdot\frac{1}{\sqrt{N}}\ee^{-\ii2\pi n\nu/N}\\
+  &\qquad=\sum_{n=1}^{N}\frac{1}{N}\ee^{\ii2\pi n(\mu-\nu)/N}
+\end{align*}
+先ほどと同様にして $\delta_{\mu\nu}$　$\therefore\ UU^{\dagger}=I$
+\naze{$n$ について和をとっていて，(1) と同じ量（の複素共役）を計算している。$U$ は行が $n=1$〜$N$，列が $\mu=-M$〜$M$ なので，$UU^{\dagger}$ の成分は $(UU^{\dagger})_{nm}=\sum_{\mu=-M}^{M}U_{n\mu}U_{m\mu}^{*}=\frac{1}{N}\sum_{\mu=-M}^{M}w^{\mu}$（$w=\ee^{\ii2\pi(n-m)/N}$）で，列の添字 $\mu$ について和をとる。$n\neq m$ では $w\neq1$，$w^{N}=1$ で，$\mu'=\mu+M+1$ とずらすと $w^{-M-1}\sum_{\mu'=1}^{N}w^{\mu'}=0$ になる。「先ほど同様」では済まず，添字をずらす一手が要る。以降はこの誤りを引き継ぐ。}
+\toi{3}{△}{計算}
+\begin{align*}
+  \hat{f}_{-\mu}&=\sum_{n=1}^{N}\frac{1}{\sqrt{N}}\ee^{\ayamari{-}{+}\ii2\pi\mu n/N}f_n\\
+  &=\nuke{f_n\text{ は実数}}\Bigl(\sum_{n=1}^{N}(U^{\dagger})_{\mu n}f_n\Bigr)^{*}=\hat{f}_{\mu}^{*}
+\end{align*}
+\naze{$(U^{\dagger})_{-\mu,n}=\ee^{-\ii2\pi(-\mu)n/N}/\sqrt{N}=\ee^{+\ii2\pi\mu n/N}/\sqrt{N}$ で，書いた式は $\hat{f}_{\mu}$ そのものになっていて次の等号とつながらない。正しくは $\hat{f}_{-\mu}=\sum\ee^{\ii2\pi\mu n/N}f_n/\sqrt{N}=\bigl(\sum\ee^{-\ii2\pi\mu n/N}f_n/\sqrt{N}\bigr)^{*}=\hat{f}_{\mu}^{*}$ で，複素共役を外に出せるのは $f_n$ が実数だからである。}
+\toi{4}{△}{計算}
+\begin{align*}
+  f_n&=\sum_{\mu=-M}^{M}U_{n\mu}\hat{f}_{\mu}\\
+  &=\sum_{\mu=-M}^{-1}U_{n\mu}\hat{f}_{\mu}+U_{n0}\hat{f}_0+\sum_{\mu=1}^{M}U_{n\mu}\hat{f}_{\mu}\\
+  &=\frac{\hat{f}_0}{\sqrt{N}}+\sum_{\mu=1}^{M}\biggl(\frac{\ee^{-\ii2\pi\mu n/N}}{\sqrt{N}}\hat{f}_{\mu}^{*}\\
+  &\qquad+\frac{\ee^{\ii2\pi\mu n/N}}{\sqrt{N}}\hat{f}_{\mu}\biggr)\\
+  &=\frac{\hat{f}_0}{\sqrt{N}}+\sum_{\mu=1}^{M}\biggl(\frac{1}{\sqrt{N}}(\hat{f}_{\mu}^{*}+\hat{f}_{\mu})\cos\frac{2\pi\mu n}{N}\\
+  &\qquad+\ayamari{\frac{1}{\sqrt{N}}(\hat{f}_{\mu}^{*}-\hat{f}_{\mu})}{\frac{\ii}{\sqrt{N}}(\hat{f}_{\mu}-\hat{f}_{\mu}^{*})}\\
+  &\qquad\quad\times\sin\frac{2\pi\mu n}{N}\biggr)
+\end{align*}
+\naze{$\ee^{-\ii\theta}\hat{f}^{*}+\ee^{\ii\theta}\hat{f}=(\hat{f}+\hat{f}^{*})\cos\theta+\ii(\hat{f}-\hat{f}^{*})\sin\theta=2\Re\hat{f}\cos\theta-2\Im\hat{f}\sin\theta$ で，$\sin$ の項に因子 $\ii$ が要る。}
+\begin{align*}
+  a_0&=\frac{\hat{f}_0}{\sqrt{N}}=\frac{1}{N}\sum_{n=1}^{N}f_n\\
+  a_{\mu}&=\frac{2}{\sqrt{N}}\Re\Bigl(\sum_{n=1}^{N}\frac{\ee^{-\ii2\pi\mu n/N}}{\sqrt{N}}f_n\Bigr)\\
+  &=\frac{2}{N}\sum_{n=1}^{N}\cos\frac{2\pi\mu n}{N}f_n\\
+  b_{\mu}&=-\frac{2}{\sqrt{N}}\Im\Bigl(\sum_{n=1}^{N}\frac{\ee^{-\ii2\pi\mu n/N}}{\sqrt{N}}f_n\Bigr)\\
+  &=\ayamari{-\frac{2}{N}}{\frac{2}{N}}\sum_{n=1}^{N}\sin\frac{2\pi\mu n}{N}f_n
+\end{align*}
+\naze{$b_{\mu}=-\frac{2}{\sqrt{N}}\Im\hat{f}_{\mu}$ までは正しいが，$\Im\bigl(\sum\ee^{-\ii2\pi\mu n/N}f_n/\sqrt{N}\bigr)=-\frac{1}{\sqrt{N}}\sum\sin\frac{2\pi\mu n}{N}f_n$ なので $b_{\mu}=+\frac{2}{N}\sum\sin\frac{2\pi\mu n}{N}f_n$ である。$N=3$，$\vect{f}=(1,0,0)$ で確かめると，正しい符号なら $n=1,2,3$ で $1,0,0$ に戻り，書いた符号では $0,1,0$ になる。$a_0,a_{\mu},b_{\mu}$ が実数であること（(3) で $\mu=0$ とおくと $\hat{f}_0$ は実数）にも一言添える。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{数理物理1-7（組み替え前）問題6 (1)(2)・10-03} 前回の気付きと同じところでまた止まった。(1) は「$\abs{\nu-\mu}\le N-1$ だから $z\neq1$」を書いてから等比級数の和を使う。(2) の $UU^{\dagger}$ は $U$ の列の添字 $\mu$（$-M$〜$M$）について和をとる。$n$ について和をとると $U^{\dagger}U$ をもう一度計算したことになる。成分を書く前に「行は $n$，列は $\mu$」と添字の範囲を確かめ，$\mu'=\mu+M+1$ とずらして $1$〜$N$ の和に直す。
+\item (3)(4) は符号と $\ii$ の取り違えである。$-\mu$ を入れたら指数は $-\ii2\pi(-\mu)n/N=+\ii2\pi\mu n/N$，$\Im\ee^{-\ii\theta}=-\sin\theta$。式を書いたら $N=3$，$\vect{f}=(1,0,0)$ のような小さな例で $f_n$ に戻るかを確かめる。
+\item 複素共役を外に出すところは「$f_n$ が実数」が要の根拠である。問題1（057）(4) と同じ。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item 「$\nu\neq\mu$ なら 0」は，$\nu-\mu$ が $N$ の倍数でないことを $\mu,\nu$ の範囲（$\abs{\nu-\mu}\le N-1$）から確かめて初めて言える。添字の範囲を $-M$〜$M$ に変えた問題では，この確認が導出の要になる。
 \item $UU^{\dagger}=I$ は $U^{\dagger}U=I$ とは別に示す。和の添字が $-M$ から始まるときは，$\mu'=\mu+M+1$ とずらして $1$〜$N$ の等比級数に直す。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin 列の添字を $-M\le\mu\le M$ にとった離散フーリエ級数展開の行列がユニタリー行列であること（両方向）を示し、実ベクトルの係数がもつ対称性を使って、三角関数による実の展開形とその係数を導く。使う定理：ユニタリー行列の定義、$(U^{\dagger})_{\mu n}=U_{n\mu}^{*}$。等比級数の和 $z+\dots+z^{N}=z\frac{1-z^{N}}{1-z}$（$z\neq1$）と $\ee^{\ii2\pi p}=1$。$\mu$ の範囲は連続した $N$ 個の整数なら何でもよく、実ベクトルでは $\hat{f}_{-\mu}=\hat{f}_{\mu}^{*}$ となる。（参考）\noteshiki{9.8}\noteshiki{9.9}。 % 出典: p.71
 \keisan
@@ -309,7 +338,7 @@ $\hat{f}_{\mu}$ は次のように書け、
 \end{tadashii}
 \end{mondai}
 
-% toubun: kiroku\toubun\数理物理1\060_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\060_2026-10-12.tex
 \mondaibangou{4}
 \begin{mondai}{060-real-n4}{計算}{$N=4$ の実離散フーリエ級数展開}
 \begin{shoumon}
@@ -342,63 +371,78 @@ f_n=\sum_{\mu=1}^{4}\Bigl[A_{\mu}\cos\frac{2\pi\mu n}{4}+B_{\mu}\sin\frac{2\pi\m
 \]
 \end{shoumon}
 \notekiroku{2026-10-03 B ◎◎△△ → 2026-10-12 B ○◎○◎ (ヒント1)}
-\begin{kotaeutsushi}{2026-10-03}
-\toi{1}{◎}{}
-（ページの上に $\sin A\cos B+\cos A\sin B$ のメモ）
+\begin{kotaeutsushi}{2026-10-12}
+\toi{1}{○}{記述}
+（ページの上に $\sin a\cos b$ のメモ）
 \begin{align*}
-  &\sum_n\sin\frac{2\pi\mu n}{N}\cos\frac{2\pi\nu n}{N}\\
-  &\qquad=\kakimachigai{\frac{1}{2}}{\frac{1}{2}\sum_n}\Bigl(\sin\frac{2\pi(\mu+\nu)n}{N}+\sin\frac{2\pi(\mu-\nu)n}{N}\Bigr)\\
-  &\qquad=\frac{1}{2}\bigl(\Im S_{\mu+\nu}+\Im S_{\mu-\nu}\bigr)=0
+  &\sin\frac{2\pi\mu n}{N}\cos\frac{2\pi\nu n}{N}\\
+  &\qquad=\frac{1}{2}\Bigl(\sin\frac{2\pi(\mu+\nu)n}{N}+\sin\frac{2\pi(\mu-\nu)n}{N}\Bigr)\\
+  &\qquad=\frac{1}{2}\Im\Bigl(\ee^{\ii\frac{2\pi(\mu+\nu)n}{N}}+\ee^{\ii\frac{2\pi(\mu-\nu)n}{N}}\Bigr)
 \end{align*}
+$z_1=\ee^{\ii\frac{2\pi(\mu+\nu)}{N}}$，$z_2=\ee^{\ii\frac{2\pi(\mu-\nu)}{N}}$ とする。
+\begin{align*}
+  \text{与式}&=\sum_{n=1}^{N}\frac{1}{2}\Im\bigl(z_1^{n}+z_2^{n}\bigr)\\
+  &=0
+\end{align*}
+（脇に）$\mu+\nu$ や $\mu-\nu$ が $N$ の倍数でも倍数でなくても虚部は 0。
+\naze{虚部が 0 になる理由（和の値）が無い。$S_p=\sum_{n=1}^{N}z^{n}$ は，$p$ が $N$ の倍数なら各項が 1 で $N$，そうでなければ $z\neq1$，$z^{N}=1$ より $z(1-z^{N})/(1-z)=0$ で，どちらも実数なので $\Im S_p=0$ である。}
 \toi{2}{◎}{}
 \begin{align*}
-  A_1&=\frac{1}{N}\sum\cos\frac{2\pi n}{N}f_n\\
-  &=\frac{1}{4}\Bigl(\cos\frac{\pi}{2}+\cos\pi\Bigr)=-\frac{1}{4}\\
-  A_2&=\frac{1}{N}\sum\cos\frac{4\pi n}{N}f_n\\
-  &=\frac{1}{4}(\cos\pi+\cos2\pi)=0\\
+  A_{\mu}&=\frac{1}{4}\sum_{n=1}^{4}\cos\frac{\pi\mu n}{2}f_n\\
+  A_1&=\frac{1}{4}\Bigl(\cos\frac{\pi}{2}+\cos\pi\Bigr)=-\frac{1}{4}\\
+  A_2&=\frac{1}{4}(\cos\pi+\cos2\pi)=0\\
   A_3&=\frac{1}{4}\Bigl(\cos\frac{3\pi}{2}+\cos3\pi\Bigr)=-\frac{1}{4}\\
   A_4&=\frac{1}{4}(\cos2\pi+\cos4\pi)=\frac{1}{2}
 \end{align*}
 \begin{align*}
+  B_{\mu}&=\frac{1}{4}\sum_{n=1}^{4}\sin\frac{\pi\mu n}{2}f_n\\
   B_1&=\frac{1}{4}\Bigl(\sin\frac{\pi}{2}+\sin\pi\Bigr)=\frac{1}{4}\\
   B_2&=\frac{1}{4}(\sin\pi+\sin2\pi)=0\\
   B_3&=\frac{1}{4}\Bigl(\sin\frac{3\pi}{2}+\sin3\pi\Bigr)=-\frac{1}{4}\\
   B_4&=\frac{1}{4}(\sin2\pi+\sin4\pi)=0
 \end{align*}
-\toi{3}{△}{記述}
+\toi{3}{○}{記述}
+\[ \hat{f}_{\mu}=\frac{1}{2}\sum_{n}\bigl(\ee^{-\ii\frac{\pi\mu n}{2}}\bigr)_{\kakimachigai{n\mu}{\mu n}}f_n \]
+$\ee^{\ii\frac{\pi}{2}}=z$ とする。
 \begin{align*}
-  \hat{f}_{\mu}&=\ee^{-\ii\frac{2\pi\mu n}{N}}f_n\\
-  &=\frac{1}{\sqrt{N}}\Bigl(\cos\Bigl(-\frac{2\pi\mu n}{N}\Bigr)+\ii\sin\Bigl(-\frac{2\pi\mu n}{N}\Bigr)\Bigr)f_n
+  2U^{\dagger}&=\begin{pmatrix}z^{-1}&z^{-2}&z^{-3}&z^{-4}\\z^{-2}&z^{-4}&z^{-6}&z^{-8}\\z^{-3}&z^{-6}&z^{-9}&z^{-12}\\z^{-4}&z^{-8}&z^{-12}&z^{-16}\end{pmatrix}\\
+  &=\begin{pmatrix}z^{3}&z^{2}&z&1\\z^{2}&1&z^{2}&1\\z&z^{2}&z^{3}&1\\1&1&1&1\end{pmatrix}
 \end{align*}
+\[
+  2U^{\dagger}\vect{f}=\begin{pmatrix}z^{3}+z^{2}\\z^{2}+1\\z+z^{2}\\2\end{pmatrix}=\begin{pmatrix}-\ii-1\\0\\\ii-1\\2\end{pmatrix}
+\]
 \begin{align*}
-  \Re\hat{f}_{\mu}&=\frac{1}{\sqrt{N}}\cos\Bigl(\frac{2\pi\mu n}{N}\Bigr)f_n=\sqrt{N}A_{\mu}\\
-  \Im\hat{f}_{\mu}&=\ayamari{-\frac{1}{\sqrt{N}}}{\frac{1}{\sqrt{N}}}\sin\Bigl(-\frac{2\pi\mu n}{N}\Bigr)f_n=-\sqrt{N}B_{\mu}
+  \hat{f}_{\mu}&=\Bigl(-\frac{1}{2}-\frac{\ii}{2},\ 0,\ -\frac{1}{2}+\frac{\ii}{2},\ 1\Bigr)\\
+  \frac{1}{2}\Re\hat{f}_{\mu}&=\Bigl(-\frac{1}{4},\ 0,\ -\frac{1}{4},\ \frac{1}{2}\Bigr)\\
+  -\frac{1}{2}\Im\hat{f}_{\mu}&=\Bigl(\frac{1}{4},\ 0,\ -\frac{1}{4},\ 0\Bigr)
 \end{align*}
-\nuke{$\hat{f}_1,\dots,\hat{f}_4$ の値}
-\naze{問われている $\hat{f}_{\mu}$ の値が無い。$\hat{f}_{\mu}=\frac{1}{2}(\ee^{-\ii\pi\mu/2}+\ee^{-\ii\pi\mu})$ より $\hat{f}_1=-\frac{1}{2}-\frac{1}{2}\ii$，$\hat{f}_2=0$，$\hat{f}_3=-\frac{1}{2}+\frac{1}{2}\ii$，$\hat{f}_4=1$ を出し，$\sqrt{N}A_{\mu}$，$-\sqrt{N}B_{\mu}$ と成分ごとに比べる。$\hat{f}_{\mu}$ の式には $\frac{1}{\sqrt{N}}\sum_n$ が要り，$\Im$ の行は $\sin(-\theta)$ を使うなら前の $-$ は付かない。}
-\toi{4}{△}{計算}
+\nuke{結論の1行}
+\naze{値は (2) の $A_{\mu}$，$B_{\mu}$ と一致しているが，「よって $\Re\hat{f}_{\mu}=2A_{\mu}=\sqrt{N}A_{\mu}$，$\Im\hat{f}_{\mu}=-2B_{\mu}=-\sqrt{N}B_{\mu}$ が成り立つ」という確かめの結論が無い。「確かめよ」の問いでは，比べた結果を1行で書く。}
+\toi{4}{◎}{}
 \begin{align*}
-  f_1&=B_1\sin\frac{\pi}{2}+A_2\cos\pi+B_3\sin\frac{3\pi}{2}+A_4\cos2\pi\\
-  &=\frac{1}{4}\cdot1+0\cdot(-1)+\Bigl(-\frac{1}{4}\Bigr)(-1)+\frac{1}{2}\cdot1=1\\
+  \kakimachigai{\abs{\hat{f}_{\mu}}^{2}}{\textstyle\sum_{\mu}\abs{\hat{f}_{\mu}}^{2}}&=\frac{1}{2}+0+\frac{1}{2}+1=2\\
+  \kakimachigai{\abs{f_n}^{2}}{\abs{\vect{f}}^{2}}&=1+1+0+0=2
+\end{align*}
+（0 になる項は斜線で消して代入する）
+\begin{align*}
+  f_1&=B_1\sin\frac{\pi}{2}+B_3\sin\frac{3\pi}{2}+A_4\cos2\pi\\
+  &=\frac{1}{4}+\frac{1}{4}+\frac{1}{2}=1\\
   f_2&=A_1\cos\pi+A_2\cos2\pi+A_3\cos3\pi+A_4\cos4\pi\\
-  &=\Bigl(-\frac{1}{4}\Bigr)(-1)+0\cdot1+\Bigl(-\frac{1}{4}\Bigr)(-1)+\frac{1}{2}\cdot1=1\\
+  &=\frac{1}{4}+0+\frac{1}{4}+\frac{1}{2}=1\\
   f_3&=B_1\sin\frac{3\pi}{2}+A_2\cos3\pi+B_3\sin\frac{9\pi}{2}+A_4\cos6\pi\\
-  &=\frac{1}{4}\cdot(-1)+\Bigl(-\frac{1}{4}\Bigr)\cdot1+\frac{1}{2}\cdot1=0\\
-  f_4&=A_1\cos2\pi+A_3\cos6\pi+A_4\cos8\pi\\
-  &=-\frac{1}{4}\cdot1+\Bigl(-\frac{1}{4}\Bigr)\cdot1+\frac{1}{2}\cdot1=0
+  &=-\frac{1}{4}+0-\frac{1}{4}+\frac{1}{2}=0\\
+  f_4&=A_1\cos2\pi+A_2\cos4\pi+A_3\cos6\pi+A_4\cos8\pi\\
+  &=-\frac{1}{4}+0-\frac{1}{4}+\frac{1}{2}=0
 \end{align*}
-\begin{align*}
-  \sum_{\mu}\abs{\hat{f}_{\mu}}^{2}&=2^{2}\bigl(\ayamari{(A_1-\ii B_1)^{2}}{\abs{A_1-\ii B_1}^{2}}+(A_2-\ii B_2)^{2}\\
-  &\qquad+(A_3-\ii B_3)^{2}+(A_4-\ii B_4)^{2}\bigr)\\
-  &=\ayamari{2}{4}\Bigl(\frac{1}{16}\cdot2+0+\frac{1}{16}\cdot2+\frac{1}{4}\Bigr)=1
-\end{align*}
-\[ f^{2}=2 \]
-\naze{$\hat{f}_{\mu}=\sqrt{N}(A_{\mu}-\ii B_{\mu})=2(A_{\mu}-\ii B_{\mu})$ なので $\abs{\hat{f}_{\mu}}^{2}=4(A_{\mu}^{2}+B_{\mu}^{2})$ で，2乗ではなく絶対値の2乗をとる。前の行の $2^{2}$ を次の行で $2$ にしており，正しくは $4\cdot\frac{1}{2}=2=\abs{\vect{f}}^{2}$。$1$ と $2$ が食い違ったまま終わっている。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{数理物理1-7（組み替え前）問題6 (1)・10-03} 「和が 0（虚部が 0）」と言うときは，1の $N$ 乗根の和 $S_p$ の値を書く。$p$ が $N$ の倍数なら $z=1$ で $S_p=N$，そうでなければ $z\neq1$，$z^{N}=1$ で $S_p=z(1-z^{N})/(1-z)=0$。どちらも実数だから $\Im S_p=0$ と言える。等比級数の式を書きかけて消していたので，最後まで書けば足りた。
+\item \mae{数理物理1-7（組み替え前）問題7 (3)・10-03} 前回は $\hat{f}_{\mu}$ の値が無く，今回は値は出たが「$\Re\hat{f}_{\mu}=\sqrt{N}A_{\mu}$，$\Im\hat{f}_{\mu}=-\sqrt{N}B_{\mu}$ が成り立つ」の結論が無い。「確かめよ」は比べた結果を1行で書いて終える。前回の (4) の Parseval（絶対値の2乗と因子 4）は今回正しくできた。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item 複素係数の長さは $\abs{A-\ii B}^{2}=A^{2}+B^{2}$ で，$(A-\ii B)^{2}$ ではない。Parseval で左右が合わなかったら，$\sqrt{N}$ の因子と絶対値のとり方を見直す（(3) で $\hat{f}_{\mu}$ の値を出しておけば $\frac{1}{2}+0+\frac{1}{2}+1=2$ と直接確かめられる）。
 \item 「求めよ」とある量は，一般の関係式を示しただけで終えず，値まで書く。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin 実展開で虚部が消える根拠となる和の公式を示し、$N=4$ の具体的な実ベクトルについて、実の係数 $A_{\mu},B_{\mu}$ と複素係数 $\hat{f}_{\mu}$ を求めて両者の関係・逆変換・長さの保存を確かめる。使う定理：積和公式 $\sin\alpha\cos\beta=\frac{1}{2}\{\sin(\alpha+\beta)+\sin(\alpha-\beta)\}$、1の $N$ 乗根の和
 \[

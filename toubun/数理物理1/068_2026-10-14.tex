@@ -1,0 +1,32 @@
+% 数理物理1 数理物理1-10 問題2（068-trigprod。当時は 数理物理1-8 問題2・shou08-l1-trigprod） 解いた日 2026-10-14
+%% kotae
+\toi{1}{◎}{}
+（最初に係数の積分で始めた試みは斜線で消してある）
+\begin{align*}
+  \cos^{3}x&=\Bigl(\frac{\ee^{\ii x}+\ee^{-\ii x}}{2}\Bigr)^{3}\\
+  &=\frac{1}{8}\bigl(\ee^{3\ii x}+3\ee^{\ii x}+3\ee^{-\ii x}+\ee^{-3\ii x}\bigr)
+\end{align*}
+\[ \hat{f}_{\pm3}=\frac{1}{8},\qquad\hat{f}_{\pm1}=\frac{3}{8} \]
+\[ \cos3x=4\cos^{3}x-3\cos x \]
+\[ \therefore\ \cos^{3}x=\frac{1}{4}\cos3x+\frac{3}{4}\cos x \]
+$a_1=3/4$，$a_3=1/4$，他の $a_n$，$b_n=0$
+\toi{2}{△}{計算}
+\begin{align*}
+  \sin x\cos2x&=\frac{\ee^{\ii x}-\ee^{-\ii x}}{2\ii}\cdot\frac{\ee^{2\ii x}+\ee^{-2\ii x}}{2}\\
+  &=\frac{1}{4\ii}\bigl(\ee^{3\ii x}-\ee^{\ii x}+\ee^{-\ii x}-\ee^{-3\ii x}\bigr)
+\end{align*}
+\[ \hat{f}_3=\ayamari{-\frac{1}{4}}{-\frac{\ii}{4}},\quad\hat{f}_1=\ayamari{\frac{1}{4}}{\frac{\ii}{4}} \]
+\[ \hat{f}_{-1}=\ayamari{-\frac{1}{4}}{-\frac{\ii}{4}},\quad\hat{f}_{-3}=\ayamari{\frac{1}{4}}{\frac{\ii}{4}} \]
+\naze{$1/(4\ii)=-\ii/4$ なので係数には $\ii$ が付く。書いた値では $\sum\hat{g}_{\mu}\ee^{\ii\mu x}$ が純虚数になり，実関数 $g(x)$ にならない。$\sin$ を指数関数で書くと係数は純虚数になる。問題1（067）の関係 $b_3=\ii(\hat{g}_3-\hat{g}_{-3})=\ii(-\ii/2)=1/2$ で照らし合わせれば気づける。}
+\begin{align*}
+  \sin x(1-2\sin^{2}x)&=\sin x-2\sin^{3}x\\
+  &=-\frac{1}{2}\sin x+\frac{1}{2}\sin3x
+\end{align*}
+（脇で）$\sin3x=3\sin x-4\sin^{3}x$，$-2\sin^{3}x=\frac{1}{2}\sin3x-\frac{3}{2}\sin x$
+\[ b_1=-\frac{1}{2},\quad b_3=\frac{1}{2},\quad\text{他は }0 \]
+\toi{3}{○}{記述}
+指数関数の和で表したときの係数が，正規直交性により一致するため。\nuke{代入して $\delta_{\mu\nu}$}
+\naze{正規直交性をどう使うかが無い。$f(x)=\sum_{\nu}c_{\nu}\ee^{\ii\nu x}$（有限和）を係数の定義式に代入し，$\frac{1}{2\pi}\int\ee^{-\ii\mu x}\ee^{\ii\nu x}\dd x=\delta_{\mu\nu}$ から $\hat{f}_{\mu}=\sum_{\nu}c_{\nu}\delta_{\mu\nu}=c_{\mu}$，の1行を足す。}
+%% kizuki
+\item \mae{数理物理1-8（組み替え前）問題2 (1)・10-03} $\sin$ を指数関数で書くと $1/(2\ii)=-\ii/2$ が出て，係数は純虚数になる。複素係数を書いたら，$\hat{g}_{-\mu}=\hat{g}_{\mu}^{*}$（実関数）と $b_n=\ii(\hat{g}_n-\hat{g}_{-n})$ で実形式の答えと照らし合わせる。前回の気付きの「係数の関係で実形式を1行で出す」を使えば，今回の $\ii$ の落ちもその場で見つかった。
+\item \mae{数理物理1-8（組み替え前）問題2 (3)・10-03} 前回は未着手で，気付きに「代入すると $\delta_{\mu\nu}$ が残る」と書いていた。今回は結論の1文だけで，その式が無い。説明の問いでも，要の式（定義式に有限和を代入 → 正規直交性で $\delta_{\mu\nu}$ → $\hat{f}_{\mu}=c_{\mu}$）を1行で書く。

@@ -1,0 +1,37 @@
+% 数理物理1 数理物理1-9 問題1（057-dft3。当時は 数理物理1-7 問題4・shou07-l1-dft3） 解いた日 2026-10-14
+%% kotae
+\toi{1}{◎}{}
+\[
+  U=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta&\zeta^{2}&\zeta^{3}\\\zeta^{2}&\zeta^{4}&\zeta^{6}\\\zeta^{3}&\zeta^{6}&\zeta^{9}\end{pmatrix}
+  =\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta&\zeta^{2}&1\\\zeta^{2}&\zeta&1\\1&1&1\end{pmatrix}
+\]
+\toi{2}{◎}{}
+\begin{align*}
+  \hat{\vect{f}}&=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta^{2}&\zeta&1\\\zeta&\zeta^{2}&1\\1&1&1\end{pmatrix}\begin{pmatrix}1\\2\\3\end{pmatrix}\\
+  &=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta^{2}+2\zeta+3\\\zeta+2\zeta^{2}+3\\1+2+3\end{pmatrix}\\
+  &=\frac{1}{\sqrt{3}}\begin{pmatrix}-\frac{1}{2}-\frac{\sqrt{3}}{2}\ii+2\bigl(-\frac{1}{2}+\frac{\sqrt{3}}{2}\ii\bigr)+3\\-\frac{1}{2}+\frac{\sqrt{3}}{2}\ii+2\bigl(-\frac{1}{2}-\frac{\sqrt{3}}{2}\ii\bigr)+3\\6\end{pmatrix}\\
+  &=\frac{1}{\sqrt{3}}\begin{pmatrix}\frac{3}{2}+\frac{\sqrt{3}}{2}\ii\\\frac{3}{2}-\frac{\sqrt{3}}{2}\ii\\6\end{pmatrix}
+  =\begin{pmatrix}\frac{\sqrt{3}}{2}+\frac{1}{2}\ii\\\frac{\sqrt{3}}{2}-\frac{1}{2}\ii\\2\sqrt{3}\end{pmatrix}
+\end{align*}
+\[
+  \hat{f}_1=\frac{\sqrt{3}}{2}+\frac{1}{2}\ii,\quad
+  \hat{f}_2=\frac{\sqrt{3}}{2}-\frac{1}{2}\ii,\quad
+  \hat{f}_3=2\sqrt{3}
+\]
+\toi{3}{◎}{}
+\begin{align*}
+  \abs{\vect{f}}^{2}&=1+4+9=14\\
+  \abs{\hat{\vect{f}}}^{2}&=1+1+12=14
+\end{align*}
+\toi{4}{○}{記述}
+\[ \hat{f}_2=\hat{f}_1^{*} \]
+$U_{n2}=U_{n1}^{*}$ \nuke{$\zeta^{3n}=1$ より} より，
+\begin{align*}
+  \hat{f}_2&=\sum U_{n2}^{*}f_n=\sum U_{n1}f_n\\
+  \hat{f}_1&=\sum U_{n1}^{*}f_n
+\end{align*}
+\[ \nuke{f_n\text{ は実数}}\quad\therefore\ \hat{f}_2=\hat{f}_1^{*} \]
+\naze{結論は正しいが根拠が2つ抜けている。$U_{n2}=U_{n1}^{*}$ は $\zeta^{3n}=1$ より $\zeta^{2n}=\zeta^{-n}=(\zeta^{n})^{*}$ だから成り立つ。また $\sum U_{n1}f_n=\bigl(\sum U_{n1}^{*}f_n\bigr)^{*}$ とできるのは $f_n$ が実数だからで，この一言が無いと最後の等号が言えない。}
+%% kizuki
+\item \mae{数理物理1-8（組み替え前）問題1 (4)・10-03} 複素共役をとる式変形 $\sum U_{n1}f_n=(\sum U_{n1}^{*}f_n)^{*}$ は「$f_n$ が実数」が要の条件である。前回も「$f$ が実関数なので係数が実数」の一言が抜けた。複素共役を中に通すときは，どの量が実数かを書いてから等号を引く。
+\item $U_{n2}=U_{n1}^{*}$ のような添字の関係は，$\zeta^{3n}=1$ から $\zeta^{2n}=\zeta^{-n}$ を1行書いて示す。前回（10-03）取り違えた $\zeta$ の指数 $-\mu n$ は，今回 (1) で $U$ を先に書いて正しくできた。
