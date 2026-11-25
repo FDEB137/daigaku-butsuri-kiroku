@@ -1,0 +1,44 @@
+% 量子力学1 量子力学1-10 問題5（030-param。当時は 量子力学1-4 問題5・kai04-l2-param） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ M^{\dagger}=\begin{pmatrix}\cos\alpha & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha\end{pmatrix},\qquad M=M^{\dagger} \]
+\begin{align*}
+M^{2}&=\begin{pmatrix}\cos^{2}\alpha+\sin^{2}\alpha & \ee^{-\ii\beta}\cos\alpha\sin\alpha-\kakimachigai{\ee^{\ii\beta}}{\ee^{-\ii\beta}}\cos\alpha\sin\alpha\\ \ee^{\ii\beta}\cos\alpha\sin\alpha-\ee^{\ii\beta}\cos\alpha\sin\alpha & \sin^{2}\alpha+\cos^{2}\alpha\end{pmatrix}\\
+&=\begin{pmatrix}1&0\\0&1\end{pmatrix}=I
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+M\vect{u}&=\lambda\vect{u}\\
+M^{2}\vect{u}&=\lambda M\vect{u}\\
+I\vect{u}&=\lambda^{2}\vect{u}
+\end{align*}
+\[ \lambda^{2}=1,\qquad \lambda=\pm1 \]
+$\mathrm{tr}(M)=0$ より，重ならない。
+\toi{3}{◎}{}
+\[ \begin{pmatrix}\cos\alpha-1 & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha-1\end{pmatrix}\vect{u}_{+}'=0 \]
+\[ \vect{u}_{+}'=\begin{pmatrix}\ee^{-\ii\beta}\sin\alpha\\ 1-\cos\alpha\end{pmatrix}=\begin{pmatrix}2\ee^{-\ii\beta}\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\\ 2\sin^{2}\frac{\alpha}{2}\end{pmatrix} \]
+\begin{align*}
+\abs{\vect{u}_{+}'}&=\sqrt{\sin^{2}\alpha+\cos^{2}\alpha-2\cos\alpha+1}\\
+&=\sqrt{2(1-\cos\alpha)}\\
+&=\sqrt{4\sin^{2}\frac{\alpha}{2}}\\
+&=2\sin\frac{\alpha}{2}
+\end{align*}
+\[ \vect{u}_{+}=\begin{pmatrix}\ee^{-\ii\beta}\cos\frac{\alpha}{2}\\ \sin\frac{\alpha}{2}\end{pmatrix}=\begin{pmatrix}\cos\frac{\alpha}{2}\\ \ee^{\ii\beta}\sin\frac{\alpha}{2}\end{pmatrix} \]
+\[ \begin{pmatrix}\cos\alpha+1 & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha+1\end{pmatrix}\vect{u}_{-}'=0 \]
+\[ \vect{u}_{-}'=\begin{pmatrix}\ee^{-\ii\beta}\sin\alpha\\ -\cos\alpha-1\end{pmatrix} \]
+\[ \abs{\vect{u}_{-}'}=\sqrt{2(1+\cos\alpha)}=2\cos\frac{\alpha}{2} \]
+\[ =\begin{pmatrix}2\ee^{-\ii\beta}\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\\ -2\cos^{2}\frac{\alpha}{2}\end{pmatrix} \]
+\[ =\begin{pmatrix}\ee^{-\ii\beta}\sin\frac{\alpha}{2}\\ -\cos\frac{\alpha}{2}\end{pmatrix} \]
+\toi{4}{○}{記述}
+\begin{align*}
+\vect{u}_{+}^{\dagger}\vect{u}_{-}&=\Bigl(\ee^{\ii\beta}\cos\frac{\alpha}{2},\ \sin\frac{\alpha}{2}\Bigr)\begin{pmatrix}\ee^{-\ii\beta}\sin\frac{\alpha}{2}\\ -\cos\frac{\alpha}{2}\end{pmatrix}\\
+&=\cos\frac{\alpha}{2}\sin\frac{\alpha}{2}-\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\\
+&=0
+\end{align*}
+より，直交
+\[ \alpha\to0 \]
+\[ \vect{u}_{+}=\begin{pmatrix}\ee^{-\ii\beta}\\ 0\end{pmatrix},\qquad \vect{u}_{-}=\begin{pmatrix}0\\ -1\end{pmatrix} \]
+\[ M=\begin{pmatrix}1&0\\0&-1\end{pmatrix}\ayamari{=(\vect{u}_{+},\ \vect{u}_{-})}{\text{等号で結べない}} \]
+\naze{$\vect{u}_{+}\to(\ee^{-\ii\beta},0)^{\mathrm{T}}$ なので，$M$ と固有ベクトルを並べた行列は等号で結べない。言うべきことは「$\alpha\to0$ で $M=\mathrm{diag}(1,-1)$ となり，その固有値 $+1$，$-1$ の固有ベクトルは $(1,0)^{\mathrm{T}}$，$(0,1)^{\mathrm{T}}$ で，$\vect{u}_{\pm}$ と位相因子を除いて一致する」である。}
+%% kizuki
+\item 固有ベクトルには全体の位相因子の任意性があるので，極限の形と比べるときは「位相因子を除いて一致する」と書く。行列 $M$ と，固有ベクトルを並べた行列 $(\vect{u}_{+},\vect{u}_{-})$ は別のもので，等号で結べない。比べるのは「$M$ の固有ベクトル」と「$\vect{u}_{\pm}$ の極限」である。

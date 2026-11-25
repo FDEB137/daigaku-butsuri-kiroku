@@ -1,0 +1,33 @@
+% 量子力学1 量子力学1-10 問題1（026-matrix。当時は 量子力学1-4 問題1・kai04-l1-matrix） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ P^{\dagger}=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}=P\quad\text{エルミート} \]
+\[ Q^{\dagger}=\begin{pmatrix}1 & -\ii\\ -\ii & 1\end{pmatrix} \]
+\toi{2}{◎}{}
+\begin{align*}
+\begin{vmatrix}1-\lambda & 1+\ii\\ 1-\ii & 2-\lambda\end{vmatrix}
+&=(1-\lambda)(2-\lambda)\\
+&\qquad-(1+\ii)(1-\ii)\\
+&=\lambda^{2}-3\lambda
+\end{align*}
+\[ \lambda=0,\ 3 \]
+\[ \begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}\vect{v}_{1}=0,\qquad \vect{v}_{1}=\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \vect{v}_{1}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \begin{pmatrix}-2 & 1+\ii\\ 1-\ii & -1\end{pmatrix}\vect{v}_{2}=0,\qquad \vect{v}_{2}=\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\[ \vect{v}_{2}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\[ \lambda_{1}=0,\quad \vect{v}_{1}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \lambda_{2}=3,\quad \vect{v}_{2}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\toi{3}{◎}{}
+\[ \vect{v}_{2}^{\dagger}\vect{v}_{1}=\frac{1}{3}(1,\ 1+\ii)\begin{pmatrix}1+\ii\\ -1\end{pmatrix}=0 \]
+\toi{4}{○}{記述}
+\begin{align*}
+\begin{vmatrix}1-\lambda & \kakimachigai{-\ii}{\ii}\\ \kakimachigai{-\ii}{\ii} & 1-\lambda\end{vmatrix}
+&=(1-\lambda)^{2}-(\ii)^{2}\\
+&=\lambda^{2}-2\lambda+2
+\end{align*}
+\[ \therefore\ \lambda=1\pm\ii \]
+$Q$ はエルミート行列でないため，固有値は\ayamari{実数にならない}{実数とは限らない}。
+\naze{定理が保証するのは「エルミート行列なら固有値は実数」だけで，エルミートでない行列でも固有値が実数になることはある。正しくは「$Q$ はエルミートでないので固有値は実数とは限らず，実際に複素数 $1\pm\ii$ になった」である。}
+%% kizuki
+\item 「エルミートなら固有値は実数」の逆は成り立たない（例：$\bigl(\begin{smallmatrix}1&1\\0&2\end{smallmatrix}\bigr)$ はエルミートでないが，固有値は $1$，$2$ で実数）。エルミートでない行列については「実数とは限らない」と書き，実際の値で確かめる。
+\item 固有方程式は $Q-\lambda I$ から立てる。行列式に $Q^{\dagger}$ の成分 $-\ii$ を書いたが，$(\pm\ii)^{2}=-1$ なので答えは変わらなかった。展開する前に，行列式の成分を元の行列と見比べる。

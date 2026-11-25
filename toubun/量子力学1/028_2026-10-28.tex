@@ -1,0 +1,20 @@
+% 量子力学1 量子力学1-4 問題2（028-delta。当時は 量子力学1-4 問題3・kai04-l1-delta） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ 2^{2}+3\cdot2=10 \]
+\toi{2}{○}{記述}
+\[ 0 \]
+\nuke{$x=-1$ は区間外}
+\naze{答えの 0 は正しいが根拠が無い。$\delta(x+1)$ が値をもつ $x=-1$ は積分区間 $0\le x<\infty$ の外にあるので積分は 0 になる，の一言が要る。}
+\toi{3}{◎}{}
+\begin{align*}
+&\int_{-\infty}^{\infty}\ee^{-x^{2}}\dv{\theta(x-1)}{x}\dd x\\
+&=\underbrace{\Bigl[\ee^{-x^{2}}\theta(x-1)\Bigr]_{-\infty}^{\infty}}_{0}\\
+&\qquad+\int_{-\infty}^{\infty}2x\ee^{-x^{2}}\kakimachigai{\theta(x)}{\theta(x-1)}\dd x\\
+&=\int_{1}^{\infty}2x\ee^{-x^{2}}\dd x
+\end{align*}
+（脇で置換：$\ee^{-x^{2}}=z$，$-2x\ee^{-x^{2}}\dd x=\dd z$，$x:1\to\infty$ で $z:1/\ee\to0$）
+\[ =\int_{0}^{1/\ee}\dd z=\frac{1}{\ee} \]
+\[ \int_{-\infty}^{\infty}\ee^{-x^{2}}\kakimachigai{\delta(x-1)}{\delta(x-1)\dd x}=\frac{1}{\ee} \]
+%% kizuki
+\item デルタ関数の積分では，まず $\delta$ の立つ点（$\delta(x+1)$ なら $x=-1$）が積分区間に入っているかを書く。入っていなければ 0，入っていればその点での値になる。答えが 0 のときは，この一言がそのまま答えの根拠になる。

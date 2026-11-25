@@ -1,0 +1,27 @@
+% 量子力学1 量子力学1-4 問題4（032-deltaprop。当時は 量子力学1-4 問題7・kai04-l2-deltaprop） 解いた日 2026-10-28
+%% kotae
+\toi{1}{○}{記述}
+i) $c>0$（$cx=z$ とおく）
+\begin{align*}
+&\int_{-\infty}^{\infty}f(x)\delta(cx)\dd x\\
+&=\int_{-\infty}^{\infty}\ayamari{f(x)}{f(z/c)}\delta(z)\frac{\dd z}{c}
+\end{align*}
+ii) $c<0$（$cx=z$ とおく）
+\begin{align*}
+&\int_{-\infty}^{\infty}f(x)\delta(cx)\dd x\\
+&=\int_{\infty}^{-\infty}\ayamari{f(x)}{f(z/c)}\delta(z)\frac{\dd z}{c}\\
+&=\int_{-\infty}^{\infty}f(x)\delta(z)\frac{\dd z}{-c}
+\end{align*}
+よって
+\[ \delta(cx)=\frac{\delta(x)}{\abs{c}} \]
+\naze{置換したら $f$ の引数も $x=z/c$ に直す。$\delta(z)$ で $z=0$ の値をとると，i) は $f(0)/c$，ii) は $-f(0)/c$ で，まとめて $f(0)/\abs{c}$ になる。これが $\int f(x)\delta(x)\dd x/\abs{c}=f(0)/\abs{c}$ と等しいことを書いて，初めて結論が言える。}
+\toi{2}{×}{未着手}
+\[ \int \]
+\naze{積分記号を書いたところで止まっている。$\int f(x)\delta(x^{2}-a^{2})\dd x$ を $x>0$ と $x<0$ に分け，それぞれ $y=x^{2}-a^{2}$ と置換する。$x>0$ では $x=\sqrt{y+a^{2}}$，$\dd x=\dd y/(2\sqrt{y+a^{2}})$ で $y$ は $-a^{2}$ から $\infty$ まで動き，$f(a)/(2a)$ が出る。$x<0$ でも同様に $f(-a)/(2a)$ が出て，和が $\int f(x)\{\delta(x-a)+\delta(x+a)\}\dd x/(2a)$ と等しい。}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item 置換 $z=cx$ をしたら，被積分関数の中の $x$ もすべて $z/c$ に書き換える（$f(x)\to f(z/c)$）。$\delta(z)$ で $z=0$ を代入して $f(0)/c$ のような値まで出し，右辺 $\delta(x)/\abs{c}$ を掛けて積分した $f(0)/\abs{c}$ と見比べてから結論する。
+\item (2) は (1) と同じ「置換して $\delta(y)$ の積分にし，$y=0$ での値を代入する」流れを，$x>0$ と $x<0$ の2つの範囲で1回ずつ行う。(3) は部分積分で微分を $\delta$ から $f$ に移し，表面項が消えることを使う。(4) は (2)(3) の結果に代入するだけなので，(2)(3) の導出で止まっても結果の式を使って先に解ける。

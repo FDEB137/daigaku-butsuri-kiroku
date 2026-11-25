@@ -1,0 +1,59 @@
+% 量子力学1 量子力学1-10 問題4（029-adjoint。当時は 量子力学1-4 問題4・kai04-l2-adjoint） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ \int_{-\infty}^{\infty}\phi^{*}\dv{\psi}{x}\dd x=\int_{-\infty}^{\infty}(\hat{D}^{\dagger}\phi)^{*}\psi\dd x \]
+\begin{align*}
+\text{左辺}&=\Bigl[\psi\phi^{*}\Bigr]_{-\infty}^{\infty}-\int_{-\infty}^{\infty}\dv{\phi^{*}}{x}\psi\dd x\\
+&=\int_{-\infty}^{\infty}-\dv{}{x}\phi^{*}\psi\dd x
+\end{align*}
+\begin{align*}
+\therefore\ (\hat{D}^{\dagger}\phi)^{*}&=-\dv{}{x}\phi^{*}\\
+\hat{D}^{\dagger}\phi&=\bigl((\hat{D}^{\dagger}\phi)^{*}\bigr)^{*}\\
+&=\Bigl(-\dv{}{x}\phi^{*}\Bigr)^{*}=-\dv{}{x}\phi\\
+\hat{D}^{\dagger}&=-\dv{}{x}
+\end{align*}
+\toi{2}{◎}{}
+\[ \int_{-\infty}^{\infty}\phi^{*}(\hat{x}\psi)\dd x=\int_{-\infty}^{\infty}(\hat{x}^{\dagger}\phi)^{*}\psi\dd x \]
+\[ \text{左辺}=\int_{-\infty}^{\infty}x\phi^{*}\psi\dd x \]
+\[ \therefore\ x\phi^{*}=(\hat{x}^{\dagger}\phi)^{*},\qquad x=\hat{x}^{\dagger}=\hat{x} \]
+\[ \hat{p}=-\ii\hbar\hat{D} \]
+\begin{align*}
+\hat{p}^{\dagger}&=\ii\hbar\hat{D}^{\dagger}\\
+&=-\ii\hbar\hat{D}\\
+\therefore\ \hat{p}&=\hat{p}^{\dagger}
+\end{align*}
+\toi{3}{◎}{}
+（脇で $(\hat{p}^{2})^{\dagger}$ を計算し，矢印で第1項につなぐ：$(\hat{p}\hat{p})^{\dagger}=\hat{p}^{\dagger}\hat{p}^{\dagger}=\hat{p}\hat{p}=\hat{p}^{2}$）
+\begin{align*}
+\hat{H}^{\dagger}&=\frac{1}{2m}(\hat{p}^{2})^{\dagger}+\underbrace{\bigl(V(\hat{x})\bigr)^{\dagger}}_{=V(\hat{x})}\\
+&=\frac{1}{2m}\hat{p}^{2}+V(\hat{x})
+\end{align*}
+\[ \therefore\ \hat{H}=\hat{H}^{\dagger} \]
+\toi{4}{◎}{}
+\[ (\hat{x}\hat{p})^{\dagger}=\hat{p}^{\dagger}\hat{x}^{\dagger}=\hat{p}\hat{x} \]
+\[ \hat{x}\hat{p}\psi=-\ii\hbar x\dv{\psi}{x} \]
+\begin{align*}
+\hat{p}\hat{x}\psi&=-\ii\hbar\dv{}{x}(x\psi)\\
+&=-\ii\hbar\Bigl(1\cdot\psi+x\dv{\psi}{x}\Bigr)\\
+&=-\ii\hbar\psi-\ii\hbar x\dv{\psi}{x}
+\end{align*}
+$(\hat{x}\hat{p}-\hat{p}\hat{x})\psi=\ii\hbar\psi\neq0$ より
+\[ \hat{x}\hat{p}-\hat{p}\hat{x}\neq0 \]
+\[ \therefore\ \hat{x}\hat{p}\neq(\hat{x}\hat{p})^{\dagger} \]
+エルミートでない。
+\toi{5}{◎}{}
+\begin{align*}
+\hat{S}^{\dagger}&=\frac{1}{2}\bigl((\hat{x}\hat{p})^{\dagger}+(\hat{p}\hat{x})^{\dagger}\bigr)\\
+&=\frac{1}{2}(\hat{p}^{\dagger}\hat{x}^{\dagger}+\hat{x}^{\dagger}\hat{p}^{\dagger})\\
+&=\frac{1}{2}(\hat{p}\hat{x}+\hat{x}\hat{p})\\
+&=\hat{S}
+\end{align*}
+$\hat{S}=\hat{S}^{\dagger}$ より，エルミート
+\begin{align*}
+\hat{S}\psi&=\frac{1}{2}(\hat{p}\hat{x}+\hat{x}\hat{p})\psi\\
+&=\frac{1}{2}\Bigl(-\ii\hbar x\dv{\psi}{x}-\ii\hbar\psi\\
+&\qquad-\ii\hbar x\dv{\psi}{x}\Bigr)\\
+&=-\frac{\ii\hbar}{2}\psi-\ii\hbar x\dv{\psi}{x}\\
+&=-\ii\hbar\Bigl(\frac{\psi}{2}+x\dv{\psi}{x}\Bigr)
+\end{align*}
+%% kizuki

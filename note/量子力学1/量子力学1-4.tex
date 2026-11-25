@@ -5,9 +5,9 @@
 \begin{document}
 \begin{kirokuichiran}
   \ichirangyou{\hyperlink{bt-m-019-fourier}{1}}{L1・計算}{◎◎}{S}{2026-10-18}
-  \ichirangyou{2}{L1・計算}{◎○◎}{A}{2026-10-28 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-028-delta}{2}}{L1・計算}{◎○◎}{A}{2026-10-28 (2)記述}
   \ichirangyou{3}{L1・計算}{}{未着手}{}
-  \ichirangyou{4}{L2・導出}{○×××}{E}{2026-10-28 (1)記述 (2)未着手 (3)未着手 (4)未着手}
+  \ichirangyou{\hyperlink{bt-m-032-deltaprop}{4}}{L2・導出}{○×××}{E}{2026-10-28 (1)記述 (2)未着手 (3)未着手 (4)未着手}
   \ichirangyou{5}{L2・計算}{}{未着手}{}
   \ichirangyou{6}{L2・計算}{}{未着手}{}
   \ichirangyou{7}{L2・計算}{}{未着手}{}
@@ -63,6 +63,140 @@ $a$ を大きくすると，$k_{1}$ は小さくなるため，関数が鋭く�
 
 （図：$k=0$ の山の両側に小さな振動が続く $F(k)$ の形が，矢印の先では幅の狭い山になる）
 \end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\028_2026-10-28.tex
+\mondaibangou{2}
+\begin{mondai}{028-delta}{計算}{デルタ関数の定義の使い方，階段関数の微分}
+次の積分を求めよ。$\theta(x)$ は $x\ge 0$ で 1，$x<0$ で 0 の階段関数とする。
+  \begin{shoumon}
+    \item 次の積分。
+    \[ \int_{-\infty}^{\infty}(x^{2}+3x)\,\delta(x-2)\dd x \]
+    \item 次の積分。
+    \[ \int_{0}^{\infty}\ee^{-x}\,\delta(x+1)\dd x \]
+    \item 次の積分を，$\delta(x)=\dd \theta/\dd x$ を使わずに部分積分で求めよ（表面項の値も確かめること）。また，その結果が $\delta(x-1)$ を使って計算した値と一致することを確かめよ。
+    \[ \int_{-\infty}^{\infty}\ee^{-x^{2}}\,\dv{\theta(x-1)}{x}\dd x \]
+  \end{shoumon}
+\notekiroku{2026-10-28 A ◎○◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ 2^{2}+3\cdot2=10 \]
+\toi{2}{○}{記述}
+\[ 0 \]
+\nuke{$x=-1$ は区間外}
+\naze{答えの 0 は正しいが根拠が無い。$\delta(x+1)$ が値をもつ $x=-1$ は積分区間 $0\le x<\infty$ の外にあるので積分は 0 になる，の一言が要る。}
+\toi{3}{◎}{}
+\begin{align*}
+&\int_{-\infty}^{\infty}\ee^{-x^{2}}\dv{\theta(x-1)}{x}\dd x\\
+&=\underbrace{\Bigl[\ee^{-x^{2}}\theta(x-1)\Bigr]_{-\infty}^{\infty}}_{0}\\
+&\qquad+\int_{-\infty}^{\infty}2x\ee^{-x^{2}}\kakimachigai{\theta(x)}{\theta(x-1)}\dd x\\
+&=\int_{1}^{\infty}2x\ee^{-x^{2}}\dd x
+\end{align*}
+（脇で置換：$\ee^{-x^{2}}=z$，$-2x\ee^{-x^{2}}\dd x=\dd z$，$x:1\to\infty$ で $z:1/\ee\to0$）
+\[ =\int_{0}^{1/\ee}\dd z=\frac{1}{\ee} \]
+\[ \int_{-\infty}^{\infty}\ee^{-x^{2}}\kakimachigai{\delta(x-1)}{\delta(x-1)\dd x}=\frac{1}{\ee} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item デルタ関数の積分では，まず $\delta$ の立つ点（$\delta(x+1)$ なら $x=-1$）が積分区間に入っているかを書く。入っていなければ 0，入っていればその点での値になる。答えが 0 のときは，この一言がそのまま答えの根拠になる。
+\end{kizuki}
+\begin{tadashii}
+\houshin デルタ関数の定義 $\int f(x)\delta(x-a)\dd x=f(a)$ を，$x=a$ が積分区間に入っているかに注意して使う。(3) は部分積分で微分を $\ee^{-x^{2}}$ に移す。
+\keisan \shoumonkai{1} $x=2$ は積分区間に入っているので，$f(x)=x^{2}+3x$ の $x=2$ での値になる。
+\[ \int_{-\infty}^{\infty}(x^{2}+3x)\delta(x-2)\dd x=2^{2}+3\cdot 2=10 \]
+
+\shoumonkai{2} $\delta(x+1)=\delta(x-(-1))$ は $x=-1$ にだけ寄与をもつ。積分区間 $0\le x<\infty$ は $x=-1$ を含まないので，積分は 0 である。
+
+\shoumonkai{3} 部分積分で微分を $\ee^{-x^{2}}$ に移す。
+\begin{align*}
+\int_{-\infty}^{\infty}\ee^{-x^{2}}\dv{\theta(x-1)}{x}\dd x&=\Bigl[\ee^{-x^{2}}\theta(x-1)\Bigr]_{-\infty}^{\infty}-\int_{-\infty}^{\infty}\bigl(-2x\ee^{-x^{2}}\bigr)\theta(x-1)\dd x
+\end{align*}
+表面項は，$x\to\infty$ で $\ee^{-x^{2}}\to 0$，$x\to-\infty$ で $\theta(x-1)=0$ なので 0。第2項は $\theta(x-1)$ が $x\ge 1$ でだけ 1 なので，
+\[ \int_{1}^{\infty}2x\ee^{-x^{2}}\dd x=\Bigl[-\ee^{-x^{2}}\Bigr]_{1}^{\infty}=\ee^{-1} \]
+一方，$\dd \theta(x-1)/\dd x=\delta(x-1)$ を使えば，定義から $\ee^{-1^{2}}=\ee^{-1}$ となり，一致する。
+\kotae{\shoumonkai{1} $10$ \shoumonkai{2} $0$（$x=-1$ が積分区間の外） \shoumonkai{3} $\ee^{-1}$（$\delta(x-1)$ を使った値と一致）}
+\begin{ronten}
+  \item \shoumonkai{2} デルタ関数の立つ点 $x=-1$ が積分区間 $0\le x<\infty$ の外にあるので，積分が 0 になることを述べる。
+  \item \shoumonkai{3} 部分積分の表面項が 0 になる理由を，$x\to\infty$ と $x\to-\infty$ のそれぞれについて書く。
+  \item \shoumonkai{3} $\theta(x-1)$ が $x\ge1$ でだけ 1 なので，残る積分の区間が $x\ge1$ に狭まることを書く。
+\end{ronten}
+\kenzan (3) の値 $\ee^{-1}\approx 0.368$ は $0<\ee^{-1}<1$ で，$\ee^{-x^{2}}$ の最大値 1 を超えない。(2) は積分区間を $-\infty$ からに広げると $\ee^{1}$ になり，区間の端が効いていることが分かる。
+\tsumazuki (2) で区間を見ずに $\ee^{-(-1)}=\ee$ と答える誤りが多い。デルタ関数は「立つ点」が積分区間の中にあるときだけ値を拾う。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\032_2026-10-28.tex
+\mondaibangou{4}
+\begin{mondai}{032-deltaprop}{導出}{変数変換によるデルタ関数の性質，デルタ関数の微分}
+デルタ関数の定義 $\int f(x)\delta(x-a)\dd x=f(a)$ と，部分積分が使えて表面項が消えることだけを使って，次を示せ。$f$ は滑らかな関数とする。
+  \begin{shoumon}
+    \item 0 でない実数 $c$ に対して $\delta(cx)=\delta(x)/\abs{c}$（両辺に $f(x)$ を掛けて積分したものが等しいという意味）。
+    \item $a>0$ に対して次の式。$x>0$ と $x<0$ に分けて，それぞれで $y=x^{2}-a^{2}$ と置換せよ。
+    \[ \delta(x^{2}-a^{2})=\frac{\delta(x-a)+\delta(x+a)}{2a} \]
+    \item 次の式（$\delta'$ は $\delta$ の導関数，$b$ は実数）。
+    \[ \int_{-\infty}^{\infty}f(x)\,\delta'(x-b)\dd x=-f'(b) \]
+    \item (2)，(3) を使って，次の2つの積分を求めよ。
+    \[ I_{1}=\int_{-\infty}^{\infty}(x^{3}+1)\,\delta(x^{2}-4)\dd x,\qquad I_{2}=\int_{-\infty}^{\infty}x^{3}\,\delta'(x-2)\dd x \]
+  \end{shoumon}
+\notekiroku{2026-10-28 E ○×××}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{○}{記述}
+i) $c>0$（$cx=z$ とおく）
+\begin{align*}
+&\int_{-\infty}^{\infty}f(x)\delta(cx)\dd x\\
+&=\int_{-\infty}^{\infty}\ayamari{f(x)}{f(z/c)}\delta(z)\frac{\dd z}{c}
+\end{align*}
+ii) $c<0$（$cx=z$ とおく）
+\begin{align*}
+&\int_{-\infty}^{\infty}f(x)\delta(cx)\dd x\\
+&=\int_{\infty}^{-\infty}\ayamari{f(x)}{f(z/c)}\delta(z)\frac{\dd z}{c}\\
+&=\int_{-\infty}^{\infty}f(x)\delta(z)\frac{\dd z}{-c}
+\end{align*}
+よって
+\[ \delta(cx)=\frac{\delta(x)}{\abs{c}} \]
+\naze{置換したら $f$ の引数も $x=z/c$ に直す。$\delta(z)$ で $z=0$ の値をとると，i) は $f(0)/c$，ii) は $-f(0)/c$ で，まとめて $f(0)/\abs{c}$ になる。これが $\int f(x)\delta(x)\dd x/\abs{c}=f(0)/\abs{c}$ と等しいことを書いて，初めて結論が言える。}
+\toi{2}{×}{未着手}
+\[ \int \]
+\naze{積分記号を書いたところで止まっている。$\int f(x)\delta(x^{2}-a^{2})\dd x$ を $x>0$ と $x<0$ に分け，それぞれ $y=x^{2}-a^{2}$ と置換する。$x>0$ では $x=\sqrt{y+a^{2}}$，$\dd x=\dd y/(2\sqrt{y+a^{2}})$ で $y$ は $-a^{2}$ から $\infty$ まで動き，$f(a)/(2a)$ が出る。$x<0$ でも同様に $f(-a)/(2a)$ が出て，和が $\int f(x)\{\delta(x-a)+\delta(x+a)\}\dd x/(2a)$ と等しい。}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 置換 $z=cx$ をしたら，被積分関数の中の $x$ もすべて $z/c$ に書き換える（$f(x)\to f(z/c)$）。$\delta(z)$ で $z=0$ を代入して $f(0)/c$ のような値まで出し，右辺 $\delta(x)/\abs{c}$ を掛けて積分した $f(0)/\abs{c}$ と見比べてから結論する。
+\item (2) は (1) と同じ「置換して $\delta(y)$ の積分にし，$y=0$ での値を代入する」流れを，$x>0$ と $x<0$ の2つの範囲で1回ずつ行う。(3) は部分積分で微分を $\delta$ から $f$ に移し，表面項が消えることを使う。(4) は (2)(3) の結果に代入するだけなので，(2)(3) の導出で止まっても結果の式を使って先に解ける。
+\end{kizuki}
+\begin{tadashii}
+\houshin デルタ関数を含む式の等号は「任意の $f$ を掛けて積分したものが等しい」という意味なので，積分の中で置換・部分積分をして，定義 $\int f(x)\delta(x-a)\dd x=f(a)$ の形に持ち込む。
+\keisan \shoumonkai{1} $y=cx$ と置換する。$c>0$ では $\dd x=\dd y/c$ で積分の向きは変わらないので，
+\[ \int_{-\infty}^{\infty}f(x)\delta(cx)\dd x=\frac{1}{c}\int_{-\infty}^{\infty}f\Bigl(\frac{y}{c}\Bigr)\delta(y)\dd y=\frac{f(0)}{c} \]
+$c<0$ では $x\to+\infty$ のとき $y\to-\infty$ なので上端と下端が入れ替わり，
+\[ \int_{-\infty}^{\infty}f(x)\delta(cx)\dd x=\frac{1}{c}\int_{\infty}^{-\infty}f\Bigl(\frac{y}{c}\Bigr)\delta(y)\dd y=-\frac{f(0)}{c} \]
+どちらも $f(0)/\abs{c}$ で，これは $\delta(x)/\abs{c}$ に $f$ を掛けて積分したものに等しい。
+
+\shoumonkai{2} 積分を $x>0$ と $x<0$ に分ける。$x>0$ では $y=x^{2}-a^{2}$ は単調増加で，$x=\sqrt{y+a^{2}}$，$\dd x=\dd y/(2\sqrt{y+a^{2}})$，$y$ は $-a^{2}$ から $\infty$ まで動き，$y=0$ を含む。
+\[ \int_{0}^{\infty}f(x)\delta(x^{2}-a^{2})\dd x=\int_{-a^{2}}^{\infty}\frac{f\bigl(\sqrt{y+a^{2}}\bigr)}{2\sqrt{y+a^{2}}}\delta(y)\dd y=\frac{f(a)}{2a} \]
+$x<0$ では $x=-\sqrt{y+a^{2}}$，$\dd x=-\dd y/(2\sqrt{y+a^{2}})$ で，$x$ が $-\infty$ から $0$ に動くとき $y$ は $\infty$ から $-a^{2}$ に動く。向きを直すと負号が消えて，
+\[ \int_{-\infty}^{0}f(x)\delta(x^{2}-a^{2})\dd x=\int_{-a^{2}}^{\infty}\frac{f\bigl(-\sqrt{y+a^{2}}\bigr)}{2\sqrt{y+a^{2}}}\delta(y)\dd y=\frac{f(-a)}{2a} \]
+和は $[f(a)+f(-a)]/(2a)$ で，これは右辺 $[\delta(x-a)+\delta(x+a)]/(2a)$ に $f$ を掛けて積分したものに等しい。
+
+\shoumonkai{3} 部分積分をして，表面項が消えることを使う。
+\[ \int_{-\infty}^{\infty}f(x)\delta'(x-b)\dd x=\Bigl[f(x)\delta(x-b)\Bigr]_{-\infty}^{\infty}-\int_{-\infty}^{\infty}f'(x)\delta(x-b)\dd x=-f'(b) \]
+
+\shoumonkai{4} $I_{1}$ は (2) で $a=2$ とした場合なので，$f(x)=x^{3}+1$ として
+\[ I_{1}=\frac{f(2)+f(-2)}{2\cdot 2}=\frac{9+(-7)}{4}=\frac{1}{2} \]
+$I_{2}$ は (3) で $f(x)=x^{3}$，$b=2$ とした場合で，$f'(x)=3x^{2}$ なので $I_{2}=-3\cdot 2^{2}=-12$。
+\kotae{\shoumonkai{1} $c$ の正負で場合分けし，どちらも $f(0)/\abs{c}$ \shoumonkai{2} 2つの範囲の寄与 $f(a)/(2a)$，$f(-a)/(2a)$ の和 \shoumonkai{3} 部分積分で $-f'(b)$ \shoumonkai{4} $I_{1}=1/2$，$I_{2}=-12$}
+\begin{ronten}
+  \item デルタ関数を含む等式は，任意の $f$ を掛けて積分したものの等式として示すことを述べる。
+  \item \shoumonkai{1} $c<0$ では置換で積分の上端と下端が入れ替わるので，$c$ の正負で場合分けする理由を書く。
+  \item \shoumonkai{2} $x>0$ と $x<0$ のそれぞれで $y=x^{2}-a^{2}$ が単調であり，$y=0$ が各範囲の積分区間に入っていることと，$x<0$ では $\dd x$ の負号が積分の向きの入れ替えで消えることを述べる。
+  \item \shoumonkai{3} 部分積分の表面項が消えること（問題の前提）を明記してから，残りの積分に定義を使う。
+\end{ronten}
+\kenzan 次元：$\delta(x)$ は（$x$ の次元）$^{-1}$ なので，$\delta(x^{2}-a^{2})$ は（長さ）$^{-2}$ で，右辺の $\delta(x\mp a)/(2a)$ も（長さ）$^{-1}\cdot$（長さ）$^{-1}$ で合う。(2) は，零点 $x=a$ の近くで $x^{2}-a^{2}\approx 2a(x-a)$ と近似して (1) を使った結果 $\delta(x-a)/(2a)$ とも一致する。(3) で $f=x$，$b=0$ とすると $\int x\delta'(x)\dd x=-1=-\int\delta(x)\dd x$ となり，$x\delta'(x)=-\delta(x)$ と合う。
+\tsumazuki (1) で $c<0$ のときに積分の上端と下端の入れ替わりを見落とすと $\delta(cx)=\delta(x)/c$ と負の値になってしまう。デルタ関数（を掛けて積分したもの）は負にならない。
+\end{tadashii}
 \end{mondai}
 
 \noteowari

@@ -1,0 +1,32 @@
+% 量子力学1 量子力学1-10 問題2（027-ortho。当時は 量子力学1-4 問題2・kai04-l1-ortho） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ \int_{-a}^{a}N_{n}^{2}\cos^{2}\frac{(2n-1)\pi x}{2a}\dd x=1 \]
+\[ N_{n}^{2}\int_{-a}^{a}\frac{1}{2}\left(\cos\frac{(2n-1)\pi x}{a}+1\right)\dd x=1 \]
+\begin{align*}
+&=N_{n}^{2}\int_{0}^{a}\kakimachigai{\cos\frac{(2n-1)\pi x}{a}+1}{(\cdots+1)}\dd x\\
+&=N_{n}^{2}\left[\frac{a}{(2n-1)\pi}\sin\frac{(2n-1)\pi x}{a}+x\right]_{0}^{a}\\
+&=N_{n}^{2}\left(\frac{a}{(2n-1)\pi}\sin(2n-1)\pi+a\right)\\
+&=aN_{n}^{2}=1
+\end{align*}
+\[ \therefore\ N_{n}=\frac{1}{\sqrt{a}} \]
+\toi{2}{◎}{}
+\[ \int_{-a}^{a}N_{n}^{2}\cos\underbrace{\frac{(2n-1)\pi x}{2a}}_{A}\cos\underbrace{\frac{(2m-1)\pi x}{2a}}_{B}\dd x \]
+\[ \cos A\cos B=\frac{\cos(A+B)+\cos(A-B)}{2} \]
+\[ =\int_{0}^{a}N_{n}^{2}\kakimachigai{\cos(A+B)+\cos(A-B)}{(\cdots)}\dd x \]
+\[ A+B=\frac{2(n+m-1)\pi x}{2a},\qquad A-B=\frac{2(n-m)\pi x}{2a} \]
+\begin{align*}
+&=N_{n}^{2}\biggl[\frac{a}{(n+m-1)\pi}\sin\frac{(n+m-1)\pi x}{a}\\
+&\qquad+\frac{a}{(n-m)\pi}\sin\frac{(n-m)\pi x}{a}\biggr]_{0}^{a}\\
+&=N_{n}^{2}(0+0-0-0)=0
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+&\int_{-a}^{a}\phi_{n}^{*}(x)\psi_{m}(x)\dd x\\
+&=\frac{N_{n}}{\sqrt{a}}\int_{-a}^{a}\cos\frac{(2n-1)\pi x}{2a}\sin\frac{m\pi x}{a}\dd x\\
+&=\frac{N_{n}}{\sqrt{a}}\int_{-a}^{a}\frac{1}{2}\biggl(\underbrace{\sin\frac{(2n+2m-1)\pi x}{2a}}_{\text{奇}}\\
+&\qquad-\underbrace{\sin\frac{(2n-2m-1)\pi x}{2a}}_{\text{奇}}\biggr)\dd x\\
+&=0
+\end{align*}
+より，常に直交
+%% kizuki
