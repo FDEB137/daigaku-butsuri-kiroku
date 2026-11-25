@@ -13,7 +13,7 @@
   \ichirangyou{7}{L1・計算}{}{未着手}{}
   \ichirangyou{\hyperlink{bt-m-003-z1}{8}}{L2・導出}{◎◎◎◎}{S}{2026-10-25}
   \ichirangyou{\hyperlink{bt-m-004-entropy}{9}}{L2・計算}{◎△◎}{B}{2026-10-25 (2)計算}
-  \ichirangyou{10}{L2・計算}{○○◎○}{B}{2026-10-26 (1)記述 (2)単位 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-005-senyuu}{10}}{L2・計算}{○○◎○}{B}{2026-10-26 (1)記述 (2)単位 (4)記述}
   \ichirangyou{11}{L2・導出}{}{未着手}{}
   \ichirangyou{12}{L2・計算}{}{未着手}{}
   \ichirangyou{13}{L2・導出}{}{未着手}{}
@@ -279,6 +279,92 @@ T_0&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\ee^{-5/3}\\
 \kotae{\shoumonkai{1} $S/(N\kB)=5/2-\log(\lambda^{3}\rho)$ \shoumonkai{2} $\lambda^{3}\rho>\ee^{5/2}$，$E<N\ee^{-5/3}(3\pi\hbar^{2}/m)\rho^{2/3}$ \shoumonkai{3} $T_1=\qty{5.89}{\kelvin}$，$T_0=\qty{1.11}{\kelvin}$}
 \kenzan (1) に $\lambda^{3}\rho$ を代入して指数をとると $S=\kB\log[\ee^{5/2}/(\lambda^{3}\rho)]^{N}$ となり，要点整理のエントロピーの式の $[\;]$ の中が $\ee^{5/2}/(\lambda^{3}\rho)$ の $N$ 乗になることと一致する。(2) の $E$ の条件は，要点整理のエントロピーの式で $S<0$ とした条件と一致する。(3) 低温ほど $\lambda$ が大きく $\lambda^{3}\rho$ が大きいので，$T<T_0$ で $S<0$ になり，$T_0<T_1$ である。 実際のヘリウム4は約 \qty{2.17}{\kelvin} で超流動になり，古典的な扱いが破れる温度のオーダーは $T_1$ と合っている。
 \tsumazuki $S<0$ になる温度 $T_0$ より高い $T_0<T<T_1$ でも $\lambda^{3}\rho>1$ であり，$S>0$ だからといってこの式が正しいわけではない。$S<0$ は数え間違いが目に見える形で現れた結果である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学2\005_2026-10-26.tex
+\mondaibangou{10}
+\begin{mondai}{005-senyuu}{計算}{1粒子固有状態の占有確率と平均の占有数，$\lambda^{3}/V\ll1$ と $\lambda^{3}\rho\ll1$ の違い，平均の粒子間距離と $\lambda$ の比較}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+  ボルツマン定数 & $\kB$ & \qty{1.38e-23}{\joule\per\kelvin}\\
+  ヘリウム4原子の質量 & $m_{\mathrm{He}}$ &\qty{6.65e-27}{\kilogram}\\
+  電子の質量 & $\melec$ & \qty{9.11e-31}{\kilogram}\\
+\end{teisuu}
+体積 $V$ の立方体の容器の中の $N$ 個の同種粒子（相互作用なし）を $Z_N=Z_1^{N}/N!$ で扱う。$\beta=1/(\kB T)$，$\lambda=\sqrt{2\pi\hbar^{2}\beta/m}$，$\rho=N/V$ とする。
+  \begin{shoumon}
+    \item この扱いでは，1個の粒子がある1粒子固有状態 $\alpha=(n_x,n_y,n_z)$ をとる確率は $p_\alpha=\ee^{-\beta E_\alpha}/Z_1$ である。$\beta E_0\ll1$ のとき $p_\alpha<\lambda^{3}/V$ を示し，状態 $\alpha$ の平均の占有数 $Np_\alpha$ が $\lambda^{3}\rho$ より小さいことを示せ。
+    \item 銅の伝導電子を，相互作用もスピンも無い同種粒子の気体とみなす。数密度 $\rho=\qty{8.50e28}{\per\metre\cubed}$，$T=\qty{300}{\kelvin}$ として，$\lambda$ と $\lambda^{3}\rho$ を有効数字3桁で求め，古典的に扱ってよいかを判定せよ。また，試料を一辺 $\qty{1.00}{\centi\metre}$ の立方体として $\lambda^{3}/V$ を求め，和を積分に置き換える仮定 $\beta E_0\ll1$ が成り立つかを述べよ。
+    \item (2) の電子の気体で $\lambda^{3}\rho=1$ となる温度 $T_1$ を有効数字3桁で求めよ。
+    \item 平均の粒子間距離 $d=\rho^{-1/3}$ を用いて $\lambda^{3}\rho$ を表し，$\lambda^{3}\rho\gg1$ が粒子の波動関数の描像で何を意味するかを説明せよ。また (2) の電子について $d$ を有効数字3桁で求め，$\lambda$ と比べよ。
+  \end{shoumon}
+\notekiroku{2026-10-26 B ○○◎○}
+\begin{kotaeutsushi}{2026-10-26}
+\toi{1}{○}{記述}
+$\beta E_0\ll1$ のとき $Z_1=V/\lambda^{3}$。
+
+$\ayamari{0\le\beta E_\alpha}{E_\alpha\ge3E_0>0}$ より $\ee^{-\beta E_\alpha}<1$
+\naze{$0\le\beta E_\alpha$ からは $\ee^{-\beta E_\alpha}\le1$ しか出ず，強い不等号 $<1$ の根拠にならない。量子数は $1$ 以上なので $E_\alpha\ge3E_0>0$ であり，$\beta>0$ から $\ee^{-\beta E_\alpha}<1$ となる。}
+\begin{align*}
+p_\alpha&=\ee^{-\beta E_\alpha}\frac{\lambda^{3}}{V}<\frac{\lambda^{3}}{V}\\
+Np_\alpha&<\lambda^{3}\frac{N}{V}=\lambda^{3}\rho
+\end{align*}
+\toi{2}{○}{単位}
+\[ \lambda=\num{4.29e-9}\,\nuke{\unit{\metre}} \]
+\naze{$\lambda$ は長さなので単位 $\unit{\metre}$ が要る。$\lambda=\qty{4.29e-9}{\metre}$ である。}
+\[ \lambda^{3}\rho=\num{6.69e3}\gg1 \]
+古典的に扱えない。
+\[ \frac{\lambda^{3}}{V}=\num{7.87e-20} \]
+\begin{align*}
+\beta E_0&=\frac{\pi}{4}\Bigl(\frac{\lambda}{L}\Bigr)^{2}\\
+&=\frac{\pi}{4}\Bigl(\frac{\lambda^{3}}{V}\Bigr)^{2/3}\\
+&=\num{1.44e-13}
+\end{align*}
+成り立つ。
+\toi{3}{◎}{}
+\[ \lambda^{3}\rho=1 \]
+\[ \frac{2\pi\hbar^{2}}{\kB Tm}=\Bigl(\frac{1}{\rho}\Bigr)^{2/3} \]
+\begin{align*}
+T&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\\
+&=\qty{1.07e5}{\kelvin}
+\end{align*}
+\toi{4}{○}{記述}
+\[ \lambda^{3}\rho=\Bigl(\frac{\lambda}{d}\Bigr)^{3} \]
+（図：幅 $\lambda$ に広がった波と，その下に間隔 $d$ をおいて並ぶ波）
+\[ d=\num{2.27e-10}\,\nuke{\unit{\metre}} \]
+\naze{$\lambda^{3}\rho\gg1$ は $\lambda\gg d$ のことで，各粒子の波動関数の広がり $\lambda$ が隣の粒子までの距離より大きく，波動関数どうしが重なって粒子の統計性が現れることを意味する。図だけでなくこの説明と，$\lambda$ との比較 $\lambda/d\simeq19$ を書く必要がある。$d$ も長さなので単位 $\unit{\metre}$ が要る。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item (1) の強い不等号の根拠：$E_\alpha\ge0$ だけでは $\ee^{-\beta E_\alpha}\le1$ しか言えない。量子数が $1$ 以上なので $E_\alpha=E_0(n_x^{2}+n_y^{2}+n_z^{2})\ge3E_0>0$ であり，$\beta>0$ と合わせて $\ee^{-\beta E_\alpha}<1$ となる。等号が入るかどうかを，最小の量子数を入れて確かめる。
+\item (4) の「描像で何を意味するか」は，$\lambda^{3}\rho=(\lambda/d)^{3}$ の式だけでは答えにならない。$\lambda^{3}\rho\gg1\iff\lambda\gg d$ で，広がり $\lambda$ の波動関数が隣の粒子まで重なるので統計性が効く，と文で書く。「比べよ」と問われたら比 $\lambda/d\simeq19$ を数値で示す。
+\item \mae{第1回 問題2・10-25} (2) の $\lambda$ と (4) の $d$ に単位が無い。前回も $\lambda$ の単位を落としている。数値を書いたらその場で次元を確かめ，$\lambda$・$d$ は長さ（$\unit{\metre}$），$\lambda^{3}\rho$・$\lambda^{3}/V$・$\beta E_0$ は無次元，と区別してから答えを書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) はボルツマン因子が $1$ より小さいことと $Z_1=V/\lambda^{3}$ を使う。(2)(3) はヘリウム4の熱的ドブロイ波長の問題と同様に数値を代入し，$\lambda^{3}\rho\propto T^{-3/2}$ を使う。(4) は $\rho=d^{-3}$ で $\lambda^{3}\rho$ を長さの比で表す。
+\keisan \shoumonkai{1} 量子数は $1$ 以上なので $E_\alpha\ge3E_0>0$，したがって $\ee^{-\beta E_\alpha}<1$ である。$\beta E_0\ll1$ では $Z_1=V/\lambda^{3}$ なので
+\[ p_\alpha=\frac{\ee^{-\beta E_\alpha}}{Z_1}<\frac{1}{Z_1}=\frac{\lambda^{3}}{V} \]
+各粒子は独立に確率 $p_\alpha$ で状態 $\alpha$ をとるので，状態 $\alpha$ の平均の占有数は $Np_\alpha<N\lambda^{3}/V=\lambda^{3}\rho$ である。
+\shoumonkai{2} 電子の質量を使うと
+\[ \lambda^{2}=\frac{2\pi\hbar^{2}}{\melec\kB T}=\frac{\num{6.927e-68}}{\num{9.11e-31}\times\num{1.38e-23}\times\num{300}}\,\unit{\metre\squared}=\frac{\num{6.927e-68}}{\num{3.772e-51}}\,\unit{\metre\squared}=\qty{1.837e-17}{\metre\squared} \]
+なので $\lambda=\qty{4.286e-9}{\metre}$，$\lambda^{3}=\qty{7.872e-26}{\metre\cubed}$ である。よって
+\[ \lambda^{3}\rho=\num{7.872e-26}\times\num{8.50e28}=\num{6.69e3}\gg1 \]
+であり，古典的に扱うことはできない（量子統計が必要）。一方，$V=\qty{1.00e-6}{\metre\cubed}$ より
+\[ \frac{\lambda^{3}}{V}=\frac{\num{7.872e-26}}{\num{1.00e-6}}=\num{7.87e-20}\ll1 \]
+なので $\beta E_0\ll1$（和を積分に置き換える仮定）は成り立っている。$\lambda^{3}\rho=N\lambda^{3}/V$ なので，$\lambda^{3}/V\ll1$ でも $N$ が大きければ $\lambda^{3}\rho\gg1$ となる。2つの条件は別物である。
+\shoumonkai{3} $\lambda^{3}\propto T^{-3/2}$ なので $\lambda^{3}\rho$ は $T^{-3/2}$ に比例する。$T=\qty{300}{\kelvin}$ で $\lambda^{3}\rho=\num{6691}$ なので，これが $1$ になる温度は
+\[ T_1=\qty{300}{\kelvin}\times(\num{6691})^{2/3}=\qty{300}{\kelvin}\times\num{355.1}=\qty{1.07e5}{\kelvin} \]
+\shoumonkai{4} $\rho=d^{-3}$ より $\lambda^{3}\rho=(\lambda/d)^{3}$ である。$\lambda^{3}\rho\gg1$ は $\lambda\gg d$，すなわち各粒子の波動関数の広がり $\lambda$ が隣の粒子までの距離より大きいことを意味する。このとき粒子の波動関数どうしが重なり，粒子の統計性が現れる。電子については
+\[ d=\rho^{-1/3}=(\num{8.50e28})^{-1/3}\,\unit{\metre}=\qty{2.27e-10}{\metre} \]
+で，$\lambda/d\simeq\num{18.8}$ である。$\lambda$ は $d$ の約19倍で，波動関数は強く重なっている（丸めずに計算した $\lambda/d=\num{18.84}$ の3乗 $\num{6.69e3}$ は (2) の $\lambda^{3}\rho$ と一致する）。
+\kotae{\shoumonkai{1} $p_\alpha<1/Z_1=\lambda^{3}/V$，$Np_\alpha<\lambda^{3}\rho$ \shoumonkai{2} $\lambda=\qty{4.29e-9}{\metre}$，$\lambda^{3}\rho=\num{6.69e3}\gg1$ で古典的には扱えない。$\lambda^{3}/V=\num{7.87e-20}\ll1$ で $\beta E_0\ll1$ は成り立つ \shoumonkai{3} $T_1=\qty{1.07e5}{\kelvin}$ \shoumonkai{4} $\lambda^{3}\rho=(\lambda/d)^{3}$，$d=\qty{2.27e-10}{\metre}$，$\lambda\simeq19d$ で波動関数が重なる}
+\begin{ronten}
+  \item \shoumonkai{1} 量子数が $1$ 以上なので $E_\alpha\ge3E_0>0$ であり，そこから $\ee^{-\beta E_\alpha}<1$ が言えることを根拠として書く（$E_\alpha\ge0$ だけでは不等号が厳密にならない）。
+  \item \shoumonkai{1} $Z_1=V/\lambda^{3}$ を使うには $\beta E_0\ll1$ が必要なことと，各粒子が独立に確率 $p_\alpha$ で状態 $\alpha$ をとるので平均の占有数が $Np_\alpha$ になることを述べる。
+  \item \shoumonkai{2} $\lambda^{3}/V\ll1$（和を積分にする条件）と $\lambda^{3}\rho\ll1$（古典的な数え方の条件）が別の条件であることを区別して判定する。
+  \item \shoumonkai{4} $\lambda^{3}\rho=(\lambda/d)^{3}$ なので，$\lambda^{3}\rho\gg1$ は広がり $\lambda$ の波動関数が隣の粒子まで重なることを意味すると説明する。
+\end{ronten}
+\kenzan $\lambda\propto m^{-1/2}$ なので，ヘリウム4（熱的ドブロイ波長の問題）との比は $\lambda_{\mathrm{e}}/\lambda_{\mathrm{He}}=\sqrt{m_{\mathrm{He}}/\melec}=\sqrt{\num{7300}}\simeq\num{85.4}$ で，$\num{5.016e-11}\times\num{85.4}\simeq\num{4.29e-9}$ と一致する。$T_1$ を $\lambda^{3}\rho=1$ の定義式 $T_1=2\pi\hbar^{2}\rho^{2/3}/(\melec\kB)$ で直接計算しても $\qty{1.07e5}{\kelvin}$ になる。 実際の伝導電子はスピン $1/2$ をもちフェルミ統計に従う（第9章で扱う）が，室温で古典的に扱えないという結論は変わらない。
+\tsumazuki $\lambda^{3}/V\ll1$（積分近似の条件）と $\lambda^{3}\rho\ll1$（古典的な数え方の条件）を混同しないこと。前者が成り立っていても後者が破れることがある。
 \end{tadashii}
 \end{mondai}
 

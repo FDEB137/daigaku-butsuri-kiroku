@@ -1,0 +1,39 @@
+% 統計力学2 統計力学2-1 問題5（kai01-l2-senyuu） 解いた日 2026-10-26
+%% kotae
+\toi{1}{○}{記述}
+$\beta E_0\ll1$ のとき $Z_1=V/\lambda^{3}$。
+
+$\ayamari{0\le\beta E_\alpha}{E_\alpha\ge3E_0>0}$ より $\ee^{-\beta E_\alpha}<1$
+\naze{$0\le\beta E_\alpha$ からは $\ee^{-\beta E_\alpha}\le1$ しか出ず，強い不等号 $<1$ の根拠にならない。量子数は $1$ 以上なので $E_\alpha\ge3E_0>0$ であり，$\beta>0$ から $\ee^{-\beta E_\alpha}<1$ となる。}
+\begin{align*}
+p_\alpha&=\ee^{-\beta E_\alpha}\frac{\lambda^{3}}{V}<\frac{\lambda^{3}}{V}\\
+Np_\alpha&<\lambda^{3}\frac{N}{V}=\lambda^{3}\rho
+\end{align*}
+\toi{2}{○}{単位}
+\[ \lambda=\num{4.29e-9}\,\nuke{\unit{\metre}} \]
+\naze{$\lambda$ は長さなので単位 $\unit{\metre}$ が要る。$\lambda=\qty{4.29e-9}{\metre}$ である。}
+\[ \lambda^{3}\rho=\num{6.69e3}\gg1 \]
+古典的に扱えない。
+\[ \frac{\lambda^{3}}{V}=\num{7.87e-20} \]
+\begin{align*}
+\beta E_0&=\frac{\pi}{4}\Bigl(\frac{\lambda}{L}\Bigr)^{2}\\
+&=\frac{\pi}{4}\Bigl(\frac{\lambda^{3}}{V}\Bigr)^{2/3}\\
+&=\num{1.44e-13}
+\end{align*}
+成り立つ。
+\toi{3}{◎}{}
+\[ \lambda^{3}\rho=1 \]
+\[ \frac{2\pi\hbar^{2}}{\kB Tm}=\Bigl(\frac{1}{\rho}\Bigr)^{2/3} \]
+\begin{align*}
+T&=\frac{2\pi\hbar^{2}}{\kB m}\rho^{2/3}\\
+&=\qty{1.07e5}{\kelvin}
+\end{align*}
+\toi{4}{○}{記述}
+\[ \lambda^{3}\rho=\Bigl(\frac{\lambda}{d}\Bigr)^{3} \]
+（図：幅 $\lambda$ に広がった波と，その下に間隔 $d$ をおいて並ぶ波）
+\[ d=\num{2.27e-10}\,\nuke{\unit{\metre}} \]
+\naze{$\lambda^{3}\rho\gg1$ は $\lambda\gg d$ のことで，各粒子の波動関数の広がり $\lambda$ が隣の粒子までの距離より大きく，波動関数どうしが重なって粒子の統計性が現れることを意味する。図だけでなくこの説明と，$\lambda$ との比較 $\lambda/d\simeq19$ を書く必要がある。$d$ も長さなので単位 $\unit{\metre}$ が要る。}
+%% kizuki
+\item (1) の強い不等号の根拠：$E_\alpha\ge0$ だけでは $\ee^{-\beta E_\alpha}\le1$ しか言えない。量子数が $1$ 以上なので $E_\alpha=E_0(n_x^{2}+n_y^{2}+n_z^{2})\ge3E_0>0$ であり，$\beta>0$ と合わせて $\ee^{-\beta E_\alpha}<1$ となる。等号が入るかどうかを，最小の量子数を入れて確かめる。
+\item (4) の「描像で何を意味するか」は，$\lambda^{3}\rho=(\lambda/d)^{3}$ の式だけでは答えにならない。$\lambda^{3}\rho\gg1\iff\lambda\gg d$ で，広がり $\lambda$ の波動関数が隣の粒子まで重なるので統計性が効く，と文で書く。「比べよ」と問われたら比 $\lambda/d\simeq19$ を数値で示す。
+\item \mae{第1回 問題2・10-25} (2) の $\lambda$ と (4) の $d$ に単位が無い。前回も $\lambda$ の単位を落としている。数値を書いたらその場で次元を確かめ，$\lambda$・$d$ は長さ（$\unit{\metre}$），$\lambda^{3}\rho$・$\lambda^{3}/V$・$\beta E_0$ は無次元，と区別してから答えを書く。
