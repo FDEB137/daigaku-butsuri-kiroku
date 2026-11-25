@@ -1,0 +1,49 @@
+% 数理物理1 数理物理1-11 問題3（082-sankaku。当時は 数理物理1-9 問題3・shou09-l1-sankaku） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（図：$x=0$ で高さ 1，$x=\pm b$ で 0 の三角形のグラフ）
+\begin{align*}
+  \tilde f(k)&=\int\dd x\,\ee^{-\ii kx}f(x)\\
+  &=\int_{-b}^{0}\dd x\,\ee^{-\ii kx}\Bigl(1+\frac{x}{b}\Bigr)+\int_{0}^{b}\dd x\,\ee^{-\ii kx}\Bigl(1-\frac{x}{b}\Bigr)\\
+  &=\int_{-b}^{b}\dd x\,\ee^{-\ii kx}\\
+  &\qquad+\frac{1}{b}\Bigl(\int_{-b}^{0}\dd x\,x\ee^{-\ii kx}-\int_{0}^{b}\dd x\,x\ee^{-\ii kx}\Bigr)
+\end{align*}
+（脇で部分積分を計算）
+\begin{align*}
+  \int\dd x\,x\ee^{-\ii kx}&=-\frac{x}{\ii k}\ee^{-\ii kx}+\int\dd x\,\frac{1}{\ii k}\ee^{-\ii kx}\\
+  &=-\frac{x}{\ii k}\ee^{-\ii kx}+\frac{1}{\ii k}\cdot\frac{1}{-\ii k}\ee^{-\ii kx}\\
+  &=-\frac{x}{\ii k}\ee^{-\ii kx}+\frac{1}{k^{2}}\ee^{-\ii kx}\\
+  &=\Bigl(\frac{1}{k^{2}}-\frac{x}{\ii k}\Bigr)\ee^{-\ii kx}
+\end{align*}
+\begin{align*}
+  &=\Bigl[\frac{1}{-\ii k}\ee^{-\ii kx}\Bigr]_{-b}^{b}+\frac{1}{b}\biggl(\Bigl[\Bigl(\frac{1}{k^{2}}-\frac{x}{\ii k}\Bigr)\ee^{-\ii kx}\Bigr]_{-b}^{0}\\
+  &\qquad-\Bigl[\Bigl(\frac{1}{k^{2}}-\frac{x}{\ii k}\Bigr)\ee^{-\ii kx}\Bigr]_{0}^{b}\biggr)\\
+  &=\frac{1}{-\ii k}\bigl(\ee^{-\ii kb}-\ee^{\ii kb}\bigr)+\frac{1}{b}\biggl(\frac{1}{k^{2}}-\Bigl(\frac{1}{k^{2}}+\frac{b}{\ii k}\Bigr)\ee^{\ii kb}\\
+  &\qquad-\Bigl(\frac{1}{k^{2}}-\frac{b}{\ii k}\Bigr)\ee^{-\ii kb}+\frac{1}{k^{2}}\biggr)
+\end{align*}
+（脇に $(c-\ii s)-(c+\ii s)$。$c$・$s$ は $\cos kb$・$\sin kb$ の略）
+\begin{align*}
+  &=\frac{2}{k}\sin(kb)+\frac{2}{bk^{2}}\\
+  &\qquad-\frac{1}{b}\Bigl(\Bigl(\frac{1}{k^{2}}+\frac{b}{\ii k}\Bigr)(c+\ii s)+\Bigl(\frac{1}{k^{2}}-\frac{b}{\ii k}\Bigr)(c-\ii s)\Bigr)
+\end{align*}
+（脇で $(a+b)(c+\ii s)+(a-b)(c-\ii s)=ac+bc+a\ii s+b\ii s+ac-bc-a\ii s+b\ii s=2(ac+\ii bs)$ を計算）
+\begin{align*}
+  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}-\frac{2}{b}\Bigl(\frac{1}{k^{2}}\cos kb+\frac{b}{k}\sin kb\Bigr)\\
+  &=\frac{2}{k}\sin kb+\frac{2}{bk^{2}}-\frac{2}{bk^{2}}\cos kb-\frac{2}{k}\sin kb\\
+  &=\frac{2}{bk^{2}}(1-\cos kb)=\frac{4}{bk^{2}}\sin^{2}\frac{kb}{2}
+\end{align*}
+（$\sin kb$ の2つの項を消し合わせる）
+\toi{2}{◎}{}
+\begin{align*}
+  \tilde f(k)&=\frac{4}{b}\cdot\frac{\sin^{2}(kb/2)}{k^{2}}=\frac{\sin^{2}(kb/2)}{(kb/2)^{2}}\cdot\frac{4}{b}\frac{1}{(2/b)^{2}}\\
+  &\xrightarrow{k\to0}\frac{4}{b(4/b^{2})}=b
+\end{align*}
+\[ \int\dd x\,f(x)=\text{（図：底辺 $2b$ の三角形）}=\frac{1}{2}b\cdot2=b \]
+\toi{3}{△}{記述}
+\[ \frac{4}{bk^{2}}\sin^{2}\frac{kb}{2}=0,\qquad\sin\frac{kb}{2}=0 \]
+（図：単位円）
+\[ \frac{kb}{2}=n\pi,\qquad k=\frac{2n\pi}{b}\ \nuke{n\neq0} \]
+\naze{$n=0$（$k=0$）では $\sin^{2}(kb/2)/k^{2}$ が 0/0 で，(2) より $\tilde f(0)=b\neq0$ なので除く。答えは $k=2\pi n/b$（$n=\pm1,\pm2,\dots$）。}
+%% kizuki
+\item (3) は，(1) の式が $k\neq0$ で導いたもの（$1/k^{2}$ で割っている）なので，そこから出した解は $k=0$ を (2) の値に戻して確かめる。$\sin(kb/2)=0$ の解に $k=0$ が入るが，$\tilde f(0)=b$ は三角形の面積で 0 ではない。
+\item (1) は区間を分けて部分積分したので長くなった。$f$ が偶関数なら $\sin$ の部分は消え，$\tilde f=2\int_{0}^{b}\dd x\,(1-x/b)\cos kx$ から始めると境界項がすぐ 0 になる。

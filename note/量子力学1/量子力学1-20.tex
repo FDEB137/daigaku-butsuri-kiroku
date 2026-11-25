@@ -1,0 +1,280 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第20章「調和振動子：生成・消滅演算子」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou20\量子力学1-20.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-099-ladder}{1}}{L1・計算}{◎◎◎}{S}{2026-11-25}
+  \ichirangyou{\hyperlink{bt-m-100-number}{2}}{L1・計算}{◎◎◎◎}{S}{2026-11-25}
+  \ichirangyou{\hyperlink{bt-m-107-comm}{3}}{L1・計算}{◎◎◎○}{A}{2026-11-25 (4)記述}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L1・計算}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L2・計算}{}{未着手}{}
+  \ichirangyou{9}{L2・導出}{}{未着手}{}
+  \ichirangyou{10}{L2・計算}{}{未着手}{}
+  \ichirangyou{11}{L3・導出}{}{未着手}{}
+  \ichirangyou{12}{L3・導出}{}{未着手}{}
+  \ichirangyou{13}{L3・導出}{}{未着手}{}
+  \ichirangyou{14}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\099_2026-11-25.tex
+\mondaibangou{1}
+\begin{mondai}{099-ladder}{計算}{生成消滅演算子の定義と交換関係，ハミルトニアンの書き換え}
+% 出典: 演義 No.12 [2] p.2（因数分解の向きを変え，ââ† から出発する形にした）
+  質量 $m$・角振動数 $\omega$ の1次元調和振動子 $\hat{H}=\hat{p}^{2}/(2m)+m\omega^{2}\hat{x}^{2}/2$ を考える。$\hat{x}$・$\hat{p}$ はエルミートで，使ってよい関係は $\comm{\hat{x}}{\hat{p}}=\ii\hbar$ だけとする。$\hat{a}$・$\hat{a}^{\dagger}$ を要点整理の式で定める。
+  \begin{shoumon}
+    \item $\hat{a}^{\dagger}$ が $\hat{a}$ のエルミート共役になっていることを確かめ，交換子 $\comm{\hat{a}}{\hat{a}^{\dagger}}$ を求めよ。
+    \item $\hat{x}$ と $\hat{p}$ を $\hat{a}$・$\hat{a}^{\dagger}$ で表せ。
+    \item $\hat{a}\hat{a}^{\dagger}$ を $\hat{x}$・$\hat{p}$ で表し，$\hat{H}$ を $\hat{a}\hat{a}^{\dagger}$ で書け。さらに (1) の結果を使って，$\hat{H}$ を $\hat{a}^{\dagger}\hat{a}$ で書き直せ。
+  \end{shoumon}
+\notekiroku{2026-11-25 S ◎◎◎}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\[ \hat{a}^{\dagger}=\sqrt{\frac{m\omega}{2\hbar}}\,\hat{x}^{\dagger}-\ii\sqrt{\frac{1}{2m\hbar\omega}}\,\hat{p}^{\dagger} \]
+$\hat{x}$，$\hat{p}$ はエルミート演算子なので，
+\[ \hat{a}^{\dagger}=\underbrace{\sqrt{\frac{m\omega}{2\hbar}}}_{\alpha}\,\hat{x}-\ii\underbrace{\sqrt{\frac{1}{2m\hbar\omega}}}_{\beta}\,\hat{p} \]
+よりエルミート共役。
+\[ \sqrt{\frac{m\omega}{2\hbar}}=\alpha,\quad\sqrt{\frac{1}{2m\hbar\omega}}=\beta \]
+とする。
+\begin{align*}
+\hat{a}&=\alpha\hat{x}+\ii\beta\hat{p}\\
+\hat{a}^{\dagger}&=\alpha\hat{x}-\ii\beta\hat{p}
+\end{align*}
+\[ \comm{\hat{a}}{\hat{a}^{\dagger}}=\hat{a}\hat{a}^{\dagger}-\hat{a}^{\dagger}\hat{a} \]
+\begin{align*}
+\hat{a}\hat{a}^{\dagger}&=(\alpha\hat{x}+\ii\beta\hat{p})(\alpha\hat{x}-\ii\beta\hat{p})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta(\hat{p}\hat{x}-\hat{x}\hat{p})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta\comm{\hat{p}}{\hat{x}}\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\hbar\alpha\beta
+\end{align*}
+\begin{align*}
+\hat{a}^{\dagger}\hat{a}&=(\alpha\hat{x}-\ii\beta\hat{p})(\alpha\hat{x}+\ii\beta\hat{p})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta(\hat{x}\hat{p}-\hat{p}\hat{x})\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\ii\alpha\beta\comm{\hat{x}}{\hat{p}}\\
+&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}-\hbar\alpha\beta
+\end{align*}
+\begin{align*}
+\comm{\hat{a}}{\hat{a}^{\dagger}}&=2\hbar\alpha\beta\\
+&=2\hbar\sqrt{\frac{m\omega}{2\hbar}}\sqrt{\frac{1}{2m\hbar\omega}}\\
+&=1
+\end{align*}
+\toi{2}{◎}{}
+\[ \hat{a}+\hat{a}^{\dagger}=2\alpha\hat{x} \]
+\begin{align*}
+\therefore\ \hat{x}&=\frac{1}{2\alpha}(\hat{a}+\hat{a}^{\dagger})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}\,(\hat{a}+\hat{a}^{\dagger})
+\end{align*}
+\[ \hat{a}-\hat{a}^{\dagger}=2\ii\beta\hat{p} \]
+\begin{align*}
+\hat{p}&=\frac{1}{2\ii\beta}(\hat{a}-\hat{a}^{\dagger})\\
+&=\ii\sqrt{\frac{m\hbar\omega}{2}}\,(\hat{a}^{\dagger}-\hat{a})
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\hat{a}\hat{a}^{\dagger}&=\alpha^{2}\hat{x}^{2}+\beta^{2}\hat{p}^{2}+\hbar\alpha\beta\\
+&=\frac{m\omega}{2\hbar}\hat{x}^{2}+\frac{1}{2m\hbar\omega}\hat{p}^{2}+\frac{1}{2}\\
+&=\frac{1}{\hbar\omega}\Bigl(\frac{m\omega^{2}}{2}\hat{x}^{2}+\frac{1}{2m}\hat{p}^{2}\Bigr)+\frac{1}{2}\\
+&=\frac{1}{\hbar\omega}\hat{H}+\frac{1}{2}
+\end{align*}
+\[ \therefore\ \hat{H}=\hbar\omega\Bigl(\hat{a}\hat{a}^{\dagger}-\frac{1}{2}\Bigr) \]
+\[ \comm{\hat{a}}{\hat{a}^{\dagger}}=\hat{a}\hat{a}^{\dagger}-\hat{a}^{\dagger}\hat{a}=1 \]
+\[ \therefore\ \hat{a}\hat{a}^{\dagger}=\hat{a}^{\dagger}\hat{a}+1 \]
+\[ \hat{H}=\hbar\omega\Bigl(\hat{a}^{\dagger}\hat{a}+\frac{1}{2}\Bigr) \]
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\100_2026-11-25.tex
+\mondaibangou{2}
+\begin{mondai}{100-number}{計算}{生成消滅演算子の作用による期待値の計算と，交換関係による並べ替え}
+% 出典: 演義 No.12 [4] p.2（演算子の組を変えた）
+  1次元調和振動子の規格化されたエネルギー固有状態 $\ket{n}$ について，要点整理の $\hat{a}\ket{n}=\sqrt{n}\ket{n-1}$，$\hat{a}^{\dagger}\ket{n}=\sqrt{n+1}\ket{n+1}$ を使って次を求めよ。
+  \begin{shoumon}
+    \item $\matrixel{n}{(\hat{a}^{\dagger})^{2}\hat{a}^{2}}{n}$
+    \item $\matrixel{n}{\hat{a}^{2}(\hat{a}^{\dagger})^{2}}{n}$
+    \item $\matrixel{n}{\hat{a}\hat{a}^{\dagger}\hat{a}^{\dagger}\hat{a}}{n}$
+    \item $\comm{\hat{a}}{\hat{a}^{\dagger}}=1$ だけを使って，$\hat{a}^{2}(\hat{a}^{\dagger})^{2}-(\hat{a}^{\dagger})^{2}\hat{a}^{2}$ を $\hat{a}^{\dagger}\hat{a}$ と定数で表せ。また，その結果が (1)(2) の差と合うことを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-25 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\begin{align*}
+&\matrixel{n}{(\hat{a}^{\dagger})^{2}\hat{a}^{2}}{n}\\
+&=\sqrt{n}\matrixel{n}{(\hat{a}^{\dagger})^{2}\hat{a}}{n-1}\\
+&=\sqrt{n}\sqrt{n-1}\matrixel{n}{(\hat{a}^{\dagger})^{2}}{n-2}\\
+&=\sqrt{n}(n-1)\matrixel{n}{\hat{a}^{\dagger}}{n-1}\\
+&=n(n-1)\braket{n}{n}\\
+&=n(n-1)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\matrixel{n}{\hat{a}^{2}(\hat{a}^{\dagger})^{2}}{n}\\
+&=\sqrt{n+1}\matrixel{n}{\hat{a}^{2}\hat{a}^{\dagger}}{n+1}\\
+&=\sqrt{n+1}\sqrt{n+2}\matrixel{n}{\hat{a}^{2}}{n+2}\\
+&=\sqrt{n+1}(n+2)\matrixel{n}{\hat{a}}{n+1}\\
+&=(n+1)(n+2)\braket{n}{n}\\
+&=(n+1)(n+2)
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+&\matrixel{n}{\hat{a}\hat{a}^{\dagger}\hat{a}^{\dagger}\hat{a}}{n}\\
+&=\sqrt{n}\matrixel{n}{\hat{a}\hat{a}^{\dagger}\hat{a}^{\dagger}}{n-1}\\
+&=n\matrixel{n}{\hat{a}\hat{a}^{\dagger}}{n}\\
+&=n\sqrt{n+1}\matrixel{n}{\hat{a}}{n+1}\\
+&=n(n+1)\braket{n}{n}\\
+&=n(n+1)
+\end{align*}
+\toi{4}{◎}{}
+\[ \hat{a}^{2}(\hat{a}^{\dagger})^{2}-(\hat{a}^{\dagger})^{2}\hat{a}^{2}=\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}} \]
+\begin{align*}
+\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}}&=\comm{\hat{a}^{2}}{\hat{a}^{\dagger}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}^{2}}{\hat{a}^{\dagger}}\hat{a}^{\dagger}+\hat{a}^{\dagger}\comm{\hat{a}^{2}}{\hat{a}^{\dagger}}
+\end{align*}
+\begin{align*}
+\comm{\hat{a}^{2}}{\hat{a}^{\dagger}}&=\comm{\hat{a}\hat{a}}{\hat{a}^{\dagger}}\\
+&=\hat{a}\comm{\hat{a}}{\hat{a}^{\dagger}}+\comm{\hat{a}}{\hat{a}^{\dagger}}\hat{a}\\
+&=2\hat{a}
+\end{align*}
+\begin{align*}
+\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}}&=(2\hat{a})\hat{a}^{\dagger}+\hat{a}^{\dagger}(2\hat{a})\\
+&=2\hat{a}\hat{a}^{\dagger}+2\hat{a}^{\dagger}\hat{a}
+\end{align*}
+\[ \comm{\hat{a}}{\hat{a}^{\dagger}}=\hat{a}\hat{a}^{\dagger}-\hat{a}^{\dagger}\hat{a}=1 \]
+\[ \therefore\ \hat{a}\hat{a}^{\dagger}=\hat{a}^{\dagger}\hat{a}+1 \]
+\begin{align*}
+\comm{\hat{a}^{2}}{(\hat{a}^{\dagger})^{2}}&=2\hat{a}^{\dagger}\hat{a}+2(\hat{a}^{\dagger}\hat{a}+1)\\
+&=4\hat{a}^{\dagger}\hat{a}+2
+\end{align*}
+(1)，(2) の答えより
+\begin{align*}
+&\matrixel{n}{\hat{a}^{2}(\hat{a}^{\dagger})^{2}-(\hat{a}^{\dagger})^{2}\hat{a}^{2}}{n}\\
+&=(n+1)(n+2)-n(n-1)\\
+&=n^{2}+3n+2-n^{2}+n\\
+&=4n+2
+\end{align*}
+また，
+\begin{align*}
+&\matrixel{n}{4\hat{a}^{\dagger}\hat{a}+2}{n}\\
+&=4\matrixel{n}{\hat{a}^{\dagger}\hat{a}}{n}+2\braket{n}{n}\\
+&=4\sqrt{n}\matrixel{n}{\hat{a}^{\dagger}}{n-1}+2\\
+&=4n\braket{n}{n}+2\\
+&=4n+2
+\end{align*}
+以上より正しいと分かる。
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\107_2026-11-25.tex
+\mondaibangou{3}
+\begin{mondai}{107-comm}{計算}{交換子 $\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}$ と，$\ket{n}$ の構成から生成消滅演算子の作用を導くこと}
+$\comm{\hat{a}}{\hat{a}^{\dagger}}=1$ を満たす $\hat{a}$・$\hat{a}^{\dagger}$ について，次の問いに答えよ。
+  \begin{shoumon}
+    \item 交換子の積の公式を使って，$\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}$ と $\comm{\hat{a}}{(\hat{a}^{\dagger})^{3}}$ を $\hat{a}^{\dagger}$ だけで表せ。
+    \item 一般の正の整数 $n$ について，$\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}$ を $\hat{a}^{\dagger}$ と $n$ で表し，数学的帰納法で示せ。
+    \item $(\comm{\hat{A}}{\hat{B}})^{\dagger}=\comm{\hat{B}^{\dagger}}{\hat{A}^{\dagger}}$ を示し，(2) の結果から $\comm{\hat{a}^{n}}{\hat{a}^{\dagger}}$ を求めよ。
+    \item 要点整理の $\ket{n}$ の定義と (2) の結果から，$\hat{a}\ket{n}$ と $\hat{a}^{\dagger}\ket{n}$ をそれぞれ $\ket{n-1}$・$\ket{n+1}$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-11-25 A ◎◎◎○}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}&=\comm{\hat{a}}{\hat{a}^{\dagger}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}}{\hat{a}^{\dagger}}\hat{a}^{\dagger}+\hat{a}^{\dagger}\comm{\hat{a}}{\hat{a}^{\dagger}}\\
+&=2\hat{a}^{\dagger}
+\end{align*}
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{3}}&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}\hat{a}^{\dagger}+(\hat{a}^{\dagger})^{2}\comm{\hat{a}}{\hat{a}^{\dagger}}\\
+&=2(\hat{a}^{\dagger})^{2}+(\hat{a}^{\dagger})^{2}\\
+&=3(\hat{a}^{\dagger})^{2}
+\end{align*}
+\toi{2}{◎}{}
+仮定：$\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}=n(\hat{a}^{\dagger})^{n-1}$
+
+i) $n=1$ のとき
+\[ \comm{\hat{a}}{(\hat{a}^{\dagger})^{1}}=1\cdot(\hat{a}^{\dagger})^{1-1}=1 \]
+より成立。
+
+ii) $n=k$ で仮定が成り立つとき
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{k+1}}&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{k}\hat{a}^{\dagger}}\\
+&=\comm{\hat{a}}{(\hat{a}^{\dagger})^{k}}\hat{a}^{\dagger}+(\hat{a}^{\dagger})^{k}\comm{\hat{a}}{\hat{a}^{\dagger}}\\
+&=k(\hat{a}^{\dagger})^{k-1}\hat{a}^{\dagger}+(\hat{a}^{\dagger})^{k}\\
+&=(k+1)(\hat{a}^{\dagger})^{k}
+\end{align*}
+i)，ii) から数学的帰納法により，仮定は正しいことが示された。
+\toi{3}{◎}{}
+\begin{align*}
+(\comm{\hat{A}}{\hat{B}})^{\dagger}&=(\hat{A}\hat{B}-\hat{B}\hat{A})^{\dagger}\\
+&=\hat{B}^{\dagger}\hat{A}^{\dagger}-\hat{A}^{\dagger}\hat{B}^{\dagger}\\
+&=\comm{\hat{B}^{\dagger}}{\hat{A}^{\dagger}}
+\end{align*}
+\[ (\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}})^{\dagger}=\comm{\hat{a}^{n}}{\hat{a}^{\dagger}} \]
+\[ \bigl(n(\hat{a}^{\dagger})^{n-1}\bigr)^{\dagger}=n\hat{a}^{n-1} \]
+\[ \therefore\ \comm{\hat{a}^{n}}{\hat{a}^{\dagger}}=n\hat{a}^{n-1} \]
+\toi{4}{○}{記述}
+\[ \ket{n}=\frac{1}{\sqrt{n!}}(\hat{a}^{\dagger})^{n}\ket{0} \]
+\[ \hat{a}\ket{n}=\frac{1}{\sqrt{n!}}\hat{a}(\hat{a}^{\dagger})^{n}\ket{0} \]
+\begin{align*}
+\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}&=\hat{a}(\hat{a}^{\dagger})^{n}-(\hat{a}^{\dagger})^{n}\hat{a}\\
+&=n(\hat{a}^{\dagger})^{n-1}
+\end{align*}
+\[ \therefore\ \hat{a}(\hat{a}^{\dagger})^{n}=(\hat{a}^{\dagger})^{n}\hat{a}+n(\hat{a}^{\dagger})^{n-1} \]
+\begin{align*}
+\hat{a}\ket{n}&=\frac{1}{\sqrt{n!}}\Bigl((\hat{a}^{\dagger})^{n}\underbrace{\hat{a}\ket{0}}_{0}+n(\hat{a}^{\dagger})^{n-1}\ket{0}\Bigr)\\
+&=\frac{n}{\sqrt{n}\sqrt{(n-1)!}}(\hat{a}^{\dagger})^{n-1}\ket{0}\\
+&=\sqrt{n}\ket{n-1}\quad\nuke{(n\ge1)}
+\end{align*}
+\nuke{$n=0$ の確認}
+\naze{$(\hat{a}^{\dagger})^{n-1}$ と $\ket{n-1}$ は $n\ge1$ でしか意味をもたないので，この計算は $n\ge1$ の場合である。$n=0$ では $\hat{a}\ket{0}=0$ で，右辺の係数 $\sqrt{0}=0$ と合うことを別に一言書く（答案に必要な論点）。計算と答えは正しい。}
+\begin{align*}
+\hat{a}^{\dagger}\ket{n}&=\frac{1}{\sqrt{n!}}(\hat{a}^{\dagger})^{n+1}\ket{0}\\
+&=\frac{\sqrt{n+1}}{\sqrt{(n+1)!}}(\hat{a}^{\dagger})^{n+1}\ket{0}\\
+&=\sqrt{n+1}\ket{n+1}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 一般の $n$ で導いた式が $(\hat{a}^{\dagger})^{n-1}$ や $\ket{n-1}$ を含むときは，$n\ge1$ でしか使えない。端の $n=0$ は $\hat{a}\ket{0}=0$ と係数 $\sqrt{0}=0$ が合うことを別に確かめる。
+\item \mae{量子力学1-11（組み替え前）問題4 (1)・11-20} 整数 $n$ の範囲の扱いを書かなかった（前回は $kL=n\pi$ で $n$ を正の整数に限る理由）。$n$ を含む答えを書いたら「この式はどの $n$ で成り立つか」「端の $n$ は別扱いか」を1行添える。
+\end{kizuki}
+\begin{tadashii}
+\houshin 積の公式 $\comm{\hat{A}}{\hat{B}\hat{C}}=\hat{B}\comm{\hat{A}}{\hat{C}}+\comm{\hat{A}}{\hat{B}}\hat{C}$ で $(\hat{a}^{\dagger})^{n}$ を1つずつはがし，$\comm{\hat{a}}{\hat{a}^{\dagger}}=1$ だけを使う。(4) は $\hat{a}$ を $\ket{0}$ の直前まで移して $\hat{a}\ket{0}=0$ を使う。
+\keisan \shoumonkai{1} 積の公式で $\hat{A}=\hat{a}$，$\hat{B}=\hat{C}=\hat{a}^{\dagger}$ とする。
+\[ \comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}=\hat{a}^{\dagger}\comm{\hat{a}}{\hat{a}^{\dagger}}+\comm{\hat{a}}{\hat{a}^{\dagger}}\hat{a}^{\dagger}=2\hat{a}^{\dagger} \]
+次に $(\hat{a}^{\dagger})^{3}=(\hat{a}^{\dagger})^{2}\hat{a}^{\dagger}$ と分け，いま得た結果を使う。
+\[ \comm{\hat{a}}{(\hat{a}^{\dagger})^{3}}=(\hat{a}^{\dagger})^{2}\comm{\hat{a}}{\hat{a}^{\dagger}}+\comm{\hat{a}}{(\hat{a}^{\dagger})^{2}}\hat{a}^{\dagger}=(\hat{a}^{\dagger})^{2}+2(\hat{a}^{\dagger})^{2}=3(\hat{a}^{\dagger})^{2} \]
+\shoumonkai{2} (1) から $\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}=n(\hat{a}^{\dagger})^{n-1}$ と予想する。$n=1$ では $\comm{\hat{a}}{\hat{a}^{\dagger}}=1$ なので成り立つ。$n$ で成り立つと仮定すると，$(\hat{a}^{\dagger})^{n+1}=(\hat{a}^{\dagger})^{n}\hat{a}^{\dagger}$ と分けて
+\begin{align*}
+  \comm{\hat{a}}{(\hat{a}^{\dagger})^{n+1}}
+  &=(\hat{a}^{\dagger})^{n}\comm{\hat{a}}{\hat{a}^{\dagger}}+\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}\hat{a}^{\dagger}\\
+  &=(\hat{a}^{\dagger})^{n}+n(\hat{a}^{\dagger})^{n-1}\hat{a}^{\dagger}=(n+1)(\hat{a}^{\dagger})^{n}
+\end{align*}
+となり，$n+1$ でも成り立つ。よってすべての正の整数 $n$ で成り立つ。
+
+\shoumonkai{3} 積のエルミート共役は順序が逆になるので，
+\[ (\comm{\hat{A}}{\hat{B}})^{\dagger}=(\hat{A}\hat{B}-\hat{B}\hat{A})^{\dagger}=\hat{B}^{\dagger}\hat{A}^{\dagger}-\hat{A}^{\dagger}\hat{B}^{\dagger}=\comm{\hat{B}^{\dagger}}{\hat{A}^{\dagger}} \]
+$\hat{A}=\hat{a}$，$\hat{B}=(\hat{a}^{\dagger})^{n}$ とすると $\hat{B}^{\dagger}=\hat{a}^{n}$，$\hat{A}^{\dagger}=\hat{a}^{\dagger}$ である。(2) の両辺の共役をとって
+\[ \comm{\hat{a}^{n}}{\hat{a}^{\dagger}}=\left(n(\hat{a}^{\dagger})^{n-1}\right)^{\dagger}=n\hat{a}^{n-1} \]
+\shoumonkai{4} $\hat{a}(\hat{a}^{\dagger})^{n}=\comm{\hat{a}}{(\hat{a}^{\dagger})^{n}}+(\hat{a}^{\dagger})^{n}\hat{a}$ と書き，$\hat{a}\ket{0}=0$ を使う（$n\ge 1$）。
+\[ \hat{a}\ket{n}=\frac{1}{\sqrt{n!}}\left[n(\hat{a}^{\dagger})^{n-1}\ket{0}+(\hat{a}^{\dagger})^{n}\hat{a}\ket{0}\right]=\frac{n}{\sqrt{n!}}(\hat{a}^{\dagger})^{n-1}\ket{0} \]
+定義から $(\hat{a}^{\dagger})^{n-1}\ket{0}=\sqrt{(n-1)!}\,\ket{n-1}$ なので，
+\[ \hat{a}\ket{n}=\frac{n\sqrt{(n-1)!}}{\sqrt{n!}}\ket{n-1}=\sqrt{n}\,\ket{n-1} \]
+$n=0$ では $\hat{a}\ket{0}=0$ で，右辺の係数 $\sqrt{0}=0$ と合う。$\hat{a}^{\dagger}$ は定義に直接 $\hat{a}^{\dagger}$ を1つ足すだけなので，
+\[ \hat{a}^{\dagger}\ket{n}=\frac{1}{\sqrt{n!}}(\hat{a}^{\dagger})^{n+1}\ket{0}=\frac{\sqrt{(n+1)!}}{\sqrt{n!}}\ket{n+1}=\sqrt{n+1}\,\ket{n+1} \]
+\kotae{\shoumonkai{1} $2\hat{a}^{\dagger}$，$3(\hat{a}^{\dagger})^{2}$ \shoumonkai{2} $n(\hat{a}^{\dagger})^{n-1}$ \shoumonkai{3} $n\hat{a}^{n-1}$ \shoumonkai{4} $\hat{a}\ket{n}=\sqrt{n}\ket{n-1}$，$\hat{a}^{\dagger}\ket{n}=\sqrt{n+1}\ket{n+1}$}
+\begin{ronten}
+  \item \shoumonkai{2} 帰納法の出発点 $n=1$ で成り立つことを確かめ，$n+1$ の段で $(\hat{a}^{\dagger})^{n+1}$ をどう分けて仮定をどこに使ったかを書く。
+  \item \shoumonkai{3} 積のエルミート共役では順序が逆になることを根拠に挙げ，$(\hat{a}^{\dagger})^{n}$ の共役が $\hat{a}^{n}$ になることを述べる。
+  \item \shoumonkai{4} $\hat{a}$ を右へ移して出る項が $\hat{a}\ket{0}=0$ で消えること（$n\ge1$ の場合）を述べ，$n=0$ を別に確かめる。
+\end{ronten}
+\kenzan $n=1$ で (2) は $\comm{\hat{a}}{\hat{a}^{\dagger}}=1$ に戻る。(4) の結果から $\hat{n}\ket{n}=\hat{a}^{\dagger}\hat{a}\ket{n}=\sqrt{n}\,\hat{a}^{\dagger}\ket{n-1}=n\ket{n}$ となり，$\ket{n}$ が $\hat{n}$ の固有値 $n$ の固有状態であることと合う。これは要点整理に置いた作用の式と同じである。
+\tsumazuki (2) は $\comm{\hat{a}}{\hat{a}^{\dagger}}=1$ を「$\hat{a}^{\dagger}$ で微分する」操作のように見ると覚えやすい（$\dv{}{y}y^{n}=ny^{n-1}$ と同じ形）。積の公式で $\hat{B}$ と $\hat{C}$ の順序を入れ替えないこと（$\hat{a}^{\dagger}$ どうしは交換するのでこの問題では結果は変わらないが，一般には順序が効く）。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
