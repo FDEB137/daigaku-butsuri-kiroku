@@ -1,0 +1,55 @@
+% 統計力学1 統計力学1-4 問題2（011-excluded） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+F(T,V,N)&=-\kB T\log Z(V,N)\\
+&=-\kB T\biggl(N\log\left(\frac{V-Nb}{\lambda^{3}}\right)\\
+&\qquad-N\log N+N\biggr)\\
+&=-N\kB T\left[\log\left(\frac{V-Nb}{\lambda^{3}N}\right)+1\right]
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+p&=-\left(\pdv{F}{V}\right)_{T,N}\\
+&=-\left(-N\kB T\cdot\frac{1}{V-Nb}\right)\\
+&=\frac{N\kB T}{V-Nb}
+\end{align*}
+$b\to0$ で
+\[ \frac{N\kB T}{V}=\frac{(N/N_{\mathrm{A}})RT}{V} \]
+$\therefore\ p=nRT/V$　状態方程式
+\toi{3}{◎}{}
+（脇で $(V-Nb)/(\lambda^{3}N)=(AT)^{3/2}$ とおく）
+\begin{align*}
+S&=-\left(\pdv{F}{T}\right)_{V,N}\\
+&=N\kB\pdv{}{T}\left(T\left(\log(AT)^{3/2}+1\right)\right)\\
+&=N\kB\pdv{}{T}\left(\frac{3}{2}T\log AT+T\right)\\
+&=N\kB\left(\frac{3}{2}\log AT+\frac{5}{2}\right)\\
+&=N\kB\left[\log\frac{V-Nb}{\lambda^{3}N}+\frac{5}{2}\right]
+\end{align*}
+\begin{align*}
+U&=\left(\pdv{(F/T)}{(1/T)}\right)_{V}\\
+&=\pdv{}{(1/T)}\left(-N\kB\log\left(\frac{V-Nb}{\lambda^{3}N}\right)\right)
+\end{align*}
+（脇で $\log$ の中を書き換える）
+\begin{align*}
+\log\frac{V-Nb}{\lambda^{3}N}&=\log\frac{V-Nb}{N}\\
+&\qquad-\frac{3}{2}\log\frac{h^{2}}{2\pi m\kB T}\\
+&=\log\frac{V-Nb}{N}\\
+&\qquad-\frac{3}{2}\left(\log\frac{h^{2}}{2\pi m\kB}+\log\frac{1}{T}\right)
+\end{align*}
+\begin{align*}
+U&=\pdv{}{(1/T)}\left(-N\kB\cdot\left(-\frac{3}{2}\log\frac{1}{T}\right)\right)\\
+&=\frac{3}{2}N\kB\pdv{}{(1/T)}\log\left(\frac{1}{T}\right)\\
+&=\frac{3N\kB T}{2}
+\end{align*}
+\[ C_{V}=\left(\pdv{U}{T}\right)_{V}=\frac{3}{2}N\kB \]
+\toi{4}{○}{記述}
+\begin{align*}
+&F(T,\alpha V,\alpha N)\\
+&=-\alpha N\kB T\left[\log\frac{\alpha(V-Nb)}{\alpha\lambda^{3}N}+1\right]\\
+&=\alpha F(T,\ayamari{\alpha V,\alpha N}{V,N})
+\end{align*}
+より示量変数
+\naze{右辺は元の系の $F$ の $\alpha$ 倍，すなわち $\alpha F(T,V,N)$ である。右辺の括弧の中に $\alpha V$，$\alpha N$ が残ると，$\alpha$ 倍した系どうしの別の関係になってしまう。その前の行で $\alpha$ が約分されて $\log$ の中身が元に戻り，前の因子 $N$ だけが $\alpha$ 倍になるという計算は正しい。}
+%% kizuki
+\item \mae{第1章（旧版）問題4 (3)(4)・10-27} 示量性の式 $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$ は，「$V$ と $N$ を $\alpha$ 倍した系の $F$」が「元の系の $F$ の $\alpha$ 倍」になることで，右辺の変数は元の $(T,V,N)$ である。前回は $S'$ のプライムを落とし，同じ日の第3章 問題2 (3) でもプライムと係数2を落とした。計算の前に示す式を問題文から1行写し，最後の行はその右辺と見比べてから書く。
+\item 確かめ方：$\alpha=2$ にして読み直す。$2F(T,2V,2N)$ は「2倍の系を2つ」で元の系の4倍になり，左辺の $F(T,2V,2N)$（元の2倍）と合わない。

@@ -1,0 +1,68 @@
+% 統計力学1 統計力学1-4 問題1（010-sumform） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+全エネルギー
+\[
+\begin{array}{c|ccc}
+\mathrm{A}\backslash\mathrm{B} & 0 & \varepsilon & 2\varepsilon\\ \hline
+0 & 0 & \varepsilon & 2\varepsilon\\
+\varepsilon & \varepsilon & 2\varepsilon & 3\varepsilon\\
+2\varepsilon & 2\varepsilon & 3\varepsilon & 4\varepsilon
+\end{array}
+\]
+状態の数 $w_{1}(\mathcal{E})$
+\[
+\begin{array}{c|c}
+0 & 1\\ \hline
+\varepsilon & 2\\ \hline
+2\varepsilon & 3\\ \hline
+3\varepsilon & 2\\ \hline
+4\varepsilon & 1
+\end{array}
+\]
+\[ Z=1\cdot q^{0}+2\cdot q^{1}+3q^{2}+2q^{3}+1\cdot q^{4} \]
+\toi{2}{○}{記述}
+\begin{align*}
+Z&=q^{0}q^{0}+q^{0}q^{1}+q^{0}q^{2}\\
+&\qquad+q^{1}q^{0}+q^{1}q^{1}+q^{1}q^{2}\\
+&\qquad+q^{2}q^{0}+q^{2}q^{1}+q^{2}q^{2}\\
+&\nuke{=(1+q+q^{2})^{2}}\\
+&=q^{0}+q^{1}+q^{2}\\
+&\qquad+q^{1}+q^{2}+q^{3}\\
+&\qquad+q^{2}+q^{3}+q^{4}\\
+&=1\cdot q^{0}+2\cdot q^{1}+3q^{2}+2q^{3}+1\cdot q^{4}
+\end{align*}
+\naze{問いは式(4.4)の和を粒子ごとの和の積に分けて求めることで，9項を書き並べて足すのは (1) の表と同じ数え方であり，別の方法で確かめたことにならない。各項は粒子 A の因子と粒子 B の因子の積 $q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}$ なので，$\sum_{n_{\mathrm{A}}}\sum_{n_{\mathrm{B}}}q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}=(1+q+q^{2})^{2}$ と積にまとめ，それを展開して (1) と比べる。最後の多項式は正しい。}
+\toi{3}{◎}{}
+\[ \ee^{-\varepsilon/\kB T}=\frac{1}{2}\qquad\therefore\ \frac{\varepsilon}{\kB T}=\log2 \]
+\[ \varepsilon=\kB T\log2 \]
+\begin{align*}
+Z&=1+2\cdot\frac{1}{2}+3\cdot\frac{1}{4}+2\cdot\frac{1}{8}+1\cdot\frac{1}{16}\\
+&=2+\frac{3}{4}+\frac{1}{4}+\frac{1}{16}\\
+&=\frac{49}{16}
+\end{align*}
+\begin{align*}
+F&=-\kB T\log\frac{49}{16}\\
+&=-\kB T\cdot2\log\frac{7}{4}
+\end{align*}
+\[ \frac{F}{\varepsilon}=\frac{-2\log(7/4)}{\log2}=-1.61\fumei \]
+\toi{4}{◎}{}
+\begin{align*}
+U&=-\pdv{}{\beta}\log Z\\
+&=-\pdv{}{q}\log Z\cdot\dv{q}{\beta}\\
+&=-\frac{2+6q+6q^{2}+4q^{3}}{1+2q+3q^{2}+2q^{3}+q^{4}}\cdot\kakimachigai{-\varepsilon q}{(-\varepsilon q)}\\
+&=\frac{2q+6q^{2}+6q^{3}+4q^{4}}{1+2q+3q^{2}+2q^{3}+q^{4}}\,\varepsilon
+\end{align*}
+$q=1/2$ のとき
+\[ \frac{7/2}{49/16}\,\varepsilon=\frac{8}{7}\varepsilon \]
+$T\to0$，$\beta\to\infty$，$q\to0$
+
+$U\to0$　全て基底状態
+
+$T\to\infty$，$\beta\to0$，$q\to1$
+
+$U\to2\varepsilon$　平均エネルギー
+%% kizuki
+\item 相互作用が無いと全エネルギーは $\varepsilon_{\mathrm{A}}+\varepsilon_{\mathrm{B}}$ の和なので，ボルツマン因子は $q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}$ の積になり，2重和が1粒子の和 $z=1+q+q^{2}$ の積 $z^{2}$ に分かれる。9項を書き出すのは (1) の表と同じ数え方で，「積に分けて確かめよ」の確かめにならない。$N$ 個の独立な粒子なら $Z=z^{N}$ で，状態を書き出せない大きな系ではこれしか方法が無い。
+\item \mae{第1章 問題4 (1)・11-11} 「〜に分けて求め，確かめよ」の問いは，指定された手順の式そのものが答えである。前回はオイラーの関係式に代入する一行が抜け，今回は積にまとめる一行が抜けた。書き終えたら問題文の指定（「粒子ごとの和の積に分けて」）の形の式が答案にあるかを見直す。
+\item (4) は初め $U=-\partial Z/\partial\beta$ と $\log$ を落として計算し，消して書き直した。$U=-\partial\log Z/\partial\beta=-(1/Z)\,\partial Z/\partial\beta$ で，$\log$ を落とすと $1/Z$ が抜ける（$q=1/2$ で $8\varepsilon/7$ でなく $7\varepsilon/2$ になる）。$T\to0$ で $U\to0$，$T\to\infty$ で $U\to2\varepsilon$（9状態の単純平均）になるかで検算する。

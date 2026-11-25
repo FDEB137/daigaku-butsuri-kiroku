@@ -1,0 +1,263 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{統計力学1　第4章「カノニカル分布と分配関数」}{2026-11-25}
+%% note-moto	problems\統計力学1\shou04\統計力学1-4.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-010-sumform}{1}}{L1・計算}{◎○◎◎}{A}{2026-11-24 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-011-excluded}{2}}{L1・計算}{◎◎◎○}{A}{2026-11-24 (4)記述}
+  \ichirangyou{3}{L1・説明}{}{未着手}{}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L2・計算}{}{未着手}{}
+  \ichirangyou{6}{L3・導出}{}{未着手}{}
+  \ichirangyou{7}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item ヘルムホルツ自由エネルギーの計算式 % 出典: p.3
+  \[F=-\kB T\log Z \notetag{4.2}\]
+  \item 分配関数（エネルギーごとの和） % 出典: p.3
+  \[Z=\sum_{0\le\mathcal{E}<\infty}w_{1}(\mathcal{E})\,\ee^{-\mathcal{E}/\kB T} \notetag{4.3}\]
+  \item 分配関数（力学的状態ごとの和） % 出典: p.4
+  \[Z=\sum_{\text{microstates}}\ee^{-\mathcal{E}/\kB T} \notetag{4.4}\]
+  \item 理想気体の圧力 % 出典: p.6
+  \[p=-\left(\pdv{F}{V}\right)_{T}=\frac{N\kB T}{V} \notetag{4.8}\]
+  \item 理想気体のエントロピー % 出典: p.6
+  \[S=-\left(\pdv{F}{T}\right)_{V}=N\kB\log\frac{V}{N}+\frac{3N}{2}\kB\log\kB T+\frac{5N}{2}\kB+\frac{3N}{2}\kB\log\frac{m}{2\pi\hbar^{2}} \notetag{4.9}\]
+  \item 定積熱容量 % 出典: p.6
+  \[C_{V}=T\left(\pdv{S}{T}\right)_{V}=\frac{3N\kB}{2} \notetag{4.10}\]
+  \item 内部エネルギー（ギブス--ヘルムホルツの関係） % 出典: p.6
+  \[U=\left(\pdv{(F/T)}{(1/T)}\right)_{V}=\frac{3N}{2}\kB T \notetag{4.11}\]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\統計力学1\010_2026-11-24.tex
+\mondaibangou{1}
+\begin{mondai}{010-sumform}{計算}{分配関数の2つの書き方（エネルギーごとの和と状態ごとの和）と，独立な自由度での和の因数分解}
+% 出典: 講義ノート 第2章 p.3--5 式(10)(11)(16)
+区別できる2個の粒子 A，B からなる系が，温度 $T$ の熱浴と接している。各粒子はそれぞれ独立に，エネルギー $0$，$\varepsilon$，$2\varepsilon$（$\varepsilon>0$）の3つの状態のどれかをとる（各準位は縮退していない）。粒子間の相互作用は無視する。$q=\ee^{-\beta\varepsilon}$ とおく。
+\begin{shoumon}
+  \item 系の全エネルギー $\mathcal{E}$ のとりうる値と，それぞれの値をもつ力学的状態の数 $w_{1}(\mathcal{E})$ を表にまとめよ。式\noteshiki{4.3} を用いて，分配関数 $Z$ を $q$ の多項式で表せ。
+  \item 式\noteshiki{4.4} の状態についての和を，粒子ごとの和の積に分けて $Z$ を求め，(1) と一致することを確かめよ。
+  \item $q=1/2$ のとき，$\kB T$ を $\varepsilon$ で表し，ヘルムホルツ自由エネルギー $F$ が $\varepsilon$ の何倍かを有効数字3桁で求めよ。必要なら $\log2=\num{0.6931}$，$\log(7/4)=\num{0.5596}$ を用いよ。
+  \item $U=-\partial\log Z/\partial\beta$ を用いて，内部エネルギー $U$ を $q$ と $\varepsilon$ で表せ。$q=1/2$ のときの値を求めよ。また，$T\to0$ と $T\to\infty$ の極限での $U$ を求め，それぞれの値になる理由を述べよ。
+\end{shoumon}
+\notekiroku{2026-11-24 A ◎○◎◎}
+\begin{kotaeutsushi}{2026-11-24}
+\toi{1}{◎}{}
+全エネルギー
+\[
+\begin{array}{c|ccc}
+\mathrm{A}\backslash\mathrm{B} & 0 & \varepsilon & 2\varepsilon\\ \hline
+0 & 0 & \varepsilon & 2\varepsilon\\
+\varepsilon & \varepsilon & 2\varepsilon & 3\varepsilon\\
+2\varepsilon & 2\varepsilon & 3\varepsilon & 4\varepsilon
+\end{array}
+\]
+状態の数 $w_{1}(\mathcal{E})$
+\[
+\begin{array}{c|c}
+0 & 1\\ \hline
+\varepsilon & 2\\ \hline
+2\varepsilon & 3\\ \hline
+3\varepsilon & 2\\ \hline
+4\varepsilon & 1
+\end{array}
+\]
+\[ Z=1\cdot q^{0}+2\cdot q^{1}+3q^{2}+2q^{3}+1\cdot q^{4} \]
+\toi{2}{○}{記述}
+\begin{align*}
+Z&=q^{0}q^{0}+q^{0}q^{1}+q^{0}q^{2}\\
+&\qquad+q^{1}q^{0}+q^{1}q^{1}+q^{1}q^{2}\\
+&\qquad+q^{2}q^{0}+q^{2}q^{1}+q^{2}q^{2}\\
+&\nuke{=(1+q+q^{2})^{2}}\\
+&=q^{0}+q^{1}+q^{2}\\
+&\qquad+q^{1}+q^{2}+q^{3}\\
+&\qquad+q^{2}+q^{3}+q^{4}\\
+&=1\cdot q^{0}+2\cdot q^{1}+3q^{2}+2q^{3}+1\cdot q^{4}
+\end{align*}
+\naze{問いは式(4.4)の和を粒子ごとの和の積に分けて求めることで，9項を書き並べて足すのは (1) の表と同じ数え方であり，別の方法で確かめたことにならない。各項は粒子 A の因子と粒子 B の因子の積 $q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}$ なので，$\sum_{n_{\mathrm{A}}}\sum_{n_{\mathrm{B}}}q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}=(1+q+q^{2})^{2}$ と積にまとめ，それを展開して (1) と比べる。最後の多項式は正しい。}
+\toi{3}{◎}{}
+\[ \ee^{-\varepsilon/\kB T}=\frac{1}{2}\qquad\therefore\ \frac{\varepsilon}{\kB T}=\log2 \]
+\[ \varepsilon=\kB T\log2 \]
+\begin{align*}
+Z&=1+2\cdot\frac{1}{2}+3\cdot\frac{1}{4}+2\cdot\frac{1}{8}+1\cdot\frac{1}{16}\\
+&=2+\frac{3}{4}+\frac{1}{4}+\frac{1}{16}\\
+&=\frac{49}{16}
+\end{align*}
+\begin{align*}
+F&=-\kB T\log\frac{49}{16}\\
+&=-\kB T\cdot2\log\frac{7}{4}
+\end{align*}
+\[ \frac{F}{\varepsilon}=\frac{-2\log(7/4)}{\log2}=-1.61\fumei \]
+\toi{4}{◎}{}
+\begin{align*}
+U&=-\pdv{}{\beta}\log Z\\
+&=-\pdv{}{q}\log Z\cdot\dv{q}{\beta}\\
+&=-\frac{2+6q+6q^{2}+4q^{3}}{1+2q+3q^{2}+2q^{3}+q^{4}}\cdot\kakimachigai{-\varepsilon q}{(-\varepsilon q)}\\
+&=\frac{2q+6q^{2}+6q^{3}+4q^{4}}{1+2q+3q^{2}+2q^{3}+q^{4}}\,\varepsilon
+\end{align*}
+$q=1/2$ のとき
+\[ \frac{7/2}{49/16}\,\varepsilon=\frac{8}{7}\varepsilon \]
+$T\to0$，$\beta\to\infty$，$q\to0$
+
+$U\to0$　全て基底状態
+
+$T\to\infty$，$\beta\to0$，$q\to1$
+
+$U\to2\varepsilon$　平均エネルギー
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 相互作用が無いと全エネルギーは $\varepsilon_{\mathrm{A}}+\varepsilon_{\mathrm{B}}$ の和なので，ボルツマン因子は $q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}$ の積になり，2重和が1粒子の和 $z=1+q+q^{2}$ の積 $z^{2}$ に分かれる。9項を書き出すのは (1) の表と同じ数え方で，「積に分けて確かめよ」の確かめにならない。$N$ 個の独立な粒子なら $Z=z^{N}$ で，状態を書き出せない大きな系ではこれしか方法が無い。
+\item \mae{第1章 問題4 (1)・11-11} 「〜に分けて求め，確かめよ」の問いは，指定された手順の式そのものが答えである。前回はオイラーの関係式に代入する一行が抜け，今回は積にまとめる一行が抜けた。書き終えたら問題文の指定（「粒子ごとの和の積に分けて」）の形の式が答案にあるかを見直す。
+\item (4) は初め $U=-\partial Z/\partial\beta$ と $\log$ を落として計算し，消して書き直した。$U=-\partial\log Z/\partial\beta=-(1/Z)\,\partial Z/\partial\beta$ で，$\log$ を落とすと $1/Z$ が抜ける（$q=1/2$ で $8\varepsilon/7$ でなく $7\varepsilon/2$ になる）。$T\to0$ で $U\to0$，$T\to\infty$ で $U\to2\varepsilon$（9状態の単純平均）になるかで検算する。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) 9通りの状態を全エネルギーで分類して $w_{1}(\mathcal{E})$ を数え，式\noteshiki{4.3} に代入する。(2) 2粒子が独立なので，式\noteshiki{4.4} の和は粒子ごとの和の積に分かれる。(3) $F=-\kB T\log Z$（式\noteshiki{4.2}）。(4) $U=-\partial\log Z/\partial\beta$。
+\keisan
+\shoumonkai{1} 状態 $(\varepsilon_{\mathrm{A}},\varepsilon_{\mathrm{B}})$ を全エネルギーで分けると次のようになる。
+$0$：$(0,0)$ → 1。$\varepsilon$：$(\varepsilon,0),(0,\varepsilon)$ → 2。$2\varepsilon$：$(2\varepsilon,0),(\varepsilon,\varepsilon),(0,2\varepsilon)$ → 3。$3\varepsilon$：$(2\varepsilon,\varepsilon),(\varepsilon,2\varepsilon)$ → 2。$4\varepsilon$：$(2\varepsilon,2\varepsilon)$ → 1。
+合計 9 で，$3\times3=9$ 通りと一致する。式\noteshiki{4.3} より，$\ee^{-\beta k\varepsilon}=q^{k}$ を使って
+\[Z=1+2q+3q^{2}+2q^{3}+q^{4}\]
+
+\shoumonkai{2} 粒子 A，B の状態は独立に選べるので，指数関数を粒子ごとの因子の積に分けて和をとる。
+\[Z=\sum_{n_{\mathrm{A}}=0}^{2}\sum_{n_{\mathrm{B}}=0}^{2}q^{n_{\mathrm{A}}}q^{n_{\mathrm{B}}}=\left(\sum_{n_{\mathrm{A}}=0}^{2}q^{n_{\mathrm{A}}}\right)\left(\sum_{n_{\mathrm{B}}=0}^{2}q^{n_{\mathrm{B}}}\right)=\left(1+q+q^{2}\right)^{2}\]
+展開すると次のようになり，(1) と一致する。
+\[\left(1+q+q^{2}\right)^{2}=1+2q+3q^{2}+2q^{3}+q^{4}\]
+
+\shoumonkai{3} $q=\ee^{-\beta\varepsilon}=1/2$ より $\beta\varepsilon=\log2$，すなわち $\kB T=\varepsilon/\log2=\num{1.443}\varepsilon$。このとき $Z=(1+1/2+1/4)^{2}=(7/4)^{2}$ なので，
+\begin{align*}
+F&=-\kB T\log Z=-\frac{\varepsilon}{\log2}\cdot2\log\frac{7}{4}\\
+&=-\frac{2\times\num{0.5596}}{\num{0.6931}}\,\varepsilon=-\num{1.61}\,\varepsilon
+\end{align*}
+
+\shoumonkai{4} $\log Z=2\log(1+q+q^{2})$ と $\dv{q}{\beta}=-\varepsilon q$ から，
+\begin{align*}
+U&=-\pdv{\log Z}{\beta}=-\frac{2(1+2q)}{1+q+q^{2}}\dv{q}{\beta}\\
+&=\frac{2\varepsilon\left(q+2q^{2}\right)}{1+q+q^{2}}
+\end{align*}
+$q=1/2$ では分子が $2\varepsilon(1/2+1/2)=2\varepsilon$，分母が $7/4$ なので $U=8\varepsilon/7=\num{1.14}\varepsilon$。
+$T\to0$ では $q\to0$ で $U\to0$：重み $\ee^{-\beta\mathcal{E}}$ が基底状態 $(0,0)$ 以外で 0 に近づき，基底状態だけが寄与する。$T\to\infty$ では $q\to1$ で $U\to2\varepsilon\cdot3/3=2\varepsilon$：全ての状態の重みが1になり，$U$ は9状態のエネルギーの単純平均 $(0+2\cdot1+3\cdot2+2\cdot3+1\cdot4)\varepsilon/9=2\varepsilon$ に等しくなる。
+\kotae{\shoumonkai{1} $w_{1}(0)=1$，$w_{1}(\varepsilon)=2$，$w_{1}(2\varepsilon)=3$，$w_{1}(3\varepsilon)=2$，$w_{1}(4\varepsilon)=1$；$Z=1+2q+3q^{2}+2q^{3}+q^{4}$ \shoumonkai{2} $Z=(1+q+q^{2})^{2}$（展開すると小問1の結果と一致） \shoumonkai{3} $\kB T=\varepsilon/\log2=\num{1.44}\varepsilon$，$F=-\num{1.61}\varepsilon$ \shoumonkai{4} $U=\frac{2\varepsilon(q+2q^{2})}{1+q+q^{2}}$；$q=1/2$ で $U=8\varepsilon/7=\num{1.14}\varepsilon$；$T\to0$ で $0$，$T\to\infty$ で $2\varepsilon$}
+\begin{ronten}
+  \item \shoumonkai{1} 粒子 A，B は区別できるので，粒子を入れ替えた組を別の力学的状態として数えることを書く。
+  \item \shoumonkai{2} 2粒子の状態が独立に選べる（相互作用が無い）ので，状態についての和が粒子ごとの和の積に分かれることを述べる。
+  \item \shoumonkai{4} $T\to0$ では基底状態以外の重み $\ee^{-\beta\mathcal{E}}$ が $0$ に近づき，基底状態だけが寄与することを述べる。
+  \item \shoumonkai{4} $T\to\infty$ では全ての状態の重みが $1$ になり，$U$ が全状態のエネルギーの単純平均になることを述べる。
+\end{ronten}
+\kenzan 式\noteshiki{4.3} の形を直接 $\beta$ で微分しても次式となる。
+\[U=\frac{1}{Z}\sum_{\mathcal{E}}\mathcal{E}\,w_{1}(\mathcal{E})\ee^{-\beta\mathcal{E}}\]
+$q=1/2$ では次のようになって一致する。
+\[U=\frac{(2q+6q^{2}+6q^{3}+4q^{4})\varepsilon}{Z}=\frac{(1+\num{1.5}+\num{0.75}+\num{0.25})\varepsilon}{49/16}=\frac{8}{7}\varepsilon\]
+$T\to0$ で $Z\to1$，$F\to0$（基底状態のエネルギー 0 と一致）。$F$・$U$ はどちらも $\varepsilon$ の次元をもつ。
+\tsumazuki 粒子 A，B は区別できるので，$(\varepsilon,0)$ と $(0,\varepsilon)$ は別の状態として数える（$w_{1}(\varepsilon)=1$ としない）。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\011_2026-11-24.tex
+\mondaibangou{2}
+\begin{mondai}{011-excluded}{計算}{与えられた分配関数から $F$ を求め，熱力学関係式で $p$・$S$・$U$・$C_{V}$ を導くこと（$F$ の示量性）}
+% 出典: 講義ノート 第2章 p.6 式(18)--(23)（理想気体の例を排除体積のあるモデルに変えた）
+体積 $V$ の容器に，質量 $m$ の同種の単原子分子 $N$ 個（$N\gg1$）からなる気体が入り，温度 $T$ の熱浴と接している。分子の大きさの効果を「1分子が動ける体積が $V-Nb$ に減る」とする簡単なモデル（$b>0$ は定数，$V>Nb$）では，分配関数は
+\[Z=\frac{1}{N!}\left(\frac{V-Nb}{\lambda^{3}}\right)^{N},\qquad\lambda=\frac{h}{\sqrt{2\pi m\kB T}}\]
+で与えられる。Stirling の公式 $\log N!\simeq N\log N-N$ を用いよ。
+\begin{shoumon}
+  \item ヘルムホルツ自由エネルギー $F(T,V,N)$ を求めよ。
+  \item 圧力 $p$ を求め，$b\to0$ で理想気体の状態方程式に戻ることを確かめよ。
+  \item エントロピー $S$，内部エネルギー $U$（式\noteshiki{4.11} を用いよ），定積熱容量 $C_{V}$ を求めよ。
+  \item $\alpha>0$ として $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$ が成り立つこと（$F$ が示量変数であること）を確かめよ。
+\end{shoumon}
+\notekiroku{2026-11-24 A ◎◎◎○}
+\begin{kotaeutsushi}{2026-11-24}
+\toi{1}{◎}{}
+\begin{align*}
+F(T,V,N)&=-\kB T\log Z(V,N)\\
+&=-\kB T\biggl(N\log\left(\frac{V-Nb}{\lambda^{3}}\right)\\
+&\qquad-N\log N+N\biggr)\\
+&=-N\kB T\left[\log\left(\frac{V-Nb}{\lambda^{3}N}\right)+1\right]
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+p&=-\left(\pdv{F}{V}\right)_{T,N}\\
+&=-\left(-N\kB T\cdot\frac{1}{V-Nb}\right)\\
+&=\frac{N\kB T}{V-Nb}
+\end{align*}
+$b\to0$ で
+\[ \frac{N\kB T}{V}=\frac{(N/N_{\mathrm{A}})RT}{V} \]
+$\therefore\ p=nRT/V$　状態方程式
+\toi{3}{◎}{}
+（脇で $(V-Nb)/(\lambda^{3}N)=(AT)^{3/2}$ とおく）
+\begin{align*}
+S&=-\left(\pdv{F}{T}\right)_{V,N}\\
+&=N\kB\pdv{}{T}\left(T\left(\log(AT)^{3/2}+1\right)\right)\\
+&=N\kB\pdv{}{T}\left(\frac{3}{2}T\log AT+T\right)\\
+&=N\kB\left(\frac{3}{2}\log AT+\frac{5}{2}\right)\\
+&=N\kB\left[\log\frac{V-Nb}{\lambda^{3}N}+\frac{5}{2}\right]
+\end{align*}
+\begin{align*}
+U&=\left(\pdv{(F/T)}{(1/T)}\right)_{V}\\
+&=\pdv{}{(1/T)}\left(-N\kB\log\left(\frac{V-Nb}{\lambda^{3}N}\right)\right)
+\end{align*}
+（脇で $\log$ の中を書き換える）
+\begin{align*}
+\log\frac{V-Nb}{\lambda^{3}N}&=\log\frac{V-Nb}{N}\\
+&\qquad-\frac{3}{2}\log\frac{h^{2}}{2\pi m\kB T}\\
+&=\log\frac{V-Nb}{N}\\
+&\qquad-\frac{3}{2}\left(\log\frac{h^{2}}{2\pi m\kB}+\log\frac{1}{T}\right)
+\end{align*}
+\begin{align*}
+U&=\pdv{}{(1/T)}\left(-N\kB\cdot\left(-\frac{3}{2}\log\frac{1}{T}\right)\right)\\
+&=\frac{3}{2}N\kB\pdv{}{(1/T)}\log\left(\frac{1}{T}\right)\\
+&=\frac{3N\kB T}{2}
+\end{align*}
+\[ C_{V}=\left(\pdv{U}{T}\right)_{V}=\frac{3}{2}N\kB \]
+\toi{4}{○}{記述}
+\begin{align*}
+&F(T,\alpha V,\alpha N)\\
+&=-\alpha N\kB T\left[\log\frac{\alpha(V-Nb)}{\alpha\lambda^{3}N}+1\right]\\
+&=\alpha F(T,\ayamari{\alpha V,\alpha N}{V,N})
+\end{align*}
+より示量変数
+\naze{右辺は元の系の $F$ の $\alpha$ 倍，すなわち $\alpha F(T,V,N)$ である。右辺の括弧の中に $\alpha V$，$\alpha N$ が残ると，$\alpha$ 倍した系どうしの別の関係になってしまう。その前の行で $\alpha$ が約分されて $\log$ の中身が元に戻り，前の因子 $N$ だけが $\alpha$ 倍になるという計算は正しい。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1章（旧版）問題4 (3)(4)・10-27} 示量性の式 $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$ は，「$V$ と $N$ を $\alpha$ 倍した系の $F$」が「元の系の $F$ の $\alpha$ 倍」になることで，右辺の変数は元の $(T,V,N)$ である。前回は $S'$ のプライムを落とし，同じ日の第3章 問題2 (3) でもプライムと係数2を落とした。計算の前に示す式を問題文から1行写し，最後の行はその右辺と見比べてから書く。
+\item 確かめ方：$\alpha=2$ にして読み直す。$2F(T,2V,2N)$ は「2倍の系を2つ」で元の系の4倍になり，左辺の $F(T,2V,2N)$（元の2倍）と合わない。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\log Z$ に Stirling の公式を使って $F$ を求め，式\noteshiki{4.8}--\noteshiki{4.11} と同じ熱力学関係式で微分する。$\lambda$ が $T$ を含むことに注意する。
+\keisan
+\shoumonkai{1} $\log N!\simeq N\log N-N$ を使うと，
+\begin{align*}
+\log Z&=N\log(V-Nb)-3N\log\lambda-\log N!\\
+&\simeq N\left[\log\frac{V-Nb}{N\lambda^{3}}+1\right]
+\end{align*}
+よって
+\[F=-\kB T\log Z=-N\kB T\left[\log\frac{V-Nb}{N\lambda^{3}}+1\right]\]
+
+\shoumonkai{2} $\lambda$ は $V$ に依らないので，$V$ を含むのは $\log(V-Nb)$ だけである。
+\[p=-\left(\pdv{F}{V}\right)_{T}=N\kB T\cdot\frac{1}{V-Nb}=\frac{N\kB T}{V-Nb}\]
+$b\to0$ で $p=N\kB T/V$，すなわち $pV=N\kB T$ に戻る。
+
+\shoumonkai{3} $\lambda^{3}\propto T^{-3/2}$ より $\partial\log(1/\lambda^{3})/\partial T=3/(2T)$。積の微分で，
+\begin{align*}
+S=-\left(\pdv{F}{T}\right)_{V}&=N\kB\left[\log\frac{V-Nb}{N\lambda^{3}}+1\right]+N\kB T\cdot\frac{3}{2T}\\
+&=N\kB\left[\log\frac{V-Nb}{N\lambda^{3}}+\frac{5}{2}\right]
+\end{align*}
+$U$ は式\noteshiki{4.11} で求める。$\log(1/\lambda^{3})=-(3/2)\log(1/T)+c$（$c$ は $T$ に依らない）と書くと，
+\[\frac{F}{T}=-N\kB\left[\log\frac{V-Nb}{N}-\frac{3}{2}\log\frac{1}{T}+c+1\right]\]
+となり，$1/T$ で微分して
+\[U=\left(\pdv{(F/T)}{(1/T)}\right)_{V}=N\kB\cdot\frac{3}{2}\cdot T=\frac{3}{2}N\kB T\]
+定積熱容量は $C_{V}=(\partial U/\partial T)_{V}=3N\kB/2$。
+
+\shoumonkai{4} $V\to\alpha V$，$N\to\alpha N$ とすると $(\alpha V-\alpha Nb)/(\alpha N\lambda^{3})=(V-Nb)/(N\lambda^{3})$ で $\log$ の中身は変わらず，前の因子 $N$ だけが $\alpha$ 倍になる。よって $F(T,\alpha V,\alpha N)=\alpha F(T,V,N)$。
+\kotae{\shoumonkai{1} $F=-N\kB T\left[\log\frac{V-Nb}{N\lambda^{3}}+1\right]$ \shoumonkai{2} $p=N\kB T/(V-Nb)$（$b\to0$ で $pV=N\kB T$） \shoumonkai{3} $S=N\kB\left[\log\frac{V-Nb}{N\lambda^{3}}+5/2\right]$，$U=3N\kB T/2$，$C_{V}=3N\kB/2$ \shoumonkai{4} $\log$ の中身が不変で前の $N$ が $\alpha$ 倍になるので成り立つ}
+\kenzan $U=F+TS=-N\kB T[\cdots+1]+N\kB T[\cdots+5/2]=3N\kB T/2$ で (3) と一致する。$C_{V}=T(\partial S/\partial T)_{V}=T\cdot N\kB\cdot3/(2T)=3N\kB/2$（式\noteshiki{4.10} の形）とも一致する。$b\to0$ で $S$ は式\noteshiki{4.9} に戻る（$\lambda$ を展開すると同じ式になる）。$(V-Nb)/(N\lambda^{3})$ は無次元である。
+\tsumazuki $S$ の計算で $\lambda$ の $T$ 依存（$5/2$ のうち $3/2$ の部分）を落としやすい。$b$ は $Z$ の $T$ 依存を変えないので，$U$・$C_{V}$ は理想気体と同じになり，$b$ の影響は $p$ と $S$ にだけ現れる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
