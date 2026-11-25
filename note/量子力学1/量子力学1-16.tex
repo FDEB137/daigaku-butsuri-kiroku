@@ -13,7 +13,7 @@
   \ichirangyou{7}{L3・導出}{}{未着手}{}
   \ichirangyou{8}{L3・導出}{}{未着手}{}
   \ichirangyou{9}{L3・計算}{}{未着手}{}
-  \ichirangyou{10}{L3・導出}{◎○◎◎}{C}{2026-11-11 ヒント2 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-135-timeenergy}{10}}{L3・導出}{◎○◎◎}{C}{2026-11-11 ヒント2 (2)記述}
   \ichirangyou{11}{L4・計算}{}{未着手}{}
 \end{kirokuichiran}
 
@@ -423,6 +423,159 @@ $k_{0}$ によらない。
 \kotae{\shoumonkai{1} $N=(\pi\sigma^{2})^{-1/4}$ \shoumonkai{2} $\expval{x}=0$，$\expval{x^{2}}=\sigma^{2}/2$，$\delta x=\sigma/\sqrt{2}$ \shoumonkai{3} $\expval{p}=\hbar k_{0}$，$\expval{p^{2}}=\hbar^{2}k_{0}^{2}+\hbar^{2}/(2\sigma^{2})$，$\delta p=\hbar/(\sqrt{2}\,\sigma)$ \shoumonkai{4} $\hbar/2$（$k_{0}$ によらない） \shoumonkai{5} $\delta p=\qty{7.46e-25}{\kilogram\metre\per\second}$，$\delta v=\qty{8.19e5}{\metre\per\second}$，平均の速さ $\qty{2.32e6}{\metre\per\second}$}
 \kenzan 極限：$\sigma\to\infty$ で $\delta x\to\infty$，$\delta p\to 0$ となり，運動量 $\hbar k_{0}$ の平面波に近づく。$\sigma\to 0$ では逆に位置が鋭く運動量が広がる。次元：$\hbar/\sigma$ は運動量の次元。$\expval{p^{2}}\ge\expval{p}^{2}$ も満たす。単位：$\unit{\joule\second\per\metre}=\unit{\kilogram\metre\per\second}$。平均の速さは光速の約1\%で，非相対論的に扱ってよい。
 \tsumazuki $\abs{\phi}^{2}$ の指数は $-x^{2}/\sigma^{2}$ なので，$\delta x$ は $\sigma$ ではなく $\sigma/\sqrt{2}$ になる。また，$\expval{p}$ が実数になること（虚部が $\expval{x}=0$ で消えること）を確かめると計算の誤りに気づきやすい。
+\end{tadashii}
+\end{mondai}
+
+\level{3}
+% toubun: kiroku\toubun\量子力学1\135_2026-11-11.tex
+\mondaibangou{10}
+\begin{mondai}{135-timeenergy}{導出}{時間とエネルギーの不確定性関係 $\delta E\,\tau_{A}\ge\hbar/2$ の導出（この章の一般の不確定性関係を使う）と，自由粒子の波束・井戸の重ね合わせでの確認}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+ハミルトニアン $\hat{H}$ は時間によらず，エルミート演算子 $\hat{A}$ は時間をあらわに含まないとする。この章で示した一般の不確定性関係（エルミート演算子 $\hat{A}$，$\hat{B}$ について $\delta A\,\delta B\ge\abs{\expval{\comm{\hat{A}}{\hat{B}}}}/2$）と，第3章の Level 3 の Ehrenfest の定理とビリアル定理の問題 (1) の式 $\dd\expval{\hat{A}}/\dd t=(\ii/\hbar)\expval{\comm{\hat{H}}{\hat{A}}}$ を使ってよい。
+  \begin{shoumon}
+    \item $\delta E=\delta H$（エネルギーの標準偏差）として，次を示せ。また，$\delta E$ が時間によらないことを示せ。
+    \[ \delta A\,\delta E\ge\frac{\hbar}{2}\left|\dv{\expval{\hat{A}}}{t}\right| \]
+    \item $\tau_{A}=\delta A/\abs{\dd\expval{\hat{A}}/\dd t}$ とおく。$\tau_{A}$ の意味を述べ，$\delta E\,\tau_{A}\ge\hbar/2$ を示せ。
+    \item 自由粒子（質量 $m$）の時刻 $0$ の波動関数が次の形（$\sigma>0$，$k_{0}>0$）のとき，
+    \[ \psi(x,0)=(2\pi\sigma^{2})^{-1/4}\exp\left(-\frac{x^{2}}{4\sigma^{2}}+\ii k_{0}x\right) \]
+    運動量の分布（$\hbar k$ の分布）は平均 $\hbar k_{0}$，$k$ の標準偏差 $s=1/(2\sigma)$ のガウス分布になる。時刻 $0$ で $\hat{A}=\hat{x}$ として $\tau_{x}$ と $\delta E$ を求め，$\delta E\,\tau_{x}$ を計算して (2) の不等式を確かめよ。平均 $k_{0}$，分散 $s^{2}$ のガウス分布では $\expval{(k-k_{0})^{2}}=s^{2}$，$\expval{(k-k_{0})^{4}}=3s^{4}$，奇数乗の平均は $0$ である。
+    \item 幅 $L$ の無限に深い井戸の状態 $\psi=(\phi_{1}\ee^{-\ii E_{1}t/\hbar}+\phi_{2}\ee^{-\ii E_{2}t/\hbar})/\sqrt{2}$ では，$\expval{x}$ は周期 $T=2\pi\hbar/(E_{2}-E_{1})$ で振動する。$\delta E$ を求め，$\delta E\cdot T$ を $\hbar/2$ と比べよ。また，エネルギー固有状態では $\tau_{A}$ がどうなるかを述べよ。
+  \end{shoumon}
+\notekiroku{2026-11-11 C ◎○◎◎ (ヒント2)}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+\[ \delta A\,\delta E=\delta A\,\delta H\ge\frac{\abs{\expval{\comm{\hat{A}}{\hat{H}}}}}{2} \]
+\begin{gather*}
+\expval{\comm{\hat{A}}{\hat{H}}}=\ii\hbar\frac{\dd\expval{\hat{A}}}{\dd t}\\
+\frac{\abs{\expval{\comm{\hat{A}}{\hat{H}}}}}{2}=\frac{\hbar}{2}\abs{\frac{\dd\expval{\hat{A}}}{\dd t}}
+\end{gather*}
+\[ \therefore\quad\delta A\,\delta E\ge\frac{\hbar}{2}\abs{\frac{\dd\expval{\hat{A}}}{\dd t}} \]
+\[ \delta E=\delta H=\sqrt{\expval{\hat{H}^{2}}-\expval{\hat{H}}^{2}} \]
+$\hat{H}$ が時間によらないので $\expval{\hat{H}^{2}}$ も $\expval{\hat{H}}$ も時間によらず，$\delta E$ も時間によらない。
+\toi{2}{○}{記述}
+\[ \tau_{A}=\frac{\delta A}{\abs{\dd\expval{\hat{A}}/\dd t}}\ge\frac{\hbar}{2\delta E} \]
+\ayamari{$\hat{A}$ が作用する時間}{$\expval{\hat{A}}$ が $\delta A$ だけ変わる時間}
+\naze{$\tau_{A}$ は演算子が作用する時間ではない。$\expval{\hat{A}}$ がその時刻の変化の速さで変わり続けたとき，標準偏差 $\delta A$ だけ変わるのにかかる時間で，$A$ の分布が目に見えて変わる時間の尺度である。}
+\[ \therefore\quad\delta E\,\tau_{A}\ge\frac{\hbar}{2} \]
+\toi{3}{◎}{}
+\[ \hat{H}=\frac{\hat{p}^{2}}{2m} \]
+\begin{align*}
+\comm{\hat{H}}{\hat{x}}&=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{x}}\\
+&=-\frac{\ii\hbar}{m}\hat{p}
+\end{align*}
+\begin{align*}
+\frac{\dd\expval{\hat{x}}}{\dd t}&=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{x}}}\\
+&=\frac{\expval{\hat{p}}}{m}
+\end{align*}
+\[ \tau_{x}=\frac{m\,\delta x}{\abs{\expval{\hat{p}}_{0}}}\qquad\delta x=\sqrt{\expval{\hat{x}^{2}}_{0}-\expval{\hat{x}}_{0}^{2}} \]
+\begin{align*}
+\expval{\hat{x}^{2}}_{0}&=\int_{-\infty}^{\infty}x^{2}\abs{\psi(x,0)}^{2}\dd x\\
+&=(2\pi\sigma^{2})^{-1/2}\int x^{2}\exp\Bigl(-\frac{x^{2}}{2\sigma^{2}}\Bigr)\dd x\\
+&=(2\pi\sigma^{2})^{-1/2}\cdot\frac{2\sigma^{2}}{2}\cdot\sqrt{2\pi\sigma^{2}}\\
+&=\sigma^{2}
+\end{align*}
+\begin{align*}
+\expval{\hat{x}}_{0}&=\int_{-\infty}^{\infty}x\abs{\psi(x,0)}^{2}\dd x\quad\text{奇関数}\\
+&=0
+\end{align*}
+\[ \expval{\hat{p}}_{0}=\hbar k_{0}\qquad\tau_{x}=\frac{m\sigma}{\hbar k_{0}} \]
+\[ \delta E=\sqrt{\expval{\hat{H}^{2}}-\expval{\hat{H}}^{2}} \]
+\begin{align*}
+\expval{\hat{H}^{2}}&=\frac{1}{4m^{2}}\expval{\hat{p}^{4}}\\
+&=\frac{\hbar^{4}}{4m^{2}}\expval{\hat{k}^{4}}
+\end{align*}
+\begin{align*}
+\expval{\hat{H}}&=\frac{1}{2m}\expval{\hat{p}^{2}}\\
+&=\frac{\hbar^{2}}{2m}\kakimachigai{\expval{\hat{k}}^{2}}{\expval{\hat{k}^{2}}}
+\end{align*}
+（脇で $k$ のべきの平均を計算）
+\[ \expval{k-k_{0}}=0\qquad\therefore\quad\expval{k}=k_{0} \]
+\begin{align*}
+&\expval{(k-k_{0})^{2}}\\
+&=\expval{k^{2}}-2k_{0}\expval{k}+k_{0}^{2}\\
+&=\expval{k^{2}}-k_{0}^{2}\\
+&\therefore\quad\expval{k^{2}}=k_{0}^{2}+s^{2}
+\end{align*}
+\begin{align*}
+&\expval{(k-k_{0})^{3}}\\
+&=\expval{k^{3}}-3k_{0}\expval{k^{2}}+3k_{0}^{2}\expval{k}-k_{0}^{3}\\
+&\therefore\quad\expval{k^{3}}=k_{0}^{3}+3k_{0}(k_{0}^{2}+s^{2})-3k_{0}^{3}\\
+&\qquad=k_{0}^{3}+3k_{0}s^{2}
+\end{align*}
+\begin{align*}
+&\expval{(k-k_{0})^{4}}\\
+&=\expval{k^{4}}-4k_{0}\expval{k^{3}}+6k_{0}^{2}\expval{k^{2}}\\
+&\qquad-4k_{0}^{3}\expval{k}+k_{0}^{4}
+\end{align*}
+\begin{align*}
+\therefore\quad\expval{k^{4}}&=4k_{0}(k_{0}^{3}+3k_{0}s^{2})-6k_{0}^{2}(k_{0}^{2}+s^{2})\\
+&\qquad+4k_{0}^{4}-k_{0}^{4}+3s^{4}\\
+&=k_{0}^{4}+6k_{0}^{2}s^{2}+3s^{4}
+\end{align*}
+\[ \delta E=\sqrt{\frac{\hbar^{4}}{4m^{2}}\bigl(\expval{\hat{k}^{4}}-\expval{\hat{k}^{2}}^{2}\bigr)} \]
+（脇で引き算）
+\begin{align*}
+&k_{0}^{4}+6k_{0}^{2}s^{2}+3s^{4}-(k_{0}^{4}+2k_{0}^{2}s^{2}+s^{4})\\
+&=4k_{0}^{2}s^{2}+2s^{4}
+\end{align*}
+\[ \delta E=\frac{\hbar^{2}k_{0}s}{m}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}} \]
+\begin{align*}
+\delta E\,\tau_{x}&=\frac{\hbar^{2}k_{0}s}{m}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}}\cdot\frac{m\sigma}{\hbar k_{0}}\\
+&=\hbar\sigma s\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}}\\
+&=\frac{\hbar}{2}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}}\ge\frac{\hbar}{2}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\expval{E}&=\frac{1}{2}(E_{1}+E_{2})\\
+\expval{E^{2}}&=\frac{1}{2}(E_{1}^{2}+E_{2}^{2})
+\end{align*}
+\begin{align*}
+\delta E&=\sqrt{\frac{1}{2}(E_{1}^{2}+E_{2}^{2})-\frac{1}{4}(E_{1}+E_{2})^{2}}\\
+&=\frac{1}{2}\sqrt{2E_{1}^{2}+2E_{2}^{2}-E_{1}^{2}-2E_{1}E_{2}-E_{2}^{2}}\\
+&=\frac{1}{2}\sqrt{E_{1}^{2}-2E_{1}E_{2}+E_{2}^{2}}\\
+&=\frac{1}{2}(E_{2}-E_{1})
+\end{align*}
+\begin{align*}
+\delta E\cdot T&=\frac{1}{2}(E_{2}-E_{1})\cdot\frac{2\pi\hbar}{E_{2}-E_{1}}\\
+&=\pi\hbar\ge\frac{\hbar}{2}
+\end{align*}
+エネルギー固有状態では $\dd\expval{\hat{x}}/\dd t=0$，$\dd\expval{\hat{p}}/\dd t=0$ より
+\[ \expval{\hat{p}}=0 \]
+\[ \tau_{A}\to\infty\quad\text{発散する} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 意味を問われた量は定義を言葉に直す。$\tau_{A}=\delta A/\abs{\dd\expval{\hat{A}}/\dd t}$ は（分布の幅）$\div$（平均の変化の速さ）$=$ 時間で，「$\expval{\hat{A}}$ が $\delta A$ だけ動くのにかかる時間」と読む。
+\end{kizuki}
+\begin{tadashii}
+\houshin 一般の不確定性関係で $\hat{B}=\hat{H}$ とし，交換子の期待値を期待値の時間変化で置き換える。具体例では，$\delta E$ と $\expval{\hat{A}}$ の変化の速さを別々に計算して不等式を確かめる。
+\keisan
+\shoumonkai{1} 一般の不確定性関係で $\hat{B}=\hat{H}$ とすると $\delta A\,\delta E\ge\abs{\expval{\comm{\hat{A}}{\hat{H}}}}/2$。$\comm{\hat{A}}{\hat{H}}=-\comm{\hat{H}}{\hat{A}}$ と与えられた式から
+\[ \abs{\expval{\comm{\hat{A}}{\hat{H}}}}=\abs{\expval{\comm{\hat{H}}{\hat{A}}}}=\left|\frac{\hbar}{\ii}\dv{\expval{\hat{A}}}{t}\right|=\hbar\left|\dv{\expval{\hat{A}}}{t}\right| \]
+なので示された不等式が成り立つ。また，与えられた式で $\hat{A}=\hat{H}$，$\hat{H}^{2}$ とすると，どちらも $\hat{H}$ と交換するので $\expval{\hat{H}}$，$\expval{\hat{H}^{2}}$ は時間によらず，$\delta E=\sqrt{\expval{\hat{H}^{2}}-\expval{\hat{H}}^{2}}$ も時間によらない。
+\shoumonkai{2} $\tau_{A}$ は，$\expval{\hat{A}}$ がその時刻の変化の速さで変わり続けたとき，標準偏差 $\delta A$ だけ変わるのにかかる時間で，$A$ の分布が目に見えて変わる時間の尺度である。(1) の両辺を $\abs{\dd\expval{\hat{A}}/\dd t}$（$\neq0$）で割ると $\delta E\,\tau_{A}\ge\hbar/2$ となる。
+\shoumonkai{3} 時刻 $0$ で $\abs{\psi}^{2}\propto\exp(-x^{2}/(2\sigma^{2}))$ なので $\delta x=\sigma$。$\dd\expval{x}/\dd t=\expval{p}/m=\hbar k_{0}/m$ なので
+\[ \tau_{x}=\frac{\sigma}{\hbar k_{0}/m}=\frac{m\sigma}{\hbar k_{0}} \]
+$k=k_{0}+q$ とおくと，$q$ の奇数乗の平均は $0$ なので
+\[ \expval{k^{2}}=k_{0}^{2}+s^{2},\qquad \expval{k^{4}}=k_{0}^{4}+6k_{0}^{2}s^{2}+3s^{4},\qquad \expval{k^{4}}-\expval{k^{2}}^{2}=4k_{0}^{2}s^{2}+2s^{4} \]
+自由粒子では $\hat{H}=\hbar^{2}\hat{k}^{2}/(2m)$ で，運動量の分布は時間によらないので
+\[ \delta E=\frac{\hbar^{2}}{2m}\sqrt{4k_{0}^{2}s^{2}+2s^{4}}=\frac{\hbar^{2}k_{0}s}{m}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}} \]
+よって，$s\sigma=1/2$ を使うと
+\[ \delta E\,\tau_{x}=\frac{\hbar^{2}k_{0}s}{m}\cdot\frac{m\sigma}{\hbar k_{0}}\sqrt{1+\frac{s^{2}}{2k_{0}^{2}}}=\frac{\hbar}{2}\sqrt{1+\frac{1}{8k_{0}^{2}\sigma^{2}}}\ \ge\ \frac{\hbar}{2} \]
+で，(2) の不等式を満たす（$k_{0}\sigma\gg1$ では等号に近い）。
+\shoumonkai{4} エネルギーは $E_{1}$，$E_{2}$ が確率 $1/2$ ずつなので，$\expval{E}=(E_{1}+E_{2})/2$，$\delta E=(E_{2}-E_{1})/2$。よって
+\[ \delta E\cdot T=\frac{E_{2}-E_{1}}{2}\cdot\frac{2\pi\hbar}{E_{2}-E_{1}}=\pi\hbar>\frac{\hbar}{2} \]
+で，状態が変化する時間の尺度とエネルギーの広がりの積が $\hbar$ の程度になっている。エネルギー固有状態では $\delta E=0$ で，どの $\hat{A}$ についても $\expval{\hat{A}}$ は時間によらない（定常状態）ので，$\tau_{A}=\infty$ となる。$\delta E\,\tau_{A}\ge\hbar/2$ と矛盾しない（$0\times\infty$ の形で，変化が起きないことを表す）。
+\kotae{\shoumonkai{1} 不等式は一般の不確定性関係で $\hat{B}=\hat{H}$ として示す。$\expval{\hat{H}}$，$\expval{\hat{H}^{2}}$ が保存するので $\delta E$ は一定 \shoumonkai{2} $\tau_{A}$ は $\expval{\hat{A}}$ が $\delta A$ だけ変わる時間の尺度。$\delta E\,\tau_{A}\ge\hbar/2$ \shoumonkai{3} $\tau_{x}=m\sigma/(\hbar k_{0})$，$\delta E=(\hbar^{2}k_{0}s/m)\sqrt{1+s^{2}/(2k_{0}^{2})}$，$\delta E\,\tau_{x}=(\hbar/2)\sqrt{1+1/(8k_{0}^{2}\sigma^{2})}\ge\hbar/2$ \shoumonkai{4} $\delta E=(E_{2}-E_{1})/2$，$\delta E\cdot T=\pi\hbar$。固有状態では $\tau_{A}=\infty$（何も変化しない）}
+\begin{ronten}
+  \item \shoumonkai{1} 一般の不確定性関係を $\hat{B}=\hat{H}$ に使い，交換子の期待値を時間微分に置き換えたことを示す。
+  \item \shoumonkai{1} $\delta E$ が一定であることに $\hat{H}$ と $\hat{H}^{2}$ の期待値の保存を使ったことを書く。
+  \item \shoumonkai{3} 自由粒子では運動量の分布が時間によらないので，時刻 $0$ の分布で $\delta E$ を求めてよいことを書く。
+\end{ronten}
+\kenzan 次元：$\delta E\,\tau$ はエネルギー×時間で $\hbar$ と同じ次元。(3) で $s\to0$（幅の広い波束）では $\delta E\to0$，$\tau_{x}\to\infty$ で，積は $\hbar/2$ に近づく。$\tau_{x}=\sigma/v$（$v=\hbar k_{0}/m$）は波束がその幅だけ進む時間で，波束が「通り過ぎる」時間に当たる。
+\tsumazuki $\delta E$ を運動量の広がりから $\delta E\approx v\,\delta p$ と1次で見積もると，$s^{4}$ の項（分布の2次の効果）が抜ける。$k_{0}\sigma\gg1$ ならこの近似で十分だが，正確には $k^{2}$ の分散を計算する。
 \end{tadashii}
 \end{mondai}
 
