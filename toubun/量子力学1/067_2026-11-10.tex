@@ -1,0 +1,34 @@
+% 量子力学1 量子力学1-3 問題4（067-classical。当時は 量子力学1-9 問題3） 解いた日 2026-11-10
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\frac{\dd\expval{p}}{\dd t}&=-mg\\
+\expval{p}&=-mgt+p_{0}\\
+\frac{\dd\expval{x}}{\dd t}&=-gt+\frac{p_{0}}{m}\\
+\expval{x}&=-\frac{1}{2}gt^{2}+\frac{p_{0}}{m}t+x_{0}
+\end{align*}
+\toi{2}{○}{単位}
+\[ \delta\expval{x}=\num{-0.196}\,\nuke{\unit{\metre}} \]
+よらない。
+\naze{数値は正しいが単位が無い。$gt^{2}/2$ の単位は \unit{\metre\per\second\squared}${}\times{}$\unit{\second\squared}${}={}$\unit{\metre} で，正しくは $\delta\expval{x}=\qty{-0.196}{\metre}$（\qty{0.196}{\metre} 下がる）である。}
+\toi{3}{◎}{}
+\begin{align*}
+\frac{\dd\expval{p}}{\dd t}&=-\expval{m\omega^{2}x}\\
+&=-m\omega^{2}\expval{x}\\
+\frac{\dd^{2}\expval{p}}{\dd t^{2}}&=-m\omega^{2}\frac{\expval{p}}{m}
+\end{align*}
+$\therefore$ $\expval{p}=C_{1}\sin\omega t+C_{2}\cos\omega t$
+
+$t=0$ で $\expval{p}=p_{0}$ より $C_{2}=p_{0}$
+\[ \frac{\dd}{\dd t}(C_{1}\sin\omega t+p_{0}\cos\omega t)=-m\omega^{2}\expval{x} \]
+\begin{align*}
+\therefore\quad\expval{x}&=-\frac{1}{m\omega^{2}}(C_{1}\omega\cos\omega t\\
+&\qquad-p_{0}\omega\sin\omega t)
+\end{align*}
+$t=0$ で $\expval{x}=x_{0}$ より $C_{1}=-m\omega x_{0}$
+\begin{align*}
+\expval{x}&=x_{0}\cos\omega t+\frac{p_{0}}{m\omega}\sin\omega t\\
+\expval{p}&=p_{0}\cos\omega t-m\omega x_{0}\sin\omega t
+\end{align*}
+%% kizuki
+\item \mae{第6章 問題6（050-gauss）・11-01} 数値の答えに単位が無い（前回は $\delta p$ の単位を \unit{\metre} と書いた）。数値を出したらその行のうちに単位を付け，式の次元（$gt^{2}$ は \unit{\metre\per\second\squared}${}\times{}$\unit{\second\squared}${}={}$\unit{\metre}）が問いの量（位置の変化）と合うかを見る。

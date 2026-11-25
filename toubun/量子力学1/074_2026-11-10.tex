@@ -1,0 +1,43 @@
+% 量子力学1 量子力学1-18 問題2（074-heisfree。当時は 量子力学1-9 問題2） 解いた日 2026-11-10
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{x}}{\hat{H}}&=\comm{\hat{x}}{\frac{\hat{p}^{2}}{2m}}\\
+&=\frac{1}{2m}(\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}})\\
+&=\frac{1}{2m}(\ii\hbar\hat{p}+\ii\hbar\hat{p})\\
+&=\frac{\ii\hbar}{m}\hat{p}
+\end{align*}
+\[ \comm{\hat{p}}{\hat{H}}=\frac{1}{2m}\comm{\hat{p}}{\hat{p}^{2}}=0 \]
+\toi{2}{◎}{}
+\begin{align*}
+\frac{\dd\hat{x}_{\mathrm{H}}(t)}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{x}_{\mathrm{H}}(t)}{\hat{H}}\\
+\frac{\dd\hat{p}_{\mathrm{H}}(t)}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{p}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{p}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=0
+\end{align*}
+$\therefore$ $\hat{p}_{\mathrm{H}}(t)=\hat{p}$
+\begin{align*}
+\frac{\dd\hat{x}_{\mathrm{H}}(t)}{\dd t}&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{x}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\frac{\ii\hbar}{m}\hat{p}\,\ee^{-\ii\hat{H}t/\hbar}\\
+&=\frac{1}{m}\hat{p}_{\mathrm{H}}(t)
+\end{align*}
+$\therefore$ $\hat{x}_{\mathrm{H}}(t)=\hat{x}+\frac{t}{m}\hat{p}$
+\toi{3}{◎}{}
+\begin{align*}
+\comm{\hat{x}_{\mathrm{H}}(t)}{\hat{x}_{\mathrm{H}}(0)}&=\comm{\hat{x}+\frac{t}{m}\hat{p}}{\hat{x}}\\
+&=\comm{\hat{x}}{\hat{x}}+\frac{t}{m}\comm{\hat{p}}{\hat{x}}\\
+&=-\frac{\ii\hbar t}{m}
+\end{align*}
+\begin{align*}
+\comm{\hat{x}_{\mathrm{H}}(t)}{\hat{p}_{\mathrm{H}}(t)}&=\comm{\hat{x}+\frac{t}{m}\hat{p}}{\hat{p}}\\
+&=\comm{\hat{x}}{\hat{p}}+\frac{t}{m}\comm{\hat{p}}{\hat{p}}\\
+&=\ii\hbar
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\expval{\hat{x}}_{t}&=\matrixel{\psi(0)}{\hat{x}_{\mathrm{H}}(t)}{\psi(0)}\\
+&=\matrixel{\psi(0)}{\hat{x}}{\psi(0)}\\
+&\qquad+\frac{t}{m}\matrixel{\psi(0)}{\hat{p}}{\psi(0)}\\
+&=\expval{\hat{x}}_{0}+\frac{t}{m}\expval{\hat{p}}_{0}
+\end{align*}
+%% kizuki

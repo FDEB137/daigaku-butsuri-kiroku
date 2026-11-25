@@ -1,0 +1,69 @@
+% 量子力学1 量子力学1-18 問題1（073-unitary。当時は 量子力学1-9 問題1） 解いた日 2026-11-10
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+&\ii\hbar\frac{\dd\hat{U}}{\dd t}\\
+&=\ii\hbar\frac{\dd}{\dd t}\Bigl(\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii t}{\hbar}\Bigr)^{n}\hat{H}^{n}\Bigr)\\
+&=\ii\hbar\biggl(\frac{\dd}{\dd t}\Bigl(\frac{1}{0!}\Bigl(-\frac{\ii t}{\hbar}\Bigr)^{0}\hat{H}^{0}\Bigr)\\
+&\qquad+\sum_{n=1}^{\infty}\frac{\dd}{\dd t}\Bigl(\frac{1}{n!}\Bigl(-\frac{\ii}{\hbar}\Bigr)^{n}t^{n}\hat{H}^{n}\Bigr)\biggr)\\
+&=\ii\hbar\Bigl(0+\sum_{n=1}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii}{\hbar}\Bigr)^{n}nt^{n-1}\hat{H}^{n}\Bigr)\\
+&=\sum_{n=1}^{\infty}\frac{1}{(n-1)!}\Bigl(-\frac{\ii t}{\hbar}\Bigr)^{n-1}\hat{H}\hat{H}^{n-1}
+\end{align*}
+$n-1=m$ とする。
+\begin{align*}
+&=\hat{H}\sum_{m=0}^{\infty}\frac{1}{m!}\Bigl(-\frac{\ii t}{\hbar}\Bigr)^{m}\hat{H}^{m}\\
+&=\hat{H}\hat{U}
+\end{align*}
+\begin{align*}
+\ii\hbar\frac{\dd}{\dd t}\hat{U}(t)\ket{\psi(0)}&=\hat{H}\hat{U}\ket{\psi(0)}\\
+\therefore\quad\hat{H}\hat{U}\ket{\psi(0)}&=\hat{H}\hat{U}\ket{\psi(0)}
+\end{align*}
+より，シュレーディンガー方程式と初期条件を満たす。\nuke{$\hat{U}(0)=\hat{1}$}
+\naze{初期条件を満たす根拠が式にも文にも無い。級数に $t=0$ を入れると $n\ge1$ の項が消えて $\hat{U}(0)=\hat{1}$ となり，$\ket{\psi(t)}$ は $t=0$ で $\ket{\psi(0)}$ に戻る，を1行書く。}
+\toi{2}{○}{記述}
+\begin{align*}
+\ket{\psi(t)}&=\hat{U}(t)\frac{1}{\sqrt{3}}(\ket{E_{1}}+\ii\sqrt{2}\ket{E_{2}})\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii t}{\hbar}\Bigr)^{n}\hat{H}^{n}\\
+&\qquad\times\Bigl(\frac{1}{\sqrt{3}}\ket{E_{1}}+\frac{\ii\sqrt{2}}{\sqrt{3}}\ket{E_{2}}\Bigr)\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii t}{\hbar}\Bigr)^{n}\\
+&\qquad\times\Bigl(\frac{1}{\sqrt{3}}E_{1}^{n}\ket{E_{1}}+\frac{\ii\sqrt{2}}{\sqrt{3}}E_{2}^{n}\ket{E_{2}}\Bigr)\\
+&=\frac{1}{\sqrt{3}}\exp\Bigl(-\frac{\ii E_{1}t}{\hbar}\Bigr)\ket{E_{1}}\\
+&\qquad+\frac{\ii\sqrt{2}}{\sqrt{3}}\exp\Bigl(-\frac{\ii E_{2}t}{\hbar}\Bigr)\ket{E_{2}}
+\end{align*}
+\begin{align*}
+&\braket{\psi(t)}{\psi(t)}\\
+&=\frac{1}{3}\exp\Bigl(\frac{\ii E_{1}t}{\hbar}\Bigr)\exp\Bigl(-\frac{\ii E_{1}t}{\hbar}\Bigr)\braket{E_{1}}{E_{1}}\\
+&\qquad+\frac{2}{3}\exp\Bigl(\frac{\ii E_{2}t}{\hbar}\Bigr)\exp\Bigl(-\frac{\ii E_{2}t}{\hbar}\Bigr)\braket{E_{2}}{E_{2}}\\
+&=\frac{1}{3}\braket{E_{1}}{E_{1}}+\frac{2}{3}\braket{E_{2}}{E_{2}}\\
+&=1
+\end{align*}
+\begin{align*}
+&\expval{\hat{H}}_{t}=\matrixel{\psi(t)}{\hat{H}}{\psi(t)}\\
+&=\Bigl(\frac{1}{\sqrt{3}}\exp\Bigl(\frac{\ii E_{1}t}{\hbar}\Bigr)\bra{E_{1}}\\
+&\qquad-\frac{\ii\sqrt{2}}{\sqrt{3}}\exp\Bigl(\frac{\ii E_{2}t}{\hbar}\Bigr)\bra{E_{2}}\Bigr)\\
+&\quad\times\Bigl(\frac{1}{\sqrt{3}}\exp\Bigl(-\frac{\ii E_{1}t}{\hbar}\Bigr)E_{1}\ket{E_{1}}\\
+&\qquad+\frac{\ii\sqrt{2}}{\sqrt{3}}\exp\Bigl(-\frac{\ii E_{2}t}{\hbar}\Bigr)E_{2}\ket{E_{2}}\Bigr)\\
+&=\frac{1}{3}E_{1}\braket{E_{1}}{E_{1}}+\frac{2}{3}E_{2}\braket{E_{2}}{E_{2}}+0+0\\
+&=\ayamari{\frac{1}{3}\ket{E_{1}}+\frac{2}{3}\ket{E_{2}}}{\frac{E_{1}+2E_{2}}{3}}
+\end{align*}
+\naze{前の行は正しい。$\braket{E_{j}}{E_{j}}=1$ を入れると残るのは数で，期待値は数なので最後の行にケットが残るのは誤りである。正しくは $\expval{\hat{H}}_{t}=(E_{1}+2E_{2})/3$ である。}
+\toi{3}{○}{記述}
+\[ \comm{-\frac{\ii\hat{H}t}{\hbar}}{\frac{\ii\hat{H}t}{\hbar}}=0 \]
+より\quad\nuke{$\hat{U}(t)^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ の導出}
+\begin{align*}
+\hat{U}(t)^{\dagger}\hat{U}(t)&=\exp\Bigl(-\frac{\ii\hat{H}t}{\hbar}+\frac{\ii\hat{H}t}{\hbar}\Bigr)\\
+&=\exp(\hat{0})\\
+&=\hat{1}
+\end{align*}
+\naze{問われている $\hat{U}(t)^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ を示さずに使っている。級数の各項で $(c\hat{H}^{n})^{\dagger}=c^{*}(\hat{H}^{\dagger})^{n}=c^{*}\hat{H}^{n}$（$\hat{H}^{\dagger}=\hat{H}$ による）を使うと，$-\ii t/\hbar$ が $\ii t/\hbar$ に変わって $\exp(\ii\hat{H}t/\hbar)$ になる。}
+\begin{align*}
+&\braket{\psi(t)}{\psi(t)}\\
+&=\kakimachigai{(\hat{U}(t)\ket{\psi(0)})^{*}}{(\cdots)^{\dagger}}(\hat{U}(t)\ket{\psi(0)})\\
+&=\matrixel{\psi(0)}{\hat{U}^{\dagger}(t)\hat{U}(t)}{\psi(0)}\\
+&=\matrixel{\psi(0)}{\hat{1}}{\psi(0)}\\
+&=\braket{\psi(0)}{\psi(0)}
+\end{align*}
+%% kizuki
+\item \mae{第7章 問題3（059-ring）・11-04} 「満たすことを確かめよ」で，条件が成り立つことを式に書かずに「満たす」とだけ書いた（前回は $\varphi'(L)=\varphi'(0)$ が自動で成り立つこと）。今回は初期条件で，級数に $t=0$ を入れた $\hat{U}(0)=\hat{1}$ を1行置けば済む。時間発展の解は方程式と初期条件の2つを満たして初めて決まる。
+\item 期待値 $\matrixel{\psi}{\hat{A}}{\psi}$ はブラとケットで挟んだ数である。$\braket{E_{j}}{E_{j}}=1$ を入れた後，最後の行に $\ket{\ }$ が残っていないかを見る。
+\item \mae{第8章 問題7（072-translation）・11-08} $\hat{U}^{\dagger}=\exp(\ii\hat{H}t/\hbar)$ は $\hat{H}$ がエルミートだから成り立つ。$\hat{H}$ がエルミートでなければ $\hat{U}^{\dagger}\hat{U}=\hat{1}$ もノルムの保存も言えないので，(3) の要点はこの1行にある。また，ケット $\hat{U}\ket{\psi(0)}$ からブラを作るのは $\dagger$ で，$*$ ではない（前回もブラを $(\cdots)^{*}$ と書いた）。「示せ」と問われた式は，使う前に導く。
