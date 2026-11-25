@@ -1,0 +1,227 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{数理物理1　第10章「フーリエ級数」}{2026-11-25}
+%% note-moto	problems\数理物理1\shou10\数理物理1-10.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{1}{L1・導出}{◎◎◎△}{A}{2026-10-03 (4)記述}
+  \ichirangyou{2}{L1・計算}{◎△○}{B}{2026-10-14 2回目 (2)計算 (3)記述}
+  \ichirangyou{3}{L1・計算}{◎◎◎}{S}{2026-10-03}
+  \ichirangyou{4}{L1・計算}{◎◎×}{C}{2026-10-03 (3)未着手}
+  \ichirangyou{5}{L1・計算}{◎△◎◎}{A}{2026-10-03 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-062-zl-fourier}{6}}{L2・計算}{◎△◎◎}{A}{2026-10-03 (2)計算}
+  \ichirangyou{7}{L2・導出}{××◎◎}{C}{2026-10-03 (1)未着手 (2)未着手}
+  \ichirangyou{8}{L2・計算}{△◎◎◎}{A}{2026-10-03 (1)記述}
+  \ichirangyou{9}{L2・計算}{◎◎◎◎◎}{S}{2026-10-03}
+  \ichirangyou{10}{L2・計算}{◎△◎△}{B}{2026-10-03 (2)記述 (4)記述}
+  \ichirangyou{11}{L2・計算}{△△◎×}{C}{2026-10-03 (1)記述 (2)記述 (4)未着手}
+  \ichirangyou{12}{L2・計算}{}{未着手}{}
+  \ichirangyou{13}{L3・導出}{}{未着手}{}
+  \ichirangyou{14}{L3・導出}{}{未着手}{}
+  \ichirangyou{15}{L3・計算}{}{未着手}{}
+  \ichirangyou{16}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 連続極限での展開と展開係数（$0<z<L$） % 出典: p.72
+\[
+\begin{aligned}
+f(z)&=\sum_{\mu=-\infty}^{\infty}\frac{\ee^{\ii2\pi z\mu/L}}{\sqrt{L}}\hat{f}_{\mu},\\
+\hat{f}_{\mu}&=\int_{0}^{L}\dd z'\,\frac{\ee^{-\ii2\pi z'\mu/L}}{\sqrt{L}}f(z')
+\end{aligned}
+\notetag{10.5}
+\]
+  \item 基底関数 $U(z,\mu)$ の完備性・正規直交性と、それによる展開（$\mu$ は整数全体） % 出典: p.73
+\begin{align*}
+U(z,\mu)&=\frac{\ee^{\ii2\pi z\mu/L}}{\sqrt{L}}\qquad(0<z<L,\ \mu\ \text{は整数}) \notetag{10.6}\\
+\sum_{\mu=-\infty}^{\infty}U(z,\mu)U^{*}(z',\mu)&=\delta(z-z') \notetag{10.7}\\
+\int_{0}^{L}\dd z\,U^{*}(z,\nu)U(z,\mu)&=\delta_{\mu\nu} \notetag{10.8}\\
+f(z)=\sum_{\mu=-\infty}^{\infty}U(z,\mu)\hat{f}_{\mu},\quad \hat{f}_{\mu}&=\int_{0}^{L}\dd z'\,U^{*}(z',\mu)f(z') \notetag{10.9}
+\end{align*}
+  \item Parseval の等式（関数での形） % 出典: p.75
+\[
+\langle f|f\rangle=\sum_{i=1}^{\infty}\abs{\langle e_i|f\rangle}^{2}\quad\text{あるいは}\quad \int_{a}^{b}\dd z\,f^{*}(z)f(z)=\sum_{i=1}^{\infty}\abs*{\int_{a}^{b}\dd z\,e_i^{*}(z)f(z)}^{2} \notetag{10.10}
+\]
+\end{noteshikilist}
+
+\mondaihen
+\level{2}
+% toubun: kiroku\toubun\数理物理1\062_2026-10-03.tex
+\mondaibangou{6}
+\begin{mondai}{062-zl-fourier}{計算}{区間 $0<z<L$ での関数 $z(L-z)$ のフーリエ級数展開}
+$L>0$ とし、整数 $\mu$ に対して $0<z<L$ で定義された関数
+\[
+U(z,\mu)=\frac{\ee^{\ii2\pi z\mu/L}}{\sqrt{L}}
+\]
+を考える。$0<z<L$ で定義された関数 $f(z)$ を
+\[
+f(z)=\sum_{\mu=-\infty}^{\infty}U(z,\mu)\hat{f}_{\mu},\qquad \hat{f}_{\mu}=\int_{0}^{L}\dd z\,U^{*}(z,\mu)f(z)
+\]
+と展開する。
+\begin{shoumon}
+  \item 整数 $\mu,\nu$ について次の式を示せ。
+\[
+\int_{0}^{L}\dd z\,U^{*}(z,\nu)U(z,\mu)=\delta_{\mu\nu}
+\]
+  \item $f(z)=z(L-z)$ に対して $\hat{f}_{\mu}$ を求めよ（$\mu=0$ と $\mu\neq0$ に分けよ）。
+  \item (2) の展開が各点で $f(z)$ に収束するものとして、$z=L/2$ での値を考えることにより、次の和を求めよ。
+\[
+\sum_{\mu=1}^{\infty}\frac{(-1)^{\mu-1}}{\mu^{2}}
+\]
+  \item Parseval の等式
+\[
+\int_{0}^{L}\dd z\,\abs{f(z)}^{2}=\sum_{\mu=-\infty}^{\infty}\abs{\hat{f}_{\mu}}^{2}
+\]
+を用いて、次の和を求めよ。
+\[
+\sum_{\mu=1}^{\infty}\frac{1}{\mu^{4}}
+\]
+\end{shoumon}
+\notekiroku{2026-10-03 A ◎△◎◎}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  &\int_{0}^{L}\dd z\,\frac{\ee^{-\ii2\pi z\nu/L}}{\sqrt{L}}\cdot\frac{\ee^{\ii2\pi z\mu/L}}{\sqrt{L}}\\
+  &\qquad=\frac{1}{L}\int_{0}^{L}\dd z\,\ee^{\ii2\pi z(\mu-\nu)/L}
+\end{align*}
+$\mu=\nu$ のとき，
+\[ \frac{1}{L}\int_{0}^{L}\dd z=1 \]
+$\mu\neq\nu$ のとき，
+\begin{align*}
+  &\frac{1}{L}\Bigl[\frac{L}{\ii2\pi(\mu-\nu)}\ee^{\ii2\pi z(\mu-\nu)/L}\Bigr]_{0}^{L}\\
+  &\qquad=\frac{1}{\ii2\pi(\mu-\nu)}\bigl(\underbrace{\ee^{\ii2\pi(\mu-\nu)}}_{1}-\underbrace{\ee^{0}}_{1}\bigr)=0
+\end{align*}
+（脇に $\cos2\pi(\mu-\nu)+\ii\sin2\pi(\mu-\nu)$ の下に $1$，$0$）
+\toi{2}{△}{計算}
+\[
+  \hat{f}_{\mu}=\int_{0}^{L}\dd z\,\frac{\ee^{-\ii2\pi z\mu/L}}{\sqrt{L}}z(L-z)
+\]
+$\mu=0$ のとき，
+\begin{align*}
+  \hat{f}_0&=\int_{0}^{L}\dd z\,\frac{1}{\sqrt{L}}(Lz-z^{2})\\
+  &=\frac{1}{\sqrt{L}}\Bigl[\frac{1}{2}Lz^{2}-\frac{1}{3}z^{3}\Bigr]_{0}^{L}\\
+  &=\frac{1}{\sqrt{L}}\Bigl(\frac{1}{2}L^{3}-\frac{1}{3}L^{3}\Bigr)=\frac{1}{6}L^{5/2}
+\end{align*}
+$\mu\neq0$
+\begin{align*}
+  \hat{f}_{\mu}&=\sqrt{L}\underbrace{\int_{0}^{L}\dd z\,z\,\ee^{-\ii2\pi z\mu/L}}_{I_1}\\
+  &\qquad-\frac{1}{\sqrt{L}}\underbrace{\int_{0}^{L}\kakimachigai{z^{2}\ee^{-\ii2\pi z\mu/L}}{z^{2}\ee^{-\ii2\pi z\mu/L}\dd z}}_{I_2}
+\end{align*}
+\begin{align*}
+  I_1&=\int_{0}^{L}\dd z\,z\,\ayamari{\ee^{\ii2\pi\mu z/L}}{\ee^{-\ii2\pi\mu z/L}}\\
+  &=\Bigl[\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}z\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd z\,\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}\\
+  &=\frac{L^{2}}{\ii2\pi\mu}\ee^{\ii2\pi\mu}\\
+  &\qquad-\frac{L}{\ii2\pi\mu}\Bigl[\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}\Bigr]_{0}^{L}\\
+  &=\frac{L^{2}}{\ii2\pi\mu}\cdot1-\frac{L^{2}}{(\ii2\pi\mu)^{2}}\bigl(\ee^{\ii2\pi\mu}-1\bigr)\\
+  &=\frac{L^{2}}{\ii2\pi\mu}
+\end{align*}
+\begin{align*}
+  I_2&=\int_{0}^{L}\dd z\,z^{2}\ayamari{\ee^{\ii2\pi\mu z/L}}{\ee^{-\ii2\pi\mu z/L}}\\
+  &=\Bigl[\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}z^{2}\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd z\,\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}\cdot2z\\
+  &=\frac{L^{3}}{\ii2\pi\mu}\ee^{\ii2\pi\mu}-\frac{L}{\ii\pi\mu}I_1\\
+  &=\frac{L^{3}}{\ii2\pi\mu}-\frac{L^{3}}{2\ii^{2}\pi^{2}\mu^{2}}
+\end{align*}
+\naze{$\hat{f}_{\mu}$ の式では $U^{*}$ の負の指数 $\ee^{-\ii2\pi z\mu/L}$ を立てたのに，$I_1$，$I_2$ では指数を正にしている。これは $\hat{f}_{-\mu}$ の計算で，定義どおりなら $I_1=\ii L^{2}/(2\pi\mu)$，$I_2=\ii L^{3}/(2\pi\mu)+L^{3}/(2\pi^{2}\mu^{2})$ である。以降はこの誤りを引き継ぐ。答えが一致したのは，$f$ が $z=L/2$ について対称で $\hat{f}_{-\mu}=\hat{f}_{\mu}$ だからにすぎない。}
+\begin{align*}
+  \hat{f}_{\mu}&=\sqrt{L}I_1-\frac{1}{\sqrt{L}}I_2\\
+  &=\frac{L^{5/2}}{\ii2\pi\mu}-\frac{L^{5/2}}{\ii2\pi\mu}-\frac{L^{5/2}}{2\pi^{2}\mu^{2}}\\
+  &=\frac{-1}{2\pi^{2}\mu^{2}}L^{5/2}
+\end{align*}
+\toi{3}{◎}{}
+\[
+  f\Bigl(\frac{L}{2}\Bigr)=\sum_{\mu=-\infty}^{\infty}\frac{\ee^{\ii2\pi\frac{L}{2}\mu/L}}{\sqrt{L}}\,\frac{-L^{5/2}}{2\pi^{2}\mu^{2}}
+\]
+（脇に $\mu=0$ の項 $\frac{\ee^{\ii\pi\mu}}{\sqrt{L}}\,\frac{L^{5/2}}{6}$）
+\begin{align*}
+  \frac{L^{2}}{4}&=\kakimachigai{\sum_{-\infty}^{\infty}}{\frac{L^{2}}{6}+\sum_{\mu\neq0}}\frac{-\ee^{\ii\pi\mu}L^{2}}{2\pi^{2}\mu^{2}}\\
+  \frac{\pi^{2}}{2}&=\sum_{-\infty}^{\infty}\frac{(-1)^{\mu-1}}{\mu^{2}}\\
+  &=\sum_{-\infty}^{-1}\frac{(-1)^{\mu-1}}{\mu^{2}}+
+\end{align*}
+（ここで止め，矢印で次の式に移る）
+\begin{align*}
+  &\sum_{-\infty}^{-1}\ee^{\ii\pi\mu}\frac{-L^{2}}{2\pi^{2}\mu^{2}}+\frac{L^{2}}{6}\\
+  &\qquad+\sum_{1}^{\infty}\ee^{\ii\pi\mu}\frac{-L^{2}}{2\pi^{2}\mu^{2}}\\
+  &\frac{L^{2}}{4}=\frac{L^{2}}{6}+2\sum_{1}^{\infty}\frac{(-1)^{\mu-1}L^{2}}{2\pi^{2}\mu^{2}}
+\end{align*}
+\[
+  \frac{\pi^{2}}{12}=\sum_{1}^{\infty}\frac{(-1)^{\mu-1}}{\mu^{2}}
+\]
+\toi{4}{◎}{}
+\begin{align*}
+  \int_{0}^{L}\dd z\,z^{2}(L-z)^{2}&=\int_{0}^{L}\dd z\,(z^{2}L^{2}-2z^{3}L+z^{4})\\
+  &=\Bigl[\frac{1}{3}z^{3}L^{2}-\frac{1}{2}z^{4}L+\frac{1}{5}z^{5}\Bigr]_{0}^{L}\\
+  &=\frac{1}{3}L^{5}-\frac{1}{2}L^{5}+\frac{1}{5}L^{5}=\frac{1}{30}L^{5}
+\end{align*}
+\begin{align*}
+  \sum_{-\infty}^{\infty}\abs{\hat{f}_{\mu}}^{2}&=\sum_{-\infty}^{-1}\Bigl(\frac{-1}{2\pi^{2}\mu^{2}}L^{5/2}\Bigr)^{2}+\Bigl(\frac{1}{6}L^{5/2}\Bigr)^{2}\\
+  &\qquad+\sum_{1}^{\infty}\Bigl(\frac{1}{2\pi^{2}\mu^{2}}L^{5/2}\Bigr)^{2}
+\end{align*}
+\begin{align*}
+  \frac{1}{30}L^{5}&=2\sum_{1}^{\infty}\frac{L^{5}}{2^{2}\pi^{4}\mu^{4}}+\frac{1}{36}L^{5}\\
+  \frac{1}{30}-\frac{1}{36}&=\sum\frac{1}{2\pi^{4}\mu^{4}}\\
+  \pi^{4}\Bigl(\frac{1}{15}-\frac{1}{18}\Bigr)&=\sum\frac{1}{\mu^{4}}\\
+  \frac{3\pi^{4}}{15\cdot18}&=\sum\frac{1}{\mu^{4}}\\
+  \frac{\pi^{4}}{90}&=\sum\frac{1}{\mu^{4}}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 展開係数は $\hat{f}_{\mu}=\int\dd z\,U^{*}(z,\mu)f(z)$ で，指数は $-\ii2\pi z\mu/L$。部分積分で $I_1$，$I_2$ を別に置くときも，定義の式から指数の符号を写す。$\int\ee^{-\ii qz}\dd z=\frac{\ii}{q}\ee^{-\ii qz}$ を使えば $I_1=\ii L/q$ になる。
+\item 指数の符号を逆にすると $\hat{f}_{-\mu}$ を計算したことになる。答えが合っても，$f$ が対称（$\hat{f}_{-\mu}=\hat{f}_{\mu}$）でない関数では誤りになるので，$\hat{f}_{-\mu}=\hat{f}_{\mu}^{*}$（実関数）で確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 離散フーリエ級数展開の連続極限として得られる基底関数 $U(z,\mu)$ の正規直交性を示し、$f(z)=z(L-z)$ の展開係数を求める。展開の特定の点での値と Parseval の等式から、数列の無限和を求める。使う定理：フーリエ級数展開 \noteshiki{10.5}\noteshiki{10.9}（区間 $0<z<L$、因子 $1/\sqrt{L}$ を両側に振り分ける流儀）、正規直交性 \noteshiki{10.8}、Parseval の等式 \noteshiki{10.10}。部分積分。$q_{\mu}=2\pi\mu/L$ とおくと $\ee^{-\ii q_{\mu}L}=\ee^{-\ii2\pi\mu}=1$。（参考）\noteshiki{10.5}\noteshiki{10.6}--\noteshiki{10.9}，\noteshiki{10.10}。 % 出典: p.72--75
+\keisan
+\shoumonkai{1}
+\[
+\int_{0}^{L}\dd z\,U^{*}(z,\nu)U(z,\mu)=\frac{1}{L}\int_{0}^{L}\dd z\,\ee^{\ii2\pi(\mu-\nu)z/L}.
+\]
+$\mu=\nu$ なら $\frac{1}{L}\cdot L=1$。$\mu\neq\nu$ なら
+\[
+\frac{1}{L}\Bigl[\frac{\ee^{\ii2\pi(\mu-\nu)z/L}}{\ii2\pi(\mu-\nu)/L}\Bigr]_{0}^{L}=\frac{\ee^{\ii2\pi(\mu-\nu)}-1}{\ii2\pi(\mu-\nu)}=0 .
+\]
+よって $\delta_{\mu\nu}$。
+\shoumonkai{2} $\mu=0$:
+\[
+\hat{f}_0=\frac{1}{\sqrt{L}}\int_{0}^{L}z(L-z)\,\dd z=\frac{1}{\sqrt{L}}\Bigl(\frac{L^{3}}{2}-\frac{L^{3}}{3}\Bigr)=\frac{L^{5/2}}{6}
+\]
+$\mu\neq0$: $q=q_{\mu}$ とし、$\ee^{-\ii qL}=1$ を使って部分積分する。$\int\ee^{-\ii qz}\dd z=\frac{\ii}{q}\ee^{-\ii qz}$ だから
+\begin{align*}
+I_1&=\int_{0}^{L}z\,\ee^{-\ii qz}\dd z=\Bigl[\frac{\ii}{q}z\,\ee^{-\ii qz}\Bigr]_{0}^{L}-\frac{\ii}{q}\int_{0}^{L}\ee^{-\ii qz}\dd z=\frac{\ii L}{q}-0=\frac{\ii L}{q},\\
+I_2&=\int_{0}^{L}z^{2}\ee^{-\ii qz}\dd z=\Bigl[\frac{\ii}{q}z^{2}\ee^{-\ii qz}\Bigr]_{0}^{L}-\frac{2\ii}{q}I_1=\frac{\ii L^{2}}{q}+\frac{2L}{q^{2}}.
+\end{align*}
+よって
+\[
+\hat{f}_{\mu}=\frac{1}{\sqrt{L}}\bigl(LI_1-I_2\bigr)=\frac{1}{\sqrt{L}}\Bigl(\frac{\ii L^{2}}{q}-\frac{\ii L^{2}}{q}-\frac{2L}{q^{2}}\Bigr)=-\frac{2\sqrt{L}}{q_{\mu}^{2}}=-\frac{L^{5/2}}{2\pi^{2}\mu^{2}}.
+\]
+\shoumonkai{3} $\hat{f}_{-\mu}=\hat{f}_{\mu}$ なので $\pm\mu$ の項をまとめると
+\[
+f(z)=\frac{\hat{f}_0}{\sqrt{L}}+\sum_{\mu\neq0}\frac{\ee^{\ii2\pi\mu z/L}}{\sqrt{L}}\hat{f}_{\mu}=\frac{L^{2}}{6}-\frac{L^{2}}{\pi^{2}}\sum_{\mu=1}^{\infty}\frac{1}{\mu^{2}}\cos\frac{2\pi\mu z}{L}.
+\]
+$z=L/2$ で $f=L^{2}/4$、$\cos\pi\mu=(-1)^{\mu}$ なので
+\[
+\frac{L^{2}}{4}=\frac{L^{2}}{6}-\frac{L^{2}}{\pi^{2}}\sum_{\mu=1}^{\infty}\frac{(-1)^{\mu}}{\mu^{2}}
+\quad\Longrightarrow\quad
+\sum_{\mu=1}^{\infty}\frac{(-1)^{\mu-1}}{\mu^{2}}=\pi^{2}\Bigl(\frac{1}{4}-\frac{1}{6}\Bigr)=\frac{\pi^{2}}{12}.
+\]
+\shoumonkai{4} 左辺は
+\[
+\int_{0}^{L}z^{2}(L-z)^{2}\dd z=\int_{0}^{L}(L^{2}z^{2}-2Lz^{3}+z^{4})\dd z=L^{5}\Bigl(\frac{1}{3}-\frac{1}{2}+\frac{1}{5}\Bigr)=\frac{L^{5}}{30}.
+\]
+右辺は
+\[
+\abs{\hat{f}_0}^{2}+2\sum_{\mu=1}^{\infty}\abs{\hat{f}_{\mu}}^{2}=\frac{L^{5}}{36}+2\sum_{\mu=1}^{\infty}\frac{L^{5}}{4\pi^{4}\mu^{4}}=\frac{L^{5}}{36}+\frac{L^{5}}{2\pi^{4}}\sum_{\mu=1}^{\infty}\frac{1}{\mu^{4}}.
+\]
+等置して
+\[
+\sum_{\mu=1}^{\infty}\frac{1}{\mu^{4}}=2\pi^{4}\Bigl(\frac{1}{30}-\frac{1}{36}\Bigr)=2\pi^{4}\cdot\frac{1}{180}=\frac{\pi^{4}}{90}.
+\]
+\kotae{\shoumonkai{1} $\int\dd z\,U^{*}(z,\nu)U(z,\mu)=\delta_{\mu\nu}$（積分区間は $0\le z\le L$）。\shoumonkai{2} $\hat{f}_0=\frac{L^{5/2}}{6}$、$\hat{f}_{\mu}=-\frac{L^{5/2}}{2\pi^{2}\mu^{2}}$（$\mu\neq0$）。\shoumonkai{3} $\sum(-1)^{\mu-1}/\mu^{2}=\pi^{2}/12$。\shoumonkai{4} $\sum1/\mu^{4}=\pi^{4}/90$（$\sum$ は(3)(4)とも $\mu=1,2,3,\dots$ についての和）。}
+\kenzan 次元は、$f$ の次元が $L^{2}$、$\hat{f}_{\mu}$ が $L^{2}\cdot L^{1/2}=L^{5/2}$ で、(2) の結果と一致する。(3)(4) で得た $\pi^{2}/12$ と $\pi^{4}/90$ は、よく知られた級数和の値（交代級数 $\sum(-1)^{\mu-1}/\mu^{2}$ と $\sum1/\mu^{4}$）と一致する。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
