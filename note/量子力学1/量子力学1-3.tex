@@ -7,7 +7,7 @@
   \ichirangyou{\hyperlink{bt-m-017-norm}{1}}{L1・計算}{◎◎◎△}{A}{2026-10-18 (4)計算}
   \ichirangyou{\hyperlink{bt-m-018-current}{2}}{L1・計算}{○○◎}{B}{2026-10-21 2回目 (1)記述 (2)記述}
   \ichirangyou{3}{L1・計算}{}{未着手}{}
-  \ichirangyou{4}{L1・計算}{◎○◎}{A}{2026-11-10 (2)単位}
+  \ichirangyou{\hyperlink{bt-m-067-classical}{4}}{L1・計算}{◎○◎}{A}{2026-11-10 (2)単位}
   \ichirangyou{\hyperlink{bt-m-020-gauss}{5}}{L2・計算}{◎△○}{B}{2026-10-18 (2)計算 (3)計算}
   \ichirangyou{\hyperlink{bt-m-021-reflect}{6}}{L2・計算}{△○△}{C}{2026-10-18 (1)立式 (2)記述 (3)計算}
   \ichirangyou{\hyperlink{bt-m-022-box}{7}}{L2・計算}{◎◎◎◎}{S}{2026-10-18}
@@ -199,6 +199,81 @@ $j<0$ なので，確率は $-x$ 向きに流れる。位相 $kx+\omega t$ が�
 \kotae{\shoumonkai{1} $\rho=\abs{A}^{2}$，$j=\hbar k\abs{A}^{2}/m$，$v=\hbar k/m$ \shoumonkai{2} $j=-\hbar k\abs{A}^{2}/m$（$-x$ 向きの流れ） \shoumonkai{3} $j=0$}
 \kenzan 次元：1次元の $\rho$ は長さの逆数，$v=\hbar k/m$ は $\hbar k$ が運動量（de Broglie の関係 $p=\hbar k$）なので速度であり，$j$ は時間の逆数の次元をもつ（単位時間に通過する確率）。$v=p/m$ は古典的な粒子の速度と一致する。$k\to0$ では $j\to0$ で，(3) で $f$ を定数とした場合と合う。
 \tsumazuki 複素共役の微分 $\partial\psi^{*}/\partial x$ で $\ii k$ の符号を変え忘れると，括弧の中が0になってしまう。また，確率流の係数は $\hbar/(2m\ii)$ で，分母に $\ii$ がある。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\067_2026-11-10.tex
+\mondaibangou{4}
+\begin{mondai}{067-classical}{計算}{Ehrenfest の定理による期待値の運動（一様な力・調和振動子）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+質量 $m$ の粒子が1次元のポテンシャル $V(x)$ 中を運動する。Ehrenfest の定理
+  \[ \dv{\expval{x}}{t}=\frac{\expval{p}}{m},\qquad \dv{\expval{p}}{t}=-\expval{\dv{V}{x}} \]
+  を使い，時刻 $t=0$ で $\expval{x}=x_{0}$，$\expval{p}=p_{0}$ として次の問いに答えよ。
+  \begin{shoumon}
+    \item $V(x)=mgx$（$x$ 軸は鉛直上向き，$g$ は正の定数）のとき，$\expval{p}$ と $\expval{x}$ を時刻 $t$ の関数として求めよ。
+    \item (1) の状況で，中性子の波束を $p_{0}=0$ で放した。$g=\qty{9.80}{\metre\per\second\squared}$ として，$t=\qty{0.200}{\second}$ の間の $\expval{x}$ の変化を有効数字3桁で求めよ。この変化は中性子の質量や $\hbar$ によるか。
+    \item $V(x)=\frac{1}{2}m\omega^{2}x^{2}$（$\omega$ は正の定数）のとき，$\expval{x}$ と $\expval{p}$ を時刻 $t$ の関数として求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-10 A ◎○◎}
+\begin{kotaeutsushi}{2026-11-10}
+\toi{1}{◎}{}
+\begin{align*}
+\frac{\dd\expval{p}}{\dd t}&=-mg\\
+\expval{p}&=-mgt+p_{0}\\
+\frac{\dd\expval{x}}{\dd t}&=-gt+\frac{p_{0}}{m}\\
+\expval{x}&=-\frac{1}{2}gt^{2}+\frac{p_{0}}{m}t+x_{0}
+\end{align*}
+\toi{2}{○}{単位}
+\[ \delta\expval{x}=\num{-0.196}\,\nuke{\unit{\metre}} \]
+よらない。
+\naze{数値は正しいが単位が無い。$gt^{2}/2$ の単位は \unit{\metre\per\second\squared}${}\times{}$\unit{\second\squared}${}={}$\unit{\metre} で，正しくは $\delta\expval{x}=\qty{-0.196}{\metre}$（\qty{0.196}{\metre} 下がる）である。}
+\toi{3}{◎}{}
+\begin{align*}
+\frac{\dd\expval{p}}{\dd t}&=-\expval{m\omega^{2}x}\\
+&=-m\omega^{2}\expval{x}\\
+\frac{\dd^{2}\expval{p}}{\dd t^{2}}&=-m\omega^{2}\frac{\expval{p}}{m}
+\end{align*}
+$\therefore$ $\expval{p}=C_{1}\sin\omega t+C_{2}\cos\omega t$
+
+$t=0$ で $\expval{p}=p_{0}$ より $C_{2}=p_{0}$
+\[ \frac{\dd}{\dd t}(C_{1}\sin\omega t+p_{0}\cos\omega t)=-m\omega^{2}\expval{x} \]
+\begin{align*}
+\therefore\quad\expval{x}&=-\frac{1}{m\omega^{2}}(C_{1}\omega\cos\omega t\\
+&\qquad-p_{0}\omega\sin\omega t)
+\end{align*}
+$t=0$ で $\expval{x}=x_{0}$ より $C_{1}=-m\omega x_{0}$
+\begin{align*}
+\expval{x}&=x_{0}\cos\omega t+\frac{p_{0}}{m\omega}\sin\omega t\\
+\expval{p}&=p_{0}\cos\omega t-m\omega x_{0}\sin\omega t
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第6章 問題6（050-gauss）・11-01} 数値の答えに単位が無い（前回は $\delta p$ の単位を \unit{\metre} と書いた）。数値を出したらその行のうちに単位を付け，式の次元（$gt^{2}$ は \unit{\metre\per\second\squared}${}\times{}$\unit{\second\squared}${}={}$\unit{\metre}）が問いの量（位置の変化）と合うかを見る。
+\end{kizuki}
+\begin{tadashii}
+\houshin Ehrenfest の定理の2式から $\expval{x}$ の2階の微分方程式を作る。$V$ が1次式・2次式なら $\expval{\dd V/\dd x}$ は $\expval{x}$ だけで書けるので，古典力学と同じ方程式になる。
+\keisan \shoumonkai{1} $\dd V/\dd x=mg$ は定数なので，$\expval{\dd V/\dd x}=mg$（$\psi$ は規格化されている）。よって
+\[ \dv{\expval{p}}{t}=-mg\quad\Rightarrow\quad \expval{p}=p_{0}-mgt \]
+これを第1式に入れて積分する。
+\[ \dv{\expval{x}}{t}=\frac{p_{0}}{m}-gt\quad\Rightarrow\quad \expval{x}=x_{0}+\frac{p_{0}}{m}t-\frac{1}{2}gt^{2} \]
+\shoumonkai{2} $p_{0}=0$ なら $\expval{x}-x_{0}=-\frac{1}{2}gt^{2}$。数値を代入すると
+\[ -\frac{1}{2}\times\qty{9.80}{\metre\per\second\squared}\times(\qty{0.200}{\second})^{2}=-\qty{0.196}{\metre} \]
+式に $m$ も $\hbar$ も入らないので，中性子の質量にも $\hbar$ にもよらない。
+
+\shoumonkai{3} $\dd V/\dd x=m\omega^{2}x$ なので $\expval{\dd V/\dd x}=m\omega^{2}\expval{x}$。第1式を $t$ で微分して第2式を使うと
+\[ \dv[2]{\expval{x}}{t}=\frac{1}{m}\dv{\expval{p}}{t}=-\omega^{2}\expval{x} \]
+一般解 $\expval{x}=A\cos\omega t+B\sin\omega t$ に，$t=0$ での $\expval{x}=x_{0}$ と $\dd\expval{x}/\dd t=p_{0}/m$ を課すと $A=x_{0}$，$B\omega=p_{0}/m$。よって
+\[ \expval{x}=x_{0}\cos\omega t+\frac{p_{0}}{m\omega}\sin\omega t,\qquad \expval{p}=m\dv{\expval{x}}{t}=p_{0}\cos\omega t-m\omega x_{0}\sin\omega t \]
+\kotae{\shoumonkai{1} $\expval{p}=p_{0}-mgt$，$\expval{x}=x_{0}+p_{0}t/m-gt^{2}/2$ \shoumonkai{2} $\qty{0.196}{\metre}$ 下がる（$\qty{-0.196}{\metre}$）。質量にも $\hbar$ にもよらない \shoumonkai{3} $\expval{x}=x_{0}\cos\omega t+\frac{p_{0}}{m\omega}\sin\omega t$，$\expval{p}=p_{0}\cos\omega t-m\omega x_{0}\sin\omega t$}
+\begin{ronten}
+  \item \shoumonkai{1} $\expval{\dd V/\dd x}$ を $\expval{x}$ で書けるのは $\dd V/\dd x$ が $x$ の1次式以下だからであり，期待値の線形性と $\psi$ の規格化を使うことを述べる（(3) も同じ）。
+  \item \shoumonkai{3} 一般解の係数を決める2つ目の条件 $\dd\expval{x}/\dd t=p_{0}/m$（$t=0$）は，Ehrenfest の定理の第1式から得ることを書く。
+\end{ronten}
+\kenzan (1) で $t=0$ とすると $x_{0}$，$p_{0}$ に戻る。$\dd\expval{x}/\dd t=\expval{p}/m$ も満たす。(3) で $\omega\to0$ とすると $\expval{x}\to x_{0}+p_{0}t/m$（自由粒子の等速運動）になる。$p_{0}/(m\omega)$ の次元は（運動量）/（質量$\times$1/時間）＝長さで整合する。
+\tsumazuki 波束の幅は時間とともに変わり得るが，この問題のように $V$ が $x$ の2次式以下なら $\expval{x}$ の運動には影響しない（3次以上の項がある場合は Level 2 の非調和項の問題）。古典力学と同じになるのは期待値であって，粒子の位置が決まった軌道を描くという意味ではない。
 \end{tadashii}
 \end{mondai}
 
