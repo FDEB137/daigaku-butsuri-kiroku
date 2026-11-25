@@ -1,37 +1,149 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>学習記録 - 宇宙物理学</title><style>body{font-family:"Yu Gothic UI","Meiryo",sans-serif;margin:0 auto;max-width:1200px;padding:0 20px 12px;color:#222;background:#fafafa}
-h1{font-size:1.5em;margin:.3em 0}h2{font-size:1.2em;border-bottom:2px solid #557;margin-top:1.6em;padding-bottom:2px;scroll-margin-top:5em}
-.nav{position:sticky;top:0;z-index:5;background:#fafafa;border-bottom:1px solid #ccd;padding:6px 0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.9em}
-.nav a{color:#335;text-decoration:none;white-space:nowrap}.nav a:hover{text-decoration:underline}
-.top{position:sticky;top:0;z-index:5;background:#fafafa;border-bottom:1px solid #ccd}.top .nav{position:static;border-bottom:none;padding:4px 0 6px}
-.sbar{display:flex;gap:5px;overflow-x:auto;white-space:nowrap;padding:6px 0 2px;font-size:.88em;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-.sbar a,.sbar span{flex:0 0 auto;padding:2px 10px;border-radius:12px;background:#e4e7f2;color:#335;text-decoration:none}
-.sbar a:hover{background:#d0d5ea}.sbar .rec{font-weight:bold}.sbar .cur{background:#557;color:#fff;font-weight:bold}
-.made{color:#666;font-size:.9em}.note{color:#666;font-size:.85em}
-.notes p{margin:4px 0;line-height:1.9}.notes a{white-space:nowrap}
-.cards{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-.card{background:#fff;border:1px solid #ccd;border-radius:6px;padding:8px 16px;min-width:90px;text-align:center}
-.card b{display:block;font-size:1.6em}.card.due b{color:#c50}.card.rest b{color:#888}
-table{border-collapse:collapse;background:#fff;margin:6px 0;font-size:.9em}
-th,td{border:1px solid #ccd;padding:3px 7px;vertical-align:top}th{background:#eef;white-space:nowrap}
-td{white-space:nowrap}td.n{text-align:right}td.w{white-space:normal;min-width:14em}
-.r{display:inline-block;min-width:1.3em;text-align:center;border-radius:3px;color:#fff;font-weight:bold;margin-right:2px}
-.rS{background:#b08a00}.rA{background:#2a8a3a}.rB{background:#3a7ac0}.rC{background:#e08a00}.rD{background:#d05050}.rE{background:#902020}
-.bar{display:inline-flex;width:160px;height:12px;background:#ddd;border-radius:3px;overflow:hidden;vertical-align:middle}
-.bar .m{background:#3a9a4a}.bar .v{background:#e8a030}
-details{margin:4px 0}summary{cursor:pointer}details.subj>summary{font-size:1.05em;padding:4px 0}
-details.file{margin-left:1.2em}
-.act{display:flex;align-items:flex-end;gap:3px;height:110px;background:#fff;border:1px solid #ccd;padding:6px;width:fit-content;max-width:100%;box-sizing:border-box;overflow-x:auto}
-.act div{flex:0 0 22px;width:22px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font-size:.7em;color:#666}
-.act span{display:block;width:16px}.act span.m{background:#3a9a4a}.act span.v{background:#e8a030}
-.act .today{color:#c50;font-weight:bold}
-.up{color:#2a8a3a;font-weight:bold}.down{color:#c33;font-weight:bold}
-pre{white-space:pre-wrap;background:#fff;border:1px solid #ccd;padding:8px;font-size:.85em}
-.warn{color:#c33}
-html{-webkit-text-size-adjust:100%}.tw{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-@media (max-width:700px){body{padding:0 10px 8px}h1{font-size:1.3em}.top .nav{flex-wrap:nowrap;overflow-x:auto}.cards{gap:6px}.card{min-width:56px;padding:6px 8px}.card b{font-size:1.3em}
-table{font-size:.8em}td.w{min-width:10em}.bar{width:90px}details.file{margin-left:.4em}pre{font-size:.8em}
-table.c,table.c tbody,table.c tr,table.c td{display:block}table.c thead{display:none}table.c{border:none;background:none;width:100%}
-table.c tr{background:#fff;border:1px solid #ccd;border-radius:6px;margin:6px 0;padding:4px 8px}
-table.c td{border:none;padding:1px 0;white-space:normal;min-width:0;text-align:left}table.c td:empty{display:none}
-table.c td::before{content:attr(data-l);display:inline-block;min-width:5.5em;color:#778;font-size:.9em}}</style><meta name="robots" content="noindex, nofollow"><script>window.MathJax={tex:{inlineMath:[['$','$']],packages:{'[+]':['physics']},macros:{vect:['\\boldsymbol{#1}',1],tens:['\\mathsf{#1}',1],Tr:'\\operatorname{Tr}',dd:'\\mathrm{d}',ii:'\\mathrm{i}',ee:'\\mathrm{e}'}},loader:{load:['[tex]/physics']}};</script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head><body><div class="top"><nav class="sbar"><a href="index.html">全体</a><a class="rec" href="kamoku-%E6%95%B0%E7%90%86%E7%89%A9%E7%90%861.html">数理物理1</a><a class="rec" href="kamoku-%E6%95%B0%E7%90%86%E7%89%A9%E7%90%862.html">数理物理2</a><a class="rec" href="kamoku-%E7%B4%A0%E7%B2%92%E5%AD%90%E7%89%A9%E7%90%86%E5%AD%A6.html">素粒子物理学</a><a class="rec" href="kamoku-%E9%9B%BB%E7%A3%81%E6%B0%97%E5%AD%A61.html">電磁気学1</a><a class="rec" href="kamoku-%E9%9B%BB%E7%A3%81%E6%B0%97%E5%AD%A62.html">電磁気学2</a><a class="rec" href="kamoku-%E7%B5%B1%E8%A8%88%E5%8A%9B%E5%AD%A61.html">統計力学1</a><a class="rec" href="kamoku-%E7%B5%B1%E8%A8%88%E5%8A%9B%E5%AD%A62.html">統計力学2</a><a class="rec" href="kamoku-%E7%86%B1%E7%89%A9%E7%90%86%E5%AD%A6.html">熱物理学</a><a class="rec" href="kamoku-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A61.html">量子力学1</a><a class="rec" href="kamoku-%E9%80%A3%E7%B6%9A%E4%BD%93%E5%8A%9B%E5%AD%A6.html">連続体力学</a><a class="" href="kamoku-%E3%83%97%E3%83%A9%E3%82%BA%E3%83%9E%E7%89%A9%E7%90%86%E5%AD%A6.html">プラズマ物理学</a><span class="cur">宇宙物理学</span><a class="" href="kamoku-%E8%A7%A3%E6%9E%90%E5%8A%9B%E5%AD%A6.html">解析力学</a><a class="" href="kamoku-%E5%8E%9F%E5%AD%90%E6%A0%B8%E7%89%A9%E7%90%86%E5%AD%A6.html">原子核物理学</a><a class="" href="kamoku-%E7%B4%A0%E7%B2%92%E5%AD%90%E5%8E%9F%E5%AD%90%E6%A0%B8%E7%89%A9%E7%90%86%E5%85%A5%E9%96%80.html">素粒子原子核物理入門</a><a class="" href="kamoku-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62.html">量子力学2</a></nav><nav class="nav"><a href="#act">最近の学習</a><a href="#due">今日の復習</a><a href="#note">ノート</a><a href="#eff">復習の効果</a><a href="#prog">進み具合</a><a href="#kan">苦手な観点</a><a href="#weak">苦手な概念</a><a href="#hist">履歴</a><a href="kouhyou.html">講評</a></nav></div><h1>学習記録 - 宇宙物理学</h1><div class="made">作成 2026-11-25 23:02　基準日 2026-11-25</div><h2 id="act">最近の学習（直近28日。解いた問題数。緑＝習得〈S・A・B〉、橙＝要復習〈C・D・E〉）</h2><p>今日・昨日の記録はない　・　直近7日 0 問（その前の7日 0 問）</p><p class="note">週ごと（新しい順）: 11/19〜11/25 0問　・　11/12〜11/18 0問　・　11/05〜11/11 0問　・　10/29〜11/04 0問</p><div class="act"><div title="2026-10-29: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>29</div><div title="2026-10-30: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>30</div><div title="2026-10-31: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>31</div><div title="2026-11-01: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>1</div><div title="2026-11-02: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>2</div><div title="2026-11-03: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>3</div><div title="2026-11-04: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>4</div><div title="2026-11-05: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>5</div><div title="2026-11-06: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>6</div><div title="2026-11-07: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>7</div><div title="2026-11-08: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>8</div><div title="2026-11-09: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>9</div><div title="2026-11-10: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>10</div><div title="2026-11-11: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>11</div><div title="2026-11-12: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>12</div><div title="2026-11-13: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>13</div><div title="2026-11-14: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>14</div><div title="2026-11-15: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>15</div><div title="2026-11-16: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>16</div><div title="2026-11-17: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>17</div><div title="2026-11-18: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>18</div><div title="2026-11-19: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>19</div><div title="2026-11-20: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>20</div><div title="2026-11-21: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>21</div><div title="2026-11-22: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>22</div><div title="2026-11-23: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>23</div><div title="2026-11-24: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>24</div><div class="today" title="2026-11-25: 0問（習得 0・要復習 0）"><span class="v" style="height:0px"></span><span class="m" style="height:0px"></span>25</div></div><div class="cards"><div class="card due"><b>0</b>今日の復習</div><div class="card rest"><b>0</b>たまっている</div><div class="card"><b>22</b>問題数</div><div class="card"><b>0</b>着手</div><div class="card"><b>0</b>習得</div><div class="card"><b>0</b>要復習</div></div><p>記録はまだない。解答の写真を保存して /saiten 科目 回 を実行する</p><h2 id="due">今日の復習</h2><p>2026-11-25 に復習すべき問題はない。予定のある問題もない</p><h2 id="note">ノート</h2><div class="notes"></div><p>ノートはまだない（/saiten で採点すると、その回のノートができる）</p><h2 id="eff">復習の効果</h2><p class="note">2回以上解いた問題の、最初の評価と最新の評価の比較（S が最高、E が最低）</p><p>解き直した問題はまだない</p><h2 id="prog">進み具合</h2><p class="note">緑＝習得（最新評価 S・A・B）、橙＝要復習（C・D・E）、灰＝未着手</p><details class="subj"><summary><b>宇宙物理学</b> <span class="bar"><span class="m" style="width:0%"></span><span class="v" style="width:0%"></span></span> 問題数 22 / 着手 0 / 習得 0 / 要復習 0</summary><div class="tw"><table><thead><tr><th>ファイル</th><th>問題数</th><th>着手</th><th>習得</th><th>要復習</th><th>最終学習日</th><th>進み具合</th><th>ノート</th><th>写真</th></tr></thead><tbody><tr><td>宇宙物理学-2</td><td class="n">22</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td></td><td><span class="bar"><span class="m" style="width:0%"></span><span class="v" style="width:0%"></span></span></td><td></td><td></td></tr></tbody></table></div></details><p class="note">問題ごとの表は、記録のあるファイルにだけ付けている</p><h2 id="kan">苦手な観点</h2><p class="note">各問題の最新の記録で、観点ごとに落とした点（小問1つ4点満点。括弧内は小問の数）</p><p>なし</p><h2 id="weak">苦手な概念</h2><p>なし</p><h2 id="hist">学習の履歴（新しい順に最大 100 件）</h2><p class="note">このページは毎日 3:30（PC が眠っていれば起きたとき）に作り直す。記録を足した直後に見るときは ./tools/kiroku.ps1 html（/shinchoku・/saiten の最後にも作り直す）</p></body></html>
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>学習記録 - 宇宙物理学</title><style>:root{--bg:#f8fafc;--card:#fff;--line:#e2e8f0;--text:#0f172a;--sub:#64748b;--acc:#4f46e5;--acc2:#eef2ff;--m:#16a34a;--v:#f97316;--rS:#166534;--rA:#15803d;--rB:#22a35a;--rC:#d97706;--rD:#ea580c;--rE:#dc2626;--rad:12px;--sh:0 1px 2px rgba(15,23,42,.05),0 1px 3px rgba(15,23,42,.07)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;overflow-x:clip}
+a{color:var(--acc);text-decoration:none}
+.hd{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+.hd .row{display:flex;align-items:baseline;gap:10px;padding:8px 14px 2px;max-width:1320px;margin:0 auto}
+.hd h1{font-size:1.05em;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd .date{margin-left:auto;font-size:.78em;color:var(--sub);white-space:nowrap}
+.hd.solo .row{padding-bottom:8px}
+.pills{display:flex;gap:6px;overflow-x:auto;padding:5px 14px 8px;scrollbar-width:none;max-width:1320px;margin:0 auto}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;padding:3px 12px;border-radius:999px;background:#f1f5f9;border:1px solid var(--line);color:#334155;font-size:.82em;white-space:nowrap}
+.pill.rec{font-weight:600}.pill.cur{background:var(--acc);border-color:var(--acc);color:#fff}
+main{padding:12px 14px 92px;min-width:0}
+main.solo{max-width:900px;margin:0 auto}
+.sec{margin:0 0 28px;min-width:0}
+.sec>h2{font-size:1.15em;margin:6px 0 10px}
+h3.sub{font-size:.95em;color:#334155;margin:18px 0 8px}
+.card h3.sub{margin-top:0}
+[id]{scroll-margin-top:100px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--sh)}
+.pad{padding:12px 14px;margin-bottom:12px;min-width:0}
+.note{font-size:.8em;color:var(--sub);margin:4px 0 8px}
+.empty{padding:14px;color:var(--sub);text-align:center;font-size:.9em}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi a{display:block;padding:12px 14px;color:inherit}
+.kpi b{display:block;font-size:2.1em;line-height:1.15}.kpi .due b{color:var(--rE)}.kpi .rest b{color:var(--rC)}
+.kpi span{font-size:.85em;color:var(--sub)}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
+.mini div{padding:6px 12px;display:flex;align-items:baseline;justify-content:space-between;gap:6px}
+.mini b{font-size:1.15em}.mini span{font-size:.78em;color:var(--sub)}
+.act{padding:10px 12px;margin-bottom:12px;min-width:0}
+.streak{display:flex;flex-wrap:wrap;gap:2px 14px;align-items:baseline;font-size:.88em}
+.streak b{color:var(--acc);font-size:1.05em}
+.chart{overflow-x:auto;margin:8px 0 4px;scrollbar-width:thin}
+.cols{display:flex;align-items:flex-end;gap:4px;height:132px;width:max-content;padding:0 2px}
+.cols .c{flex:0 0 22px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:10px;color:var(--sub);line-height:1.3}
+.cols i{display:block;width:14px}.cols i.m{background:var(--m)}.cols i.v{background:var(--v)}
+.cols em{font-style:normal;color:#334155}
+.cols span{margin-top:2px;white-space:nowrap}
+.cols .today span{color:var(--acc);font-weight:700}
+.lg{font-size:.75em;color:var(--sub)}.lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin:0 4px 0 10px;vertical-align:-1px}
+.lg i:first-child{margin-left:0}
+.lg i.m,.pbar i.m{background:var(--m)}.lg i.v,.pbar i.v{background:var(--v)}
+.tasks{display:grid;gap:10px;min-width:0}
+.task,.hrow{padding:12px 14px;border-left:4px solid #cbd5e1;min-width:0}
+.rS,.rA,.rB{border-left-color:var(--m)!important}.rC{border-left-color:var(--rC)!important}.rD{border-left-color:var(--rD)!important}.rE{border-left-color:var(--rE)!important}
+.th{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-size:.8em;color:var(--sub)}
+.ord{background:var(--text);color:#fff;border-radius:6px;min-width:1.7em;text-align:center;font-weight:700}
+.tag{background:var(--acc2);color:var(--acc);border-radius:6px;padding:0 8px;font-weight:600}
+.fn{color:#334155;font-weight:600}.lv{border:1px solid var(--line);border-radius:6px;padding:0 6px}
+.badge{display:inline-block;min-width:1.7em;text-align:center;border-radius:6px;color:#fff;font-weight:700;font-size:.95em;padding:0 4px}
+.bS{background:var(--rS)}.bA{background:var(--rA)}.bB{background:var(--rB)}.bC{background:var(--rC)}.bD{background:var(--rD)}.bE{background:var(--rE)}
+.late{color:var(--rE);font-weight:700}
+.concept{font-size:1.02em;font-weight:700;margin:6px 0 4px;line-height:1.65;overflow-wrap:anywhere;min-width:0}
+.concept.sm{font-size:.92em;font-weight:600}
+.ks{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
+.k{font-size:.75em;padding:0 8px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.k0,.k1{color:var(--rA);border-color:#bbf7d0;background:#f0fdf4}.k2{color:#b45309;border-color:#fde68a;background:#fffbeb}.k3{color:#c2410c;border-color:#fed7aa;background:#fff7ed}.k4{color:#b91c1c;border-color:#fecaca;background:#fef2f2}
+.memo{background:#f1f5f9;border-radius:8px;padding:6px 10px;font-size:.84em;margin-top:6px;line-height:1.6;overflow-wrap:anywhere}
+.meta{font-size:.75em;color:var(--sub);margin-top:6px}
+.tf{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{flex:1 1 0;min-height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:var(--acc);color:#fff;font-weight:600;font-size:.88em;padding:0 12px;white-space:nowrap}
+.btn.ghost{background:#fff;color:var(--acc);border:1px solid #c7d2fe}
+.tf.sm .btn{flex:0 0 auto;min-height:36px;font-size:.8em}
+.tools{display:none;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.js .tools{display:flex}
+.seg{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:3px;max-width:100%;overflow-x:auto}
+.seg button{border:0;background:transparent;padding:4px 10px;border-radius:8px;font:inherit;font-size:.8em;color:#334155;min-height:34px;white-space:nowrap;cursor:pointer}
+.seg button.on{background:#fff;color:var(--acc);font-weight:600;box-shadow:var(--sh)}
+select{font:inherit;font-size:.82em;padding:4px 8px;border-radius:8px;border:1px solid var(--line);background:#fff;min-height:36px;max-width:100%}
+.more{display:block;width:100%;min-height:44px;margin-top:10px;border:1px dashed #94a3b8;background:#fff;border-radius:10px;color:var(--acc);font:inherit;font-weight:600;font-size:.9em;cursor:pointer}
+.hide{display:none!important}
+.hb{display:grid;grid-template-columns:6.5em minmax(0,1fr) auto;gap:8px;align-items:center;font-size:.85em;margin:7px 0}
+.hb .tr{height:10px;background:#f1f5f9;border-radius:5px;overflow:hidden}.hb .tr i{display:block;height:100%;background:var(--v);border-radius:5px}
+.hb.wk .tr i{background:var(--acc)}
+.hb .vl{color:var(--sub);font-size:.9em;white-space:nowrap}
+.pbar{display:flex;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin:5px 0}
+.pr{display:block;padding:8px 0;border-top:1px solid var(--line);color:inherit}.pr:first-of-type{border-top:0}
+.pn{font-weight:600}.pv{font-size:.78em;color:var(--sub)}
+.tw{max-width:100%;overflow-x:auto}
+table.tb{border-collapse:collapse;font-size:.82em;background:#fff;min-width:100%}
+.tb th,.tb td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:right;white-space:nowrap}
+.tb th:first-child,.tb td:first-child{text-align:left}.tb th{color:var(--sub);font-weight:600}
+.up{color:var(--m);font-weight:700}.down{color:var(--rE);font-weight:700}
+details.grp{margin-bottom:10px;overflow:hidden}
+details.grp>summary{cursor:pointer;padding:10px 14px}
+details.grp[open]>summary{border-bottom:1px solid var(--line)}
+.gb{padding:6px 14px 12px}
+.frow{padding:8px 0;border-top:1px solid var(--line)}.frow:first-child{border-top:0}
+.prow{border:1px solid var(--line);border-left:4px solid #cbd5e1;border-radius:10px;margin:8px 0;padding:8px 12px;background:#fff;min-width:0}
+.hist{display:inline-flex;gap:2px;flex-wrap:wrap}
+.nchips{display:flex;flex-wrap:wrap;gap:6px}
+.nchips a{padding:4px 12px;border-radius:999px;background:var(--acc2);font-size:.82em;min-height:36px;display:inline-flex;align-items:center}
+.nchips b{width:100%;font-size:.82em;color:#334155;margin-top:4px}
+.warn{color:var(--rE);font-size:.85em}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:.84em;line-height:1.6}
+mjx-container{max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle}
+mjx-container[display="true"]{display:block}
+.bn{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:rgba(255,255,255,.98);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.bn a{flex:1 1 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:56px;color:var(--sub);font-size:.68em}
+.bn a.on{color:var(--acc);font-weight:700}
+.bn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:768px){.js .sec{display:none}.js .sec.on{display:block}}
+@media (min-width:769px){
+.layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;max-width:1320px;margin:0 auto;padding:0 20px}
+.hd .row,.pills{padding-left:20px;padding-right:20px}
+.bn{position:sticky;top:100px;align-self:start;flex-direction:column;gap:2px;margin-top:16px;padding:8px;border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);background:#fff}
+.bn a{flex:0 0 auto;flex-direction:row;justify-content:flex-start;gap:10px;min-height:42px;padding:0 12px;border-radius:8px;font-size:.92em}
+.bn a.on{background:var(--acc2)}
+main{padding:16px 0 40px}
+main.solo{padding:16px 20px 40px}
+.top-grid,.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.mini{grid-template-columns:repeat(4,1fr)}
+.mini div{flex-direction:column;align-items:center;gap:0}
+.tasks{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));align-items:start}
+}</style><meta name="robots" content="noindex, nofollow"><script>window.MathJax={tex:{inlineMath:[['$','$']],packages:{'[+]':['physics']},macros:{vect:['\\boldsymbol{#1}',1],tens:['\\mathsf{#1}',1],Tr:'\\operatorname{Tr}',dd:'\\mathrm{d}',ii:'\\mathrm{i}',ee:'\\mathrm{e}'}},loader:{load:['[tex]/physics']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head><body><script>document.body.className="js"</script><header class="hd"><div class="row"><h1>宇宙物理学</h1><span class="date">基準日 2026-11-25</span></div><nav class="pills"><a class="pill" href="index.html">全体</a><a class="pill rec" href="kamoku-%E6%95%B0%E7%90%86%E7%89%A9%E7%90%861.html">数理物理1</a><a class="pill rec" href="kamoku-%E6%95%B0%E7%90%86%E7%89%A9%E7%90%862.html">数理物理2</a><a class="pill rec" href="kamoku-%E7%B4%A0%E7%B2%92%E5%AD%90%E7%89%A9%E7%90%86%E5%AD%A6.html">素粒子物理学</a><a class="pill rec" href="kamoku-%E9%9B%BB%E7%A3%81%E6%B0%97%E5%AD%A61.html">電磁気学1</a><a class="pill rec" href="kamoku-%E9%9B%BB%E7%A3%81%E6%B0%97%E5%AD%A62.html">電磁気学2</a><a class="pill rec" href="kamoku-%E7%B5%B1%E8%A8%88%E5%8A%9B%E5%AD%A61.html">統計力学1</a><a class="pill rec" href="kamoku-%E7%B5%B1%E8%A8%88%E5%8A%9B%E5%AD%A62.html">統計力学2</a><a class="pill rec" href="kamoku-%E7%86%B1%E7%89%A9%E7%90%86%E5%AD%A6.html">熱物理学</a><a class="pill rec" href="kamoku-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A61.html">量子力学1</a><a class="pill rec" href="kamoku-%E9%80%A3%E7%B6%9A%E4%BD%93%E5%8A%9B%E5%AD%A6.html">連続体力学</a><a class="pill" href="kamoku-%E3%83%97%E3%83%A9%E3%82%BA%E3%83%9E%E7%89%A9%E7%90%86%E5%AD%A6.html">プラズマ物理学</a><span class="pill cur">宇宙物理学</span><a class="pill" href="kamoku-%E8%A7%A3%E6%9E%90%E5%8A%9B%E5%AD%A6.html">解析力学</a><a class="pill" href="kamoku-%E5%8E%9F%E5%AD%90%E6%A0%B8%E7%89%A9%E7%90%86%E5%AD%A6.html">原子核物理学</a><a class="pill" href="kamoku-%E7%B4%A0%E7%B2%92%E5%AD%90%E5%8E%9F%E5%AD%90%E6%A0%B8%E7%89%A9%E7%90%86%E5%85%A5%E9%96%80.html">素粒子原子核物理入門</a><a class="pill" href="kamoku-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62.html">量子力学2</a></nav></header><div class="layout"><nav class="bn"><a href="#today"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span>今日</span></a><a href="#graph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M6 17v-5M11 17V6M16 17v-8"/></svg><span>グラフ</span></a><a href="#weak"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span>苦手</span></a><a href="#all"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg><span>一覧</span></a><a href="#hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>履歴</span></a></nav><main><section class="sec on" id="today"><h2>今日の復習</h2><div class="top-grid"><div><div class="kpi"><a class="card due" href="#picks"><b>0</b><span>今日の復習</span></a><a class="card rest" href="#rest"><b>0</b><span>たまっている</span></a></div><div class="mini"><div class="card"><span>問題数</span><b>22</b></div><div class="card"><span>着手</span><b>0</b></div><div class="card"><span>習得</span><b>0</b></div><div class="card"><span>要復習</span><b>0</b></div></div></div><div class="card act"><div class="streak"><span>今日・昨日の記録はない</span><span>直近7日 0 問（その前の7日 0 問）</span></div><div class="chart"><div class="cols"><div class="c" title="2026-10-29: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>10/29</span></div><div class="c" title="2026-10-30: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>30</span></div><div class="c" title="2026-10-31: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>31</span></div><div class="c" title="2026-11-01: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>11/1</span></div><div class="c" title="2026-11-02: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>2</span></div><div class="c" title="2026-11-03: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>3</span></div><div class="c" title="2026-11-04: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>4</span></div><div class="c" title="2026-11-05: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>5</span></div><div class="c" title="2026-11-06: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>6</span></div><div class="c" title="2026-11-07: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>7</span></div><div class="c" title="2026-11-08: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>8</span></div><div class="c" title="2026-11-09: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>9</span></div><div class="c" title="2026-11-10: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>10</span></div><div class="c" title="2026-11-11: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>11</span></div><div class="c" title="2026-11-12: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>12</span></div><div class="c" title="2026-11-13: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>13</span></div><div class="c" title="2026-11-14: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>14</span></div><div class="c" title="2026-11-15: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>15</span></div><div class="c" title="2026-11-16: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>16</span></div><div class="c" title="2026-11-17: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>17</span></div><div class="c" title="2026-11-18: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>18</span></div><div class="c" title="2026-11-19: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>19</span></div><div class="c" title="2026-11-20: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>20</span></div><div class="c" title="2026-11-21: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>21</span></div><div class="c" title="2026-11-22: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>22</span></div><div class="c" title="2026-11-23: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>23</span></div><div class="c" title="2026-11-24: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>24</span></div><div class="c today" title="2026-11-25: 0問（習得 0・要復習 0）"><em></em><i class="v" style="height:0px"></i><i class="m" style="height:0px"></i><span>25</span></div></div></div><div class="lg"><i class="m"></i>習得（S・A・B）<i class="v"></i>要復習（C・D・E）</div></div></div><p class="card empty">記録はまだない。解答の写真を保存して /saiten 科目 回 を実行する</p><h3 class="sub" id="picks">今日の問題</h3><p class="card empty">2026-11-25 に復習すべき問題はない。予定のある問題もない</p></section><section class="sec" id="graph"><h2>学習グラフ</h2><div class="two"><div><div class="card pad"><h3 class="sub">週ごとの問題数（直近4週）</h3><div class="hb wk"><span>11/19〜11/25</span><span class="tr"><i style="width:0%"></i></span><span class="vl">0 問</span></div><div class="hb wk"><span>11/12〜11/18</span><span class="tr"><i style="width:0%"></i></span><span class="vl">0 問</span></div><div class="hb wk"><span>11/5〜11/11</span><span class="tr"><i style="width:0%"></i></span><span class="vl">0 問</span></div><div class="hb wk"><span>10/29〜11/4</span><span class="tr"><i style="width:0%"></i></span><span class="vl">0 問</span></div></div><div class="card pad"><h3 class="sub">復習の効果</h3><p class="note">2回以上解いた問題の、最初の評価と最新の評価の比較（S が最高、E が最低）</p><p class="empty">解き直した問題はまだない</p></div></div><div><div class="card pad"><h3 class="sub">進み具合</h3><p class="note">緑＝習得（最新評価 S・A・B）、橙＝要復習（C・D・E）、灰＝未着手</p><a class="pr" href="#f-%E5%AE%87%E5%AE%99%E7%89%A9%E7%90%86%E5%AD%A6-2"><span class="pn">宇宙物理学-2</span><span class="pbar"><i class="m" style="width:0%"></i><i class="v" style="width:0%"></i></span><span class="pv">習得 0・要復習 0・未着手 22／全 22 問</span></a></div></div></div></section><section class="sec" id="weak"><h2>苦手分析</h2><div class="two"><div><div class="card pad"><h3 class="sub">観点ごとの失点</h3><p class="note">各問題の最新の記録で、観点ごとに落とした点（小問1つ4点満点。括弧内は小問の数）</p><p class="empty">なし</p></div></div><div></div></div><h3 class="sub" id="weaklist">苦手な概念（最新の評価が C・D・E）</h3><p class="card empty">なし</p></section><section class="sec" id="all"><h2>全問題・たまっている問題</h2><div class="card pad" id="notes"><h3 class="sub">ノート</h3><p class="empty">ノートはまだない（/saiten で採点すると、その回のノートができる）</p></div><h3 class="sub" id="rest">たまっている問題（0 問）</h3><p class="card empty">なし</p><h3 class="sub" id="files">回（章）ごとの記録</h3><p class="note">緑＝習得（最新評価 S・A・B）、橙＝要復習（C・D・E）、灰＝未着手</p><details class="card grp" id="f-%E5%AE%87%E5%AE%99%E7%89%A9%E7%90%86%E5%AD%A6-2"><summary><span class="pn">宇宙物理学-2</span><span class="pbar"><i class="m" style="width:0%"></i><i class="v" style="width:0%"></i></span><span class="pv">習得 0・要復習 0・未着手 22／全 22 問</span></summary><div class="gb"><p class="note">この回はまだ解いていない</p></div></details></section><section class="sec" id="hist"><h2>学習の履歴</h2><div class="tf"><a class="btn ghost" href="kouhyou.html">講評の一覧を開く</a></div><p class="card empty">記録はまだない。解答の写真を保存して /saiten 科目 回 を実行する</p><p class="note">作成 2026-11-25 23:23　基準日 2026-11-25　・　このページは毎日 3:30（PC が眠っていれば起きたとき）に作り直す。記録を足した直後に見るときは ./tools/kiroku.ps1 html（/shinchoku・/saiten の最後にも作り直す）</p></section></main></div><script>
+(function(){
+var d=document;
+var mq=window.matchMedia('(max-width:768px)');
+var secs=[].slice.call(d.querySelectorAll('.sec')),links=[].slice.call(d.querySelectorAll('.bn a'));
+function mark(id){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)})}
+function charts(){[].forEach.call(d.querySelectorAll('.chart'),function(c){c.scrollLeft=c.scrollWidth})}
+function secOf(el){while(el&&!(el.classList&&el.classList.contains('sec')))el=el.parentNode;return el}
+function go(h,first){var el=h?d.getElementById(h):null,s=secOf(el)||secs[0];if(!s)return;
+if(el&&el.tagName==='DETAILS')el.open=true;
+if(mq.matches){secs.forEach(function(x){x.classList.toggle('on',x===s)});charts();if(el&&el!==s){el.scrollIntoView()}else{window.scrollTo(0,0)}}
+else if(el&&!first){el.scrollIntoView()}
+mark(s.id)}
+window.addEventListener('hashchange',function(){go(location.hash.slice(1),false)});
+go(location.hash.slice(1),true);charts();
+if(mq.addEventListener)mq.addEventListener('change',function(){go(location.hash.slice(1),true);charts()});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(mq.matches)return;es.forEach(function(e){if(e.isIntersecting)mark(e.target.id)})},{rootMargin:'-30% 0px -60% 0px'});secs.forEach(function(x){io.observe(x)})}
+var cur=d.querySelector('.pill.cur');if(cur)cur.parentNode.scrollLeft=cur.offsetLeft-60;
+function num(c,k){return +c.getAttribute('data-'+k)||0}
+[].forEach.call(d.querySelectorAll('[data-list]'),function(box){
+var cards=[].slice.call(box.children),lim=num(box,'limit'),open=false,key='prio',f='';
+var tb=d.querySelector('.tools[data-for="'+box.id+'"]'),mb=d.querySelector('.more[data-for="'+box.id+'"]');
+function cmp(a,c){var x=0;if(key==='subj')x=a.getAttribute('data-subj').localeCompare(c.getAttribute('data-subj'),'ja');else if(key==='rank')x=num(c,'rank')-num(a,'rank');else if(key==='late')x=num(c,'late')-num(a,'late');return x||num(a,'ord')-num(c,'ord')}
+function render(){var n=0;cards.slice().sort(cmp).forEach(function(c){box.appendChild(c);var ok=!f||c.getAttribute('data-subj')===f,sh=ok&&(open||!lim||n<lim);if(ok)n++;c.classList.toggle('hide',!sh)});
+if(mb){var r=n-lim;if(!lim||r<=0){mb.classList.add('hide')}else{mb.classList.remove('hide');mb.textContent=open?mb.getAttribute('data-less'):mb.getAttribute('data-more').replace('{0}',r)}}}
+if(tb){var bs=[].slice.call(tb.querySelectorAll('button[data-sort]'));bs.forEach(function(bt){bt.addEventListener('click',function(){key=bt.getAttribute('data-sort');bs.forEach(function(x){x.classList.toggle('on',x===bt)});render()})});
+var sel=tb.querySelector('select');if(sel)sel.addEventListener('change',function(){f=sel.value;open=false;render()})}
+if(mb)mb.addEventListener('click',function(){open=!open;render();if(!open)box.scrollIntoView()});
+render()});
+})();
+</script></body></html>
