@@ -1,0 +1,49 @@
+% 統計力学1 統計力学1-2 問題3（007-rotor） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+\[ H=\frac{p^{2}}{2I}\le E \]
+\[ \therefore\ -\sqrt{2IE}\le p\le\sqrt{2IE} \]
+（図：$(\phi,p)$ 平面に，$0\le\phi\le2\pi$，$-\sqrt{2IE}\le p\le\sqrt{2IE}$ の長方形を描き，その面積を $A(E)$ とする）
+\begin{align*}
+A(E)&=2\sqrt{2IE}\cdot2\pi\\
+&=4\pi\sqrt{2IE}
+\end{align*}
+\[ A(E_{m})=4\pi\hbar m \]
+\[ A(E_{m+1})-A(E_{m})=4\pi\hbar=2h \]
+$m$ と $-m$ の区別のため，$2h$ ごとに2つの状態。
+
+$\therefore$ 位相空間体積 $h$ ごとに1つの状態。
+\toi{2}{◎}{}
+\begin{align*}
+W(U)&=\frac{C(N)\,\sqrt{2IU}^{\,N}(2\pi)^{N}}{h^{N}}\\
+&=\frac{1}{\Gamma(N/2+1)}\left(\frac{2\pi IU\cdot(2\pi)^{2}}{h^{2}}\right)^{N/2}\\
+&=\frac{1}{\Gamma(N/2+1)}\left(\frac{2\pi IU}{\hbar^{2}}\right)^{N/2}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+S&=\kB\log W\\
+&=\kB\biggl[\log\frac{1}{\Gamma(N/2+1)}\\
+&\qquad+\log\left(\frac{2\pi IU}{\hbar^{2}}\right)^{N/2}\biggr]
+\end{align*}
+\begin{align*}
+\frac{S}{\kB}&=-\frac{N}{2}\log\frac{N}{2}+\frac{N}{2}+\frac{N}{2}\log\frac{2\pi IU}{\hbar^{2}}\\
+&=\frac{N}{2}\left(\log\frac{4\pi IU}{N\hbar^{2}}+1\right)
+\end{align*}
+\[ S=\frac{N\kB}{2}\left(\log\frac{4\pi IU}{N\hbar^{2}}+1\right) \]
+\[ \left(\pdv{S}{U}\right)_{V}=\frac{N\kB}{2U}=\frac{1}{T}\qquad\therefore\ U=\frac{N\kB T}{2} \]
+\[ C=\dv{U}{T}=\frac{N\kB}{2} \]
+\toi{4}{◎}{}
+\[ \Omega(U)=\frac{1}{\Gamma(N/2)}\left(\frac{2\pi I}{\hbar^{2}}\right)^{N/2}U^{N/2-1} \]
+\begin{align*}
+&\kB\log[\Omega(U)\,\delta U]-\kB\log W(U)\\
+&=\kB\log\frac{\frac{1}{\Gamma(N/2)}\left(\frac{2\pi I}{\hbar^{2}}\right)^{N/2}U^{N/2-1}\,\delta U}{\frac{1}{\Gamma(N/2+1)}\left(\frac{2\pi I}{\hbar^{2}}\right)^{N/2}U^{N/2}}\\
+&=\kB\log\frac{N}{2}\cdot U^{-1}\,\delta U\\
+&=\kB\log\frac{N}{2U}\,\delta U
+\end{align*}
+$N$ に比例しない……
+\toi{5}{×}{未着手}
+\mikai
+\naze{(4) の $\Omega=(N/(2U))\,W$ と $W\propto U^{N/2}$ から，比は $W(U(1-\eta))/W(U)=(1-\eta)^{N/2}$ で $U$ によらない。常用対数をとり $\log(1-\eta)\simeq-\eta$ を使うと $y\simeq-(N\eta/2)\log_{10}\ee=-\num{1.3e13}$ となる。$U$ 以下の状態のほとんどは上端の薄い殻 $U(1-\eta)<H\le U$ にあるので，殻だけを数える $w=\Omega\,\delta U$ と全体を数える $W$ とで，エントロピーの $N$ に比例する部分は変わらない。}
+%% kizuki
+\item $W\propto U^{N/2}$ で $N$ が巨大なとき，$W(U(1-\eta))/W(U)=(1-\eta)^{N/2}$ は $\eta$ がごく小さくても指数 $N/2$ のせいで桁違いに小さくなる。$U$ 以下の状態のほとんどはエネルギーの上端のごく薄い殻にあり，これが $W$ と $w=\Omega\,\delta U$ が同じエントロピーを与える理由である。
+\item (4) の差 $\kB\log\{N\delta U/(2U)\}$ が $N$ に比例しないことと，(5) の「状態が上端に集中している」ことは，同じ事実の2つの見え方である。(4) まで解けたら，(5) はその式の比をとるだけで進められる。

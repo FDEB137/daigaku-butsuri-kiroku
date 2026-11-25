@@ -1,0 +1,56 @@
+% 統計力学1 統計力学1-2 問題2（060-spin） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+i) $n=0$
+\[ w=1 \]
+ii) $n=1$
+\[ w={}_{4}C_{1}=4 \]
+iii) $n=2$
+\[ w={}_{4}C_{2}=6 \]
+iv) $n=3$
+\[ w={}_{4}C_{3}=4 \]
+v) $n=4$
+\[ w={}_{4}C_{4}=1 \]
+\toi{2}{◎}{}
+\[ w={}_{N}C_{n}=\frac{N!}{n!\,(N-n)!} \]
+\[ S=\kB\log\frac{N!}{n!\,(N-n)!} \]
+\begin{align*}
+\frac{S}{\kB}&=\log N!-\log n!-\log(N-n)!\\
+&=N\log N-N-n\log n+n\\
+&\qquad\kakimachigai{-N-n\log(N-n)}{-(N-n)\log(N-n)}+(N-n)
+\end{align*}
+（$-N$，$+n$，$+(N-n)$ は打ち消し合うとして斜線で消している）
+
+\[ \therefore\ n=Nx,\quad N-n=N(1-x) \]
+\begin{align*}
+&=N\log N-Nx\log Nx-N(1-x)\log(N(1-x))\\
+&=N\log N-Nx\log N-Nx\log x\\
+&\qquad-N\log(N(1-x))+Nx\log(N(1-x))\\
+&=N\log N-Nx\log N-Nx\log x-N\log N\\
+&\qquad-N\log(1-x)+Nx\log N+Nx\log(1-x)\\
+&=-N(x\log x+(1-x)\log(1-x))
+\end{align*}
+（$\log N$ を含む項は打ち消し合うとして斜線で消している）
+\[ S=-N\kB[x\log x+(1-x)\log(1-x)] \]
+\toi{3}{◎}{}
+\[ \frac{1}{T}=\dv{S}{U}=\dv{S}{x}\dv{x}{U}=\frac{1}{N\varepsilon}\dv{S}{x} \]
+\[ \dv{S}{x}=-N\kB\bigl[(x\log x)'+(\underbrace{(1-x)}_{=y}\log(1-x))'\bigr] \]
+\[ (x\log x)'=1\cdot\log x+x\cdot\frac{1}{x}=1+\log x \]
+\[ (y\log y)'=-(1+\log(1-x)) \]
+\begin{align*}
+\frac{1}{T}&=\frac{1}{N\varepsilon}\left(-N\kB\log\frac{x}{1-x}\right)\\
+&=\frac{\kB}{\varepsilon}\log\frac{1-x}{x}
+\end{align*}
+\[ \therefore\ \frac{\varepsilon}{\kB T}=\log\left(\frac{1}{x}-1\right) \]
+\[ \exp\left[\frac{\varepsilon}{\kB T}\right]=\frac{1}{x}-1 \]
+\[ \therefore\ x=\frac{1}{\exp[\varepsilon/(\kB T)]+1} \]
+\toi{4}{◎}{}
+\[ x=\frac{1}{\exp[\varepsilon/(\kB T)]+1}>\frac{1}{2} \]
+\[ \therefore\ 1>\exp\left[\frac{\varepsilon}{\kB T}\right] \]
+\[ \therefore\ 0>\frac{\varepsilon}{\kB T} \]
+$\kB>0$，$\varepsilon>0$ より
+\[ T<0 \]
+$x=1/2$ のとき
+\[ 1=\exp\left[\frac{\varepsilon}{\kB T}\right] \]
+\[ \therefore\ \frac{1}{T}=0 \]
+%% kizuki
