@@ -10,7 +10,7 @@
   \ichirangyou{4}{L1・計算}{◎◎○}{A}{2026-11-21 (3)記述}
   \ichirangyou{\hyperlink{bt-m-012-order}{5}}{L2・計算}{◎◎◎}{S}{2026-10-19 2回目}
   \ichirangyou{6}{L2・計算}{}{未着手}{}
-  \ichirangyou{7}{L3・導出}{◎△◎}{B}{2026-10-29 (2)方針}
+  \ichirangyou{\hyperlink{bt-m-016-stationary}{7}}{L3・導出}{◎△◎}{B}{2026-10-29 (2)方針}
   \ichirangyou{8}{L3・導出}{}{未着手}{}
   \ichirangyou{9}{L4・導出}{}{未着手}{}
 \end{kirokuichiran}
@@ -202,6 +202,116 @@ $\ee^{\ii kx}\cdots\hbar k$，\quad $\ee^{-\ii kx}\cdots-\hbar k$
 \item 交換子の和は $\sum_{j}(\hat{p}_{j}\hat{x}_{j}-\hat{x}_{j}\hat{p}_{j})f$ と成分ごとの差に分けて1行書き，(1) の $\hat{x}\hat{p}_{x}-\hat{p}_{x}\hat{x}=\ii\hbar$ と順序が同じか逆かを見てから符号を決める。
 \item 具体的な関数で確かめるときは，(2) と同じ順序の差をとって比べる。順序をそろえていれば (2) の符号の誤りに気付けた。
 \end{maekizuki}
+\end{mondai}
+
+\level{3}
+% toubun: kiroku\toubun\量子力学1\016_2026-10-29.tex
+\mondaibangou{7}
+\begin{mondai}{016-stationary}{導出}{時間を含むシュレーディンガー方程式と平面波の分散関係，重ね合わせた波の山の速さ（群速度）と定常状態の重ね合わせの時間変化}
+\begin{teisuu}
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  真空中の光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+この問題では，要点整理の時間を含むシュレーディンガー方程式を用いる。1次元で考える。
+  \begin{shoumon}
+    \item 自由粒子（$V=0$）で $\psi_{k}(x,t)=\exp[\ii(kx-\omega t)]$ が時間を含むシュレーディンガー方程式の解となるための $\omega$ と $k$ の関係を求めよ。また，$E=\hbar\omega$，$p=\hbar k$ を用いてその意味を述べよ。
+    \item $0<k_{1}<k_{2}$ とし，$\omega_{1}$，$\omega_{2}$ は (1) の関係を満たすとして，$\psi=\psi_{k_{1}}+\psi_{k_{2}}$ を考える。$\abs{\psi}^{2}$ を $x$ と $t$ の実関数で表し，$\abs{\psi}^{2}$ の山が動く速さ $v_{\mathrm{g}}$ を $k_{1}$，$k_{2}$，$m$，$\hbar$ で表せ。$v_{\mathrm{g}}$ を，2つの平面波に対応する粒子の速さ $\hbar k_{1}/m$，$\hbar k_{2}/m$ と比べよ。さらに，$k_{1}$ と $k_{2}$ が近いとき，$v_{\mathrm{g}}$ は平面波1つの位相速度の何倍かを答えよ。
+    \item 幅 $L$ の無限に深い井戸（要点整理）の $\phi_{n}(x)=\sin(n\pi x/L)$ を用いて，$\psi_{n}(x,t)=\phi_{n}(x)\ee^{-\ii E_{n}t/\hbar}$ とおく。$\abs{\psi_{n}}^{2}$ が時間によらないことを示せ。また，$\psi=\psi_{1}+\psi_{2}$ について $\abs{\psi}^{2}$ を求め，$\abs{\psi}^{2}$ が時間変化する角振動数を求めよ。この角振動数を $2\pi$ で割った振動数と，粒子が $n=2$ から $n=1$ の状態に移るときに放出される光子の振動数との関係を述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-29 B ◎△◎}
+\begin{kotaeutsushi}{2026-10-29}
+\toi{1}{◎}{}
+\[ \ii\hbar\pdv{\psi}{t}=\hat{H}\psi \]
+\begin{align*}
+\ii\hbar\pdv{\psi_{k}}{t}&=\hbar\omega\exp[\ii(kx-\omega t)]\\
+\hat{H}\psi_{k}&=\frac{\hat{p}^{2}}{2m}\psi_{k}\\
+&=\frac{1}{2m}\left(-\ii\hbar\pdv{x}\right)^{2}\psi_{k}\\
+&=-\frac{\hbar^{2}}{2m}(\ii k)^{2}\exp[\ii(kx-\omega t)]\\
+&=\frac{\hbar^{2}k^{2}}{2m}\exp[\ii(kx-\omega t)]
+\end{align*}
+\[ \hbar\omega=\frac{\hbar^{2}k^{2}}{2m}\qquad E=\frac{p^{2}}{2m} \]
+全エネルギーが運動エネルギーのみ。
+\toi{2}{△}{方針}
+\begin{align*}
+\abs{\psi}^{2}&=\left(\psi_{k_{1}}^{*}+\psi_{k_{2}}^{*}\right)\left(\psi_{k_{1}}+\psi_{k_{2}}\right)\\
+&=\psi_{k_{1}}^{*}\psi_{k_{1}}+\psi_{k_{2}}^{*}\psi_{k_{2}}\\
+&\qquad+\psi_{k_{1}}^{*}\psi_{k_{2}}+\psi_{k_{2}}^{*}\psi_{k_{1}}\\
+&=2+\exp[\ii((k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t)]\\
+&\qquad+\exp[\ii((k_{1}-k_{2})x-(\omega_{1}-\omega_{2})t)]
+\end{align*}
+\naze{問いは $x$ と $t$ の実関数で表すことである。2つの指数関数は互いに複素共役なので，$\ee^{\ii\theta}+\ee^{-\ii\theta}=2\cos\theta$ で $\abs{\psi}^{2}=2+2\cos[(k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t]$ までまとめる。}
+\begin{align*}
+v_{\mathrm{g}}&=\ayamari{\frac{\dd(\omega_{2}-\omega_{1})}{\dd(k_{2}-k_{1})}}{\frac{\omega_{2}-\omega_{1}}{k_{2}-k_{1}}}\\
+&=\frac{\dd}{\dd(k_{2}-k_{1})}\left(\frac{\hbar k_{2}^{2}}{2m}-\frac{\hbar k_{1}^{2}}{2m}\right)\\
+&=\frac{\dd}{\dd(k_{2}-k_{1})}\,\frac{\hbar}{2m}(k_{2}-k_{1})(k_{2}+k_{1})\\
+&=\frac{\hbar}{2m}(k_{1}+k_{2})
+\end{align*}
+\naze{山は $\cos$ の中身（位相の差）が $2\pi$ の整数倍の点で，その点は $x=[(\omega_{2}-\omega_{1})/(k_{2}-k_{1})]\,t+\text{定数}$ と動く。山の速さは差の比で，微分ではない。以降も微分の形で書いているが，計算は実際には割り算になっていて結果は正しい。}
+$\hbar k_{1}/m$ と $\hbar k_{2}/m$ の平均。$k_{1}=k_{2}$ のとき $v_{\mathrm{g}}=\hbar k/m$，\ayamari{1倍}{約2倍}。
+\naze{平面波1つの位相速度は (1) の $\omega=\hbar k^{2}/(2m)$ から $\omega/k=\hbar k/(2m)$ で，$\hbar k/m$ ではない（$\hbar k/m$ は粒子の速さ）。$k_{1}\approx k_{2}\approx k$ のとき $v_{\mathrm{g}}\approx\hbar k/m=2\,\omega/k$ で，位相速度の約2倍である。}
+\toi{3}{◎}{}
+\begin{align*}
+\abs{\psi_{n}}^{2}&=\phi_{n}^{*}\ee^{\ii E_{n}t/\hbar}\phi_{n}\ee^{-\ii E_{n}t/\hbar}\\
+&=\phi_{n}^{*}\phi_{n}\\
+&=\sin^{2}\frac{n\pi x}{L}
+\end{align*}
+より $t$ に依存しない。
+\begin{align*}
+\abs{\psi}^{2}&=\abs{\psi_{1}}^{2}+\abs{\psi_{2}}^{2}+\psi_{1}^{*}\psi_{2}+\psi_{2}^{*}\psi_{1}\\
+&=\sin^{2}\frac{\pi x}{L}+\sin^{2}\frac{2\pi x}{L}+\psi_{1}^{*}\psi_{2}+\psi_{2}^{*}\psi_{1}
+\end{align*}
+\begin{align*}
+\psi_{1}^{*}\psi_{2}&=\phi_{1}^{*}\phi_{2}\ee^{-\ii(E_{2}-E_{1})t/\hbar}\\
+\psi_{2}^{*}\psi_{1}&=\phi_{2}^{*}\phi_{1}\ee^{-\ii(E_{1}-E_{2})t/\hbar}
+\end{align*}
+\begin{align*}
+\abs{\psi}^{2}&=\sin^{2}\frac{\pi x}{L}+\sin^{2}\frac{2\pi x}{L}+\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\\
+&\qquad\times\left(\ee^{-\ii(E_{2}-E_{1})t/\hbar}+\ee^{-\ii(E_{1}-E_{2})t/\hbar}\right)
+\end{align*}
+\[ \frac{\abs{E_{2}-E_{1}}}{\hbar} \]
+\[ \frac{\abs{E_{2}-E_{1}}}{h}=\frac{\Delta E}{h}=\nu \]
+振動数と一致。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 位相速度は平面波1つの位相 $kx-\omega t$ が一定の点の速さ $\omega/k$ で，自由粒子では $\hbar k/(2m)$，粒子の速さ $\hbar k/m$ の半分である。「何倍か」と問われたら，(1) の $\omega(k)$ から $\omega/k$ を1行で計算してから比べる。
+\item \mae{第2章 問題1・10-14} 山の速さは「位相（の差）$=$ 一定」の式を書き，$x$ を $t$ で表して出す。2つの平面波では差の比 $(\omega_{2}-\omega_{1})/(k_{2}-k_{1})$ で，$k_{2}\to k_{1}$ の極限が群速度 $\dv{\omega}{k}$ になる。前回も位相一定の根拠を書き落としたので，速さを出す前にまずこの1行を書く。
+\item 「実関数で表せ」と問われたら，複素共役どうしの和を $\ee^{\ii\theta}+\ee^{-\ii\theta}=2\cos\theta$ でまとめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 平面波を時間を含むシュレーディンガー方程式に代入して $\omega$ と $k$ の関係を得る。重ね合わせの $\abs{\psi}^{2}$ は交差項に位相の差が残るので，その位相の差が一定の点の動きから山の速さを求める。定常状態の重ね合わせでは，交差項にエネルギーの差に比例する角振動数が残る。
+\keisan
+\shoumonkai{1} $\psi_{k}$ を代入する。
+\begin{align*}
+  \text{左辺}&=\ii\hbar\pdv{\psi_{k}}{t}=\ii\hbar(-\ii\omega)\psi_{k}=\hbar\omega\,\psi_{k},\\
+  \text{右辺}&=-\frac{\hbar^{2}}{2m}\pdv[2]{\psi_{k}}{x}=\frac{\hbar^{2}k^{2}}{2m}\psi_{k}.
+\end{align*}
+$\psi_{k}\neq0$ なので $\hbar\omega=\hbar^{2}k^{2}/(2m)$，すなわち $\omega=\hbar k^{2}/(2m)$。$E=\hbar\omega$，$p=\hbar k$ を使うと $E=p^{2}/(2m)$ で，自由粒子のエネルギーと運動量の関係を表す。
+
+\shoumonkai{2} $\theta_{j}=k_{j}x-\omega_{j}t$ とおくと $\psi=\ee^{\ii\theta_{1}}+\ee^{\ii\theta_{2}}$ で，
+\[ \abs{\psi}^{2}=1+1+\ee^{\ii(\theta_{2}-\theta_{1})}+\ee^{-\ii(\theta_{2}-\theta_{1})}=2+2\cos\left[(k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t\right] \]
+山は位相の差 $\theta_{2}-\theta_{1}$ が $2\pi$ の整数倍の点で，その点は $x=(\omega_{2}-\omega_{1})t/(k_{2}-k_{1})+\text{定数}$ と動く。(1) の関係を使うと
+\[ v_{\mathrm{g}}=\frac{\omega_{2}-\omega_{1}}{k_{2}-k_{1}}=\frac{\hbar(k_{2}^{2}-k_{1}^{2})}{2m(k_{2}-k_{1})}=\frac{\hbar(k_{1}+k_{2})}{2m} \]
+これは2つの粒子の速さ $\hbar k_{1}/m$ と $\hbar k_{2}/m$ の平均である。$k_{1}\approx k_{2}\approx k$ のとき $v_{\mathrm{g}}\approx\hbar k/m$ で，これは要点整理の群速度 $\dv{\omega}{k}=\hbar k/m$ に当たる。平面波1つの位相速度は $\omega/k=\hbar k/(2m)$ なので，$v_{\mathrm{g}}$ はその約2倍である。
+
+\shoumonkai{3} $\theta$ が実数なら $\abs{\ee^{-\ii\theta}}=1$ なので，$\abs{\psi_{n}}^{2}=\phi_{n}^{2}=\sin^{2}(n\pi x/L)$ で時間によらない。$\psi=\psi_{1}+\psi_{2}$ では，$\phi_{n}$ が実数であることを使って
+\begin{align*}
+  \abs{\psi}^{2}&=\phi_{1}^{2}+\phi_{2}^{2}+\phi_{1}\phi_{2}\left(\ee^{-\ii(E_{2}-E_{1})t/\hbar}+\ee^{\ii(E_{2}-E_{1})t/\hbar}\right)\\
+  &=\sin^{2}\frac{\pi x}{L}+\sin^{2}\frac{2\pi x}{L}+2\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\cos\frac{(E_{2}-E_{1})t}{\hbar}.
+\end{align*}
+$\abs{\psi}^{2}$ は角振動数 $\Omega=(E_{2}-E_{1})/\hbar$ で時間変化する。振動数は $\Omega/(2\pi)=(E_{2}-E_{1})/h$ で，$n=2$ から $n=1$ への遷移で放出される光子の振動数 $\nu$（$h\nu=E_{2}-E_{1}$）と一致する。
+\kotae{\shoumonkai{1} $\omega=\frac{\hbar k^{2}}{2m}$（$E=p^{2}/(2m)$ を表す） \shoumonkai{2} $\abs{\psi}^{2}=2+2\cos[(k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t]$，$v_{\mathrm{g}}=\frac{\hbar(k_{1}+k_{2})}{2m}$（2つの粒子の速さの平均），位相速度の約2倍 \shoumonkai{3} $\abs{\psi_{n}}^{2}=\sin^{2}(n\pi x/L)$；$\abs{\psi}^{2}=\sin^{2}(\pi x/L)+\sin^{2}(2\pi x/L)+2\sin(\pi x/L)\sin(2\pi x/L)\cos[(E_{2}-E_{1})t/\hbar]$，角振動数 $(E_{2}-E_{1})/\hbar$，振動数は光子の振動数 $(E_{2}-E_{1})/h$ に等しい}
+\begin{ronten}
+  \item \shoumonkai{1} $\psi_{k}\neq0$ なので両辺の係数を比べてよいことと，得た関係を $E=\hbar\omega$，$p=\hbar k$ で書き直すと自由粒子のエネルギーと運動量の関係になることを述べる。
+  \item \shoumonkai{2} $\abs{\psi}^{2}$ の山は位相の差 $\theta_{2}-\theta_{1}$ が $2\pi$ の整数倍の点であり，その点の動く速さを $v_{\mathrm{g}}$ としたことを書く。
+  \item \shoumonkai{3} $E_{n}t/\hbar$ が実数なので位相因子の絶対値が1であることと，$\phi_{n}$ が実数であることを使って交差項を $\cos$ にまとめたことを書く。
+  \item \shoumonkai{3} 光子の振動数と結びつける根拠として，放出される光子のエネルギーが2つの準位のエネルギーの差に等しいこと（エネルギー保存）を述べる。
+\end{ronten}
+\kenzan 次元：$\hbar k^{2}/m$ は $(\unit{\kilogram\metre\squared\per\second})(\unit{\per\metre\squared})/\unit{\kilogram}=\unit{\per\second}$。$k_{2}\to k_{1}$ で $v_{\mathrm{g}}\to\hbar k_{1}/m$ となり，粒子の速さに一致する。$\abs{\psi}^{2}$ は0から4の間の値をとる。\shoumonkai{3} で時間平均をとると交差項が消え，$\phi_{1}^{2}+\phi_{2}^{2}$ が残る。$x=L/2$ では $\phi_{2}=0$ なので，交差項はそこで振動しない。
+\tsumazuki 定常状態1つの位相因子 $\ee^{-\ii E_{n}t/\hbar}$ は $\abs{\psi_{n}}^{2}$ に現れない。時間変化が見えるのは，エネルギーの異なる状態を重ね合わせたときだけである。
+\end{tadashii}
 \end{mondai}
 
 \noteowari

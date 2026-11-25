@@ -1,0 +1,57 @@
+% 量子力学1 量子力学1-2 問題7（016-stationary。当時は問題5） 解いた日 2026-10-29
+%% kotae
+\toi{1}{◎}{}
+\[ \ii\hbar\pdv{\psi}{t}=\hat{H}\psi \]
+\begin{align*}
+\ii\hbar\pdv{\psi_{k}}{t}&=\hbar\omega\exp[\ii(kx-\omega t)]\\
+\hat{H}\psi_{k}&=\frac{\hat{p}^{2}}{2m}\psi_{k}\\
+&=\frac{1}{2m}\left(-\ii\hbar\pdv{x}\right)^{2}\psi_{k}\\
+&=-\frac{\hbar^{2}}{2m}(\ii k)^{2}\exp[\ii(kx-\omega t)]\\
+&=\frac{\hbar^{2}k^{2}}{2m}\exp[\ii(kx-\omega t)]
+\end{align*}
+\[ \hbar\omega=\frac{\hbar^{2}k^{2}}{2m}\qquad E=\frac{p^{2}}{2m} \]
+全エネルギーが運動エネルギーのみ。
+\toi{2}{△}{方針}
+\begin{align*}
+\abs{\psi}^{2}&=\left(\psi_{k_{1}}^{*}+\psi_{k_{2}}^{*}\right)\left(\psi_{k_{1}}+\psi_{k_{2}}\right)\\
+&=\psi_{k_{1}}^{*}\psi_{k_{1}}+\psi_{k_{2}}^{*}\psi_{k_{2}}\\
+&\qquad+\psi_{k_{1}}^{*}\psi_{k_{2}}+\psi_{k_{2}}^{*}\psi_{k_{1}}\\
+&=2+\exp[\ii((k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t)]\\
+&\qquad+\exp[\ii((k_{1}-k_{2})x-(\omega_{1}-\omega_{2})t)]
+\end{align*}
+\naze{問いは $x$ と $t$ の実関数で表すことである。2つの指数関数は互いに複素共役なので，$\ee^{\ii\theta}+\ee^{-\ii\theta}=2\cos\theta$ で $\abs{\psi}^{2}=2+2\cos[(k_{2}-k_{1})x-(\omega_{2}-\omega_{1})t]$ までまとめる。}
+\begin{align*}
+v_{\mathrm{g}}&=\ayamari{\frac{\dd(\omega_{2}-\omega_{1})}{\dd(k_{2}-k_{1})}}{\frac{\omega_{2}-\omega_{1}}{k_{2}-k_{1}}}\\
+&=\frac{\dd}{\dd(k_{2}-k_{1})}\left(\frac{\hbar k_{2}^{2}}{2m}-\frac{\hbar k_{1}^{2}}{2m}\right)\\
+&=\frac{\dd}{\dd(k_{2}-k_{1})}\,\frac{\hbar}{2m}(k_{2}-k_{1})(k_{2}+k_{1})\\
+&=\frac{\hbar}{2m}(k_{1}+k_{2})
+\end{align*}
+\naze{山は $\cos$ の中身（位相の差）が $2\pi$ の整数倍の点で，その点は $x=[(\omega_{2}-\omega_{1})/(k_{2}-k_{1})]\,t+\text{定数}$ と動く。山の速さは差の比で，微分ではない。以降も微分の形で書いているが，計算は実際には割り算になっていて結果は正しい。}
+$\hbar k_{1}/m$ と $\hbar k_{2}/m$ の平均。$k_{1}=k_{2}$ のとき $v_{\mathrm{g}}=\hbar k/m$，\ayamari{1倍}{約2倍}。
+\naze{平面波1つの位相速度は (1) の $\omega=\hbar k^{2}/(2m)$ から $\omega/k=\hbar k/(2m)$ で，$\hbar k/m$ ではない（$\hbar k/m$ は粒子の速さ）。$k_{1}\approx k_{2}\approx k$ のとき $v_{\mathrm{g}}\approx\hbar k/m=2\,\omega/k$ で，位相速度の約2倍である。}
+\toi{3}{◎}{}
+\begin{align*}
+\abs{\psi_{n}}^{2}&=\phi_{n}^{*}\ee^{\ii E_{n}t/\hbar}\phi_{n}\ee^{-\ii E_{n}t/\hbar}\\
+&=\phi_{n}^{*}\phi_{n}\\
+&=\sin^{2}\frac{n\pi x}{L}
+\end{align*}
+より $t$ に依存しない。
+\begin{align*}
+\abs{\psi}^{2}&=\abs{\psi_{1}}^{2}+\abs{\psi_{2}}^{2}+\psi_{1}^{*}\psi_{2}+\psi_{2}^{*}\psi_{1}\\
+&=\sin^{2}\frac{\pi x}{L}+\sin^{2}\frac{2\pi x}{L}+\psi_{1}^{*}\psi_{2}+\psi_{2}^{*}\psi_{1}
+\end{align*}
+\begin{align*}
+\psi_{1}^{*}\psi_{2}&=\phi_{1}^{*}\phi_{2}\ee^{-\ii(E_{2}-E_{1})t/\hbar}\\
+\psi_{2}^{*}\psi_{1}&=\phi_{2}^{*}\phi_{1}\ee^{-\ii(E_{1}-E_{2})t/\hbar}
+\end{align*}
+\begin{align*}
+\abs{\psi}^{2}&=\sin^{2}\frac{\pi x}{L}+\sin^{2}\frac{2\pi x}{L}+\sin\frac{\pi x}{L}\sin\frac{2\pi x}{L}\\
+&\qquad\times\left(\ee^{-\ii(E_{2}-E_{1})t/\hbar}+\ee^{-\ii(E_{1}-E_{2})t/\hbar}\right)
+\end{align*}
+\[ \frac{\abs{E_{2}-E_{1}}}{\hbar} \]
+\[ \frac{\abs{E_{2}-E_{1}}}{h}=\frac{\Delta E}{h}=\nu \]
+振動数と一致。
+%% kizuki
+\item 位相速度は平面波1つの位相 $kx-\omega t$ が一定の点の速さ $\omega/k$ で，自由粒子では $\hbar k/(2m)$，粒子の速さ $\hbar k/m$ の半分である。「何倍か」と問われたら，(1) の $\omega(k)$ から $\omega/k$ を1行で計算してから比べる。
+\item \mae{第2章 問題1・10-14} 山の速さは「位相（の差）$=$ 一定」の式を書き，$x$ を $t$ で表して出す。2つの平面波では差の比 $(\omega_{2}-\omega_{1})/(k_{2}-k_{1})$ で，$k_{2}\to k_{1}$ の極限が群速度 $\dv{\omega}{k}$ になる。前回も位相一定の根拠を書き落としたので，速さを出す前にまずこの1行を書く。
+\item 「実関数で表せ」と問われたら，複素共役どうしの和を $\ee^{\ii\theta}+\ee^{-\ii\theta}=2\cos\theta$ でまとめる。
