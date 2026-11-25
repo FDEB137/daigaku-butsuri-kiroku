@@ -147,7 +147,7 @@ a_n=\hat{f}_n+\hat{f}_n^{*}=2\,\Re\hat{f}_n,\qquad b_n=\ii(\hat{f}_n-\hat{f}_n^{
 \end{tadashii}
 \end{mondai}
 
-% toubun: kiroku\toubun\数理物理1\068_2026-10-03.tex
+% toubun: kiroku\toubun\数理物理1\068_2026-10-14.tex
 \mondaibangou{2}
 \begin{mondai}{068-trigprod}{計算}{三角関数の積で書かれた周期関数}
 周期 $2\pi$（$L=2\pi$）の関数を考える。
@@ -157,30 +157,43 @@ a_n=\hat{f}_n+\hat{f}_n^{*}=2\,\Re\hat{f}_n,\qquad b_n=\ii(\hat{f}_n-\hat{f}_n^{
   \item (1)(2) で、係数の積分を実行しなくても係数が決まってよい理由を、要点整理の正規直交性を用いて説明せよ。
 \end{shoumon}
 \notekiroku{2026-10-03 E △×× → 2026-10-14 B ◎△○}
-\begin{kotaeutsushi}{2026-10-03}
-\toi{1}{△}{記述}
+\begin{kotaeutsushi}{2026-10-14}
+\toi{1}{◎}{}
+（最初に係数の積分で始めた試みは斜線で消してある）
 \begin{align*}
-  f(x)=\cos^{3}x&=\frac{1}{8}\ee^{3\ii x}+\frac{3}{8}\ee^{\ii x}\\
-  &\qquad+\frac{3}{8}\ee^{-\ii x}+\frac{1}{8}\ee^{-3\ii x}
+  \cos^{3}x&=\Bigl(\frac{\ee^{\ii x}+\ee^{-\ii x}}{2}\Bigr)^{3}\\
+  &=\frac{1}{8}\bigl(\ee^{3\ii x}+3\ee^{\ii x}+3\ee^{-\ii x}+\ee^{-3\ii x}\bigr)
 \end{align*}
-\[ \hat{f}_{\pm3}=\frac{1}{8},\quad \hat{f}_{\pm1}=\frac{3}{8} \]
+\[ \hat{f}_{\pm3}=\frac{1}{8},\qquad\hat{f}_{\pm1}=\frac{3}{8} \]
+\[ \cos3x=4\cos^{3}x-3\cos x \]
+\[ \therefore\ \cos^{3}x=\frac{1}{4}\cos3x+\frac{3}{4}\cos x \]
+$a_1=3/4$，$a_3=1/4$，他の $a_n$，$b_n=0$
+\toi{2}{△}{計算}
 \begin{align*}
-  a_n&=\frac{2}{2\pi}\int_{c}^{c+2\pi}\dd x\,\cos^{3}x\cos nx\\
-  &=\frac{1}{\pi}\int_{0}^{2\pi}\dd x\,\cos nx\\
-  &=
+  \sin x\cos2x&=\frac{\ee^{\ii x}-\ee^{-\ii x}}{2\ii}\cdot\frac{\ee^{2\ii x}+\ee^{-2\ii x}}{2}\\
+  &=\frac{1}{4\ii}\bigl(\ee^{3\ii x}-\ee^{\ii x}+\ee^{-\ii x}-\ee^{-3\ii x}\bigr)
 \end{align*}
-（2行目の被積分関数を $\cos x$，$\cos3x$ の和に書きかけて消し，$=$ のまま止まっている）
-\nuke{$a_n$，$b_n$ の値}
-\naze{実形式の係数が無い。$\hat{f}_{\mu}$ が求まっているので，問題1 の関係 $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ を使えば積分は要らない。$a_1=\frac{3}{8}+\frac{3}{8}=\frac{3}{4}$，$a_3=\frac{1}{4}$，ほかの $a_n$（$a_0$ も）と全ての $b_n$ は 0 である。}
-\toi{2}{×}{未着手}
-\mikai
-\toi{3}{×}{未着手}
-\mikai
+\[ \hat{f}_3=\ayamari{-\frac{1}{4}}{-\frac{\ii}{4}},\quad\hat{f}_1=\ayamari{\frac{1}{4}}{\frac{\ii}{4}} \]
+\[ \hat{f}_{-1}=\ayamari{-\frac{1}{4}}{-\frac{\ii}{4}},\quad\hat{f}_{-3}=\ayamari{\frac{1}{4}}{\frac{\ii}{4}} \]
+\naze{$1/(4\ii)=-\ii/4$ なので係数には $\ii$ が付く。書いた値では $\sum\hat{g}_{\mu}\ee^{\ii\mu x}$ が純虚数になり，実関数 $g(x)$ にならない。$\sin$ を指数関数で書くと係数は純虚数になる。問題1（067）の関係 $b_3=\ii(\hat{g}_3-\hat{g}_{-3})=\ii(-\ii/2)=1/2$ で照らし合わせれば気づける。}
+\begin{align*}
+  \sin x(1-2\sin^{2}x)&=\sin x-2\sin^{3}x\\
+  &=-\frac{1}{2}\sin x+\frac{1}{2}\sin3x
+\end{align*}
+（脇で）$\sin3x=3\sin x-4\sin^{3}x$，$-2\sin^{3}x=\frac{1}{2}\sin3x-\frac{3}{2}\sin x$
+\[ b_1=-\frac{1}{2},\quad b_3=\frac{1}{2},\quad\text{他は }0 \]
+\toi{3}{○}{記述}
+指数関数の和で表したときの係数が，正規直交性により一致するため。\nuke{代入して $\delta_{\mu\nu}$}
+\naze{正規直交性をどう使うかが無い。$f(x)=\sum_{\nu}c_{\nu}\ee^{\ii\nu x}$（有限和）を係数の定義式に代入し，$\frac{1}{2\pi}\int\ee^{-\ii\mu x}\ee^{\ii\nu x}\dd x=\delta_{\mu\nu}$ から $\hat{f}_{\mu}=\sum_{\nu}c_{\nu}\delta_{\mu\nu}=c_{\mu}$，の1行を足す。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{数理物理1-8（組み替え前）問題2 (1)・10-03} $\sin$ を指数関数で書くと $1/(2\ii)=-\ii/2$ が出て，係数は純虚数になる。複素係数を書いたら，$\hat{g}_{-\mu}=\hat{g}_{\mu}^{*}$（実関数）と $b_n=\ii(\hat{g}_n-\hat{g}_{-n})$ で実形式の答えと照らし合わせる。前回の気付きの「係数の関係で実形式を1行で出す」を使えば，今回の $\ii$ の落ちもその場で見つかった。
+\item \mae{数理物理1-8（組み替え前）問題2 (3)・10-03} 前回は未着手で，気付きに「代入すると $\delta_{\mu\nu}$ が残る」と書いていた。今回は結論の1文だけで，その式が無い。説明の問いでも，要の式（定義式に有限和を代入 → 正規直交性で $\delta_{\mu\nu}$ → $\hat{f}_{\mu}=c_{\mu}$）を1行で書く。
+\end{kizuki}
+\begin{maekizuki}{2026-10-03}
 \item 複素形式の係数が出たら，実形式は問題1（067）の関係 $a_n=\hat{f}_n+\hat{f}_{-n}$，$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$ で1行で出る。積分をやり直さない。
 \item 有限個の指数関数の和で書けた関数は，係数の定義式に代入すると正規直交性で $\delta_{\mu\nu}$ が残り，各指数関数の前の数がそのまま $\hat{f}_{\mu}$ になる（展開は一意）。これが (3) で問われている「積分しなくてよい理由」である。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin 三角関数の積をオイラーの公式で指数関数の有限和に直し、その係数を読み取る。係数の積分を計算しなくてよい理由を正規直交性から説明する。使う定理：オイラーの公式、$L=2\pi$ のとき $\ee^{\ii2\pi x\mu/L}=\ee^{\ii\mu x}$。正規直交性（要点整理）。実形式との関係 $a_n=\hat{f}_n+\hat{f}_{-n}$、$b_n=\ii(\hat{f}_n-\hat{f}_{-n})$（Level 1 の係数の関係の問題）。
 \keisan
