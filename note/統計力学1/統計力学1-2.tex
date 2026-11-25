@@ -1,0 +1,85 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{統計力学1　第2章「ミクロカノニカル分布とボルツマン公式（状態の数え方）」}{2026-11-25}
+%% note-moto	problems\統計力学1\shou02\統計力学1-2.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-001-levels}{1}}{L1・計算}{○◎○}{B}{2026-11-24 2回目 (1)記述 (3)記述}
+  \ichirangyou{2}{L1・計算}{◎◎◎◎}{S}{2026-11-24}
+  \ichirangyou{3}{L2・計算}{◎◎◎◎×}{C}{2026-11-24 (5)未着手}
+  \ichirangyou{4}{L3・導出}{}{未着手}{}
+  \ichirangyou{5}{L3・説明}{}{未着手}{}
+  \ichirangyou{6}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 1次元の箱の中の粒子のエネルギー準位 % 出典: p.4
+    \[ E_{0}n^{2}=\frac{\pi^{2}\hbar^{2}}{2mL^{2}}n^{2}\qquad(n=1,2,\dots) \notetag{2.1} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\統計力学1\001_2026-10-27.tex
+\mondaibangou{1}
+\begin{mondai}{001-levels}{計算}{箱の中の粒子のエネルギー準位と縮退度，準位間隔と熱エネルギーの比較（粗視化の条件）}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+% 出典: 講義ノート p.4 式(5)，p.2--3
+一辺 $L$ の立方体容器に閉じ込められた質量 $m$ の粒子1個を考える。壁で波動関数がゼロになる境界条件のもとで，エネルギー固有値は
+\[E=E_{0}\left(n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\right),\qquad E_{0}=\frac{\pi^{2}\hbar^{2}}{2mL^{2}}\qquad(n_{x},n_{y},n_{z}=1,2,3,\dots)\]
+で与えられる（式\noteshiki{2.1}を3方向に用いたもの）。
+\begin{shoumon}
+  \item エネルギーの低い方から4つの準位について，$E/E_{0}$ の値と縮退度（その固有値をもつ固有状態 $(n_{x},n_{y},n_{z})$ の数）を求めよ。
+  \item He 原子（質量 $m_{\mathrm{He}}$）を一辺 $L=\qty{1.00}{\centi\metre}$ の容器に入れたとき，$E_{0}$ と，基底準位と第1励起準位のエネルギー差 $\Delta E$ を有効数字3桁で求めよ。
+  \item $T=\qty{300}{\kelvin}$ での $\kB T$ に対する比 $\Delta E/(\kB T)$ を有効数字2桁で求めよ。また，この結果が「熱力学ではエネルギーを連続量として扱える」ことの根拠の一つになる理由を1〜2文で述べよ。
+\end{shoumon}
+\notekiroku{2026-10-27 S ◎◎◎ → 2026-11-24 B ○◎○}
+\begin{kotaeutsushi}{2026-10-27}
+\toi{1}{◎}{}
+$\{n_{x},n_{y},n_{z}\}$
+
+i) $=(1,1,1)$
+\[ \frac{E}{\varepsilon_{0}}=3\qquad\text{縮退度：}1 \]
+ii) $=(1,1,2)\ (1,2,1)\ (2,1,1)$
+\[ \frac{E}{\varepsilon_{0}}=6\qquad\text{縮退度：}3 \]
+iii) $=(1,2,2)\ (2,1,2)\ (2,2,1)$
+\[ \frac{E}{\varepsilon_{0}}=9\qquad\text{縮退度：}3 \]
+iv) $=(1,1,3)\ (1,3,1)\ (3,1,1)$
+\[ \frac{E}{\varepsilon_{0}}=11\qquad\text{縮退度：}3 \]
+\toi{2}{◎}{}
+\[ \varepsilon_{0}=\frac{\pi^{2}\hbar^{2}}{2m_{\mathrm{He}}L^{2}}=\qty{8.26e-38}{\joule} \]
+\[ \Delta E=3\varepsilon_{0}=\qty{2.48e-37}{\joule} \]
+\toi{3}{◎}{}
+\[ \frac{\Delta E}{\kB T}=\num{6.0e-17} \]
+準位が変わってもほとんどエネルギーが変化せず，ゆっくりと変わるため。
+\end{kotaeutsushi}
+\begin{tadashii}
+\houshin 量子数の組ごとに $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}$ を計算し，同じ値を与える組を数える。(2)(3) は数値を代入する。
+\keisan
+\shoumonkai{1} $n_{i}\ge1$ なので，各 $n_{i}^{2}$ は $1,4,9,\dots$ をとる。和の小さい順に並べると次のようになる。
+$(1,1,1)$：和3，1通り。$(2,1,1)$ とその並べ替え：和6，3通り。$(2,2,1)$ とその並べ替え：和9，3通り。$(3,1,1)$ とその並べ替え：和11，3通り（次は $(2,2,2)$ の和12。和10は $1,4,9$ から3つ選んだ和では作れない）。
+
+\shoumonkai{2} 定義に数値を代入する。
+\[E_{0}=\frac{\pi^{2}\hbar^{2}}{2m_{\mathrm{He}}L^{2}}=\frac{\num{9.870}\times(\qty{1.055e-34}{\joule\second})^{2}}{2\times\qty{6.646e-27}{\kilogram}\times(\qty{1.00e-2}{\metre})^{2}}=\frac{\num{1.0985e-67}}{\num{1.3292e-30}}\,\unit{\joule}=\qty{8.26e-38}{\joule}\]
+基底準位は $3E_{0}$，第1励起準位は $6E_{0}$ なので，$\Delta E=3E_{0}=\qty{2.48e-37}{\joule}$。
+
+\shoumonkai{3} $\kB T=\num{1.381e-23}\times300=\qty{4.143e-21}{\joule}$ より，
+\[\frac{\Delta E}{\kB T}=\frac{\num{2.479e-37}}{\num{4.143e-21}}=\num{6.0e-17}\]
+\kotae{\shoumonkai{1} $E/E_{0}=3$（縮退度1），6（縮退度3），9（縮退度3），11（縮退度3） \shoumonkai{2} $E_{0}=\qty{8.26e-38}{\joule}$，$\Delta E=\qty{2.48e-37}{\joule}$ \shoumonkai{3} $\num{6.0e-17}$。準位間隔は熱的なエネルギーの尺度より16桁以上も小さいので，$\Delta E_{\mathrm{level}}\ll\delta U\ll U$ を満たす幅 $\delta U$ を選べ，離散性が見えなくなる。}
+\begin{ronten}
+  \item \shoumonkai{1} 和 $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}$ の値を小さい順に漏れなく調べたこと（和10は $1,4,9$ から重複を許して3つ選んだ和では作れないので，4番目の準位は11）を示す。
+  \item \shoumonkai{3} 準位間隔が $\kB T$ より桁違いに小さいので，$\Delta E_{\mathrm{level}}\ll\delta U\ll U$ を満たす幅 $\delta U$ を選べることを書く。
+\end{ronten}
+\kenzan 次元：$\hbar^{2}/(mL^{2})$ は $\unit{\joule\squared\second\squared}/(\unit{\kilogram\metre\squared})=\unit{\joule}$ となり正しい。$L\to\infty$ で $E_{0}\to0$ となり準位は連続に近づく（$\Delta E\propto1/L^{2}$）。縮退度は各和での並べ替えの数（3つとも同じ→1，2つが同じ→3）と一致する。
+\tsumazuki $n=0$ は波動関数が恒等的にゼロになるので含めない。$(2,1,1)$ の並べ替えを1通りと数えない。多体系の準位間隔はこれよりはるかに小さい（Level 3 の粗視化の問題を参照）。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
