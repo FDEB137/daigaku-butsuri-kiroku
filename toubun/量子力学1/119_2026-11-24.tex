@@ -1,0 +1,42 @@
+% 量子力学1 量子力学1-1 問題7（119-bohr） 解いた日 2026-11-24
+%% kotae
+\toi{1}{△}{計算}
+\[ \frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}^{2}}=\melec\frac{v^{2}}{r_{n}} \]
+\[ \melec vr_{n}=n\hbar\quad\therefore\ v=\frac{n\hbar}{\melec r_{n}} \]
+\begin{align*}
+\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}^{2}}&=\melec\frac{1}{r_{n}}\frac{n^{2}\hbar^{2}}{\melec^{2}r_{n}^{2}}\\
+&=\frac{n^{2}\hbar^{2}}{\melec r_{n}^{3}}
+\end{align*}
+\begin{align*}
+\therefore\ r_{n}&=\frac{4\pi\varepsilon_{0}n^{2}\hbar^{2}}{\melec e^{2}}\\
+&=\frac{n^{2}\varepsilon_{0}h^{2}}{\pi\melec e^{2}}
+\end{align*}
+\begin{align*}
+E_{n}&=\frac{1}{2}\melec v^{2}-\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}}\\
+&=\frac{1}{8\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}}-\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}}\\
+&=-\frac{e^{2}}{\ayamari{4\pi\varepsilon_{0}}{8\pi\varepsilon_{0}}}\cdot\frac{\pi\melec e^{2}}{n^{2}\varepsilon_{0}h^{2}}\\
+&=-\frac{\melec e^{4}}{4\varepsilon_{0}^{2}h^{2}}\cdot\frac{1}{n^{2}}
+\end{align*}
+\naze{$1/(8\pi\varepsilon_{0})-1/(4\pi\varepsilon_{0})=-1/(8\pi\varepsilon_{0})$ で，係数 $1/2$ が落ちている。正しくは $E_{n}=-e^{2}/(8\pi\varepsilon_{0}r_{n})=-\melec e^{4}/(8\varepsilon_{0}^{2}h^{2}n^{2})$ である。以降はこの誤りを引き継ぐ。}
+\toi{2}{△}{計算}
+\[ r_{1}=\frac{\varepsilon_{0}h^{2}}{\pi\melec e^{2}}=\qty{0.0529}{\nano\metre} \]
+\begin{align*}
+E_{1}&=-\frac{\melec e^{4}}{4\varepsilon_{0}^{2}h^{2}}\\
+&=\ayamari{\qty{27.2}{\electronvolt}}{\qty{-13.6}{\electronvolt}}
+\end{align*}
+\naze{大きさが2倍なのは (1) の引き継ぎだが，そのうえ式の負号を落として正の値にしている。束縛状態のエネルギーは負で，$E_{1}=\qty{-13.6}{\electronvolt}$ である。}
+\toi{3}{△}{計算}
+\begin{align*}
+E_{3}-E_{2}&=\ayamari{\frac{5}{36}E_{1}}{-\frac{5}{36}E_{1}}=\qty{3.78}{\electronvolt}\\
+&=\qty{6.05e-19}{\joule}
+\end{align*}
+\[ \Delta E=\frac{hc}{\lambda}\qquad\therefore\ \lambda=\frac{hc}{\Delta E}=\qty{328}{\nano\metre} \]
+\naze{$E_{n}=E_{1}/n^{2}$ で $E_{1}<0$ なので $E_{3}-E_{2}=\abs{E_{1}}(1/4-1/9)=\frac{5}{36}\abs{E_{1}}=\qty{1.89}{\electronvolt}$ である。(2) の正の \qty{27.2}{\electronvolt} を使ったので，$\lambda$ は正しい \qty{656}{\nano\metre} の半分になった。}
+\toi{4}{△}{計算}
+\[ 0-E_{2}=\ayamari{\frac{1}{4}E_{1}}{-\frac{1}{4}E_{1}} \]
+\[ \lambda=\frac{hc}{\frac{1}{4}E_{1}}=\qty{182}{\nano\metre} \]
+\naze{$0-E_{2}=\abs{E_{1}}/4$ で，正しくは $\lambda=\qty{365}{\nano\metre}$ である（(3) と同じく2倍の $E_{1}$ を引き継いだ）。また，$n$ が大きいほど $E_{n}-E_{2}$ が大きく波長が短いので下限が $n\to\infty$ の極限になる，という根拠が要る。}
+%% kizuki
+\item \mae{第1章 問題7・10-29} 同じ $E_{n}$ の計算で前回も係数を書き違えた（次の行で直した）。今回は直らずに残った。運動方程式に $r/2$ をかけて $K=-U/2$，$E=U/2=-e^{2}/(8\pi\varepsilon_{0}r)$ を先に1行書いてから $r_{n}$ を入れる。
+\item 束縛状態の $E_{1}$ は負のまま使い，遷移のエネルギーは $\abs{E_{1}}(1/4-1/9)$ のように絶対値で書く。
+\item 検算：$E_{1}=\qty{-13.6}{\electronvolt}$，Hα 線 \qty{656}{\nano\metre} と比べる。既知の値の2倍・半分になったら係数 $1/2$ を疑う。

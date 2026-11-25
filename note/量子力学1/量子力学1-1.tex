@@ -21,7 +21,7 @@
 
 \mondaihen
 \level{2}
-% toubun: kiroku\toubun\量子力学1\119_2026-10-29.tex
+% toubun: kiroku\toubun\量子力学1\119_2026-11-24.tex
 \mondaibangou{7}
 \begin{mondai}{119-bohr}{計算}{Bohr の原子論（量子条件と振動数条件）による水素原子の軌道半径・エネルギー準位と，水素のスペクトルの波長}
 \begin{teisuu}
@@ -42,45 +42,49 @@
     \item $n\ge3$ の軌道から $n=2$ の軌道に移るときに出る光の波長には下限がある。その値（$n\to\infty$ の極限）を有効数字3桁で求めよ。
   \end{shoumon}
 \notekiroku{2026-10-29 C ◎◎◎◎ (ヒント2) → 2026-11-24 C △△△△ (ヒント1)}
-\begin{kotaeutsushi}{2026-10-29}
-\toi{1}{◎}{}
-\[ \frac{\melec v^{2}}{r}=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}},\qquad \melec vr=n\hbar \]
-\[ v=\frac{n\hbar}{\melec r} \]
+\begin{kotaeutsushi}{2026-11-24}
+\toi{1}{△}{計算}
+\[ \frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}^{2}}=\melec\frac{v^{2}}{r_{n}} \]
+\[ \melec vr_{n}=n\hbar\quad\therefore\ v=\frac{n\hbar}{\melec r_{n}} \]
 \begin{align*}
-\frac{\melec}{r}\left(\frac{n\hbar}{\melec r}\right)^{2}&=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}}\\
-\frac{n^{2}\hbar^{2}}{\melec r^{3}}&=\frac{e^{2}}{4\pi\varepsilon_{0}r^{2}}\\
-r_{n}&=\frac{4\pi\varepsilon_{0}n^{2}\hbar^{2}}{\melec e^{2}}
+\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}^{2}}&=\melec\frac{1}{r_{n}}\frac{n^{2}\hbar^{2}}{\melec^{2}r_{n}^{2}}\\
+&=\frac{n^{2}\hbar^{2}}{\melec r_{n}^{3}}
 \end{align*}
 \begin{align*}
-E_{n}&=\frac{1}{2}\melec\left(\frac{n\hbar}{\melec r_{n}}\right)^{2}-\frac{e^{2}}{4\pi\varepsilon_{0}r_{n}}\\
-&=\frac{n^{2}\hbar^{2}}{2\melec}\cdot\frac{\melec^{2}e^{4}}{16\pi^{2}\varepsilon_{0}^{2}n^{4}\hbar^{4}}\\
-&\qquad-\frac{e^{2}}{4\pi\varepsilon_{0}}\cdot\frac{\melec e^{2}}{4\pi\varepsilon_{0}n^{2}\hbar^{2}}\\
-&=\frac{\melec e^{4}-\kakimachigai{2\melec e^{2}}{2\melec e^{4}}}{32\pi^{2}\varepsilon_{0}^{2}n^{2}\hbar^{2}}\\
-&=-\frac{\melec e^{4}}{32\pi^{2}\varepsilon_{0}^{2}\hbar^{2}}\,\frac{1}{n^{2}}
-\end{align*}
-\toi{2}{◎}{}
-\begin{align*}
-r_{1}&=\frac{\varepsilon_{0}h^{2}}{\pi\melec e^{2}}=5.29\times10^{-80}\times10^{+69}\,\unit{\metre}\\
-&=\qty{5.29e-11}{\metre}\\
-&=\qty{0.0529}{\nano\metre}
+\therefore\ r_{n}&=\frac{4\pi\varepsilon_{0}n^{2}\hbar^{2}}{\melec e^{2}}\\
+&=\frac{n^{2}\varepsilon_{0}h^{2}}{\pi\melec e^{2}}
 \end{align*}
 \begin{align*}
-E_{1}&=-\frac{\melec e^{3}}{8\varepsilon_{0}^{2}h^{2}}\,\unit{\electronvolt}\\
-&=-1.36\times10^{-3}\times10^{-88}\times10^{92}\\
-&=\qty{-13.6}{\electronvolt}
+E_{n}&=\frac{1}{2}\melec v^{2}-\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}}\\
+&=\frac{1}{8\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}}-\frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r_{n}}\\
+&=-\frac{e^{2}}{\ayamari{4\pi\varepsilon_{0}}{8\pi\varepsilon_{0}}}\cdot\frac{\pi\melec e^{2}}{n^{2}\varepsilon_{0}h^{2}}\\
+&=-\frac{\melec e^{4}}{4\varepsilon_{0}^{2}h^{2}}\cdot\frac{1}{n^{2}}
 \end{align*}
-\toi{3}{◎}{}
+\naze{$1/(8\pi\varepsilon_{0})-1/(4\pi\varepsilon_{0})=-1/(8\pi\varepsilon_{0})$ で，係数 $1/2$ が落ちている。正しくは $E_{n}=-e^{2}/(8\pi\varepsilon_{0}r_{n})=-\melec e^{4}/(8\varepsilon_{0}^{2}h^{2}n^{2})$ である。以降はこの誤りを引き継ぐ。}
+\toi{2}{△}{計算}
+\[ r_{1}=\frac{\varepsilon_{0}h^{2}}{\pi\melec e^{2}}=\qty{0.0529}{\nano\metre} \]
 \begin{align*}
-\lambda&=\frac{hc}{E_{3}-E_{2}}\\
-&=\frac{36\times\num{6.626e-34}\times\num{2.998e8}}{5\times13.6\times\num{1.602e-19}}\\
-&=\qty{6.56e-7}{\metre}=\qty{656}{\nano\metre}
+E_{1}&=-\frac{\melec e^{4}}{4\varepsilon_{0}^{2}h^{2}}\\
+&=\ayamari{\qty{27.2}{\electronvolt}}{\qty{-13.6}{\electronvolt}}
 \end{align*}
-\toi{4}{◎}{}
+\naze{大きさが2倍なのは (1) の引き継ぎだが，そのうえ式の負号を落として正の値にしている。束縛状態のエネルギーは負で，$E_{1}=\qty{-13.6}{\electronvolt}$ である。}
+\toi{3}{△}{計算}
 \begin{align*}
-\frac{hc}{-E_{2}}&=\frac{4\times\num{6.626e-34}\times\num{2.998e8}}{13.6\times\num{1.602e-19}}\\
-&=\qty{365}{\nano\metre}
+E_{3}-E_{2}&=\ayamari{\frac{5}{36}E_{1}}{-\frac{5}{36}E_{1}}=\qty{3.78}{\electronvolt}\\
+&=\qty{6.05e-19}{\joule}
 \end{align*}
+\[ \Delta E=\frac{hc}{\lambda}\qquad\therefore\ \lambda=\frac{hc}{\Delta E}=\qty{328}{\nano\metre} \]
+\naze{$E_{n}=E_{1}/n^{2}$ で $E_{1}<0$ なので $E_{3}-E_{2}=\abs{E_{1}}(1/4-1/9)=\frac{5}{36}\abs{E_{1}}=\qty{1.89}{\electronvolt}$ である。(2) の正の \qty{27.2}{\electronvolt} を使ったので，$\lambda$ は正しい \qty{656}{\nano\metre} の半分になった。}
+\toi{4}{△}{計算}
+\[ 0-E_{2}=\ayamari{\frac{1}{4}E_{1}}{-\frac{1}{4}E_{1}} \]
+\[ \lambda=\frac{hc}{\frac{1}{4}E_{1}}=\qty{182}{\nano\metre} \]
+\naze{$0-E_{2}=\abs{E_{1}}/4$ で，正しくは $\lambda=\qty{365}{\nano\metre}$ である（(3) と同じく2倍の $E_{1}$ を引き継いだ）。また，$n$ が大きいほど $E_{n}-E_{2}$ が大きく波長が短いので下限が $n\to\infty$ の極限になる，という根拠が要る。}
 \end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1章 問題7・10-29} 同じ $E_{n}$ の計算で前回も係数を書き違えた（次の行で直した）。今回は直らずに残った。運動方程式に $r/2$ をかけて $K=-U/2$，$E=U/2=-e^{2}/(8\pi\varepsilon_{0}r)$ を先に1行書いてから $r_{n}$ を入れる。
+\item 束縛状態の $E_{1}$ は負のまま使い，遷移のエネルギーは $\abs{E_{1}}(1/4-1/9)$ のように絶対値で書く。
+\item 検算：$E_{1}=\qty{-13.6}{\electronvolt}$，Hα 線 \qty{656}{\nano\metre} と比べる。既知の値の2倍・半分になったら係数 $1/2$ を疑う。
+\end{kizuki}
 \begin{tadashii}
 \houshin 円運動の運動方程式（クーロン力が向心力）と量子条件 $\melec vr=n\hbar$ を連立して $r$ と $v$ を決め，力学的エネルギーを求める。遷移で出る光の波長は，振動数条件 $h\nu=E_{n}-E_{n'}$ と $\lambda=c/\nu$ から求める。
 \keisan
