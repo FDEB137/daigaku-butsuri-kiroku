@@ -1,0 +1,74 @@
+% 数理物理1 数理物理1-8 問題5（063-basis2。当時は 数理物理1-7 問題10・shou07-l2-basis2） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  \langle+|+\rangle&=\frac{1}{\sqrt{2}}\bigl(\langle1|-\ii\langle2|\bigr)\cdot\frac{1}{\sqrt{2}}\bigl(|1\rangle+\ii|2\rangle\bigr)\\
+  &=\frac{1}{2}\bigl(\langle1|1\rangle+\langle2|2\rangle\bigr)=1\\
+  \langle-|-\rangle&=\frac{1}{\sqrt{2}}\bigl(\langle1|+\ii\langle2|\bigr)\cdot\frac{1}{\sqrt{2}}\bigl(|1\rangle-\ii|2\rangle\bigr)\\
+  &=\frac{1}{2}\bigl(\langle1|1\rangle+\langle2|2\rangle\bigr)=1\\
+  \langle+|-\rangle&=\frac{1}{\sqrt{2}}\bigl(\langle1|-\ii\langle2|\bigr)\cdot\frac{1}{\sqrt{2}}\bigl(|1\rangle-\ii|2\rangle\bigr)\\
+  &=\frac{1}{2}\bigl(\langle1|1\rangle-\ii\langle2|1\rangle-\ii\langle1|2\rangle-\langle2|2\rangle\bigr)\\
+  &=0
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  \langle1|+\rangle&=\frac{1}{\sqrt{2}}\bigl(\langle1|1\rangle+\ii\langle1|2\rangle\bigr)=\frac{1}{\sqrt{2}}\\
+  \langle1|-\rangle&=\frac{1}{\sqrt{2}}\bigl(\langle1|1\rangle-\ii\langle1|2\rangle\bigr)=\frac{1}{\sqrt{2}}\\
+  \langle2|+\rangle&=\frac{1}{\sqrt{2}}\bigl(\langle2|1\rangle+\ii\langle2|2\rangle\bigr)=\frac{1}{\sqrt{2}}\ii\\
+  \langle2|-\rangle&=\kakimachigai{\frac{1}{\sqrt{3}}}{\frac{1}{\sqrt{2}}}\kakimachigai{\,}{(}\langle2|1\rangle-\ii\langle2|2\rangle\bigr)=-\frac{1}{\sqrt{2}}\ii
+\end{align*}
+\[
+  U_{n\mu}=\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\\ii&-\ii\end{pmatrix}
+\]
+\begin{align*}
+  U^{\dagger}U&=\frac{1}{2}\begin{pmatrix}1&-\ii\\1&\ii\end{pmatrix}\begin{pmatrix}1&1\\\ii&-\ii\end{pmatrix}\\
+  &=\frac{1}{2}\begin{pmatrix}2&0\\0&2\end{pmatrix}=I
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  |+\rangle\langle+|&=\frac{1}{\sqrt{2}}\bigl(|1\rangle+\ii|2\rangle\bigr)\cdot\frac{1}{\sqrt{2}}\bigl(\langle1|-\ii\langle2|\bigr)\\
+  &=\frac{1}{2}\bigl(|1\rangle\langle1|+|2\rangle\langle2|\\
+  &\qquad-\ii|1\rangle\langle2|+\ii|2\rangle\langle1|\bigr)\\
+  |-\rangle\langle-|&=\frac{1}{\sqrt{2}}\bigl(|1\rangle-\ii|2\rangle\bigr)\frac{1}{\sqrt{2}}\bigl(\langle1|+\ii\langle2|\bigr)\\
+  &=\frac{1}{2}\bigl(|1\rangle\langle1|+|2\rangle\langle2|\\
+  &\qquad-\ii|2\rangle\langle1|+\ii|1\rangle\langle2|\bigr)
+\end{align*}
+\[
+  |+\rangle\langle+|+|-\rangle\langle-|=|1\rangle\langle1|+|2\rangle\langle2|
+\]
+\begin{align*}
+  &\langle1|\bigl(|1\rangle\langle1|+|2\rangle\langle2|\bigr)|1\rangle\\
+  &\qquad=\langle1|1\rangle\langle1|1\rangle+\langle1|2\rangle\langle2|1\rangle=1\\
+  &\langle1|\bigl(|1\rangle\langle1|+|2\rangle\langle2|\bigr)|2\rangle\\
+  &\qquad=\langle1|1\rangle\langle1|2\rangle+\langle1|2\rangle\langle2|2\rangle=0\\
+  &\langle2|\bigl(|1\rangle\langle1|+|2\rangle\langle2|\bigr)|1\rangle\\
+  &\qquad=\langle2|1\rangle\langle1|1\rangle+\langle2|2\rangle\langle2|1\rangle=0\\
+  &\langle2|\bigl(|1\rangle\langle1|+|2\rangle\langle2|\bigr)|2\rangle\\
+  &\qquad=\langle2|1\rangle\langle1|2\rangle+\langle2|2\rangle\langle2|2\rangle=1
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+  \hat{f}_{+}&=\langle+|f\rangle=2\langle+|1\rangle+\ii\langle+|2\rangle\\
+  &=\sqrt{2}\bigl(\langle1|1\rangle-\ii\langle2|1\rangle\bigr)\\
+  &\qquad+\frac{1}{\sqrt{2}}\ii\bigl(\langle1|2\rangle-\ii\langle2|2\rangle\bigr)\\
+  &=\sqrt{2}+\frac{1}{\sqrt{2}}=\frac{3}{2}\sqrt{2}\\
+  \hat{f}_{-}&=\langle-|f\rangle=2\langle-|1\rangle+\ii\langle-|2\rangle\\
+  &=\sqrt{2}\bigl(\langle1|1\rangle+\ii\langle2|1\rangle\bigr)\\
+  &\qquad+\frac{\ii}{\sqrt{2}}\bigl(\langle1|2\rangle+\ii\langle2|2\rangle\bigr)\\
+  &=\sqrt{2}-\frac{1}{\sqrt{2}}=\frac{1}{2}\sqrt{2}
+\end{align*}
+\begin{align*}
+  |f\rangle&=\Bigl(\sqrt{2}+\frac{1}{\sqrt{2}}\Bigr)\cdot\frac{1}{\sqrt{2}}\bigl(|1\rangle+\ii|2\rangle\bigr)\\
+  &\qquad+\Bigl(\sqrt{2}-\frac{1}{\sqrt{2}}\Bigr)\cdot\frac{1}{\sqrt{2}}\bigl(|1\rangle-\ii|2\rangle\bigr)\\
+  &=\frac{3}{2}\bigl(|1\rangle+\ii|2\rangle\bigr)+\frac{1}{2}\bigl(|1\rangle-\ii|2\rangle\bigr)\\
+  &=2|1\rangle+\ii|2\rangle
+\end{align*}
+\begin{align*}
+  \langle f|f\rangle&=\bigl(2\langle1|-\ii\langle2|\bigr)\bigl(2|1\rangle+\ii|2\rangle\bigr)\\
+  &=4\langle1|1\rangle+2\ii\langle1|2\rangle-2\ii\langle2|1\rangle+\langle2|2\rangle=5
+\end{align*}
+\begin{align*}
+  (\hat{f}_{+})^{2}+(\hat{f}_{-})^{2}&=\Bigl(\sqrt{2}+\frac{1}{\sqrt{2}}\Bigr)^{2}+\Bigl(\sqrt{2}-\frac{1}{\sqrt{2}}\Bigr)^{2}\\
+  &=\Bigl(\frac{3}{2}\sqrt{2}\Bigr)^{2}+\Bigl(\frac{1}{2}\sqrt{2}\Bigr)^{2}=\frac{9}{2}+\frac{1}{2}=5
+\end{align*}
+%% kizuki

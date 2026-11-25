@@ -1,0 +1,26 @@
+% 数理物理1 数理物理1-9 問題3（059-symmetric。当時は 数理物理1-7 問題6・shou07-l2-symmetric） 解いた日 2026-10-03
+%% kotae
+\toi{1}{△}{記述}
+\begin{align*}
+  (U^{\dagger}U)_{\mu\nu}&=\sum_n(U^{\dagger})_{\mu n}U_{n\nu}=\sum_n U_{n\mu}^{*}U_{n\nu}\\
+  &=\sum_n\frac{1}{N}\ee^{-\ii\frac{2\pi n\mu}{N}}\cdot\ee^{\ii\frac{2\pi n\nu}{N}}\\
+  &=\sum_n\frac{1}{N}\ee^{\ii\frac{2\pi n(\nu-\mu)}{N}}
+\end{align*}
+$\nu=\mu$ のとき，
+\[ (U^{\dagger}U)_{\mu\nu}=\sum_{n=1}^{N}\frac{1}{N}=1 \]
+$\nu\neq\mu$ のとき，
+\[ (U^{\dagger}U)_{\mu\nu}=\nuke{\text{根拠}}0 \]
+\[ (U^{\dagger}U)_{\mu\nu}=\delta_{\mu\nu} \]
+\naze{$\nu\neq\mu$ で和が 0 になる理由が無い。$\mu,\nu\in\{-M,\dots,M\}$ なので $0<\abs{\nu-\mu}\le2M=N-1$ で，$\nu-\mu$ は $N$ の倍数でない。$z=\ee^{\ii2\pi(\nu-\mu)/N}\neq1$，$z^{N}=1$ だから等比級数の和 $z(1-z^{N})/(1-z)=0$ になる（問題2 (1) の $S_p$）。}
+\toi{2}{×}{未着手}
+\[
+  f_n=\sum_{\mu}U_{n\mu}\Bigl(\sum_{n}U^{\dagger}_{\mu n}f_n\Bigr)
+\]
+\naze{1行で止まっている。$(UU^{\dagger})_{nm}=\frac{1}{N}\sum_{\mu=-M}^{M}w^{\mu}$（$w=\ee^{\ii2\pi(n-m)/N}$）を，$\mu'=\mu+M+1$ とずらして $w^{-M-1}\sum_{\mu'=1}^{N}w^{\mu'}$ に直し，$n\neq m$ で 0 になることを示す。}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item 「$\nu\neq\mu$ なら 0」は，$\nu-\mu$ が $N$ の倍数でないことを $\mu,\nu$ の範囲（$\abs{\nu-\mu}\le N-1$）から確かめて初めて言える。添字の範囲を $-M$〜$M$ に変えた問題では，この確認が導出の要になる。
+\item $UU^{\dagger}=I$ は $U^{\dagger}U=I$ とは別に示す。和の添字が $-M$ から始まるときは，$\mu'=\mu+M+1$ とずらして $1$〜$N$ の等比級数に直す。

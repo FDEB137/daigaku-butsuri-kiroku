@@ -1,0 +1,31 @@
+% 数理物理1 数理物理1-9 問題2（058-rootsum。当時は 数理物理1-7 問題5・shou07-l1-rootsum） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+$p=Nk$ とした。
+\begin{align*}
+  S_p&=\sum_{n=1}^{N}\kakimachigai{\ee^{\ii2\pi k}}{\ee^{\ii2\pi kn}}=\sum_{n=1}^{N}\bigl(\cos(2\pi k)+\ii\sin(2\pi k)\bigr)\\
+  &=\sum_{n=1}^{N}1=N
+\end{align*}
+$p\neq Nk$：
+\begin{align*}
+  z&=\ee^{\ii\frac{2\pi p}{N}},\qquad z^{N}=\ee^{\ii2\pi p}=1\\
+  S_p&=z+z^{2}+z^{3}+\cdots+z^{N}\\
+  &=z\,\frac{1-z^{N}}{1-z}=0
+\end{align*}
+\toi{2}{◎}{}
+\[
+  \cos^{2}\frac{2\pi\mu n}{N}=\frac{1}{2}\Bigl(1+\cos\frac{4\pi\mu n}{N}\Bigr)
+\]
+\begin{align*}
+  \sum\cos^{2}\frac{2\pi\mu n}{N}&=\frac{N}{2}+\frac{1}{2}\Re\Bigl(\sum_{1}^{N}\ee^{\ii\frac{4\pi\mu n}{N}}\Bigr)\\
+  &=\frac{N}{2}+\frac{1}{2}\Re\Bigl(z\,\frac{1-z^{N}}{1-z}\Bigr)\\
+  &=\frac{N}{2}
+\end{align*}
+\[
+  z=\ee^{\ii\frac{4\pi\mu}{N}},\qquad z^{N}=\ee^{\ii4\pi\mu}\kakimachigai{=0}{=1}
+\]
+\toi{3}{◎}{}
+\[
+  \sum_{n=1}^{N}\frac{1}{2}\sin\Bigl(\frac{2\pi\cdot2\mu n}{N}\Bigr)=\frac{1}{2}\Im S_{2\mu}=0
+\]
+%% kizuki

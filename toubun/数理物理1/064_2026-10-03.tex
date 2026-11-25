@@ -1,0 +1,56 @@
+% 数理物理1 数理物理1-9 問題7（064-nextnn。当時は 数理物理1-7 問題11・shou07-l3-nextnn） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（図：5個の質点を円周に並べ，隣どうしと1つおきをばねでつないだ図）
+\begin{align*}
+  \pdv{V}{x_n}&=\pdv{}{x_n}\Bigl(\frac{k}{2}\bigl((x_{n+1}-x_n)^{2}+(x_n-x_{n-1})^{2}\bigr)\\
+  &\qquad+\frac{k'}{2}\bigl((x_{n+2}-x_n)^{2}+(x_n-x_{n-2})^{2}\bigr)\Bigr)\\
+  &=\pdv{}{x_n}\Bigl(\frac{k}{2}\bigl(-2x_nx_{n+1}+\kakimachigai{x_n^{2}}{2x_n^{2}}-2x_nx_{n-1}\bigr)\\
+  &\qquad+\frac{k'}{2}\bigl(-2x_nx_{n+2}+2x_n^{2}\kakimachigai{-x_nx_{n-2}}{-2x_nx_{n-2}}\bigr)\Bigr)\\
+  &=\pdv{}{x_n}\bigl((k+k')x_n^{2}-k(x_{n+1}+x_{n-1})x_n\\
+  &\qquad-k'(x_{n+2}+x_{n-2})x_n\bigr)\\
+  &=2(k+k')x_n-k(x_{n+1}+x_{n-1})-k'(x_{n+2}+x_{n-2})
+\end{align*}
+（続きの答案）
+\begin{align*}
+  m\dv[2]{x_n}{t}&=k(x_{n+1}-2x_n+x_{n-1})\\
+  &\qquad+k'(x_{n+2}-2x_n+x_{n-2})
+\end{align*}
+\toi{2}{×}{未着手}
+\mikai
+\toi{3}{△}{記述}
+\begin{align*}
+  \fumei&=k\Bigl(\sum\ee^{\ii2\pi\mu/N}U_{n\mu}\hat{x}_{\mu}-2U_{n\mu}\hat{x}_{\mu}\\
+  &\qquad+\sum\ee^{-\ii2\pi\mu/N}U_{n\mu}\hat{x}_{\mu}\Bigr)
+\end{align*}
+\[
+  k\sum2\cos\frac{2\pi\mu}{N}U_{n\mu}\hat{x}_{\mu}-2U_{n\mu}\hat{x}_{\mu}
+\]
+\begin{align*}
+  m\kakimachigai{\frac{\dd^{2}\hat{x}_{\mu}}{\dd x_n}}{\sum_{\mu}U_{n\mu}\dv[2]{\hat{x}_{\mu}}{t}}&=k\sum-4\sin^{2}\frac{\pi\mu}{N}U_{n\mu}\hat{x}_{\mu}\\
+  &\qquad+k'\sum-4\sin^{2}\frac{2\pi\mu}{N}U_{n\mu}\hat{x}_{\mu}
+\end{align*}
+\nuke{$\sum_n(U^{\dagger})_{\nu n}$}
+\begin{align*}
+  m\kakimachigai{\frac{\dd^{2}\hat{x}_{\mu}}{\dd x_{\mu}}}{\dv[2]{\hat{x}_{\mu}}{t}}&=-4\Bigl(k\sin^{2}\frac{\pi\mu}{N}+k'\sin^{2}\frac{2\pi\mu}{N}\Bigr)\hat{x}_{\mu}
+\end{align*}
+\[
+  \omega_{\mu}=\sqrt{\frac{4\bigl(k\sin^{2}\frac{\pi\mu}{N}+k'\sin^{2}\frac{2\pi\mu}{N}\bigr)}{m}}
+\]
+\naze{$\sum_{\mu}U_{n\mu}[\cdots]=0$ から $\mu$ ごとの式に移る理由が無い。左から $(U^{\dagger})_{\nu n}$ をかけて $n$ について和をとり，$U^{\dagger}U=I$ を使うと $\nu$ ごとの式になり，各 $\hat{x}_{\nu}$ が自分だけを含む方程式に従う（独立に運動する）。これが問われている要点である。}
+\toi{4}{×}{記述}
+\[
+  \hat{x}_{\mu}=C_1\sin\omega_{\mu}t+C_2\cos\omega_{\mu}t
+\]
+\[
+  \sum_{\mu}U_{n\mu}\hat{x}_{\mu}=\nuke{x_n(t)}
+\]
+\naze{$x_n$ に戻さずに止まっている。また $\mu=N$ では $\omega_N=0$ で，この形では一様な並進 $\hat{x}_N=\alpha+\beta t$ が表せない。$x_n(t)=\frac{\alpha+\beta t}{\sqrt{N}}+\sum_{\mu=1}^{N-1}\frac{\ee^{\ii2\pi\mu n/N}}{\sqrt{N}}(C_{+,\mu}\ee^{\ii\omega_{\mu}t}+C_{-,\mu}\ee^{-\ii\omega_{\mu}t})$ まで書く。}
+\toi{5}{×}{未着手}
+\mikai
+\toi{6}{×}{未着手}
+\mikai
+%% kizuki
+\item 基準座標で「各モードが独立」と言うには，$\sum_{\mu}U_{n\mu}(\cdots)_{\mu}=0$ に左から $U^{\dagger}$ をかけて $U^{\dagger}U=I$ を使う1行が要る。$U$ の列が1次独立なので係数がすべて 0，と言ってもよい。（問題4（061）(3) と同じ書き換え）
+\item 一般解を書くときは $\omega_{\mu}=0$ のモードを先に探す。環状の系では $\mu=N$ が全体の並進で，解は $\cos,\sin$ ではなく $\alpha+\beta t$ になる。
+\item (2) の $x_{n+p}=\sum\ee^{\ii2\pi\mu p/N}U_{n\mu}\hat{x}_{\mu}$ は，使う前に周期境界条件 $x_{n+N}=x_n$ と $\ee^{\ii2\pi\mu}=1$ で示しておく。

@@ -1,0 +1,91 @@
+% 数理物理1 数理物理1-10 問題6（062-zl-fourier。当時は 数理物理1-7 問題9・shou07-l2-zl-fourier） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  &\int_{0}^{L}\dd z\,\frac{\ee^{-\ii2\pi z\nu/L}}{\sqrt{L}}\cdot\frac{\ee^{\ii2\pi z\mu/L}}{\sqrt{L}}\\
+  &\qquad=\frac{1}{L}\int_{0}^{L}\dd z\,\ee^{\ii2\pi z(\mu-\nu)/L}
+\end{align*}
+$\mu=\nu$ のとき，
+\[ \frac{1}{L}\int_{0}^{L}\dd z=1 \]
+$\mu\neq\nu$ のとき，
+\begin{align*}
+  &\frac{1}{L}\Bigl[\frac{L}{\ii2\pi(\mu-\nu)}\ee^{\ii2\pi z(\mu-\nu)/L}\Bigr]_{0}^{L}\\
+  &\qquad=\frac{1}{\ii2\pi(\mu-\nu)}\bigl(\underbrace{\ee^{\ii2\pi(\mu-\nu)}}_{1}-\underbrace{\ee^{0}}_{1}\bigr)=0
+\end{align*}
+（脇に $\cos2\pi(\mu-\nu)+\ii\sin2\pi(\mu-\nu)$ の下に $1$，$0$）
+\toi{2}{△}{計算}
+\[
+  \hat{f}_{\mu}=\int_{0}^{L}\dd z\,\frac{\ee^{-\ii2\pi z\mu/L}}{\sqrt{L}}z(L-z)
+\]
+$\mu=0$ のとき，
+\begin{align*}
+  \hat{f}_0&=\int_{0}^{L}\dd z\,\frac{1}{\sqrt{L}}(Lz-z^{2})\\
+  &=\frac{1}{\sqrt{L}}\Bigl[\frac{1}{2}Lz^{2}-\frac{1}{3}z^{3}\Bigr]_{0}^{L}\\
+  &=\frac{1}{\sqrt{L}}\Bigl(\frac{1}{2}L^{3}-\frac{1}{3}L^{3}\Bigr)=\frac{1}{6}L^{5/2}
+\end{align*}
+$\mu\neq0$
+\begin{align*}
+  \hat{f}_{\mu}&=\sqrt{L}\underbrace{\int_{0}^{L}\dd z\,z\,\ee^{-\ii2\pi z\mu/L}}_{I_1}\\
+  &\qquad-\frac{1}{\sqrt{L}}\underbrace{\int_{0}^{L}\kakimachigai{z^{2}\ee^{-\ii2\pi z\mu/L}}{z^{2}\ee^{-\ii2\pi z\mu/L}\dd z}}_{I_2}
+\end{align*}
+\begin{align*}
+  I_1&=\int_{0}^{L}\dd z\,z\,\ayamari{\ee^{\ii2\pi\mu z/L}}{\ee^{-\ii2\pi\mu z/L}}\\
+  &=\Bigl[\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}z\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd z\,\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}\\
+  &=\frac{L^{2}}{\ii2\pi\mu}\ee^{\ii2\pi\mu}\\
+  &\qquad-\frac{L}{\ii2\pi\mu}\Bigl[\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}\Bigr]_{0}^{L}\\
+  &=\frac{L^{2}}{\ii2\pi\mu}\cdot1-\frac{L^{2}}{(\ii2\pi\mu)^{2}}\bigl(\ee^{\ii2\pi\mu}-1\bigr)\\
+  &=\frac{L^{2}}{\ii2\pi\mu}
+\end{align*}
+\begin{align*}
+  I_2&=\int_{0}^{L}\dd z\,z^{2}\ayamari{\ee^{\ii2\pi\mu z/L}}{\ee^{-\ii2\pi\mu z/L}}\\
+  &=\Bigl[\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}z^{2}\Bigr]_{0}^{L}\\
+  &\qquad-\int_{0}^{L}\dd z\,\frac{L}{\ii2\pi\mu}\ee^{\ii2\pi\mu z/L}\cdot2z\\
+  &=\frac{L^{3}}{\ii2\pi\mu}\ee^{\ii2\pi\mu}-\frac{L}{\ii\pi\mu}I_1\\
+  &=\frac{L^{3}}{\ii2\pi\mu}-\frac{L^{3}}{2\ii^{2}\pi^{2}\mu^{2}}
+\end{align*}
+\naze{$\hat{f}_{\mu}$ の式では $U^{*}$ の負の指数 $\ee^{-\ii2\pi z\mu/L}$ を立てたのに，$I_1$，$I_2$ では指数を正にしている。これは $\hat{f}_{-\mu}$ の計算で，定義どおりなら $I_1=\ii L^{2}/(2\pi\mu)$，$I_2=\ii L^{3}/(2\pi\mu)+L^{3}/(2\pi^{2}\mu^{2})$ である。以降はこの誤りを引き継ぐ。答えが一致したのは，$f$ が $z=L/2$ について対称で $\hat{f}_{-\mu}=\hat{f}_{\mu}$ だからにすぎない。}
+\begin{align*}
+  \hat{f}_{\mu}&=\sqrt{L}I_1-\frac{1}{\sqrt{L}}I_2\\
+  &=\frac{L^{5/2}}{\ii2\pi\mu}-\frac{L^{5/2}}{\ii2\pi\mu}-\frac{L^{5/2}}{2\pi^{2}\mu^{2}}\\
+  &=\frac{-1}{2\pi^{2}\mu^{2}}L^{5/2}
+\end{align*}
+\toi{3}{◎}{}
+\[
+  f\Bigl(\frac{L}{2}\Bigr)=\sum_{\mu=-\infty}^{\infty}\frac{\ee^{\ii2\pi\frac{L}{2}\mu/L}}{\sqrt{L}}\,\frac{-L^{5/2}}{2\pi^{2}\mu^{2}}
+\]
+（脇に $\mu=0$ の項 $\frac{\ee^{\ii\pi\mu}}{\sqrt{L}}\,\frac{L^{5/2}}{6}$）
+\begin{align*}
+  \frac{L^{2}}{4}&=\kakimachigai{\sum_{-\infty}^{\infty}}{\frac{L^{2}}{6}+\sum_{\mu\neq0}}\frac{-\ee^{\ii\pi\mu}L^{2}}{2\pi^{2}\mu^{2}}\\
+  \frac{\pi^{2}}{2}&=\sum_{-\infty}^{\infty}\frac{(-1)^{\mu-1}}{\mu^{2}}\\
+  &=\sum_{-\infty}^{-1}\frac{(-1)^{\mu-1}}{\mu^{2}}+
+\end{align*}
+（ここで止め，矢印で次の式に移る）
+\begin{align*}
+  &\sum_{-\infty}^{-1}\ee^{\ii\pi\mu}\frac{-L^{2}}{2\pi^{2}\mu^{2}}+\frac{L^{2}}{6}\\
+  &\qquad+\sum_{1}^{\infty}\ee^{\ii\pi\mu}\frac{-L^{2}}{2\pi^{2}\mu^{2}}\\
+  &\frac{L^{2}}{4}=\frac{L^{2}}{6}+2\sum_{1}^{\infty}\frac{(-1)^{\mu-1}L^{2}}{2\pi^{2}\mu^{2}}
+\end{align*}
+\[
+  \frac{\pi^{2}}{12}=\sum_{1}^{\infty}\frac{(-1)^{\mu-1}}{\mu^{2}}
+\]
+\toi{4}{◎}{}
+\begin{align*}
+  \int_{0}^{L}\dd z\,z^{2}(L-z)^{2}&=\int_{0}^{L}\dd z\,(z^{2}L^{2}-2z^{3}L+z^{4})\\
+  &=\Bigl[\frac{1}{3}z^{3}L^{2}-\frac{1}{2}z^{4}L+\frac{1}{5}z^{5}\Bigr]_{0}^{L}\\
+  &=\frac{1}{3}L^{5}-\frac{1}{2}L^{5}+\frac{1}{5}L^{5}=\frac{1}{30}L^{5}
+\end{align*}
+\begin{align*}
+  \sum_{-\infty}^{\infty}\abs{\hat{f}_{\mu}}^{2}&=\sum_{-\infty}^{-1}\Bigl(\frac{-1}{2\pi^{2}\mu^{2}}L^{5/2}\Bigr)^{2}+\Bigl(\frac{1}{6}L^{5/2}\Bigr)^{2}\\
+  &\qquad+\sum_{1}^{\infty}\Bigl(\frac{1}{2\pi^{2}\mu^{2}}L^{5/2}\Bigr)^{2}
+\end{align*}
+\begin{align*}
+  \frac{1}{30}L^{5}&=2\sum_{1}^{\infty}\frac{L^{5}}{2^{2}\pi^{4}\mu^{4}}+\frac{1}{36}L^{5}\\
+  \frac{1}{30}-\frac{1}{36}&=\sum\frac{1}{2\pi^{4}\mu^{4}}\\
+  \pi^{4}\Bigl(\frac{1}{15}-\frac{1}{18}\Bigr)&=\sum\frac{1}{\mu^{4}}\\
+  \frac{3\pi^{4}}{15\cdot18}&=\sum\frac{1}{\mu^{4}}\\
+  \frac{\pi^{4}}{90}&=\sum\frac{1}{\mu^{4}}
+\end{align*}
+%% kizuki
+\item 展開係数は $\hat{f}_{\mu}=\int\dd z\,U^{*}(z,\mu)f(z)$ で，指数は $-\ii2\pi z\mu/L$。部分積分で $I_1$，$I_2$ を別に置くときも，定義の式から指数の符号を写す。$\int\ee^{-\ii qz}\dd z=\frac{\ii}{q}\ee^{-\ii qz}$ を使えば $I_1=\ii L/q$ になる。
+\item 指数の符号を逆にすると $\hat{f}_{-\mu}$ を計算したことになる。答えが合っても，$f$ が対称（$\hat{f}_{-\mu}=\hat{f}_{\mu}$）でない関数では誤りになるので，$\hat{f}_{-\mu}=\hat{f}_{\mu}^{*}$（実関数）で確かめる。

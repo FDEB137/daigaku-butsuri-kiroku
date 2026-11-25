@@ -1,0 +1,33 @@
+% 数理物理1 数理物理1-8 問題3（056-hermite2。当時は 数理物理1-7 問題3・shou07-l1-hermite2） 解いた日 2026-10-03
+%% kotae
+\toi{1}{×}{未着手}
+\mikai
+\toi{2}{◎}{}
+\begin{align*}
+  \begin{vmatrix}1-\lambda&2\ii\\-2\ii&1-\lambda\end{vmatrix}&=(1-\lambda)^{2}-4\\
+  &=\lambda^{2}-2\lambda-3=(\lambda-3)(\lambda+1)
+\end{align*}
+\[ \lambda=3,\ -1 \]
+$\lambda=3$：
+\[ \begin{pmatrix}-2&2\ii\\-2\ii&-2\end{pmatrix}\begin{pmatrix}1\\-\ii\end{pmatrix} \]
+$\lambda=-1$：
+\[ \begin{pmatrix}2&2\ii\\-2\ii&2\end{pmatrix}\begin{pmatrix}1\\\ii\end{pmatrix} \]
+\[
+  \frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\-\ii&\ii\end{pmatrix},\qquad \begin{pmatrix}3&0\\0&-1\end{pmatrix}
+\]
+\toi{3}{◎}{}
+\[
+  A=\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\-\ii&\ii\end{pmatrix}
+\]
+\begin{align*}
+  A^{\dagger}A&=\frac{1}{2}\begin{pmatrix}1&\ii\\1&-\ii\end{pmatrix}\begin{pmatrix}1&1\\-\ii&\ii\end{pmatrix}\\
+  &=\frac{1}{2}\begin{pmatrix}2&0\\0&2\end{pmatrix}=I
+\end{align*}
+\begin{align*}
+  A^{\dagger}HA&=\frac{1}{2}\begin{pmatrix}1&\ii\\1&-\ii\end{pmatrix}\begin{pmatrix}1&2\ii\\-2\ii&1\end{pmatrix}\begin{pmatrix}1&1\\-\ii&\ii\end{pmatrix}\\
+  &=\frac{1}{2}\begin{pmatrix}3&3\ii\\-1&\ii\end{pmatrix}\begin{pmatrix}1&1\\-\ii&\ii\end{pmatrix}\\
+  &=\frac{1}{2}\begin{pmatrix}6&0\\0&-2\end{pmatrix}=\begin{pmatrix}3&0\\0&-1\end{pmatrix}
+\end{align*}
+%% kizuki
+\item (1) の $H=H^{\dagger}$ は，転置して複素共役をとった $H^{\dagger}$ を書き，元の $H$ と成分ごとに比べれば終わる。すぐ済む小問ほど飛ばさずに書く。
+\item (2) の答えは規格化した形 $\frac{1}{\sqrt{2}}(1,\mp\ii)^{t}$ で書く。規格化の因子を (3) の $A$ でだけ付けると，(2) の答えとしては足りない。

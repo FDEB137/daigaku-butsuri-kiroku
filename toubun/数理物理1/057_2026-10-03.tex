@@ -1,0 +1,46 @@
+% 数理物理1 数理物理1-9 問題1（057-dft3。当時は 数理物理1-7 問題4・shou07-l1-dft3） 解いた日 2026-10-03
+%% kotae
+\toi{1}{×}{未着手}
+\[ \zeta^{3}=\ee^{\ii2\pi}=1 \]
+\naze{$\zeta^{3}=1$ を書いただけで，$U$ の行列が無い。$U_{n\mu}=\zeta^{\mu n}/\sqrt{3}$ の指数 $\mu n$ を $\zeta^{3}=1$ で減らすと $U=\frac{1}{\sqrt{3}}\begin{pmatrix}\zeta&\zeta^{2}&1\\\zeta^{2}&\zeta&1\\1&1&1\end{pmatrix}$（行が $n$，列が $\mu$）。}
+\toi{2}{×}{立式}
+\begin{align*}
+  \hat{f}_1&=(U^{\dagger})_{11}\cdot1+(U^{\dagger})_{12}\cdot2+(U^{\dagger})_{13}\cdot3\\
+  &=\frac{\zeta^{-1}}{\sqrt{3}}\cdot1+\frac{\zeta^{-2}}{\sqrt{3}}\cdot2+\frac{\zeta^{-3}}{\sqrt{3}}\cdot3\\
+  &=\frac{\ee^{\ii\frac{4\pi}{3}}}{\sqrt{3}}+\frac{2\ee^{\ii\frac{2\pi}{3}}}{\sqrt{3}}+\sqrt{3}\\
+  &=\frac{1}{\sqrt{3}}\cos\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\cos\frac{2\pi}{3}+\sqrt{3}\\
+  &\qquad+\Bigl(\frac{1}{\sqrt{3}}\sin\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\sin\frac{2\pi}{3}\Bigr)\ii\\
+  &=\Bigl(-\frac{1}{2\sqrt{3}}-\frac{1}{\sqrt{3}}+\sqrt{3}\Bigr)+\Bigl(-\frac{1}{2}+1\Bigr)\ii\\
+  &=\Bigl(-\frac{\sqrt{3}}{6}-\frac{2\sqrt{3}}{6}+\frac{6\sqrt{3}}{6}\Bigr)+\frac{1}{2}\ii\\
+  &=\frac{\sqrt{3}}{2}+\frac{1}{2}\ii
+\end{align*}
+（脇に複素平面の単位円の図）
+\begin{align*}
+  \hat{f}_2&=(U^{\dagger})_{21}\cdot1+(U^{\dagger})_{22}\cdot2+(U^{\dagger})_{23}\cdot3\\
+  &=\frac{1}{\sqrt{3}}\ayamari{\zeta^{-3}}{\zeta^{-2}}+\frac{2}{\sqrt{3}}\zeta^{-4}+\frac{3}{\sqrt{3}}\ayamari{\zeta^{-5}}{\zeta^{-6}}\\
+  &=\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}\ee^{\ii\frac{4\pi}{3}}+\frac{3}{\sqrt{3}}\ee^{\ii\frac{2\pi}{3}}\\
+  &=\frac{1}{\sqrt{3}}+\frac{2}{\sqrt{3}}\cos\frac{4\pi}{3}+\frac{3}{\sqrt{3}}\cos\frac{2\pi}{3}\\
+  &\qquad+\ii\Bigl(\frac{2}{\sqrt{3}}\sin\frac{4\pi}{3}+\frac{3}{\sqrt{3}}\sin\frac{2\pi}{3}\Bigr)\\
+  &=\frac{1}{\sqrt{3}}-\frac{1}{\sqrt{3}}-\frac{3}{2\sqrt{3}}+\ii\Bigl(-1+\frac{3}{2}\Bigr)\\
+  &=-\frac{\sqrt{3}}{2}+\frac{1}{2}\ii
+\end{align*}
+\begin{align*}
+  \hat{f}_3&=(U^{\dagger})_{31}+(U^{\dagger})_{32}\cdot2+(U^{\dagger})_{33}\cdot3\\
+  &=\frac{1}{\sqrt{3}}\ayamari{\zeta^{-4}}{\zeta^{-3}}+\frac{2}{\sqrt{3}}\ayamari{\zeta^{-5}}{\zeta^{-6}}+\frac{3}{\sqrt{3}}\ayamari{\zeta^{-6}}{\zeta^{-9}}\\
+  &=\frac{1}{\sqrt{3}}\ee^{\ii\frac{4\pi}{3}}+\frac{2}{\sqrt{3}}\ee^{\ii\frac{2\pi}{3}}+\frac{3}{\sqrt{3}}\\
+  &=\frac{1}{\sqrt{3}}\cos\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\cos\frac{2\pi}{3}+\frac{3}{\sqrt{3}}\\
+  &\qquad+\ii\Bigl(\frac{1}{\sqrt{3}}\sin\frac{4\pi}{3}+\frac{2}{\sqrt{3}}\sin\frac{2\pi}{3}\Bigr)\\
+  &=-\frac{1}{2\sqrt{3}}-\frac{2}{2\sqrt{3}}+\frac{6}{2\sqrt{3}}+\ii\Bigl(-\frac{1}{2}+1\Bigr)\\
+  &=\frac{\sqrt{3}}{2}+\frac{1}{2}\ii
+\end{align*}
+\[
+  \hat{\vect{f}}=\Bigl(\frac{\sqrt{3}}{2}+\frac{1}{2}\ii,\ -\frac{\sqrt{3}}{2}+\frac{1}{2}\ii,\ \frac{\sqrt{3}}{2}+\frac{1}{2}\ii\Bigr)
+\]
+\naze{$(U^{\dagger})_{\mu n}=U_{n\mu}^{*}=\zeta^{-\mu n}/\sqrt{3}$ で，指数は $\mu$ と $n$ の積である。$\hat{f}_2$，$\hat{f}_3$ では指数を $-3,-4,-5$ のように1ずつずらしており，正しくは $\hat{f}_2=\frac{1}{\sqrt{3}}(\zeta^{-2}+2\zeta^{-4}+3\zeta^{-6})=\frac{\sqrt{3}}{2}-\frac{1}{2}\ii$，$\hat{f}_3=\frac{1}{\sqrt{3}}(\zeta^{-3}+2\zeta^{-6}+3\zeta^{-9})=2\sqrt{3}$。以降の三角関数の計算は合っているが，この誤りを引き継ぐ。}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item 離散フーリエ級数展開の係数は $\hat{f}_{\mu}=\frac{1}{\sqrt{N}}\sum_n\ee^{-\ii2\pi\mu n/N}f_n$ で，$\zeta$ の指数は $-\mu n$（積）になる。(1) で $U$ を $\zeta$ の行列として先に書いておけば，$U^{\dagger}$ の行をそのまま読めて指数を取り違えない。
+\item $\hat{f}_N$（ここでは $\hat{f}_3$）は $U_{nN}=1/\sqrt{N}$ なので成分の和 $/\sqrt{N}$ になる。これと (3) の $\abs{\hat{\vect{f}}}^{2}=\abs{\vect{f}}^{2}$（今回の値では $3\neq14$）で検算する。

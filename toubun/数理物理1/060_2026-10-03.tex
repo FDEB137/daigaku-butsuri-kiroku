@@ -1,0 +1,56 @@
+% 数理物理1 数理物理1-9 問題4（060-real-n4。当時は 数理物理1-7 問題7・shou07-l2-real-n4） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（ページの上に $\sin A\cos B+\cos A\sin B$ のメモ）
+\begin{align*}
+  &\sum_n\sin\frac{2\pi\mu n}{N}\cos\frac{2\pi\nu n}{N}\\
+  &\qquad=\kakimachigai{\frac{1}{2}}{\frac{1}{2}\sum_n}\Bigl(\sin\frac{2\pi(\mu+\nu)n}{N}+\sin\frac{2\pi(\mu-\nu)n}{N}\Bigr)\\
+  &\qquad=\frac{1}{2}\bigl(\Im S_{\mu+\nu}+\Im S_{\mu-\nu}\bigr)=0
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  A_1&=\frac{1}{N}\sum\cos\frac{2\pi n}{N}f_n\\
+  &=\frac{1}{4}\Bigl(\cos\frac{\pi}{2}+\cos\pi\Bigr)=-\frac{1}{4}\\
+  A_2&=\frac{1}{N}\sum\cos\frac{4\pi n}{N}f_n\\
+  &=\frac{1}{4}(\cos\pi+\cos2\pi)=0\\
+  A_3&=\frac{1}{4}\Bigl(\cos\frac{3\pi}{2}+\cos3\pi\Bigr)=-\frac{1}{4}\\
+  A_4&=\frac{1}{4}(\cos2\pi+\cos4\pi)=\frac{1}{2}
+\end{align*}
+\begin{align*}
+  B_1&=\frac{1}{4}\Bigl(\sin\frac{\pi}{2}+\sin\pi\Bigr)=\frac{1}{4}\\
+  B_2&=\frac{1}{4}(\sin\pi+\sin2\pi)=0\\
+  B_3&=\frac{1}{4}\Bigl(\sin\frac{3\pi}{2}+\sin3\pi\Bigr)=-\frac{1}{4}\\
+  B_4&=\frac{1}{4}(\sin2\pi+\sin4\pi)=0
+\end{align*}
+\toi{3}{△}{記述}
+\begin{align*}
+  \hat{f}_{\mu}&=\ee^{-\ii\frac{2\pi\mu n}{N}}f_n\\
+  &=\frac{1}{\sqrt{N}}\Bigl(\cos\Bigl(-\frac{2\pi\mu n}{N}\Bigr)+\ii\sin\Bigl(-\frac{2\pi\mu n}{N}\Bigr)\Bigr)f_n
+\end{align*}
+\begin{align*}
+  \Re\hat{f}_{\mu}&=\frac{1}{\sqrt{N}}\cos\Bigl(\frac{2\pi\mu n}{N}\Bigr)f_n=\sqrt{N}A_{\mu}\\
+  \Im\hat{f}_{\mu}&=\ayamari{-\frac{1}{\sqrt{N}}}{\frac{1}{\sqrt{N}}}\sin\Bigl(-\frac{2\pi\mu n}{N}\Bigr)f_n=-\sqrt{N}B_{\mu}
+\end{align*}
+\nuke{$\hat{f}_1,\dots,\hat{f}_4$ の値}
+\naze{問われている $\hat{f}_{\mu}$ の値が無い。$\hat{f}_{\mu}=\frac{1}{2}(\ee^{-\ii\pi\mu/2}+\ee^{-\ii\pi\mu})$ より $\hat{f}_1=-\frac{1}{2}-\frac{1}{2}\ii$，$\hat{f}_2=0$，$\hat{f}_3=-\frac{1}{2}+\frac{1}{2}\ii$，$\hat{f}_4=1$ を出し，$\sqrt{N}A_{\mu}$，$-\sqrt{N}B_{\mu}$ と成分ごとに比べる。$\hat{f}_{\mu}$ の式には $\frac{1}{\sqrt{N}}\sum_n$ が要り，$\Im$ の行は $\sin(-\theta)$ を使うなら前の $-$ は付かない。}
+\toi{4}{△}{計算}
+\begin{align*}
+  f_1&=B_1\sin\frac{\pi}{2}+A_2\cos\pi+B_3\sin\frac{3\pi}{2}+A_4\cos2\pi\\
+  &=\frac{1}{4}\cdot1+0\cdot(-1)+\Bigl(-\frac{1}{4}\Bigr)(-1)+\frac{1}{2}\cdot1=1\\
+  f_2&=A_1\cos\pi+A_2\cos2\pi+A_3\cos3\pi+A_4\cos4\pi\\
+  &=\Bigl(-\frac{1}{4}\Bigr)(-1)+0\cdot1+\Bigl(-\frac{1}{4}\Bigr)(-1)+\frac{1}{2}\cdot1=1\\
+  f_3&=B_1\sin\frac{3\pi}{2}+A_2\cos3\pi+B_3\sin\frac{9\pi}{2}+A_4\cos6\pi\\
+  &=\frac{1}{4}\cdot(-1)+\Bigl(-\frac{1}{4}\Bigr)\cdot1+\frac{1}{2}\cdot1=0\\
+  f_4&=A_1\cos2\pi+A_3\cos6\pi+A_4\cos8\pi\\
+  &=-\frac{1}{4}\cdot1+\Bigl(-\frac{1}{4}\Bigr)\cdot1+\frac{1}{2}\cdot1=0
+\end{align*}
+\begin{align*}
+  \sum_{\mu}\abs{\hat{f}_{\mu}}^{2}&=2^{2}\bigl(\ayamari{(A_1-\ii B_1)^{2}}{\abs{A_1-\ii B_1}^{2}}+(A_2-\ii B_2)^{2}\\
+  &\qquad+(A_3-\ii B_3)^{2}+(A_4-\ii B_4)^{2}\bigr)\\
+  &=\ayamari{2}{4}\Bigl(\frac{1}{16}\cdot2+0+\frac{1}{16}\cdot2+\frac{1}{4}\Bigr)=1
+\end{align*}
+\[ f^{2}=2 \]
+\naze{$\hat{f}_{\mu}=\sqrt{N}(A_{\mu}-\ii B_{\mu})=2(A_{\mu}-\ii B_{\mu})$ なので $\abs{\hat{f}_{\mu}}^{2}=4(A_{\mu}^{2}+B_{\mu}^{2})$ で，2乗ではなく絶対値の2乗をとる。前の行の $2^{2}$ を次の行で $2$ にしており，正しくは $4\cdot\frac{1}{2}=2=\abs{\vect{f}}^{2}$。$1$ と $2$ が食い違ったまま終わっている。}
+%% kizuki
+\item 複素係数の長さは $\abs{A-\ii B}^{2}=A^{2}+B^{2}$ で，$(A-\ii B)^{2}$ ではない。Parseval で左右が合わなかったら，$\sqrt{N}$ の因子と絶対値のとり方を見直す（(3) で $\hat{f}_{\mu}$ の値を出しておけば $\frac{1}{2}+0+\frac{1}{2}+1=2$ と直接確かめられる）。
+\item 「求めよ」とある量は，一般の関係式を示しただけで終えず，値まで書く。
