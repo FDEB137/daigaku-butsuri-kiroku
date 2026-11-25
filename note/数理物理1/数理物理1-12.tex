@@ -1,0 +1,213 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{数理物理1　第12章「波動方程式」}{2026-11-25}
+%% note-moto	problems\数理物理1\shou12\数理物理1-12.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-092-bunsan}{1}}{L1・計算}{○◎○△}{B}{2026-10-21 3回目 ヒント1 (1)立式 (3)単位 (4)計算}
+  \ichirangyou{\hyperlink{bt-m-093-renzoku}{2}}{L1・導出}{◎◎◎×}{D}{2026-10-07 2回目 解答を見た (4)方針}
+  \ichirangyou{\hyperlink{bt-m-094-pulse}{3}}{L1・計算}{△△△×}{D}{2026-10-07 2回目 (1)記述 (2)記述 (3)計算 (4)立式}
+  \ichirangyou{4}{L2・導出}{◎◎◎◎◎}{D}{2026-10-07 解答を見た}
+  \ichirangyou{5}{L2・計算}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L3・導出}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L4・計算}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 連成振動のポテンシャルエネルギー % 出典: p.88
+    \[ V=\frac{K}{2}\sum_{n=1}^{N}(x_{n+1}-x_n)^{2} \notetag{12.2} \]
+  \item 連成振動の運動方程式 % 出典: p.88
+    \[ m\dv[2]{x_n}{t}=-\pdv{V}{x_n}=K(x_{n+1}-x_n)-K(x_n-x_{n-1}),\quad n=1,2,\dots,N \notetag{12.3} \]
+  \item 基準モードの固有振動数 % 出典: p.89
+    \[ \omega_\mu=\sqrt{\frac{2K}{m}\Bigl(1-\cos\frac{2\pi\mu}{N}\Bigr)} \notetag{12.4} \]
+  \item 波の速さ $v_s$ % 出典: p.91
+    \[ v_s=a\sqrt{\frac{K}{m}} \notetag{12.5} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\数理物理1\092_2026-10-03.tex
+\mondaibangou{1}
+\begin{mondai}{092-bunsan}{計算}{連成振動の分散関係と，長波長極限での線形分散関係・位相速度}
+質量 $m$ の質点 $N$ 個が間隔 $a$ で輪状に並び，隣どうしがばね定数 $K$ のばねでつながれている（\noteshiki{12.2}）。モード $\mu$ の固有振動数は \noteshiki{12.4} より次のとおりである。波数は $k_\mu=2\pi\mu/(Na)$ とする。
+  \[ \omega_\mu=\sqrt{\frac{2K}{m}\Bigl(1-\cos\frac{2\pi\mu}{N}\Bigr)}\quad(\omega_\mu\ge0) \]
+  \begin{shoumon}
+    \item $1-\cos\theta=2\sin^{2}(\theta/2)$ を用いて，$\omega_\mu$ を $k_\mu$，$a$，$K$，$m$ で表せ。
+    \item $k_\mu a\ll1$ の極限で $\omega_\mu=v_sk_\mu$ となることを示し，$v_s$ を $K,m,a$ で表せ。
+    \item $m=\qty{4.5e-26}{\kilogram}$，$K=\qty{15}{\newton\per\metre}$，$a=\qty{2.5e-10}{\metre}$ のとき，$v_s$ と $\omega_\mu$ の最大値 $\omega_{\max}$（$N$ は偶数とする），それに対応する振動数 $\nu_{\max}=\omega_{\max}/(2\pi)$ を求めよ（有効数字2桁）。
+    \item $k_\mu a=1$ のとき $\omega_\mu/(v_sk_\mu)$ の値を求めよ。また，この比が $0.99$ になる $k_\mu a$ のおおよその値を $\sin x\simeq x-x^{3}/6$ を用いて求め，そのときの波長 $\lambda_\mu$ が $a$ の何倍かを答えよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 C ◎◎×× → 2026-10-07 C ◎◎△× → 2026-10-21 B ○◎○△ (ヒント1)}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+（図：質点を輪状に並べた図）
+\begin{align*}
+  \omega_\mu&=\sqrt{\frac{2K}{m}\cdot2\sin^{2}\Bigl(\frac{\pi\mu}{N}\Bigr)}\\
+  &=2\sqrt{\frac{K}{m}}\sin\Bigl(\frac{\pi\mu}{N}\Bigr)\\
+  &=2\sqrt{\frac{K}{m}}\abs*{\sin\Bigl(\frac{ak_\mu}{2}\Bigr)}
+\end{align*}
+（脇に $k_\mu=2\pi\mu/(Na)$，$ak_\mu/2=\pi\mu/N$）
+\toi{2}{◎}{}
+\[ =2\sqrt{\frac{K}{m}}\cdot\frac{ak_\mu}{2}=\underbrace{a\sqrt{\frac{K}{m}}}_{v_s}k_\mu \]
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item (3)(4) は手を付けていない。(3) は先に $\sqrt{K/m}$ の値を出し，$v_s=a\sqrt{K/m}$ と $\omega_{\max}=2\sqrt{K/m}$（$\abs{\sin}=1$ となる $k_\mu a=\pi$，$\mu=N/2$）を有効数字2桁と単位つきで答える。
+\item (4) は $x=k_\mu a$ とおくと比が $\omega_\mu/(v_sk_\mu)=2\sin(x/2)/x$ と $x$ だけの関数になる。$\sin(x/2)\simeq x/2-x^{3}/48$ で $1-x^{2}/24$ とし，波長は $\lambda_\mu=2\pi a/x$ で求める。
+\end{kizuki}
+\begin{tadashii}
+\houshin 半角の公式で $\omega_\mu$ を $\sin$ に書き直し，小さな $k_\mu a$ では $\sin$ を展開する。
+\keisan
+\shoumonkai{1} $2\pi\mu/N=k_\mu a$ なので $1-\cos(k_\mu a)=2\sin^{2}(k_\mu a/2)$。よって
+\[ \omega_\mu=\sqrt{\frac{4K}{m}\sin^{2}\frac{k_\mu a}{2}}=2\sqrt{\frac{K}{m}}\,\abs*{\sin\frac{k_\mu a}{2}} \]
+（$\omega_\mu\ge0$ なので絶対値）。
+\shoumonkai{2} $k_\mu a\ll1$ で $\sin x\simeq x$ とすると $\omega_\mu\simeq2\sqrt{K/m}\cdot\frac{k_\mu a}{2}=a\sqrt{K/m}\,k_\mu$。よって $\omega_\mu=v_sk_\mu$，$v_s=a\sqrt{K/m}$。次の項まで残すと $\omega_\mu=v_sk_\mu\{1-(k_\mu a)^{2}/24+\cdots\}$。
+\shoumonkai{3} $\sqrt{K/m}=\sqrt{15/\num{4.5e-26}}=\qty{1.826e13}{\per\second}$。$v_s=\qty{2.5e-10}{\metre}\times\qty{1.826e13}{\per\second}=\qty{4.56e3}{\metre\per\second}$。最大は $\sin=1$（$k_\mu a=\pi$，$\mu=N/2$）で $\omega_{\max}=2\sqrt{K/m}=\qty{3.65e13}{\per\second}$，$\nu_{\max}=\omega_{\max}/(2\pi)=\qty{5.81e12}{\hertz}$。
+\shoumonkai{4} $x=k_\mu a$ とおくと $\omega_\mu/(v_sk_\mu)=2\sin(x/2)/x$。$x=1$ で $2\sin0.5=0.9589$。1\% のずれは $\sin(x/2)\simeq x/2-x^{3}/48$ より $2\sin(x/2)/x\simeq1-x^{2}/24=0.99$，$x^{2}=0.24$，$x\simeq0.49$。波長は $\lambda_\mu=2\pi/k_\mu=2\pi a/x\simeq12.8a$。
+\kotae{\shoumonkai{1} $\omega_\mu=2\sqrt{K/m}\abs{\sin(k_\mu a/2)}$ \shoumonkai{2} $v_s=a\sqrt{K/m}$ \shoumonkai{3} $v_s\simeq\qty{4.6e3}{\metre\per\second}$，$\omega_{\max}\simeq\qty{3.7e13}{\per\second}$，$\nu_{\max}\simeq\qty{5.8e12}{\hertz}$ \shoumonkai{4} $0.96$；$k_\mu a\simeq0.49$，$\lambda_\mu\simeq13a$}
+\kenzan 次元：$\sqrt{K/m}$ は 1/時間，$a$ を掛けて速さ。固体中の音速（数 km/s）のオーダーで妥当。$\sin x<x$ なので比は 1 より小さく，$x=0.49$ での厳密値 $\sin(0.245)/0.245=0.990$ とも一致する。
+\tsumazuki $\omega_\mu\ge0$ なので絶対値が必要（$k_\mu a>\pi$ では $\sin$ が負）。$k_\mu a=1$（$\lambda\simeq6.3a$）でもすでに 4\% 線形からずれる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\093_2026-10-03.tex
+\mondaibangou{2}
+\begin{mondai}{093-renzoku}{導出}{連続極限で波動方程式が得られる条件（$m/a$ と $Ka$ を固定）}
+質点が $z$ 軸上に間隔 $a$ で並び，$n$ 番目の質点の位置を $z_n=na$ とする。変位 $x_n(t)$ を連続な場 $x(z,t)$ の $z=z_n$ での値 $x_n(t)=x(z_n,t)$ とみなす。質点の質量は $m$，ばね定数は $K$ で，運動方程式は \noteshiki{12.3} である。
+  \begin{shoumon}
+    \item $x(z\pm a,t)$ を $a$ についてテイラー展開し，次を示せ。
+      \[ x_{n+1}+x_{n-1}-2x_n=a^{2}\pdv[2]{x}{z}+O(a^{4}) \]
+    \item (1) を運動方程式に代入して $O(a^{4})$ を無視し，$x(z,t)$ が満たす方程式を $v_s=a\sqrt{K/m}$ を用いて表せ。
+    \item 長さ $L=Na$ を固定して $a\to0$，$N\to\infty$ とする。$m$ と $K$ をそのままにすると $v_s$ はどうなるか。線密度 $\rho=m/a$ と $\kappa=Ka$ を固定すると $v_s=\sqrt{\kappa/\rho}$ と書けて有限に保たれることを示せ。
+    \item (2) の方程式に $x=\ee^{\ii(kz-\omega t)}$ を代入して $\omega$ と $k$ の関係を求め，$\omega=\pm v_sk$ の波がそれぞれ進む向きを述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 A ◎◎◎△ → 2026-10-07 D ◎◎◎× (解答を見た)}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+（図：間隔 $a$ で並んだ質点）
+\begin{align*}
+  x(z\pm a,t)&=x\pm a\pdv{x}{z}+\frac{a^{2}}{2}\pdv[2]{x}{z}\\
+  &\qquad\pm\frac{a^{3}}{6}\pdv[3]{x}{z}+\cdots
+\end{align*}
+\begin{align*}
+  &x(z+a,t)+x(z-a,t)\\
+  &\qquad=2\Bigl(x+\frac{a^{2}}{2}\pdv[2]{x}{z}+O(a^{4})\Bigr)\\
+  &x(z_{n+1},t)+x(z_{n-1},t)-2x(z_n,t)\\
+  &\qquad=a^{2}\Bigl(\pdv[2]{x}{z}\Bigr)+O(a^{4})\\
+  &x_{n+1}+x_{n-1}-2x_n=a^{2}\Bigl(\pdv[2]{x}{z}\Bigr)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  m\dv[2]{x_n}{t}&=K(x_{n+1}-x_n)-K(x_n-x_{n-1})\\
+  \dv[2]{x_n}{t}&=\frac{K}{m}a^{2}\pdv[2]{x}{z}\\
+  \dv[2]{x_n}{t}&=v_s^{2}\pdv[2]{x_n}{z}
+\end{align*}
+\[ \frac{1}{v_s^{2}}\kakimachigai{\pdv[2]{x_n}{t}}{\pdv[2]{x}{t}}-\pdv[2]{x}{z}=0 \]
+\[ v_s=a\sqrt{\frac{K}{m}} \]
+\toi{3}{◎}{}
+$a\to0$ で $v_s\to0$。
+\[ \rho=\frac{m}{a},\qquad\kappa=Ka \]
+\[ v_s=\kakimachigai{\frac{Ka}{m/a}}{\sqrt{\frac{Ka}{m/a}}}=\sqrt{\frac{\kappa}{\rho}} \]
+\toi{4}{△}{記述}
+\begin{align*}
+  &\frac{1}{v_s^{2}}\pdv[2]{}{t}\bigl(\ee^{\ii(kz-\omega t)}\bigr)=\pdv[2]{}{z}\ee^{\ii(kz-\omega t)}\\
+  &\frac{1}{v_s^{2}}(-\omega^{2})\ee^{\ii(kz-\omega t)}=(\ii k)^{2}\ee^{\ii(kz-\omega t)}
+\end{align*}
+\[ \frac{\omega^{2}}{v_s^{2}}=k^{2},\qquad\omega=\pm v_sk \]
+\nuke{進む向き}
+\naze{問われている「それぞれ進む向き」が書かれていない。$\omega=+v_sk$ は位相が $k(z-v_st)$ で $+z$ 向き，$\omega=-v_sk$ は位相が $k(z+v_st)$ で $-z$ 向きに，ともに速さ $v_s$ で進む。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「向きを述べよ」には，位相 $kz-\omega t=k(z\mp v_st)$ が一定の点が $z=\pm v_st+\text{一定}$ と動くことから答える。$\omega=+v_sk$ は $+z$ 向き，$\omega=-v_sk$ は $-z$ 向きである。
+\item 小問の問いを最後に読み直し，求めた式（$\omega=\pm v_sk$）のほかに述べることが残っていないかを確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin テイラー展開で奇数次を消し，$m,K$ を $a$ の関数として固定する量を選び直す。
+\keisan
+\shoumonkai{1} 展開すると
+\[ x(z\pm a,t)=x\pm a\pdv{x}{z}+\frac{a^{2}}{2}\pdv[2]{x}{z}\pm\frac{a^{3}}{6}\pdv[3]{x}{z}+\frac{a^{4}}{24}\pdv[4]{x}{z}\pm\cdots \]
+2式を足すと奇数次が消えて $x_{n+1}+x_{n-1}-2x_n=a^{2}\pdv[2]{x}{z}+O(a^{4})$。
+\shoumonkai{2} 運動方程式 $m\dv[2]{x_n}{t}=K(x_{n+1}+x_{n-1}-2x_n)$ に代入し，$O(a^{4})$ を無視すると次のようになる。
+\[ m\pdv[2]{x}{t}=Ka^{2}\pdv[2]{x}{z} \]
+$v_s^{2}=Ka^{2}/m$ とおいて次を得る。
+\[ \frac{1}{v_s^{2}}\pdv[2]{x}{t}-\pdv[2]{x}{z}=0 \]
+\shoumonkai{3} $m,K$ を固定したまま $a\to0$ とすると $v_s=a\sqrt{K/m}\to0$ で波が伝わらなくなる。$m=\rho a$，$K=\kappa/a$ とおくと
+\[ v_s=a\sqrt{\frac{\kappa/a}{\rho a}}=\sqrt{\frac{\kappa}{\rho}} \]
+となり，$\rho,\kappa$ を固定すれば $a$ によらず有限。方程式は次のとおり。
+\[ \rho\pdv[2]{x}{t}=\kappa\pdv[2]{x}{z} \]
+\shoumonkai{4} $\pdv[2]{}{t}\to-\omega^{2}$，$\pdv[2]{}{z}\to-k^{2}$ なので $-\omega^{2}/v_s^{2}+k^{2}=0$，$\omega=\pm v_sk$。$k>0$ で $\omega=+v_sk$ は位相 $k(z-v_st)$ で $+z$ 向き，$\omega=-v_sk$ は位相 $k(z+v_st)$ で $-z$ 向きに，ともに速さ $v_s$ で進む。
+\kotae{\shoumonkai{1} 本文のとおり \shoumonkai{2} $\frac{1}{v_s^{2}}\partial_t^{2}x-\partial_z^{2}x=0$，$v_s=a\sqrt{K/m}$ \shoumonkai{3} $m,K$ 固定では $v_s\to0$。$\rho=m/a$，$\kappa=Ka$ を固定すれば $v_s=\sqrt{\kappa/\rho}$ \shoumonkai{4} $\omega=\pm v_sk$（$+$ は $+z$ 向き，$-$ は $-z$ 向き）}
+\kenzan 次元：$\kappa$ は力（\unit{\kilogram\metre\per\second\squared}），$\rho$ は \unit{\kilogram\per\metre} なので $\kappa/\rho$ は \unit{\metre\squared\per\second\squared} で速さの2乗。\noteshiki{12.5} と一致する。
+\tsumazuki 連続極限は $m,K$ を固定してはいけない。ばねを細かく切るとばね定数は $a$ に反比例して大きくなり，質量は $a$ に比例して小さくなる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\数理物理1\094_2026-10-03.tex
+\mondaibangou{3}
+\begin{mondai}{094-pulse}{計算}{ダランベール解と，初期速度 0 の矩形パルスが左右に分かれて進むこと}
+$v_s>0$，$w>0$，$h>0$ とし，$-\infty<z<\infty$ で次の波動方程式を考える。
+  \[ \frac{1}{v_s^{2}}\pdv[2]{\phi}{t}-\pdv[2]{\phi}{z}=0 \]
+  初期条件は次のとおりである。
+  \[ \phi(z,0)=\phi_0(z)=\begin{cases}h&(\abs{z}<w)\\0&(\abs{z}>w)\end{cases},\qquad\left.\pdv{\phi}{t}\right|_{t=0}=0 \]
+  \begin{shoumon}
+    \item 2回微分可能な任意の関数 $F$，$G$ について $\phi=F(z-v_st)+G(z+v_st)$ が波動方程式を満たすことを示せ。
+    \item 初期条件から $F$，$G$ を決め，$\phi(z,t)=\frac{1}{2}\{\phi_0(z-v_st)+\phi_0(z+v_st)\}$ となることを示せ。
+    \item $t=w/(2v_s)$ と $t=2w/v_s$ の $\phi(z,t)$ を，$z$ の範囲ごとに値を求めて書け。
+    \item 2つのパルスが重ならなくなる最初の時刻と，そのとき各パルスの高さと進む向きを求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 D ◎△×× → 2026-10-07 D △△△×}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  &\frac{1}{v_s^{2}}\biggl(\pdv[2]{F}{z}\cdot(-v_s)^{2}+\pdv[2]{G}{z}v_s^{2}\biggr)\\
+  &\qquad-\pdv[2]{F}{z}-\kakimachigai{\frac{\partial^{2}F}{\partial G^{2}}}{\pdv[2]{G}{z}}=0
+\end{align*}
+\toi{2}{△}{記述}
+\[ \phi(z,0)=F(z)+G(z)=\ayamari{h}{\phi_0(z)} \]
+\[ \dot{F}(-v_s)+\dot{G}v_s=0 \]
+\[ \dot{F}=\dot{G}\qquad\therefore\ F=G+c \]
+\[ F+G=h,\qquad F-G=c \]
+\[ F=\ayamari{\frac{h-c}{2}}{\frac{\phi_0+c}{2}},\qquad G=\ayamari{\frac{h+c}{2}}{\frac{\phi_0-c}{2}} \]
+\naze{初期条件は関数としての等式 $F(z)+G(z)=\phi_0(z)$ で，$h$ は $\abs{z}<w$ での値にすぎない。また $F-G=c$ からは $F=(\phi_0+c)/2$，$G=(\phi_0-c)/2$ で，書いたものとは $c$ の符号が逆である（$c$ は $F+G$ で打ち消すので結論は変わらない）。}
+\[ \phi(z,t)=\frac{1}{2}\bigl(\phi_0(z-v_st)+\phi_0(z+v_st)\bigr) \]
+\toi{3}{×}{方針}
+\begin{align*}
+  \phi\Bigl(z,\frac{w}{2v_s}\Bigr)&=\frac{1}{2}\Bigl(\phi_0\Bigl(z-\frac{w}{2}\Bigr)+\phi_0\Bigl(z+\frac{w}{2}\Bigr)\Bigr)\\
+  &=\ayamari{h}{\text{$z$ の範囲で変わる}}\\
+  \phi\Bigl(z,\frac{2w}{v_s}\Bigr)&=\frac{1}{2}\bigl(\phi_0(z-2w)+\phi_0(z+2w)\bigr)\\
+  &=\ayamari{0}{\text{$z$ の範囲で変わる}}
+\end{align*}
+\naze{$\phi$ は $z$ の関数で，値は1つではない。各項 $\phi_0(z\mp v_st)$ は区間 $(\pm v_st-w,\pm v_st+w)$ でだけ $h$ になるので，2つの区間を書き出して重ねる。$t=w/(2v_s)$：$\abs{z}<w/2$ で $h$，$w/2<\abs{z}<3w/2$ で $h/2$，他は 0。$t=2w/v_s$：$w<\abs{z}<3w$ で $h/2$，他は 0。}
+\toi{4}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 初期条件 $\phi(z,0)=\phi_0(z)$ は $z$ の関数どうしの等式で，$\phi_0$ を $h$ と書くと $\abs{z}<w$ の外が抜ける。連立方程式を解いたら $F-G=c$ に戻して $c$ の符号を確かめる。
+\item ダランベール解の値は $z$ の範囲ごとに決まる。$\phi_0(z-v_st)$ と $\phi_0(z+v_st)$ が $h$ になる区間を数直線に書き出して重ね，面積 $\int\phi\,\dd z=2wh$ で検算する。
+\item (4) は，右向きのパルスの左端 $v_st-w$ と左向きのパルスの右端 $-v_st+w$ を比べれば，重ならなくなる時刻 $t=w/v_s$ が出る。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は合成関数の微分。(2) は初期条件を $F,G$ の連立方程式にする。(3)(4) は $\phi_0$ を $\pm v_st$ ずらして足す。
+\keisan
+\shoumonkai{1} $\pdv{\phi}{t}=-v_sF'+v_sG'$，$\pdv[2]{\phi}{t}=v_s^{2}(F''+G'')$。$\pdv[2]{\phi}{z}=F''+G''$。よって次が成り立つ。
+\[ \frac{1}{v_s^{2}}\pdv[2]{\phi}{t}-\pdv[2]{\phi}{z}=0 \]
+\shoumonkai{2} $t=0$ で $F(z)+G(z)=\phi_0(z)$。初期速度が 0 なので $-v_sF'(z)+v_sG'(z)=0$，すなわち $G(z)=F(z)+c$（$c$ は定数）。よって $F=(\phi_0-c)/2$，$G=(\phi_0+c)/2$ で，$c$ は打ち消し合い
+\[ \phi(z,t)=\frac{1}{2}\{\phi_0(z-v_st)+\phi_0(z+v_st)\} \]
+\shoumonkai{3} $\phi_0(z-v_st)=h$ となるのは $v_st-w<z<v_st+w$，$\phi_0(z+v_st)=h$ となるのは $-v_st-w<z<-v_st+w$。
+$t=w/(2v_s)$（$v_st=w/2$）：右向きは $-w/2<z<3w/2$，左向きは $-3w/2<z<w/2$。重なる $-w/2<z<w/2$ で $h$，$-3w/2<z<-w/2$ と $w/2<z<3w/2$ で $h/2$，それ以外は 0。
+$t=2w/v_s$（$v_st=2w$）：右向きは $w<z<3w$，左向きは $-3w<z<-w$。この2区間で $h/2$，それ以外（$\abs{z}<w$ を含む）は 0。
+\shoumonkai{4} 右向きの範囲 $(v_st-w,v_st+w)$ と左向きの範囲 $(-v_st-w,-v_st+w)$ が重ならなくなるのは $v_st-w\ge-v_st+w$ すなわち $t\ge w/v_s$。そのとき各パルスは高さ $h/2$，幅 $2w$ の矩形で，右向きのものは $+z$ 向き，左向きのものは $-z$ 向きに速さ $v_s$ で進む。
+\kotae{\shoumonkai{1} 本文のとおり \shoumonkai{2} $\phi=\frac{1}{2}\{\phi_0(z-v_st)+\phi_0(z+v_st)\}$ \shoumonkai{3} $t=w/(2v_s)$：$\abs{z}<w/2$ で $h$，$w/2<\abs{z}<3w/2$ で $h/2$，他は0。$t=2w/v_s$：$w<\abs{z}<3w$ で $h/2$，他は0 \shoumonkai{4} $t=w/v_s$。高さ $h/2$，幅 $2w$，$\pm z$ 向き}
+\kenzan 面積 $\int\phi\,\dd z$ は初期 $2wh$。$t=w/(2v_s)$ では $h\cdot w+2\cdot\frac{h}{2}\cdot w=2wh$，$t=2w/v_s$ では $2\cdot\frac{h}{2}\cdot2w=2wh$ で一致する。
+\tsumazuki 初期速度が 0 でも，パルスは高さが半分になって左右に分かれて進む。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

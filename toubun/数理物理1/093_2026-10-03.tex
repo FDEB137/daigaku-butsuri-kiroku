@@ -1,0 +1,38 @@
+% 数理物理1 数理物理1-12 問題2（093-renzoku。当時は 数理物理1-10 問題2・shou10-l1-renzoku） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（図：間隔 $a$ で並んだ質点）
+\begin{align*}
+  x(z\pm a,t)&=x\pm a\pdv{x}{z}+\frac{a^{2}}{2}\pdv[2]{x}{z}\\
+  &\qquad\pm\frac{a^{3}}{6}\pdv[3]{x}{z}+\cdots
+\end{align*}
+\begin{align*}
+  &x(z+a,t)+x(z-a,t)\\
+  &\qquad=2\Bigl(x+\frac{a^{2}}{2}\pdv[2]{x}{z}+O(a^{4})\Bigr)\\
+  &x(z_{n+1},t)+x(z_{n-1},t)-2x(z_n,t)\\
+  &\qquad=a^{2}\Bigl(\pdv[2]{x}{z}\Bigr)+O(a^{4})\\
+  &x_{n+1}+x_{n-1}-2x_n=a^{2}\Bigl(\pdv[2]{x}{z}\Bigr)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  m\dv[2]{x_n}{t}&=K(x_{n+1}-x_n)-K(x_n-x_{n-1})\\
+  \dv[2]{x_n}{t}&=\frac{K}{m}a^{2}\pdv[2]{x}{z}\\
+  \dv[2]{x_n}{t}&=v_s^{2}\pdv[2]{x_n}{z}
+\end{align*}
+\[ \frac{1}{v_s^{2}}\kakimachigai{\pdv[2]{x_n}{t}}{\pdv[2]{x}{t}}-\pdv[2]{x}{z}=0 \]
+\[ v_s=a\sqrt{\frac{K}{m}} \]
+\toi{3}{◎}{}
+$a\to0$ で $v_s\to0$。
+\[ \rho=\frac{m}{a},\qquad\kappa=Ka \]
+\[ v_s=\kakimachigai{\frac{Ka}{m/a}}{\sqrt{\frac{Ka}{m/a}}}=\sqrt{\frac{\kappa}{\rho}} \]
+\toi{4}{△}{記述}
+\begin{align*}
+  &\frac{1}{v_s^{2}}\pdv[2]{}{t}\bigl(\ee^{\ii(kz-\omega t)}\bigr)=\pdv[2]{}{z}\ee^{\ii(kz-\omega t)}\\
+  &\frac{1}{v_s^{2}}(-\omega^{2})\ee^{\ii(kz-\omega t)}=(\ii k)^{2}\ee^{\ii(kz-\omega t)}
+\end{align*}
+\[ \frac{\omega^{2}}{v_s^{2}}=k^{2},\qquad\omega=\pm v_sk \]
+\nuke{進む向き}
+\naze{問われている「それぞれ進む向き」が書かれていない。$\omega=+v_sk$ は位相が $k(z-v_st)$ で $+z$ 向き，$\omega=-v_sk$ は位相が $k(z+v_st)$ で $-z$ 向きに，ともに速さ $v_s$ で進む。}
+%% kizuki
+\item 「向きを述べよ」には，位相 $kz-\omega t=k(z\mp v_st)$ が一定の点が $z=\pm v_st+\text{一定}$ と動くことから答える。$\omega=+v_sk$ は $+z$ 向き，$\omega=-v_sk$ は $-z$ 向きである。
+\item 小問の問いを最後に読み直し，求めた式（$\omega=\pm v_sk$）のほかに述べることが残っていないかを確かめる。

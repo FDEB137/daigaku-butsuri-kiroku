@@ -1,0 +1,40 @@
+% 数理物理1 数理物理1-9 問題5（097-ringinit。当時は 数理物理1-10 問題6・shou10-l2-ringinit） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+（図：4個の質点を輪状につないだ図。質点1の横に $x_0$）
+\[ m\dv[2]{x_n}{t}=K(x_{n+1}-x_n)-K(x_n-x_{n-1}) \]
+\begin{align*}
+  \omega_\mu&=\sqrt{\frac{2K\bigl(1-\cos\frac{2\pi\mu}{N}\bigr)}{m}}\\
+  &=\sqrt{\frac{2K}{m}\Bigl(1-\cos\Bigl(\frac{\pi\mu}{2}\Bigr)\Bigr)}
+\end{align*}
+\begin{align*}
+  \omega_1&=\sqrt{\frac{2K}{m}}\\
+  \omega_2&=2\sqrt{\frac{K}{m}}\\
+  \omega_3&=\sqrt{\frac{2K}{m}}\\
+  \omega_4&=0\quad\fumei
+\end{align*}
+（$\omega_1$ から $\omega_3$ を括弧でまとめている）
+\toi{2}{◎}{}
+\begin{align*}
+  \hat{x}_\mu&=\sum U^{*}_{n\mu}x_n\\
+  \hat{x}_\mu(0)&=\sum U^{*}_{n\mu}x_n(0)\\
+  \hat{x}_\mu(0)&=\frac{\kakimachigai{\ee^{-\ii2\pi\mu n/4}}{\ee^{-\ii2\pi\mu/4}}}{2}x_0\\
+  &=\frac{x_0}{2}\ee^{-\ii\mu\pi/2}
+\end{align*}
+\[ \dv{\hat{x}_\mu}{t}=0 \]
+\toi{3}{×}{立式}
+\[ x_n(t)=\sum U_{n\mu}\hat{x}_\mu(t) \]
+\begin{align*}
+  x_1(t)&=\sum_\mu\frac{\ee^{\ii2\pi\mu/4}}{2}\hat{x}_\mu(t)\\
+  &=\frac{1}{2}\cdot\frac{x_0}{2}\ayamari{\ee^{\ii2\pi\mu/2}}{\sum_\mu\cos\omega_\mu t}
+\end{align*}
+\naze{位相は $\ee^{\ii\pi\mu/2}\cdot\ee^{-\ii\pi\mu/2}=1$ で打ち消し合う。また各モードの時間変化を入れていない：$\mu=1,2,3$ は $\hat{x}_\mu(t)=\hat{x}_\mu(0)\cos\omega_\mu t$，$\mu=4$ は $A+Bt$ で初速 0 なので定数。これを入れて $x_n=\frac{x_0}{4}\sum_\mu\ee^{\ii\pi\mu(n-1)/2}\cos\omega_\mu t$ とし，$x_1=\frac{x_0}{4}(2\cos\omega_at+\cos\omega_bt+1)$，$x_2=x_4=\frac{x_0}{4}(1-\cos\omega_bt)$，$x_3=\frac{x_0}{4}(-2\cos\omega_at+\cos\omega_bt+1)$ となる。}
+（下に続けて）
+\[ \hat{x}_\mu=\frac{x_0}{2}\ee^{-\ii\mu\pi/2},\qquad\hat{x}_0=\frac{x_0}{2}\ee \]
+\naze{ここで止まっている。}
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item 基準座標で解くときは，戻す前に各モードの時間変化を入れる。初速 0 のモードは $\hat{x}_\mu(0)\cos\omega_\mu t$，$\omega=0$ のモードは $\ee^{\pm\ii\omega t}$ が使えないので $A+Bt$（初速 0 なら定数）とし，$\mu$ の和は残したまま書く。
+\item $U_{1\mu}\hat{x}_\mu(0)$ の位相は $\ee^{\ii\pi\mu/2}\ee^{-\ii\pi\mu/2}=1$ で消える。指数をまとめるときは符号を足し合わせて確かめ，最後に $t=0$ で $x_1=x_0$ を再現するかで検算する。
+\item (4) は $\sum_nx_n$ で $\mu=4$ の項だけが残る（$\sum_n\ee^{\ii\pi\mu(n-1)/2}$ が $\mu=4$ で 4，他で 0）ことを使う。

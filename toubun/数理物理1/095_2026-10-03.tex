@@ -1,0 +1,24 @@
+% 数理物理1 数理物理1-13 問題1（095-random。当時は 数理物理1-10 問題4・shou10-l1-random） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  \expval{s}&=+1\cdot p+(-1)\cdot(1-p)=p-1+p=2p-1\\
+  \expval{s^{2}}&=1^{2}p+(-1)^{2}(1-p)=p+1-p=1
+\end{align*}
+\toi{2}{×}{立式}
+\begin{align*}
+  &x(t)-x(0)\\
+  &=x(t-1)+s(t)\Delta x-x(-1)\mp s(0)\Delta x\\
+  &=xt+\bigl(s(t)+s(0)\bigr)\Delta x
+\end{align*}
+\[ \bigl\langle xt+\bigl(s(t)-s(0)\bigr)\Delta x\bigr\rangle \]
+\naze{漸化式 $x(t)=x(t-1)+s(t)\Delta x$ は1歩分の式で，最後と最初の1歩だけでは $x(t)-x(0)$ は書けない（$x(t-1)-x(-1)$ が残る）。$x(0)$ から $t$ 回たどると $x(t)-x(0)=\Delta x\sum_{i=1}^{t}s(i)$ で，期待値の線形性から $\expval{x(t)-x(0)}=(2p-1)\Delta x\,t$ となる。}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+\toi{5}{×}{未着手}
+\mikai
+%% kizuki
+\item 変位 $x(t)-x(0)$ は漸化式を $t$ 回たどって $\Delta x\sum_{i=1}^{t}s(i)$ と各ステップの和で書く。和で書けば，期待値は線形性で各ステップの期待値 $\expval{s}=2p-1$ の $t$ 倍になる。
+\item (3) は2乗を2重和にし，$i=j$（$\expval{s^{2}}=1$ が $t$ 個）と $i\neq j$（独立なので $\expval{s}^{2}=(2p-1)^{2}$ が $t(t-1)$ 個）に分ける。分散は $p=1$ で 0 になることで検算する。

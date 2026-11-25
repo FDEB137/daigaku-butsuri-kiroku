@@ -1,0 +1,29 @@
+% 数理物理1 数理物理1-12 問題3（094-pulse。当時は 数理物理1-10 問題3・shou10-l1-pulse） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  &\frac{1}{v_s^{2}}\biggl(\pdv[2]{F}{z}\cdot(-v_s)^{2}+\pdv[2]{G}{z}v_s^{2}\biggr)\\
+  &\qquad-\pdv[2]{F}{z}-\kakimachigai{\frac{\partial^{2}F}{\partial G^{2}}}{\pdv[2]{G}{z}}=0
+\end{align*}
+\toi{2}{△}{記述}
+\[ \phi(z,0)=F(z)+G(z)=\ayamari{h}{\phi_0(z)} \]
+\[ \dot{F}(-v_s)+\dot{G}v_s=0 \]
+\[ \dot{F}=\dot{G}\qquad\therefore\ F=G+c \]
+\[ F+G=h,\qquad F-G=c \]
+\[ F=\ayamari{\frac{h-c}{2}}{\frac{\phi_0+c}{2}},\qquad G=\ayamari{\frac{h+c}{2}}{\frac{\phi_0-c}{2}} \]
+\naze{初期条件は関数としての等式 $F(z)+G(z)=\phi_0(z)$ で，$h$ は $\abs{z}<w$ での値にすぎない。また $F-G=c$ からは $F=(\phi_0+c)/2$，$G=(\phi_0-c)/2$ で，書いたものとは $c$ の符号が逆である（$c$ は $F+G$ で打ち消すので結論は変わらない）。}
+\[ \phi(z,t)=\frac{1}{2}\bigl(\phi_0(z-v_st)+\phi_0(z+v_st)\bigr) \]
+\toi{3}{×}{方針}
+\begin{align*}
+  \phi\Bigl(z,\frac{w}{2v_s}\Bigr)&=\frac{1}{2}\Bigl(\phi_0\Bigl(z-\frac{w}{2}\Bigr)+\phi_0\Bigl(z+\frac{w}{2}\Bigr)\Bigr)\\
+  &=\ayamari{h}{\text{$z$ の範囲で変わる}}\\
+  \phi\Bigl(z,\frac{2w}{v_s}\Bigr)&=\frac{1}{2}\bigl(\phi_0(z-2w)+\phi_0(z+2w)\bigr)\\
+  &=\ayamari{0}{\text{$z$ の範囲で変わる}}
+\end{align*}
+\naze{$\phi$ は $z$ の関数で，値は1つではない。各項 $\phi_0(z\mp v_st)$ は区間 $(\pm v_st-w,\pm v_st+w)$ でだけ $h$ になるので，2つの区間を書き出して重ねる。$t=w/(2v_s)$：$\abs{z}<w/2$ で $h$，$w/2<\abs{z}<3w/2$ で $h/2$，他は 0。$t=2w/v_s$：$w<\abs{z}<3w$ で $h/2$，他は 0。}
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item 初期条件 $\phi(z,0)=\phi_0(z)$ は $z$ の関数どうしの等式で，$\phi_0$ を $h$ と書くと $\abs{z}<w$ の外が抜ける。連立方程式を解いたら $F-G=c$ に戻して $c$ の符号を確かめる。
+\item ダランベール解の値は $z$ の範囲ごとに決まる。$\phi_0(z-v_st)$ と $\phi_0(z+v_st)$ が $h$ になる区間を数直線に書き出して重ね，面積 $\int\phi\,\dd z=2wh$ で検算する。
+\item (4) は，右向きのパルスの左端 $v_st-w$ と左向きのパルスの右端 $-v_st+w$ を比べれば，重ならなくなる時刻 $t=w/v_s$ が出る。
