@@ -1,0 +1,62 @@
+% 統計力学1 統計力学1-3 問題5（092-shuuki） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\psi(x+L)&=\ee^{\ii p(x+L)/\hbar}\\
+&=\ee^{\ii px/\hbar}\,\ee^{\ii pL/\hbar}
+\end{align*}
+\[ \ee^{\ii pL/\hbar}=1\qquad\therefore\ \frac{pL}{\hbar}=2\pi n \]
+\[ p=\frac{2\pi\hbar n}{L}\qquad(n=0,\pm1,\pm2,\dots) \]
+\[ \varepsilon=\frac{p^{2}}{2m}=\frac{4\pi^{2}\hbar^{2}n^{2}}{2mL^{2}}=4E_{0}n^{2} \]
+固定端：i) $E_{0}$ 縮退度1，ii) $4E_{0}$ 〃，iii) $9E_{0}$ 〃
+
+周期境界条件：i) $0$ 縮退なし，ii) $4E_{0}$ 縮退度2，iii) $16E_{0}$ 〃
+\toi{2}{◎}{}
+i) 固定端
+\begin{align*}
+E_{0}n^{2}&\le\varepsilon\\
+0<n&\le\sqrt{\frac{\varepsilon}{E_{0}}}\\
+n&\simeq\sqrt{\frac{\varepsilon}{E_{0}}}
+\end{align*}
+ii) 周期境界条件
+\begin{align*}
+4E_{0}n^{2}&\le\varepsilon\\
+-\sqrt{\frac{\varepsilon}{4E_{0}}}\le n&\le\sqrt{\frac{\varepsilon}{4E_{0}}}\\
+n&\simeq2\sqrt{\frac{\varepsilon}{4E_{0}}}+1\\
+&\simeq\sqrt{\frac{\varepsilon}{E_{0}}}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+4E_{0}(n_{x}^{2}+n_{y}^{2}+n_{z}^{2})&\le U\\
+n_{x}^{2}+n_{y}^{2}+n_{z}^{2}&\le\underbrace{\frac{U}{4E_{0}}}_{R^{2}}
+\end{align*}
+\[ R=\sqrt{\frac{U}{4E_{0}}} \]
+$n$ は正負があるので，状態の数 $\simeq$ 球の体積
+\begin{align*}
+&=C(3N)\left(\frac{U}{4E_{0}}\right)^{3N/2}\\
+&=\frac{\pi^{3N/2}}{\Gamma(3N/2+1)}\left(\frac{2mL^{2}U}{4\pi^{2}\hbar^{2}}\right)^{3N/2}\\
+&=\frac{1}{\Gamma(3N/2+1)}\left(\frac{2\pi mL^{2}U}{h^{2}}\right)^{3N/2}
+\end{align*}
+\[ W(U)=\frac{(2\pi mU)^{3N/2}V^{N}}{N!\,\Gamma(3N/2+1)\,h^{3N}} \]
+固定端
+\begin{align*}
+E_{0}(n_{x}^{2}+n_{y}^{2}+n_{z}^{2})&\le U\\
+n_{x}^{2}+n_{y}^{2}+n_{z}^{2}&\le\underbrace{\frac{U}{E_{0}}}_{R^{2}}
+\end{align*}
+\[ R=\sqrt{\frac{U}{E_{0}}} \]
+\begin{align*}
+W(U)&=\frac{C(3N)R^{3N}}{N!\,2^{3N}}\\
+&=\frac{\pi^{3N/2}}{N!\,\Gamma(3N/2+1)}\\
+&\qquad\times\left(\frac{2mL^{2}U}{4\pi^{2}\hbar^{2}}\right)^{3N/2}\\
+&=\frac{(2\pi mU)^{3N/2}V^{N}}{N!\,\Gamma(3N/2+1)\,h^{3N}}
+\end{align*}
+一致する。
+\toi{4}{×}{未着手}
+固定端では
+\[ 0\le E_{0}n^{2}<\varepsilon \]
+？
+\naze{(2) の結果を運動量で書き直すと答えになる。$\varepsilon=p^{2}/(2m)$ と $E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$ から $\sqrt{\varepsilon/E_{0}}=2pL/h$ で，これは運動量の幅 $2p$ と位置の範囲 $L$ の積（位相空間の面積）を $h$ で割ったものである。周期境界条件では運動量が間隔 $h/L$ で正負に並び，固定端では $\abs{p}$ が間隔 $h/(2L)$ で正の側だけに並ぶが，$\pm p$ の両側に広げればどちらも面積 $h$ あたり1状態なので，高いエネルギーでの状態の数とエントロピーは境界条件によらない。違いが効くのは $\kB T$ が準位の間隔 $E_{0}$ と同程度以下の場合（小さな容器や極低温）で，基底状態のエネルギー（固定端 $3E_{0}$，周期境界条件 $0$）や縮退度の違いが熱力学量に出る。}
+%% kizuki
+\item 境界条件によらず同じエントロピーになるのは，どちらの境界条件でも位相空間の面積 $h$ あたりちょうど1つの状態があるからである。(2) で両方の数が $\sqrt{\varepsilon/E_{0}}=2pL/h$ に一致したことが，その1方向版になっている。固定端の定常波 $\sin(px/\hbar)$ は $\pm p$ の平面波の重ね合わせなので，正の側だけ間隔 $h/(2L)$ で並ぶ状態を $\pm p$ に広げると，周期境界条件の間隔 $h/L$ と同じ密度になる。
+\item 境界条件の違いが効くのは，$\kB T$ が準位の間隔 $E_{0}$ と同程度以下になる場合である。熱力学量が状態の数の細かい並びではなく，高いエネルギーでの状態密度だけで決まる条件（$\kB T\gg E_{0}$）が破れると，基底状態のエネルギーや縮退度の違いがそのまま出る。
+\item 説明の小問で止まったら，直前の小問の結果（ここでは (2) の「数が一致する」）を運動量と位置の言葉で言い直してみると手掛かりになる。

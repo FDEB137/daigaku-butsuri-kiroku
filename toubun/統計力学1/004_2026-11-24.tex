@@ -1,0 +1,43 @@
+% 統計力学1 統計力学1-3 問題2（004-extensive） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+\[ w'=\frac{3N}{2}\,\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\,\frac{\delta U}{U} \]
+\begin{align*}
+\frac{S'}{\kB}&=\log\frac{3N}{2}\\
+&\qquad+\log\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\\
+&\qquad+\log\frac{\delta U}{U}
+\end{align*}
+（$\log(3N/2)$ と $\log(\delta U/U)$ は斜線で消して落とし，第2項を矢印で次の行につなぐ）
+\begin{align*}
+&\to N\log V+\frac{3N}{2}\log\frac{2\pi mU}{h^{2}}\\
+&\qquad-\frac{3N}{2}\log\frac{3N}{2}+\frac{3N}{2}
+\end{align*}
+\[ \therefore\ \frac{S'}{N\kB}=\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2} \]
+\[ S'=N\kB\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right] \]
+\toi{2}{◎}{}
+\begin{align*}
+&S(\lambda U,\lambda V,\lambda N)\\
+&=\lambda N\kB\biggl[\log\frac{\lambda V}{\lambda N}+\frac{3}{2}\log\frac{4\pi m\lambda U}{3\lambda Nh^{2}}+\frac{5}{2}\biggr]\\
+&=\lambda S(U,V,N)
+\end{align*}
+\toi{3}{○}{記述}
+\begin{align*}
+&S'(2U,2V,2N)-\ayamari{S}{2S'}(U,V,N)\\
+&=N\kB\biggl[2\log2V-2\log V+3\log\frac{8\pi mU}{6Nh^{2}}\\
+&\qquad-3\log\frac{\kakimachigai{8\pi mU}{4\pi mU}}{3Nh^{2}}+3-3\biggr]\\
+&=N\kB\left(2\log\frac{2V}{V}+0+0\right)\\
+&=2N\kB\log2\neq0
+\end{align*}
+$\ayamari{S}{S'}$ は示量変数でない。
+\naze{比べる相手は同じ系2つ分の $2S'(U,V,N)$ で，プライムと係数2が抜けている。書いた式のままでは $N!$ で割った $S$ を1つ分引いたことになる。次の行からの計算は $2S'(U,V,N)$ を引いた正しいもので，答え $2N\kB\log2\neq0$ も正しい。結論の「示量変数でない」も $S'$ についてのことである。}
+\toi{4}{◎}{}
+(3) より，$S'$ の変化は $2N\kB\log2$ となる。
+
+(2) より，$S$ の変化は $0$ となる。
+
+仕切りを静かに取り除いても，巨視的な値であるエントロピーは変化しない。
+
+$N!$ で割らないと，状態の数を数えすぎている。
+%% kizuki
+\item \mae{第1章（旧版）問題4 (3)(4)・10-27} 示量性で比べる相手は同じ系2つ分の $2S'(U,V,N)$ である。前回はプライムを落として $2S(U,V,N)$，今回はプライムと係数2の両方を落として $S(U,V,N)$ と書いた。計算を始める前に「示すこと：$S'(2U,2V,2N)$ と $2S'(U,V,N)$ を比べる」と1行書き，差の式はその行から写す。
+\item 確かめ方：差の両側の前の係数をそろえて見る。$S'(2U,2V,2N)$ も $2S'(U,V,N)$ も $2N\kB[\cdots]$ で，$S(U,V,N)$ なら $N\kB[\cdots]$ と半分しかない。対数の中も $(U,V,N)$ を入れたものは $4\pi mU/(3Nh^{2})$ のままで，今回は $8\pi mU$ と書き写した（次の行は正しい）。

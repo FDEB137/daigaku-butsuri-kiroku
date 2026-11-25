@@ -8,7 +8,7 @@
   \ichirangyou{\hyperlink{bt-m-004-extensive}{2}}{L2・導出}{◎◎○◎}{A}{2026-11-24 2回目 (3)記述}
   \ichirangyou{\hyperlink{bt-m-005-helium}{3}}{L2・計算}{◎○○○}{B}{2026-10-27 (2)単位 (3)単位 (4)計算}
   \ichirangyou{\hyperlink{bt-m-006-2dgas}{4}}{L2・計算}{◎◎◎◎}{S}{2026-11-24 2回目}
-  \ichirangyou{5}{L2・計算}{◎◎◎×}{C}{2026-11-24 (4)未着手}
+  \ichirangyou{\hyperlink{bt-m-092-shuuki}{5}}{L2・計算}{◎◎◎×}{C}{2026-11-24 (4)未着手}
   \ichirangyou{6}{L3・導出}{}{未着手}{}
   \ichirangyou{7}{L4・導出}{}{未着手}{}
 \end{kirokuichiran}
@@ -100,7 +100,7 @@ x&=N\log_{10}2\\
 \end{mondai}
 
 \level{2}
-% toubun: kiroku\toubun\統計力学1\004_2026-10-27.tex
+% toubun: kiroku\toubun\統計力学1\004_2026-11-24.tex
 \mondaibangou{2}
 \begin{mondai}{004-extensive}{導出}{$N!$ 因子の必要性（エントロピーの示量性）}
 \begin{teisuu}
@@ -124,46 +124,54 @@ x&=N\log_{10}2\\
   \item 同じ種類の理想気体が，同じ状態 $(U,V,N)$ で，仕切りで隔てられた2つの部屋に入っている。仕切りを静かに取り除いても巨視的には何も変化しない。このときのエントロピー変化を $S'$ を用いて計算するとどうなるか。また $S$ を用いるとどうなるか。この結果から，$N!$ で割ることがなぜ必要かを説明せよ。
 \end{shoumon}
 \notekiroku{2026-10-27 A ◎◎○○ → 2026-11-24 A ◎◎○◎}
-\begin{kotaeutsushi}{2026-10-27}
+\begin{kotaeutsushi}{2026-11-24}
 \toi{1}{◎}{}
-（$w'=N!\,w$ の $N!$ を約分し，$3N/2$ と $\delta U/U$ を斜線で落とす）
-\[ S'=\kB\log\left[\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\right] \]
+\[ w'=\frac{3N}{2}\,\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\,\frac{\delta U}{U} \]
 \begin{align*}
-&=\kB\biggl[N\log V+\frac{3}{2}N\log(2\pi mU)\\
-&\qquad-3N\log h-\log\Gamma\left(\frac{3N}{2}+1\right)\biggr]\\
-&=N\kB\biggl[\log V+\frac{3}{2}\log(2\pi mU)-\frac{3}{2}\log h^{2}\\
-&\qquad-\frac{3}{2}\log\frac{3N}{2}+\frac{3}{2}\biggr]\\
-&=N\kB\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]
+\frac{S'}{\kB}&=\log\frac{3N}{2}\\
+&\qquad+\log\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\\
+&\qquad+\log\frac{\delta U}{U}
 \end{align*}
+（$\log(3N/2)$ と $\log(\delta U/U)$ は斜線で消して落とし，第2項を矢印で次の行につなぐ）
+\begin{align*}
+&\to N\log V+\frac{3N}{2}\log\frac{2\pi mU}{h^{2}}\\
+&\qquad-\frac{3N}{2}\log\frac{3N}{2}+\frac{3N}{2}
+\end{align*}
+\[ \therefore\ \frac{S'}{N\kB}=\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2} \]
+\[ S'=N\kB\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right] \]
 \toi{2}{◎}{}
 \begin{align*}
 &S(\lambda U,\lambda V,\lambda N)\\
 &=\lambda N\kB\biggl[\log\frac{\lambda V}{\lambda N}+\frac{3}{2}\log\frac{4\pi m\lambda U}{3\lambda Nh^{2}}+\frac{5}{2}\biggr]\\
-&=\lambda N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]\\
 &=\lambda S(U,V,N)
 \end{align*}
 \toi{3}{○}{記述}
 \begin{align*}
-&S'(2U,2V,2N)\\
-&=2N\kB\left[\log2V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]
-\end{align*}
-\begin{align*}
-&S'(2U,2V,2N)-2\ayamari{S}{S'}(U,V,N)\\
-&=2N\kB\left[\log2V-\log V\right]\\
+&S'(2U,2V,2N)-\ayamari{S}{2S'}(U,V,N)\\
+&=N\kB\biggl[2\log2V-2\log V+3\log\frac{8\pi mU}{6Nh^{2}}\\
+&\qquad-3\log\frac{\kakimachigai{8\pi mU}{4\pi mU}}{3Nh^{2}}+3-3\biggr]\\
+&=N\kB\left(2\log\frac{2V}{V}+0+0\right)\\
 &=2N\kB\log2\neq0
 \end{align*}
-示量的でない。
-\naze{引く側も $S'$ でなければならない。書いた式のままだと $S'(2U,2V,2N)-2S(U,V,N)=2N\kB(\log2N-1)$ という別の量になる。計算は $S'$ で行っていて，結果 $2N\kB\log2$ は正しい。}
-\toi{4}{○}{記述}
-\[ S'(2U,2V,2N)-2\ayamari{S}{S'}(U,V,N)=2N\kB\log2\neq0 \]
-\[ S(2U,2V,2N)-2S(U,V,N)=0 \]
-$S$ が変化しないために $N!$ で割る必要がある。
-\naze{(3) と同じプライムの抜けである。説明は「仕切りを外しても巨視的には何も変わらないので，状態量のエントロピーは変わってはならない。$N!$ で割らないと，同種粒子の入れ替えで得られる同じ状態を別々に数えてしまい，$\Delta S'=2N\kB\log2>0$ という矛盾が出る」まで書く。}
+$\ayamari{S}{S'}$ は示量変数でない。
+\naze{比べる相手は同じ系2つ分の $2S'(U,V,N)$ で，プライムと係数2が抜けている。書いた式のままでは $N!$ で割った $S$ を1つ分引いたことになる。次の行からの計算は $2S'(U,V,N)$ を引いた正しいもので，答え $2N\kB\log2\neq0$ も正しい。結論の「示量変数でない」も $S'$ についてのことである。}
+\toi{4}{◎}{}
+(3) より，$S'$ の変化は $2N\kB\log2$ となる。
+
+(2) より，$S$ の変化は $0$ となる。
+
+仕切りを静かに取り除いても，巨視的な値であるエントロピーは変化しない。
+
+$N!$ で割らないと，状態の数を数えすぎている。
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{第1章（旧版）問題4 (3)(4)・10-27} 示量性で比べる相手は同じ系2つ分の $2S'(U,V,N)$ である。前回はプライムを落として $2S(U,V,N)$，今回はプライムと係数2の両方を落として $S(U,V,N)$ と書いた。計算を始める前に「示すこと：$S'(2U,2V,2N)$ と $2S'(U,V,N)$ を比べる」と1行書き，差の式はその行から写す。
+\item 確かめ方：差の両側の前の係数をそろえて見る。$S'(2U,2V,2N)$ も $2S'(U,V,N)$ も $2N\kB[\cdots]$ で，$S(U,V,N)$ なら $N\kB[\cdots]$ と半分しかない。対数の中も $(U,V,N)$ を入れたものは $4\pi mU/(3Nh^{2})$ のままで，今回は $8\pi mU$ と書き写した（次の行は正しい）。
+\end{kizuki}
+\begin{maekizuki}{2026-10-27}
 \item $S$ と $S'$ は別の関数なので，差をとるときは両方に同じ記号（$S'$ どうし，$S$ どうし）を付ける。書き終えたら，差の式の左辺と右辺で記号がそろっているかを見直す。
 \item $N!$ で割る理由は「巨視的に何も変わらない操作でエントロピーが変わってはならない」ことと，「同種粒子の入れ替えで得られる状態は同じ1つの状態である」ことの2つで言う。
-\end{kizuki}
+\end{maekizuki}
 \begin{tadashii}
 \houshin $\log w'=\log w+\log N!$ に Stirling の公式を使う。示量性は $U,V,N$ を同時に $\lambda$ 倍して調べる。(4) は仕切りを外す前後の $S'$ を比べる。
 \keisan
@@ -266,7 +274,7 @@ $\lambda^{3}=\qty{1.279e-31}{\metre\cubed}$ より $V/(N\lambda^{3})=\num{4.143e
 \end{tadashii}
 \end{mondai}
 
-% toubun: kiroku\toubun\統計力学1\006_2026-10-27.tex
+% toubun: kiroku\toubun\統計力学1\006_2026-11-24.tex
 \mondaibangou{4}
 \begin{mondai}{006-2dgas}{計算}{次元を変えた理想気体でのミクロカノニカル分配関数（球殻内の格子点数・象限・$N!$）と熱力学量}
 \begin{teisuu}
@@ -287,39 +295,162 @@ $\lambda^{3}=\qty{1.279e-31}{\metre\cubed}$ より $V/(N\lambda^{3})=\num{4.143e
   \item 内部エネルギー $U$ と温度 $T$ の関係，および面積一定の熱容量 $C_{A}$ を求めよ。また，2次元の圧力（単位長さあたりの力）$\Pi$ を $\Pi/T=(\partial S/\partial A)_{U}$ で定義するとき，$\Pi$，$A$，$N$，$T$ の間に成り立つ関係式を求めよ。
 \end{shoumon}
 \notekiroku{2026-10-27 S ◎◎◎◎ → 2026-11-24 S ◎◎◎◎}
-\begin{kotaeutsushi}{2026-10-27}
+\begin{kotaeutsushi}{2026-11-24}
 \toi{1}{◎}{}
-\[ U=R^{2}\kakimachigai{E}{E_{0}},\quad\therefore\ R=\sqrt{\frac{U}{\kakimachigai{E}{E_{0}}}}=\frac{\sqrt{2mL^{2}U}}{\pi\hbar} \]
+\[ n_{x}^{2}+n_{y}^{2}\le\frac{U}{E_{0}}=\underbrace{\frac{2mL^{2}U}{\pi^{2}\hbar^{2}}}_{R^{2}} \]
+\[ R(U)=\frac{\sqrt{2mL^{2}U}}{\pi\hbar} \]
 \begin{align*}
-\delta R&=\dv{R}{U}\,\delta U=\frac{2mL^{2}\,\delta U}{2\pi\hbar\sqrt{2mL^{2}U}}\\
-&=\frac{\sqrt{2mL^{2}U}}{\pi\hbar}\,\frac{\delta U}{2U}\\
+\delta R&=\dv{R}{U}\,\delta U\\
+&=\frac{1}{2\pi\hbar}\sqrt{\frac{2mL^{2}}{U}}\,\delta U\\
 &=\frac{R}{2U}\,\delta U
 \end{align*}
 \toi{2}{◎}{}
+球殻の体積
 \begin{align*}
-w&=\frac{C(2N)}{2^{2N}N!}\left((R+\delta R)^{2N}-R^{2N}\right)\\
-&=\frac{\pi^{N}}{2^{2N}N!\,\Gamma(N+1)}\biggl(R^{2N}\left(1+\frac{\delta U}{2U}\right)^{2N}\\
-&\qquad-R^{2N}\biggr)\\
-&=\frac{\pi^{N}}{2^{2N}(N!)^{2}}R^{2N}\biggl(\Bigl(1+N\frac{\delta U}{U}\\
-&\qquad+O\Bigl(\Bigl(\frac{\delta U}{2U}\Bigr)^{2}\Bigr)\Bigr)-1\biggr)\\
-&=\frac{\pi^{N}(2mL^{2}U)^{N}}{2^{2N}(N!)^{2}\pi^{2N}\hbar^{2N}}\,N\frac{\delta U}{U}\\
+&C(2N)(R+\delta R)^{2N}-C(2N)R^{2N}\\
+&=\frac{\pi^{N}}{\Gamma(N+1)}\,2NR^{2N-1}\,\delta R\\
+&=\frac{\pi^{N}}{N!}\,\frac{NR^{2N}}{U}\,\delta U\\
+&=\frac{\pi^{N}}{N!}\,\frac{N}{U}\left(\frac{2mL^{2}U}{\pi^{2}\hbar^{2}}\right)^{N}\delta U
+\end{align*}
+量子数がすべて正なので $1/2^{2N}$ と，ギブス因子 $1/N!$ をかけて
+\begin{align*}
+w(U,A)&=\frac{N}{(N!)^{2}}\left(\frac{2\pi mAU}{2^{2}\pi^{2}\hbar^{2}}\right)^{N}\frac{\delta U}{U}\\
 &=\frac{N(2\pi mU)^{N}A^{N}}{(N!)^{2}h^{2N}}\,\frac{\delta U}{U}
 \end{align*}
 \toi{3}{◎}{}
-\[ S=\kB\log\frac{N(2\pi mU)^{N}A^{N}}{(N!)^{2}h^{2N}}\,\frac{\delta U}{U} \]
+\[ S=\kB\log w(U,A) \]
+\begin{align*}
+\frac{S}{\kB}&=\log N+N\log2\pi mU+N\log A\\
+&\qquad+\log\frac{\delta U}{U}-2\log N!-2N\log h
+\end{align*}
 （$\log N$ と $\log(\delta U/U)$ は斜線で消して落とす）
 \begin{align*}
-&=\kB\bigl[N\log(2\pi mU)+N\log A\\
-&\qquad-2\log N!-2N\log h\bigr]\\
-&=\kB N\bigl[\log(2\pi mU)+\log A-2\log N\\
-&\qquad+2-2\log h\bigr]\\
-&=\kB N\left[2\log\frac{1}{Nh}+\log(2\pi mUA)+2\right]
+\frac{S}{\kB}&=N\log2\pi mU+N\log A-2N\log N\\
+&\qquad+2N-2N\log h
 \end{align*}
+\[ \frac{S}{N\kB}=\log\frac{A}{N}+\log\frac{2\pi mU}{Nh^{2}}+2 \]
+\[ S=N\kB\left[\log\frac{A}{N}+\log\frac{2\pi mU}{Nh^{2}}+2\right] \]
 \toi{4}{◎}{}
-\[ \frac{1}{T}=\left(\pdv{S}{U}\right)_{A}=\frac{\kB N}{U}\qquad\therefore\ U=\kB NT \]
-\[ C_{A}=\left(\pdv{U}{T}\right)_{A}=\kB N \]
-\[ \frac{\Pi}{T}=\left(\pdv{S}{A}\right)_{U}=\frac{\kB N}{A}\qquad\Pi A=\kB NT \]
+\[ \left(\pdv{S}{U}\right)_{A}=N\kB\cdot\frac{1}{U}=\frac{1}{T}\qquad\therefore\ U=N\kB T \]
+\[ C_{A}=\left(\pdv{U}{T}\right)_{A}=N\kB \]
+\[ \pdv{S}{A}=N\kB\cdot\frac{1}{A}=\frac{\Pi}{T}\qquad\therefore\ \Pi A=N\kB T \]
 \end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\092_2026-11-24.tex
+\mondaibangou{5}
+\begin{mondai}{092-shuuki}{計算}{境界条件（固定端と周期境界条件）による1粒子の準位と縮退の違い，量子数空間の全領域と象限での状態の数え方，巨視系ではエントロピーが境界条件によらないこと}
+\begin{teisuu}
+  ボルツマン定数 & $\kB$ & \qty{1.381e-23}{\joule\per\kelvin}\\
+  アボガドロ定数 & $N_{\mathrm{A}}$ & \qty{6.022e23}{\per\mole}\\
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  He 原子の質量 & $m_{\mathrm{He}}$ & \qty{6.646e-27}{\kilogram}\\
+\end{teisuu}
+一辺 $L$ の立方体（体積 $V=L^{3}$）に入った，質量 $m$ の同種原子 $N$ 個の理想気体を考える。要点整理の $w(U,V)$ は，壁で波動関数が0になる条件（固定端）で求めたもので，1方向の準位は $E_{0}n^{2}$（$n=1,2,\dots$，$E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$）であった。ここでは代わりに，各方向に $\psi(x+L)=\psi(x)$ が成り立つとする周期境界条件を使う。$D$ 次元の半径 $R$ の球の体積を $C(D)R^{D}$ とし，$N\gg1$ とする。
+\begin{shoumon}
+  \item 1方向の固有関数を $\ee^{\ii px/\hbar}$ とおき，周期境界条件から許される運動量 $p$ と1方向のエネルギー準位を求め，$E_{0}$ で表せ。固定端の場合と比べ，それぞれ低いほうから3つの準位のエネルギーと縮退度を書け。
+  \item 1方向でエネルギーが $\varepsilon$ 以下の状態の数を，$\varepsilon\gg E_{0}$ として両方の境界条件で求め，比べよ。
+  \item $N$ 原子の全エネルギーが $U$ 以下の状態の数 $W(U)$ を，$3N$ 次元の量子数空間の球の体積で近似し，$N!$ で割って求めよ。固定端での $W(U)$（球の体積に象限の因子 $2^{-3N}$ を掛けたもの）と一致することを示し，$V$，$m$，$U$，$h$ で表せ。
+  \item (3) から，境界条件によらず同じ Sackur--Tetrode の式が得られる。その理由を，位相空間の体積 $h$ あたり1つの状態という古典的な数え方と結びつけて説明せよ。また，境界条件の違いが無視できないのはどのような場合かを述べよ。
+\end{shoumon}
+\notekiroku{2026-11-24 C ◎◎◎×}
+\begin{kotaeutsushi}{2026-11-24}
+\toi{1}{◎}{}
+\begin{align*}
+\psi(x+L)&=\ee^{\ii p(x+L)/\hbar}\\
+&=\ee^{\ii px/\hbar}\,\ee^{\ii pL/\hbar}
+\end{align*}
+\[ \ee^{\ii pL/\hbar}=1\qquad\therefore\ \frac{pL}{\hbar}=2\pi n \]
+\[ p=\frac{2\pi\hbar n}{L}\qquad(n=0,\pm1,\pm2,\dots) \]
+\[ \varepsilon=\frac{p^{2}}{2m}=\frac{4\pi^{2}\hbar^{2}n^{2}}{2mL^{2}}=4E_{0}n^{2} \]
+固定端：i) $E_{0}$ 縮退度1，ii) $4E_{0}$ 〃，iii) $9E_{0}$ 〃
+
+周期境界条件：i) $0$ 縮退なし，ii) $4E_{0}$ 縮退度2，iii) $16E_{0}$ 〃
+\toi{2}{◎}{}
+i) 固定端
+\begin{align*}
+E_{0}n^{2}&\le\varepsilon\\
+0<n&\le\sqrt{\frac{\varepsilon}{E_{0}}}\\
+n&\simeq\sqrt{\frac{\varepsilon}{E_{0}}}
+\end{align*}
+ii) 周期境界条件
+\begin{align*}
+4E_{0}n^{2}&\le\varepsilon\\
+-\sqrt{\frac{\varepsilon}{4E_{0}}}\le n&\le\sqrt{\frac{\varepsilon}{4E_{0}}}\\
+n&\simeq2\sqrt{\frac{\varepsilon}{4E_{0}}}+1\\
+&\simeq\sqrt{\frac{\varepsilon}{E_{0}}}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+4E_{0}(n_{x}^{2}+n_{y}^{2}+n_{z}^{2})&\le U\\
+n_{x}^{2}+n_{y}^{2}+n_{z}^{2}&\le\underbrace{\frac{U}{4E_{0}}}_{R^{2}}
+\end{align*}
+\[ R=\sqrt{\frac{U}{4E_{0}}} \]
+$n$ は正負があるので，状態の数 $\simeq$ 球の体積
+\begin{align*}
+&=C(3N)\left(\frac{U}{4E_{0}}\right)^{3N/2}\\
+&=\frac{\pi^{3N/2}}{\Gamma(3N/2+1)}\left(\frac{2mL^{2}U}{4\pi^{2}\hbar^{2}}\right)^{3N/2}\\
+&=\frac{1}{\Gamma(3N/2+1)}\left(\frac{2\pi mL^{2}U}{h^{2}}\right)^{3N/2}
+\end{align*}
+\[ W(U)=\frac{(2\pi mU)^{3N/2}V^{N}}{N!\,\Gamma(3N/2+1)\,h^{3N}} \]
+固定端
+\begin{align*}
+E_{0}(n_{x}^{2}+n_{y}^{2}+n_{z}^{2})&\le U\\
+n_{x}^{2}+n_{y}^{2}+n_{z}^{2}&\le\underbrace{\frac{U}{E_{0}}}_{R^{2}}
+\end{align*}
+\[ R=\sqrt{\frac{U}{E_{0}}} \]
+\begin{align*}
+W(U)&=\frac{C(3N)R^{3N}}{N!\,2^{3N}}\\
+&=\frac{\pi^{3N/2}}{N!\,\Gamma(3N/2+1)}\\
+&\qquad\times\left(\frac{2mL^{2}U}{4\pi^{2}\hbar^{2}}\right)^{3N/2}\\
+&=\frac{(2\pi mU)^{3N/2}V^{N}}{N!\,\Gamma(3N/2+1)\,h^{3N}}
+\end{align*}
+一致する。
+\toi{4}{×}{未着手}
+固定端では
+\[ 0\le E_{0}n^{2}<\varepsilon \]
+？
+\naze{(2) の結果を運動量で書き直すと答えになる。$\varepsilon=p^{2}/(2m)$ と $E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$ から $\sqrt{\varepsilon/E_{0}}=2pL/h$ で，これは運動量の幅 $2p$ と位置の範囲 $L$ の積（位相空間の面積）を $h$ で割ったものである。周期境界条件では運動量が間隔 $h/L$ で正負に並び，固定端では $\abs{p}$ が間隔 $h/(2L)$ で正の側だけに並ぶが，$\pm p$ の両側に広げればどちらも面積 $h$ あたり1状態なので，高いエネルギーでの状態の数とエントロピーは境界条件によらない。違いが効くのは $\kB T$ が準位の間隔 $E_{0}$ と同程度以下の場合（小さな容器や極低温）で，基底状態のエネルギー（固定端 $3E_{0}$，周期境界条件 $0$）や縮退度の違いが熱力学量に出る。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 境界条件によらず同じエントロピーになるのは，どちらの境界条件でも位相空間の面積 $h$ あたりちょうど1つの状態があるからである。(2) で両方の数が $\sqrt{\varepsilon/E_{0}}=2pL/h$ に一致したことが，その1方向版になっている。固定端の定常波 $\sin(px/\hbar)$ は $\pm p$ の平面波の重ね合わせなので，正の側だけ間隔 $h/(2L)$ で並ぶ状態を $\pm p$ に広げると，周期境界条件の間隔 $h/L$ と同じ密度になる。
+\item 境界条件の違いが効くのは，$\kB T$ が準位の間隔 $E_{0}$ と同程度以下になる場合である。熱力学量が状態の数の細かい並びではなく，高いエネルギーでの状態密度だけで決まる条件（$\kB T\gg E_{0}$）が破れると，基底状態のエネルギーや縮退度の違いがそのまま出る。
+\item 説明の小問で止まったら，直前の小問の結果（ここでは (2) の「数が一致する」）を運動量と位置の言葉で言い直してみると手掛かりになる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 周期境界条件で許される運動量を求め，1粒子の準位を固定端と比べる。状態の数は，量子数空間の格子点を体積で数える。固定端では正の象限だけ，周期境界条件では全領域を使うが，格子の間隔が違うことで結果が一致することを確かめる。
+\keisan \shoumonkai{1} $\ee^{\ii p(x+L)/\hbar}=\ee^{\ii px/\hbar}$ より $\ee^{\ii pL/\hbar}=1$，すなわち
+\[ p=\frac{2\pi\hbar n}{L}=\frac{hn}{L},\qquad\varepsilon=\frac{p^{2}}{2m}=\frac{4\pi^{2}\hbar^{2}n^{2}}{2mL^{2}}=4E_{0}n^{2}\qquad(n=0,\pm1,\pm2,\dots) \]
+固定端：$E_{0}$，$4E_{0}$，$9E_{0}$（どれも縮退なし）。周期境界条件：$0$（$n=0$，縮退なし），$4E_{0}$（$n=\pm1$，縮退度2），$16E_{0}$（$n=\pm2$，縮退度2）。
+
+\shoumonkai{2} 固定端では $E_{0}n^{2}\le\varepsilon$ を満たす正の整数の数で，約 $\sqrt{\varepsilon/E_{0}}$。周期境界条件では $\abs{n}\le\sqrt{\varepsilon/(4E_{0})}$ を満たす整数の数で
+\[ 2\sqrt{\frac{\varepsilon}{4E_{0}}}+1\simeq\sqrt{\frac{\varepsilon}{E_{0}}} \]
+となり，$\varepsilon\gg E_{0}$ では一致する。周期境界条件ではエネルギーの係数が4倍なので $\abs{n}$ の上限は $1/2$ 倍になるが，正負の両方を数えるので数は2倍になり，打ち消し合う。
+
+\shoumonkai{3} 全エネルギーが $U$ 以下という条件は，周期境界条件では
+\[ 4E_{0}\sum_{i}n_{i}^{2}\le U \]
+なので，半径 $R_{\mathrm{p}}=\sqrt{U/(4E_{0})}$ の $3N$ 次元の球の中の格子点を，符号の制限なしに数える。
+\[ W_{\mathrm{p}}(U)=\frac{1}{N!}C(3N)\left(\frac{U}{4E_{0}}\right)^{3N/2}=\frac{1}{N!}C(3N)\,2^{-3N}\left(\frac{U}{E_{0}}\right)^{3N/2} \]
+固定端では半径 $\sqrt{U/E_{0}}$ の球の正の象限で，$C(3N)(U/E_{0})^{3N/2}2^{-3N}/N!$ となり，一致する。$E_{0}=\pi^{2}\hbar^{2}/(2mL^{2})$ を代入すると
+\[ 2^{-3N}\left(\frac{U}{E_{0}}\right)^{3N/2}=\left(\frac{2mL^{2}U}{(2\pi\hbar)^{2}}\right)^{3N/2}=\frac{V^{N}(2mU)^{3N/2}}{h^{3N}} \]
+で，$C(3N)=\pi^{3N/2}/\Gamma(3N/2+1)$ より
+\[ W(U)=\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)} \]
+
+\shoumonkai{4} 周期境界条件では，1方向の運動量は間隔 $h/L$ で $-\infty$ から $\infty$ まで並ぶので，位相空間の面積 $L\times(h/L)=h$ ごとに1つの状態がある。固定端の定常波は運動量 $\pm p$ の平面波の重ね合わせで，$\abs{p}$ の間隔 $h/(2L)$ で $p>0$ の側だけに並ぶが，$\pm p$ の両側に広げて数えると同じく面積 $h$ あたり1つになる。巨視的な熱力学量は，エネルギーの大きいところでの状態の数（状態密度）だけで決まり，それは位相空間の体積を $N!\,h^{3N}$ で割ったものでどちらも同じなので，Sackur--Tetrode の式は境界条件によらない。
+
+境界条件の違いが効くのは，$\kB T$ が準位の間隔 $E_{0}$ と同程度以下になる場合（容器が非常に小さいか，温度が非常に低い場合）である。このときは基底状態のエネルギー（固定端 $3E_{0}$，周期境界条件 $0$）や縮退度の違いが熱力学量に直接現れる。また，壁の近くの補正は表面積に比例する量で，体積に比べた割合は熱的ド・ブロイ波長と $L$ の比（$\sim\sqrt{E_{0}/(\kB T)}$）程度なので，巨視系では無視できる。
+\kotae{\shoumonkai{1} $p=hn/L$，準位 $4E_{0}n^{2}$（$n=0,\pm1,\dots$）。固定端は $E_{0}$，$4E_{0}$，$9E_{0}$（縮退なし），周期境界条件は $0$（縮退度1），$4E_{0}$，$16E_{0}$（縮退度2） \shoumonkai{2} どちらも約 $\sqrt{\varepsilon/E_{0}}$ \shoumonkai{3} $W(U)=\frac{V^{N}(2\pi mU)^{3N/2}}{N!\,h^{3N}\,\Gamma(3N/2+1)}$ で一致 \shoumonkai{4} どちらも位相空間の体積 $h$ あたり1状態で，高いエネルギーの状態密度が等しいため。$\kB T\lesssim E_{0}$ の小さな容器や極低温では違いが効く}
+\begin{ronten}
+  \item \shoumonkai{2} 周期境界条件では準位の間隔が4倍だが，正負の両方を数えることで，状態の数が固定端と同じになることを書く。
+  \item \shoumonkai{3} 周期境界条件では象限の因子が無く，代わりに半径が $1/2$ 倍になって $2^{-3N}$ が出ることを示す。
+  \item \shoumonkai{4} 両方の境界条件で，位相空間の体積 $h$ あたり1状態になることを根拠に述べる。
+  \item \shoumonkai{4} 違いが効くのは $\kB T$ が準位の間隔と同程度以下の場合であることを書く。
+\end{ronten}
+\kenzan $w=(\dd W/\dd U)\,\delta U=(3N/2)W\,\delta U/U$ とすると，(3) の $W$ から要点整理の $w(U,V)$ が得られる。(2) の数値例：$\varepsilon=100E_{0}$ では固定端 $n=1,\dots,10$ の10個，周期境界条件 $n=-5,\dots,5$ の11個で，差の1は $\varepsilon$ が大きいほど相対的に小さくなる。
+\tsumazuki 周期境界条件で正の量子数だけを数えたり，固定端の運動量の間隔 $\pi\hbar/L$ に正負の両方を数えたりすると，状態の数が $2^{3N}$ 倍ずれる。
+\end{tadashii}
 \end{mondai}
 
 \noteowari

@@ -1,0 +1,41 @@
+% 統計力学1 統計力学1-3 問題4（006-2dgas） 解いた日 2026-11-24
+%% kotae
+\toi{1}{◎}{}
+\[ n_{x}^{2}+n_{y}^{2}\le\frac{U}{E_{0}}=\underbrace{\frac{2mL^{2}U}{\pi^{2}\hbar^{2}}}_{R^{2}} \]
+\[ R(U)=\frac{\sqrt{2mL^{2}U}}{\pi\hbar} \]
+\begin{align*}
+\delta R&=\dv{R}{U}\,\delta U\\
+&=\frac{1}{2\pi\hbar}\sqrt{\frac{2mL^{2}}{U}}\,\delta U\\
+&=\frac{R}{2U}\,\delta U
+\end{align*}
+\toi{2}{◎}{}
+球殻の体積
+\begin{align*}
+&C(2N)(R+\delta R)^{2N}-C(2N)R^{2N}\\
+&=\frac{\pi^{N}}{\Gamma(N+1)}\,2NR^{2N-1}\,\delta R\\
+&=\frac{\pi^{N}}{N!}\,\frac{NR^{2N}}{U}\,\delta U\\
+&=\frac{\pi^{N}}{N!}\,\frac{N}{U}\left(\frac{2mL^{2}U}{\pi^{2}\hbar^{2}}\right)^{N}\delta U
+\end{align*}
+量子数がすべて正なので $1/2^{2N}$ と，ギブス因子 $1/N!$ をかけて
+\begin{align*}
+w(U,A)&=\frac{N}{(N!)^{2}}\left(\frac{2\pi mAU}{2^{2}\pi^{2}\hbar^{2}}\right)^{N}\frac{\delta U}{U}\\
+&=\frac{N(2\pi mU)^{N}A^{N}}{(N!)^{2}h^{2N}}\,\frac{\delta U}{U}
+\end{align*}
+\toi{3}{◎}{}
+\[ S=\kB\log w(U,A) \]
+\begin{align*}
+\frac{S}{\kB}&=\log N+N\log2\pi mU+N\log A\\
+&\qquad+\log\frac{\delta U}{U}-2\log N!-2N\log h
+\end{align*}
+（$\log N$ と $\log(\delta U/U)$ は斜線で消して落とす）
+\begin{align*}
+\frac{S}{\kB}&=N\log2\pi mU+N\log A-2N\log N\\
+&\qquad+2N-2N\log h
+\end{align*}
+\[ \frac{S}{N\kB}=\log\frac{A}{N}+\log\frac{2\pi mU}{Nh^{2}}+2 \]
+\[ S=N\kB\left[\log\frac{A}{N}+\log\frac{2\pi mU}{Nh^{2}}+2\right] \]
+\toi{4}{◎}{}
+\[ \left(\pdv{S}{U}\right)_{A}=N\kB\cdot\frac{1}{U}=\frac{1}{T}\qquad\therefore\ U=N\kB T \]
+\[ C_{A}=\left(\pdv{U}{T}\right)_{A}=N\kB \]
+\[ \pdv{S}{A}=N\kB\cdot\frac{1}{A}=\frac{\Pi}{T}\qquad\therefore\ \Pi A=N\kB T \]
+%% kizuki
