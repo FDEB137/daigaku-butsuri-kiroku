@@ -1,0 +1,66 @@
+% 統計力学1 統計力学1-1 問題3（056-maxwell） 解いた日 2026-11-11
+%% kotae
+\toi{1}{◎}{}
+（図：熱力学の四角形。上の辺に $S$，$U$，$V$，左右に $H$，$F$，下の辺に $p$，$G$，$T$ を置き，対角線に矢印）
+\begin{align*}
+\dd U&=\pdv{U}{S}\dd S+\pdv{U}{V}\dd V\\
+&=T\,\dd S-p\,\dd V
+\end{align*}
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{S}{V}\right)_{T}-p \]
+\[ \kakimachigai{\left(\pdv{S}{U}\right)_{T}}{\left(\pdv{S}{V}\right)_{T}}=\left(\pdv{p}{T}\right)_{V} \]
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{p}{T}\right)_{V}-p \]
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\left(\frac{nR}{V-nb}\right)\\
+&\qquad-\frac{nRT}{V-nb}+\frac{an^{2}}{V^{2}}\\
+&=\frac{an^{2}}{V^{2}}
+\end{align*}
+\toi{2}{◎}{}
+\[ C_{V}=\left(\pdv{U}{T}\right)_{V} \]
+\begin{align*}
+\left(\pdv{C_{V}}{V}\right)_{T}&=\pdv{}{T}\left(\left(\pdv{U}{V}\right)_{T}\right)_{V}\\
+&=\pdv{}{T}\left(T\left(\pdv{p}{T}\right)_{V}-p\right)_{V}\\
+&=\kakimachigai{\pdv{}{T}\cdot T}{\pdv{T}{T}}\left(\pdv{p}{T}\right)_{V}\\
+&\qquad+T\left(\pdv[2]{p}{T}\right)_{V}-\left(\pdv{p}{T}\right)_{V}\\
+&=T\left(\pdv[2]{p}{T}\right)_{V}
+\end{align*}
+\[ T\left(\pdv[2]{p}{T}\right)=0\qquad\therefore\ \left(\pdv{C_{V}}{V}\right)_{T}=0 \]
+$C_{V}=3nR/2$ が任意の $V$ で成り立つ。
+\[ \left(\pdv{U}{V}\right)_{T}=\frac{an^{2}}{V^{2}} \]
+\[ \therefore\ U(T,V)=-\frac{an^{2}}{V}+U(T) \]
+$V\to\infty$ で $U\to3nRT/2$ より $U(T)=3nRT/2$。
+\[ U(T,V)=\frac{3nRT}{2}-\frac{an^{2}}{V} \]
+\toi{3}{◎}{}
+（最初の2つの試みは×で消して，次のように書き直した）
+\[ \dd S=\left(\pdv{S}{T}\right)_{V}\dd T+\left(\pdv{S}{V}\right)_{T}\dd V \]
+\[ \dd U=T\,\dd S-p\,\dd V \]
+（脇で計算）
+\[ \left(\pdv{S}{V}\right)_{T}=\left(\pdv{p}{T}\right)_{V}=\frac{nR}{V-nb} \]
+\[ \dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V \]
+\[ \left(\pdv{S}{T}\right)_{V}=\frac{1}{T}\left(\pdv{U}{T}\right)_{V}+\frac{p}{T}\cdot0 \]
+\[ \dd S=\frac{C_{V}}{T}\dd T+\frac{nR}{V-nb}\dd V \]
+\begin{align*}
+S(T,V)&=\frac{3nR}{2}\int\frac{\dd T}{T}+\int\frac{nR}{V-nb}\dd V\\
+&=\frac{3nR}{2}\log T+nR\log(V-nb)+S_{0}
+\end{align*}
+\toi{4}{○}{記述}
+\[ \nuke{\text{熱も仕事も }0}\quad\Delta U=0 \]
+\begin{align*}
+U(T_{1},V)&=\frac{3nRT_{1}}{2}-\frac{an^{2}}{V}\\
+U(T_{2},2V)&=\frac{3nRT_{2}}{2}-\frac{an^{2}}{2V}
+\end{align*}
+\[ \therefore\ \frac{3nR(T_{2}-T_{1})}{2}-\frac{an^{2}}{2V}+\frac{an^{2}}{V}=0 \]
+\begin{align*}
+3nR\Delta T&=-\frac{an^{2}}{V}\\
+\Delta T&=-\frac{an}{3RV}\\
+&=\qty{-5.43}{\kelvin}
+\end{align*}
+\nuke{$S$ は状態量}
+\begin{align*}
+\Delta S&=S(T_{2},2V)-S(T_{1},V)\\
+&=\frac{3nR}{2}\log\frac{T_{2}}{T_{1}}+nR\log\frac{2V-nb}{V-nb}\\
+&=\qty{5.67}{\joule\per\kelvin}
+\end{align*}
+\naze{$\Delta U=0$ の理由（断熱容器なので熱が 0，真空へ広がるので外への仕事も 0）と，自由膨張は不可逆過程だが $S$ は状態量なので，同じ始状態と終状態を結ぶ準静的な経路で求めた (3) の式の差で $\Delta S$ を計算してよいこと（答案に必要な論点）が，式にも文にも無い。式と数値は正しい。}
+%% kizuki
+\item \mae{第1章（旧版）問題2 (4)・10-27} 不可逆過程の変化量は，結果を出す式の前に「なぜその式を使ってよいか」を一言書く。自由膨張では熱も仕事も 0 なので $U$ が保存し，$S$ は状態量なので準静的な経路で求めた (3) の式の差で $\Delta S$ を求めてよい。前回も $2^{N}$ になる理由を書かなかったので，理由の1行を式より先に置く。
+\item 自由膨張で保存するのは $U$ であって $T$ ではない。$(\partial U/\partial V)_{T}=an^{2}/V^{2}>0$ なので，$U$ 一定のまま体積が増えると温度が下がる。自由膨張を準静的断熱過程と取り違えて $\Delta S=0$ としない。

@@ -1,0 +1,26 @@
+% 統計力学1 統計力学1-1 問題2（039-saikousei） 解いた日 2026-11-11
+%% kotae
+\toi{1}{◎}{}
+\[ \left(\pdv{u}{T}\right)_{V}=\gamma T+aT^{3} \]
+\[ \therefore\ u(T)=\frac{1}{2}\gamma T^{2}+\frac{1}{4}aT^{4}+u(0) \]
+\toi{2}{◎}{}
+\begin{align*}
+s(T)&=\int_{0}^{T}\frac{c_{V}(T')}{T'}\dd T'\\
+&=\int_{0}^{T}\kakimachigai{\gamma+aT'^{2}}{(\gamma+aT'^{2})}\dd T'\\
+&=\gamma T+\frac{1}{3}aT^{3}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+f(T)&=\frac{1}{2}\gamma T^{2}+\frac{1}{4}aT^{4}+u(0)\\
+&\qquad-\gamma T^{2}-\frac{1}{3}aT^{4}\\
+&=u(0)-\frac{1}{2}\gamma T^{2}-\frac{1}{12}aT^{4}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+-T\pdv[2]{f}{T}&=-T\pdv{}{T}\left(-\gamma T-\frac{1}{3}aT^{3}\right)\\
+&=-T(-\gamma-aT^{2})\\
+&=\gamma T+aT^{3}\\
+&=c_{V}(T)
+\end{align*}
+一致。
+%% kizuki

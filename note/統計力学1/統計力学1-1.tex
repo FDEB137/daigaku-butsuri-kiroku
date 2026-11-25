@@ -5,16 +5,26 @@
 \begin{document}
 \begin{kirokuichiran}
   \ichirangyou{\hyperlink{bt-m-003-thermo}{1}}{L1・計算}{◎◎◎◎}{S}{2026-11-11 2回目}
-  \ichirangyou{2}{L1・計算}{◎◎◎◎}{S}{2026-11-11}
-  \ichirangyou{3}{L2・計算}{◎◎◎○}{C}{2026-11-11 ヒント2 (4)記述}
-  \ichirangyou{4}{L2・計算}{○○◎◎}{C}{2026-11-11 ヒント2 (1)記述 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-039-saikousei}{2}}{L1・計算}{◎◎◎◎}{S}{2026-11-11}
+  \ichirangyou{\hyperlink{bt-m-056-maxwell}{3}}{L2・計算}{◎◎◎○}{C}{2026-11-11 ヒント2 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-057-legendre}{4}}{L2・計算}{○○◎◎}{C}{2026-11-11 ヒント2 (1)記述 (2)記述}
   \ichirangyou{5}{L3・導出}{}{未着手}{}
   \ichirangyou{6}{L4・導出}{}{未着手}{}
 \end{kirokuichiran}
 
+\youtenseiri
+\begin{noteshikilist}
+  \item 比熱からエネルギー（単位物質量あたり） % 出典: p.2
+    \[ u(T)=\int_{0}^{T}c_{V}(T')\dd T'+u(0) \notetag{1.1} \]
+  \item 比熱からエントロピー（単位物質量あたり） % 出典: p.2
+    \[ s=\int_{0}^{T}\frac{c_{V}(T')}{T'}\dd T' \notetag{1.2} \]
+  \item 比熱は自由エネルギーの2階微分（$n$ は物質量） % 出典: p.2
+    \[ c_{V}=-\frac{T}{n}\left(\pdv[2]{F}{T}\right)_{V} \notetag{1.3} \]
+\end{noteshikilist}
+
 \mondaihen
 \level{1}
-% toubun: kiroku\toubun\統計力学1\003_2026-10-27.tex
+% toubun: kiroku\toubun\統計力学1\003_2026-11-11.tex
 \mondaibangou{1}
 \begin{mondai}{003-thermo}{計算}{エントロピー $S(U,V)$ から温度・圧力・熱容量・自由エネルギーを求める熱力学関係式}
 % 出典: 講義ノート p.1（1.1節），p.6 式(19)--(21)
@@ -28,26 +38,319 @@
   \item ヘルムホルツ自由エネルギー $F=U-TS$ を $T$ と $V$ で表せ。
 \end{shoumon}
 \notekiroku{2026-10-27 S ◎◎◎◎ → 2026-11-11 S ◎◎◎◎}
-\begin{kotaeutsushi}{2026-10-27}
+\begin{kotaeutsushi}{2026-11-11}
 \toi{1}{◎}{}
 \begin{align*}
-\left(\pdv{S}{U}\right)_{V}&=a^{1/4}V^{1/4}U^{-1/4}\\
-&=\left(\frac{aV}{U}\right)^{1/4}=\frac{1}{T}
+\frac{1}{T}&=\frac{4}{3}a^{1/4}V^{1/4}\cdot\frac{3}{4}U^{-1/4}\\
+&=\left(\frac{aV}{U}\right)^{1/4}
 \end{align*}
-\[ U=aVT^{4} \]
+\[ \therefore\ U=aVT^{4} \]
 \toi{2}{◎}{}
-\[ \left(\pdv{S}{V}\right)_{U}=\frac{1}{3}a^{1/4}\left(\frac{U}{V}\right)^{3/4}=\frac{p}{T} \]
-\[ \therefore\ \frac{1}{3}a^{1/4}\left(\frac{U}{V}\right)^{3/4}=p\left(\frac{aV}{U}\right)^{1/4} \]
-\[ \therefore\ p=\frac{U}{3V} \]
+\[ \frac{p}{T}=\frac{1}{3}a^{1/4}V^{-3/4}U^{3/4} \]
+\begin{align*}
+p&=\frac{1}{3}a^{1/4}V^{-3/4}U^{3/4}\cdot\left(\frac{U}{aV}\right)^{1/4}\\
+&=\frac{1}{3}V^{-1}U^{1}=\frac{U}{3V}
+\end{align*}
 \toi{3}{◎}{}
 \[ C_{V}=\left(\pdv{U}{T}\right)_{V}=4aVT^{3} \]
 \toi{4}{◎}{}
 \begin{align*}
-F&=aVT^{4}-T\cdot\frac{4}{3}a^{1/4}V^{1/4}\left(aVT^{4}\right)^{3/4}\\
+F&=aVT^{4}-\left(\frac{U}{aV}\right)^{1/4}\cdot\frac{4}{3}a^{1/4}V^{1/4}U^{3/4}\\
 &=aVT^{4}-\frac{4}{3}aVT^{4}\\
 &=-\frac{1}{3}aVT^{4}
 \end{align*}
 \end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\039_2026-11-11.tex
+\mondaibangou{2}
+\begin{mondai}{039-saikousei}{計算}{比熱を積分して内部エネルギー・エントロピー・ヘルムホルツ自由エネルギーを組み立て，比熱が自由エネルギーの2階微分であることを確かめる}
+ある固体の体積を一定に保って比熱を測ると，低温で \qty{1}{\mole} あたりの定積比熱が
+  \[ c_{V}(T)=\gamma T+aT^{3} \]
+  （$\gamma$，$a$ は正の定数）と表された。\qty{0}{\kelvin} での \qty{1}{\mole} あたりの内部エネルギーを $u(0)$ とし，エントロピーは $s(0)=0$ とする。この温度範囲で上の式が成り立つとして，次の問いに答えよ。
+  \begin{shoumon}
+    \item \qty{1}{\mole} あたりの内部エネルギー $u(T)$ を求めよ。
+    \item \qty{1}{\mole} あたりのエントロピー $s(T)$ を求めよ。
+    \item \qty{1}{\mole} あたりのヘルムホルツ自由エネルギー $f(T):=u-Ts$ を求めよ。
+    \item (3) の $f(T)$ を体積一定で $T$ について2回微分し，
+      \[ -T\pdv[2]{f}{T} \]
+      が $c_{V}(T)$ に一致することを確かめよ（\noteshiki{1.3} を \qty{1}{\mole} あたりに書いたもの）。
+  \end{shoumon}
+\notekiroku{2026-11-11 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+\[ \left(\pdv{u}{T}\right)_{V}=\gamma T+aT^{3} \]
+\[ \therefore\ u(T)=\frac{1}{2}\gamma T^{2}+\frac{1}{4}aT^{4}+u(0) \]
+\toi{2}{◎}{}
+\begin{align*}
+s(T)&=\int_{0}^{T}\frac{c_{V}(T')}{T'}\dd T'\\
+&=\int_{0}^{T}\kakimachigai{\gamma+aT'^{2}}{(\gamma+aT'^{2})}\dd T'\\
+&=\gamma T+\frac{1}{3}aT^{3}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+f(T)&=\frac{1}{2}\gamma T^{2}+\frac{1}{4}aT^{4}+u(0)\\
+&\qquad-\gamma T^{2}-\frac{1}{3}aT^{4}\\
+&=u(0)-\frac{1}{2}\gamma T^{2}-\frac{1}{12}aT^{4}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+-T\pdv[2]{f}{T}&=-T\pdv{}{T}\left(-\gamma T-\frac{1}{3}aT^{3}\right)\\
+&=-T(-\gamma-aT^{2})\\
+&=\gamma T+aT^{3}\\
+&=c_{V}(T)
+\end{align*}
+一致。
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\統計力学1\056_2026-11-11.tex
+\mondaibangou{3}
+\begin{mondai}{056-maxwell}{計算}{マクスウェルの関係式による $(\partial U/\partial V)_{T}$ の計算，状態方程式と熱容量からの内部エネルギー・エントロピーの組み立て，自由膨張での温度変化とエントロピーの増加}
+物質量 $n$ の気体の状態方程式が，ファン・デル・ワールスの式
+\[ p=\frac{nRT}{V-nb}-\frac{an^{2}}{V^{2}} \]
+（$a$，$b$ は正の定数）で与えられるとする。体積が十分大きい極限ではこの気体は単原子の理想気体に戻り，定積熱容量は $3nR/2$ になる。
+\begin{shoumon}
+  \item ギブスの関係式とマクスウェルの関係式を用いて
+  \[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{p}{T}\right)_{V}-p \]
+  を示し，この気体について右辺を計算せよ。
+  \item $(\partial C_{V}/\partial V)_{T}$ を $p$ の温度についての2階微分で表し，この気体では $C_{V}=3nR/2$ が任意の $V$ で成り立つことを示せ。さらに，$V\to\infty$ で $U\to3nRT/2$ となるように内部エネルギー $U(T,V)$ を求めよ。
+  \item エントロピー $S(T,V)$ を求めよ（加える定数は $S_{0}$ と書いてよい）。
+  \item Ar 気体 $\qty{1.00}{\mole}$（$a=\qty{0.1355}{\pascal\metre\tothe{6}\per\mole\squared}$，$b=\qty{3.20e-5}{\cubic\metre\per\mole}$）が，温度 \qty{300}{\kelvin} で体積 $V=\qty{1.00e-3}{\cubic\metre}$ の断熱容器の中にあり，真空の部屋との仕切りを取り除くと全体積 $2V$ に広がった（自由膨張）。膨張後の温度の変化 $\Delta T$ とエントロピーの変化 $\Delta S$ を有効数字3桁で求めよ。$R=\qty{8.314}{\joule\per\kelvin\per\mole}$ とする。
+\end{shoumon}
+\notekiroku{2026-11-11 C ◎◎◎○ (ヒント2)}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+（図：熱力学の四角形。上の辺に $S$，$U$，$V$，左右に $H$，$F$，下の辺に $p$，$G$，$T$ を置き，対角線に矢印）
+\begin{align*}
+\dd U&=\pdv{U}{S}\dd S+\pdv{U}{V}\dd V\\
+&=T\,\dd S-p\,\dd V
+\end{align*}
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{S}{V}\right)_{T}-p \]
+\[ \kakimachigai{\left(\pdv{S}{U}\right)_{T}}{\left(\pdv{S}{V}\right)_{T}}=\left(\pdv{p}{T}\right)_{V} \]
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{p}{T}\right)_{V}-p \]
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\left(\frac{nR}{V-nb}\right)\\
+&\qquad-\frac{nRT}{V-nb}+\frac{an^{2}}{V^{2}}\\
+&=\frac{an^{2}}{V^{2}}
+\end{align*}
+\toi{2}{◎}{}
+\[ C_{V}=\left(\pdv{U}{T}\right)_{V} \]
+\begin{align*}
+\left(\pdv{C_{V}}{V}\right)_{T}&=\pdv{}{T}\left(\left(\pdv{U}{V}\right)_{T}\right)_{V}\\
+&=\pdv{}{T}\left(T\left(\pdv{p}{T}\right)_{V}-p\right)_{V}\\
+&=\kakimachigai{\pdv{}{T}\cdot T}{\pdv{T}{T}}\left(\pdv{p}{T}\right)_{V}\\
+&\qquad+T\left(\pdv[2]{p}{T}\right)_{V}-\left(\pdv{p}{T}\right)_{V}\\
+&=T\left(\pdv[2]{p}{T}\right)_{V}
+\end{align*}
+\[ T\left(\pdv[2]{p}{T}\right)=0\qquad\therefore\ \left(\pdv{C_{V}}{V}\right)_{T}=0 \]
+$C_{V}=3nR/2$ が任意の $V$ で成り立つ。
+\[ \left(\pdv{U}{V}\right)_{T}=\frac{an^{2}}{V^{2}} \]
+\[ \therefore\ U(T,V)=-\frac{an^{2}}{V}+U(T) \]
+$V\to\infty$ で $U\to3nRT/2$ より $U(T)=3nRT/2$。
+\[ U(T,V)=\frac{3nRT}{2}-\frac{an^{2}}{V} \]
+\toi{3}{◎}{}
+（最初の2つの試みは×で消して，次のように書き直した）
+\[ \dd S=\left(\pdv{S}{T}\right)_{V}\dd T+\left(\pdv{S}{V}\right)_{T}\dd V \]
+\[ \dd U=T\,\dd S-p\,\dd V \]
+（脇で計算）
+\[ \left(\pdv{S}{V}\right)_{T}=\left(\pdv{p}{T}\right)_{V}=\frac{nR}{V-nb} \]
+\[ \dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V \]
+\[ \left(\pdv{S}{T}\right)_{V}=\frac{1}{T}\left(\pdv{U}{T}\right)_{V}+\frac{p}{T}\cdot0 \]
+\[ \dd S=\frac{C_{V}}{T}\dd T+\frac{nR}{V-nb}\dd V \]
+\begin{align*}
+S(T,V)&=\frac{3nR}{2}\int\frac{\dd T}{T}+\int\frac{nR}{V-nb}\dd V\\
+&=\frac{3nR}{2}\log T+nR\log(V-nb)+S_{0}
+\end{align*}
+\toi{4}{○}{記述}
+\[ \nuke{\text{熱も仕事も }0}\quad\Delta U=0 \]
+\begin{align*}
+U(T_{1},V)&=\frac{3nRT_{1}}{2}-\frac{an^{2}}{V}\\
+U(T_{2},2V)&=\frac{3nRT_{2}}{2}-\frac{an^{2}}{2V}
+\end{align*}
+\[ \therefore\ \frac{3nR(T_{2}-T_{1})}{2}-\frac{an^{2}}{2V}+\frac{an^{2}}{V}=0 \]
+\begin{align*}
+3nR\Delta T&=-\frac{an^{2}}{V}\\
+\Delta T&=-\frac{an}{3RV}\\
+&=\qty{-5.43}{\kelvin}
+\end{align*}
+\nuke{$S$ は状態量}
+\begin{align*}
+\Delta S&=S(T_{2},2V)-S(T_{1},V)\\
+&=\frac{3nR}{2}\log\frac{T_{2}}{T_{1}}+nR\log\frac{2V-nb}{V-nb}\\
+&=\qty{5.67}{\joule\per\kelvin}
+\end{align*}
+\naze{$\Delta U=0$ の理由（断熱容器なので熱が 0，真空へ広がるので外への仕事も 0）と，自由膨張は不可逆過程だが $S$ は状態量なので，同じ始状態と終状態を結ぶ準静的な経路で求めた (3) の式の差で $\Delta S$ を計算してよいこと（答案に必要な論点）が，式にも文にも無い。式と数値は正しい。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1章（旧版）問題2 (4)・10-27} 不可逆過程の変化量は，結果を出す式の前に「なぜその式を使ってよいか」を一言書く。自由膨張では熱も仕事も 0 なので $U$ が保存し，$S$ は状態量なので準静的な経路で求めた (3) の式の差で $\Delta S$ を求めてよい。前回も $2^{N}$ になる理由を書かなかったので，理由の1行を式より先に置く。
+\item 自由膨張で保存するのは $U$ であって $T$ ではない。$(\partial U/\partial V)_{T}=an^{2}/V^{2}>0$ なので，$U$ 一定のまま体積が増えると温度が下がる。自由膨張を準静的断熱過程と取り違えて $\Delta S=0$ としない。
+\end{kizuki}
+\begin{tadashii}
+\houshin ギブスの関係式から $(\partial U/\partial V)_{T}$ を $(\partial S/\partial V)_{T}$ で書き，マクスウェルの関係式で状態方程式だけで計算できる形にする。$C_{V}$ の体積依存性も状態方程式から決まるので，体積の大きい極限の値と合わせて $U$ と $S$ を組み立てる。自由膨張は $U$ 一定の不可逆過程なので，前後の状態を $U$ の保存で結び，$S$ は状態量として差をとる。
+\keisan \shoumonkai{1} $\dd U=T\,\dd S-p\,\dd V$ で $T$ を一定にして $\dd V$ で割ると
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{S}{V}\right)_{T}-p \]
+$\dd F=-S\,\dd T-p\,\dd V$ より $S=-(\partial F/\partial T)_{V}$，$p=-(\partial F/\partial V)_{T}$ で，2階微分の順序を入れ替えると $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$。よって示すべき式が得られる。この気体では $(\partial p/\partial T)_{V}=nR/(V-nb)$ なので
+\[ \left(\pdv{U}{V}\right)_{T}=\frac{nRT}{V-nb}-\left(\frac{nRT}{V-nb}-\frac{an^{2}}{V^{2}}\right)=\frac{an^{2}}{V^{2}} \]
+\shoumonkai{2} (1) の式を $V$ 一定で $T$ について微分し，偏微分の順序を入れ替える。
+\[ \left(\pdv{C_{V}}{V}\right)_{T}=\pdv{}{T}\left[T\left(\pdv{p}{T}\right)_{V}-p\right]_{V}=\left(\pdv{p}{T}\right)_{V}+T\left(\pdv[2]{p}{T}\right)_{V}-\left(\pdv{p}{T}\right)_{V}=T\left(\pdv[2]{p}{T}\right)_{V} \]
+$p$ は $T$ の1次式なのでこれは $0$ で，$C_{V}$ は $V$ によらない。$V\to\infty$ での値が $3nR/2$（$T$ によらない）なので，任意の $V$ で $C_{V}=3nR/2$。$U$ は $(\partial U/\partial T)_{V}=3nR/2$ と (1) を満たすので
+\[ U(T,V)=\frac{3}{2}nRT-\frac{an^{2}}{V} \]
+（$V\to\infty$ で $3nRT/2$ になるので，加える定数は $0$）。
+\shoumonkai{3} $\dd S=(\partial S/\partial T)_{V}\dd T+(\partial S/\partial V)_{T}\dd V$ で，$(\partial S/\partial T)_{V}=C_{V}/T$，$(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}=nR/(V-nb)$。積分して
+\[ S(T,V)=\frac{3}{2}nR\log T+nR\log(V-nb)+S_{0} \]
+\shoumonkai{4} 自由膨張では外部との熱も仕事も $0$ なので $U$ が保存する。膨張前の温度を $T_{1}=\qty{300}{\kelvin}$，膨張後を $T_{2}$ として
+\[ \frac{3}{2}nRT_{1}-\frac{an^{2}}{V}=\frac{3}{2}nRT_{2}-\frac{an^{2}}{2V} \]
+より
+\[ \Delta T=T_{2}-T_{1}=-\frac{an}{3RV}=-\frac{\num{0.1355}\times\num{1.00}}{3\times\num{8.314}\times\num{1.00e-3}}\,\unit{\kelvin}=\qty{-5.43}{\kelvin} \]
+$T_{2}=\qty{294.57}{\kelvin}$ である。エントロピーは状態量なので (3) の式の差をとる。
+\[ \Delta S=\frac{3}{2}nR\log\frac{T_{2}}{T_{1}}+nR\log\frac{2V-nb}{V-nb} \]
+第1項は $\num{12.47}\times\log(\num{0.98189})\,\unit{\joule\per\kelvin}=\qty{-0.228}{\joule\per\kelvin}$，第2項は
+\[ \num{8.314}\times\log\frac{\num{1.968e-3}}{\num{0.968e-3}}\,\unit{\joule\per\kelvin}=\num{8.314}\times\num{0.7095}\,\unit{\joule\per\kelvin}=\qty{5.899}{\joule\per\kelvin} \]
+よって $\Delta S=\qty{5.67}{\joule\per\kelvin}$。
+\kotae{\shoumonkai{1} $(\partial U/\partial V)_{T}=an^{2}/V^{2}$ \shoumonkai{2} $(\partial C_{V}/\partial V)_{T}=T(\partial^{2}p/\partial T^{2})_{V}=0$，$U=3nRT/2-an^{2}/V$ \shoumonkai{3} $S=\frac{3}{2}nR\log T+nR\log(V-nb)+S_{0}$ \shoumonkai{4} $\Delta T=\qty{-5.43}{\kelvin}$，$\Delta S=\qty{5.67}{\joule\per\kelvin}$}
+\begin{ronten}
+  \item \shoumonkai{1} $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$ が $F$ の2階微分の順序の入れ替えから出ることを書く。
+  \item \shoumonkai{2} $C_{V}$ が $V$ によらないことを示したうえで，体積の大きい極限の値を使って $C_{V}$ と $U$ の定数を決めることを述べる。
+  \item \shoumonkai{4} 自由膨張は不可逆過程だが，$S$ は状態量なので，同じ始状態と終状態を結ぶ準静的な経路の式 (3) で差を計算してよいことを述べる。
+\end{ronten}
+\kenzan 次元：$an^{2}/V^{2}$ は圧力の次元で，$(\partial U/\partial V)_{T}$（エネルギー/体積）と一致する。$an/(RV)$ は $(\unit{\pascal\cubic\metre\per\mole})/(\unit{\joule\per\kelvin\per\mole})=\unit{\kelvin}$。特殊ケース：$a=b=0$ では $\Delta T=0$，$\Delta S=nR\log2=\qty{5.76}{\joule\per\kelvin}$ で理想気体に戻る。$\Delta S>0$ は孤立系の不可逆過程でエントロピーが増えることと整合する。
+\tsumazuki $(\partial U/\partial V)_{T}$ を $-p$ としてしまう誤りが多い（それは $(\partial U/\partial V)_{S}$）。自由膨張を準静的断熱過程と取り違えて $\Delta S=0$ としない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\統計力学1\057_2026-11-11.tex
+\mondaibangou{4}
+\begin{mondai}{057-legendre}{計算}{基本関係式 $S(U,V,N)$ から示強変数・状態方程式を求め，ルジャンドル変換で $F$・$G$ を作ること，オイラーの関係式とギブス--デュエムの関係式}
+ある仮想的な物質の基本関係式が
+\[ S(U,V,N)=A\,(NVU)^{1/3} \]
+（$A$ は正の定数）で与えられるとする。
+\begin{shoumon}
+  \item $S$ が示量的であることを確かめよ。また，温度 $T$・圧力 $p$・化学ポテンシャル $\mu$ を $U$，$V$，$N$，$S$ で表し，オイラーの関係式 $U=TS-pV+\mu N$ が成り立つことを確かめよ。
+  \item 内部エネルギー $U(T,V,N)$，状態方程式 $p(T,V,N)$，ヘルムホルツ自由エネルギー $F(T,V,N)$ を求めよ。
+  \item ギブス自由エネルギー $G(T,p,N)$ を求め，$G=\mu N$ を確かめよ。
+  \item (3) の $\mu$ を $T$ と $p$ の関数と見て，ギブス--デュエムの関係式から導かれる $(\partial\mu/\partial T)_{p}=-S/N$ と $(\partial\mu/\partial p)_{T}=V/N$ が成り立つことを確かめよ。
+\end{shoumon}
+\notekiroku{2026-11-11 C ○○◎◎ (ヒント2)}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{○}{記述}
+\begin{align*}
+\lambda S&=S(\lambda U,\lambda V,\lambda N)\\
+&=A(\lambda^{3}NVU)^{1/3}\\
+&=\lambda A(NVU)^{1/3}
+\end{align*}
+より示量的。
+\[ \dd U=T\,\dd S-p\,\dd V+\mu\,\dd N \]
+積分すると
+\[ U=TS-pV+\mu N \]
+（続き）
+\[ \dd U=T\,\dd S-p\,\dd V+\mu\,\dd N \]
+\[ \therefore\ \dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V-\frac{\mu}{T}\dd N \]
+\begin{gather*}
+\left(\pdv{S}{U}\right)_{V}=\frac{1}{T},\quad\left(\pdv{S}{V}\right)_{U}=\frac{p}{T},\\
+\left(\pdv{S}{N}\right)_{U,V}=-\frac{\mu}{T}
+\end{gather*}
+\begin{align*}
+\left(\pdv{S}{U}\right)_{V}&=A(NV)^{1/3}\cdot\frac{1}{3}U^{-2/3}=\frac{S}{3U}\\
+\left(\pdv{S}{V}\right)_{U}&=\frac{S}{3V},\quad\left(\pdv{S}{N}\right)_{U,V}=\frac{S}{3N}
+\end{align*}
+\[ \therefore\ T=\frac{3U}{S},\quad p=\frac{S}{3V}\cdot\frac{3U}{S}=\frac{U}{V} \]
+\[ \therefore\ \mu=-\frac{S}{3N}\cdot\frac{3U}{S}=-\frac{U}{N} \]
+\nuke{$TS-pV+\mu N=3U-U-U=U$}
+\naze{オイラーの関係式は $U=TS-pV+\mu N$ と書いただけで，求めた $T$・$p$・$\mu$ を代入していない。「確かめよ」なので，$TS-pV+\mu N=3U-U-U=U$ の一行で両辺が一致することまで書く。}
+\toi{2}{○}{記述}
+\[ \frac{1}{T}=\left(\pdv{S}{U}\right)_{V}=\frac{1}{3}A(NV)^{1/3}U^{-2/3} \]
+\[ \frac{U^{2/3}}{T}=\frac{1}{3}A(NV)^{1/3} \]
+\[ U(T,V,N)=\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2} \]
+\begin{align*}
+\ayamari{\left(\pdv{p}{T}\right)_{V}}{\frac{p}{T}}&=\ayamari{\left(\pdv{S}{V}\right)_{T}}{\left(\pdv{S}{V}\right)_{U}}\\
+&=\frac{1}{3}A(NU)^{1/3}V^{-2/3}
+\end{align*}
+\naze{右辺は $S(U,V,N)$ を $U$ 一定で $V$ について微分したもので，$(\partial S/\partial V)_{U}=p/T$ である。マクスウェルの関係式の $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$ は $T$ 一定の微分で別の量（この問題では $(\partial p/\partial T)_{V}=\frac{3}{2}p/T$）。次の行は $p=T\cdot(p/T)$ として正しく，$U$・$p$・$F$ の答えは正しい。}
+\begin{align*}
+p(T,V,N)&=\frac{1}{3}AT\,N^{1/3}V^{-2/3}U^{1/3}\\
+&=\frac{1}{3}AT\,N^{1/3}V^{-2/3}\\
+&\qquad\times\left(\frac{1}{3}AT(NV)^{1/3}\right)^{1/2}\\
+&=\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{N}{V}\right)^{1/2}
+\end{align*}
+\begin{align*}
+F(T,V,N)&=U-TS\\
+&=\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}-AT(NVU)^{1/3}\\
+&=\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}\\
+&\qquad-3\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}\\
+&=-2\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}
+\end{align*}
+\toi{3}{◎}{}
+\[ G=F+pV \]
+\[ G(T,p,N)=-2\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}+pV \]
+\[ p=\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{N}{V}\right)^{1/2} \]
+\[ p^{2}=\left(\frac{1}{3}AT\right)^{3}\frac{N}{V} \]
+\[ V=\left(\frac{1}{3}AT\right)^{3}\cdot\frac{N}{p^{2}} \]
+\begin{align*}
+G(T,p,N)&=-2\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{1}{3}AT\right)^{3/2}\\
+&\qquad\times\left(\frac{N^{2}}{p^{2}}\right)^{1/2}+\left(\frac{1}{3}AT\right)^{3}\cdot\frac{N}{p}\\
+&=-\left(\frac{1}{3}AT\right)^{3}\frac{N}{p}\\
+&=\underbrace{-\left(\frac{1}{3}AT\right)^{3}p^{-1}}_{\mu}\cdot N
+\end{align*}
+\[ \mu=-\frac{U}{N}=-\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{V}{N}\right)^{1/2} \]
+\begin{align*}
+\mu&=-\left(\frac{1}{3}AT\right)^{3}p^{-1}\\
+&=-\left(\frac{1}{3}AT\right)^{3}\cdot\left(\frac{1}{3}AT\right)^{-3/2}\left(\frac{N}{V}\right)^{-1/2}\\
+&=-\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{V}{N}\right)^{1/2}
+\end{align*}
+で一致。
+\toi{4}{◎}{}
+\[ \mu=-\left(\frac{1}{3}AT\right)^{3}p^{-1} \]
+\begin{align*}
+\left(\pdv{\mu}{T}\right)_{p}&=\kakimachigai{-AT^{2}\cdot p^{-1}}{-\frac{A^{3}}{9}T^{2}p^{-1}}\\
+&=-\frac{3}{T}\cdot\frac{1}{p}\left(\frac{1}{3}AT\right)^{3}
+\end{align*}
+\[ \left(\pdv{\mu}{p}\right)_{T}=+\left(\frac{1}{3}AT\right)^{3}p^{-2} \]
+\begin{align*}
+-\frac{S}{N}&=-\frac{3U}{NT}=\frac{3\mu}{T}\\
+&=-\frac{3}{T}\cdot\frac{1}{p}\left(\frac{1}{3}AT\right)^{3}
+\end{align*}
+より一致。
+\begin{align*}
+\frac{V}{N}&=\frac{U}{Np}=-\frac{\mu}{p}\\
+&=+\left(\frac{1}{3}AT\right)^{3}p^{-2}
+\end{align*}
+より一致。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 基本関係式 $S(U,V,N)$ の偏微分は残りの変数を固定したもので，$(\partial S/\partial V)_{U,N}=p/T$ である。マクスウェルの関係式 $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$ は $\dd F=-S\,\dd T-p\,\dd V$ から出る $T$ 一定の微分で，別の量である。$(\partial p/\partial T)_{V}$ に $T$ を掛けて $p$ になるのは $p$ が $T$ の1次式のときだけで，この問題の $p\propto T^{3/2}$ では成り立たない。
+\item \mae{第1章（旧版）問題4 (3)(4)・10-27} 記号の書き違いである。前回は $S'$ のプライムを落とし，今回は固定する変数を取り違えた（問題3 (1) でも $(\partial S/\partial V)_{T}$ を $(\partial S/\partial U)_{T}$ と書いた）。偏微分を書いたら，固定する変数がその式の出どころ（どの関数を何で微分したか）と合っているかを見直す。
+\item 「確かめよ」の問いは，求めた $T$・$p$・$\mu$ を代入して $TS-pV+\mu N=3U-U-U=U$ のように両辺が一致する一行まで書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 基本関係式の偏微分で示強変数を求め，$1/T$ の式を解いて $U(T,V,N)$ にする。$F=U-TS$，$G=F+pV$ を自然な変数で書き直し，オイラーの関係式・ギブス--デュエムの関係式を具体的に確かめる。
+\keisan \shoumonkai{1} $S(\lambda U,\lambda V,\lambda N)=A(\lambda^{3}NVU)^{1/3}=\lambda S(U,V,N)$ なので示量的である。偏微分は
+\[ \frac{1}{T}=\pdv{S}{U}=\frac{S}{3U},\qquad \frac{p}{T}=\pdv{S}{V}=\frac{S}{3V},\qquad -\frac{\mu}{T}=\pdv{S}{N}=\frac{S}{3N} \]
+よって $T=3U/S$，$p=TS/(3V)=U/V$，$\mu=-TS/(3N)=-U/N$。これらを代入すると
+\[ TS-pV+\mu N=3U-U-U=U \]
+でオイラーの関係式が成り立つ。
+\shoumonkai{2} $1/T=(A/3)(NV)^{1/3}U^{-2/3}$ を $U$ について解くと
+\[ U=\left(\frac{AT}{3}\right)^{3/2}(NV)^{1/2} \]
+$p=U/V$ より
+\[ p=\left(\frac{AT}{3}\right)^{3/2}\left(\frac{N}{V}\right)^{1/2} \]
+$TS=3U$ なので
+\[ F=U-TS=-2U=-2\left(\frac{AT}{3}\right)^{3/2}(NV)^{1/2} \]
+（確認：$-(\partial F/\partial V)_{T,N}=(AT/3)^{3/2}N^{1/2}V^{-1/2}=p$。）
+\shoumonkai{3} 状態方程式を $V$ について解くと $V=N(AT/3)^{3}/p^{2}$。$pV=U$ なので $G=F+pV=-2U+U=-U$ で，$U=pV=N(AT/3)^{3}/p$ を使うと
+\[ G(T,p,N)=-\frac{N}{p}\left(\frac{AT}{3}\right)^{3} \]
+(1) の $\mu=-U/N$ に $U=N(AT/3)^{3}/p$ を入れると $\mu=-(AT/3)^{3}/p$ で，$G=\mu N$ が成り立つ。
+\shoumonkai{4} $\mu(T,p)=-(A/3)^{3}T^{3}/p$ を微分する。
+\[ \left(\pdv{\mu}{T}\right)_{p}=-\frac{3}{T}\cdot\frac{1}{p}\left(\frac{AT}{3}\right)^{3},\qquad \left(\pdv{\mu}{p}\right)_{T}=\frac{1}{p^{2}}\left(\frac{AT}{3}\right)^{3} \]
+一方，$S/N=3U/(NT)=(3/T)(AT/3)^{3}/p$，$V/N=(AT/3)^{3}/p^{2}$ なので，$(\partial\mu/\partial T)_{p}=-S/N$，$(\partial\mu/\partial p)_{T}=V/N$ が成り立つ。これは $N\,\dd\mu=-S\,\dd T+V\,\dd p$（ギブス--デュエムの関係式）を $N$ で割ったものである。
+\kotae{\shoumonkai{1} $T=3U/S$，$p=U/V$，$\mu=-U/N$（$TS-pV+\mu N=U$） \shoumonkai{2} $U=(AT/3)^{3/2}(NV)^{1/2}$，$p=(AT/3)^{3/2}(N/V)^{1/2}$，$F=-2(AT/3)^{3/2}(NV)^{1/2}$ \shoumonkai{3} $G=-N(AT/3)^{3}/p$ \shoumonkai{4} （確かめた）}
+\begin{ronten}
+  \item \shoumonkai{2} $F$ を $T$，$V$，$N$ の関数として書き直してから自然な変数の関数とみなすこと（$U$ や $S$ を残さないこと）を書く。
+  \item \shoumonkai{3} $G$ の自然な変数は $T$，$p$，$N$ なので，状態方程式で $V$ を消してから答えることを書く。
+\end{ronten}
+\kenzan 示量性：$U$，$F$，$G$ はどれも $(V,N)\to(\lambda V,\lambda N)$ で $\lambda$ 倍になり，$p$，$\mu$ は変わらない。$\dd F=-S\,\dd T-p\,\dd V$ と整合（$-(\partial F/\partial T)_{V}=3U/T=S$）。
+\tsumazuki $G=\mu N$ を確かめるとき，$\mu$ を $U,V,N$ のまま比べず，同じ変数 $(T,p)$ で書いてから比べる。
+\end{tadashii}
 \end{mondai}
 
 \noteowari

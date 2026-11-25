@@ -1,0 +1,89 @@
+% 統計力学1 統計力学1-1 問題4（057-legendre） 解いた日 2026-11-11
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+\lambda S&=S(\lambda U,\lambda V,\lambda N)\\
+&=A(\lambda^{3}NVU)^{1/3}\\
+&=\lambda A(NVU)^{1/3}
+\end{align*}
+より示量的。
+\[ \dd U=T\,\dd S-p\,\dd V+\mu\,\dd N \]
+積分すると
+\[ U=TS-pV+\mu N \]
+（続き）
+\[ \dd U=T\,\dd S-p\,\dd V+\mu\,\dd N \]
+\[ \therefore\ \dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V-\frac{\mu}{T}\dd N \]
+\begin{gather*}
+\left(\pdv{S}{U}\right)_{V}=\frac{1}{T},\quad\left(\pdv{S}{V}\right)_{U}=\frac{p}{T},\\
+\left(\pdv{S}{N}\right)_{U,V}=-\frac{\mu}{T}
+\end{gather*}
+\begin{align*}
+\left(\pdv{S}{U}\right)_{V}&=A(NV)^{1/3}\cdot\frac{1}{3}U^{-2/3}=\frac{S}{3U}\\
+\left(\pdv{S}{V}\right)_{U}&=\frac{S}{3V},\quad\left(\pdv{S}{N}\right)_{U,V}=\frac{S}{3N}
+\end{align*}
+\[ \therefore\ T=\frac{3U}{S},\quad p=\frac{S}{3V}\cdot\frac{3U}{S}=\frac{U}{V} \]
+\[ \therefore\ \mu=-\frac{S}{3N}\cdot\frac{3U}{S}=-\frac{U}{N} \]
+\nuke{$TS-pV+\mu N=3U-U-U=U$}
+\naze{オイラーの関係式は $U=TS-pV+\mu N$ と書いただけで，求めた $T$・$p$・$\mu$ を代入していない。「確かめよ」なので，$TS-pV+\mu N=3U-U-U=U$ の一行で両辺が一致することまで書く。}
+\toi{2}{○}{記述}
+\[ \frac{1}{T}=\left(\pdv{S}{U}\right)_{V}=\frac{1}{3}A(NV)^{1/3}U^{-2/3} \]
+\[ \frac{U^{2/3}}{T}=\frac{1}{3}A(NV)^{1/3} \]
+\[ U(T,V,N)=\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2} \]
+\begin{align*}
+\ayamari{\left(\pdv{p}{T}\right)_{V}}{\frac{p}{T}}&=\ayamari{\left(\pdv{S}{V}\right)_{T}}{\left(\pdv{S}{V}\right)_{U}}\\
+&=\frac{1}{3}A(NU)^{1/3}V^{-2/3}
+\end{align*}
+\naze{右辺は $S(U,V,N)$ を $U$ 一定で $V$ について微分したもので，$(\partial S/\partial V)_{U}=p/T$ である。マクスウェルの関係式の $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$ は $T$ 一定の微分で別の量（この問題では $(\partial p/\partial T)_{V}=\frac{3}{2}p/T$）。次の行は $p=T\cdot(p/T)$ として正しく，$U$・$p$・$F$ の答えは正しい。}
+\begin{align*}
+p(T,V,N)&=\frac{1}{3}AT\,N^{1/3}V^{-2/3}U^{1/3}\\
+&=\frac{1}{3}AT\,N^{1/3}V^{-2/3}\\
+&\qquad\times\left(\frac{1}{3}AT(NV)^{1/3}\right)^{1/2}\\
+&=\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{N}{V}\right)^{1/2}
+\end{align*}
+\begin{align*}
+F(T,V,N)&=U-TS\\
+&=\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}-AT(NVU)^{1/3}\\
+&=\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}\\
+&\qquad-3\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}\\
+&=-2\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}
+\end{align*}
+\toi{3}{◎}{}
+\[ G=F+pV \]
+\[ G(T,p,N)=-2\left(\frac{1}{3}AT\right)^{3/2}(NV)^{1/2}+pV \]
+\[ p=\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{N}{V}\right)^{1/2} \]
+\[ p^{2}=\left(\frac{1}{3}AT\right)^{3}\frac{N}{V} \]
+\[ V=\left(\frac{1}{3}AT\right)^{3}\cdot\frac{N}{p^{2}} \]
+\begin{align*}
+G(T,p,N)&=-2\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{1}{3}AT\right)^{3/2}\\
+&\qquad\times\left(\frac{N^{2}}{p^{2}}\right)^{1/2}+\left(\frac{1}{3}AT\right)^{3}\cdot\frac{N}{p}\\
+&=-\left(\frac{1}{3}AT\right)^{3}\frac{N}{p}\\
+&=\underbrace{-\left(\frac{1}{3}AT\right)^{3}p^{-1}}_{\mu}\cdot N
+\end{align*}
+\[ \mu=-\frac{U}{N}=-\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{V}{N}\right)^{1/2} \]
+\begin{align*}
+\mu&=-\left(\frac{1}{3}AT\right)^{3}p^{-1}\\
+&=-\left(\frac{1}{3}AT\right)^{3}\cdot\left(\frac{1}{3}AT\right)^{-3/2}\left(\frac{N}{V}\right)^{-1/2}\\
+&=-\left(\frac{1}{3}AT\right)^{3/2}\left(\frac{V}{N}\right)^{1/2}
+\end{align*}
+で一致。
+\toi{4}{◎}{}
+\[ \mu=-\left(\frac{1}{3}AT\right)^{3}p^{-1} \]
+\begin{align*}
+\left(\pdv{\mu}{T}\right)_{p}&=\kakimachigai{-AT^{2}\cdot p^{-1}}{-\frac{A^{3}}{9}T^{2}p^{-1}}\\
+&=-\frac{3}{T}\cdot\frac{1}{p}\left(\frac{1}{3}AT\right)^{3}
+\end{align*}
+\[ \left(\pdv{\mu}{p}\right)_{T}=+\left(\frac{1}{3}AT\right)^{3}p^{-2} \]
+\begin{align*}
+-\frac{S}{N}&=-\frac{3U}{NT}=\frac{3\mu}{T}\\
+&=-\frac{3}{T}\cdot\frac{1}{p}\left(\frac{1}{3}AT\right)^{3}
+\end{align*}
+より一致。
+\begin{align*}
+\frac{V}{N}&=\frac{U}{Np}=-\frac{\mu}{p}\\
+&=+\left(\frac{1}{3}AT\right)^{3}p^{-2}
+\end{align*}
+より一致。
+%% kizuki
+\item 基本関係式 $S(U,V,N)$ の偏微分は残りの変数を固定したもので，$(\partial S/\partial V)_{U,N}=p/T$ である。マクスウェルの関係式 $(\partial S/\partial V)_{T}=(\partial p/\partial T)_{V}$ は $\dd F=-S\,\dd T-p\,\dd V$ から出る $T$ 一定の微分で，別の量である。$(\partial p/\partial T)_{V}$ に $T$ を掛けて $p$ になるのは $p$ が $T$ の1次式のときだけで，この問題の $p\propto T^{3/2}$ では成り立たない。
+\item \mae{第1章（旧版）問題4 (3)(4)・10-27} 記号の書き違いである。前回は $S'$ のプライムを落とし，今回は固定する変数を取り違えた（問題3 (1) でも $(\partial S/\partial V)_{T}$ を $(\partial S/\partial U)_{T}$ と書いた）。偏微分を書いたら，固定する変数がその式の出どころ（どの関数を何で微分したか）と合っているかを見直す。
+\item 「確かめよ」の問いは，求めた $T$・$p$・$\mu$ を代入して $TS-pV+\mu N=3U-U-U=U$ のように両辺が一致する一行まで書く。
