@@ -1,0 +1,99 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{数理物理1　第13章「拡散方程式とランダムウォーク」}{2026-11-25}
+%% note-moto	problems\数理物理1\shou13\数理物理1-13.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-095-random}{1}}{L1・計算}{◎××××}{E}{2026-10-03 (2)立式 (3)未着手 (4)未着手 (5)未着手}
+  \ichirangyou{2}{L1・計算}{}{未着手}{}
+  \ichirangyou{3}{L2・計算}{}{未着手}{}
+  \ichirangyou{4}{L2・導出}{}{未着手}{}
+  \ichirangyou{5}{L2・導出}{}{未着手}{}
+  \ichirangyou{6}{L3・計算}{}{未着手}{}
+  \ichirangyou{7}{L3・導出}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item ランダムウォークの遷移 % 出典: p.97
+    \[ x(t)=x(t-1)+s(t)\Delta x \notetag{13.3} \]
+  \item ランダムウォーカーの位置の期待値 % 出典: p.97
+    \[ \expval{x(t)-x(0)}=\Delta x\sum_{i=1}^{t}\expval{s(i)}=0 \notetag{13.4} \]
+  \item 平均自乗変位 % 出典: p.98
+    \[ \expval{(x(t)-x(0))^{2}}=(\Delta x)^{2}\sum_{i=1}^{t}\sum_{j=1}^{t}\expval{s(i)s(j)}=(\Delta x)^{2}t \notetag{13.5} \]
+  \item 非対称なランダムウォークの分布 % 出典: p.98
+    \[ w(s)=r\delta_{s,1}+(1-r)\delta_{s,-1},\qquad0<r<\frac{1}{2} \notetag{13.6} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\数理物理1\095_2026-10-03.tex
+\mondaibangou{1}
+\begin{mondai}{095-random}{計算}{ランダムウォークの期待値・独立性・平均自乗変位（非対称の場合）}
+\begin{teisuu}
+  電子の質量 & $\melec$ & \qty{9.11e-31}{\kilogram}\\
+  ディラック定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+\end{teisuu}
+ステップ数 $t=0,1,2,\dots$ で $x(t)=x(t-1)+s(t)\Delta x$ と動くランダムウォーカーを考える（\noteshiki{13.3}）。$s(t)$ は確率 $p$ で $+1$，確率 $1-p$ で $-1$（$0<p<1$）となり，異なるステップの $s$ は独立である（\noteshiki{13.6} の $0<r<1/2$ を一般の $p$ に拡張したもの）。
+  \begin{shoumon}
+    \item $\expval{s}$ と $\expval{s^{2}}$ を求めよ。
+    \item $\expval{x(t)-x(0)}$ を求めよ。
+    \item $i\neq j$ のとき $\expval{s(i)s(j)}$ を求め，平均自乗変位 $\expval{(x(t)-x(0))^{2}}$ を求めよ。
+    \item 分散 $\expval{(x(t)-x(0))^{2}}-\expval{x(t)-x(0)}^{2}$ を求め，$p=1/2$ で \noteshiki{13.4}\noteshiki{13.5} と一致することを確かめよ。
+    \item $p=1/4$，$\Delta x=1$，$t=100$ のときの (2)(3)(4) の値を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-03 E ◎××××}
+\begin{kotaeutsushi}{2026-10-03}
+\toi{1}{◎}{}
+\begin{align*}
+  \expval{s}&=+1\cdot p+(-1)\cdot(1-p)=p-1+p=2p-1\\
+  \expval{s^{2}}&=1^{2}p+(-1)^{2}(1-p)=p+1-p=1
+\end{align*}
+\toi{2}{×}{立式}
+\begin{align*}
+  &x(t)-x(0)\\
+  &=x(t-1)+s(t)\Delta x-x(-1)\mp s(0)\Delta x\\
+  &=xt+\bigl(s(t)+s(0)\bigr)\Delta x
+\end{align*}
+\[ \bigl\langle xt+\bigl(s(t)-s(0)\bigr)\Delta x\bigr\rangle \]
+\naze{漸化式 $x(t)=x(t-1)+s(t)\Delta x$ は1歩分の式で，最後と最初の1歩だけでは $x(t)-x(0)$ は書けない（$x(t-1)-x(-1)$ が残る）。$x(0)$ から $t$ 回たどると $x(t)-x(0)=\Delta x\sum_{i=1}^{t}s(i)$ で，期待値の線形性から $\expval{x(t)-x(0)}=(2p-1)\Delta x\,t$ となる。}
+\toi{3}{×}{未着手}
+\mikai
+\toi{4}{×}{未着手}
+\mikai
+\toi{5}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 変位 $x(t)-x(0)$ は漸化式を $t$ 回たどって $\Delta x\sum_{i=1}^{t}s(i)$ と各ステップの和で書く。和で書けば，期待値は線形性で各ステップの期待値 $\expval{s}=2p-1$ の $t$ 倍になる。
+\item (3) は2乗を2重和にし，$i=j$（$\expval{s^{2}}=1$ が $t$ 個）と $i\neq j$（独立なので $\expval{s}^{2}=(2p-1)^{2}$ が $t(t-1)$ 個）に分ける。分散は $p=1$ で 0 になることで検算する。
+\end{kizuki}
+\begin{tadashii}
+\houshin 期待値の定義 $\expval{A}=\sum P_iA_i$ を使い，独立なステップの積の期待値は期待値の積になることを使う。
+\keisan
+\shoumonkai{1} $\expval{s}=p\cdot1+(1-p)(-1)=2p-1$，$\expval{s^{2}}=p\cdot1+(1-p)\cdot1=1$。
+\shoumonkai{2} $x(t)-x(0)$ は
+\[ x(t)-x(0)=\Delta x\sum_{i=1}^{t}s(i) \]
+なので $\expval{x(t)-x(0)}=\Delta x\,t(2p-1)$。
+\shoumonkai{3} $i\neq j$ では独立なので $\expval{s(i)s(j)}=\expval{s}^{2}=(2p-1)^{2}$。したがって
+\begin{align*}
+  \expval{(x(t)-x(0))^{2}}&=(\Delta x)^{2}\Bigl[\sum_{i=1}^{t}\expval{s(i)^{2}}+\sum_{i\neq j}\expval{s(i)s(j)}\Bigr]\\
+  &=(\Delta x)^{2}\bigl[t+t(t-1)(2p-1)^{2}\bigr]
+\end{align*}
+\shoumonkai{4} 分散は
+\begin{align*}
+  &(\Delta x)^{2}\bigl[t+t(t-1)(2p-1)^{2}-t^{2}(2p-1)^{2}\bigr]\\
+  &=(\Delta x)^{2}t\bigl[1-(2p-1)^{2}\bigr]=4p(1-p)(\Delta x)^{2}t
+\end{align*}
+$p=1/2$ では平均が 0，平均自乗変位が $(\Delta x)^{2}t$ で \noteshiki{13.4}\noteshiki{13.5} と一致する。
+\shoumonkai{5} $p=1/4$：$2p-1=-1/2$。平均 $=-\frac{1}{2}\cdot100=-50$。平均自乗変位 $=100+100\cdot99\cdot\frac{1}{4}=2575$。分散 $=4\times(1/4)\times(3/4)\times100=75$（$2575-50^{2}=75$ と一致）。
+\kotae{\shoumonkai{1} $\expval{s}=2p-1$，$\expval{s^{2}}=1$ \shoumonkai{2} $(2p-1)\Delta x\,t$ \shoumonkai{3} $\expval{s(i)s(j)}=(2p-1)^{2}$，$\expval{(x(t)-x(0))^{2}}=(\Delta x)^{2}[t+t(t-1)(2p-1)^{2}]$ \shoumonkai{4} $4p(1-p)(\Delta x)^{2}t$ \shoumonkai{5} $-50$，$2575$，$75$}
+\kenzan $p=1$ のとき分散は 0（常に右へ進むので揺らぎがない）で，平均自乗変位は $(\Delta x)^{2}t^{2}$ となり (3) と整合する。分散が $t$ に比例する点は拡散の性質。
+\tsumazuki $\expval{s(i)s(j)}=\delta_{ij}$ は $p=1/2$ のときだけ成り立つ。$p\neq1/2$ では $i\neq j$ でも 0 にならない。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
