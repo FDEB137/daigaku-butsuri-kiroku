@@ -7,11 +7,11 @@
   \ichirangyou{\hyperlink{bt-m-073-unitary}{1}}{L1・計算}{○○○}{B}{2026-11-10 (1)記述 (2)記述 (3)記述}
   \ichirangyou{\hyperlink{bt-m-074-heisfree}{2}}{L1・計算}{◎◎◎◎}{B}{2026-11-10 ヒント1}
   \ichirangyou{3}{L1・計算}{}{未着手}{}
-  \ichirangyou{4}{L2・計算}{◎◎○◎}{A}{2026-11-11 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-077-oscillator}{4}}{L2・計算}{◎◎○◎}{A}{2026-11-11 (3)計算}
   \ichirangyou{5}{L2・導出}{}{未着手}{}
   \ichirangyou{6}{L2・計算}{}{未着手}{}
   \ichirangyou{7}{L2・計算}{}{未着手}{}
-  \ichirangyou{8}{L3・導出}{◎◎△○}{B}{2026-11-11 (3)未着手 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-080-conserved}{8}}{L3・導出}{◎◎△○}{B}{2026-11-11 (3)未着手 (4)記述}
   \ichirangyou{9}{L3・計算}{}{未着手}{}
   \ichirangyou{10}{L3・導出}{}{未着手}{}
   \ichirangyou{11}{L4・計算}{}{未着手}{}
@@ -202,6 +202,410 @@ $\therefore$ $\hat{x}_{\mathrm{H}}(t)=\hat{x}+\frac{t}{m}\hat{p}$
 &=\expval{\hat{x}}_{0}+\frac{t}{m}\expval{\hat{p}}_{0}
 \end{align*}
 \end{kotaeutsushi}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\077_2026-11-11.tex
+\mondaibangou{4}
+\begin{mondai}{077-oscillator}{計算}{調和振動子のハイゼンベルク表示の運動方程式の解と，位置の標準偏差の時間変化（幅が変わらない条件）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+1次元の調和振動子 $\hat{H}=\hat{p}^{2}/(2m)+K\hat{x}^{2}/2$（$K>0$ はばね定数，$\omega=\sqrt{K/m}$）を考える。記号は Level 1 の自由粒子のハイゼンベルク表示の問題と同じとする。
+  \begin{shoumon}
+    \item $\comm{\hat{x}}{\hat{H}}$ と $\comm{\hat{p}}{\hat{H}}$ を求め，$\hat{x}_{\mathrm{H}}(t)$，$\hat{p}_{\mathrm{H}}(t)$ の運動方程式を書け。
+    \item $\hat{x}_{\mathrm{H}}(0)=\hat{x}$，$\hat{p}_{\mathrm{H}}(0)=\hat{p}$ のもとで (1) を解き，$\hat{x}_{\mathrm{H}}(t)$，$\hat{p}_{\mathrm{H}}(t)$ を $\hat{x}$ と $\hat{p}$ の1次結合で表せ。
+    \item 時刻 $0$ の状態の波動関数 $\varphi(x)=\braket{x}{\psi(0)}$ が規格化された実数値の偶関数であるとき，$\expval{\hat{x}}_{0}=\expval{\hat{p}}_{0}=0$ と $\expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=0$ を示せ。さらに，時刻 $t$ の位置の標準偏差 $\delta x(t)$ を $\delta x(0)$，$\delta p(0)$，$m$，$\omega$，$t$ で表せ。
+    \item $\varphi(x)=(b^{2}/\pi)^{1/4}\exp(-b^{2}x^{2}/2)$（$b>0$）のとき，$\delta x(t)$ が時間によらないための $b$ を求めよ。また，そうでないとき $\delta x(t)$ が変化する周期を求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-11 A ◎◎○◎}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{x}}{\hat{H}}&=\frac{1}{2m}\comm{\hat{x}}{\hat{p}^{2}}+\frac{K}{2}\comm{\hat{x}}{\hat{x}^{2}}\\
+&=\frac{1}{2m}(\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}})+0\\
+&=\frac{\ii\hbar}{m}\hat{p}
+\end{align*}
+\begin{align*}
+\comm{\hat{p}}{\hat{H}}&=\frac{1}{2m}\comm{\hat{p}}{\hat{p}^{2}}+\frac{K}{2}\comm{\hat{p}}{\hat{x}^{2}}\\
+&=0+\frac{K}{2}(\comm{\hat{p}}{\hat{x}}\hat{x}+\hat{x}\comm{\hat{p}}{\hat{x}})\\
+&=-\ii\hbar K\hat{x}
+\end{align*}
+\begin{align*}
+\frac{\dd}{\dd t}\hat{x}_{\mathrm{H}}(t)&=-\frac{\ii}{\hbar}\comm{\hat{x}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{x}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=\frac{1}{m}\hat{p}_{\mathrm{H}}(t)
+\end{align*}
+\begin{align*}
+\frac{\dd}{\dd t}\hat{p}_{\mathrm{H}}(t)&=-\frac{\ii}{\hbar}\comm{\hat{p}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{p}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-K\hat{x}_{\mathrm{H}}(t)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\frac{\dd^{2}}{\dd t^{2}}\hat{x}_{\mathrm{H}}(t)&=-\omega^{2}\hat{x}_{\mathrm{H}}(t)\\
+\hat{x}_{\mathrm{H}}(t)&=C_{1}\cos\omega t+C_{2}\sin\omega t\\
+\hat{x}_{\mathrm{H}}(0)&=C_{1}=\hat{x}
+\end{align*}
+\begin{align*}
+\hat{p}_{\mathrm{H}}(t)&=m(-C_{1}\omega\sin\omega t+C_{2}\omega\cos\omega t)\\
+&=-\sqrt{mK}\,\hat{x}\sin\omega t+\sqrt{mK}\,C_{2}\cos\omega t
+\end{align*}
+\[ \hat{p}_{\mathrm{H}}(0)=\sqrt{mK}\,C_{2}=\hat{p}\qquad C_{2}=\frac{\hat{p}}{\sqrt{mK}} \]
+\begin{align*}
+\hat{x}_{\mathrm{H}}(t)&=\hat{x}\cos\omega t+\frac{\hat{p}}{m\omega}\sin\omega t\\
+\hat{p}_{\mathrm{H}}(t)&=-m\omega\hat{x}\sin\omega t+\hat{p}\cos\omega t
+\end{align*}
+\toi{3}{○}{計算}
+\begin{align*}
+\expval{\hat{x}}_{0}&=\matrixel{\psi(0)}{\hat{x}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{x}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}\underbrace{x}_{\text{奇}}\underbrace{\abs{\varphi(x)}^{2}}_{\text{偶}}\dd x\\
+&=0\quad\text{（奇関数の積分なので）}
+\end{align*}
+\begin{align*}
+\expval{\hat{p}}_{0}&=\matrixel{\psi(0)}{\hat{p}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{p}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}-\ii\hbar\frac{\dd\varphi}{\dd x}\varphi(x)\dd x\\
+&=-\ii\hbar\biggl(\Bigl[\varphi(x)^{2}\Bigr]_{-\infty}^{\infty}\\
+&\qquad-\underbrace{\int_{-\infty}^{\infty}\frac{\dd\varphi}{\dd x}\varphi(x)\dd x}_{I}\biggr)
+\end{align*}
+\begin{align*}
+\therefore\quad-\ii\hbar I&=-\ii\hbar\Bigl(\Bigl[\varphi(x)^{2}\Bigr]_{-\infty}^{\infty}-I\Bigr)\\
+\therefore\quad2I&=\Bigl[\varphi(x)^{2}\Bigr]_{-\infty}^{\infty}=0\\
+\therefore\quad I&=0
+\end{align*}
+$\expval{\hat{p}}_{0}=0$
+\[ \expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=\matrixel{\psi(0)}{\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(0)} \]
+\begin{align*}
+&\matrixel{\psi(0)}{\hat{x}\hat{p}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{x}\hat{p}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}\ayamari{-\ii\hbar\frac{\dd}{\dd x}(x\varphi(x))}{x(-\ii\hbar\varphi')}\,\varphi(x)\dd x\\
+&=-\ii\hbar\int_{-\infty}^{\infty}\Bigl(\varphi(x)+x\frac{\dd}{\dd x}\varphi(x)\Bigr)\varphi(x)\dd x\\
+&=-\ii\hbar\int_{-\infty}^{\infty}\Bigl(\varphi^{2}(x)+x\varphi(x)\frac{\dd}{\dd x}\varphi(x)\Bigr)\dd x
+\end{align*}
+（矢印で2行目の積分を部分積分した次の式につなぐ）
+\begin{align*}
+&=-\ii\hbar\biggl(\underbrace{\Bigl[x\varphi^{2}(x)\Bigr]_{-\infty}^{\infty}}_{0}\\
+&\qquad-\underbrace{\int_{-\infty}^{\infty}x\varphi(x)\frac{\dd}{\dd x}\varphi(x)\dd x}_{J}\biggr)
+\end{align*}
+\naze{$\hat{x}\hat{p}$ は右の $\hat{p}$ が先に $\varphi$ に作用するので，被積分関数は $\varphi\,x(-\ii\hbar\varphi')$ である。書いた $-\ii\hbar(x\varphi)'\varphi$ は $\hat{p}\hat{x}$ の式である。}
+\[ \therefore\quad\underbrace{\int_{-\infty}^{\infty}\varphi^{2}(x)\dd x}_{1}+J=0-J\qquad\therefore\quad J=\ayamari{\frac{1}{2}}{-\frac{1}{2}} \]
+\naze{$1+J=-J$ から $1+2J=0$ で $J=-1/2$ である。ここで2つ目の誤りが1つ目と打ち消し合い，以下の値は正しく出ている。正しくは $\expval{\hat{x}\hat{p}}_{0}=-\ii\hbar J=\ii\hbar/2$，$\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar(1+J)=-\ii\hbar/2$ である。}
+\[ \expval{\hat{x}\hat{p}}_{0}=\ii\hbar J=\frac{\ii\hbar}{2} \]
+\begin{align*}
+&\matrixel{\psi(0)}{\hat{p}\hat{x}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{p}\hat{x}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}\ayamari{-\ii\hbar x\varphi(x)\frac{\dd}{\dd x}\varphi(x)}{-\ii\hbar(x\varphi)'\varphi}\dd x\\
+&=-\ii\hbar J\\
+&=-\frac{\ii\hbar}{2}
+\end{align*}
+\naze{$\hat{p}\hat{x}$ の側も $\hat{x}\hat{p}$ と入れ替わっている。}
+\[ \expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=\frac{\ii\hbar}{2}-\frac{\ii\hbar}{2}=0 \]
+\[ \delta x(t)=\sqrt{\expval{\hat{x}^{2}}_{t}-\expval{\hat{x}}_{t}^{2}} \]
+\begin{align*}
+\expval{\hat{x}}_{t}&=\matrixel{\psi(0)}{\hat{x}_{\mathrm{H}}}{\psi(0)}\\
+&=\cos\omega t\underbrace{\matrixel{\psi(0)}{\hat{x}}{\psi(0)}}_{\expval{\hat{x}}_{0}}\\
+&\qquad+\frac{\sin\omega t}{m\omega}\underbrace{\matrixel{\psi(0)}{\hat{p}}{\psi(0)}}_{\expval{\hat{p}}_{0}}\\
+&=0
+\end{align*}
+\begin{align*}
+\expval{\hat{x}^{2}}_{t}&=\matrixel{\psi(0)}{\hat{x}_{\mathrm{H}}^{2}}{\psi(0)}\\
+&=\cos^{2}\omega t\matrixel{\psi(0)}{\hat{x}^{2}}{\psi(0)}\\
+&\qquad+\frac{\sin^{2}\omega t}{m^{2}\omega^{2}}\matrixel{\psi(0)}{\hat{p}^{2}}{\psi(0)}\\
+&\qquad+\frac{\cos\omega t\sin\omega t}{m\omega}\\
+&\qquad\quad\times\underbrace{\matrixel{\psi(0)}{\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(0)}}_{\expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=0}
+\end{align*}
+\begin{align*}
+\matrixel{\psi(0)}{\hat{x}^{2}}{\psi(0)}&=\expval{\hat{x}^{2}}_{0}=\delta x(0)^{2}\\
+\matrixel{\psi(0)}{\hat{p}^{2}}{\psi(0)}&=\expval{\hat{p}^{2}}_{0}=\delta p(0)^{2}
+\end{align*}
+\[ \delta x(t)=\sqrt{\cos^{2}\omega t\cdot\delta x(0)^{2}+\frac{\sin^{2}\omega t}{m^{2}\omega^{2}}\cdot\delta p(0)^{2}} \]
+\toi{4}{◎}{}
+\begin{align*}
+\expval{\hat{x}^{2}}_{0}&=\int_{-\infty}^{\infty}x^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\exp(-b^{2}x^{2})\dd x\\
+&=\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\cdot\frac{1}{2}\sqrt{\frac{\pi}{b^{6}}}\\
+&=\frac{1}{2b^{2}}
+\end{align*}
+\begin{align*}
+\expval{\hat{p}^{2}}_{0}&=\int_{-\infty}^{\infty}\varphi^{*}(x)(-\ii\hbar)^{2}\frac{\dd^{2}}{\dd x^{2}}\varphi(x)\dd x\\
+&=-\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\int_{-\infty}^{\infty}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\\
+&\qquad\times\frac{\dd}{\dd x}\Bigl(-b^{2}x\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\Bigr)\dd x\\
+&=-\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\int_{-\infty}^{\infty}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\\
+&\qquad\times\Bigl(-b^{2}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\\
+&\qquad\quad+b^{4}x^{2}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\Bigr)\dd x\\
+&=b^{2}\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\int_{-\infty}^{\infty}\bigl(\exp(-b^{2}x^{2})\\
+&\qquad-b^{2}x^{2}\exp(-b^{2}x^{2})\bigr)\dd x\\
+&=b^{2}\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\Bigl(\sqrt{\frac{\pi}{b^{2}}}-\frac{b^{2}}{2}\sqrt{\frac{\pi}{b^{6}}}\Bigr)\\
+&=\frac{b^{2}\hbar^{2}}{2}
+\end{align*}
+\begin{align*}
+\delta x(t)&=\sqrt{\frac{1}{2b^{2}}\cos^{2}\omega t+\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\sin^{2}\omega t}\\
+&=\biggl(\Bigl(\frac{1}{2b^{2}}-\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\Bigr)\cos^{2}\omega t\\
+&\qquad+\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\biggr)^{1/2}
+\end{align*}
+（脇で係数が $0$ になる条件を求める）
+\begin{gather*}
+\frac{1}{2b^{2}}-\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}=0\\
+\therefore\quad\frac{1}{b^{2}}=\frac{\hbar^{2}b^{2}}{m^{2}\omega^{2}}
+\end{gather*}
+$b=\sqrt{m\omega/\hbar}$ のとき $\delta x(t)$ は $t$ によらない。
+
+（矢印で2行目の式につなぐ）
+\begin{align*}
+&=\biggl(\Bigl(\frac{1}{2b^{2}}-\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\Bigr)\Bigl(\frac{1}{2}(1+\cos2\omega t)\Bigr)\\
+&\qquad+\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\biggr)^{1/2}
+\end{align*}
+\[ T=\frac{2\pi}{2\omega}=\frac{\pi}{\omega} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 位置表示の期待値は右の演算子から順に $\varphi$ に作用させる。$\expval{\hat{x}\hat{p}}=\int\varphi\,x(-\ii\hbar\varphi')\dd x$，$\expval{\hat{p}\hat{x}}=\int\varphi(-\ii\hbar)(x\varphi)'\dd x$ である。2つの誤りが打ち消して答えが合ったので，途中の式も確かめる。
+\item \mae{第6章 問題2・11-01，第7章 問題2・11-04} 符号の誤り。$1+J=-J$ は $J=-1/2$。ガウス関数では $x\varphi\varphi'=-b^{2}x^{2}\varphi^{2}\le0$ なので，$J<0$ は被積分関数の符号から分かる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 交換子から運動方程式を立て，古典の調和振動子と同じ形の方程式を演算子の初期条件で解く。標準偏差は $\hat{x}_{\mathrm{H}}(t)^{2}$ の期待値から求め，そのとき $\hat{x}$ と $\hat{p}$ の順序を保つ。
+\keisan \shoumonkai{1} Level 1 の自由粒子のハイゼンベルク表示の問題 (1) と同じく $\comm{\hat{x}}{\hat{p}^{2}/(2m)}=\ii\hbar\hat{p}/m$ で，$\hat{x}$ は $\hat{x}^{2}$ と交換するので $\comm{\hat{x}}{\hat{H}}=\ii\hbar\hat{p}/m$ である。また
+\[ \comm{\hat{p}}{\hat{H}}=\frac{K}{2}\comm{\hat{p}}{\hat{x}^{2}}=\frac{K}{2}\left(\comm{\hat{p}}{\hat{x}}\hat{x}+\hat{x}\comm{\hat{p}}{\hat{x}}\right)=\frac{K}{2}(-2\ii\hbar\hat{x})=-\ii\hbar K\hat{x} \]
+である。ハイゼンベルク表示にして運動方程式に入れると
+\[ \dv{\hat{x}_{\mathrm{H}}}{t}=\frac{\hat{p}_{\mathrm{H}}}{m},\qquad \dv{\hat{p}_{\mathrm{H}}}{t}=-\frac{\ii}{\hbar}(-\ii\hbar K\hat{x}_{\mathrm{H}})=-K\hat{x}_{\mathrm{H}} \]
+となる。
+
+\shoumonkai{2} 第1式をもう一度微分して第2式を使うと $\dd^{2}\hat{x}_{\mathrm{H}}/\dd t^{2}=-(K/m)\hat{x}_{\mathrm{H}}=-\omega^{2}\hat{x}_{\mathrm{H}}$ である。一般解は $\hat{x}_{\mathrm{H}}=\hat{C}_{1}\cos\omega t+\hat{C}_{2}\sin\omega t$（$\hat{C}_{1}$，$\hat{C}_{2}$ は時間によらない演算子）で，$\hat{x}_{\mathrm{H}}(0)=\hat{x}$ から $\hat{C}_{1}=\hat{x}$，$t=0$ での時間微分が $\hat{p}/m$ であることから $\omega\hat{C}_{2}=\hat{p}/m$ となる。よって
+\[ \hat{x}_{\mathrm{H}}(t)=\hat{x}\cos\omega t+\frac{\hat{p}}{m\omega}\sin\omega t,\qquad \hat{p}_{\mathrm{H}}(t)=m\dv{\hat{x}_{\mathrm{H}}}{t}=\hat{p}\cos\omega t-m\omega\hat{x}\sin\omega t \]
+である。第2式を微分すると $-\omega\hat{p}\sin\omega t-m\omega^{2}\hat{x}\cos\omega t=-K\hat{x}_{\mathrm{H}}$（$m\omega^{2}=K$）となり，運動方程式を満たす。
+
+\shoumonkai{3} $\varphi$ は偶関数なので $\abs{\varphi}^{2}x$ は奇関数で，$\expval{\hat{x}}_{0}=0$ である。$\varphi$ は実数で無限遠で $0$ になるので
+\[ \expval{\hat{p}}_{0}=-\ii\hbar\int_{-\infty}^{\infty}\varphi\varphi'\dd x=-\ii\hbar\left[\frac{\varphi^{2}}{2}\right]_{-\infty}^{\infty}=0 \]
+である。部分積分と規格化から
+\[ \expval{\hat{x}\hat{p}}_{0}=-\ii\hbar\int_{-\infty}^{\infty}x\varphi\varphi'\dd x=-\ii\hbar\int_{-\infty}^{\infty}x\frac{(\varphi^{2})'}{2}\dd x=\frac{\ii\hbar}{2}\int_{-\infty}^{\infty}\varphi^{2}\dd x=\frac{\ii\hbar}{2} \]
+となる。$\hat{p}\hat{x}=\hat{x}\hat{p}-\ii\hbar$ より $\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar/2$ で，$\expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=0$ である。
+
+(2) より $\expval{\hat{x}}_{t}=\expval{\hat{x}}_{0}\cos\omega t+\expval{\hat{p}}_{0}\sin\omega t/(m\omega)=0$ である。順序を保って2乗すると
+\[ \hat{x}_{\mathrm{H}}(t)^{2}=\hat{x}^{2}\cos^{2}\omega t+(\hat{x}\hat{p}+\hat{p}\hat{x})\frac{\sin\omega t\cos\omega t}{m\omega}+\hat{p}^{2}\frac{\sin^{2}\omega t}{m^{2}\omega^{2}} \]
+で，$\expval{\hat{x}^{2}}_{0}=\delta x(0)^{2}$，$\expval{\hat{p}^{2}}_{0}=\delta p(0)^{2}$（期待値が0のため）だから
+\[ \delta x(t)^{2}=\expval{\hat{x}_{\mathrm{H}}(t)^{2}}-\expval{\hat{x}}_{t}^{2}=\delta x(0)^{2}\cos^{2}\omega t+\frac{\delta p(0)^{2}}{m^{2}\omega^{2}}\sin^{2}\omega t \]
+である。
+
+\shoumonkai{4} $\abs{\varphi}^{2}=(b^{2}/\pi)^{1/2}\ee^{-b^{2}x^{2}}$ とガウス積分から $\delta x(0)^{2}=1/(2b^{2})$ である。$\varphi'=-b^{2}x\varphi$ と部分積分から
+\[ \delta p(0)^{2}=\hbar^{2}\int_{-\infty}^{\infty}\varphi'^{2}\dd x=\hbar^{2}b^{4}\expval{\hat{x}^{2}}_{0}=\frac{\hbar^{2}b^{2}}{2} \]
+である。$\delta x(t)$ が時間によらないのは $\cos^{2}\omega t$ と $\sin^{2}\omega t$ の係数が等しいとき（$\cos^{2}+\sin^{2}=1$）で，
+\[ \frac{1}{2b^{2}}=\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\iff b^{4}=\frac{m^{2}\omega^{2}}{\hbar^{2}}\iff b=\sqrt{\frac{m\omega}{\hbar}} \]
+である。それ以外では，$\delta x(0)^{2}=A$，$\delta p(0)^{2}/(m\omega)^{2}=B$ として
+\[ \delta x(t)^{2}=\frac{A+B}{2}+\frac{A-B}{2}\cos2\omega t \]
+となるので，角振動数 $2\omega$，周期 $\pi/\omega$ で変化する。
+\kotae{\shoumonkai{1} $\comm{\hat{x}}{\hat{H}}=\ii\hbar\hat{p}/m$，$\comm{\hat{p}}{\hat{H}}=-\ii\hbar K\hat{x}$；$\dd\hat{x}_{\mathrm{H}}/\dd t=\hat{p}_{\mathrm{H}}/m$，$\dd\hat{p}_{\mathrm{H}}/\dd t=-K\hat{x}_{\mathrm{H}}$ \shoumonkai{2} $\hat{x}_{\mathrm{H}}=\hat{x}\cos\omega t+\frac{\hat{p}}{m\omega}\sin\omega t$，$\hat{p}_{\mathrm{H}}=\hat{p}\cos\omega t-m\omega\hat{x}\sin\omega t$ \shoumonkai{3} $\delta x(t)^{2}=\delta x(0)^{2}\cos^{2}\omega t+\delta p(0)^{2}\sin^{2}\omega t/(m\omega)^{2}$ \shoumonkai{4} $b=\sqrt{m\omega/\hbar}$，周期 $\pi/\omega$}
+\begin{ronten}
+  \item \shoumonkai{1} $\hat{H}$ は $\ee^{\pm\ii\hat{H}t/\hbar}$ と交換するので，運動方程式の交換子が，求めた $\comm{\hat{x}}{\hat{H}}$・$\comm{\hat{p}}{\hat{H}}$ のハイゼンベルク表示になることを書く。
+  \item \shoumonkai{2} 一般解の係数が時間によらない演算子であることと，それを2つの初期条件（$\hat{x}_{\mathrm{H}}(0)=\hat{x}$ と，運動方程式から決まる $t=0$ での時間微分）で決めることを書く。
+  \item \shoumonkai{3} $\expval{\hat{x}}_{0}=0$ は被積分関数が奇関数であることから，$\expval{\hat{p}}_{0}$ と $\expval{\hat{x}\hat{p}}_{0}$ は $\varphi$ が実数で無限遠で $0$ になる（部分積分の境界項が消える）ことから示すと述べる。
+  \item \shoumonkai{3} $\hat{x}$ と $\hat{p}$ が交換しないので $\hat{x}_{\mathrm{H}}(t)^{2}$ の交差項を順序を保って書き，$\expval{\hat{x}}_{0}=\expval{\hat{p}}_{0}=0$（(2) から $\expval{\hat{x}}_{t}=0$ も）なので $\expval{\hat{x}^{2}}_{0}=\delta x(0)^{2}$，$\expval{\hat{p}^{2}}_{0}=\delta p(0)^{2}$，$\delta x(t)^{2}=\expval{\hat{x}_{\mathrm{H}}(t)^{2}}$ となることを述べる。
+  \item \shoumonkai{4} $\cos^{2}\omega t+\sin^{2}\omega t=1$ から係数が等しいことが時間によらない条件であることを述べ（$b^{4}$ の式から $b>0$ の根を選ぶ），そうでないときは $\cos2\omega t$ の形に直して周期を読み取る。
+\end{ronten}
+\kenzan $\delta p/(m\omega)$ の次元は $(\unit{\kilogram\metre\per\second})/(\unit{\kilogram\per\second})=\unit{\metre}$ で位置と合う。$t=0$ で $\delta x(0)$ に戻る。$\omega t=\pi/2$ では $\delta x=\delta p(0)/(m\omega)$ で，位置の広がりと運動量の広がりが入れ替わる（古典の位相空間での回転と同じ）。$b^{2}=m\omega/\hbar$ の次元は $\unit{\kilogram\per\second}/(\unit{\joule\second})=\unit{\per\metre\squared}$ で，$\varphi$ はこのとき第9章の調和振動子の基底状態になり，定常状態なので幅が変わらないことと合う。
+\tsumazuki $\hat{x}_{\mathrm{H}}^{2}$ の交差項を $2\hat{x}\hat{p}$ とすると，期待値が $\ii\hbar\sin\omega t\cos\omega t/(m\omega)$ という虚数になってしまう。周期を $2\pi/\omega$ と答えやすいが，$\cos^{2}$ と $\sin^{2}$ は周期 $\pi/\omega$ である。
+\end{tadashii}
+\end{mondai}
+
+\level{3}
+% toubun: kiroku\toubun\量子力学1\080_2026-11-11.tex
+\mondaibangou{8}
+\begin{mondai}{080-conserved}{導出}{2つの表示での期待値の一致と期待値の時間微分，時間をあらわに含む演算子の運動方程式と保存量（自由粒子・一様な力）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+ハミルトニアン $\hat{H}$ は時間によらないとする。
+  \begin{shoumon}
+    \item $\ket{\psi(t)}=\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}$ のとき $\matrixel{\psi(t)}{\hat{A}_{\mathrm{S}}}{\psi(t)}=\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)}$ を示せ。さらに運動方程式を使って，期待値 $\expval{\hat{A}}_{t}$ の時間変化が
+    \[ \dv{\expval{\hat{A}}_{t}}{t}=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)} \]
+    となること（第3章の Level 3 の Ehrenfest の定理とビリアル定理の問題の (1) の式）を導け。また，$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}=0$ なら $\hat{A}_{\mathrm{H}}(t)=\hat{A}_{\mathrm{S}}$ であることを示せ。
+    \item 演算子 $\hat{A}_{\mathrm{S}}(t)$ が時間をあらわに含むときも，$\hat{A}_{\mathrm{H}}(t)=\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}$ と定める。次の式を示せ。
+    \[ \dv{\hat{A}_{\mathrm{H}}}{t}=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}}{\hat{H}}+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar} \]
+    \item 自由粒子 $\hat{H}=\hat{p}^{2}/(2m)$ で $\hat{G}_{\mathrm{S}}(t)=\hat{x}-\hat{p}t/m$ とする。(2) を使って $\hat{G}_{\mathrm{H}}(t)$ が時間によらず $\hat{x}$ に等しいことを示し，この保存量の意味を期待値の言葉で述べよ。
+    \item 一様な力 $F$（定数）がはたらく粒子 $\hat{H}=\hat{p}^{2}/(2m)-F\hat{x}$ で，$\hat{Q}_{\mathrm{S}}(t)=\hat{p}-Ft$，$\hat{R}_{\mathrm{S}}(t)=\hat{x}-\hat{p}t/m+Ft^{2}/(2m)$ のハイゼンベルク表示がともに時間によらないことを示せ。これらから $\hat{x}_{\mathrm{H}}(t)$ を $\hat{x}$，$\hat{p}$，$F$，$m$，$t$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-11-11 B ◎◎△○}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+\begin{align*}
+&\matrixel{\psi(t)}{\hat{A}_{\mathrm{S}}}{\psi(t)}\\
+&=\matrixel{\psi(0)}{\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}}{\psi(0)}\\
+&=\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)}
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{A}_{\mathrm{H}}(t)}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\begin{align*}
+&\frac{\dd}{\dd t}\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)}=\frac{\dd}{\dd t}\expval{\hat{A}}_{t}\\
+&=\frac{\ii}{\hbar}\bra{\psi(0)}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}\\
+&\qquad\times\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}\\
+&=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)}
+\end{align*}
+\[ \therefore\quad\frac{\dd\expval{\hat{A}}_{t}}{\dd t}=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)} \]
+$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}=0$ なら $\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{n}}=0$ を示す。
+
+$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{k}}=0$ を仮定する。
+\begin{align*}
+\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{k+1}}&=\underbrace{\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}}_{=0}\hat{H}^{k}+\hat{H}\underbrace{\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{k}}}_{=0}\\
+&=0
+\end{align*}
+数学的帰納法より $\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{n}}=0$。
+
+よって $\comm{\hat{A}_{\mathrm{S}}}{\ee^{\ii\hat{H}t/\hbar}}=0$
+\begin{align*}
+\hat{A}_{\mathrm{H}}(t)&=\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=\hat{A}_{\mathrm{S}}\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}\\
+&=\hat{A}_{\mathrm{S}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\frac{\dd\hat{A}_{\mathrm{H}}}{\dd t}&=\frac{\dd}{\dd t}\bigl(\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}\bigr)\\
+&=\frac{\ii\hat{H}}{\hbar}\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\frac{\dd}{\dd t}\bigl(\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}\bigr)\\
+&=\frac{\ii}{\hbar}\hat{H}\hat{A}_{\mathrm{H}}+\ee^{\ii\hat{H}t/\hbar}\Bigl(\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\hat{A}_{\mathrm{S}}(t)\cdot\Bigl(-\frac{\ii\hat{H}}{\hbar}\Bigr)\ee^{-\ii\hat{H}t/\hbar}\Bigr)\\
+&=\frac{\ii}{\hbar}\hat{H}\hat{A}_{\mathrm{H}}\\
+&\qquad-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\hat{H}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+$\comm{\hat{H}}{\ee^{\ii\hat{H}t/\hbar}}=0$ より
+\begin{align*}
+&=-\frac{\ii}{\hbar}\bigl(\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}\hat{H}-\hat{H}\hat{A}_{\mathrm{H}}\bigr)\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}}{\hat{H}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\toi{3}{△}{未着手}
+$\comm{\hat{p}}{\hat{H}}=0$ より $\comm{\hat{p}}{\ee^{\pm\ii\hat{H}t/\hbar}}=0$
+\begin{align*}
+\frac{\dd\hat{G}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{2m\hbar}\comm{\hat{G}_{\mathrm{H}}}{\hat{p}^{2}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\Bigl(-\frac{\hat{p}}{m}\Bigr)\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{2m\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{G}_{\mathrm{S}}(t)}{\hat{p}^{2}}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad-\frac{\hat{p}}{m}\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\begin{align*}
+\comm{\hat{x}-\frac{\hat{p}t}{m}}{\hat{p}^{2}}&=\comm{\hat{x}}{\hat{p}^{2}}-\frac{t}{m}\comm{\hat{p}}{\hat{p}^{2}}\\
+&=\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}}\\
+&=2\ii\hbar\hat{p}
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{G}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{2m\hbar}\cdot2\ii\hbar\hat{p}\,\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad-\frac{\hat{p}}{m}\\
+&=\frac{\hat{p}}{m}-\frac{\hat{p}}{m}\\
+&=0
+\end{align*}
+$\hat{G}_{\mathrm{H}}(t)$ は時間によらない。
+
+$\hat{G}_{\mathrm{H}}(0)=\hat{G}_{\mathrm{S}}(0)=\hat{x}$ より
+\[ \hat{G}_{\mathrm{H}}(t)=\hat{x}\qquad\nuke{保存量の意味} \]
+\naze{問われている「この保存量の意味を期待値の言葉で述べよ」が無い。$\hat{G}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}(t)-\hat{p}_{\mathrm{H}}(t)t/m$ の期待値をとり，$\expval{\hat{x}}_{t}-(t/m)\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0}$ がどの状態でも成り立つ，つまり時刻 $t$ の中心の位置から平均の速さ $\expval{\hat{p}}_{t}/m$ で時間を逆にたどると初期位置に戻る，と述べる。}
+\toi{4}{○}{記述}
+\begin{align*}
+\frac{\dd\hat{Q}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{Q}_{\mathrm{H}}}{\hat{H}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{Q}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{Q}_{\mathrm{S}}(t)}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad-F
+\end{align*}
+（矢印で $\comm{\hat{Q}_{\mathrm{S}}(t)}{\hat{H}}$ を脇で計算）
+\begin{align*}
+&\comm{\hat{p}-Ft}{\hat{H}}\\
+&=\comm{\hat{p}}{\hat{H}}-\underbrace{\comm{Ft}{\hat{H}}}_{0}\\
+&=\comm{\hat{p}}{\frac{\hat{p}^{2}}{2m}-F\hat{x}}\\
+&=\comm{\hat{p}}{\frac{\hat{p}^{2}}{2m}}-F\comm{\hat{p}}{\hat{x}}\\
+&=\ii\hbar F
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{Q}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\cdot\ii\hbar F-F\\
+&=0
+\end{align*}
+$\hat{Q}_{\mathrm{H}}$ は時間によらない。
+\begin{align*}
+\frac{\dd\hat{R}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{R}_{\mathrm{H}}}{\hat{H}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{R}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{R}_{\mathrm{S}}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\Bigl(-\frac{\hat{p}}{m}+\frac{Ft}{m}\Bigr)\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\begin{align*}
+\comm{\hat{R}_{\mathrm{S}}}{\hat{H}}&=\comm{\hat{x}}{\hat{H}}-\frac{t}{m}\comm{\hat{p}}{\hat{H}}\\
+&\qquad+\frac{Ft^{2}}{2m}\underbrace{\comm{\hat{1}}{\hat{H}}}_{0}\\
+\comm{\hat{x}}{\hat{H}}&=\comm{\hat{x}}{\frac{\hat{p}^{2}}{2m}}-F\comm{\hat{x}}{\hat{x}}\\
+&=\frac{\ii\hbar}{m}\hat{p}\\
+\comm{\hat{p}}{\hat{H}}&=\frac{1}{2m}\comm{\hat{p}}{\hat{p}^{2}}-F\comm{\hat{p}}{\hat{x}}\\
+&=\ii\hbar F\\
+\comm{\hat{R}_{\mathrm{S}}}{\hat{H}}&=\frac{\ii\hbar}{m}\hat{p}-\frac{t}{m}\ii\hbar F
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{R}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\Bigl(\frac{\ii\hbar}{m}\ayamari{\hat{p}}{\hat{p}_{\mathrm{H}}}-\frac{t}{m}\ii\hbar F\Bigr)\\
+&\qquad+\Bigl(-\frac{\ayamari{\hat{p}}{\hat{p}_{\mathrm{H}}}}{m}+\frac{Ft}{m}\Bigr)\\
+&=\Bigl(\frac{\hat{p}}{m}-\frac{Ft}{m}\Bigr)+\Bigl(-\frac{\hat{p}}{m}+\frac{Ft}{m}\Bigr)\\
+&=0
+\end{align*}
+\naze{$\comm{\hat{p}}{\hat{H}}=\ii\hbar F\neq0$ なので，$\ee^{\ii\hat{H}t/\hbar}\hat{p}\,\ee^{-\ii\hat{H}t/\hbar}$ は $\hat{p}$ のままにならず $\hat{p}_{\mathrm{H}}(t)=\hat{p}+Ft$ である。以降はこの誤りを引き継ぐが，2つの項が同じ $\hat{p}_{\mathrm{H}}$ になって打ち消すので結論の $0$ は正しい。}
+$\hat{R}_{\mathrm{H}}$ は時間によらない。
+\begin{align*}
+\hat{Q}_{\mathrm{H}}(0)&=\hat{Q}_{\mathrm{S}}(0)=\hat{p}\qquad\therefore\quad\hat{Q}_{\mathrm{H}}(t)=\hat{p}\\
+\hat{R}_{\mathrm{H}}(0)&=\hat{R}_{\mathrm{S}}(0)=\hat{x}\qquad\therefore\quad\hat{R}_{\mathrm{H}}(t)=\hat{x}
+\end{align*}
+\[ \hat{R}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}-\hat{p}_{\mathrm{H}}\cdot\frac{t}{m}+\frac{Ft^{2}}{2m}=\hat{x} \]
+\begin{align*}
+\therefore\quad\hat{x}_{\mathrm{H}}(t)&=\hat{x}+(\hat{p}+Ft)\cdot\frac{t}{m}-\frac{Ft^{2}}{2m}\\
+&=\hat{x}+\frac{t}{m}\hat{p}+\frac{Ft^{2}}{2m}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第7章 問題3（059-ring）・11-04} 「保存量の意味を期待値の言葉で述べよ」に答えていない。演算子の等式 $\hat{G}_{\mathrm{H}}(t)=\hat{x}$ の期待値をとり，測れる量の関係 $\expval{\hat{x}}_{t}-(t/m)\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0}$ に言い直す。
+\item $\ee^{\ii\hat{H}t/\hbar}\hat{A}\,\ee^{-\ii\hat{H}t/\hbar}=\hat{A}$ と書けるのは $\comm{\hat{A}}{\hat{H}}=0$ のときだけ（(1) で示したこと）。(3) の自由粒子では $\hat{p}_{\mathrm{H}}=\hat{p}$ だが，(4) では $\hat{p}_{\mathrm{H}}=\hat{p}+Ft$ である。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は $\ket{\psi(t)}$ のブラを $\ee^{\ii\hat{H}t/\hbar}$ で書き，運動方程式と交換子のハイゼンベルク表示を使う。(2) は3つの因子の積の微分。(3)(4) は (2) の右辺の2項を計算して和が $0$ になることを示し，保存量の値を $t=0$ で決める。
+\keisan \shoumonkai{1} Level 1 のユニタリー性の問題 (3) より $(\ee^{-\ii\hat{H}t/\hbar})^{\dagger}=\ee^{\ii\hat{H}t/\hbar}$ なので，$\ket{\psi(t)}$ に対応するブラは $\bra{\psi(0)}\ee^{\ii\hat{H}t/\hbar}$ である。よって
+\[ \matrixel{\psi(t)}{\hat{A}_{\mathrm{S}}}{\psi(t)}=\matrixel{\psi(0)}{\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}}{\psi(0)}=\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)} \]
+である。$\ket{\psi(0)}$ は時間によらないので，運動方程式と要点整理の交換子のハイゼンベルク表示から
+\begin{align*}
+\dv{\expval{\hat{A}}_{t}}{t}&=\matrixel{\psi(0)}{\dv{\hat{A}_{\mathrm{H}}}{t}}{\psi(0)}=-\frac{\ii}{\hbar}\matrixel{\psi(0)}{\ee^{\ii\hat{H}t/\hbar}\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}}{\psi(0)}\\
+&=-\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}}{\psi(t)}=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)}
+\end{align*}
+となる。$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}=0$ なら，$\hat{A}_{\mathrm{S}}\hat{H}^{n}=\hat{H}\hat{A}_{\mathrm{S}}\hat{H}^{n-1}=\cdots=\hat{H}^{n}\hat{A}_{\mathrm{S}}$ なので $\hat{A}_{\mathrm{S}}$ は級数 $\ee^{\ii\hat{H}t/\hbar}$ の各項と交換し，
+\[ \hat{A}_{\mathrm{H}}(t)=\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}=\hat{A}_{\mathrm{S}} \]
+である（$\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}=\hat{1}$ は Level 1 のユニタリー性の問題 (3)）。
+
+\shoumonkai{2} Level 1 のユニタリー性の問題 (1) と同じ項別微分（$t\to-t$）で
+\[ \frac{\dd}{\dd t}\ee^{\ii\hat{H}t/\hbar}=\frac{\ii}{\hbar}\hat{H}\ee^{\ii\hat{H}t/\hbar}=\ee^{\ii\hat{H}t/\hbar}\frac{\ii}{\hbar}\hat{H},\qquad \frac{\dd}{\dd t}\ee^{-\ii\hat{H}t/\hbar}=-\ee^{-\ii\hat{H}t/\hbar}\frac{\ii}{\hbar}\hat{H} \]
+である（$\hat{H}$ は自分の指数関数と交換する）。積の微分で因子の順序を保つと
+\begin{align*}
+\dv{\hat{A}_{\mathrm{H}}}{t}&=\frac{\ii}{\hbar}\hat{H}\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}-\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}\frac{\ii}{\hbar}\hat{H}\\
+&=\frac{\ii}{\hbar}\left(\hat{H}\hat{A}_{\mathrm{H}}-\hat{A}_{\mathrm{H}}\hat{H}\right)+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}}{\hat{H}}+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+となる。
+
+\shoumonkai{3} Level 1 の自由粒子のハイゼンベルク表示の問題 (1) より
+\[ \comm{\hat{G}_{\mathrm{S}}}{\hat{H}}=\comm{\hat{x}}{\hat{H}}-\frac{t}{m}\comm{\hat{p}}{\hat{H}}=\frac{\ii\hbar}{m}\hat{p} \]
+なので，(2) の第1項は $-(\ii/\hbar)(\ii\hbar/m)\hat{p}_{\mathrm{H}}=\hat{p}_{\mathrm{H}}/m$ である。$\partial\hat{G}_{\mathrm{S}}/\partial t=-\hat{p}/m$ なので第2項は $-\hat{p}_{\mathrm{H}}/m$ である。和は $0$ で，$\hat{G}_{\mathrm{H}}(t)$ は時間によらない。その値は $\hat{G}_{\mathrm{H}}(0)=\hat{G}_{\mathrm{S}}(0)=\hat{x}$ である。$\hat{G}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}(t)-\hat{p}_{\mathrm{H}}(t)t/m$ なので，期待値をとると
+\[ \expval{\hat{x}}_{t}-\frac{t}{m}\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0} \]
+がどの状態でも成り立つ。時刻 $t$ の中心の位置から，平均の速さ $\expval{\hat{p}}_{t}/m$ で時間を逆にたどると，いつでも同じ初期位置に戻る，という意味の保存量である。
+
+\shoumonkai{4} $\comm{\hat{x}}{\hat{H}}=\ii\hbar\hat{p}/m$（$\hat{x}$ は $F\hat{x}$ と交換），$\comm{\hat{p}}{\hat{H}}=-F\comm{\hat{p}}{\hat{x}}=\ii\hbar F$ である。数 $Ft$ は $\hat{H}$ と交換するので $\comm{\hat{Q}_{\mathrm{S}}}{\hat{H}}=\ii\hbar F$ で，(2) より
+\[ \dv{\hat{Q}_{\mathrm{H}}}{t}=-\frac{\ii}{\hbar}(\ii\hbar F)+(-F)=F-F=0 \]
+である。次に
+\[ \comm{\hat{R}_{\mathrm{S}}}{\hat{H}}=\frac{\ii\hbar}{m}\hat{p}-\frac{t}{m}\ii\hbar F=\frac{\ii\hbar}{m}(\hat{p}-Ft),\qquad \pdv{\hat{R}_{\mathrm{S}}}{t}=-\frac{\hat{p}}{m}+\frac{Ft}{m} \]
+なので
+\[ \dv{\hat{R}_{\mathrm{H}}}{t}=\frac{\hat{p}_{\mathrm{H}}-Ft}{m}+\frac{-\hat{p}_{\mathrm{H}}+Ft}{m}=0 \]
+である。値は $t=0$ で決まり，$\hat{Q}_{\mathrm{H}}(t)=\hat{p}$，$\hat{R}_{\mathrm{H}}(t)=\hat{x}$ である。前者から $\hat{p}_{\mathrm{H}}(t)=\hat{p}+Ft$，これを後者 $\hat{x}_{\mathrm{H}}-\hat{p}_{\mathrm{H}}t/m+Ft^{2}/(2m)=\hat{x}$ に入れて
+\[ \hat{x}_{\mathrm{H}}(t)=\hat{x}+\frac{(\hat{p}+Ft)t}{m}-\frac{Ft^{2}}{2m}=\hat{x}+\frac{\hat{p}}{m}t+\frac{F}{2m}t^{2} \]
+を得る。
+\kotae{\shoumonkai{1} $\dd\expval{\hat{A}}_{t}/\dd t=(\ii/\hbar)\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)}$，可換なら $\hat{A}_{\mathrm{H}}=\hat{A}_{\mathrm{S}}$ \shoumonkai{2} 上の式 \shoumonkai{3} $\hat{G}_{\mathrm{H}}(t)=\hat{x}$；$\expval{\hat{x}}_{t}-\expval{\hat{p}}_{t}t/m=\expval{\hat{x}}_{0}$ \shoumonkai{4} $\hat{x}_{\mathrm{H}}(t)=\hat{x}+\hat{p}t/m+Ft^{2}/(2m)$}
+\begin{ronten}
+  \item \shoumonkai{1} $\ket{\psi(t)}$ に対応するブラが $\bra{\psi(0)}\ee^{\ii\hat{H}t/\hbar}$ になることを，$\ee^{-\ii\hat{H}t/\hbar}$ のエルミート共役が $\ee^{\ii\hat{H}t/\hbar}$ であること（$\hat{H}$ のエルミート性による）を根拠に書く。$\ket{\psi(0)}$ が時間によらないので微分が $\hat{A}_{\mathrm{H}}$ にだけかかることと，運動方程式は $\hat{A}_{\mathrm{S}}$ が時間をあらわに含まないときの式であることも述べる。
+  \item \shoumonkai{1} 可換なら $\hat{A}_{\mathrm{S}}$ が $\hat{H}^{n}$ とも交換し，級数の各項と交換することを示す。
+  \item \shoumonkai{2} 積の微分で演算子の順序を保ったことと，$\hat{H}$ が自分の指数関数と交換するので $\hat{H}$ をどちら側に置いてもよいことを書く。
+  \item \shoumonkai{3} 時間によらないことを示した後，その値を $t=0$ での値で決めることを書く（(4) も同じ）。
+\end{ronten}
+\kenzan (4) で $F=0$ とすると Level 1 の自由粒子のハイゼンベルク表示の問題 (2) の $\hat{x}+\hat{p}t/m$ に戻る。$\dd\hat{x}_{\mathrm{H}}/\dd t=\hat{p}/m+Ft/m=\hat{p}_{\mathrm{H}}/m$，$\dd\hat{p}_{\mathrm{H}}/\dd t=F$ で，運動方程式（古典の等加速度運動と同じ形）を満たす。$Ft^{2}/m$ の次元は $\unit{\newton}\cdot\unit{\second\squared}/\unit{\kilogram}=\unit{\metre}$ である。(1) の式は第3章の Ehrenfest の定理とビリアル定理の問題の (1) の式と同じで，$\hat{A}=\hat{x}$，$\hat{p}$ にすると Ehrenfest の定理になる。
+\tsumazuki 時間をあらわに含む保存量（$\hat{G}_{\mathrm{S}}$，$\hat{Q}_{\mathrm{S}}$，$\hat{R}_{\mathrm{S}}$）は $\hat{H}$ と交換しない。「保存量 $\Leftrightarrow$ $\hat{H}$ と交換」が言えるのは，演算子が時間をあらわに含まないときだけである。
+\end{tadashii}
 \end{mondai}
 
 \noteowari
