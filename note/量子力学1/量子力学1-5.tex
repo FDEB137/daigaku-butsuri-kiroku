@@ -16,7 +16,7 @@
   \ichirangyou{10}{L3・導出}{}{未着手}{}
   \ichirangyou{11}{L3・計算}{}{未着手}{}
   \ichirangyou{12}{L4・導出}{}{未着手}{}
-  \ichirangyou{13}{L4・導出}{○◎×}{C}{2026-11-11 (1)記述 (3)未着手}
+  \ichirangyou{\hyperlink{bt-m-136-powerlaw}{13}}{L4・導出}{○◎×}{C}{2026-11-11 (1)記述 (3)未着手}
 \end{kirokuichiran}
 
 \mondaihen
@@ -912,6 +912,88 @@ $\psi_{\pm}=(1\pm\hat{P})\psi/2$ とおくと，$\psi=\psi_{+}+\psi_{-}$ で，$
 \end{ronten}
 \kenzan $x_{0}=0$ では $\psi$ は偶関数で，$\expval{\hat{P}}=1$，$P_{+}=1$ と合う。$x_{0}\gg\sigma$ では $\expval{\hat{P}}\to0$，$P_{\pm}\to1/2$ で，原点から遠く離れた波束は偶と奇を等しく含む。$P_{+}+P_{-}=1$。
 \tsumazuki $\hat{P}\hat{p}=-\hat{p}\hat{P}$ で，$\hat{p}$ とは交換しないが，$\hat{p}^{2}$ とは交換する。運動エネルギーはパリティと交換するので，交換するかどうかはポテンシャルだけで決まる。
+\end{tadashii}
+\end{mondai}
+
+\level{4}
+% toubun: kiroku\toubun\量子力学1\136_2026-11-11.tex
+\mondaibangou{13}
+\begin{mondai}{136-powerlaw}{導出}{ビリアル定理をべき乗のポテンシャルとデルタ関数井戸に使うこと（第4章の $x\delta'(x)=-\delta(x)$ と Level 2 のデルタ関数井戸の問題の結果を使う）と，次元解析によるエネルギーの決まり方}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  プランク定数 & $h$ & \qty{6.626e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+  光速 & $c$ & \qty{2.998e8}{\metre\per\second}\\
+\end{teisuu}
+質量 $m$ の粒子の1次元の束縛状態（定常状態）を考える。第3章の Level 3 の交換子とビリアル定理の問題で示したビリアル定理 $2\expval{\hat{T}}=\expval{xV'(x)}$（$\hat{T}=\hat{p}^{2}/(2m)$）を使ってよい。エネルギー固有値を $E$ とする。
+  \begin{shoumon}
+    \item $V(x)=\lambda\abs{x}^{\nu}$（$\lambda>0$，$\nu>0$）のとき，$\expval{\hat{T}}$ と $\expval{V}$ を $E$ と $\nu$ で表せ。$\nu=2$ と $\nu\to\infty$ の場合をそれぞれ調和振動子と無限に深い井戸の性質と比べよ。
+    \item デルタ関数井戸 $V(x)=-g\,\delta(x)$（$g>0$）に，$x\delta'(x)=-\delta(x)$ を使ってビリアル定理を形式的に適用し，$\expval{\hat{T}}$ と $\expval{V}$ を $E$ で表せ。次に，Level 2 のデルタ関数井戸の問題で求めた束縛状態 $\phi(x)=\sqrt{\beta}\,\ee^{-\beta\abs{x}}$（$\beta=mg/\hbar^{2}$），$E=-mg^{2}/(2\hbar^{2})$ から $\expval{V}=-g\abs{\phi(0)}^{2}$ を直接計算し，結果と比べよ。
+    \item (1) のポテンシャルのエネルギー固有値が $\hbar$，$m$，$\lambda$ だけで決まることから，$E$ が $\lambda$ のどのべきに比例するかを次元解析で求めよ。$\nu=1$（$V=F\abs{x}$）と $\nu=2$（$\lambda=m\omega^{2}/2$）の場合に具体的に書け。
+  \end{shoumon}
+\notekiroku{2026-11-11 C ○◎×}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{○}{記述}
+\[ \expval{\hat{T}}=\frac{1}{2}\expval{xV'(x)} \]
+（矢印で $xV'(x)$ を脇で計算）
+\begin{align*}
+&x\cdot\ayamari{\lambda\nu\abs{x}^{\nu-1}}{\lambda\nu\abs{x}^{\nu-1}\sgn x}\\
+&=\lambda\nu\abs{x}^{\nu}=\nu V(x)
+\end{align*}
+\naze{$x<0$ では $\abs{x}^{\nu}$ の微分に $\sgn x$ が付く。書いた式では $x\abs{x}^{\nu-1}\neq\abs{x}^{\nu}$ で，2つの符号の誤りが打ち消している。$x\neq0$ で $V'=\lambda\nu\abs{x}^{\nu-1}\sgn x$，$x\sgn x=\abs{x}$ から $xV'=\nu V$ となる。}
+\begin{gather*}
+\expval{\hat{T}}=\frac{\nu}{2}\expval{V}\\
+\expval{\hat{T}}+\expval{V}=E
+\end{gather*}
+\[ \therefore\quad\Bigl(\frac{\nu}{2}+1\Bigr)\expval{V}=E\qquad\therefore\quad\expval{V}=\frac{2E}{\nu+2} \]
+\[ \expval{\hat{T}}=\frac{\nu E}{\nu+2} \]
+$\nu=2$ のとき，$\expval{V}=E/2$，$\expval{\hat{T}}=E/2$ となり，調和振動子でポテンシャルエネルギーと運動エネルギーが一致しているときと同じ状態。
+
+$\nu\to\infty$ のとき
+\[ \expval{V}=0\qquad\expval{\hat{T}}=\ayamari{1}{E} \]
+\naze{$\nu/(\nu+2)\to1$ なので $\expval{\hat{T}}=\nu E/(\nu+2)\to E$ である。$1$ に近づくのは係数である。}
+無限に深い井戸と同じ状態。
+\toi{2}{◎}{}
+\[ xV'(x)=-gx\delta'(x)=g\delta(x) \]
+\begin{gather*}
+2\expval{\hat{T}}=-\expval{V}\\
+2\expval{\hat{T}}+\expval{V}=0
+\end{gather*}
+\[ \expval{\hat{T}}+\expval{V}=E\qquad\therefore\quad\expval{\hat{T}}=-E\quad\expval{V}=2E \]
+\[ \expval{V}=-\frac{2mg^{2}}{2\hbar^{2}}=-\frac{mg^{2}}{\hbar^{2}} \]
+\begin{align*}
+\expval{V}&=-g\abs{\phi(0)}^{2}\\
+&=-g\beta\\
+&=-\frac{mg^{2}}{\hbar^{2}}\quad\text{一致}
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第3章 問題4（020-gauss）・10-18} 途中の誤りが打ち消して答えが合った（前回は微分の項を落としたが奇関数で一致した）。$\abs{x}$ を含む関数は $x>0$ と $x<0$ に分けて微分する（$\dd\abs{x}/\dd x=\sgn x$）。
+\item \mae{第4章 問題7・10-28，第7章 問題8 (5)・11-07} 最後の小問の未着手は3回目である。(3) は使える定数 $\hbar^{2}/m$ と $\lambda$ の次元を（エネルギー）と（長さ）で書くところから始める。
+\end{kizuki}
+\begin{tadashii}
+\houshin ポテンシャルが同次関数なら $xV'$ は $V$ の定数倍になり，ビリアル定理と $E=\expval{\hat{T}}+\expval{V}$ から $\expval{\hat{T}}$ と $\expval{V}$ が $E$ だけで決まる。デルタ関数も $x\delta'=-\delta$ で同じ形になる。エネルギーの $\lambda$ 依存性は，使える定数が $\hbar^{2}/m$ と $\lambda$ だけであることから次元で決める。
+\keisan
+\shoumonkai{1} $x\neq0$ で $V'=\nu\lambda\abs{x}^{\nu-1}\sgn x$ なので $xV'=\nu\lambda\abs{x}^{\nu}=\nu V$。ビリアル定理から $2\expval{\hat{T}}=\nu\expval{V}$ で，$E=\expval{\hat{T}}+\expval{V}$ と連立して
+\[ \expval{\hat{T}}=\frac{\nu}{\nu+2}E,\qquad \expval{V}=\frac{2}{\nu+2}E \]
+$\nu=2$ では $\expval{\hat{T}}=\expval{V}=E/2$ で，調和振動子で運動エネルギーとポテンシャルエネルギーの期待値が等しいことと合う。$\nu\to\infty$ では $\abs{x}<1$ で $V\to0$，$\abs{x}>1$ で $V\to\infty$ となり，（長さをある単位で測ったとき）幅 $2$ の無限に深い井戸に近づく。このとき $\expval{V}\to0$，$\expval{\hat{T}}\to E$ で，井戸の中ではエネルギーがすべて運動エネルギーであることと合う。
+\shoumonkai{2} $V=-g\delta(x)$ では $xV'=-gx\delta'(x)=-g\cdot(-\delta(x))=g\delta(x)=-V$。ビリアル定理から $2\expval{\hat{T}}=-\expval{V}$ で，$E=\expval{\hat{T}}+\expval{V}$ と連立して
+\[ \expval{V}=2E,\qquad \expval{\hat{T}}=-E \]
+Level 2 のデルタ関数井戸の問題の束縛状態（$\phi=\sqrt{\beta}\,\ee^{-\beta\abs{x}}$）では $\expval{V}=-g\abs{\phi(0)}^{2}=-g\beta$ で，$\beta=mg/\hbar^{2}$，$E=-\hbar^{2}\beta^{2}/(2m)=-mg^{2}/(2\hbar^{2})$ なので $\expval{V}=-mg^{2}/\hbar^{2}=2E$ となり，ビリアル定理の結果と一致する。これは $\nu=-1$ の場合（$\delta(x)$ は長さの $-1$ 乗の次元をもち，$\delta(cx)=\delta(x)/\abs{c}$ という $-1$ 次の同次性をもつ）に当たり，(1) の式で $\nu=-1$ とした $\expval{\hat{T}}=-E$，$\expval{V}=2E$ とも合う。
+\shoumonkai{3} $E=C(\hbar^{2}/m)^{\alpha}\lambda^{\gamma}$（$C$ は無次元の数）とおく。エネルギーの次元から $\alpha+\gamma=1$，長さの次元が消える条件から $2\alpha-\nu\gamma=0$。よって
+\[ \gamma=\frac{2}{\nu+2},\qquad \alpha=\frac{\nu}{\nu+2},\qquad E\propto\left(\frac{\hbar^{2}}{m}\right)^{\nu/(\nu+2)}\lambda^{2/(\nu+2)} \]
+$\nu=1$（$\lambda=F$）では $E\propto(\hbar^{2}F^{2}/m)^{1/3}$。$\nu=2$（$\lambda=m\omega^{2}/2$）では $E\propto(\hbar^{2}/m)^{1/2}(m\omega^{2})^{1/2}=\hbar\omega$ で，調和振動子のエネルギーが $\hbar\omega$ に比例することと合う。
+\kotae{\shoumonkai{1} $\expval{\hat{T}}=\frac{\nu}{\nu+2}E$，$\expval{V}=\frac{2}{\nu+2}E$。$\nu=2$ で $E/2$ ずつ，$\nu\to\infty$ で $\expval{V}\to0$（無限に深い井戸） \shoumonkai{2} $\expval{\hat{T}}=-E$，$\expval{V}=2E$ で，Level 2 のデルタ関数井戸の問題の結果（$\expval{V}=-mg^{2}/\hbar^{2}=2E$）と一致 \shoumonkai{3} $E\propto(\hbar^{2}/m)^{\nu/(\nu+2)}\lambda^{2/(\nu+2)}$。$\nu=1$ で $(\hbar^{2}F^{2}/m)^{1/3}$，$\nu=2$ で $\hbar\omega$}
+\begin{ronten}
+  \item \shoumonkai{1} 同次関数の性質 $xV'=\nu V$ を，$x\neq0$ で $\abs{x}$ を微分して示す。
+  \item \shoumonkai{2} デルタ関数ではビリアル定理の導出（なめらかな $V$ を仮定）を形式的に使っていることと，$x\delta'(x)=-\delta(x)$ を根拠にしたことを書く。
+  \item \shoumonkai{3} 次元解析は比例係数を決めないことを述べる。
+\end{ronten}
+\kenzan (1) の $\expval{\hat{T}}$ と $\expval{V}$ の和は $E$ で，どちらも $\nu>0$ で正（$E>0$）。(2) で束縛状態の $E<0$ に対して $\expval{\hat{T}}=-E>0$ となり，運動エネルギーの期待値が正であることと合う。(3) は第2章の Bohr--Sommerfeld の量子化条件の問題で $V=F\abs{x}$ について得た $E_{n}\propto(h^{2}F^{2}/m)^{1/3}n^{2/3}$ と同じべきである。
+\tsumazuki ビリアル定理は定常状態（エネルギー固有状態）で成り立つもので，一般の重ね合わせの状態の期待値には使えない。また，$\abs{x}^{\nu}$ の微分で $x<0$ の符号を落とさない（$xV'$ にすると符号が消える）。
 \end{tadashii}
 \end{mondai}
 
