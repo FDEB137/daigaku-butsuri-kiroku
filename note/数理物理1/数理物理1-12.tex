@@ -34,7 +34,7 @@
 
 \mondaihen
 \level{1}
-% toubun: kiroku\toubun\数理物理1\092_2026-10-07.tex
+% toubun: kiroku\toubun\数理物理1\092_2026-10-21.tex
 \mondaibangou{1}
 \begin{mondai}{092-bunsan}{計算}{連成振動の分散関係と，長波長極限での線形分散関係・位相速度}
 質量 $m$ の質点 $N$ 個が間隔 $a$ で輪状に並び，隣どうしがばね定数 $K$ のばねでつながれている（\noteshiki{12.2}）。モード $\mu$ の固有振動数は \noteshiki{12.4} より次のとおりである。波数は $k_\mu=2\pi\mu/(Na)$ とする。
@@ -46,39 +46,59 @@
     \item $k_\mu a=1$ のとき $\omega_\mu/(v_sk_\mu)$ の値を求めよ。また，この比が $0.99$ になる $k_\mu a$ のおおよその値を $\sin x\simeq x-x^{3}/6$ を用いて求め，そのときの波長 $\lambda_\mu$ が $a$ の何倍かを答えよ。
   \end{shoumon}
 \notekiroku{2026-10-03 C ◎◎×× → 2026-10-07 C ◎◎△× → 2026-10-21 B ○◎○△ (ヒント1)}
-\begin{kotaeutsushi}{2026-10-07}
-\toi{1}{◎}{}
+\begin{kotaeutsushi}{2026-10-21}
+\toi{1}{○}{立式}
 \begin{align*}
-  \omega_\mu&=\sqrt{\frac{2K}{m}\cdot2\sin^{2}\frac{\pi\mu}{N}}\\
-  &=2\sqrt{\frac{K}{m}}\sin\Bigl(\frac{\pi\mu}{N}\Bigr)\\
-  &=2\sqrt{\frac{K}{m}}\sin\frac{k_\mu a}{2}
+  \omega_\mu&=\sqrt{\frac{2K}{m}\cdot2\sin^{2}\Bigl(\frac{\pi\mu}{N}\Bigr)}\\
+  &=2\sqrt{\frac{K}{m}}\,\ayamari{\sin\Bigl(\frac{\pi\mu}{N}\Bigr)}{\abs*{\sin\Bigl(\frac{\pi\mu}{N}\Bigr)}}\\
+  &=2\sqrt{\frac{K}{m}}\sin\Bigl(\frac{k_\mu a}{2}\Bigr)
 \end{align*}
+\naze{$\omega_\mu\ge0$ なので，根号を外すと $\abs{\sin}$ になる。$k_\mu a>\pi$（$\mu>N/2$）では $\sin(k_\mu a/2)<0$ である。正しくは $\omega_\mu=2\sqrt{K/m}\,\abs{\sin(k_\mu a/2)}$。以降はこの誤りを引き継ぐ。}
 \toi{2}{◎}{}
-$\sin(k_\mu a/2)\simeq k_\mu a/2$ より，
-\[ \omega_\mu=\underbrace{a\sqrt{\frac{K}{m}}}_{v_s}k_\mu,\qquad v_s=a\sqrt{\frac{K}{m}} \]
-\toi{3}{△}{単位}
 \begin{align*}
-  v_s&=2.5\times10^{-10}\cdot\sqrt{\frac{15}{4.5\times10^{-26}}}\\
-  &=2.5\cdot\frac{\sqrt{10}}{\sqrt{3}}\cdot10^{3}\\
-  &=\ayamari{4.56\times10^{3}}{\qty{4.6e3}{\metre\per\second}}\\
-  \omega_{\max}&=2\sqrt{\frac{15}{4.5\times10^{-26}}}\\
-  &=\ayamari{3.65\times10^{13}}{\qty{3.7e13}{\per\second}}\\
-  \nu_{\max}&=\frac{\omega_{\max}}{2\pi}=\ayamari{5.81\times10^{12}}{\qty{5.8e12}{\hertz}}
+  \sin\Bigl(\frac{k_\mu a}{2}\Bigr)&=\frac{\cos0}{1!}\Bigl(\frac{k_\mu a}{2}\Bigr)-\frac{\cos0}{3!}\Bigl(\frac{k_\mu a}{2}\Bigr)^{3}\\
+  &\qquad+\frac{\cos0}{5!}\Bigl(\frac{k_\mu a}{2}\Bigr)^{5}\\
+  &\simeq\frac{k_\mu a}{2}
 \end{align*}
-\naze{数値は正しいが，3つとも単位が無く，指定の有効数字2桁にもなっていない。$\omega_{\max}$ は $\abs{\sin(k_\mu a/2)}=1$（$k_\mu a=\pi$，$\mu=N/2$）のときであることも一言添える。}
-\toi{4}{×}{立式}
+\[ \omega_\mu=ak_\mu\sqrt{\frac{K}{m}},\qquad v_s=a\sqrt{\frac{K}{m}} \]
+\toi{3}{○}{単位}
+\[ v_s=4564\ldots=\qty{4600}{\metre\per\second} \]
+\[ \sin\Bigl(\frac{k_\mu a}{2}\Bigr)=1\qquad\therefore\ k_\mu a=\pi \]
 \begin{align*}
-  \frac{\omega_\mu}{v_sk_\mu}&=\frac{2\sqrt{K/m}\,\sin(k_\mu a/2)}{a\sqrt{K/m}\,k_\mu}\\
-  &=2\sin\frac{1}{2}=2\Bigl(\frac{1}{2}-\frac{1}{6}\Bigl(\frac{1}{2}\Bigr)^{3}\Bigr)\\
-  &=1-\frac{1}{24}=\frac{23}{24}
+  \omega_{\max}&=2\cdot1\cdot\sqrt{\frac{K}{m}}=3.65\ldots\times10^{13}\\
+  &=3.7\times10^{13}\ \nuke{\unit{\per\second}}\\
+  \nu_{\max}&=\frac{\omega_{\max}}{2\pi}=5.8\times10^{12}\ \nuke{\unit{\hertz}}
 \end{align*}
-\[ \ayamari{2\sin x}{\frac{2\sin(x/2)}{x}}=\frac{99}{100}\qquad\therefore\ 2x-\frac{1}{3}x^{3}=\frac{99}{100} \]
-\naze{比は $x=k_\mu a$ の関数として $2\sin(x/2)/x$ である。1行目では $k_\mu a=1$ を入れたので分母が 1 になって消えたが，一般の $x$ では分母が残る。正しくは $2\sin(x/2)/x\simeq1-x^{2}/24=0.99$ から $x^{2}=0.24$，$k_\mu a\simeq0.49$，$\lambda_\mu=2\pi a/x\simeq13a$。ここで止まっていて，$k_\mu a$ と $\lambda_\mu/a$ が出ていない。}
+\naze{数値は正しいが，$\omega_{\max}$ に \unit{\per\second}，$\nu_{\max}$ に \unit{\hertz} の単位が無い。}
+\toi{4}{△}{計算}
+\begin{align*}
+  \frac{\omega_\mu}{v_sk_\mu}&=\frac{2\sin(1/2)\sqrt{K/m}}{a\sqrt{K/m}\cdot\frac{1}{a}}=2\sin\Bigl(\frac{1}{2}\Bigr)\\
+  &=0.9588\ldots
+\end{align*}
+$k_\mu a=t$ とする。
+\begin{align*}
+  \frac{\omega_\mu}{v_sk_\mu}&=\frac{2\sin(t/2)\sqrt{K/m}}{a\sqrt{K/m}\cdot\frac{t}{a}}=\frac{2}{t}\sin\Bigl(\frac{t}{2}\Bigr)\\
+  &\simeq\ayamari{2\cdot\frac{t}{2}}{\frac{2}{t}\cdot\frac{t}{2}}-\frac{1}{3}\cdot\frac{t^{2}}{8}\\
+  &=t-\frac{1}{24}t^{2}=0.99
+\end{align*}
+\[ \therefore\ t^{2}-24t+\frac{594}{25}=0 \]
+\[ \therefore\ t=1.0345\ldots\approx1.03 \]
+\begin{align*}
+  \lambda_\mu&=v_s\frac{2\pi}{\omega_\mu}=\frac{a\sqrt{K/m}\cdot2\pi}{2\sin(t/2)\sqrt{K/m}}\\
+  &=\frac{\pi a}{\sin(t/2)}
+\end{align*}
+6.35 倍
+\naze{$\frac{2}{t}\bigl(\frac{t}{2}-\frac{t^{3}}{48}\bigr)$ の第1項は $\frac{2}{t}\cdot\frac{t}{2}=1$ で，$t$ ではない（第2項には $\frac{2}{t}$ をかけて $t^{2}/24$ にしている）。正しくは $1-t^{2}/24=0.99$ から $t^{2}=0.24$，$k_\mu a\approx0.49$，$\lambda_\mu=2\pi/k_\mu=2\pi a/t\approx13a$。以降はこの誤りを引き継ぐ。また $\lambda_\mu=v_s\cdot2\pi/\omega_\mu$ は，$\omega_\mu/k_\mu$ が $v_s$ と 1\% ずれるので近似式である。定義どおり $\lambda_\mu=2\pi/k_\mu$ を使えば，求めた $t$ からすぐ出る。}
 \end{kotaeutsushi}
 \begin{kizuki}
+\item \mae{数理物理1-10（組み替え前）問題1 (1)・10-07} 前回も根号を外すときに絶対値を落とした（そのときは減点なし）。10-03 の答案では $\abs{\sin}$ と書けていた。$\sqrt{\sin^{2}\theta}=\abs{\sin\theta}$ で，$\omega_\mu\ge0$ だから絶対値が要る。根号を外したら，$\mu$ の範囲（$k_\mu a$ は $0$〜$2\pi$）で符号が変わらないかを見る。
+\item \mae{数理物理1-10（組み替え前）問題1 (3)・10-07} 前回と同じく $\omega_{\max}$ と $\nu_{\max}$ の単位が無い（今回は $v_s$ だけ付けた）。数値の答えを書いたら，3つとも単位（\unit{\metre\per\second}，\unit{\per\second}，\unit{\hertz}）が付いているかを最後に見る。
+\item \mae{数理物理1-10（組み替え前）問題1 (4)・10-07} 前回は比の式で分母の $x$ を落とし，今回は分母をかけたときに第1項だけ $t$ が残った。式を立てたら $t=1$ を入れて前半の値 $0.96$ に戻るかを確かめる（$t-t^{2}/24$ に $t=1$ を入れると $0.958$ で一見合うので，$t$ を小さくして比が 1 に近づくかも見る。$t\to0$ で $t-t^{2}/24\to0$ になるのはおかしい）。$k_\mu a=1$ で $0.96$ なのに $0.99$ になる $k_\mu a$ が 1 より大きいのも食い違いの合図である。
+\end{kizuki}
+\begin{maekizuki}{2026-10-07}
 \item 数値の答えには単位を付け，問題の指定（有効数字2桁）に丸めてから書く。$v_s$ は \unit{\metre\per\second}，$\omega_{\max}$ は \unit{\per\second}，$\nu_{\max}$ は \unit{\hertz} である。
 \item 「この比が $0.99$ になる $x$」を求めるときは，値を代入する前の一般の式に戻って立式する。$x=k_\mu a$ とおくと比は $2\sin(x/2)/x$ で，$\sin(x/2)\simeq x/2-x^{3}/48$ を入れると $1-x^{2}/24$ になる。前半で $x=1$ を入れたときの $2\sin(1/2)$ をそのまま使うと分母の $x$ が消える。立てた式に $x=1$ を入れて前半の値 $0.96$ に戻るかで確かめる。
-\end{kizuki}
+\end{maekizuki}
 \begin{maekizuki}{2026-10-03}
 \item (3)(4) は手を付けていない。(3) は先に $\sqrt{K/m}$ の値を出し，$v_s=a\sqrt{K/m}$ と $\omega_{\max}=2\sqrt{K/m}$（$\abs{\sin}=1$ となる $k_\mu a=\pi$，$\mu=N/2$）を有効数字2桁と単位つきで答える。
 \item (4) は $x=k_\mu a$ とおくと比が $\omega_\mu/(v_sk_\mu)=2\sin(x/2)/x$ と $x$ だけの関数になる。$\sin(x/2)\simeq x/2-x^{3}/48$ で $1-x^{2}/24$ とし，波長は $\lambda_\mu=2\pi a/x$ で求める。
