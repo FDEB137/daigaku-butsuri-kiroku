@@ -1,0 +1,54 @@
+% 量子力学1 量子力学1-6 問題4（093-design。当時は量子力学1-12 問題4） 解いた日 2026-11-21
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\eta&=\xi\tan\xi=\frac{\pi}{3}\tan\frac{\pi}{3}=\frac{\pi}{\sqrt{3}}\\
+\xi_{0}^{2}&=\xi^{2}+\eta^{2}=\frac{\pi^{2}}{9}+\frac{\pi^{2}}{3}\\
+&=\frac{4\pi^{2}}{9}\\
+\xi_{0}&=\frac{2\pi}{3}\\
+\xi_{0}^{2}&=\frac{a^{2}\cdot2mV_{0}}{\hbar^{2}}=\frac{4\pi^{2}}{9}\\
+V_{0}&=\frac{2\pi^{2}\hbar^{2}}{9ma^{2}}\\
+\frac{E_{1}}{V_{0}}&=\frac{\xi^{2}}{\xi_{0}^{2}}=\frac{\frac{1}{9}\pi^{2}}{\frac{4}{9}\pi^{2}}=\frac{1}{4}
+\end{align*}
+\toi{2}{◎}{}
+$\pi/2<\xi_{0}<\pi$ より，束縛状態は2個。
+
+基底（偶）
+
+第1励起（奇）
+\toi{3}{◎}{}
+\begin{align*}
+A\cos\xi&=D\ee^{-\eta}\\
+\frac{A}{2}&=D\ee^{-\pi/\sqrt{3}}
+\end{align*}
+\[ P_{\mathrm{out}}=\frac{2\int_{a}^{\infty}(D\ee^{-\kappa x})^{2}\dd x}{2\int_{0}^{a}A^{2}\cos^{2}kx\dd x+2\int_{a}^{\infty}(D\ee^{-\kappa x})^{2}\dd x} \]
+\begin{align*}
+\int_{0}^{a}A^{2}\cos^{2}kx\dd x&=A^{2}\Bigl[\frac{x}{2}\\
+&\qquad+\kakimachigai{\frac{1}{2k}\sin kx}{\frac{1}{4k}\sin 2kx}\Bigr]_{0}^{a}\\
+&=4D^{2}\ee^{-2\eta}\Bigl(\frac{a}{2}+\frac{1}{2k}\sin\xi\Bigr)\\
+&=D^{2}\ee^{-2\eta}\Bigl(2a+\kakimachigai{\frac{\sqrt{3}}{k}}{\frac{\sqrt{3}}{2k}}\Bigr)
+\end{align*}
+\begin{align*}
+\int_{a}^{\infty}D^{2}\ee^{-2\kappa x}\dd x&=D^{2}\Bigl[-\frac{1}{2\kappa}\ee^{-2\kappa x}\Bigr]_{a}^{\infty}\\
+&=D^{2}\cdot\frac{1}{2\kappa}\ee^{-2\eta}
+\end{align*}
+\begin{align*}
+P_{\mathrm{out}}&=\frac{D^{2}\ee^{-2\eta}\frac{1}{2\kappa}}{D^{2}\ee^{-2\eta}\Bigl(2a+\frac{\sqrt{3}}{k}\Bigr)+D^{2}\ee^{-2\eta}\frac{1}{2\kappa}}\\
+&=\frac{1}{\Bigl(4\kappa a+\sqrt{3}\,\frac{\kappa}{k}\Bigr)+1}
+\end{align*}
+（脇で $\kappa/k=(\pi/\sqrt{3})/(\pi/3)=\sqrt{3}$ を計算）
+\begin{align*}
+&=\frac{1}{\frac{4\pi}{\sqrt{3}}+3+1}\\
+&=\frac{\sqrt{3}}{4(\pi+\sqrt{3})}\\
+&=\num{8.88e-2}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+V_{0}&=\frac{2\pi^{2}\hbar^{2}}{9\melec a^{2}}=\qty{4.18}{\electronvolt}\\
+E_{1}&=\qty{1.05}{\electronvolt}\\
+E_{1}'&=\frac{\pi^{2}\hbar^{2}}{2\melec(2a)^{2}}=\qty{2.35}{\electronvolt}
+\end{align*}
+（図：左に有限の井戸，右に無限井戸の基底状態を描く。有限の井戸では波動関数が壁の外へしみ出して広がり，無限井戸では壁の内側に収まる。それぞれの下に波長を記入）
+
+波長（大）$\to$ $E$ 低い $<$ 波長（小）$\to$ エネルギー高い
+%% kizuki

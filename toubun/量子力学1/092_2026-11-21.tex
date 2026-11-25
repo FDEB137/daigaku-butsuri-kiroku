@@ -1,0 +1,119 @@
+% 量子力学1 量子力学1-6 問題3（092-finite。当時は量子力学1-12 問題3） 解いた日 2026-11-21
+%% kotae
+\toi{1}{◎}{}
+（図：深さ $V_{0}$ の井戸〈$-a\le x\le a$〉に波動関数を描き，井戸の中を $\phi_{1}$，右を $\phi_{2}$，左を $\phi_{3}$ とする）
+\begin{align*}
+-\frac{\hbar^{2}}{2m}\phi_{1}''&=E\phi_{1}\\
+\therefore\ \phi_{1}''&=-\underbrace{\frac{2mE}{\hbar^{2}}}_{k^{2}}\phi_{1}\\
+\phi_{1}&=A\cos kx+B\sin kx\\
+-\frac{\hbar^{2}}{2m}\phi_{2}''+V_{0}\phi_{2}&=E\phi_{2}\\
+\therefore\ \phi_{2}''&=\underbrace{\frac{2m(V_{0}-E)}{\hbar^{2}}}_{\kappa^{2}}\phi_{2}\\
+\phi_{2}&=C\ee^{\kappa x}+D\ee^{-\kappa x}
+\end{align*}
+$\phi_{2}(x)\xrightarrow{x\to\infty}0$ より
+\[ \phi_{2}(x)=D\ee^{-\kappa x} \]
+i) 偶パリティのとき
+\begin{align*}
+\phi_{1}(x)&=A\cos kx\\
+\phi_{1}(a)&=\phi_{2}(a)\\
+A\cos\xi&=D\ee^{-\eta}\\
+\phi_{1}'(a)&=\phi_{2}'(a)\\
+-Ak\sin\xi&=-D\kappa\ee^{-\eta}\\
+\therefore\ A\frac{k}{\kappa}\sin\xi&=D\ee^{-\eta}\\
+A\Bigl(\cos\xi-\frac{k}{\kappa}\sin\xi\Bigr)&=0\\
+k\tan\xi&=\kappa\\
+\therefore\ ka\tan\xi&=\kappa a\\
+\xi\tan\xi&=\eta
+\end{align*}
+ii) 奇パリティのとき
+\begin{align*}
+\phi_{1}(x)&=A\sin kx\\
+\phi_{1}(a)&=\phi_{2}(a)\\
+A\sin\xi&=D\ee^{-\eta}\\
+\phi_{1}'(a)&=\phi_{2}'(a)\\
+Ak\cos\xi&=-D\kappa\ee^{-\eta}\\
+A\frac{k}{\kappa}\cos\xi&=-D\ee^{-\eta}\\
+A\Bigl(\sin\xi+\frac{k}{\kappa}\cos\xi\Bigr)&=0\\
+\frac{k}{\kappa}\cot\xi&=-1\\
+-ka\cot\xi&=\kappa a\\
+-\xi\cot\xi&=\eta
+\end{align*}
+\begin{align*}
+\xi^{2}+\eta^{2}&=a^{2}\Bigl(\frac{2mE}{\hbar^{2}}+\frac{2m(V_{0}-E)}{\hbar^{2}}\Bigr)\\
+&=\frac{a^{2}(2mV_{0})}{\hbar^{2}}\\
+&=\xi_{0}^{2}
+\end{align*}
+\toi{2}{◎}{}
+（図：$x\tan x$ と $-x\cot x$ の概形の下書き）
+\begin{align*}
+f(x)&=x\tan x\\
+f'(x)&=1\cdot\tan x+x\cdot\frac{1}{\cos^{2}x}\\
+&=x(1+\tan^{2}x)+\tan x
+\end{align*}
+\begin{center}
+\begin{tabular}{c|ccc}
+$x$ & $0$ & $\cdots$ & $\pi/2$\\ \hline
+$f'$ & $0$ & $+$ & \\ \hline
+$f$ & $0$ & $\nearrow$ &
+\end{tabular}
+\end{center}
+\begin{align*}
+g(x)&=-x\cot x\\
+g'(x)&=-\Bigl(1\cdot\cot x+x\cdot\Bigl(-\frac{1}{\sin^{2}x}\Bigr)\Bigr)\\
+&=-\frac{\cos x}{\sin x}+\frac{x}{\sin^{2}x}\\
+&=\frac{x-\sin x\cos x}{\sin^{2}x}\\
+&=\frac{x-\frac{1}{2}\sin 2x}{\sin^{2}x}
+\end{align*}
+\begin{center}
+\begin{tabular}{c|ccccc}
+$x$ & $0$ & & $\pi/2$ & & $\pi$\\ \hline
+$g'$ & & $+$ & & & ---\\ \hline
+$g$ & $-1$ & & $0$ & & $\nearrow$
+\end{tabular}
+\end{center}
+（図：$\xi\eta$ 平面に $\xi\tan\xi$ と $-\xi\cot\xi$ の曲線と，$\xi$ 軸と $\xi_{0}$ で交わる円を描き，$\xi$ 軸に $\pi/2$ と $\xi_{0}$ を記入）
+
+図より，$\xi\tan\xi$ と $\xi^{2}+\eta^{2}=\xi_{0}^{2}$ は必ず交点をもつ。
+
+$\to$ 偶パリティの束縛状態は $\xi_{0}$ によらず必ず存在する。
+
+$-\xi\cot\xi$ と $\xi^{2}+\eta^{2}=\xi_{0}^{2}$ は $\pi/2<\xi_{0}$ で交点をもつ。
+
+$\to$ 奇パリティの条件 $\xi_{0}>\pi/2$
+\toi{3}{○}{記述}
+（図：半径を変えた何本かの円と $\xi\tan\xi$，$-x\cot x$ の枝を描き，$\xi$ 軸の区間に左から偶・奇・偶・奇と記入）
+
+$1/4$ 円の半径を大きくしていくと，交点の数が交互に増えていく。つまり，偶パリティと奇パリティが交互に並ぶ。基底は一番最初に交わる偶パリティ。
+\naze{交点の順がエネルギーの順になる根拠が無い。枝は区間 $(n-1)\pi/2\le\xi<n\pi/2$ を1つずつ占めて各区間に状態は高々1つで，$E=\hbar^{2}\xi^{2}/(2ma^{2})$ は $\xi$ について増えるので，区間の並びがそのままエネルギーの順になる。}
+\[ \ayamari{\frac{n\pi}{2}>\xi_{0}\ge\frac{(n-1)\pi}{2}}{\xi_{0}>\frac{(n-1)\pi}{2}}\quad\text{（条件）} \]
+\naze{これは束縛状態がちょうど $n$ 個ある条件である。$n$ 番目の状態は $n$ 番目の区間の左端が円の内側にあれば存在するので，条件は $\xi_{0}>(n-1)\pi/2$ だけで，上限は要らない。}
+\[ N=\Bigl[\frac{2\xi_{0}}{\pi}+1\Bigr] \]
+\toi{4}{△}{記述}
+基底
+\[ \phi(x)=A\cos kx \]
+（図：井戸の中で $\cos$ の山になり，$x=\pm a$ の外で指数関数的に減る概形）
+
+第1励起
+\[ \phi(x)=B\sin kx \]
+（図：$x=0$ に節を1つもつ奇関数で，井戸の外で0に近づく概形）
+\begin{align*}
+\cos kx&=0\quad\therefore\ kx=\Bigl(l-\frac{1}{2}\Bigr)\pi\\
+&\qquad(\kakimachigai{l=\pm1,\pm2,\pm3}{l=0,\pm1,\pm2,\dots})
+\end{align*}
+$-a<x<a$\qquad$\abs{x}<a$
+\[ \Bigl|\Bigl(l-\frac{1}{2}\Bigr)\pi\Bigr|<\xi<\ayamari{\xi_{0}<\frac{n\pi}{2}}{\frac{n\pi}{2}} \]
+\naze{$n$ 番目の状態で $\xi_{0}<n\pi/2$ とは限らない（さらに上の状態もあり得る）。言えるのは (3) の区間の $(n-1)\pi/2\le\xi<n\pi/2$ である。上の端だけでは節は多くても $n-1$ 個としか言えず，下の端 $\xi\ge(n-1)\pi/2$ から候補の $n-1$ 個がすべて $\abs{x}<a$ に入ることも示す。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+\therefore\ -\frac{n\pi}{2}&<\Bigl(l-\frac{1}{2}\Bigr)\pi<\frac{n\pi}{2}\\
+-n&<2l-1<n\\
+\frac{-n+1}{2}&<l<\frac{n+1}{2}
+\end{align*}
+これを満たす $l$ の数は $n-1$ 個。
+
+奇パリティでも同様になる。
+\naze{奇（$n=2l+2$）では $\sin(\xi x/a)=0$ の点が $x=0$ と片側 $l$ 個ずつで，$x=0$ の節が加わるので数え方が違う。「同様」で済ませず，$2l+1=n-1$ 個と数える。}
+井戸の外は $\ee^{\kappa x}$ か $\ee^{-\kappa x}$ となるため，節はもたない。
+%% kizuki
+\item \mae{第11章 問題4・7・11-20} 個数を数えるときは範囲の両端を使う。上の端だけでは「多くても」しか言えない。節は (3) の区間 $(n-1)\pi/2\le\xi<n\pi/2$ の両端から数え，奇では $x=0$ の節を足す。
+\item 「$n$ 番目が存在する」条件は $\xi_{0}>(n-1)\pi/2$ だけで，「ちょうど $n$ 個」なら上限も付く。答える前に，問われた条件がどちらかを確かめる。
+\item 準位の順は，各区間に状態が高々1つで $E\propto\xi^{2}$ であることから言う。

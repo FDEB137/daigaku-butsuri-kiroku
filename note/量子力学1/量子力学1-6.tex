@@ -1,0 +1,305 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第6章「有限の深さの井戸」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou06\量子力学1-6.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{1}{L1・計算}{}{未着手}{}
+  \ichirangyou{2}{L1・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-092-finite}{3}}{L2・導出}{◎◎○△}{B}{2026-11-21 (3)記述 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-093-design}{4}}{L2・計算}{◎◎◎◎}{S}{2026-11-21}
+  \ichirangyou{5}{L2・計算}{}{未着手}{}
+  \ichirangyou{6}{L3・導出}{}{未着手}{}
+  \ichirangyou{7}{L3・導出}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{2}
+% toubun: kiroku\toubun\量子力学1\092_2026-11-21.tex
+\mondaibangou{3}
+\begin{mondai}{092-finite}{導出}{有限の深さの井戸の準位の方程式，図による束縛状態の数と存在条件，偶奇が交互に並ぶこと，波動関数の形と節の数}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+質量 $m$ の粒子が要点整理の有限の深さの井戸（深さ $V_{0}$，幅 $2a$）の中にある。束縛状態（$0<E<V_{0}$）を考え，記号 $k$，$\kappa$，$\xi$，$\eta$，$\xi_{0}$ は要点整理のとおりとする。
+  \begin{shoumon}
+    \item 偶パリティと奇パリティの束縛状態のそれぞれについて，3つの領域での $\phi(x)$ の形を書き，$x=a$ での接続条件から準位の方程式 $\eta=\xi\tan\xi$（偶），$\eta=-\xi\cot\xi$（奇）を導け。また，$\xi^{2}+\eta^{2}=\xi_{0}^{2}$ を示せ。
+    \item $\xi\eta$ 平面の $\xi>0$，$\eta>0$ の部分に (1) の曲線と円を描いて考え，偶パリティの束縛状態は $\xi_{0}$ によらず必ず存在し，奇パリティの束縛状態が存在するには $\xi_{0}>\pi/2$ が必要であることを示せ。
+    \item 束縛状態をエネルギーの低い順に並べると，偶パリティと奇パリティが交互に並び，基底状態は偶パリティであることを説明せよ。また，低い方から $n$ 番目の束縛状態が存在する条件と，束縛状態の数 $N$ を $\xi_{0}$ で表せ（$2\xi_{0}/\pi$ は整数でないとする）。
+    \item 基底状態と第1励起状態の波動関数の概形を描け。また，$n$ 番目の束縛状態は井戸の中に $n-1$ 個の節（$\phi=0$ となる点）を持ち，井戸の外には節を持たないことを示せ。
+  \end{shoumon}
+\notekiroku{2026-11-21 B ◎◎○△}
+\begin{kotaeutsushi}{2026-11-21}
+\toi{1}{◎}{}
+（図：深さ $V_{0}$ の井戸〈$-a\le x\le a$〉に波動関数を描き，井戸の中を $\phi_{1}$，右を $\phi_{2}$，左を $\phi_{3}$ とする）
+\begin{align*}
+-\frac{\hbar^{2}}{2m}\phi_{1}''&=E\phi_{1}\\
+\therefore\ \phi_{1}''&=-\underbrace{\frac{2mE}{\hbar^{2}}}_{k^{2}}\phi_{1}\\
+\phi_{1}&=A\cos kx+B\sin kx\\
+-\frac{\hbar^{2}}{2m}\phi_{2}''+V_{0}\phi_{2}&=E\phi_{2}\\
+\therefore\ \phi_{2}''&=\underbrace{\frac{2m(V_{0}-E)}{\hbar^{2}}}_{\kappa^{2}}\phi_{2}\\
+\phi_{2}&=C\ee^{\kappa x}+D\ee^{-\kappa x}
+\end{align*}
+$\phi_{2}(x)\xrightarrow{x\to\infty}0$ より
+\[ \phi_{2}(x)=D\ee^{-\kappa x} \]
+i) 偶パリティのとき
+\begin{align*}
+\phi_{1}(x)&=A\cos kx\\
+\phi_{1}(a)&=\phi_{2}(a)\\
+A\cos\xi&=D\ee^{-\eta}\\
+\phi_{1}'(a)&=\phi_{2}'(a)\\
+-Ak\sin\xi&=-D\kappa\ee^{-\eta}\\
+\therefore\ A\frac{k}{\kappa}\sin\xi&=D\ee^{-\eta}\\
+A\Bigl(\cos\xi-\frac{k}{\kappa}\sin\xi\Bigr)&=0\\
+k\tan\xi&=\kappa\\
+\therefore\ ka\tan\xi&=\kappa a\\
+\xi\tan\xi&=\eta
+\end{align*}
+ii) 奇パリティのとき
+\begin{align*}
+\phi_{1}(x)&=A\sin kx\\
+\phi_{1}(a)&=\phi_{2}(a)\\
+A\sin\xi&=D\ee^{-\eta}\\
+\phi_{1}'(a)&=\phi_{2}'(a)\\
+Ak\cos\xi&=-D\kappa\ee^{-\eta}\\
+A\frac{k}{\kappa}\cos\xi&=-D\ee^{-\eta}\\
+A\Bigl(\sin\xi+\frac{k}{\kappa}\cos\xi\Bigr)&=0\\
+\frac{k}{\kappa}\cot\xi&=-1\\
+-ka\cot\xi&=\kappa a\\
+-\xi\cot\xi&=\eta
+\end{align*}
+\begin{align*}
+\xi^{2}+\eta^{2}&=a^{2}\Bigl(\frac{2mE}{\hbar^{2}}+\frac{2m(V_{0}-E)}{\hbar^{2}}\Bigr)\\
+&=\frac{a^{2}(2mV_{0})}{\hbar^{2}}\\
+&=\xi_{0}^{2}
+\end{align*}
+\toi{2}{◎}{}
+（図：$x\tan x$ と $-x\cot x$ の概形の下書き）
+\begin{align*}
+f(x)&=x\tan x\\
+f'(x)&=1\cdot\tan x+x\cdot\frac{1}{\cos^{2}x}\\
+&=x(1+\tan^{2}x)+\tan x
+\end{align*}
+\begin{center}
+\begin{tabular}{c|ccc}
+$x$ & $0$ & $\cdots$ & $\pi/2$\\ \hline
+$f'$ & $0$ & $+$ & \\ \hline
+$f$ & $0$ & $\nearrow$ &
+\end{tabular}
+\end{center}
+\begin{align*}
+g(x)&=-x\cot x\\
+g'(x)&=-\Bigl(1\cdot\cot x+x\cdot\Bigl(-\frac{1}{\sin^{2}x}\Bigr)\Bigr)\\
+&=-\frac{\cos x}{\sin x}+\frac{x}{\sin^{2}x}\\
+&=\frac{x-\sin x\cos x}{\sin^{2}x}\\
+&=\frac{x-\frac{1}{2}\sin 2x}{\sin^{2}x}
+\end{align*}
+\begin{center}
+\begin{tabular}{c|ccccc}
+$x$ & $0$ & & $\pi/2$ & & $\pi$\\ \hline
+$g'$ & & $+$ & & & ---\\ \hline
+$g$ & $-1$ & & $0$ & & $\nearrow$
+\end{tabular}
+\end{center}
+（図：$\xi\eta$ 平面に $\xi\tan\xi$ と $-\xi\cot\xi$ の曲線と，$\xi$ 軸と $\xi_{0}$ で交わる円を描き，$\xi$ 軸に $\pi/2$ と $\xi_{0}$ を記入）
+
+図より，$\xi\tan\xi$ と $\xi^{2}+\eta^{2}=\xi_{0}^{2}$ は必ず交点をもつ。
+
+$\to$ 偶パリティの束縛状態は $\xi_{0}$ によらず必ず存在する。
+
+$-\xi\cot\xi$ と $\xi^{2}+\eta^{2}=\xi_{0}^{2}$ は $\pi/2<\xi_{0}$ で交点をもつ。
+
+$\to$ 奇パリティの条件 $\xi_{0}>\pi/2$
+\toi{3}{○}{記述}
+（図：半径を変えた何本かの円と $\xi\tan\xi$，$-x\cot x$ の枝を描き，$\xi$ 軸の区間に左から偶・奇・偶・奇と記入）
+
+$1/4$ 円の半径を大きくしていくと，交点の数が交互に増えていく。つまり，偶パリティと奇パリティが交互に並ぶ。基底は一番最初に交わる偶パリティ。
+\naze{交点の順がエネルギーの順になる根拠が無い。枝は区間 $(n-1)\pi/2\le\xi<n\pi/2$ を1つずつ占めて各区間に状態は高々1つで，$E=\hbar^{2}\xi^{2}/(2ma^{2})$ は $\xi$ について増えるので，区間の並びがそのままエネルギーの順になる。}
+\[ \ayamari{\frac{n\pi}{2}>\xi_{0}\ge\frac{(n-1)\pi}{2}}{\xi_{0}>\frac{(n-1)\pi}{2}}\quad\text{（条件）} \]
+\naze{これは束縛状態がちょうど $n$ 個ある条件である。$n$ 番目の状態は $n$ 番目の区間の左端が円の内側にあれば存在するので，条件は $\xi_{0}>(n-1)\pi/2$ だけで，上限は要らない。}
+\[ N=\Bigl[\frac{2\xi_{0}}{\pi}+1\Bigr] \]
+\toi{4}{△}{記述}
+基底
+\[ \phi(x)=A\cos kx \]
+（図：井戸の中で $\cos$ の山になり，$x=\pm a$ の外で指数関数的に減る概形）
+
+第1励起
+\[ \phi(x)=B\sin kx \]
+（図：$x=0$ に節を1つもつ奇関数で，井戸の外で0に近づく概形）
+\begin{align*}
+\cos kx&=0\quad\therefore\ kx=\Bigl(l-\frac{1}{2}\Bigr)\pi\\
+&\qquad(\kakimachigai{l=\pm1,\pm2,\pm3}{l=0,\pm1,\pm2,\dots})
+\end{align*}
+$-a<x<a$\qquad$\abs{x}<a$
+\[ \Bigl|\Bigl(l-\frac{1}{2}\Bigr)\pi\Bigr|<\xi<\ayamari{\xi_{0}<\frac{n\pi}{2}}{\frac{n\pi}{2}} \]
+\naze{$n$ 番目の状態で $\xi_{0}<n\pi/2$ とは限らない（さらに上の状態もあり得る）。言えるのは (3) の区間の $(n-1)\pi/2\le\xi<n\pi/2$ である。上の端だけでは節は多くても $n-1$ 個としか言えず，下の端 $\xi\ge(n-1)\pi/2$ から候補の $n-1$ 個がすべて $\abs{x}<a$ に入ることも示す。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+\therefore\ -\frac{n\pi}{2}&<\Bigl(l-\frac{1}{2}\Bigr)\pi<\frac{n\pi}{2}\\
+-n&<2l-1<n\\
+\frac{-n+1}{2}&<l<\frac{n+1}{2}
+\end{align*}
+これを満たす $l$ の数は $n-1$ 個。
+
+奇パリティでも同様になる。
+\naze{奇（$n=2l+2$）では $\sin(\xi x/a)=0$ の点が $x=0$ と片側 $l$ 個ずつで，$x=0$ の節が加わるので数え方が違う。「同様」で済ませず，$2l+1=n-1$ 個と数える。}
+井戸の外は $\ee^{\kappa x}$ か $\ee^{-\kappa x}$ となるため，節はもたない。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第11章 問題4・7・11-20} 個数を数えるときは範囲の両端を使う。上の端だけでは「多くても」しか言えない。節は (3) の区間 $(n-1)\pi/2\le\xi<n\pi/2$ の両端から数え，奇では $x=0$ の節を足す。
+\item 「$n$ 番目が存在する」条件は $\xi_{0}>(n-1)\pi/2$ だけで，「ちょうど $n$ 個」なら上限も付く。答える前に，問われた条件がどちらかを確かめる。
+\item 準位の順は，各区間に状態が高々1つで $E\propto\xi^{2}$ であることから言う。
+\end{kizuki}
+\begin{tadashii}
+\houshin 井戸の中は三角関数，外は減衰する指数関数とし，パリティで形を絞ってから $x=a$ で $\phi'/\phi$ を等しくおく。準位の方程式の各枝が円と交わるかどうかで，束縛状態の有無・順番・数を調べる。
+\keisan
+\shoumonkai{1} 井戸の中（$\abs{x}\le a$）では $V=0$ なので $\phi''=-k^{2}\phi$，外（$\abs{x}>a$）では $\phi''=\kappa^{2}\phi$ である。外の解のうち $\abs{x}\to\infty$ で0になるのは $\ee^{-\kappa\abs{x}}$ だけである。偶パリティと奇パリティの解は，それぞれ次の形になる。
+\[ \phi(x)=\begin{cases} A\cos kx & (\abs{x}\le a)\\ D\ee^{-\kappa\abs{x}} & (\abs{x}>a)\end{cases}\qquad\qquad \phi(x)=\begin{cases} B\sin kx & (\abs{x}\le a)\\ \sgn(x)\,D\ee^{-\kappa\abs{x}} & (\abs{x}>a)\end{cases} \]
+どちらも偶関数か奇関数なので，$x=-a$ での条件は $x=a$ での条件と同じになる。偶パリティでは，$x=a$ での $\phi$ と $\phi'$ の連続から次の2式が出る。
+\[ A\cos ka=D\ee^{-\kappa a},\qquad -kA\sin ka=-\kappa D\ee^{-\kappa a} \]
+$\cos ka=0$ なら第1式から $D=0$，第2式から $A=0$ となり $\phi\equiv 0$ なので，$\cos ka\ne 0$ である。第2式を第1式で割ると $k\tan ka=\kappa$ で，両辺に $a$ を掛けると $\eta=\xi\tan\xi$ となる。奇パリティでは次の2式が出る。
+\[ B\sin ka=D\ee^{-\kappa a},\qquad kB\cos ka=-\kappa D\ee^{-\kappa a} \]
+同様に割ると $k\cot ka=-\kappa$，すなわち $\eta=-\xi\cot\xi$ となる。また，次が成り立つ。
+\[ \xi^{2}+\eta^{2}=a^{2}\left(k^{2}+\kappa^{2}\right)=a^{2}\cdot\frac{2mE+2m(V_{0}-E)}{\hbar^{2}}=\frac{2mV_{0}a^{2}}{\hbar^{2}}=\xi_{0}^{2} \]
+\shoumonkai{2} 束縛状態では $k>0$，$\kappa>0$ なので $\xi>0$，$\eta>0$ である。$l=0,1,2,\dots$ として，偶の曲線 $\eta=\xi\tan\xi$ が正になるのは $l\pi\le\xi<l\pi+\pi/2$ の範囲で，そこでは $\xi$ も $\tan\xi$ も0以上で増えるので，$\eta$ は0から $+\infty$ へ単調に増える。奇の曲線 $\eta=-\xi\cot\xi$ が正になるのは $l\pi+\pi/2\le\xi<(l+1)\pi$ の範囲で，$-\cot\xi$ が0から $+\infty$ へ増えるので，やはり0から $+\infty$ へ単調に増える。一方，円 $\eta=\sqrt{\xi_{0}^{2}-\xi^{2}}$ は $0\le\xi\le\xi_{0}$ で $\xi_{0}$ から0へ単調に減る。
+左端 $\xi=\xi_{\mathrm{s}}$ で $\eta=0$ から始まる枝について，枝から円を引いた差は単調に増える。$\xi_{\mathrm{s}}<\xi_{0}$ なら，左端では差が負（円の方が上）で，枝が $+\infty$ に向かうか円が0に向かうところで正になるので，ちょうど1回交わる。$\xi_{\mathrm{s}}\ge\xi_{0}$ なら円がそこまで届かないので交わらない。したがって，各枝はその左端が $\xi_{0}$ より左にあるときに限り，ちょうど1つの束縛状態を与える。偶の最初の枝（$l=0$）の左端は $\xi=0<\xi_{0}$ なので，偶パリティの束縛状態は $\xi_{0}$ によらず必ず存在する。奇の最初の枝の左端は $\xi=\pi/2$ なので，奇パリティの束縛状態が存在するには $\xi_{0}>\pi/2$ が必要である。
+\zu[$\xi_{0}=4$ の場合。実線は $\eta=\xi\tan\xi$（偶），破線は $\eta=-\xi\cot\xi$（奇），円弧は $\xi^{2}+\eta^{2}=\xi_{0}^{2}$ で，交点（黒丸）が束縛状態]{
+\begin{tikzpicture}
+\begin{scope}[scale=0.8]
+\begin{scope}
+\clip (0,0) rectangle (4.9,4.6);
+\draw[thick,domain=0:1.45,samples=60] plot (\x,{\x*tan(deg(\x))});
+\draw[thick,domain=3.1416:4.2,samples=50] plot (\x,{\x*tan(deg(\x))});
+\draw[thick,dashed,domain=1.5708:3.0,samples=60] plot (\x,{-\x*cot(deg(\x))});
+\draw[hojo] (4,0) arc[start angle=0,end angle=90,radius=4];
+\end{scope}
+\draw[jiku] (0,0) -- (5.1,0) node[right]{$\xi$};
+\draw[jiku] (0,0) -- (0,4.9) node[above]{$\eta$};
+\draw (1.5708,0.08) -- (1.5708,-0.08) node[below]{$\pi/2$};
+\draw (3.1416,0.08) -- (3.1416,-0.08) node[below]{$\pi$};
+\draw (4.7124,0.08) -- (4.7124,-0.08) node[below]{$3\pi/2$};
+\node[left] at (0,4) {$\xi_{0}$};
+\fill (1.2524,3.7989) circle (1.6pt);
+\fill (2.4746,3.1427) circle (1.6pt);
+\fill (3.5953,1.7532) circle (1.6pt);
+\end{scope}
+\end{tikzpicture}}
+\shoumonkai{3} (2) の枝は，$n=1,2,3,\dots$ として区間 $(n-1)\pi/2\le\xi<n\pi/2$ を順に占め，$n$ が奇数なら偶の枝，偶数なら奇の枝である。各区間には束縛状態が高々1つで，エネルギー $E=\hbar^{2}\xi^{2}/(2ma^{2})$ は $\xi$ が大きいほど高い。また，ある区間に束縛状態があれば，それより左の区間（左端がより小さい）にも必ずある。したがって，$n$ 番目に低い束縛状態は $n$ 番目の区間にあり，そのパリティは $n$ が奇数なら偶，偶数なら奇である。偶奇は交互に並び，基底状態（$n=1$）は偶パリティである。$n$ 番目の束縛状態が存在する条件は，区間の左端が円の内側にあること，すなわち $(n-1)\pi/2<\xi_{0}$ である。この条件を満たす $n$ は $n<2\xi_{0}/\pi+1$ なので，束縛状態の数は次のようになる（$\lceil y\rceil$ は $y$ 以上の最小の整数）。
+\[ N=\left\lceil\frac{2\xi_{0}}{\pi}\right\rceil \]
+\shoumonkai{4} 井戸の外では $\phi=\pm D\ee^{-\kappa\abs{x}}$（$D\ne 0$）なので節は無い。井戸の中を調べる。$n=2l+1$（偶パリティ）では $l\pi\le\xi<l\pi+\pi/2$ で，$\phi=A\cos(\xi x/a)$ が0になるのは $\xi\abs{x}/a=\pi/2+l'\pi$（$l'=0,1,\dots$）のときである。$\abs{x}<a$ ではこの値が $\xi$ より小さい必要があり，$l'=0,1,\dots,l-1$ の $l$ 個が当てはまる。正と負の側を合わせて $2l=n-1$ 個である。$n=2l+2$（奇パリティ）では $l\pi+\pi/2\le\xi<(l+1)\pi$ で，$\phi=B\sin(\xi x/a)$ が0になるのは $\xi x/a=l'\pi$ のときである。$\abs{x}<a$ では $x=0$ と，正と負の側にそれぞれ $l'=1,\dots,l$ の $l$ 個があり，合わせて $2l+1=n-1$ 個である。どちらの場合も節は井戸の中に $n-1$ 個である。
+基底状態（$n=1$）は節の無い $\cos$ の山で，$x=\pm a$ でなめらかに減衰する指数関数につながる。第1励起状態（$n=2$）は $x=0$ に節が1つある奇関数の $\sin$ の形で，外では同じく指数関数で0に近づく。
+\zu[$\xi_{0}=2\pi/3$ の井戸（Level 2 の井戸の深さを決める問題）での基底状態（左）と第1励起状態（右）の概形。縦の線は $x=\pm a$（縦の大きさは規格化していない）]{
+\begin{tikzpicture}
+\begin{scope}[xscale=0.65]
+\draw[jiku] (-3.2,0) -- (3.4,0) node[right]{$x$};
+\draw[hojo] (-1,-1.1) -- (-1,1.2);
+\draw[hojo] (1,-1.1) -- (1,1.2);
+\node[below left] at (-1,0) {$-a$};
+\node[below right] at (1,0) {$a$};
+\draw[thick,domain=-1:1,samples=40] plot (\x,{cos(deg(1.0472*\x))});
+\draw[thick,domain=1:3,samples=40] plot (\x,{0.5*exp(-1.8138*(\x-1))});
+\draw[thick,domain=-3:-1,samples=40] plot (\x,{0.5*exp(1.8138*(\x+1))});
+\node[above] at (0,1.2) {基底状態};
+\end{scope}
+\begin{scope}[xshift=5cm,xscale=0.65]
+\draw[jiku] (-3.2,0) -- (3.4,0) node[right]{$x$};
+\draw[hojo] (-1,-1.1) -- (-1,1.2);
+\draw[hojo] (1,-1.1) -- (1,1.2);
+\node[below left] at (-1,0) {$-a$};
+\node[above right] at (1,0) {$a$};
+\draw[thick,domain=-1:1,samples=40] plot (\x,{sin(deg(1.9475*\x))});
+\draw[thick,domain=1:3,samples=40] plot (\x,{0.9299*exp(-0.7705*(\x-1))});
+\draw[thick,domain=-3:-1,samples=40] plot (\x,{-0.9299*exp(0.7705*(\x+1))});
+\node[above] at (0,1.2) {第1励起状態};
+\end{scope}
+\end{tikzpicture}}
+\kotae{\shoumonkai{1} 偶：$\eta=\xi\tan\xi$，奇：$\eta=-\xi\cot\xi$，$\xi^{2}+\eta^{2}=\xi_{0}^{2}$ \shoumonkai{2} 偶パリティの束縛状態は常に存在し，奇パリティには $\xi_{0}>\pi/2$ が必要 \shoumonkai{3} 偶奇が交互で基底状態は偶。$n$ 番目は $(n-1)\pi/2<\xi_{0}$ のとき存在し，$N=\lceil 2\xi_{0}/\pi\rceil$ \shoumonkai{4} 基底状態は節なし，第1励起状態は $x=0$ に節1つ。$n$ 番目は井戸の中に $n-1$ 個，外は指数関数で減衰し節なし}
+\begin{ronten}
+  \item \shoumonkai{1} 井戸の外では $\abs{x}\to\infty$ で0になる指数関数だけを残す理由と，$V$ の跳びが有限なので $x=a$ で $\phi$ と $\phi'$ がともに連続であること，パリティが決まっているので接続条件を $x=a$ だけで課せばよいことを書く。
+  \item \shoumonkai{2} 束縛状態では $\eta>0$ なので各曲線の $\eta>0$ の枝だけを使うことと，枝が単調に増え円が単調に減るので，枝の左端が $\xi_{0}$ より左にあるときに限りちょうど1回交わることを述べる。
+  \item \shoumonkai{3} 各区間に束縛状態が高々1つで，$E$ が $\xi$ について単調に増えることから，区間の並びがエネルギーの順になることと，状態の有無は区間の左端と $\xi_{0}$ の大小だけで決まるので，状態のある区間は左から抜けなく続く（$n$ 番目の状態が $n$ 番目の区間にある）ことを述べる。
+  \item \shoumonkai{4} 井戸の外は係数が0でない指数関数なので節が無いことを述べ，井戸の中の節は，(3) で決まる $\xi$ の範囲を使って $\abs{x}<a$ の範囲で数えることを書く。
+\end{ronten}
+\kenzan 特殊ケース：$\xi_{0}\to\infty$（無限に深い井戸）では，枝が円と交わる点が各区間の右端に近づき $\xi_{n}\to n\pi/2$ となる。このときのエネルギーは次のようになる。
+\[ E_{n}=\frac{\hbar^{2}}{2ma^{2}}\left(\frac{n\pi}{2}\right)^{2}=\frac{n^{2}\pi^{2}\hbar^{2}}{2m(2a)^{2}} \]
+これは幅 $2a$ の無限井戸の準位（第5章）と一致し，節の数 $n-1$ も無限井戸の固有関数と同じである。図の $\xi_{0}=4$ では $N=\lceil 8/\pi\rceil=\lceil 2.55\rceil=3$ で，交点の数3と合う。
+\tsumazuki 奇の枝は $\xi=0$ ではなく $\xi=\pi/2$ から始まる。$\xi_{0}$ がちょうど $(n-1)\pi/2$ のときは $\eta=0$（$E=V_{0}$）となり，束縛状態ではない。$\eta=\xi\tan\xi$ の $\tan\xi<0$ の部分（$\eta<0$）は $\kappa<0$ で外で発散する解なので数えない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\093_2026-11-21.tex
+\mondaibangou{4}
+\begin{mondai}{093-design}{計算}{準位の方程式の逆向きの使い方（基底状態から井戸の深さを決める），井戸の外にしみ出す確率，無限井戸との比較}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+質量 $m$ の粒子が要点整理の有限の深さの井戸（幅 $2a$）の中にある。基底状態の $\xi=ka$ がちょうど $\pi/3$ になるように，深さ $V_{0}$ を決める。
+  \begin{shoumon}
+    \item 基底状態の $\eta$ と，$\xi_{0}$ を求めよ。また，$V_{0}$ を $\hbar$，$m$，$a$ で表し，基底状態のエネルギー $E_{1}$ と $V_{0}$ の比 $E_{1}/V_{0}$ を求めよ。
+    \item この井戸の束縛状態の数と，それぞれのパリティを答えよ。
+    \item 基底状態で，粒子を井戸の外（$\abs{x}>a$）に見いだす確率 $P_{\mathrm{out}}$ を求めよ。根号と $\pi$ を使った厳密な形と，有効数字3桁の値で答えよ。
+    \item 電子で $a=\qty{0.200}{\nano\metre}$ のとき，$V_{0}$ と $E_{1}$ を \unit{\electronvolt} 単位で有効数字3桁で求めよ。また，幅 $2a$ の無限井戸の基底状態のエネルギーを求めて $E_{1}$ と比べ，$E_{1}$ の方が低くなる理由を述べよ。$\qty{1}{\electronvolt}=\qty{1.602e-19}{\joule}$ とする。
+  \end{shoumon}
+\notekiroku{2026-11-21 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-11-21}
+\toi{1}{◎}{}
+\begin{align*}
+\eta&=\xi\tan\xi=\frac{\pi}{3}\tan\frac{\pi}{3}=\frac{\pi}{\sqrt{3}}\\
+\xi_{0}^{2}&=\xi^{2}+\eta^{2}=\frac{\pi^{2}}{9}+\frac{\pi^{2}}{3}\\
+&=\frac{4\pi^{2}}{9}\\
+\xi_{0}&=\frac{2\pi}{3}\\
+\xi_{0}^{2}&=\frac{a^{2}\cdot2mV_{0}}{\hbar^{2}}=\frac{4\pi^{2}}{9}\\
+V_{0}&=\frac{2\pi^{2}\hbar^{2}}{9ma^{2}}\\
+\frac{E_{1}}{V_{0}}&=\frac{\xi^{2}}{\xi_{0}^{2}}=\frac{\frac{1}{9}\pi^{2}}{\frac{4}{9}\pi^{2}}=\frac{1}{4}
+\end{align*}
+\toi{2}{◎}{}
+$\pi/2<\xi_{0}<\pi$ より，束縛状態は2個。
+
+基底（偶）
+
+第1励起（奇）
+\toi{3}{◎}{}
+\begin{align*}
+A\cos\xi&=D\ee^{-\eta}\\
+\frac{A}{2}&=D\ee^{-\pi/\sqrt{3}}
+\end{align*}
+\[ P_{\mathrm{out}}=\frac{2\int_{a}^{\infty}(D\ee^{-\kappa x})^{2}\dd x}{2\int_{0}^{a}A^{2}\cos^{2}kx\dd x+2\int_{a}^{\infty}(D\ee^{-\kappa x})^{2}\dd x} \]
+\begin{align*}
+\int_{0}^{a}A^{2}\cos^{2}kx\dd x&=A^{2}\Bigl[\frac{x}{2}\\
+&\qquad+\kakimachigai{\frac{1}{2k}\sin kx}{\frac{1}{4k}\sin 2kx}\Bigr]_{0}^{a}\\
+&=4D^{2}\ee^{-2\eta}\Bigl(\frac{a}{2}+\frac{1}{2k}\sin\xi\Bigr)\\
+&=D^{2}\ee^{-2\eta}\Bigl(2a+\kakimachigai{\frac{\sqrt{3}}{k}}{\frac{\sqrt{3}}{2k}}\Bigr)
+\end{align*}
+\begin{align*}
+\int_{a}^{\infty}D^{2}\ee^{-2\kappa x}\dd x&=D^{2}\Bigl[-\frac{1}{2\kappa}\ee^{-2\kappa x}\Bigr]_{a}^{\infty}\\
+&=D^{2}\cdot\frac{1}{2\kappa}\ee^{-2\eta}
+\end{align*}
+\begin{align*}
+P_{\mathrm{out}}&=\frac{D^{2}\ee^{-2\eta}\frac{1}{2\kappa}}{D^{2}\ee^{-2\eta}\Bigl(2a+\frac{\sqrt{3}}{k}\Bigr)+D^{2}\ee^{-2\eta}\frac{1}{2\kappa}}\\
+&=\frac{1}{\Bigl(4\kappa a+\sqrt{3}\,\frac{\kappa}{k}\Bigr)+1}
+\end{align*}
+（脇で $\kappa/k=(\pi/\sqrt{3})/(\pi/3)=\sqrt{3}$ を計算）
+\begin{align*}
+&=\frac{1}{\frac{4\pi}{\sqrt{3}}+3+1}\\
+&=\frac{\sqrt{3}}{4(\pi+\sqrt{3})}\\
+&=\num{8.88e-2}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+V_{0}&=\frac{2\pi^{2}\hbar^{2}}{9\melec a^{2}}=\qty{4.18}{\electronvolt}\\
+E_{1}&=\qty{1.05}{\electronvolt}\\
+E_{1}'&=\frac{\pi^{2}\hbar^{2}}{2\melec(2a)^{2}}=\qty{2.35}{\electronvolt}
+\end{align*}
+（図：左に有限の井戸，右に無限井戸の基底状態を描く。有限の井戸では波動関数が壁の外へしみ出して広がり，無限井戸では壁の内側に収まる。それぞれの下に波長を記入）
+
+波長（大）$\to$ $E$ 低い $<$ 波長（小）$\to$ エネルギー高い
+\end{kotaeutsushi}
+\end{mondai}
+
+\noteowari
+\end{document}
