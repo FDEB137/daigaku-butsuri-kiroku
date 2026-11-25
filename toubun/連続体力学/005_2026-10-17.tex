@@ -1,0 +1,43 @@
+% 連続体力学 連続体力学-1 問題5（005-box） 解いた日 2026-10-17
+%% kotae
+\toi{1}{◎}{}
+（図：微小な直方体。辺 $\Delta x_{1}$・$\Delta x_{2}$・$\Delta x_{3}$，$x_{1}$ の面と $x_{1}+\Delta x_{1}$ の面に外向きの法線 $\vect{n}$）
+\begin{align*}
+&\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S\\
+&=\int_{S:x_{1}}\rho\vect{u}\cdot(-\vect{e}_{1})\,\dd S\\
+&\qquad+\int_{S:x_{1}+\Delta x_{1}}\rho\vect{u}\cdot\vect{e}_{1}\,\dd S\\
+&=-\int\rho u_{1}(x_{1},x_{2},x_{3},t)\,\dd S\\
+&\qquad+\int\rho u_{1}(x_{1}+\Delta x_{1},x_{2},x_{3},t)\,\dd S\\
+&=\bigl(\rho u_{1}(x_{1}+\Delta x_{1})-\rho u_{1}(x_{1})\bigr)\Delta x_{2}\Delta x_{3}
+\end{align*}
+\begin{align*}
+\rho u_{1}(x_{1}+\Delta x_{1})&=\rho u_{1}(x_{1})+\pdv{(\rho u_{1})}{x_{1}}\kakimachigai{\Delta x}{\Delta x_{1}}\\
+&\qquad+O(\Delta x^{2})
+\end{align*}
+より
+\begin{align*}
+\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S&=\pdv{(\rho u_{1})}{x_{1}}\underbrace{\Delta x_{1}\Delta x_{2}\Delta x_{3}}_{\Delta V}\\
+&=\pdv{(\rho u_{1})}{x_{1}}\Delta V
+\end{align*}
+\toi{2}{○}{記述}
+(1) より，流出の合計は
+\begin{align*}
+&\Bigl(\pdv{(\rho u_{1})}{x_{1}}+\pdv{(\rho u_{2})}{x_{2}}+\pdv{(\rho u_{3})}{x_{3}}\Bigr)\Delta V\\
+&=\vect{\nabla}\cdot(\rho\vect{u})\Delta V
+\end{align*}
+流入量は $\pdv{\rho}{t}\Delta V$ で書けるので\nuke{質量保存則}
+\naze{「流入量は $\partial\rho/\partial t\,\Delta V$」の根拠が要る。直方体は空間に固定されているので，中の質量 $\rho\,\Delta V$ の時間変化は Euler 微分で $\Delta V\,\partial\rho/\partial t$ と書け，質量保存則によりそれが流入量（流出量の符号を変えたもの）に等しい。}
+\[ \pdv{\rho}{t}\Delta V+\vect{\nabla}\cdot(\rho\vect{u})\Delta V=0 \]
+\[ \therefore\ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\toi{3}{◎}{}
+（図：太さの変わる管。左の断面 $A_{1}$ に外向きの法線 $-\vect{e}$，右の細い断面に法線 $\vect{e}$，間の領域 $V$。上流は $\rho_{1}$，$U_{1}$，下流は $\rho_{2}$，$U_{2}$）
+\[ \pdv{}{t}\int_{V}\rho\,\dd V=-\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S \]
+定常 $\to$
+\[ 0=-\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S \]
+\[ \therefore\ \int_{S:A_{1}}\rho\vect{u}\cdot(-\vect{e})\,\dd S+\int_{S:A_{2}}\rho\vect{u}\cdot\vect{e}\,\dd S=0 \]
+\[ \therefore\ -\rho_{1}U_{1}A_{1}+\rho_{2}U_{2}A_{2}=0 \]
+\[ U_{2}=\frac{\rho_{1}A_{1}}{\rho_{2}A_{2}}U_{1} \]
+$\rho_{1}=\rho_{2}$ のとき
+\[ U_{2}=\frac{A_{1}}{A_{2}}U_{1} \]
+%% kizuki
+\item 固定した領域の中の質量の時間変化は $\pdv{}{t}\int_{V}\rho\,\dd V$（微小直方体なら $\Delta V\,\partial\rho/\partial t$）で，偏微分になるのは領域が固定されているからである。これが流入量に等しいのが質量保存則で，(2) ではこの2つを書いてから式を等号で結ぶ。

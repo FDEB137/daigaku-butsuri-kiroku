@@ -1,0 +1,40 @@
+% 熱物理学 熱物理学-10 問題1（076-u-model） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+（図：熱力学の四角形。上段に $S$，$U$，$V$，左に $H$，右に $F$，下段に $p$，$G$，$T$ を置き，対角線に矢印）
+\begin{align*}
+\dd U&=\left(\pdv{U}{S}\right)_{V,n}\dd S+\left(\pdv{U}{V}\right)_{S,n}\dd V\\
+&\qquad+\left(\pdv{U}{n}\right)_{S,V}\dd n\\
+&=T\dd S-p\dd V+\mu\dd n
+\end{align*}
+\begin{align*}
+\therefore\ \left(\pdv{U}{S}\right)_{V,n}&=T, \qquad \left(\pdv{U}{V}\right)_{S,n}=-p,\\
+\left(\pdv{U}{n}\right)_{S,V}&=\mu
+\end{align*}
+\[ T=\frac{3KS^{2}}{nV}, \qquad p=\frac{KS^{3}}{nV^{2}}, \qquad \mu=-\frac{KS^{3}}{n^{2}V} \]
+\toi{2}{◎}{}
+\begin{align*}
+U&=TS-pV+\mu n\\
+&=\frac{3KS^{3}}{nV}-\frac{KS^{3}}{nV}-\frac{KS^{3}}{nV}\\
+&=\frac{KS^{3}}{nV}
+\end{align*}
+より満たす。
+\toi{3}{◎}{}
+\[ T=\frac{3KS^{2}}{nV}\ \text{より，}\ S=\sqrt{\frac{nVT}{3K}} \]
+\begin{align*}
+p(T,V,n)&=\frac{K}{nV^{2}}\left(\frac{nVT}{3K}\right)^{3/2}\\
+&=\left(\frac{T}{3}\right)^{3/2}\left(\frac{n}{KV}\right)^{1/2}
+\end{align*}
+\begin{align*}
+U(T,V,n)&=\frac{K}{nV}\left(\frac{nVT}{3K}\right)^{3/2}\\
+&=\left(\frac{T}{3}\right)^{3/2}\left(\frac{nV}{K}\right)^{1/2}
+\end{align*}
+\begin{align*}
+C_{V}&=T\left(\pdv{S}{T}\right)_{V,n}\\
+&=T\cdot\frac{1}{2}\kakimachigai{\sqrt{\frac{nVT}{3K}}}{\sqrt{\frac{nV}{3KT}}}\\
+&=\frac{1}{2}\sqrt{\frac{nVT}{3K}}\\
+&=\frac{1}{2}\left(\frac{T}{3}\right)^{1/2}\left(\frac{nV}{K}\right)^{1/2}\\
+&=\frac{1}{2}\left(\frac{T}{3}\right)^{-1}U\\
+&=\frac{3U}{2T}
+\end{align*}
+%% kizuki

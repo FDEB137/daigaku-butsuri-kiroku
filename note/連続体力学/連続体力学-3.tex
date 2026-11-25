@@ -1,0 +1,439 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{連続体力学　第3回「応力テンソルと歪みテンソル」}{2026-11-25}
+%% note-moto	problems\連続体力学\kai03\連続体力学-3.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-018-grad}{1}}{L1・計算}{◎◎◎◎}{S}{2026-10-28}
+  \ichirangyou{\hyperlink{bt-m-019-rigid}{2}}{L1・導出}{○◎○}{B}{2026-10-28 (1)記述 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-020-sym}{3}}{L1・計算}{◎◎△}{B}{2026-10-28 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-021-types}{4}}{L1・説明}{◎◎○△}{B}{2026-10-28 (3)記述 (4)方針}
+  \ichirangyou{\hyperlink{bt-m-022-decomp}{5}}{L2・導出}{◎△◎◎}{A}{2026-10-28 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-023-bend}{6}}{L2・計算}{◎◎◎◎}{S}{2026-10-28}
+  \ichirangyou{\hyperlink{bt-m-024-shear}{7}}{L2・計算}{◎◎△}{B}{2026-10-28 (3)方針}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L3・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 応力テンソルの対称性 % 出典: p.10
+    \[ P_{ij}=P_{ji} \notetag{3} \]
+  \item 変形勾配テンソルの成分 % 出典: p.19
+    \[ D_{ij}=\pdv{r_i(\vect{x})}{x_j} \notetag{13} \]
+  \item 歪みテンソル（対称部分） % 出典: p.20
+    \[ E_{ij}=\frac{1}{2}\left(\pdv{r_i}{x_j}+\pdv{r_j}{x_i}\right) \notetag{16} \]
+  \item 回転テンソル（反対称部分） % 出典: p.20
+    \[ F_{ij}=\frac{1}{2}\left(\pdv{r_i}{x_j}-\pdv{r_j}{x_i}\right) \notetag{17} \]
+  \item 回転ベクトルの成分 % 出典: p.33
+    \[ 2F_{32}=(\vect{\nabla}\times\vect{r})_1=\Omega_1 \notetag{33} \]
+    \[ 2F_{13}=(\vect{\nabla}\times\vect{r})_2=\Omega_2 \notetag{34} \]
+    \[ 2F_{21}=(\vect{\nabla}\times\vect{r})_3=\Omega_3 \notetag{35} \]
+  \item 回転テンソルの回転ベクトルによる表示 % 出典: p.34
+    \[ \tens{F}=\begin{pmatrix} 0 & -\frac{1}{2}\Omega_3 & \frac{1}{2}\Omega_2\\ \frac{1}{2}\Omega_3 & 0 & -\frac{1}{2}\Omega_1\\ -\frac{1}{2}\Omega_2 & \frac{1}{2}\Omega_1 & 0 \end{pmatrix} \notetag{37} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\連続体力学\018_2026-10-28.tex
+\mondaibangou{1}
+\begin{mondai}{018-grad}{計算}{変位場から変形勾配・歪み・回転テンソルと回転ベクトルを求める}
+連続体の変位場が，定数 $a,b,c$（$\abs{a},\abs{b},\abs{c}\ll1$）を用いて
+  \[ \vect{r}(\vect{x})=(a x_1+b x_3,\ 0,\ c x_1) \]
+  で与えられている。
+  \begin{shoumon}
+    \item 変形勾配テンソル $\tens{D}$ を行列で書け。
+    \item 歪みテンソル $\tens{E}$ と回転テンソル $\tens{F}$ を求めよ。
+    \item $\tens{F}$ の成分から回転ベクトル $\vect{\Omega}$ を求め，$\vect{\nabla}\times\vect{r}$ を直接計算した結果と一致することを確かめよ。
+    \item $\tens{F}=0$ となる条件と，$\tens{E}=0$ となる条件を求めよ。また $\tens{E}=0$ のとき，この変形はどの座標軸のまわりの，どの向きの，どれだけの角度の回転か答えよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ \tens{D}=\begin{pmatrix}a&0&b\\0&0&0\\c&0&0\end{pmatrix} \]
+\toi{2}{◎}{}
+\[ \tens{E}=\begin{pmatrix}a&0&\frac{b+c}{2}\\0&0&0\\\frac{b+c}{2}&0&0\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}0&0&\frac{b-c}{2}\\0&0&0\\\frac{c-b}{2}&0&0\end{pmatrix} \]
+\toi{3}{◎}{}
+\[ \Omega_{1}=0,\quad \Omega_{2}=b-c,\quad \Omega_{3}=0 \]
+\begin{align*}
+\vect{\nabla}\times\vect{r}&=\biggl(\pdv{}{x_{2}}cx_{1}-\pdv{}{x_{3}}0,\\
+&\qquad\pdv{}{x_{3}}(ax_{1}+bx_{3})-\pdv{}{x_{1}}cx_{1},\\
+&\qquad\pdv{}{x_{1}}0-\pdv{}{x_{2}}(ax_{1}+bx_{3})\biggr)\\
+&=(0,\ b-c,\ 0)
+\end{align*}
+\toi{4}{◎}{}
+\[ \tens{F}=0\quad\therefore\ b=c \]
+\[ \tens{E}=0\quad a=0\text{ かつ }c=-b \]
+$\tens{E}=0$ のとき
+\[ \tens{F}=\begin{pmatrix}0&0&b\\0&0&0\\-b&0&0\end{pmatrix} \]
+$x_{2}$ 軸　反時計　角度 $b$
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\019_2026-10-28.tex
+\mondaibangou{2}
+\begin{mondai}{019-rigid}{導出}{平行移動は変形を生まず，微小な剛体回転は回転テンソルだけを持つこと（回転角は $\Omega$ の半分）}
+定ベクトル $\vect{c}$ と定数 $\theta$（$\abs{\theta}\ll1$）を用いて，変位場
+  \[ \vect{r}(\vect{x})=\vect{c}+\theta\,\vect{e}_3\times\vect{x} \]
+  を考える。
+  \begin{shoumon}
+    \item $\vect{r}$ の成分を書き，近接2点の変形 $\delta\vect{r}=\vect{r}(\vect{x}+\delta\vect{x})-\vect{r}(\vect{x})$ を $\delta\vect{x}$ の成分で表せ。$\vect{c}$ が $\delta\vect{r}$ に現れないことを示し，その物理的な意味を述べよ。
+    \item $\tens{D}$，$\tens{E}$，$\tens{F}$ と回転ベクトル $\vect{\Omega}$ を求め，$x_3$ 軸まわりの回転角と $\Omega_3$ の関係を示せ。
+    \item 有限の角度 $\theta$ の $x_3$ 軸まわりの回転では，点 $\vect{x}$ は $(x_1\cos\theta-x_2\sin\theta,\ x_1\sin\theta+x_2\cos\theta,\ x_3)$ へ移る。この変位場について $\tens{E}$ を求め，その0でない成分が $\theta$ について何次の微小量かを答えよ。そこから，(2) の結論が成り立つ条件を述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 B ○◎○}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{○}{記述}
+\[ \vect{r}=\begin{pmatrix}c_{1}-\theta x_{2}\\c_{2}+\theta x_{1}\\c_{3}\end{pmatrix} \]
+\begin{align*}
+\delta\vect{r}&=\begin{pmatrix}c_{1}-\theta(x_{2}+\delta x_{2})\\c_{2}+\theta(x_{1}+\delta x_{1})\\c_{3}\end{pmatrix}-\begin{pmatrix}c_{1}-\theta x_{2}\\c_{2}+\theta x_{1}\\c_{3}\end{pmatrix}\\
+&=\begin{pmatrix}-\theta\,\delta x_{2}\\\theta\,\delta x_{1}\\0\end{pmatrix}
+\end{align*}
+$\delta\vect{r}$ は変位だから
+\naze{文が途中で切れていて，問われている $\vect{c}$ の物理的な意味が書かれていない。$\vect{c}$ は全部の点を同じだけ動かす平行移動で，2点の変位の差 $\delta\vect{r}$ に入らないので変形を生まない，まで書く。}
+\toi{2}{◎}{}
+\[ \tens{D}=\begin{pmatrix}0&-\theta&0\\\theta&0&0\\0&0&0\end{pmatrix} \]
+\[ \tens{E}=0,\quad \tens{F}=\begin{pmatrix}0&-\theta&0\\\theta&0&0\\0&0&0\end{pmatrix} \]
+\[ \vect{\Omega}=(0,\ 0,\ 2\theta),\quad \Omega_{3}=2\theta \]
+\toi{3}{○}{記述}
+\begin{align*}
+\vect{r}&=\bigl(x_{1}(\cos\theta-1)-x_{2}\sin\theta,\\
+&\qquad x_{1}\sin\theta+x_{2}(\cos\theta-1),\ 0\bigr)
+\end{align*}
+\[ \tens{D}=\begin{pmatrix}\cos\theta-1&-\sin\theta&0\\\sin\theta&\cos\theta-1&0\\0&0&0\end{pmatrix} \]
+\[ \tens{E}=\begin{pmatrix}\cos\theta-1&0&0\\0&\cos\theta-1&0\\0&0&0\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}0&-\sin\theta&0\\\sin\theta&0&0\\0&0&0\end{pmatrix} \]
+\[ \cos\theta-1=\ayamari{1-\frac{1}{2!}\theta^{2}}{-\frac{1}{2!}\theta^{2}}+\frac{1}{4!}\theta^{4}\cdots \]
+\naze{左辺は $\cos\theta-1$ なので定数項の 1 は打ち消し合い，正しくは $\cos\theta-1=-\theta^{2}/2!+\theta^{4}/4!-\cdots$ である（書いた右辺は $\cos\theta$ の展開）。「2次」はこの正しい展開から言える。}
+2次　$\theta\ll1$
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第2回 問題3 (3)・10-24} 小問の後半の「物理的な意味を述べよ」を途中で止めた（前回も後半の「説明せよ」を書かずに止めた）。$\vect{c}$ は全点を同じだけ動かす平行移動で，2点の変位の差 $\delta\vect{r}$ に入らないので変形を生まない，まで1文で書き切る。答える前に問いの「示せ」「述べよ」を数え，答えの数とそろえる。
+\item 展開を書いたら $\theta=0$ を代入して両辺が一致するかを確かめる。$\cos\theta-1$ は $\theta=0$ で 0 なので，右辺に定数項 1 が残っていれば誤りである。
+\end{kizuki}
+\begin{tadashii}
+\houshin 変形の定義から $\delta\vect{r}$ を直接計算し，\noteshiki{13}・\noteshiki{16}・\noteshiki{17}・\noteshiki{35} で各テンソルと回転ベクトルを求める。(3) は有限回転の変位場で $\tens{E}$ を計算する。
+\keisan \shoumonkai{1} $\vect{e}_3\times\vect{x}=(-x_2,x_1,0)$ なので
+\[ \vect{r}(\vect{x})=(c_1-\theta x_2,\ c_2+\theta x_1,\ c_3). \]
+差をとると，定数 $c_1,c_2,c_3$ は打ち消し合い
+\[ \delta\vect{r}=\vect{r}(\vect{x}+\delta\vect{x})-\vect{r}(\vect{x})=(-\theta\,\delta x_2,\ \theta\,\delta x_1,\ 0) \]
+となる（変位場が $\vect{x}$ の1次式なので，この式は近似なしに成り立つ）。$\vect{c}$ は全点を同じだけ動かす平行移動で，2点の変位の差を変えないので変形を生まない。
+
+\shoumonkai{2} 0 でない成分は $D_{12}=\pdv{r_1}{x_2}=-\theta$ と $D_{21}=\pdv{r_2}{x_1}=\theta$。$\tens{D}$ は反対称なので
+\[ \tens{E}=0,\qquad \tens{F}=\tens{D}=\begin{pmatrix} 0 & -\theta & 0\\ \theta & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}. \]
+\noteshiki{35} より $\Omega_3=2F_{21}=2\theta$，$\Omega_1=\Omega_2=0$。よって $\vect{\Omega}=2\theta\,\vect{e}_3$ で，$x_3$ 軸まわりの回転角 $\theta$ は $\Omega_3/2$ に等しい。
+
+\shoumonkai{3} 変位は移った先の位置から元の位置を引いたものなので
+\[ r_1=x_1(\cos\theta-1)-x_2\sin\theta,\qquad r_2=x_1\sin\theta+x_2(\cos\theta-1),\qquad r_3=0. \]
+偏微分すると $D_{11}=D_{22}=\cos\theta-1$，$D_{12}=-\sin\theta$，$D_{21}=\sin\theta$，他は0。対称部分は
+\[ E_{11}=E_{22}=\cos\theta-1=-\frac{\theta^{2}}{2}+O(\theta^{4}),\qquad E_{12}=\frac{-\sin\theta+\sin\theta}{2}=0 \]
+で，0 でない成分は $\theta$ の2次の微小量である。したがって「剛体回転では $\tens{E}=0$」は $\theta$ の1次まで（微小変形の範囲）で成り立つ結論であり，$\theta^{2}$ が無視できない大きな回転には使えない。
+\kotae{\shoumonkai{1} $\delta\vect{r}=(-\theta\,\delta x_2,\ \theta\,\delta x_1,\ 0)$。平行移動 $\vect{c}$ は変形を生まない \shoumonkai{2} $D_{12}=-\theta$，$D_{21}=\theta$；$\tens{E}=0$，$\tens{F}=\tens{D}$；$\vect{\Omega}=2\theta\,\vect{e}_3$，回転角 $\theta=\Omega_3/2$ \shoumonkai{3} $E_{11}=E_{22}=\cos\theta-1\simeq-\theta^{2}/2$（2次），他は0。$\abs{\theta}\ll1$ で2次を無視できるとき}
+\kenzan $\theta\to0$ で $\tens{D}\to0$（変形なし）。(3) で $\theta$ の1次までとると $D_{12}=-\theta$，$D_{21}=\theta$，$D_{11}=D_{22}=0$ となり (2) に一致する。$\delta\vect{r}\cdot\delta\vect{x}=-\theta\,\delta x_1\delta x_2+\theta\,\delta x_2\delta x_1=0$ で，点は回転の円周方向に動いている。
+\tsumazuki 有限回転の $\tens{E}$ が0にならないのは，変形勾配から歪みを $\tens{E}=(\tens{D}+\tens{D}^{\mathrm{T}})/2$ と定めたのが微小変形の近似だからである。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\020_2026-10-28.tex
+\mondaibangou{3}
+\begin{mondai}{020-sym}{計算}{応力テンソルの対称性と，応力ベクトルの法線成分・接線成分}
+ある点の応力テンソルの成分が，定数 $p_0,\tau,\sigma$ を用いて
+  \[ \tens{P}=\begin{pmatrix} -p_0 & \tau & P_{13}\\ P_{21} & -p_0 & 0\\ \sigma & P_{32} & -p_0 \end{pmatrix} \]
+  と分かっている（$P_{13},P_{21},P_{32}$ は未知）。$p_0$ は圧力の大きさを表す定数で，応力ベクトルの成分 $p_i$ とは別の量である。応力ベクトルは $\vect{p}(\vect{x},\vect{n})=\tens{P}\cdot\vect{n}$ で与えられる。
+  \begin{shoumon}
+    \item 応力テンソルの対称性を用いて $P_{13},P_{21},P_{32}$ を求めよ。また，一般の応力テンソルの独立な成分は何個か。
+    \item 単位法線ベクトル $\vect{n}=(\vect{e}_1+\vect{e}_2)/\sqrt{2}$ の面に働く応力ベクトル $\vect{p}$ を求めよ。
+    \item $\vect{p}$ の法線方向の成分 $\vect{p}\cdot\vect{n}$ と，面に平行な成分の大きさを求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 B ◎◎△}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ P_{21}=\tau,\quad P_{13}=\sigma,\quad P_{32}=0 \]
+6
+\toi{2}{◎}{}
+\[ \vect{p}=\tens{P}\cdot\vect{n}=\frac{1}{\sqrt{2}}(-p_{0}+\tau,\ \tau-p_{0},\ \sigma) \]
+\toi{3}{△}{計算}
+\[ \vect{p}\cdot\vect{n}=\frac{1}{2}(\kakimachigai{-p}{-p_{0}}+\tau+\tau-p_{0})=\tau-p_{0} \]
+\begin{align*}
+\abs{\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}}&=\Biggl|\nuke{\tfrac{1}{\sqrt{2}}}\begin{pmatrix}-p_{0}+\tau\\-p_{0}+\tau\\\sigma\end{pmatrix}\\
+&\qquad-(-p_{0}+\tau)\begin{pmatrix}1/\sqrt{2}\\1/\sqrt{2}\\0\end{pmatrix}\Biggr|\\
+&=\Biggl|\ayamari{\begin{pmatrix}\frac{1}{\sqrt{2}}(-p_{0}+\tau)\\\frac{1}{\sqrt{2}}(-p_{0}+\tau)\\\sigma\end{pmatrix}}{(0,\,0,\,\sigma/\sqrt{2})}\Biggr|\\
+&=\sqrt{(-p_{0}+\tau)^{2}+\sigma^{2}}
+\end{align*}
+\naze{$\vect{p}$ を写すときに (2) の係数 $1/\sqrt{2}$ が落ちている。また引き算は成分ごとに行い，第1・第2成分は $(\tau-p_{0})/\sqrt{2}-(\tau-p_{0})/\sqrt{2}=0$ で消える（書いた式のままでも第1成分は $(1-1/\sqrt{2})(\tau-p_{0})$ で，$(\tau-p_{0})/\sqrt{2}$ にはならない）。正しくは $(0,0,\sigma/\sqrt{2})$ で，大きさは $\abs{\sigma}/\sqrt{2}$。以降はこの誤りを引き継ぐ。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 面に平行な成分は $\vect{p}_{t}=\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}$ を成分ごとに引き切る。結果が $\vect{p}_{t}\cdot\vect{n}=0$ を満たすか，$\abs{\vect{p}}^{2}=(\vect{p}\cdot\vect{n})^{2}+\abs{\vect{p}_{t}}^{2}$ になるかで検算する（書いた答えの2乗 $(\tau-p_{0})^{2}+\sigma^{2}$ は $\abs{\vect{p}}^{2}=(\tau-p_{0})^{2}+\sigma^{2}/2$ より大きく，あり得ない）。
+\item \mae{第2回 問題1 (2)・10-24} 応力ベクトルの成分の扱いで，前回は $\tau$ の符号を誤り，今回は $\vect{p}$ を書き写すときに $1/\sqrt{2}$ を落とした。前の小問の結果を使うときは係数ごと写し（$\vect{p}=\frac{1}{\sqrt{2}}(\ldots)$），1成分ずつ書き出して引く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 応力テンソルの対称性 \noteshiki{3} で未知成分を決め，$\vect{p}=\tens{P}\cdot\vect{n}$ を成分で計算する。法線成分は内積，接線成分は残りのベクトルの大きさ。
+\keisan \shoumonkai{1} $P_{13}=P_{31}=\sigma$，$P_{21}=P_{12}=\tau$，$P_{32}=P_{23}=0$。
+\[ \tens{P}=\begin{pmatrix} -p_0 & \tau & \sigma\\ \tau & -p_0 & 0\\ \sigma & 0 & -p_0 \end{pmatrix}. \]
+対称性により，9個の成分のうち独立なのは対角3個と非対角3個の6個である。
+
+\shoumonkai{2} $n_1=n_2=1/\sqrt{2}$，$n_3=0$ なので
+\[ p_i=\sum_{j=1}^{3}P_{ij}n_j=\frac{1}{\sqrt{2}}\left(P_{i1}+P_{i2}\right). \]
+各成分は
+\[ p_1=\frac{-p_0+\tau}{\sqrt{2}},\qquad p_2=\frac{\tau-p_0}{\sqrt{2}},\qquad p_3=\frac{\sigma+0}{\sqrt{2}}. \]
+\shoumonkai{3} 法線成分は
+\[ \vect{p}\cdot\vect{n}=\frac{1}{2}\bigl[(\tau-p_0)+(\tau-p_0)\bigr]=\tau-p_0. \]
+面に平行な成分は
+\[ \vect{p}-(\vect{p}\cdot\vect{n})\vect{n}=\frac{1}{\sqrt{2}}(\tau-p_0,\ \tau-p_0,\ \sigma)-\frac{\tau-p_0}{\sqrt{2}}(1,\ 1,\ 0)=\left(0,\ 0,\ \frac{\sigma}{\sqrt{2}}\right) \]
+で，大きさは $\abs{\sigma}/\sqrt{2}$。
+\kotae{\shoumonkai{1} $P_{13}=\sigma$，$P_{21}=\tau$，$P_{32}=0$。独立な成分は6個 \shoumonkai{2} $\vect{p}=\frac{1}{\sqrt{2}}(\tau-p_0,\ \tau-p_0,\ \sigma)$ \shoumonkai{3} 法線成分 $\tau-p_0$，面に平行な成分の大きさ $\abs{\sigma}/\sqrt{2}$}
+\kenzan $\abs{\vect{p}}^{2}=(\tau-p_0)^{2}+\sigma^{2}/2$ は，法線成分の2乗 $(\tau-p_0)^{2}$ と接線成分の2乗 $\sigma^{2}/2$ の和に等しい。$\tau=\sigma=0$（静止流体，$\tens{P}=-p_0\tens{I}$）なら $\vect{p}=-p_0\vect{n}$ で，圧力は面を押す向きに働く。
+\tsumazuki $\vect{p}\cdot\vect{n}=\tau-p_0$ は，圧力 $p_0$ だけでなく剪断成分 $\tau$ も含む。面の向きを変えると，非対角成分が法線成分に入ってくる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\021_2026-10-28.tex
+\mondaibangou{4}
+\begin{mondai}{021-types}{説明}{変形勾配テンソルの形から変形の種類を読み取り，図示する}
+定数 $\varepsilon,\gamma,\theta$ はいずれも正で $1$ より十分小さい。次の4つの変形勾配テンソルを考える（書いていない成分は0）。
+  \[ \text{(a)}\ D_{22}=-\varepsilon,\qquad \text{(b)}\ D_{13}=D_{31}=\frac{\gamma}{2},\qquad \text{(c)}\ D_{32}=\theta,\ D_{23}=-\theta,\qquad \text{(d)}\ D_{11}=D_{22}=D_{33}=\varepsilon \]
+  \begin{shoumon}
+    \item (a)〜(d) のそれぞれについて，$\tens{E}$ と $\tens{F}$ が0かどうかを答え，どのような変形か（伸縮・剪断・回転など）を述べよ。
+    \item (a) について，$x_1$--$x_2$ 面内で一辺 $\ell$ の正方形（2辺が $x_1$ 軸・$x_2$ 軸に沿い，1つの頂点が原点）が変形後にどうなるかを図示せよ。原点は動かないものとする。
+    \item (b) について，$x_1$--$x_3$ 面内で同様の正方形が変形後にどうなるかを図示せよ。
+    \item (c) について，回転ベクトル $\vect{\Omega}$ を求め，どの軸のまわりに，どちら向きに，どれだけ回転するかを答えよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 B ◎◎○△}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+(a) $\tens{E}\neq0$，$\tens{F}=0$　伸縮
+
+(b) $\tens{E}\neq0$，$\tens{F}=0$　純粋剪断
+
+(c) $\tens{E}=0$，$\tens{F}\neq0$　回転
+
+(d) $\tens{E}\neq0$，$\tens{F}=0$　多軸伸縮
+\toi{2}{◎}{}
+（図：$x_{1}$ 軸・$x_{2}$ 軸に沿う一辺 $\ell$ の正方形 → 横 $\ell$・縦 $\ell(1-\varepsilon)$ の長方形）
+\toi{3}{○}{記述}
+（図：$x_{1}$ 軸・$x_{3}$ 軸に沿う一辺 $\ell$ の正方形 → ひし形。頂点に $(\nuke{\ell}\gamma/2,\ \ell)$ と $(\ell,\ \nuke{\ell}\gamma/2)$）
+\naze{座標は長さなので，無次元の $\gamma/2$ には $\ell$ が掛かる。正しくは $(\gamma\ell/2,\ \ell)$，$(\ell,\ \gamma\ell/2)$ である。}
+\toi{4}{△}{方針}
+\[ \vect{\Omega}=(2\theta,\ 0,\ 0) \]
+$x_{1}$ 軸まわり　反時計　$\ayamari{2\theta}{\theta}$ 回転
+\naze{回転角は $\vect{\Omega}$ の大きさの半分で，$\Omega_{1}/2=\theta$ である（$\tens{F}\cdot\delta\vect{x}=\frac{1}{2}\vect{\Omega}\times\delta\vect{x}$ の $\frac{1}{2}$）。$\tens{D}$ から $\delta\vect{r}=(0,-\theta\,\delta x_{3},\theta\,\delta x_{2})$ を作ると，角度 $\theta$ の回転だと確かめられる。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 回転角は $\abs{\vect{\Omega}}$ の半分である。$\tens{F}\cdot\delta\vect{x}=\frac{1}{2}\vect{\Omega}\times\delta\vect{x}$ と，角度 $\phi$ の微小回転 $\delta\vect{r}=\phi\,\vect{e}\times\delta\vect{x}$（$\vect{e}$ は回転軸の単位ベクトル）を比べると $\phi=\abs{\vect{\Omega}}/2$ になる。問題1 (4) ではできていたので，$\vect{\Omega}$ を求めたら「角度はその半分」と書く手順を毎回入れる。
+\item \mae{第1回 問題6 (4)・10-21} 回転の読み取りの誤り（前回は向き，今回は角度）。回転は $\tens{D}$ から1点の $\delta\vect{r}$ を作り，向きと角度の両方を確かめる。
+\item 図に座標を書いたら次元を確かめる。変位は「無次元の歪み $\times$ 長さ」なので，$\gamma/2$ には $\ell$ が掛かる（(3)）。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\tens{D}$ の対称・反対称を見て $\tens{E}$，$\tens{F}$ を判定し，$\delta\vect{r}=\tens{D}\cdot\delta\vect{x}$ で正方形の頂点の移動を計算する。
+\keisan \shoumonkai{1} (a) 対角成分だけなので対称：$\tens{F}=0$，$\tens{E}=\tens{D}\neq0$。$\delta r_2=-\varepsilon\,\delta x_2$ で，$x_2$ 方向だけの一軸の縮み（圧縮）。(b) $D_{13}=D_{31}$ で対称：$\tens{F}=0$，$\tens{E}\neq0$。$x_1$--$x_3$ 面内の純粋剪断。(c) $D_{23}=-D_{32}$ で反対称：$\tens{E}=0$，$\tens{F}=\tens{D}\neq0$。$x_1$ 軸まわりの回転。(d) 対角で対称：$\tens{F}=0$。3軸方向に同じ割合 $\varepsilon$ で伸びる，等方的な膨張（多軸伸長で3軸が等しい場合）。
+
+\shoumonkai{2} 頂点 $(\ell,0)$ は動かず，$(0,\ell)$ と $(\ell,\ell)$ は $\delta r_2=-\varepsilon\ell$ だけ下がる。正方形は，横 $\ell$・縦 $(1-\varepsilon)\ell$ の長方形になる（下図左）。
+
+\shoumonkai{3} $(x_1,x_3)$ 座標で，$\delta r_1=\frac{\gamma}{2}\delta x_3$，$\delta r_3=\frac{\gamma}{2}\delta x_1$。頂点 $(\ell,0)$ は $(\ell,\frac{\gamma}{2}\ell)$ へ，$(0,\ell)$ は $(\frac{\gamma}{2}\ell,\ell)$ へ，$(\ell,\ell)$ は $\bigl((1+\gamma/2)\ell,\ (1+\gamma/2)\ell\bigr)$ へ移る。$x_1$ 軸に沿う辺は $x_3$ 側へ，$x_3$ 軸に沿う辺は $x_1$ 側へ，同じ角度 $\gamma/2$ ずつ傾き，正方形は対角線について対称なひし形になる（下図右）。
+\zu[(a) $x_2$ 方向の圧縮（左，$x_1$--$x_2$ 面）と (b) 純粋剪断（右，$x_1$--$x_3$ 面）。破線が変形前，実線が変形後（変形は誇張して描いた）]{
+ \begin{tikzpicture}
+  \draw[jiku] (0,0) -- (2.4,0) node[right] {$x_1$};
+  \draw[jiku] (0,0) -- (0,2.3) node[above] {$x_2$};
+  \draw[hojo] (0,0) rectangle (1.6,1.6);
+  \draw[thick] (0,0) rectangle (1.6,1.2);
+  \node[below] at (0.8,0) {$\ell$};
+  \node[right] at (1.6,0.6) {$(1-\varepsilon)\ell$};
+  \begin{scope}[xshift=5cm]
+    \draw[jiku] (0,0) -- (2.6,0) node[right] {$x_1$};
+    \draw[jiku] (0,0) -- (0,2.6) node[above] {$x_3$};
+    \draw[hojo] (0,0) rectangle (1.6,1.6);
+    \draw[thick] (0,0) -- (1.6,0.4) -- (2.0,2.0) -- (0.4,1.6) -- cycle;
+    \node[right] at (1.6,0.4) {$(\ell,\frac{\gamma}{2}\ell)$};
+    \node[above] at (0.4,1.6) {$(\frac{\gamma}{2}\ell,\ell)$};
+  \end{scope}
+ \end{tikzpicture}
+}
+\shoumonkai{4} $F_{32}=(D_{32}-D_{23})/2=\theta$，$F_{13}=F_{21}=0$ なので，\noteshiki{33}--\noteshiki{35} より $\vect{\Omega}=(2\theta,0,0)$。$\delta\vect{r}=(0,-\theta\,\delta x_3,\theta\,\delta x_2)$ で，$x_2$ 軸上の点は $+x_3$ 向き，$x_3$ 軸上の点は $-x_2$ 向きに動く。$x_1$ 軸まわりに，$x_2$ 軸が $x_3$ 軸に向かう向き（$+x_1$ から見て反時計回り）に角度 $\Omega_1/2=\theta$ の回転である。
+\kotae{\shoumonkai{1} (a) $\tens{F}=0$：$x_2$ 方向の一軸圧縮 (b) $\tens{F}=0$：$x_1$--$x_3$ 面の純粋剪断 (c) $\tens{E}=0$：$x_1$ 軸まわりの回転 (d) $\tens{F}=0$：等方的な膨張 \shoumonkai{2} 横 $\ell$・縦 $(1-\varepsilon)\ell$ の長方形 \shoumonkai{3} 2辺が互いに $\gamma/2$ ずつ傾いたひし形 \shoumonkai{4} $\vect{\Omega}=(2\theta,0,0)$。$x_1$ 軸まわりに $x_2\to x_3$ の向きへ角度 $\theta$}
+\kenzan (c) で $\delta\vect{r}\cdot\delta\vect{x}=-\theta\,\delta x_2\delta x_3+\theta\,\delta x_3\delta x_2=0$ となり，長さを変えない回転と整合する。(b) の図は対角線 $x_1=x_3$ について対称で，$\tens{E}$ が対称であることと合う。
+\tsumazuki (b) の純粋剪断では2辺が互いに逆向きに傾く。一方の辺だけが傾く単純剪断（$D_{13}$ だけが0でない場合など）とは別の変形である。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\連続体力学\022_2026-10-28.tex
+\mondaibangou{5}
+\begin{mondai}{022-decomp}{導出}{変形勾配テンソルの導出，対称・反対称分解の一意性，回転テンソルの作用が回転ベクトルとの外積になること}
+変位場 $\vect{r}(\vect{x})$ は滑らかで，変形は微小であるとする。
+  \begin{shoumon}
+    \item 近接2点の変形 $\delta\vect{r}=\vect{r}(\vect{x}+\delta\vect{x})-\vect{r}(\vect{x})$ を $\delta\vect{x}$ について1次まで展開し，$\delta\vect{r}\simeq\tens{D}\cdot\delta\vect{x}$ となること，$D_{ij}$ が1点 $\vect{x}$ だけで決まることを示せ。
+    \item 任意の $\tens{D}$ は，対称テンソル $\tens{E}$ と反対称テンソル $\tens{F}$ の和 $\tens{D}=\tens{E}+\tens{F}$ にただ一通りに分けられることを示し，$\tens{E}$，$\tens{F}$ を $\tens{D}$ とその転置 $\tens{D}^{\mathrm{T}}$（成分 $(\tens{D}^{\mathrm{T}})_{ij}=D_{ji}$）で表せ。
+    \item 回転ベクトル $\vect{\Omega}=\vect{\nabla}\times\vect{r}$ を用いて，任意の $\delta\vect{x}$ に対して
+    \[ \tens{F}\cdot\delta\vect{x}=\frac{1}{2}\vect{\Omega}\times\delta\vect{x} \]
+    が成り立つことを成分で示せ。
+    \item $\tens{E}$ と $\tens{F}$ の独立な成分はそれぞれ何個か。(3) と合わせて，$\tens{F}$ の独立な成分が何で表されるかを述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 A ◎△◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\begin{align*}
+r_{1}(\vect{x}+\delta\vect{x})-r_{1}(\vect{x})&=\pdv{r_{1}}{x_{1}}\delta x_{1}+\pdv{r_{1}}{x_{2}}\delta x_{2}\\
+&\qquad+\pdv{r_{1}}{x_{3}}\delta x_{3}\\
+r_{2}(\vect{x}+\delta\vect{x})-r_{2}(\vect{x})&=\pdv{r_{2}}{x_{1}}\delta x_{1}+\pdv{r_{2}}{x_{2}}\delta x_{2}\\
+&\qquad+\pdv{r_{2}}{x_{3}}\delta x_{3}\\
+r_{3}(\vect{x}+\delta\vect{x})-r_{3}(\vect{x})&=\pdv{r_{3}}{x_{1}}\delta x_{1}+\pdv{r_{3}}{x_{2}}\delta x_{2}\\
+&\qquad+\pdv{r_{3}}{x_{3}}\delta x_{3}
+\end{align*}
+\[ \therefore\ \vect{r}(\vect{x}+\delta\vect{x})-\vect{r}(\vect{x})=\tens{D}\cdot\delta\vect{x} \]
+\[ D_{ij}=\pdv{r_{i}}{x_{j}} \]
+\kakimachigai{$r_{i}$}{$D_{ij}$} は $\vect{x}$ によってのみ決まる。
+\toi{2}{△}{記述}
+\[ \tens{E}=\frac{1}{2}(\tens{D}+\tens{D}^{\mathrm{T}}) \]
+\[ \tens{F}=\frac{1}{2}(\tens{D}-\tens{D}^{\mathrm{T}}) \]
+\nuke{一意性の証明}
+\naze{問われている「ただ一通りに分けられること」の証明が無い。別の分け方 $\tens{D}=\tens{E}'+\tens{F}'$（$\tens{E}'$ 対称，$\tens{F}'$ 反対称）があると仮定すると $\tens{E}-\tens{E}'=\tens{F}'-\tens{F}$ で，左辺は対称，右辺は反対称なので，この量は対称かつ反対称で 0 になる。よって $\tens{E}'=\tens{E}$，$\tens{F}'=\tens{F}$ である。}
+\toi{3}{◎}{}
+\[ (\tens{F}\cdot\delta\vect{x})_{1}=-\frac{1}{2}\Omega_{3}\,\delta x_{2}+\frac{1}{2}\Omega_{2}\,\delta x_{3} \]
+\[ \frac{1}{2}(\vect{\Omega}\times\delta\vect{x})_{1}=\frac{1}{2}(\Omega_{2}\,\delta x_{3}-\Omega_{3}\,\delta x_{2}) \]
+他成分も同様に一致
+\toi{4}{◎}{}
+$\tens{E}$ … 6　$\tens{F}$ … 3
+
+回転ベクトル
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「ただ一通りに分けられる」は，別の分け方 $\tens{D}=\tens{E}'+\tens{F}'$ があると仮定し，$\tens{E}-\tens{E}'=\tens{F}'-\tens{F}$ の左辺が対称・右辺が反対称なので両方 0，と示す。分け方を1つ見つけること（存在）と，それしか無いこと（一意性）は別の主張である。
+\item \mae{第2回 問題4 (2)・10-24} 「示せ」の主張の要の段を書かずに終えた（前回は $f_{i}=0$ を出す背理法，今回は一意性）。問題文の「示し」「表せ」を数え，答えの数とそろえる。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は Taylor 展開，(2) は「対称かつ反対称なテンソルは0」を使う。(3) は \noteshiki{37} の $\tens{F}$ を $\delta\vect{x}$ に掛けて外積と成分ごとに比べる。
+\keisan \shoumonkai{1} 各成分 $r_i$ を $\vect{x}$ のまわりで展開すると
+\[ r_i(\vect{x}+\delta\vect{x})=r_i(\vect{x})+\sum_{j=1}^{3}\pdv{r_i(\vect{x})}{x_j}\delta x_j+O\bigl((\delta x)^{2}\bigr). \]
+したがって
+\[ \delta r_i=\sum_{j=1}^{3}D_{ij}\,\delta x_j+O\bigl((\delta x)^{2}\bigr),\qquad D_{ij}=\pdv{r_i(\vect{x})}{x_j}. \]
+2次以上を無視すると $\delta\vect{r}\simeq\tens{D}\cdot\delta\vect{x}$ である。$D_{ij}$ は点 $\vect{x}$ での変位場の微分であり，相対位置 $\delta\vect{x}$ に依らない。よって $\tens{D}$ は1点 $\vect{x}$ の関数（場）になる。
+
+\shoumonkai{2} 存在：$\tens{E}=(\tens{D}+\tens{D}^{\mathrm{T}})/2$，$\tens{F}=(\tens{D}-\tens{D}^{\mathrm{T}})/2$ とおくと，$E_{ji}=E_{ij}$，$F_{ji}=-F_{ij}$ で，和は $\tens{D}$ になる。
+
+一意性：別の分け方 $\tens{D}=\tens{E}'+\tens{F}'$（$\tens{E}'$ 対称，$\tens{F}'$ 反対称）があるとすると
+\[ \tens{E}-\tens{E}'=\tens{F}'-\tens{F}. \]
+左辺は対称，右辺は反対称なので，この量 $\tens{G}$ は $G_{ij}=G_{ji}$ と $G_{ij}=-G_{ji}$ を同時に満たし，$G_{ij}=0$。よって $\tens{E}'=\tens{E}$，$\tens{F}'=\tens{F}$ で，分け方はただ一通りである。
+
+\shoumonkai{3} \noteshiki{37} より，第1成分は
+\[ (\tens{F}\cdot\delta\vect{x})_1=F_{12}\,\delta x_2+F_{13}\,\delta x_3=-\frac{1}{2}\Omega_3\,\delta x_2+\frac{1}{2}\Omega_2\,\delta x_3. \]
+外積の第1成分は
+\[ \left(\frac{1}{2}\vect{\Omega}\times\delta\vect{x}\right)_1=\frac{1}{2}\left(\Omega_2\,\delta x_3-\Omega_3\,\delta x_2\right) \]
+で，一致する。第2・第3成分も同様に計算すると
+\begin{align*}
+(\tens{F}\cdot\delta\vect{x})_2&=F_{21}\,\delta x_1+F_{23}\,\delta x_3=\frac{1}{2}\left(\Omega_3\,\delta x_1-\Omega_1\,\delta x_3\right)=\left(\frac{1}{2}\vect{\Omega}\times\delta\vect{x}\right)_2,\\
+(\tens{F}\cdot\delta\vect{x})_3&=F_{31}\,\delta x_1+F_{32}\,\delta x_2=\frac{1}{2}\left(\Omega_1\,\delta x_2-\Omega_2\,\delta x_1\right)=\left(\frac{1}{2}\vect{\Omega}\times\delta\vect{x}\right)_3.
+\end{align*}
+\shoumonkai{4} 対称な $\tens{E}$ は対角3個と非対角3個で6個，反対称な $\tens{F}$ は対角が0で $F_{21},F_{13},F_{32}$ の3個（合計9個で $\tens{D}$ の成分数と一致）。(3) より，$\tens{F}$ の3個の独立な成分は回転ベクトル $\vect{\Omega}$ の3成分で表され，$\tens{F}$ による変形は角速度ベクトルのような外積 $\frac{1}{2}\vect{\Omega}\times\delta\vect{x}$，すなわち $\vect{\Omega}$ を軸とする角度 $\abs{\vect{\Omega}}/2$ の微小回転である。
+\kotae{\shoumonkai{1} $\delta\vect{r}\simeq\tens{D}\cdot\delta\vect{x}$，$D_{ij}=\pdv{r_i(\vect{x})}{x_j}$（$\delta\vect{x}$ に依らない） \shoumonkai{2} $\tens{E}=(\tens{D}+\tens{D}^{\mathrm{T}})/2$，$\tens{F}=(\tens{D}-\tens{D}^{\mathrm{T}})/2$（一意） \shoumonkai{3} 成分ごとに一致（本文） \shoumonkai{4} $\tens{E}$ は6個，$\tens{F}$ は3個で，$\vect{\Omega}$ の3成分で表される}
+\kenzan (3) を $x_3$ 軸まわりの回転（$\Omega_3$ だけが0でない場合）に当てはめると
+\[ \frac{1}{2}\vect{\Omega}\times\delta\vect{x}=\frac{1}{2}\Omega_3(-\delta x_2,\ \delta x_1,\ 0) \]
+で，要点整理の回転の変形 $\delta r_1=-\frac{1}{2}\Omega_3\delta x_2$，$\delta r_2=\frac{1}{2}\Omega_3\delta x_1$ に一致する。次元：$\tens{D}$，$\vect{\Omega}$ は無次元で，両辺とも長さの次元。
+\tsumazuki 展開の係数 $\pdv{r_i}{x_j}$ を $\vect{x}+\delta\vect{x}$ で評価しても違いは $\delta\vect{x}$ の1次で，$\delta\vect{r}$ への寄与は2次になるので無視できる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\023_2026-10-28.tex
+\mondaibangou{6}
+\begin{mondai}{023-bend}{計算}{位置によって変わる変形勾配と，歪み（伸縮）と局所的な回転の分離}
+薄い板を $x_1$--$x_2$ 面内でわずかに曲げたときの変位場が，正の定数 $\kappa$ を用いて
+  \[ \vect{r}(\vect{x})=\left(-\kappa x_1x_2,\ \frac{\kappa}{2}x_1^{2},\ 0\right) \]
+  で与えられている。考える範囲で $\abs{\kappa x_1}\ll1$，$\abs{\kappa x_2}\ll1$ とする。
+  \begin{shoumon}
+    \item 点 $\vect{x}$ での変形勾配テンソル $\tens{D}$ を求めよ。
+    \item 歪みテンソル $\tens{E}$，回転テンソル $\tens{F}$，回転ベクトル $\vect{\Omega}$ を求めよ。
+    \item $x_1$ 方向の短い線分要素 $\delta\vect{x}=\delta x_1\vect{e}_1$ の変形 $\delta\vect{r}$ を，$\tens{E}$ による部分と $\tens{F}$ による部分に分けて書け。また，$x_1$ 方向に伸びる領域，縮む領域，伸び縮みしない線を答えよ。
+    \item 変形前の直線 $x_2=0$ は，変形後に $x_1$ の関数としてどのような曲線になるか。その曲線の各点での傾き（$x_1$ 軸からの角度）が，その点での局所的な回転角 $\Omega_3/2$ に等しいことを示せ。
+  \end{shoumon}
+\notekiroku{2026-10-28 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ \tens{D}=\begin{pmatrix}-\kappa x_{2}&-\kappa x_{1}&0\\\kappa x_{1}&0&0\\0&0&0\end{pmatrix} \]
+\toi{2}{◎}{}
+\[ \tens{E}=\begin{pmatrix}-\kappa x_{2}&0&0\\0&0&0\\0&0&0\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}0&-\kappa x_{1}&0\\\kappa x_{1}&0&0\\0&0&0\end{pmatrix} \]
+\[ \vect{\Omega}=(0,\ 0,\ 2\kappa x_{1}) \]
+\toi{3}{◎}{}
+\[ \tens{E}\cdot\delta\vect{x}=(-\kappa x_{2}\,\delta x_{1},\ 0,\ 0) \]
+\[ \tens{F}\cdot\delta\vect{x}=(0,\ \kappa x_{1}\,\delta x_{1},\ 0) \]
+（図：正方形 → 上辺が短く下辺が長い台形）
+
+$x_{2}>0$ … 縮む
+
+$x_{2}<0$ … 伸びる
+
+$x_{2}=0$ … 変化なし
+\toi{4}{◎}{}
+\[ x_{2}=\int\kappa x_{1}\,\dd x_{1}=\frac{1}{2}\kappa x_{1}^{2}\quad\text{放物線} \]
+\[ \dv{x_{2}}{x_{1}}=\kappa x_{1},\quad \frac{\Omega_{3}}{2}=\kappa x_{1} \]
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\024_2026-10-28.tex
+\mondaibangou{7}
+\begin{mondai}{024-shear}{計算}{単純剪断が純粋剪断と回転の和であること（逆向きの組み立て）と図示}
+$x_2$--$x_3$ 面内の純粋剪断を表す歪みテンソル
+  \[ E_{23}=E_{32}=\frac{\gamma}{2}\quad(\text{他の成分は}0,\ 0<\gamma\ll1) \]
+  と，$x_1$ 軸方向の回転ベクトル $\vect{\Omega}=\Omega_1\vect{e}_1$ に対応する回転テンソル $\tens{F}$ を足し合わせて，変形勾配テンソル $\tens{D}=\tens{E}+\tens{F}$ を作る。
+  \begin{shoumon}
+    \item $\tens{F}$ の成分を $\Omega_1$ で表し，$\tens{D}$ を求めよ。
+    \item $\tens{D}$ の0でない成分がちょうど1つになるような $\Omega_1$ をすべて求めよ。それぞれについて $\tens{D}$ と変形 $\delta\vect{r}$ の成分を書け。
+    \item (2) のうち $\Omega_1>0$ の場合について，$x_2$--$x_3$ 面内で一辺 $\ell$ の正方形（2辺が $x_2$ 軸・$x_3$ 軸に沿い，1つの頂点が原点。原点は動かない）が変形後にどうなるかを図示せよ。また，この変形に含まれる回転の向きと角度を答えよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 B ◎◎△}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ \tens{F}=\begin{pmatrix}0&0&0\\0&0&-\frac{1}{2}\Omega_{1}\\0&\frac{1}{2}\Omega_{1}&0\end{pmatrix} \]
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&\frac{1}{2}(\gamma-\Omega_{1})\\0&\frac{1}{2}(\gamma+\Omega_{1})&0\end{pmatrix} \]
+\toi{2}{◎}{}
+\[ \Omega_{1}=\pm\gamma \]
+i) $\Omega_{1}=+\gamma$
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&0\\0&\gamma&0\end{pmatrix} \]
+\[ \delta\vect{r}=\tens{D}\cdot\delta\vect{x}=(0,\ 0,\ \gamma\,\delta x_{2}) \]
+ii) $\Omega_{1}=-\gamma$
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&\gamma\\0&0&0\end{pmatrix} \]
+\[ \delta\vect{r}=\tens{D}\cdot\delta\vect{x}=(0,\ \gamma\,\delta x_{3},\ 0) \]
+\toi{3}{△}{方針}
+（図：$x_{2}$ 軸を右，$x_{3}$ 軸を上にとった一辺 $\ell$ の正方形 →（$\tens{E}$）→ 頂点 $(\ell,\ \nuke{\ell}\gamma/2)$ のひし形 →（$\tens{F}$）→ $x_{3}$ 軸に沿う辺が立ったままで，$x_{2}$ 軸に沿う辺が $x_{3}$ 側へ傾いた平行四辺形。回転の矢印に $\Omega_{1}$）
+
+$x_{1}$ 軸まわり　反時計　角度 $\ayamari{\Omega_{1}}{\Omega_{1}/2=\gamma/2}$
+\naze{回転角は $\Omega_{1}$ の半分で $\gamma/2$ である（$\gamma$ で答える）。図の頂点も $\ell$ が抜けていて，正しくは $(\ell,\ \gamma\ell/2)$。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 問題4 (4) と同じく，回転角は $\abs{\vect{\Omega}}$ の半分である。単純剪断 $D_{32}=\gamma$ は，2辺が $\gamma/2$ ずつ近づく純粋剪断と，角度 $\gamma/2$ の回転の和で，$\gamma$ 全部が回転ではない。
+\item 図の頂点の座標は，問題4 (3) と同じく歪みに $\ell$ を掛けて書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin \noteshiki{37} で $\tens{F}$ を $\Omega_1$ で書き，$\tens{E}$ に足す。0 でない成分が1つになる条件を課し，$\delta\vect{r}=\tens{D}\cdot\delta\vect{x}$ で図示する。
+\keisan \shoumonkai{1} $\Omega_2=\Omega_3=0$ とおくと，\noteshiki{37} より $F_{32}=\Omega_1/2$，$F_{23}=-\Omega_1/2$，他は0。よって
+\[ \tens{D}=\begin{pmatrix} 0 & 0 & 0\\ 0 & 0 & \frac{\gamma-\Omega_1}{2}\\ 0 & \frac{\gamma+\Omega_1}{2} & 0 \end{pmatrix}. \]
+\shoumonkai{2} $\gamma>0$ なので，$D_{23}$ と $D_{32}$ が同時に0になることはない。どちらか一方を0にする。
+
+$\Omega_1=\gamma$ のとき：$D_{23}=0$，$D_{32}=\gamma$。$\delta\vect{r}=(0,\ 0,\ \gamma\,\delta x_2)$。
+
+$\Omega_1=-\gamma$ のとき：$D_{32}=0$，$D_{23}=\gamma$。$\delta\vect{r}=(0,\ \gamma\,\delta x_3,\ 0)$。
+
+どちらも，一方向の変位がそれと垂直な座標に比例する単純剪断である。
+
+\shoumonkai{3} $\Omega_1=\gamma$ の場合，$(x_2,x_3)$ 座標で頂点 $(\ell,0)$ は $(\ell,\gamma\ell)$ へ，$(\ell,\ell)$ は $(\ell,(1+\gamma)\ell)$ へ移り，$x_3$ 軸上の頂点 $(0,\ell)$ は動かない。$x_3$ 軸に沿う辺はそのままで，$x_2$ 軸に沿う辺が $x_3$ 側へ角度 $\gamma$ だけ傾き，正方形は平行四辺形になる（下図）。含まれる回転は $x_1$ 軸まわりに，$x_2$ 軸が $x_3$ 軸に向かう向き（$+x_1$ から見て反時計回り）の角度 $\Omega_1/2=\gamma/2$ である。これは，2辺がそれぞれ $\gamma/2$ ずつ互いに近づく純粋剪断に，全体を $\gamma/2$ 回す回転を加えると，$x_3$ 軸に沿う辺の傾きは打ち消され，$x_2$ 軸に沿う辺の傾きは $\gamma$ になることに対応する。
+\zu[$\Omega_1=\gamma$ の単純剪断（$x_2$--$x_3$ 面）。破線が変形前，実線が変形後（変形は誇張して描いた）]{
+ \begin{tikzpicture}
+  \draw[jiku] (0,0) -- (2.4,0) node[right] {$x_2$};
+  \draw[jiku] (0,0) -- (0,2.8) node[above] {$x_3$};
+  \draw[hojo] (0,0) rectangle (1.6,1.6);
+  \draw[thick] (0,0) -- (1.6,0.48) -- (1.6,2.08) -- (0,1.6) -- cycle;
+  \node[right] at (1.6,0.48) {$(\ell,\gamma\ell)$};
+  \node[right] at (1.6,2.08) {$(\ell,(1+\gamma)\ell)$};
+  \node[left] at (0,1.6) {$\ell$};
+ \end{tikzpicture}
+}
+\kotae{\shoumonkai{1} $F_{32}=-F_{23}=\Omega_1/2$；$D_{23}=(\gamma-\Omega_1)/2$，$D_{32}=(\gamma+\Omega_1)/2$，他は0 \shoumonkai{2} $\Omega_1=\gamma$：$D_{32}=\gamma$，$\delta\vect{r}=(0,0,\gamma\,\delta x_2)$；$\Omega_1=-\gamma$：$D_{23}=\gamma$，$\delta\vect{r}=(0,\gamma\,\delta x_3,0)$ \shoumonkai{3} $x_2$ 軸に沿う辺が $x_3$ 側へ $\gamma$ 傾いた平行四辺形。$x_1$ 軸まわりに $x_2\to x_3$ の向きへ角度 $\gamma/2$}
+\kenzan 逆向きの確認：$D_{32}=\gamma$ だけの $\tens{D}$ を分解すると $E_{23}=E_{32}=\gamma/2$，$F_{32}=\gamma/2$ で，\noteshiki{33} より $\Omega_1=2F_{32}=\gamma$。設定に戻る。また $\vect{\nabla}\times\vect{r}$ の第1成分
+\[ \pdv{r_3}{x_2}-\pdv{r_2}{x_3}=\gamma \]
+とも一致する。平行四辺形は底辺 $\ell$・高さ $\ell$ を保つので面積は変わらない。
+\tsumazuki 回転角は $\Omega_1=\gamma$ ではなく $\gamma/2$。また $\Omega_1$ の符号で単純剪断のずれる向き（$x_3$ 方向か $x_2$ 方向か）が入れ替わる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

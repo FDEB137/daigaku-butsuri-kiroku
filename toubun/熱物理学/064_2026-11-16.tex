@@ -1,0 +1,48 @@
+% 熱物理学 熱物理学-8 問題6（064-tp-entropy） 解いた日 2026-11-16
+%% kotae
+\toi{1}{◎}{}
+\[ \dd S=\frac{C_{p}}{T}\dd T-V\alpha\,\dd p \]
+\begin{align*}
+\frac{\partial}{\partial p}\left(\frac{C_{p}}{T}\right)_{T}&=\frac{\partial}{\partial T}(-V\alpha)_{p}\\
+&=-\frac{\partial}{\partial T}\left(\pdv{V}{T}\right)_{p}\\
+&=-\frac{\partial}{\partial T}\left(\frac{nR}{p}\right)_{p}\\
+&=0
+\end{align*}
+よって $C_{p}$ は $p$ に依存しない。
+\toi{2}{◎}{}
+\begin{align*}
+\left(\pdv{H}{p}\right)_{T}&=V-T\left(\pdv{V}{T}\right)_{p}\\
+&=V-T\cdot\frac{nR}{p}\\
+&=nb
+\end{align*}
+\begin{align*}
+\dd H&=\left(\pdv{H}{p}\right)_{T}\dd p+\left(\pdv{H}{T}\right)_{p}\dd T\\
+&=nb\,\dd p+C_{p}\,\dd T
+\end{align*}
+\[ H=nbp+nc_{p}T+H_{0} \]
+\toi{3}{○}{立式}
+\[ \dd S=\frac{nc_{p}}{T}\dd T-\frac{nR}{p}\dd p \]
+\begin{align*}
+S(T,p)&=nc_{p}\ln\ayamari{T}{\frac{T}{T_{0}}}\\
+&\qquad-nR\ln\ayamari{p}{\frac{p}{p_{0}}}+S_{0}
+\end{align*}
+\naze{問題は $S_{0}$ を基準 $(T_{0},p_{0})$ でのエントロピーと指定している。この式に $T=T_{0}$，$p=p_{0}$ を入れても $S_{0}$ にならず，$S_{0}$ がただの積分定数になっている（$\ln T$，$\ln p$ は次元のある量の対数でもある）。$(T_{0},p_{0})$ から積分して $S=nc_{p}\ln(T/T_{0})-nR\ln(p/p_{0})+S_{0}$ とする。}
+\toi{4}{○}{記述}
+$U=H-pV$ より，
+\begin{align*}
+U(T,p)&=nbp+nc_{p}T+H_{0}\\
+&\qquad-nRT-nbp\\
+&=n(c_{p}-R)T+H_{0}
+\end{align*}
+\[ \left(\pdv{U}{T}\right)_{\ayamari{p}{V}}=n(c_{p}-R)=C_{V} \]
+\[ \therefore\ C_{p}-C_{V}=nR \]
+\[ \alpha=V^{-1}\left(\pdv{V}{T}\right)_{p}=\frac{nR}{pV} \]
+\[ \kappa_{T}=-V^{-1}\left(\pdv{V}{p}\right)_{T}=\frac{nRT}{p^{2}V} \]
+\begin{align*}
+\frac{TV\alpha^{2}}{\kappa_{T}}&=\frac{TV\left(\frac{nR}{pV}\right)^{2}}{\frac{nRT}{p^{2}V}}\\
+&=\frac{n^{2}R^{2}Tp^{2}V^{2}}{nRTp^{2}V^{2}}=nR
+\end{align*}
+\naze{$C_{V}$ は $(\partial U/\partial T)_{V}$ であり，圧力一定の微分ではない。ここで値が一致するのは $U$ が $T$ だけの関数（$(\partial U/\partial V)_{T}=0$）だからで，「$U$ は $T$ だけの関数なので $(\partial U/\partial T)_{V}=\dd U/\dd T=n(c_{p}-R)$」と書く。}
+%% kizuki
+\item \mae{第3章 問題6 (1)・11-12} 偏微分は何を固定するかまでが定義である。$C_{V}=(\partial U/\partial T)_{V}$，$C_{p}=(\partial H/\partial T)_{p}$ であり，$(\partial U/\partial T)_{p}=(\partial U/\partial T)_{V}+(\partial U/\partial V)_{T}(\partial V/\partial T)_{p}$ なので一般には $(\partial U/\partial T)_{p}\neq C_{V}$。この気体では $U$ が $V$ によらないので一致する，と理由を書く。偏微分を書くたびに，添字が定義と合っているかを確かめる。
+\item 「基準 $(T_{0},p_{0})$ での値を $S_{0}$ とする」と指定されたら，積分の下端を基準状態にして $\ln(T/T_{0})$ の形で書く。$T=T_{0}$，$p=p_{0}$ を入れて $S=S_{0}$ になるかで検算する。

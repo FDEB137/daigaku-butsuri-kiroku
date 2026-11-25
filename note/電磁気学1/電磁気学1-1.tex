@@ -1,0 +1,318 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{電磁気学1　第1章「ベクトル解析（ベクトルの代数・微分・曲線座標）」}{2026-11-25}
+%% note-moto	problems\電磁気学1\shou01\電磁気学1-1.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-002-bunkai}{1}}{L1・計算}{◎◎◎}{S}{2026-10-11}
+  \ichirangyou{\hyperlink{bt-m-003-bibun}{2}}{L1・計算}{◎◎◎◎}{S}{2026-10-11}
+  \ichirangyou{\hyperlink{bt-m-006-kitei}{3}}{L1・計算}{◎◎◎}{S}{2026-10-20 2回目}
+  \ichirangyou{\hyperlink{bt-m-007-shisuu}{4}}{L2・導出}{△◎}{C}{2026-10-11 ヒント2 (1)記述}
+  \ichirangyou{\hyperlink{bt-m-008-kyoku}{5}}{L2・計算}{◎△◎◎×}{C}{2026-10-11 (2)計算 (5)立式}
+  \ichirangyou{6}{L3・導出}{}{未着手}{}
+  \ichirangyou{7}{L3・計算}{}{未着手}{}
+  \ichirangyou{8}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item BAC-CAB 則 % 出典: p.8
+    \[ \vect{A}\times(\vect{B}\times\vect{C}) = \vect{B}(\vect{A}\cdot\vect{C}) - \vect{C}(\vect{A}\cdot\vect{B}) \notetag{1.1} \]
+  \item 全微分と勾配 % 出典: p.9
+    \[ \dd f = (\nabla f)\cdot\dd\vect{r} \notetag{1.2} \]
+  \item 勾配の回転 % 出典: p.10
+    \[ \nabla\times\nabla f = \vect{0} \notetag{1.3} \]
+  \item 回転の発散 % 出典: p.10
+    \[ \nabla\cdot(\nabla\times\vect{V}) = 0 \notetag{1.4} \]
+  \item 外積の成分表示 % 出典: p.12
+    \[ \vect{a}\times\vect{b} = \epsilon_{ijk}a_ib_j\,\hat{\vect{e}}_k \notetag{1.5} \]
+  \item $\delta_{ij}$ と $\epsilon_{ijk}$ の等式 % 出典: p.12
+    \[ \delta_{ii} = 3, \qquad \epsilon_{ijk}\epsilon_{ijk} = 6, \qquad \epsilon_{ijk}\epsilon_{ilm} = \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl} \notetag{1.6} \]
+  \item 円柱座標の基底の微分 % 出典: p.14
+    \[ \pdv{\hat{\vect{\rho}}}{\varphi} = \hat{\vect{\varphi}}, \qquad \pdv{\hat{\vect{\varphi}}}{\varphi} = -\hat{\vect{\rho}} \notetag{1.8} \]
+  \item 極座標の勾配 % 出典: p.16
+    \[ \nabla f = \pdv{f}{r}\hat{\vect{r}} + \frac{1}{r}\pdv{f}{\theta}\hat{\vect{\theta}} + \frac{1}{r\sin\theta}\pdv{f}{\phi}\hat{\vect{\phi}} \notetag{1.9} \]
+  \item 極座標の発散 % 出典: p.16
+    \[ \nabla\cdot\vect{V} = \frac{1}{r^2}\pdv{(r^2V_r)}{r} + \frac{1}{r\sin\theta}\pdv{(\sin\theta\,V_\theta)}{\theta} + \frac{1}{r\sin\theta}\pdv{V_\phi}{\phi} \notetag{1.10} \]
+  \item 極座標の回転 % 出典: p.16
+    \[ \begin{aligned}
+      \nabla\times\vect{V} &= \frac{1}{r\sin\theta}\left(\pdv{(\sin\theta\,V_\phi)}{\theta} - \pdv{V_\theta}{\phi}\right)\hat{\vect{r}} + \frac{1}{r}\left(\frac{1}{\sin\theta}\pdv{V_r}{\phi} - \pdv{(rV_\phi)}{r}\right)\hat{\vect{\theta}} \\
+      &\quad + \frac{1}{r}\left(\pdv{(rV_\theta)}{r} - \pdv{V_r}{\theta}\right)\hat{\vect{\phi}}
+    \end{aligned} \notetag{1.11} \]
+  \item 極座標のラプラシアン % 出典: p.16
+    \[ \nabla^2 f = \frac{1}{r^2}\pdv{}{r}\left(r^2\pdv{f}{r}\right) + \frac{1}{r^2\sin\theta}\pdv{}{\theta}\left(\sin\theta\pdv{f}{\theta}\right) + \frac{1}{r^2\sin^2\theta}\pdv[2]{f}{\phi} \notetag{1.12} \]
+  \item 外積の発散 % 出典: p.10
+    \[ \nabla\cdot(\vect{A}\times\vect{B}) = \vect{B}\cdot(\nabla\times\vect{A}) - \vect{A}\cdot(\nabla\times\vect{B}) \notetag{1.15} \]
+  \item 外積の回転 % 出典: p.10
+    \[ \nabla\times(\vect{A}\times\vect{B}) = (\vect{B}\cdot\nabla)\vect{A} - \vect{B}(\nabla\cdot\vect{A}) + \vect{A}(\nabla\cdot\vect{B}) - (\vect{A}\cdot\nabla)\vect{B} \notetag{1.16} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\電磁気学1\002_2026-10-11.tex
+\mondaibangou{1}
+\begin{mondai}{002-bunkai}{計算}{BAC-CAB 則とベクトルの平行成分・垂直成分への分解}
+単位ベクトル $\hat{\vect{n}}$ と任意のベクトル $\vect{A}$ について考える。
+  \begin{shoumon}
+    \item BAC-CAB 則 \noteshiki{1.1} を用いて，次の等式を示せ。
+    \[ \vect{A} = (\vect{A}\cdot\hat{\vect{n}})\,\hat{\vect{n}} + \hat{\vect{n}}\times(\vect{A}\times\hat{\vect{n}}) \]
+    \item $\vect{A} = 2\hat{\vect{x}} - \hat{\vect{y}} + 4\hat{\vect{z}}$，$\hat{\vect{n}} = (\hat{\vect{x}} + 2\hat{\vect{y}} + 2\hat{\vect{z}})/3$ のとき，$\hat{\vect{n}}$ に平行な成分 $\vect{A}_{\parallel} = (\vect{A}\cdot\hat{\vect{n}})\,\hat{\vect{n}}$ と垂直な成分 $\vect{A}_{\perp} = \hat{\vect{n}}\times(\vect{A}\times\hat{\vect{n}})$ を成分で求めよ。$\vect{A}_{\perp}$ は外積を2回計算して求めること。
+    \item 前問の結果について，$\vect{A}_{\perp}\cdot\hat{\vect{n}} = 0$ と $\abs{\vect{A}_{\perp}} = \abs{\vect{A}\times\hat{\vect{n}}}$ を確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{◎}{}
+\begin{align*}
+\hat{\vect{n}}\times(\vect{A}\times\hat{\vect{n}})&=\vect{A}(\hat{\vect{n}}\cdot\hat{\vect{n}})-\hat{\vect{n}}(\hat{\vect{n}}\cdot\vect{A})\\
+&=\vect{A}-\hat{\vect{n}}(\hat{\vect{n}}\cdot\vect{A})
+\end{align*}
+\[ \therefore\ \vect{A}=(\vect{A}\cdot\hat{\vect{n}})\hat{\vect{n}}+\hat{\vect{n}}\times(\vect{A}\times\hat{\vect{n}}) \]
+\toi{2}{◎}{}
+\[ \vect{A}\cdot\hat{\vect{n}}=\frac{1}{3}\bigl(2\cdot1+(-1)\cdot2+4\cdot2\bigr)=\frac{8}{3} \]
+\[ \vect{A}_{\parallel}=\frac{8}{3}\hat{\vect{n}}=\frac{8}{9}(\hat{\vect{x}}+2\hat{\vect{y}}+2\hat{\vect{z}}) \]
+\[ \vect{A}\times\hat{\vect{n}}=\frac{1}{3}(-10\hat{\vect{x}}+5\hat{\vect{z}}) \]
+\[ \vect{A}_{\perp}=\hat{\vect{n}}\times(\vect{A}\times\hat{\vect{n}})=\frac{5}{9}(2\hat{\vect{x}}-5\hat{\vect{y}}+4\hat{\vect{z}}) \]
+\toi{3}{◎}{}
+\begin{align*}
+\vect{A}_{\perp}\cdot\hat{\vect{n}}&=\frac{5}{27}(2-10+8)=0\\
+\abs{\vect{A}_{\perp}}&=\frac{5}{9}\sqrt{4+25+16}=\frac{5\sqrt{5}}{3}\\
+\abs{\vect{A}\times\hat{\vect{n}}}&=\frac{1}{3}\sqrt{100+25}=\frac{5\sqrt{5}}{3}
+\end{align*}
+よって $\abs{\vect{A}_{\perp}}=\abs{\vect{A}\times\hat{\vect{n}}}$
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\電磁気学1\003_2026-10-11.tex
+\mondaibangou{2}
+\begin{mondai}{003-bibun}{計算}{直交座標の勾配・発散・回転・ラプラシアン，全微分，$\nabla\times\nabla f = \vect{0}$ と $\nabla\cdot(\nabla\times\vect{V}) = 0$}
+スカラー場 $f(x,y,z) = x^2y - yz^2$ とベクトル場 $\vect{V} = xy\,\hat{\vect{x}} + yz\,\hat{\vect{y}} + zx\,\hat{\vect{z}}$ を考える。
+  \begin{shoumon}
+    \item $\nabla f$ と $\nabla^2 f$ を求めよ。
+    \item 点 $\mathrm{P}(1,2,1)$ から $\dd\vect{r} = (\num{0.01}, \num{0.02}, \num{-0.01})$ だけ動いたときの $f$ の変化を \noteshiki{1.2} で近似計算せよ。また，$f$ の差を直接計算した値と比べよ。
+    \item $\nabla\times(\nabla f) = \vect{0}$ を成分の計算で確かめよ。
+    \item $\nabla\cdot\vect{V}$ と $\nabla\times\vect{V}$ を求め，$\nabla\cdot(\nabla\times\vect{V}) = 0$ を確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{◎}{}
+\[ \nabla f=(2xy,\ x^{2}-z^{2},\ -2yz) \]
+\[ \nabla^{2}f=2y-2y=0 \]
+\toi{2}{◎}{}
+\begin{align*}
+\dd f=\nabla f\cdot\dd\vect{r}&=(4,\ 0,\ -4)\cdot(0.01,\ 0.02,\ -0.01)\\
+&=0.08
+\end{align*}
+\[ (1.01)^{2}(2.02)-(2.02)(0.99)^{2}-(1^{2}\cdot2-2\cdot1^{2})=0.0808 \]
+\toi{3}{◎}{}
+\begin{align*}
+&\nabla\times(2xy,\ x^{2}-z^{2},\ -2yz)\\
+&=\Bigl(\pdv{}{y}(-2yz)-\pdv{}{z}(x^{2}-z^{2}),\\
+&\qquad\pdv{}{z}(2xy)-\pdv{}{x}(-2yz),\\
+&\qquad\pdv{}{x}(x^{2}-z^{2})-\pdv{}{y}(2xy)\Bigr)\\
+&=\bigl(-2z-(-2z),\ 0-0,\ 2x-2x\bigr)=0
+\end{align*}
+\toi{4}{◎}{}
+\[ \nabla\cdot\vect{V}=y+z+x \]
+\[ \nabla\times\vect{V}=(0-y,\ 0-z,\ 0-x)=(-y,\ -z,\ -x) \]
+\[ \nabla\cdot(\nabla\times\vect{V})=(0+0+0)=0 \]
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\電磁気学1\006_2026-10-20.tex
+\mondaibangou{3}
+\begin{mondai}{006-kitei}{計算}{円柱座標の基底ベクトルが座標に依存すること（速度・加速度の成分）}
+質点の位置を円柱座標で $\vect{r}(t) = \rho(t)\,\hat{\vect{\rho}} + z(t)\,\hat{\vect{z}}$ と表す。$\hat{\vect{\rho}}$ と $\hat{\vect{\varphi}}$ は $\varphi(t)$ を通して時間に依存する。
+  \begin{shoumon}
+    \item \noteshiki{1.8} を用いて $\dot{\hat{\vect{\rho}}} = \dot{\varphi}\,\hat{\vect{\varphi}}$ と $\dot{\hat{\vect{\varphi}}} = -\dot{\varphi}\,\hat{\vect{\rho}}$ を示し，速度 $\dot{\vect{r}}$ を $\hat{\vect{\rho}}$，$\hat{\vect{\varphi}}$，$\hat{\vect{z}}$ の成分で表せ。
+    \item 加速度 $\ddot{\vect{r}}$ を $\hat{\vect{\rho}}$，$\hat{\vect{\varphi}}$，$\hat{\vect{z}}$ の成分で表せ。
+    \item $\rho = a$，$\varphi = \omega t$，$z = ut$（$a$，$\omega$，$u$ は正の定数）のらせん運動について，速さ $\abs{\dot{\vect{r}}}$ と加速度 $\ddot{\vect{r}}$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 S ◎◎◎ → 2026-10-20 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-20}
+\toi{1}{◎}{}
+\begin{align*}
+\dv{\hat{\vect{\rho}}}{t}&=\dv{\hat{\vect{\rho}}}{\varphi}\dv{\varphi}{t}=\dot{\varphi}\hat{\vect{\varphi}}\\
+\dv{\hat{\vect{\varphi}}}{t}&=\dv{\hat{\vect{\varphi}}}{\varphi}\dv{\varphi}{t}=-\dot{\varphi}\hat{\vect{\rho}}
+\end{align*}
+\begin{align*}
+\dv{\vect{r}}{t}&=\dot{\rho}\hat{\vect{\rho}}+\rho\dv{\hat{\vect{\rho}}}{t}+\dot{z}\hat{\vect{z}}\\
+&=\dot{\rho}\hat{\vect{\rho}}+\rho\dot{\varphi}\hat{\vect{\varphi}}+\dot{z}\hat{\vect{z}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\dv{\dot{\vect{r}}}{t}&=\ddot{\rho}\hat{\vect{\rho}}+\dot{\rho}\dv{\hat{\vect{\rho}}}{t}+\dv{}{t}(\rho\dot{\varphi})\hat{\vect{\varphi}}\\
+&\qquad+\rho\dot{\varphi}\dv{\hat{\vect{\varphi}}}{t}+\ddot{z}\hat{\vect{z}}\\
+&=\ddot{\rho}\hat{\vect{\rho}}+\dot{\rho}\dot{\varphi}\hat{\vect{\varphi}}+(\dot{\rho}\dot{\varphi}+\rho\ddot{\varphi})\hat{\vect{\varphi}}\\
+&\qquad-\rho\dot{\varphi}^{2}\hat{\vect{\rho}}+\ddot{z}\hat{\vect{z}}\\
+&=(\ddot{\rho}-\rho\dot{\varphi}^{2})\hat{\vect{\rho}}+(2\dot{\rho}\dot{\varphi}+\rho\ddot{\varphi})\hat{\vect{\varphi}}\\
+&\qquad+\ddot{z}\hat{\vect{z}}
+\end{align*}
+\toi{3}{◎}{}
+\[ \dot{\vect{r}}=a\omega\hat{\vect{\varphi}}+u\hat{\vect{z}} \]
+\[ \abs{\dot{\vect{r}}}=\sqrt{a^{2}\omega^{2}+u^{2}} \]
+\[ \ddot{\vect{r}}=-a\omega^{2}\hat{\vect{\rho}} \]
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\電磁気学1\007_2026-10-11.tex
+\mondaibangou{4}
+\begin{mondai}{007-shisuu}{導出}{縮約記法と $\epsilon_{ijk}\epsilon_{ilm}$ の公式によるベクトル解析の公式の証明}
+直交座標系で考え，$\partial_j \equiv \partial/\partial x_j$ と書く。$\vect{A}$，$\vect{B}$ はベクトル場，$f$，$g$ は滑らかなスカラー場とする。
+  \begin{shoumon}
+    \item $(\nabla\times\vect{V})_i = \epsilon_{ijk}\partial_jV_k$ と \noteshiki{1.6} の第3式を用いて，公式 \noteshiki{1.16} を示せ。
+    \item \noteshiki{1.15} と \noteshiki{1.3} を用いて，$\nabla\cdot(\nabla f\times\nabla g) = 0$ を示せ。
+  \end{shoumon}
+\notekiroku{2026-10-11 C △◎ (ヒント2)}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{△}{記述}
+\[ \nabla\times(\vect{A}\times\vect{B})=\nabla\times(\epsilon_{klm}A_{l}B_{m}) \]
+\begin{align*}
+&[\nabla\times(\epsilon_{klm}A_{l}B_{m})]_{i}\\
+&=\epsilon_{ijk}\partial_{j}(\epsilon_{klm}A_{l}B_{m})=\epsilon_{kij}\epsilon_{klm}\kakimachigai{\partial_{j}A_{l}B_{m}}{\partial_{j}(A_{l}B_{m})}\\
+&=(\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})\partial_{j}A_{l}B_{m}\\
+&=\partial_{j}(A_{i}B_{j})-\partial_{j}(A_{j}B_{i})\\
+&=(\partial_{j}A_{i})B_{j}+A_{i}(\partial_{j}B_{j})\\
+&\qquad-(\partial_{j}A_{j})B_{i}-A_{j}(\partial_{j}B_{i})
+\end{align*}
+$\therefore$（\nuke{4項の対応}
+\naze{4項はそれぞれ $[(\vect{B}\cdot\nabla)\vect{A}]_{i}$，$[\vect{A}(\nabla\cdot\vect{B})]_{i}$，$[\vect{B}(\nabla\cdot\vect{A})]_{i}$，$[(\vect{A}\cdot\nabla)\vect{B}]_{i}$ で，すべての $i$ で成り立つので示すべきベクトルの等式になる。この対応を書く最後の一行が無く，証明が終わっていない。$\epsilon_{ijk}=\epsilon_{kij}$（巡回的な入れ替えで符号が変わらない）を使ったことも一言書く。}
+\toi{2}{◎}{}
+\begin{align*}
+\nabla\cdot(\nabla f\times\nabla g)&=\kakimachigai{\nabla g}{\nabla g\cdot}(\nabla\times\nabla f)\\
+&\qquad-\kakimachigai{\nabla f}{\nabla f\cdot}(\nabla\times\nabla g)=0
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 成分で示した式は，最後に各項を $[(\vect{B}\cdot\nabla)\vect{A}]_{i}=B_{j}\partial_{j}A_{i}$ などと対応させ，「すべての $i$ で成り立つのでベクトルの等式になる」まで書いて終わる。$(\vect{B}\cdot\nabla)\vect{A}$ の $i$ 成分が $B_{j}\partial_{j}A_{i}$ になることを自分で書けるようにする。
+\end{kizuki}
+\begin{tadashii}
+\houshin 直交座標の基底は定数なので，回転の成分は $(\nabla\times\vect{V})_i = \epsilon_{ijk}\partial_jV_k$（\noteshiki{1.5} の $\vect{a}$ を $\nabla$ に置き換えた形）と書ける。$\epsilon$ が2つ並んだら \noteshiki{1.6} の第3式で $\delta$ に直す。
+\keisan \shoumonkai{1} $(\vect{A}\times\vect{B})_k = \epsilon_{klm}A_lB_m$ なので
+\[ [\nabla\times(\vect{A}\times\vect{B})]_i = \epsilon_{ijk}\partial_j(\epsilon_{klm}A_lB_m) = \epsilon_{kij}\epsilon_{klm}\,\partial_j(A_lB_m) \]
+ここで $\epsilon_{ijk} = \epsilon_{kij}$（巡回的な入れ替え）を使った。\noteshiki{1.6} の第3式で添字の名前を付け替えると $\epsilon_{kij}\epsilon_{klm} = \delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$ なので
+\begin{align*}
+  [\nabla\times(\vect{A}\times\vect{B})]_i &= \partial_j(A_iB_j) - \partial_j(A_jB_i) \\
+  &= B_j\partial_jA_i + A_i\partial_jB_j - B_i\partial_jA_j - A_j\partial_jB_i
+\end{align*}
+4つの項はそれぞれ $[(\vect{B}\cdot\nabla)\vect{A}]_i$，$[\vect{A}(\nabla\cdot\vect{B})]_i$，$[\vect{B}(\nabla\cdot\vect{A})]_i$，$[(\vect{A}\cdot\nabla)\vect{B}]_i$ なので，\noteshiki{1.16} が示された。
+
+\shoumonkai{2} \noteshiki{1.15} で $\vect{A}\to\nabla f$，$\vect{B}\to\nabla g$ とすると
+\[ \nabla\cdot(\nabla f\times\nabla g) = \nabla g\cdot(\nabla\times\nabla f) - \nabla f\cdot(\nabla\times\nabla g) \]
+右辺の2つの回転は \noteshiki{1.3} よりどちらも $\vect{0}$ なので，全体は $0$ である。
+\kotae{\shoumonkai{1} $\nabla\times(\vect{A}\times\vect{B}) = (\vect{B}\cdot\nabla)\vect{A} - \vect{B}(\nabla\cdot\vect{A}) + \vect{A}(\nabla\cdot\vect{B}) - (\vect{A}\cdot\nabla)\vect{B}$ \shoumonkai{2} $\nabla\cdot(\nabla f\times\nabla g) = 0$}
+\begin{ronten}
+  \item \shoumonkai{1} 直交座標では基底ベクトルが定数なので，回転を成分 $\epsilon_{ijk}\partial_jV_k$ で書いてよいことを述べる。
+  \item \shoumonkai{1} 巡回的な入れ替えでは符号が変わらないこと（$\epsilon_{ijk}=\epsilon_{kij}$）を明記してから，\noteshiki{1.6} の第3式を添字を付け替えて使う。
+  \item \shoumonkai{1} $\partial_j$ が $A_l$ と $B_m$ の両方にかかるので，積の微分で4項になることを書く。4項をそれぞれ $(\vect{B}\cdot\nabla)\vect{A}$ などの第 $i$ 成分と対応させ，すべての $i$ で成り立つのでベクトルの等式 \noteshiki{1.16} になることを述べる。
+  \item \shoumonkai{2} \noteshiki{1.15} の右辺の2項がどちらも勾配の回転を含み，$f$，$g$ が滑らかなので \noteshiki{1.3} により $\vect{0}$ になることを述べる。
+\end{ronten}
+\kenzan $\vect{A} = \vect{c}$（定数），$\vect{B} = \vect{r}$ のとき，右辺は $(\vect{r}\cdot\nabla)\vect{c} - \vect{r}(\nabla\cdot\vect{c}) + \vect{c}(\nabla\cdot\vect{r}) - (\vect{c}\cdot\nabla)\vect{r} = 0 - 0 + 3\vect{c} - \vect{c} = 2\vect{c}$。左辺を成分で計算すると，$\vect{c}\times\vect{r}$ の $y$，$z$ 成分は $c_zx - c_xz$，$c_xy - c_yx$ なので，$x$ 成分は $\partial_y(c_xy - c_yx) - \partial_z(c_zx - c_xz) = 2c_x$ となり一致する。
+\tsumazuki 微分 $\partial_j$ は $A_l$ と $B_m$ の両方にかかるので，積の微分で4項になる。$\epsilon$ の添字を入れ替えるときは，巡回的な入れ替え（符号不変）と2つの添字の交換（符号反転）を区別する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\電磁気学1\008_2026-10-11.tex
+\mondaibangou{5}
+\begin{mondai}{008-kyoku}{計算}{極座標の勾配・発散・回転・ラプラシアンの公式}
+極座標 $(r,\theta,\phi)$ で表されたスカラー場
+  \[ f(r,\theta,\phi) = \frac{\cos\theta}{r^2} \quad (r > 0) \]
+  について，$\vect{E} \equiv -\nabla f$ とする。
+  \begin{shoumon}
+    \item \noteshiki{1.9} を用いて $\vect{E}$ を $\hat{\vect{r}}$，$\hat{\vect{\theta}}$，$\hat{\vect{\phi}}$ の成分で求めよ。
+    \item \noteshiki{1.10} を用いて $\nabla\cdot\vect{E}$ を求めよ。
+    \item \noteshiki{1.11} を用いて $\nabla\times\vect{E}$ を求めよ。
+    \item \noteshiki{1.12} を用いて $\nabla^2 f$ を直接計算し，前の結果と矛盾しないことを確かめよ。
+    \item $f$ を直交座標で表し，$z$ 軸上の点 $(0,0,z)$（$z > 0$）での $\vect{E}$ を直交座標で計算して，第1問の結果と比べよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 C ◎△◎◎×}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{◎}{}
+（脇で偏微分を計算）$\pdv{f}{r}=-2\cos\theta\,r^{-3}$，$\pdv{f}{\theta}=-\sin\theta/r^{2}$，$\pdv{f}{\phi}=0$
+\begin{align*}
+\vect{E}=-\nabla f&=-\pdv{f}{r}\hat{\vect{r}}-\frac{1}{r}\pdv{f}{\theta}\hat{\vect{\theta}}\\
+&\qquad-\frac{1}{r\sin\theta}\pdv{f}{\phi}\hat{\vect{\phi}}\\
+&=\frac{2\cos\theta}{r^{3}}\hat{\vect{r}}+\frac{\sin\theta}{r^{3}}\hat{\vect{\theta}}
+\end{align*}
+\toi{2}{△}{計算}
+\begin{align*}
+\nabla\cdot\vect{E}&=\frac{1}{r^{2}}\pdv{}{r}\Bigl(\frac{2\cos\theta}{r}\Bigr)\\
+&\qquad+\frac{1}{r\sin\theta}\pdv{}{\theta}\Bigl(\frac{\sin^{2}\theta}{r^{3}}\Bigr)\\
+&=-\frac{2\cos\theta}{r^{4}}+\frac{1}{r\sin\theta}\,\frac{2\sin\theta\cos\theta}{r^{3}}\\
+&=\ayamari{\frac{-\cos\theta}{r^{4}}}{0}
+\end{align*}
+\naze{第2項は $(1/(r\sin\theta))\cdot2\sin\theta\cos\theta/r^{3}=2\cos\theta/r^{4}$ で，第1項 $-2\cos\theta/r^{4}$ とちょうど打ち消し合う。$\nabla\cdot\vect{E}=0$ である。}
+\toi{3}{◎}{}
+\begin{align*}
+\nabla\times\vect{E}&=\frac{1}{r\sin\theta}(0-0)\hat{\vect{r}}\\
+&\qquad+\frac{1}{r}\Bigl(\frac{1}{\sin\theta}\,0-\pdv{}{r}\,0\Bigr)\hat{\vect{\theta}}\\
+&\qquad+\frac{1}{r}\biggl(\pdv{}{r}\Bigl(\frac{\sin\theta}{r^{2}}\Bigr)\\
+&\qquad\quad-\pdv{}{\theta}\Bigl(\frac{2\cos\theta}{r^{3}}\Bigr)\biggr)\hat{\vect{\phi}}\\
+&=\frac{1}{r}\Bigl(\frac{-2\sin\theta}{r^{3}}+\frac{2\sin\theta}{r^{3}}\Bigr)\hat{\vect{\phi}}=0
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\nabla^{2}f&=\frac{1}{r^{2}}\pdv{}{r}\Bigl(r^{2}\,\frac{-2\cos\theta}{r^{3}}\Bigr)\\
+&\qquad+\frac{1}{r^{2}\sin\theta}\pdv{}{\theta}\Bigl(\sin\theta\cdot\frac{-\sin\theta}{r^{2}}\Bigr)\\
+&\qquad+\frac{1}{r^{2}\sin^{2}\theta}\cdot0\\
+&=\frac{1}{r^{2}}\pdv{}{r}\Bigl(\frac{-2\cos\theta}{r}\Bigr)\\
+&\qquad+\frac{1}{r^{2}\sin\theta}\pdv{}{\theta}\Bigl(\frac{-\sin^{2}\theta}{r^{2}}\Bigr)\\
+&=\frac{1}{r^{2}}\Bigl(\frac{2\cos\theta}{r^{2}}\Bigr)+\frac{1}{r^{2}\sin\theta}\,\frac{-2\sin\theta\cos\theta}{r^{2}}\\
+&=\frac{2\cos\theta}{r^{4}}-\frac{2\cos\theta}{r^{4}}=0\quad(=-\nabla\cdot\vect{E})
+\end{align*}
+\toi{5}{×}{立式}
+\[ f=\frac{\cos\theta}{r^{2}}=\frac{\ayamari{x}{z}}{(x^{2}+y^{2}+z^{2})^{3/2}} \]
+\naze{極座標の $\theta$ は $z$ 軸から測る角なので $\cos\theta=z/r$ で，$f=z/(x^{2}+y^{2}+z^{2})^{3/2}$ である。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+\vect{E}&=-\nabla f\\
+&=\biggl(-\pdv{}{x}\frac{x}{(x^{2}+y^{2}+z^{2})^{3/2}},\\
+&\qquad-\pdv{}{y}\frac{x}{(x^{2}+y^{2}+z^{2})^{3/2}},\\
+&\qquad-\pdv{}{z}\frac{x}{(x^{2}+y^{2}+z^{2})^{3/2}}\biggr)\\
+&=\biggl(-\frac{1\cdot r^{3}-x\cdot\frac{3}{2}r\cdot2x}{r^{6}},\\
+&\qquad\ayamari{\frac{3x}{2}\cdot\frac{1}{r^{5}}}{\frac{3xy}{r^{5}}},\ \ayamari{\frac{3x}{2}\cdot\frac{1}{r^{5}}}{\frac{3xz}{r^{5}}}\biggr)
+\end{align*}
+\naze{（$f$ を $x/r^{3}$ としたままでも）$y$ での微分は $-\partial_{y}(x\,r^{-3})=3xy/r^{5}$ で，$y$ が抜けている（$z$ も同じ）。$z$ 軸上では $0$ になるので，ここでは結果は変わらない。}
+$x=0$，$y=0$
+\[ \vect{E}=\ayamari{\Bigl(-\frac{1}{z^{3}},\ 0,\ 0\Bigr)}{\Bigl(0,\ 0,\ \frac{2}{z^{3}}\Bigr)} \]
+\nuke{第1問との比較}
+\naze{正しくは $\partial_{z}f=1/z^{3}-3/z^{3}=-2/z^{3}$ から $\vect{E}=2\hat{\vect{z}}/z^{3}$ で，第1問で $\theta=0$（$\hat{\vect{r}}=\hat{\vect{z}}$，$r=z$）とした $2\hat{\vect{z}}/z^{3}$ と一致する。この比較も問われている。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 極座標の $\theta$ は $z$ 軸から測る角なので $\cos\theta=z/r$（$x/r$ ではない）。$z$ 軸上では $\theta=0$，$\hat{\vect{r}}=\hat{\vect{z}}$ になるので，(1) の結果と同じ向き（$z$ 方向）になるかで確かめられる。$x$ 方向の答えが出た時点で誤りに気付ける。
+\item (2) は2項を約分してから足し直す。(4) で「$=-\nabla\cdot\vect{E}$」と書いたときは，(2) の結果と実際に見比べる（$0$ と $-\cos\theta/r^{4}$ が食い違っていた）。照合の小問は，前の答えの誤りを拾う場面である。
+\end{kizuki}
+\begin{tadashii}
+\houshin $f$ は $\phi$ に依存しないので，極座標の公式で $\partial_\phi$ を含む項がすべて消える。発散と回転を計算した後，$\nabla^2 f = \nabla\cdot\nabla f = -\nabla\cdot\vect{E}$ で照合する。
+\keisan \shoumonkai{1} \noteshiki{1.9} で
+\[ \pdv{f}{r} = -\frac{2\cos\theta}{r^3}, \qquad \frac{1}{r}\pdv{f}{\theta} = -\frac{\sin\theta}{r^3} \]
+なので
+\[ \vect{E} = -\nabla f = \frac{2\cos\theta}{r^3}\,\hat{\vect{r}} + \frac{\sin\theta}{r^3}\,\hat{\vect{\theta}} \]
+
+\shoumonkai{2} \noteshiki{1.10} で $E_\phi = 0$ だから
+\begin{align*}
+  \nabla\cdot\vect{E} &= \frac{1}{r^2}\pdv{}{r}\left(\frac{2\cos\theta}{r}\right) + \frac{1}{r\sin\theta}\pdv{}{\theta}\left(\frac{\sin^2\theta}{r^3}\right) \\
+  &= -\frac{2\cos\theta}{r^4} + \frac{2\sin\theta\cos\theta}{r^4\sin\theta} = 0
+\end{align*}
+
+\shoumonkai{3} \noteshiki{1.11} で $E_\phi = 0$，$\partial_\phi = 0$ なので，$\hat{\vect{r}}$ 成分と $\hat{\vect{\theta}}$ 成分は $0$。残る $\hat{\vect{\phi}}$ 成分は
+\[ \frac{1}{r}\left[\pdv{}{r}\left(\frac{\sin\theta}{r^2}\right) - \pdv{}{\theta}\left(\frac{2\cos\theta}{r^3}\right)\right] = \frac{1}{r}\left[-\frac{2\sin\theta}{r^3} + \frac{2\sin\theta}{r^3}\right] = 0 \]
+よって $\nabla\times\vect{E} = \vect{0}$。
+
+\shoumonkai{4} \noteshiki{1.12} の第3項は $0$ で
+\begin{align*}
+  \nabla^2 f &= \frac{1}{r^2}\pdv{}{r}\left(-\frac{2\cos\theta}{r}\right) + \frac{1}{r^2\sin\theta}\pdv{}{\theta}\left(-\frac{\sin^2\theta}{r^2}\right) \\
+  &= \frac{2\cos\theta}{r^4} - \frac{2\cos\theta}{r^4} = 0
+\end{align*}
+これは $\nabla^2 f = -\nabla\cdot\vect{E} = 0$ と一致する。
+
+\shoumonkai{5} $\cos\theta = z/r$ より $f = z/(x^2 + y^2 + z^2)^{3/2}$。偏微分は
+\[ \pdv{f}{z} = \frac{1}{(x^2 + y^2 + z^2)^{3/2}} - \frac{3z^2}{(x^2 + y^2 + z^2)^{5/2}}, \qquad \pdv{f}{x} = -\frac{3xz}{(x^2 + y^2 + z^2)^{5/2}} \]
+で（$\partial f/\partial y$ も同様），$z$ 軸上 $(x = y = 0)$ では $\partial_xf = \partial_yf = 0$，$\partial_zf = 1/z^3 - 3/z^3 = -2/z^3$。よって $\vect{E} = 2\hat{\vect{z}}/z^3$。第1問で $\theta = 0$ とすると $\hat{\vect{r}} = \hat{\vect{z}}$，$r = z$，$\sin\theta = 0$ なので $\vect{E} = 2\hat{\vect{z}}/z^3$ となり一致する。
+\kotae{\shoumonkai{1} $\vect{E} = (2\cos\theta\,\hat{\vect{r}} + \sin\theta\,\hat{\vect{\theta}})/r^3$ \shoumonkai{2} $0$ \shoumonkai{3} $\vect{0}$ \shoumonkai{4} $0$ \shoumonkai{5} $\vect{E} = 2\hat{\vect{z}}/z^3$（第1問と一致）}
+\kenzan $f$ の次元は $\unit{\metre}^{-2}$ なので $\vect{E}$ は $\unit{\metre}^{-3}$，$\nabla\cdot\vect{E}$ と $\nabla^2 f$ は $\unit{\metre}^{-4}$ で，各項の次元がそろっている。第3問は，勾配の回転がゼロであること（\noteshiki{1.3}）とも一致する。
+\tsumazuki 極座標の発散では $r^2E_r$ や $\sin\theta\,E_\theta$ をまとめて微分する。$\partial E_r/\partial r$ を単純に足すと $\nabla\cdot\vect{E} \neq 0$ になってしまう。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

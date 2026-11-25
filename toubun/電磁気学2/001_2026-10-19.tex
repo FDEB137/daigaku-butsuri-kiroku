@@ -1,0 +1,49 @@
+% 電磁気学2 電磁気学2-1 問題1（001-nabla。当時は 電磁気学2-1 問題1・kai01-l1-nabla。今日の演習 2026-10-19 の問題1） 解いた日 2026-10-19
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\nabla\cdot\vect{A}&=\pdv{}{x}(x^{2}y)+\pdv{}{y}(y^{2}z)+\pdv{}{z}(z^{2}x)\\
+&=2xy+2yz+2zx
+\end{align*}
+\begin{align*}
+\nabla\times\vect{A}&=\biggl(\pdv{}{y}(z^{2}x)-\pdv{}{z}(y^{2}z),\\
+&\qquad\pdv{}{z}(x^{2}y)-\pdv{}{x}(z^{2}x),\\
+&\qquad\pdv{}{x}(y^{2}z)-\pdv{}{y}(x^{2}y)\biggr)\\
+&=(-y^{2},-z^{2},-x^{2})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\nabla\cdot(\nabla\times\vect{A})\\
+&=\pdv{}{x}(-y^{2})+\pdv{}{y}(-z^{2})+\pdv{}{z}(-x^{2})=0
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\nabla\phi&=\left(\pdv{}{x}(x^{2}yz),\pdv{}{y}(x^{2}yz),\pdv{}{z}(x^{2}yz)\right)\\
+&=(2xyz,x^{2}z,x^{2}y)\\
+\Delta\phi&=\pdv{}{x}(2xyz)+\pdv{}{y}(x^{2}z)+\pdv{}{z}(x^{2}y)\\
+&=2yz
+\end{align*}
+\begin{align*}
+\nabla\times(\nabla\phi)&=\biggl(\pdv{}{y}(x^{2}y)-\pdv{}{z}(x^{2}z),\\
+&\qquad\pdv{}{z}(2xyz)-\pdv{}{x}(x^{2}y),\\
+&\qquad\pdv{}{x}(x^{2}z)-\pdv{}{y}(2xyz)\biggr)\\
+&=(x^{2}-x^{2},2xy-2xy,2xz-2xz)\\
+&=0
+\end{align*}
+\toi{4}{○}{記述}
+\begin{align*}
+\nabla\cdot(\nabla\times\vect{A})&=\nabla\cdot\biggl(\pdv{}{y}A_{z}-\pdv{}{z}A_{y},\\
+&\qquad\pdv{}{z}A_{x}-\pdv{}{x}A_{z},\\
+&\qquad\pdv{}{x}A_{y}-\pdv{}{y}A_{x}\biggr)\\
+&=\pdv{}{x}\pdv{}{y}A_{z}-\pdv{}{x}\pdv{}{z}A_{y}\\
+&\qquad+\pdv{}{y}\pdv{}{z}A_{x}-\pdv{}{y}\pdv{}{x}A_{z}\\
+&\qquad+\pdv{}{z}\pdv{}{x}A_{y}-\pdv{}{z}\pdv{}{y}A_{x}\\
+\intertext{（式の左に添えて）\ayamari{微分の連鎖律より}{2階偏導関数が連続なので微分の順序を交換できて}}
+&=\left(\frac{\partial^{2}}{\partial x\,\partial y}A_{z}-\frac{\partial^{2}}{\partial x\,\partial y}A_{z}\right)\\
+&\qquad+\left(\frac{\partial^{2}}{\partial x\,\partial z}A_{y}-\frac{\partial^{2}}{\partial x\,\partial z}A_{y}\right)\\
+&\qquad+\left(\frac{\partial^{2}}{\partial y\,\partial z}A_{x}-\frac{\partial^{2}}{\partial y\,\partial z}A_{x}\right)\\
+&=0
+\end{align*}
+\naze{連鎖律（合成関数の微分）は使っていない。ここで使うのは，2階偏導関数が連続なので混合偏微分の順序を交換できる（$\partial^{2}A_{z}/\partial y\,\partial x=\partial^{2}A_{z}/\partial x\,\partial y$ など）ことで，問題文の「2階までの偏導関数が連続」はこのための条件である。}
+%% kizuki
+\item \mae{電磁気学2-1 問題1・10-05} 前回は (4) の根拠を書かず，今回は書いたが名前が違った。6項が打ち消すのは「2階偏導関数が連続 $\Rightarrow$ 混合偏微分の順序を交換できる」からで，連鎖律ではない。問題文の条件（連続性）と結びつけて根拠を書く。

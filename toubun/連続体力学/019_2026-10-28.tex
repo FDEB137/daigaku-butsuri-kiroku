@@ -1,0 +1,28 @@
+% 連続体力学 連続体力学-3 問題2（019-rigid） 解いた日 2026-10-28
+%% kotae
+\toi{1}{○}{記述}
+\[ \vect{r}=\begin{pmatrix}c_{1}-\theta x_{2}\\c_{2}+\theta x_{1}\\c_{3}\end{pmatrix} \]
+\begin{align*}
+\delta\vect{r}&=\begin{pmatrix}c_{1}-\theta(x_{2}+\delta x_{2})\\c_{2}+\theta(x_{1}+\delta x_{1})\\c_{3}\end{pmatrix}-\begin{pmatrix}c_{1}-\theta x_{2}\\c_{2}+\theta x_{1}\\c_{3}\end{pmatrix}\\
+&=\begin{pmatrix}-\theta\,\delta x_{2}\\\theta\,\delta x_{1}\\0\end{pmatrix}
+\end{align*}
+$\delta\vect{r}$ は変位だから
+\naze{文が途中で切れていて，問われている $\vect{c}$ の物理的な意味が書かれていない。$\vect{c}$ は全部の点を同じだけ動かす平行移動で，2点の変位の差 $\delta\vect{r}$ に入らないので変形を生まない，まで書く。}
+\toi{2}{◎}{}
+\[ \tens{D}=\begin{pmatrix}0&-\theta&0\\\theta&0&0\\0&0&0\end{pmatrix} \]
+\[ \tens{E}=0,\quad \tens{F}=\begin{pmatrix}0&-\theta&0\\\theta&0&0\\0&0&0\end{pmatrix} \]
+\[ \vect{\Omega}=(0,\ 0,\ 2\theta),\quad \Omega_{3}=2\theta \]
+\toi{3}{○}{記述}
+\begin{align*}
+\vect{r}&=\bigl(x_{1}(\cos\theta-1)-x_{2}\sin\theta,\\
+&\qquad x_{1}\sin\theta+x_{2}(\cos\theta-1),\ 0\bigr)
+\end{align*}
+\[ \tens{D}=\begin{pmatrix}\cos\theta-1&-\sin\theta&0\\\sin\theta&\cos\theta-1&0\\0&0&0\end{pmatrix} \]
+\[ \tens{E}=\begin{pmatrix}\cos\theta-1&0&0\\0&\cos\theta-1&0\\0&0&0\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}0&-\sin\theta&0\\\sin\theta&0&0\\0&0&0\end{pmatrix} \]
+\[ \cos\theta-1=\ayamari{1-\frac{1}{2!}\theta^{2}}{-\frac{1}{2!}\theta^{2}}+\frac{1}{4!}\theta^{4}\cdots \]
+\naze{左辺は $\cos\theta-1$ なので定数項の 1 は打ち消し合い，正しくは $\cos\theta-1=-\theta^{2}/2!+\theta^{4}/4!-\cdots$ である（書いた右辺は $\cos\theta$ の展開）。「2次」はこの正しい展開から言える。}
+2次　$\theta\ll1$
+%% kizuki
+\item \mae{第2回 問題3 (3)・10-24} 小問の後半の「物理的な意味を述べよ」を途中で止めた（前回も後半の「説明せよ」を書かずに止めた）。$\vect{c}$ は全点を同じだけ動かす平行移動で，2点の変位の差 $\delta\vect{r}$ に入らないので変形を生まない，まで1文で書き切る。答える前に問いの「示せ」「述べよ」を数え，答えの数とそろえる。
+\item 展開を書いたら $\theta=0$ を代入して両辺が一致するかを確かめる。$\cos\theta-1$ は $\theta=0$ で 0 なので，右辺に定数項 1 が残っていれば誤りである。

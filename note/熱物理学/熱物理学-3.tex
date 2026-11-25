@@ -1,0 +1,489 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{熱物理学　第3章「熱力学で使う数学（偏微分・全微分・線積分）」}{2026-11-25}
+%% note-moto	problems\熱物理学\shou03\熱物理学-3.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-016-zenbibun}{1}}{L1・計算}{◎◎◎}{S}{2026-11-24 2回目}
+  \ichirangyou{\hyperlink{bt-m-017-pfaff}{2}}{L1・計算}{▲◎△}{C}{2026-11-12 (1)方針 (3)未着手}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-019-joutai}{4}}{L2・計算}{◎◎◎◎△}{A}{2026-11-12 (5)計算}
+  \ichirangyou{\hyperlink{bt-m-020-henkan}{5}}{L2・導出}{○○◎}{B}{2026-11-12 (1)記述 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-021-setsumei}{6}}{L2・説明}{△△}{C}{2026-11-12 (1)記述 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-022-genshi}{7}}{L2・計算}{◎◎○}{A}{2026-11-12 (3)記述}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L3・計算}{}{未着手}{}
+  \ichirangyou{10}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 全微分 % 出典: p.7
+    \[ \dd X = \left(\pdv{X}{T}\right)_{V}\dd T + \left(\pdv{X}{V}\right)_{T}\dd V \notetag{3.1} \]
+  \item 逆関数の微分 % 出典: p.8
+    \[ \left(\pdv{V}{T}\right)_{p}\left(\pdv{T}{V}\right)_{p} = 1 \notetag{3.2} \]
+  \item 循環関係 % 出典: p.8
+    \[ \left(\pdv{p}{T}\right)_{V}\left(\pdv{T}{V}\right)_{p}\left(\pdv{V}{p}\right)_{T} = -1 \notetag{3.3} \]
+  \item 熱圧力係数 % 出典: p.8
+    \[ \left(\pdv{p}{T}\right)_{V} = \frac{\alpha}{\kappa_{T}} \notetag{3.4} \]
+  \item 変数変換（$T$ 微分） % 出典: p.9
+    \[ \left(\pdv{X}{T}\right)_{p} = \left(\pdv{X}{T}\right)_{V} + \alpha V\left(\pdv{X}{V}\right)_{T} \notetag{3.5} \]
+  \item 変数変換（$p$ 微分） % 出典: p.9
+    \[ \left(\pdv{X}{p}\right)_{T} = -\kappa_{T} V\left(\pdv{X}{V}\right)_{T} \notetag{3.6} \]
+  \item 媒介変数表示による線積分（$s$ が $a$ から $b$ まで動くとき $C$ を描く） % 出典: p.10
+    \[ \int_{C}(A\,\dd T + B\,\dd V) = \int_{a}^{b}\left(A(T(s),V(s))\dv{T}{s} + B(T(s),V(s))\dv{V}{s}\right)\dd s \notetag{3.7} \]
+  \item 局所条件 % 出典: p.11
+    \[ \left(\pdv{B}{T}\right)_{V} = \left(\pdv{A}{V}\right)_{T} \notetag{3.9} \]
+  \item 原始関数の構成（基準点 $(T^{*},V^{*})$） % 出典: p.12
+    \[ F(T,V) = \int_{T^{*}}^{T} A(T',V^{*})\,\dd T' + \int_{V^{*}}^{V} B(T,V')\,\dd V' \notetag{3.10} \]
+  \item 線積分と原始関数（始点 $(T_{0},V_{0})$，終点 $(T_{N},V_{N})$） % 出典: p.12
+    \[ \int_{C}(A\,\dd T + B\,\dd V) = F(T_{N},V_{N}) - F(T_{0},V_{0}) \notetag{3.11} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\熱物理学\016_2026-11-24.tex
+\mondaibangou{1}
+\begin{mondai}{016-zenbibun}{計算}{固定する変数を添字で示す偏微分の記法と全微分}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ を固定した理想気体（$pV = nRT$）を考える。状態量 $X$ を $(T,V)$ の関数として $X(T,V) = T^{2}/V$ で定める。
+  \begin{shoumon}
+    \item $(\partial X/\partial T)_{V}$ と $(\partial X/\partial V)_{T}$ を求め，$X$ の全微分 $\dd X$ を書け。
+    \item $X$ を $(T,p)$ の関数として表し，$(\partial X/\partial T)_{p}$ と $(\partial X/\partial p)_{T}$ を求めよ。$(\partial X/\partial T)_{p}$ は $T$ と $V$ でも表せ。
+    \item 同じ平衡状態での比 $(\partial X/\partial T)_{p} : (\partial X/\partial T)_{V}$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-12 S ◎◎◎ → 2026-11-24 S ◎◎◎}
+\begin{kotaeutsushi}{2026-11-24}
+\toi{1}{◎}{}
+\[ \left(\pdv{X}{T}\right)_{V}=\frac{2T}{V}, \qquad \left(\pdv{X}{V}\right)_{T}=-\frac{T^{2}}{V^{2}} \]
+\[ \dd X=\frac{2T}{V}\dd T-\frac{T^{2}}{V^{2}}\dd V \]
+\toi{2}{◎}{}
+\[ V=\frac{nRT}{p} \]
+\[ X(T,p)=\frac{pT^{2}}{nRT}=\frac{pT}{nR} \]
+\begin{align*}
+\left(\pdv{X}{T}\right)_{p}&=\frac{p}{nR}\\
+&=\frac{1}{nR}\cdot\frac{nRT}{V}\\
+&=\frac{T}{V}
+\end{align*}
+\[ \left(\pdv{X}{p}\right)_{T}=\frac{T}{nR} \]
+\toi{3}{◎}{}
+\[ \left(\pdv{X}{T}\right)_{p}:\left(\pdv{X}{T}\right)_{V}=\frac{T}{V}:\frac{2T}{V}=1:2 \]
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\017_2026-11-12.tex
+\mondaibangou{2}
+\begin{mondai}{017-pfaff}{計算}{条件2による全微分の判定と，不定積分による原始関数の求め方（2変数・3変数）}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+$b$，$c$ を定数とする。
+  \begin{shoumon}
+    \item 次の Pfaff 形式が全微分かどうかを判定し，全微分なら原始関数 $F(T,V)$ を求めよ。
+    \[ \omega_{1} = (2TV^{2} + b)\,\dd T + \left(2T^{2}V - \frac{c}{V^{2}}\right)\dd V \]
+    \item $\omega_{2} = V\,\dd T - T\,\dd V$ について同じことをせよ。
+    \item 3変数 $(T,V,n)$ の Pfaff 形式
+    \[ \omega_{3} = nV\,\dd T + nT\,\dd V + (TV + 2n)\,\dd n \]
+    について，一般形の条件2がすべて成り立つことを確かめ，原始関数 $F(T,V,n)$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-12 C ▲◎△}
+\begin{kotaeutsushi}{2026-11-12}
+\toi{1}{▲}{方針}
+\[ \frac{\partial}{\partial T}\left(2T^{2}V-\frac{c}{V^{2}}\right)=4TV \]
+\[ \frac{\partial}{\partial V}(2TV^{2}+b)=4TV \]
+より全微分。
+\begin{align*}
+F(T,V)&=\int(2TV^{2}+b)\,\dd T\\
+&\qquad\ayamari{+\int\left(2T^{2}V-\frac{c}{V^{2}}\right)\dd V}{+g(V)}\\
+&=T^{2}V^{2}+bT+T^{2}V^{2}+\frac{c}{V}\\
+&=2T^{2}V^{2}+bT+\frac{c}{V}
+\end{align*}
+\naze{2つの係数をそれぞれ積分して足すと，両方から出る $T^{2}V^{2}$ を2回数える（この $F$ を $T$ で微分すると $4TV^{2}+b$ で，$\dd T$ の係数に戻らない）。$T$ で不定積分して $F=T^{2}V^{2}+bT+g(V)$ とおき，$V$ で微分して $2T^{2}V-c/V^{2}$ と比べると $g'(V)=-c/V^{2}$ なので，$F=T^{2}V^{2}+bT+c/V+(\text{定数})$。以降はこの誤りを引き継ぐ。}
+\toi{2}{◎}{}
+\[ \frac{\partial}{\partial T}(-T)=-1, \qquad \frac{\partial}{\partial V}V=1 \]
+より全微分でない。
+\toi{3}{△}{未着手}
+\begin{align*}
+&\frac{\partial}{\partial T}(nT)=n, && \frac{\partial}{\partial V}(nV)=n\\
+&\frac{\partial}{\partial n}(nT)=T, && \frac{\partial}{\partial V}(TV+2n)=T\\
+&\frac{\partial}{\partial n}(nV)=V, && \frac{\partial}{\partial T}(TV+2n)=V
+\end{align*}
+より，すべて成り立つ。\nuke{原始関数 $F(T,V,n)$}
+\naze{条件2の確認までで，問われている原始関数を求めていない。$nV$ を $T$ で不定積分して $F=nTV+h(V,n)$ とおき，$V$ 微分を $nT$ と比べて $h$ が $V$ によらないこと，$n$ 微分を $TV+2n$ と比べて $h'(n)=2n$ を得るので，$F=nTV+n^{2}+(\text{定数})$。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 原始関数は $\int A\,\dd T+\int B\,\dd V$ の和ではない。$(\partial F/\partial T)_{V}=A$ を $T$ で積分すると $V$ を固定していたので「積分定数」は $V$ の関数 $g(V)$ になり，$g$ は $(\partial F/\partial V)_{T}=B$ と見比べて決める。両方を積分して足すと，共通の項 $T^{2}V^{2}$ を2回数えてしまう。
+\item 求めた $F$ は偏微分して $\dd T$・$\dd V$（・$\dd n$）の係数に戻るかで検算する。(1) の $2T^{2}V^{2}+bT+c/V$ は $T$ 微分が $4TV^{2}+b$ になり，ここで誤りに気付ける。
+\item (3) は条件2を確かめたところで止めず，原始関数まで求める。3変数でも $F=nTV+h(V,n)$ から始め，残りの係数と1つずつ見比べる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 条件2（\noteshiki{3.9}，3変数では一般形）で判定し，全微分なら $(\partial F/\partial T)_{V} = A$ を $T$ で不定積分して，積分定数を残りの変数の関数とおく。それをもう一方の条件と見比べて決める。
+\keisan \shoumonkai{1} $A = 2TV^{2} + b$，$B = 2T^{2}V - c/V^{2}$ とおくと
+\[ \left(\pdv{A}{V}\right)_{T} = 4TV, \qquad \left(\pdv{B}{T}\right)_{V} = 4TV \]
+で恒等的に等しいので，$\omega_{1}$ は全微分である。$(\partial F/\partial T)_{V} = 2TV^{2} + b$ を $T$ で不定積分すると，$g$ を $V$ だけの関数として
+\[ F = T^{2}V^{2} + bT + g(V) \]
+これを $V$ で微分して $B$ と比べる。
+\[ \left(\pdv{F}{V}\right)_{T} = 2T^{2}V + g'(V) = 2T^{2}V - \frac{c}{V^{2}} \]
+よって $g'(V) = -c/V^{2}$，$g(V) = c/V + (\text{定数})$。
+\shoumonkai{2} $A = V$，$B = -T$ なので
+\[ \left(\pdv{A}{V}\right)_{T} = 1, \qquad \left(\pdv{B}{T}\right)_{V} = -1 \]
+どの点でも等しくないので条件2が成り立たず，$\omega_{2}$ は全微分でない（不完全微分。原始関数を持たない）。
+\shoumonkai{3} $X_{1} = T$，$X_{2} = V$，$X_{3} = n$ とし，$A_{1} = nV$，$A_{2} = nT$，$A_{3} = TV + 2n$ とおく。3つの組を調べる（偏微分は残りの2変数を固定したもの）。
+\begin{align*}
+&(T,V)\text{ の組：} \pdv{A_{1}}{V} = n, \quad \pdv{A_{2}}{T} = n,\\
+&(T,n)\text{ の組：} \pdv{A_{1}}{n} = V, \quad \pdv{A_{3}}{T} = V,\\
+&(V,n)\text{ の組：} \pdv{A_{2}}{n} = T, \quad \pdv{A_{3}}{V} = T
+\end{align*}
+すべて等しいので全微分である。$\partial F/\partial T = nV$ を $T$ で不定積分すると，$h$ を $(V,n)$ の関数として $F = nTV + h(V,n)$。$V$ で微分して $A_{2}$ と比べると
+\[ \pdv{F}{V} = nT + \pdv{h}{V} = nT \]
+より $h$ は $n$ だけの関数 $h(n)$。$n$ で微分して $A_{3}$ と比べると
+\[ \pdv{F}{n} = TV + h'(n) = TV + 2n \]
+より $h(n) = n^{2} + (\text{定数})$。
+\kotae{\shoumonkai{1} 全微分。$F = T^{2}V^{2} + bT + c/V + (\text{定数})$ \shoumonkai{2} 不完全微分（$(\partial A/\partial V)_{T} = 1 \neq -1 = (\partial B/\partial T)_{V}$） \shoumonkai{3} $F = nTV + n^{2} + (\text{定数})$}
+\begin{ronten}
+  \item \shoumonkai{1} 条件2が恒等的に成り立つことから，三条件の同値性により全微分（原始関数をもつ）と判定したことを書く。
+  \item \shoumonkai{1} 不定積分の積分定数を，定数ではなく固定していた変数 $V$ の関数 $g(V)$ とおく理由を述べる。
+  \item \shoumonkai{2} 条件2が成り立たないことから，三条件の同値性により原始関数をもたないと結論する。
+  \item \shoumonkai{3} 3変数では $(T,V)$，$(T,n)$，$(V,n)$ の3組すべてで条件2を確かめる必要があることを述べる。
+  \item \shoumonkai{3} 積分定数が残りの2変数の関数 $h(V,n)$ になることと，$A_{2}$ と比べて $h$ が $V$ によらないと分かってから $A_{3}$ と比べることを書く。
+\end{ronten}
+\kenzan 求めた $F$ を微分して戻す。(1)：$\dd F = (2TV^{2} + b)\,\dd T + (2T^{2}V - c/V^{2})\,\dd V$ で $\omega_{1}$ に一致する。(3)：$\dd F = nV\,\dd T + nT\,\dd V + (TV + 2n)\,\dd n$ で $\omega_{3}$ に一致する。
+\tsumazuki 不定積分の「積分定数」は，固定していた変数の任意関数である。定数とおくと，もう一方の条件と見比べたときに項が合わなくなる。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\熱物理学\019_2026-11-12.tex
+\mondaibangou{4}
+\begin{mondai}{019-joutai}{計算}{状態方程式から得る体膨張率・等温圧縮率と，逆関数の微分・循環関係・熱圧力係数の関係式}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ を固定した気体が，状態方程式 $p(V - nb) = nRT$（$b$ は正の定数，$V > nb$）に従うとする。
+  \begin{shoumon}
+    \item 体膨張率 $\alpha$ と等温圧縮率 $\kappa_{T}$ を求め，$R$ を含まない形（$T$，$p$，$V$，$n$，$b$ で表す形）にせよ。
+    \item $(\partial p/\partial T)_{V}$ を状態方程式から直接求め，\noteshiki{3.4} が成り立つことを確かめよ。
+    \item $(\partial p/\partial V)_{T}$ を状態方程式から直接求め，$-1/(\kappa_{T}V)$ に等しいことを確かめよ。
+    \item $(\partial p/\partial T)_{V}$，$(\partial T/\partial V)_{p}$，$(\partial V/\partial p)_{T}$ をそれぞれ直接求め，\noteshiki{3.3} を確かめよ。
+    \item $nb/V = 0.0200$，$T = \qty{300}{\kelvin}$ の状態での $\alpha$ を有効数字3桁で求め，同じ温度の理想気体の値と比べよ。
+  \end{shoumon}
+\notekiroku{2026-11-12 A ◎◎◎◎△}
+\begin{kotaeutsushi}{2026-11-12}
+\toi{1}{◎}{}
+\[ \alpha=\frac{1}{V}\left(\pdv{V}{T}\right)_{p} \]
+\[ V=\frac{nRT}{p}+nb \]
+\[ \left(\pdv{V}{T}\right)_{p}=\frac{nR}{p}=\frac{1}{p}\cdot\frac{p(V-nb)}{T}=\frac{V-nb}{T} \]
+\[ \alpha=\frac{1}{V}\cdot\frac{V-nb}{T}=\frac{V-nb}{VT} \]
+\[ \kappa_{T}=-\frac{1}{V}\left(\pdv{V}{p}\right)_{T} \]
+\begin{align*}
+\left(\pdv{V}{p}\right)_{T}&=-\frac{nRT}{p^{2}}=-\frac{p(V-nb)}{p^{2}}\\
+&=-\frac{V-nb}{p}
+\end{align*}
+\[ \kappa_{T}=\frac{V-nb}{pV} \]
+\toi{2}{◎}{}
+\[ p=\frac{nRT}{V-nb} \]
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{nR}{V-nb}=\frac{p}{T} \]
+\[ \frac{\alpha}{\kappa_{T}}=\frac{\frac{V-nb}{VT}}{\frac{V-nb}{pV}}=\frac{pV}{VT}=\frac{p}{T} \]
+\toi{3}{◎}{}
+\[ \left(\pdv{p}{V}\right)_{T}=-\frac{nRT}{(V-nb)^{2}}=-\frac{p}{V-nb} \]
+\[ -\frac{1}{\kappa_{T}V}=-\frac{1}{\frac{V-nb}{pV}V}=-\frac{p}{V-nb} \]
+\toi{4}{◎}{}
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{p}{T} \]
+\[ \left(\pdv{T}{V}\right)_{p}=\frac{p}{nR} \]
+\[ \left(\pdv{V}{p}\right)_{T}=-\frac{nRT}{p^{2}} \]
+\begin{align*}
+&\left(\pdv{p}{T}\right)_{V}\left(\pdv{T}{V}\right)_{p}\left(\pdv{V}{p}\right)_{T}\\
+&\qquad=\frac{p}{T}\cdot\frac{p}{nR}\cdot\left(-\frac{nRT}{p^{2}}\right)=-1
+\end{align*}
+\toi{5}{△}{計算}
+\begin{align*}
+\alpha&=\frac{V-nb}{VT}=\frac{1}{T}\left(1-\frac{nb}{V}\right)\\
+&=\ayamari{\num{2.67e-4}}{\qty{3.27e-3}{\per\kelvin}}
+\end{align*}
+\naze{$(1-0.0200)/\qty{300}{\kelvin}=0.980/300=\qty{3.27e-3}{\per\kelvin}$ である（$\num{2.67e-4}$ は $0.08/300$ に当たり，$1-0.0200$ の引き算を誤ったとみられる）。単位 \unit{\per\kelvin} が無く，問われている同じ温度の理想気体の値 $1/T=\qty{3.33e-3}{\per\kelvin}$ との比較（$0.980$ 倍で 2.0\,\% 小さい）も無い。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $nb/V=0.0200$ は小さな補正なので，$\alpha$ は理想気体の $1/T=\qty{3.33e-3}{\per\kelvin}$ に近いはずである。数値を出したら $b\to0$ の値と同じ桁かを確かめる（$\num{2.67e-4}$ は1桁小さく，ここで気付ける）。
+\item 数値の答えには単位（\unit{\per\kelvin}）を付け，「比べよ」には比（$0.980$ 倍）か差で答える。
+\end{kizuki}
+\begin{tadashii}
+\houshin 状態方程式を $V$ について解いて $\alpha$，$\kappa_{T}$ を，$p$ について解いて $(\partial p/\partial T)_{V}$，$(\partial p/\partial V)_{T}$ を，$T$ について解いて $(\partial T/\partial V)_{p}$ を求める。$R$ は状態方程式で消す。
+\keisan \shoumonkai{1} $V = nRT/p + nb$ より
+\[ \left(\pdv{V}{T}\right)_{p} = \frac{nR}{p}, \qquad \left(\pdv{V}{p}\right)_{T} = -\frac{nRT}{p^{2}} \]
+状態方程式から $nR/p = (V - nb)/T$，$nRT/p = V - nb$ なので
+\[ \alpha = \frac{1}{V}\cdot\frac{nR}{p} = \frac{V - nb}{TV}, \qquad \kappa_{T} = \frac{1}{V}\cdot\frac{nRT}{p^{2}} = \frac{V - nb}{pV} \]
+\shoumonkai{2} $p = nRT/(V - nb)$ を $V$ 固定で $T$ 微分すると
+\[ \left(\pdv{p}{T}\right)_{V} = \frac{nR}{V - nb} = \frac{p}{T} \]
+一方，(1) から
+\[ \frac{\alpha}{\kappa_{T}} = \frac{V - nb}{TV}\cdot\frac{pV}{V - nb} = \frac{p}{T} \]
+で一致し，\noteshiki{3.4} が成り立つ。
+\shoumonkai{3} $T$ 固定で $V$ 微分すると
+\[ \left(\pdv{p}{V}\right)_{T} = -\frac{nRT}{(V - nb)^{2}} = -\frac{p}{V - nb} \]
+一方，(1) から
+\[ -\frac{1}{\kappa_{T}V} = -\frac{pV}{(V - nb)V} = -\frac{p}{V - nb} \]
+で一致する（\noteshiki{3.2} を $T$ 固定の $p$ と $V$ に使ったもの）。
+\shoumonkai{4} (2) より $(\partial p/\partial T)_{V} = p/T$。$T = p(V - nb)/(nR)$ を $p$ 固定で $V$ 微分し，$p/(nR) = T/(V - nb)$ を使うと
+\[ \left(\pdv{T}{V}\right)_{p} = \frac{p}{nR} = \frac{T}{V - nb} \]
+(1) より $(\partial V/\partial p)_{T} = -nRT/p^{2} = -(V - nb)/p$。3つを掛けると
+\[ \frac{p}{T}\cdot\frac{T}{V - nb}\cdot\left(-\frac{V - nb}{p}\right) = -1 \]
+で \noteshiki{3.3} が成り立つ。
+\shoumonkai{5} (1) より $\alpha = (1 - nb/V)/T$。数値を入れると
+\[ \alpha = \frac{1 - 0.0200}{\qty{300}{\kelvin}} = \qty{3.27e-3}{\per\kelvin} \]
+同じ温度の理想気体では $\alpha = 1/T = \qty{3.33e-3}{\per\kelvin}$ で，この気体の値はその $0.980$ 倍（2.0\,\% 小さい）。
+\kotae{\shoumonkai{1} $\alpha = (V - nb)/(TV)$，$\kappa_{T} = (V - nb)/(pV)$ \shoumonkai{2} $(\partial p/\partial T)_{V} = p/T = \alpha/\kappa_{T}$ \shoumonkai{3} $(\partial p/\partial V)_{T} = -p/(V - nb) = -1/(\kappa_{T}V)$ \shoumonkai{4} $p/T$，$T/(V - nb)$，$-(V - nb)/p$ で積は $-1$ \shoumonkai{5} $\alpha = \qty{3.27e-3}{\per\kelvin}$（理想気体の \qty{3.33e-3}{\per\kelvin} より 2.0\,\% 小さい）}
+\kenzan 次元：$\alpha$ は $\unit{\per\kelvin}$，$\kappa_{T}$ は $\unit{\per\pascal}$ で定義と合う。極限 $b \to 0$ で $\alpha \to 1/T$，$\kappa_{T} \to 1/p$ となり，理想気体の結果に戻る。
+\tsumazuki \noteshiki{3.3} の左辺を約分すると $+1$ になり，符号を誤る。各因子は固定する変数が違う別々の比である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\020_2026-11-12.tex
+\mondaibangou{5}
+\begin{mondai}{020-henkan}{導出}{全微分の代入による偏微分係数の変数変換}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ を固定した物質の状態量 $X$ を考える。
+  \begin{shoumon}
+    \item $\dd V = \alpha V\,\dd T - \kappa_{T} V\,\dd p$ を示し，これを $X(T,V)$ の全微分に代入して \noteshiki{3.5}・\noteshiki{3.6} を導け。
+    \item 独立変数を $(V,p)$ に選んだときの $(\partial X/\partial V)_{p}$ と $(\partial X/\partial p)_{V}$ を，$\alpha$，$\kappa_{T}$，$V$ と $(\partial X/\partial T)_{V}$，$(\partial X/\partial V)_{T}$ で表せ（$\alpha \neq 0$ とする）。さらに $X = T$ とおいた結果が \noteshiki{3.2}・\noteshiki{3.4} と整合することを確かめよ。
+    \item 状態方程式 $p(V - nb) = nRT$ に従う気体（$b$ は正の定数。体膨張率は $\alpha = (V - nb)/(TV)$）で，$X(T,V) = cT + k/V$（$c$，$k$ は定数）とする。$(\partial X/\partial T)_{p}$ を \noteshiki{3.5} で求め，$V$ を $(T,p)$ で表して直接微分した結果と一致することを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-12 B ○○◎}
+\begin{kotaeutsushi}{2026-11-12}
+\toi{1}{○}{記述}
+\[ \dd V=\left(\pdv{V}{T}\right)_{p}\dd T+\left(\pdv{V}{p}\right)_{T}\dd p \]
+\[ \alpha=\frac{1}{V}\left(\pdv{V}{T}\right)_{p} \quad \therefore\ \left(\pdv{V}{T}\right)_{p}=\alpha V \]
+\[ \kappa_{T}=-\frac{1}{V}\left(\pdv{V}{p}\right)_{T} \quad \therefore\ \left(\pdv{V}{p}\right)_{T}=-\kappa_{T}V \]
+\[ \therefore\ \dd V=\alpha V\,\dd T-\kappa_{T}V\,\dd p \]
+\begin{align*}
+\dd X&=\left(\pdv{X}{T}\right)_{V}\dd T+\left(\pdv{X}{V}\right)_{T}\dd V\\
+&=\left(\pdv{X}{T}\right)_{V}\dd T\\
+&\qquad+\left(\pdv{X}{V}\right)_{T}(\alpha V\,\dd T-\kappa_{T}V\,\dd p)\\
+&=\biggl(\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T}\biggr)\dd T\\
+&\qquad-\kappa_{T}V\left(\pdv{X}{V}\right)_{T}\dd p
+\end{align*}
+\[ \left(\pdv{X}{T}\right)_{p}=\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T} \]
+\[ \left(\pdv{X}{p}\right)_{T}=-\kappa_{T}V\left(\pdv{X}{V}\right)_{T} \]
+\naze{係数を比べる相手の全微分 $\dd X=(\partial X/\partial T)_{p}\,\dd T+(\partial X/\partial p)_{T}\,\dd p$（$X$ を $(T,p)$ の関数とみたもの）と，係数を比べてよい理由（$\dd T$ と $\dd p$ が独立に選べる）が書かれていない。}
+\toi{2}{○}{記述}
+\begin{align*}
+\dd X&=\left(\pdv{X}{V}\right)_{p}\dd V+\left(\pdv{X}{p}\right)_{V}\dd p\\
+&=\left(\pdv{X}{V}\right)_{p}(\alpha V\,\dd T-\kappa_{T}V\,\dd p)\\
+&\qquad+\left(\pdv{X}{p}\right)_{V}\dd p\\
+&=\alpha V\left(\pdv{X}{V}\right)_{p}\dd T\\
+&\qquad+\biggl(\left(\pdv{X}{p}\right)_{V}-\kappa_{T}V\left(\pdv{X}{V}\right)_{p}\biggr)\dd p
+\end{align*}
+\[ \left(\pdv{X}{T}\right)_{p}=\alpha V\left(\pdv{X}{V}\right)_{p} \]
+\[ \therefore\ \left(\pdv{X}{V}\right)_{p}=\frac{1}{\alpha V}\left(\pdv{X}{T}\right)_{V}+\left(\pdv{X}{V}\right)_{T} \]
+\nuke{$\alpha\neq0$ だから}
+\[ \left(\pdv{X}{p}\right)_{T}=\left(\pdv{X}{p}\right)_{V}-\kappa_{T}V\left(\pdv{X}{V}\right)_{p} \]
+\begin{align*}
+\therefore\ \left(\pdv{X}{p}\right)_{V}&=-\kappa_{T}V\left(\pdv{X}{V}\right)_{T}+\kappa_{T}V\left(\pdv{X}{V}\right)_{p}\\
+&=-\kappa_{T}V\left(\pdv{X}{V}\right)_{T}\\
+&\qquad+\kappa_{T}V\biggl(\frac{1}{\alpha V}\left(\pdv{X}{T}\right)_{V}+\left(\pdv{X}{V}\right)_{T}\biggr)\\
+&=\frac{\kappa_{T}}{\alpha}\left(\pdv{X}{T}\right)_{V}
+\end{align*}
+\begin{align*}
+\left(\pdv{T}{V}\right)_{p}&=\frac{1}{\alpha V}\left(\pdv{T}{T}\right)_{V}+\left(\pdv{T}{V}\right)_{T}\\
+\left(\pdv{T}{p}\right)_{V}&=\frac{\kappa_{T}}{\alpha}\left(\pdv{T}{T}\right)_{V}
+\end{align*}
+\[ \left(\pdv{V}{T}\right)_{p}\left(\pdv{T}{V}\right)_{p}=\alpha V\cdot\frac{1}{\alpha V}=1 \]
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{\alpha}{\kappa_{T}} \]
+\naze{(1) と同じく，$\dd T$ と $\dd p$ が独立に選べるので係数を比べてよい，という根拠が無い。また $1/(\alpha V)$ を作るときに $\alpha\neq0$ を使ったことを明記していない。}
+\toi{3}{◎}{}
+\begin{align*}
+\left(\pdv{X}{T}\right)_{p}&=\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T}\\
+&=c+\frac{V-nb}{TV}\cdot V\cdot\left(-\frac{k}{V^{2}}\right)\\
+&=c-\frac{k(V-nb)}{TV^{2}}
+\end{align*}
+\[ V=\frac{nRT}{p}+nb \]
+\[ X(T,p)=cT+\frac{kp}{nRT+nbp} \]
+\[ \left(\pdv{X}{T}\right)_{p}=c-nR\frac{kp}{(nRT+nbp)^{2}} \]
+\begin{align*}
+c-\frac{k(V-nb)}{TV^{2}}&=c-\frac{k\frac{nRT}{p}}{T\left(\frac{nRT}{p}+nb\right)^{2}}\\
+&=c-\frac{nRkpT}{T(nRT+nbp)^{2}}
+\end{align*}
+一致する。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 係数を比べるときは，比べる相手の全微分（ここでは $X$ を $(T,p)$ の関数とみた $\dd X$）を書き，比べる2つの微小量（$\dd T$ と $\dd p$）が独立に選べることを一言添える。$\dd T$，$\dd V$，$\dd p$ は状態方程式で結ばれていて，独立に選べるのは2つだけである。
+\item 割り算をしたら，割った量が0でないこと（ここでは $\alpha\neq0$）を書く。$\alpha=0$ の状態（水の \qty{4}{\degreeCelsius} 付近）では $(V,p)$ を独立変数に選べない。
+\end{kizuki}
+\begin{tadashii}
+\houshin 変数を切り替えるには，一方の組の全微分にもう一方の組の全微分を代入し，独立に動かせる微小量の係数を比べる。$\dd T$ と $\dd p$（または $\dd V$ と $\dd p$）は独立に選べるので，係数が一致しなければならない。
+\keisan \shoumonkai{1} $V$ を $(T,p)$ の関数とみた全微分に，$\alpha$，$\kappa_{T}$ の定義を入れる。
+\[ \dd V = \left(\pdv{V}{T}\right)_{p}\dd T + \left(\pdv{V}{p}\right)_{T}\dd p = \alpha V\,\dd T - \kappa_{T}V\,\dd p \]
+これを \noteshiki{3.1} の $\dd V$ に代入すると
+\[ \dd X = \left[\left(\pdv{X}{T}\right)_{V} + \alpha V\left(\pdv{X}{V}\right)_{T}\right]\dd T - \kappa_{T}V\left(\pdv{X}{V}\right)_{T}\dd p \]
+一方，$X$ を $(T,p)$ の関数とみると
+\[ \dd X = \left(\pdv{X}{T}\right)_{p}\dd T + \left(\pdv{X}{p}\right)_{T}\dd p \]
+$\dd p = 0$ とおけば $\dd T$ の係数，$\dd T = 0$ とおけば $\dd p$ の係数が等しくなるので，\noteshiki{3.5}・\noteshiki{3.6} が得られる。
+\shoumonkai{2} $\dd V = \alpha V\,\dd T - \kappa_{T}V\,\dd p$ を $\dd T$ について解く（$\alpha \neq 0$）。
+\[ \dd T = \frac{1}{\alpha V}\dd V + \frac{\kappa_{T}}{\alpha}\dd p \]
+これを \noteshiki{3.1} の $\dd T$ に代入すると
+\[ \dd X = \left[\left(\pdv{X}{V}\right)_{T} + \frac{1}{\alpha V}\left(\pdv{X}{T}\right)_{V}\right]\dd V + \frac{\kappa_{T}}{\alpha}\left(\pdv{X}{T}\right)_{V}\dd p \]
+$X$ を $(V,p)$ の関数とみた全微分と係数を比べて
+\[ \left(\pdv{X}{V}\right)_{p} = \left(\pdv{X}{V}\right)_{T} + \frac{1}{\alpha V}\left(\pdv{X}{T}\right)_{V}, \qquad \left(\pdv{X}{p}\right)_{V} = \frac{\kappa_{T}}{\alpha}\left(\pdv{X}{T}\right)_{V} \]
+$X = T$ とおくと $(\partial T/\partial T)_{V} = 1$，$(\partial T/\partial V)_{T} = 0$ なので
+\[ \left(\pdv{T}{V}\right)_{p} = \frac{1}{\alpha V}, \qquad \left(\pdv{T}{p}\right)_{V} = \frac{\kappa_{T}}{\alpha} \]
+第1式は $(\partial V/\partial T)_{p} = \alpha V$ の逆数で \noteshiki{3.2} と，第2式は \noteshiki{3.4} の逆数で整合する。
+\shoumonkai{3} $(\partial X/\partial T)_{V} = c$，$(\partial X/\partial V)_{T} = -k/V^{2}$ を \noteshiki{3.5} に入れる。
+\[ \left(\pdv{X}{T}\right)_{p} = c + \frac{V - nb}{TV}\cdot V\cdot\left(-\frac{k}{V^{2}}\right) = c - \frac{k(V - nb)}{TV^{2}} \]
+直接計算では，$V = nRT/p + nb$ を代入した $X = cT + k/V(T,p)$ を $p$ 固定で微分する。$(\partial V/\partial T)_{p} = nR/p$ なので
+\[ \left(\pdv{X}{T}\right)_{p} = c - \frac{k}{V^{2}}\cdot\frac{nR}{p} \]
+状態方程式から $nR/p = (V - nb)/T$ なので，上と一致する。
+\kotae{\shoumonkai{1} 本文の導出のとおり \shoumonkai{2} $(\partial X/\partial V)_{p} = (\partial X/\partial V)_{T} + (\partial X/\partial T)_{V}/(\alpha V)$，$(\partial X/\partial p)_{V} = (\kappa_{T}/\alpha)(\partial X/\partial T)_{V}$。$X = T$ で $(\partial T/\partial V)_{p} = 1/(\alpha V)$，$(\partial T/\partial p)_{V} = \kappa_{T}/\alpha$ \shoumonkai{3} $(\partial X/\partial T)_{p} = c - k(V - nb)/(TV^{2})$}
+\begin{ronten}
+  \item \shoumonkai{1} $V$ を $(T,p)$ の関数とみて全微分を書き，その係数が $\alpha$，$\kappa_{T}$ の定義から $\alpha V$，$-\kappa_{T}V$ になることを述べる。
+  \item 係数を比べてよいのは，比べる2つの微小量（(1) では $\dd T$ と $\dd p$，(2) では $\dd V$ と $\dd p$）が独立に選べるからであることを書く。
+  \item \shoumonkai{2} $\dd T$ について解くときに $\alpha \neq 0$ を使ったことを明記する。
+\end{ronten}
+\kenzan (2) で $X = V$ とおくと $(\partial V/\partial V)_{p} = 1$，$(\partial V/\partial p)_{V} = 0$ となり正しい。(3) は $k = 0$ で $c$ に戻り，$b \to 0$ で $c - k/(TV)$ となる（理想気体では $\alpha V = V/T$）。
+\tsumazuki 係数を比べてよいのは，比べる2つの微小量が独立に選べるときだけである。$\dd T$，$\dd V$，$\dd p$ の3つは状態方程式で結ばれているので，3つを同時に独立とみてはいけない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\021_2026-11-12.tex
+\mondaibangou{6}
+\begin{mondai}{021-setsumei}{説明}{何を固定した偏微分かの区別（循環関係の符号と，定圧・定積での温度微分の違い）}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+\begin{shoumon}
+    \item ある学生は「$(\partial p/\partial T)_{V}(\partial T/\partial V)_{p}(\partial V/\partial p)_{T}$ は $\partial T$，$\partial V$，$\partial p$ を約分すれば $1$ になる」と考えた。この考えの誤りを説明せよ。さらに，3つの因子をそれぞれ $\alpha$，$\kappa_{T}$，$V$ で表し，正しい値 $-1$ の符号が，通常の物質（$\alpha > 0$，$\kappa_{T} > 0$）の性質と整合していることを説明せよ。
+    \item 同じ状態で $(\partial X/\partial T)_{p}$ と $(\partial X/\partial T)_{V}$ が等しくなるのはどのような場合か。\noteshiki{3.5} を使って条件を挙げ，それぞれの意味を $(T,V)$ 平面上の等積線と等圧線の言葉で説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-12 C △△}
+\begin{kotaeutsushi}{2026-11-12}
+\toi{1}{△}{記述}
+固定した変数について考えていない。
+\naze{理由が足りない。3つの因子は等積・等圧・等温という別々の変化に沿った比なので，分母と分子に出てくる同じ文字の微小量（たとえば第1因子の $\partial T$ と第2因子の $\partial T$）は同じ量ではなく，約分できない，まで書く。}
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{\alpha}{\kappa_{T}} \]
+\[ \left(\pdv{T}{V}\right)_{p}=\frac{1}{\alpha V} \]
+\[ \left(\pdv{V}{p}\right)_{T}=-\kappa_{T}V \]
+\[ \frac{\alpha}{\kappa_{T}}\cdot\frac{1}{\alpha V}\cdot(-\kappa_{T}V)=-1 \]
+となり整合している。
+\naze{この積は $\alpha$，$\kappa_{T}$ の符号によらず $-1$ になるので，符号の整合の説明にならない。因子ごとに符号を決める：$\alpha>0$ なので $(\partial T/\partial V)_{p}=1/(\alpha V)>0$，$\kappa_{T}>0$ なので $(\partial V/\partial p)_{T}=-\kappa_{T}V<0$，その結果 $(\partial p/\partial T)_{V}=\alpha/\kappa_{T}>0$。正・正・負の積なので負で，$-1$ と整合する。}
+\toi{2}{△}{記述}
+\[ \left(\pdv{X}{T}\right)_{p}=\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T} \]
+より，
+\[ \left(\pdv{X}{T}\right)_{p}=\left(\pdv{X}{T}\right)_{V} \]
+となるのは，
+\[ \left(\pdv{X}{V}\right)_{T}=0 \]
+のとき，つまり状態量 $X$ が $V$ によらない場合。\nuke{または $\alpha=0$}
+
+（図：縦軸 $T$・横軸 $V$ の平面に，交わる直線・曲線を描いたもの2つ）
+
+（図：縦軸 $V$・横軸 $T$ の平面に，水平な平行線を2本）
+
+等積線と等圧線の傾きが同じ。
+\naze{$V>0$ なので，差 $\alpha V(\partial X/\partial V)_{T}$ が0になるのは $\alpha=0$ か $(\partial X/\partial V)_{T}=0$ の2通りで，$\alpha=0$ が式で挙がっていない（図の「傾きが同じ」は $\alpha=0$ の意味に当たるが，$\alpha$ と結び付けていない）。等圧線の傾きは $(\partial V/\partial T)_{p}=\alpha V$ なので，$\alpha=0$ は等圧線がその点で等積線に接する場合である。$(\partial X/\partial V)_{T}=0$ は，等圧線が等積線からずれて体積が $\alpha V\,\dd T$ 変わっても，$X$ がその方向に変わらないので差が出ない場合，と等積線・等圧線の言葉で説明する。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 約分できない理由は，3つの因子が等積・等圧・等温という別々の変化に沿った比で，分母と分子の $\partial T$ などが同じ量ではないこと。「固定した変数」だけでなく，それぞれ何を固定した変化かを書く。
+\item 符号の整合は，積を計算しても示せない（$\alpha$，$\kappa_{T}$ の符号によらず $-1$ になる）。因子ごとに $\alpha>0$，$\kappa_{T}>0$ から符号を決めて，正・正・負の積が負になることを書く。
+\item 積が0になるのはどちらかの因子が0のときなので，$\alpha V(\partial X/\partial V)_{T}=0$ は「$\alpha=0$ または $(\partial X/\partial V)_{T}=0$」の2通り。$\alpha=0$ は等圧線（傾き $\alpha V$）が等積線に接すること，と図の言葉に結び付ける。
+\end{kizuki}
+\begin{tadashii}
+\houshin 偏微分係数は「どの変数を固定した変化に沿った比か」で決まる。各因子を $\alpha$，$\kappa_{T}$，$V$ で表して符号を読み，(2) は \noteshiki{3.5} の右辺第2項を調べる。
+\keisan \shoumonkai{1} $(\partial p/\partial T)_{V}$ は等積変化，$(\partial T/\partial V)_{p}$ は等圧変化，$(\partial V/\partial p)_{T}$ は等温変化に沿った無限小変化の比である。第1因子の分母の $\partial T$ と第2因子の分子の $\partial T$ は，違う過程に沿った温度変化なので同じ量ではなく，約分できない。各因子は，\noteshiki{3.4}，定義と \noteshiki{3.2}，定義から
+\[ \left(\pdv{p}{T}\right)_{V} = \frac{\alpha}{\kappa_{T}}, \qquad \left(\pdv{T}{V}\right)_{p} = \frac{1}{\alpha V}, \qquad \left(\pdv{V}{p}\right)_{T} = -\kappa_{T}V \]
+となり，積は
+\[ \frac{\alpha}{\kappa_{T}}\cdot\frac{1}{\alpha V}\cdot(-\kappa_{T}V) = -1 \]
+通常の物質では，定圧で温めると膨張する（$\alpha > 0$）ので第2因子は正，等温で圧縮すると体積が減る（$\kappa_{T} > 0$）ので第3因子は負，その結果，体積を一定に保って温めると圧力が上がり第1因子は正になる。正・正・負の積なので負であり，$-1$ の符号と整合する。
+\shoumonkai{2} \noteshiki{3.5} から
+\[ \left(\pdv{X}{T}\right)_{p} - \left(\pdv{X}{T}\right)_{V} = \alpha V\left(\pdv{X}{V}\right)_{T} \]
+両者が等しいのは，その状態で $\alpha = 0$ か $(\partial X/\partial V)_{T} = 0$ のときである。$(T,V)$ 平面で，等積線は $V$ 一定の直線，等圧線は傾き $(\partial V/\partial T)_{p} = \alpha V$ の曲線である。定圧で温度を $\dd T$ 上げると，等積の変化に加えて体積が $\alpha V\,\dd T$ だけ変わり，そのぶん $X$ が $(\partial X/\partial V)_{T}\,\alpha V\,\dd T$ だけ余分に変わる。$\alpha = 0$ なら等圧線がその点で等積線に接し，2つの変化が1次の範囲で同じになる。$(\partial X/\partial V)_{T} = 0$ なら等圧線と等積線がずれても $X$ が $V$ 方向に変わらないので，差が出ない（例：理想気体で $X$ が $T$ だけの関数のとき）。Level 1 の最初の問題（理想気体で $X = T^{2}/V$）では $\alpha = 1/T \neq 0$，$(\partial X/\partial V)_{T} = -T^{2}/V^{2} \neq 0$ なので，2つの微分が違った（$T/V$ と $2T/V$）。
+\kotae{\shoumonkai{1} 3つの因子は等積・等圧・等温という別々の変化に沿った比なので約分できない。$(\alpha/\kappa_{T})\cdot(1/(\alpha V))\cdot(-\kappa_{T}V) = -1$ で，$\alpha > 0$，$\kappa_{T} > 0$ から符号は正・正・負となり整合する \shoumonkai{2} $\alpha = 0$（等圧線が等積線に接する）か $(\partial X/\partial V)_{T} = 0$（$X$ が体積方向に変わらない）のとき}
+\begin{ronten}
+  \item \shoumonkai{1} 3つの因子が等積・等圧・等温という別々の変化に沿った比で，分母と分子に現れる同じ文字の微小量が同じ量ではないので約分できないことを述べる。
+  \item \shoumonkai{1} 各因子を $\alpha$，$\kappa_{T}$，$V$ で表すときに使った関係式を示し，$\alpha > 0$，$\kappa_{T} > 0$，$V > 0$ から因子の符号を1つずつ決めて積が負になることを書く。
+  \item \shoumonkai{2} \noteshiki{3.5} の差が $\alpha V$ と $(\partial X/\partial V)_{T}$ の積で $V > 0$ なので，条件が $\alpha = 0$ か $(\partial X/\partial V)_{T} = 0$ に限られることを述べる。
+  \item \shoumonkai{2} 等圧線の傾きが $\alpha V$ であることを使って，それぞれの条件を等積線と等圧線の関係で説明する。
+\end{ronten}
+\kenzan 理想気体（$\alpha = 1/T$，$\kappa_{T} = 1/p$）で (1) の3因子を計算すると $p/T$，$T/V$，$-V/p$ で，積は $-1$ である。
+\tsumazuki 水は約 \qty{4}{\degreeCelsius}（1気圧）で密度が最大になり，そこでは $\alpha = 0$ である。「通常の物質」で $\alpha > 0$ としたのはこのような例外を除くためである。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\022_2026-11-12.tex
+\mondaibangou{7}
+\begin{mondai}{022-genshi}{計算}{線積分による原始関数の構成と，線積分が原始関数の差に等しいこと}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+Pfaff 形式 $\omega = V^{2}\,\dd T + 2TV\,\dd V$ を考える。$T_{0}$，$V_{0}$ は正の定数とする。
+  \begin{shoumon}
+    \item $\omega$ が条件2を満たすことを確かめよ。
+    \item 基準点を $(T^{*},V^{*})$ として，\noteshiki{3.10} の構成で原始関数 $F(T,V)$ を求めよ。さらに $(\partial F/\partial T)_{V} = V^{2}$ と $(\partial F/\partial V)_{T} = 2TV$ を確かめよ。
+    \item 点 $\mathrm{P} = (T_{0},V_{0})$ から点 $\mathrm{Q} = (2T_{0},V_{0}/2)$ に至る曲線 $C$：$(T,V) = (T_{0}(1+s),V_{0}(1-s/2))$（$0 \le s \le 1$）に沿った $\omega$ の線積分を，原始関数を使わずに媒介変数表示で直接計算せよ。その値が $F(\mathrm{Q}) - F(\mathrm{P})$ に等しいことを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-12 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-12}
+\toi{1}{◎}{}
+\[ \frac{\partial}{\partial V}V^{2}=2V, \qquad \frac{\partial}{\partial T}(2TV)=2V \]
+より条件2を満たす。
+\toi{2}{◎}{}
+\begin{align*}
+F(T,V)&=\int_{T^{*}}^{T}V^{*2}\,\dd T'+\int_{V^{*}}^{V}2TV'\,\dd V'\\
+&=\bigl[V^{*2}T'\bigr]_{T^{*}}^{T}+\bigl[TV'^{2}\bigr]_{V^{*}}^{V}\\
+&=(V^{*2}T-V^{*2}T^{*})+(TV^{2}-TV^{*2})\\
+&=TV^{2}-T^{*}V^{*2}
+\end{align*}
+\[ \left(\pdv{F}{T}\right)_{V}=V^{2}, \qquad \left(\pdv{F}{V}\right)_{T}=2TV \]
+\toi{3}{○}{記述}
+$T=T_{0}(1+s)$，$V=V_{0}(1-s/2)$，$\dd T=T_{0}\,\dd s$，$\dd V=-\frac{1}{2}V_{0}\,\dd s$
+\begin{align*}
+\ayamari{F(T,V)}{I_{C}}&=\int_{C}\omega=\int_{C}V^{2}\,\dd T+2TV\,\dd V\\
+&=\int_{0}^{1}V_{0}^{2}\left(1-\frac{s}{2}\right)^{2}T_{0}\,\dd s\\
+&\qquad+\int_{0}^{1}2T_{0}V_{0}(1+s)\left(1-\frac{s}{2}\right)\\
+&\qquad\qquad\cdot\left(-\frac{1}{2}V_{0}\right)\dd s\\
+&=T_{0}V_{0}^{2}\int_{0}^{1}\biggl(\left(1-\frac{s}{2}\right)^{2}\\
+&\qquad-(1+s)\left(1-\frac{s}{2}\right)\biggr)\dd s\\
+&=T_{0}V_{0}^{2}\left[-\frac{3}{4}s^{2}+\frac{1}{4}s^{3}\right]_{0}^{1}=-\frac{1}{2}T_{0}V_{0}^{2}
+\end{align*}
+\naze{線積分 $\int_{C}\omega$ は曲線 $C$ で決まる1つの数で，$(T,V)$ の関数 $F$ ではない（等しいのは $F(\mathrm{Q})-F(\mathrm{P})$）。$I_{C}$ のように別の名前を付ける。}
+\begin{align*}
+F(\mathrm{Q})-F(\mathrm{P})&=2T_{0}\left(\frac{V_{0}}{2}\right)^{2}-T_{0}V_{0}^{2}\\
+&=-\frac{1}{2}T_{0}V_{0}^{2}
+\end{align*}
+一致。
+\naze{両者が等しくなる理由が無い。$\omega$ は (1) で条件2を確かめた全微分なので，線積分は原始関数の終点と始点の値の差 $F(\mathrm{Q})-F(\mathrm{P})$ になる（基準点による定数 $T^{*}V^{*2}$ は差で消える）。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 線積分 $\int_{C}\omega$ が $F(\text{終点})-F(\text{始点})$ に等しいのは，$\omega$ が全微分（原始関数をもつ）ときだけである。(1) で確かめた条件2を理由として書き，線積分には $I_{C}$ など原始関数 $F$ と別の名前を付ける。
+\item (2) では最初に第2項の $T$ を $T^{*}$ にしかけて自分で直した。原始関数の構成の第2項 $\int_{V^{*}}^{V}B(T,V')\,\dd V'$ の $T$ は終点の $T$（固定した値）である。
+\end{kizuki}
+\begin{tadashii}
+\houshin (2) は \noteshiki{3.10} の2本の線分に沿って積分する。(3) は媒介変数表示で $s$ の積分にし（\noteshiki{3.7}），\noteshiki{3.11} と比べる。
+\keisan \shoumonkai{1} $A = V^{2}$，$B = 2TV$ より
+\[ \left(\pdv{A}{V}\right)_{T} = 2V, \qquad \left(\pdv{B}{T}\right)_{V} = 2V \]
+で恒等的に等しい。
+\shoumonkai{2} \noteshiki{3.10} より
+\[ F(T,V) = \int_{T^{*}}^{T} V^{*2}\,\dd T' + \int_{V^{*}}^{V} 2TV'\,\dd V' = V^{*2}(T - T^{*}) + T(V^{2} - V^{*2}) = TV^{2} - T^{*}V^{*2} \]
+これを微分すると $(\partial F/\partial T)_{V} = V^{2}$，$(\partial F/\partial V)_{T} = 2TV$ で，$A$，$B$ に一致する。
+\shoumonkai{3} $T = T_{0}(1+s)$，$V = V_{0}(1 - s/2)$ より $\dd T/\dd s = T_{0}$，$\dd V/\dd s = -V_{0}/2$。被積分関数は
+\begin{align*}
+A\dv{T}{s} + B\dv{V}{s} &= V_{0}^{2}\left(1 - \frac{s}{2}\right)^{2}T_{0} + 2T_{0}(1+s)V_{0}\left(1 - \frac{s}{2}\right)\left(-\frac{V_{0}}{2}\right)\\
+&= T_{0}V_{0}^{2}\left(1 - \frac{s}{2}\right)\left[\left(1 - \frac{s}{2}\right) - (1+s)\right]\\
+&= -\frac{3}{2}T_{0}V_{0}^{2}\,s\left(1 - \frac{s}{2}\right)
+\end{align*}
+これを $s$ について $0$ から $1$ まで積分する。
+\[ \int_{C}\omega = -\frac{3}{2}T_{0}V_{0}^{2}\left[\frac{s^{2}}{2} - \frac{s^{3}}{6}\right]_{0}^{1} = -\frac{3}{2}T_{0}V_{0}^{2}\cdot\frac{1}{3} = -\frac{1}{2}T_{0}V_{0}^{2} \]
+一方，(2) の $F$ では
+\[ F(\mathrm{Q}) - F(\mathrm{P}) = 2T_{0}\cdot\frac{V_{0}^{2}}{4} - T_{0}V_{0}^{2} = -\frac{1}{2}T_{0}V_{0}^{2} \]
+（定数 $T^{*}V^{*2}$ は差で消える）で一致する。
+\kotae{\shoumonkai{1} $(\partial A/\partial V)_{T} = (\partial B/\partial T)_{V} = 2V$ \shoumonkai{2} $F = TV^{2} - T^{*}V^{*2}$ \shoumonkai{3} $C$ に沿った $\omega$ の線積分は $-T_{0}V_{0}^{2}/2 = F(\mathrm{Q}) - F(\mathrm{P})$}
+\begin{ronten}
+  \item \shoumonkai{2} \noteshiki{3.10} の第2項では，$T$ を終点の値に固定したまま $V'$ について積分することを明記する。
+  \item \shoumonkai{3} 線積分が $F(\mathrm{Q}) - F(\mathrm{P})$ に等しくなるのは (1) で条件2を確かめた全微分だからであり，基準点による定数は差で消えることを述べる。
+\end{ronten}
+\kenzan 次元はどれも $[T][V]^{2}$ でそろう。基準点を変えると $F$ は定数だけ変わり，差 $F(\mathrm{Q}) - F(\mathrm{P})$ は変わらない。$s = 0$，$1$ で被積分関数が $0$，負になり，積分が負になるのとも合う。
+\tsumazuki \noteshiki{3.10} の第2項では，$T$ は終点の $T$（固定した値）で，$T^{*}$ ではない。ここを $T^{*}$ にすると $F$ が $V$ の項で合わなくなる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

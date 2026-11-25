@@ -1,0 +1,19 @@
+% 連続体力学 連続体力学-3 問題3（020-sym） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ P_{21}=\tau,\quad P_{13}=\sigma,\quad P_{32}=0 \]
+6
+\toi{2}{◎}{}
+\[ \vect{p}=\tens{P}\cdot\vect{n}=\frac{1}{\sqrt{2}}(-p_{0}+\tau,\ \tau-p_{0},\ \sigma) \]
+\toi{3}{△}{計算}
+\[ \vect{p}\cdot\vect{n}=\frac{1}{2}(\kakimachigai{-p}{-p_{0}}+\tau+\tau-p_{0})=\tau-p_{0} \]
+\begin{align*}
+\abs{\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}}&=\Biggl|\nuke{\tfrac{1}{\sqrt{2}}}\begin{pmatrix}-p_{0}+\tau\\-p_{0}+\tau\\\sigma\end{pmatrix}\\
+&\qquad-(-p_{0}+\tau)\begin{pmatrix}1/\sqrt{2}\\1/\sqrt{2}\\0\end{pmatrix}\Biggr|\\
+&=\Biggl|\ayamari{\begin{pmatrix}\frac{1}{\sqrt{2}}(-p_{0}+\tau)\\\frac{1}{\sqrt{2}}(-p_{0}+\tau)\\\sigma\end{pmatrix}}{(0,\,0,\,\sigma/\sqrt{2})}\Biggr|\\
+&=\sqrt{(-p_{0}+\tau)^{2}+\sigma^{2}}
+\end{align*}
+\naze{$\vect{p}$ を写すときに (2) の係数 $1/\sqrt{2}$ が落ちている。また引き算は成分ごとに行い，第1・第2成分は $(\tau-p_{0})/\sqrt{2}-(\tau-p_{0})/\sqrt{2}=0$ で消える（書いた式のままでも第1成分は $(1-1/\sqrt{2})(\tau-p_{0})$ で，$(\tau-p_{0})/\sqrt{2}$ にはならない）。正しくは $(0,0,\sigma/\sqrt{2})$ で，大きさは $\abs{\sigma}/\sqrt{2}$。以降はこの誤りを引き継ぐ。}
+%% kizuki
+\item 面に平行な成分は $\vect{p}_{t}=\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}$ を成分ごとに引き切る。結果が $\vect{p}_{t}\cdot\vect{n}=0$ を満たすか，$\abs{\vect{p}}^{2}=(\vect{p}\cdot\vect{n})^{2}+\abs{\vect{p}_{t}}^{2}$ になるかで検算する（書いた答えの2乗 $(\tau-p_{0})^{2}+\sigma^{2}$ は $\abs{\vect{p}}^{2}=(\tau-p_{0})^{2}+\sigma^{2}/2$ より大きく，あり得ない）。
+\item \mae{第2回 問題1 (2)・10-24} 応力ベクトルの成分の扱いで，前回は $\tau$ の符号を誤り，今回は $\vect{p}$ を書き写すときに $1/\sqrt{2}$ を落とした。前の小問の結果を使うときは係数ごと写し（$\vect{p}=\frac{1}{\sqrt{2}}(\ldots)$），1成分ずつ書き出して引く。

@@ -1,0 +1,413 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{熱物理学　第10章「完全な熱力学関数と Legendre 変換」}{2026-11-25}
+%% note-moto	problems\熱物理学\shou10\熱物理学-10.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-076-u-model}{1}}{L1・計算}{◎◎◎}{S}{2026-11-20}
+  \ichirangyou{\hyperlink{bt-m-077-u-tv}{2}}{L1・説明}{○◎○}{B}{2026-11-20 (1)記述 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-078-legendre}{3}}{L1・計算}{◎◎◎△}{A}{2026-11-20 (4)計算}
+  \ichirangyou{\hyperlink{bt-m-079-power-law}{4}}{L2・導出}{◎◎○◎}{A}{2026-11-20 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-080-gibbs-duhem}{5}}{L2・計算}{◎○◎}{A}{2026-11-20 (2)記述}
+  \ichirangyou{6}{L3・導出}{}{未着手}{}
+  \ichirangyou{7}{L3・導出}{}{未着手}{}
+  \ichirangyou{8}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item その偏微分 % 出典: p.49
+    \[ \left(\pdv{U}{S}\right)_{V} = T(S,V), \qquad \left(\pdv{U}{V}\right)_{S} = -p(S,V) \notetag{10.2} \]
+  \item $U(T,V)$ の体積微分（エネルギー方程式） % 出典: p.49
+    \[ \left(\pdv{U}{V}\right)_{T} = T\left(\pdv{p}{T}\right)_{V,n} - p \notetag{10.3} \]
+  \item $U(S,V,n)$ の偏微分 % 出典: p.50
+    \[ \left(\pdv{U}{S}\right)_{V,n} = T, \qquad \left(\pdv{U}{V}\right)_{S,n} = -p, \qquad \left(\pdv{U}{n}\right)_{S,V} = \mu \notetag{10.4} \]
+  \item 物質の出入りがある場合の仕事 % 出典: p.50
+    \[ \delta W = -p\dd V + \mu\dd n \notetag{10.5} \]
+  \item 定積比熱の正値性 % 出典: p.53
+    \[ C_{V} = T\left(\pdv{S}{T}\right)_{V,n} = T\Big/\left(\pdv{T}{S}\right)_{V,n} > 0 \notetag{10.9} \]
+  \item 断熱圧縮率の正値性 % 出典: p.53
+    \[ \kappa_{S} = -\frac{1}{V}\left(\pdv{V}{p}\right)_{S,n} = -1\Big/V\left(\pdv{p}{V}\right)_{S,n} > 0 \notetag{10.10} \]
+  \item Euler の関係式 % 出典: p.53
+    \[ U = TS - pV + \mu n \notetag{10.12} \]
+  \item Gibbs-Duhem の式 % 出典: p.54
+    \[ S\dd T - V\dd p + n\dd\mu = 0 \notetag{10.13} \]
+  \item 等温圧縮率を密度で表した式 % 出典: p.54
+    \[ \kappa_{T} = -\frac{1}{V}\left(\pdv{V}{p}\right)_{T,n} = \frac{1}{\rho}\left(\pdv{\rho}{p}\right)_{T} = \frac{1}{\rho^{2}}\left(\pdv{\rho}{\mu}\right)_{T} \notetag{10.15} \]
+  \item Legendre 変換 % 出典: p.55
+    \[ g(y) = f(x(y)) - yx(y) \notetag{10.16} \]
+  \item Legendre 変換の導関数 % 出典: p.55
+    \[ x(y) = -\dv{g}{y} = -g'(y) \notetag{10.17} \]
+  \item 逆 Legendre 変換（$x = -\dd g/\dd y$ を $y$ について解いたものを $y = y(x)$ とする） % 出典: p.56
+    \[ f(x) = g(y(x)) + xy(x) \notetag{10.18} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\熱物理学\076_2026-11-20.tex
+\mondaibangou{1}
+\begin{mondai}{076-u-model}{計算}{完全な熱力学関数 $U(S,V,n)$ から $T$・$p$・$\mu$・状態方程式・$U(T,V)$ を導くこと，Euler の関係式}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+ある一成分流体の内部エネルギーが，エントロピー $S$（$S > 0$），体積 $V$，物質量 $n$ の関数として
+  \[ U(S,V,n) = \frac{KS^{3}}{nV} \]
+  で与えられる（$K$ は正の定数）。
+  \begin{shoumon}
+    \item 温度 $T$，圧力 $p$，化学ポテンシャル $\mu$ を $S$，$V$，$n$ で表せ。
+    \item (1) の結果が Euler の関係式 \noteshiki{10.12} を満たすことを確かめよ。
+    \item 状態方程式 $p(T,V,n)$ と内部エネルギー $U(T,V,n)$ を求め，定積比熱 $C_{V}$ を $U$ と $T$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-11-20 S ◎◎◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+（図：熱力学の四角形。上段に $S$，$U$，$V$，左に $H$，右に $F$，下段に $p$，$G$，$T$ を置き，対角線に矢印）
+\begin{align*}
+\dd U&=\left(\pdv{U}{S}\right)_{V,n}\dd S+\left(\pdv{U}{V}\right)_{S,n}\dd V\\
+&\qquad+\left(\pdv{U}{n}\right)_{S,V}\dd n\\
+&=T\dd S-p\dd V+\mu\dd n
+\end{align*}
+\begin{align*}
+\therefore\ \left(\pdv{U}{S}\right)_{V,n}&=T, \qquad \left(\pdv{U}{V}\right)_{S,n}=-p,\\
+\left(\pdv{U}{n}\right)_{S,V}&=\mu
+\end{align*}
+\[ T=\frac{3KS^{2}}{nV}, \qquad p=\frac{KS^{3}}{nV^{2}}, \qquad \mu=-\frac{KS^{3}}{n^{2}V} \]
+\toi{2}{◎}{}
+\begin{align*}
+U&=TS-pV+\mu n\\
+&=\frac{3KS^{3}}{nV}-\frac{KS^{3}}{nV}-\frac{KS^{3}}{nV}\\
+&=\frac{KS^{3}}{nV}
+\end{align*}
+より満たす。
+\toi{3}{◎}{}
+\[ T=\frac{3KS^{2}}{nV}\ \text{より，}\ S=\sqrt{\frac{nVT}{3K}} \]
+\begin{align*}
+p(T,V,n)&=\frac{K}{nV^{2}}\left(\frac{nVT}{3K}\right)^{3/2}\\
+&=\left(\frac{T}{3}\right)^{3/2}\left(\frac{n}{KV}\right)^{1/2}
+\end{align*}
+\begin{align*}
+U(T,V,n)&=\frac{K}{nV}\left(\frac{nVT}{3K}\right)^{3/2}\\
+&=\left(\frac{T}{3}\right)^{3/2}\left(\frac{nV}{K}\right)^{1/2}
+\end{align*}
+\begin{align*}
+C_{V}&=T\left(\pdv{S}{T}\right)_{V,n}\\
+&=T\cdot\frac{1}{2}\kakimachigai{\sqrt{\frac{nVT}{3K}}}{\sqrt{\frac{nV}{3KT}}}\\
+&=\frac{1}{2}\sqrt{\frac{nVT}{3K}}\\
+&=\frac{1}{2}\left(\frac{T}{3}\right)^{1/2}\left(\frac{nV}{K}\right)^{1/2}\\
+&=\frac{1}{2}\left(\frac{T}{3}\right)^{-1}U\\
+&=\frac{3U}{2T}
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\077_2026-11-20.tex
+\mondaibangou{2}
+\begin{mondai}{077-u-tv}{説明}{$U(T,V)$ が完全でないこと（自然な変数の組），化学的仕事と共役な変数の組，第8章のエネルギー方程式を使う}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ の一成分流体の内部エネルギーが $U(T,V,n) = ncT$（$c$ は正の定数）と分かっているとする。
+  \begin{shoumon}
+    \item エネルギー方程式 \noteshiki{10.3} を使い，この $U(T,V,n)$ と矛盾しない状態方程式は $p = Tf(V,n)$（$f$ は任意の関数）の形であることを示せ。また，$p = nRT/V$ と，$b$ を正の定数とした $p = nRT/V + bn^{2}T/V^{2}$ がどちらも矛盾しないことを確かめよ。
+    \item (1) から，$U(T,V)$ だけでは状態方程式が決まらないことが分かる。一方，$U(S,V)$ が分かれば状態方程式が決まる理由を述べよ。
+    \item 物質の出入りがある場合の準静的過程の仕事 $\delta W$ と，$\dd U$ に現れる共役な変数の組を3つ挙げよ。また，化学ポテンシャルを $\delta W$ の中の係数として説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 B ○◎○}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{○}{記述}
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\left(\pdv{p}{T}\right)_{V,n}-p\\
+0&=T\left(\pdv{p}{T}\right)_{V,n}-p\\
+p&=T\left(\pdv{p}{T}\right)_{V,n}
+\end{align*}
+\[ \therefore\ p=Tf(V,n) \]
+\naze{$p=T(\partial p/\partial T)_{V,n}$ から $p=Tf(V,n)$ へ1行で飛んでいる。$V$，$n$ を固定して $\frac{\partial}{\partial T}(p/T)=(1/T)(\partial p/\partial T)_{V,n}-p/T^{2}=0$ なので，$p/T$ は $T$ によらない $V$，$n$ だけの任意の関数 $f(V,n)$ になる，とつなぐ。}
+$p=nRT/V$ について
+\begin{align*}
+p&=T\left(\pdv{p}{T}\right)_{V,n}\\
+&=T\cdot\frac{nR}{V}\\
+&=\frac{nRT}{V}
+\end{align*}
+$p=nRT/V+bn^{2}T/V^{2}$ について
+\begin{align*}
+p&=T\left(\pdv{p}{T}\right)_{V,n}=T\left(\frac{nR}{V}+\frac{bn^{2}}{V^{2}}\right)\\
+&=\frac{nRT}{V}+\frac{bn^{2}T}{V^{2}}
+\end{align*}
+どちらも成り立つ。
+\toi{2}{◎}{}
+\[ \left(\pdv{U}{S}\right)_{V}=T(S,V), \qquad \left(\pdv{U}{V}\right)_{S}=-p(S,V) \]
+より，$p$，$T$，$V$ の式に変形できるから。
+\toi{3}{○}{記述}
+\[ \delta W=-p\dd V+\mu\dd n \]
+\[ \dd U=T\dd S-p\dd V+\mu\dd n \]
+\[ (T,S),\quad (p,V),\quad (\mu,n) \]
+\nuke{$\mu$ の説明}
+\naze{問われている「化学ポテンシャルを $\delta W$ の中の係数として説明せよ」の答えが無い。$\mu\dd n$ は物質の授受に伴う仕事（化学的仕事）で，$\mu$ は $S$ と $V$ を一定に保って物質量を $\dd n$ だけ増やすときに系に与えられる仕事の係数である，と書く。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第3章 問題5 (1)(2)・11-12} 式変形の根拠を書かずに「$\therefore$」で飛ぶ癖が続いている。$T(\partial p/\partial T)_{V,n}=p$ は「$V$，$n$ を固定すると $p/T$ の $T$ 微分が0」という意味で，積分定数に当たるものが $V$，$n$ の任意関数 $f(V,n)$ として残る。これが $U(T,V)$ だけでは状態方程式が決まらない（完全でない）ことの中身である。「$\therefore$」の前に，何を使ったかを1語でも書く。
+\item \mae{第3章 問題2 (3)・11-12，第8章 問題5 (3)・11-16} 小問の後半の答え落としが3回目である。(3) は「挙げよ」の後に「説明せよ」がある。$-p\dd V$ が体積を変える仕事であるのと同じく，$\mu\dd n$ は物質を出し入れする仕事である。解き終えたら問題文の「求めよ」「挙げよ」「説明せよ」に印を付け，答えの数と合わせる。
+\end{kizuki}
+\begin{tadashii}
+\houshin $U$ が $V$ によらないので，エネルギー方程式から $p$ の満たす偏微分方程式が得られる。それを解くと任意関数が残ることから，$U(T,V)$ が完全でないことが分かる。$U(S,V)$ では偏微分係数が直接 $T$ と $p$ を与えることと対比する。
+\keisan \shoumonkai{1} $(\partial U/\partial V)_{T} = 0$ なので，\noteshiki{10.3} から $T(\partial p/\partial T)_{V,n} = p$。$V$，$n$ を固定すると
+\[ \frac{\partial}{\partial T}\left(\frac{p}{T}\right) =\frac{1}{T}\left(\pdv{p}{T}\right)_{V,n} - \frac{p}{T^{2}} = 0 \]
+なので，$p/T$ は $V$ と $n$ だけの関数 $f(V,n)$ であり，$p = Tf(V,n)$ となる。$p = nRT/V$ は $f = nR/V$，$p = nRT/V + bn^{2}T/V^{2}$ は $f = nR/V + bn^{2}/V^{2}$ の場合で，どちらも $T(\partial p/\partial T)_{V,n} = p$ を満たし，$U = ncT$ と矛盾しない。
+
+\shoumonkai{2} $U(T,V)$ から状態方程式を求めるには，\noteshiki{10.3} を $p(T,V)$ についての微分方程式として解く必要があり，(1) のように任意関数（ここでは $Tf(V,n)$ の形の項）が残る。一方，$U(S,V)$ の偏微分は \noteshiki{10.2} で $T(S,V)$ と $p(S,V)$ そのものを与え，偏微分係数を含まない。2式から $S$ を消去すれば $p(T,V)$ が一意に決まる。熱力学関数が完全かどうかは変数の選び方に依存し，$U$ の自然な変数の組は $(S,V)$ である。
+
+\shoumonkai{3} 物質の出入りがある準静的過程では $\delta W = -p\dd V + \mu\dd n$（\noteshiki{10.5}）であり，$\dd U = T\dd S - p\dd V + \mu\dd n$ に現れる共役な変数の組は $(T,S)$，$(p,V)$，$(\mu,n)$ である。化学ポテンシャルは，物質量を $\dd n$ だけ増やすときに（エントロピーと体積を一定に保って）系に与えられる仕事（化学的仕事）の係数である。
+\kotae{\shoumonkai{1} $p = Tf(V,n)$。2つの状態方程式はどちらも $T(\partial p/\partial T)_{V,n} = p$ を満たす \shoumonkai{2} $U(S,V)$ の偏微分は $T$ と $p$ を直接与え，$S$ を消去して $p(T,V)$ が一意に決まる（$U$ の自然な変数は $(S,V)$） \shoumonkai{3} $\delta W = -p\dd V + \mu\dd n$。$(T,S)$，$(p,V)$，$(\mu,n)$。$\mu$ は化学的仕事 $\mu\dd n$ の係数}
+\begin{ronten}
+  \item \shoumonkai{1} $p/T$ の温度微分が0になることを示し，任意関数が残ることを述べる。
+  \item \shoumonkai{2} $U(T,V)$ では偏微分係数を含む式しか得られないのに対し，$U(S,V)$ では偏微分が示強変数そのものになることを対比して書く。
+  \item \shoumonkai{3} $\mu\dd n$ が物質の授受に伴う仕事であることを述べる。
+\end{ronten}
+\kenzan (1) の2つの状態方程式は $b \to 0$ で一致する。$p = nRT/V + bn^{2}T/V^{2}$ の追加の項も $T$ に比例するので，エネルギー方程式の右辺 $T(\partial p/\partial T) - p$ に寄与しない。
+\tsumazuki 「$U$ が $T$ だけの関数なら理想気体」と決めつけない。状態方程式は $p = Tf(V,n)$ の形まで絞られるだけである。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\078_2026-11-20.tex
+\mondaibangou{3}
+\begin{mondai}{078-legendre}{計算}{Legendre 変換の計算，$x = -\dd g/\dd y$ と凸性の逆転，逆 Legendre 変換，平行移動の情報が保たれること}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+$x > 0$ で定義された関数 $f(x) = x\ln x - x$ を考える。
+  \begin{shoumon}
+    \item $f$ が下に凸であることを確かめ，Legendre 変換 $g(y)$ を \noteshiki{10.16} で求めよ。
+    \item $g$ について \noteshiki{10.17} が成り立つこと，$g$ が上に凸であることを確かめよ。
+    \item $g(y)$ を逆 Legendre 変換 \noteshiki{10.18} して $f(x)$ に戻ることを確かめよ。
+    \item 定数 $C$ だけ平行移動した $f_{C}(x) = f(x - C)$（$x > C$）の Legendre 変換 $g_{C}(y)$ を求め，$g(y)$ との違いを述べよ。また，単純に $f_{C}(x)$ に $x = x_{C}(y)$ を代入しただけの関数と比べよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+\begin{align*}
+f'&=\ln x+x\cdot\frac{1}{x}-1\\
+&=\ln x
+\end{align*}
+（増減表：$0<x<1$ で $f'<0$ で減少，$x=1$ で $f'=0$，$f=-1$，$x>1$ で $f'>0$ で増加）
+\[ f''=\frac{1}{x}>0 \]
+より下に凸。
+\[ y=\ln x \qquad \therefore\ x=\ee^{y} \]
+\begin{align*}
+g(y)&=f(\ee^{y})-y\ee^{y}\\
+&=\ee^{y}\ln\ee^{y}-\ee^{y}-y\ee^{y}\\
+&=-\ee^{y}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\ee^{y}&=-\frac{\dd}{\dd y}(-\ee^{y})\\
+&=\ee^{y}
+\end{align*}
+より (10.17) が成り立つ。
+\[ g'=-\ee^{y}, \qquad g''=-\ee^{y}<0 \]
+より上に凸。
+\toi{3}{◎}{}
+\[ x(y)=\ee^{y} \qquad \therefore\ y(x)=\ln x \]
+\begin{align*}
+f(x)&=g(y(x))+xy(x)\\
+&=-\ee^{\ln x}+x\ln x\\
+&=x\ln x-x
+\end{align*}
+\toi{4}{△}{計算}
+\[ f_{C}(x)=(x-C)\ln(x-C)-(x-C) \]
+\[ f_{C}'(x)=\frac{\dd}{\dd x}f_{C}(x)=\ln(x-C)+1-1 \]
+\[ \ee^{y}=x-C \qquad \therefore\ x_{C}(y)=\ee^{y}+C \]
+\begin{align*}
+g_{C}(y)&=f_{C}(x_{C}(y))-yx_{C}(y)\\
+&=\ee^{y}\ln\ee^{y}-\ee^{y}-y(\ee^{y}+C)\\
+&=\ayamari{-\ee^{y}+C}{-\ee^{y}-Cy}
+\end{align*}
+\naze{$-y(\ee^{y}+C)=-y\ee^{y}-Cy$ なので，$C$ にも $y$ が掛かる。$g_{C}(y)=-\ee^{y}-Cy=g(y)-Cy$ で，平行移動の情報は傾き $-C$ の1次の項として残る。以降の結論「$g(y)$ を $-C$ 平行移動したもの」はこの誤りを引き継ぐ。}
+$g(y)$ を $-C$ 平行移動したものになる。
+\[ f_{C}(x_{C}(y))=(y-1)\ee^{y} \]
+$C$ によらない。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $f$ を $x$ 方向に $C$ ずらすと，Legendre 変換は $g_{C}(y)=g(y)-Cy$ と1次の項が加わり，上下の平行移動にはならない。傾き $y$ の接線を右に $C$ ずらすと，$x=0$ での切片は $-Cy$ だけ変わる，と図で考える。
+\item \mae{第3章 問題4 (5)・11-12} 前回は引き算の誤りを，$b\to0$ の値と比べる検算で防げた。今回は Legendre 変換の導関数の関係 $-g_{C}'(y)=x_{C}(y)$ で検算する：$-\ee^{y}+C$ では $-g_{C}'=\ee^{y}$ で $x_{C}=\ee^{y}+C$ と合わず，ここで気付ける。括弧を展開したら，括弧の中のすべての項に掛けたかを見直す。
+\end{kizuki}
+\begin{tadashii}
+\houshin $y = f'(x)$ を $x$ について解き，\noteshiki{10.16} に代入する。逆変換は $x = -g'(y)$ を $y$ について解いて \noteshiki{10.18} に代入する。平行移動では $x(y)$ が $C$ だけずれることに注意する。
+\keisan \shoumonkai{1} $f'(x) = \ln x + 1 - 1 = \ln x$，$f''(x) = 1/x > 0$ なので $f$ は下に凸である。$y = \ln x$ から $x(y) = \ee^{y}$。
+\[ g(y) = f(\ee^{y}) - y\ee^{y} = y\ee^{y} - \ee^{y} - y\ee^{y} = -\ee^{y} \]
+\shoumonkai{2} $-g'(y) = \ee^{y} = x(y)$ で \noteshiki{10.17} が成り立つ。$g''(y) = -\ee^{y} < 0$ なので $g$ は上に凸である。
+
+\shoumonkai{3} $x = -g'(y) = \ee^{y}$ を $y$ について解くと $y(x) = \ln x$。
+\[ g(y(x)) + xy(x) = -x + x\ln x = f(x) \]
+\shoumonkai{4} $f_{C}'(x) = \ln(x - C)$ なので $x_{C}(y) = C + \ee^{y}$，$f_{C}(x_{C}(y)) = f(\ee^{y}) = y\ee^{y} - \ee^{y}$ である。
+\[ g_{C}(y) = f_{C}(x_{C}(y)) - yx_{C}(y) = y\ee^{y} - \ee^{y} - y(C + \ee^{y}) = -\ee^{y} - Cy = g(y) - Cy \]
+$g_{C}$ は $C$ を含み，平行移動の情報が保たれる。一方，単純に代入しただけの $f_{C}(x_{C}(y)) = y\ee^{y} - \ee^{y}$ は $C$ によらず，$C$ の情報が失われる。
+\kotae{\shoumonkai{1} $f'' = 1/x > 0$，$g(y) = -\ee^{y}$ \shoumonkai{2} $-g'(y) = \ee^{y} = x$，$g'' = -\ee^{y} < 0$ \shoumonkai{3} $y(x) = \ln x$ で $g(y(x)) + xy(x) = x\ln x - x$ \shoumonkai{4} $g_{C}(y) = -\ee^{y} - Cy$（$C$ を含む）。単純な代入 $f_{C}(x_{C}(y)) = y\ee^{y} - \ee^{y}$ は $C$ によらない}
+\kenzan (1) 幾何学的意味：$x = 1$ での接線は傾き $y = 0$，$f(1) = -1$ なので切片は $-1$ で，$g(0) = -\ee^{0} = -1$ と一致する。(4) で $C = 0$ なら $g_{C} = g$ に戻る。
+\tsumazuki Legendre 変換の符号は要点整理の定義 $g = f - yx$ に従う（$yx - f$ と定義する流儀もあるので混ぜない）。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\熱物理学\079_2026-11-20.tex
+\mondaibangou{4}
+\begin{mondai}{079-power-law}{導出}{$U(S,V,n)$ の示量性・単調性・凸性からの制限（$C_{V}>0$，$\kappa_{S}>0$），Euler の関係式}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+一成分流体の内部エネルギーが
+  \[ U(S,V,n) = KS^{a}V^{b}n^{c} \]
+  の形で与えられるとする（$K > 0$，$S > 0$，$a$，$b$，$c$ は実数の定数）。
+  \begin{shoumon}
+    \item 内部エネルギーが示量変数であることから，$a$，$b$，$c$ が満たすべき条件を求めよ。
+    \item $T > 0$ かつ $p > 0$ であることから，$a$，$b$ の符号を決めよ。$T$，$p$，$\mu$ を $U$，$S$，$V$，$n$ と $a$，$b$，$c$ で表せ。
+    \item 定積比熱 $C_{V}$ と断熱圧縮率 $\kappa_{S}$ を \noteshiki{10.9}，\noteshiki{10.10} の右側の形で計算し，それらが正であるための $a$，$b$ の条件を求めよ。
+    \item (1) の条件のもとで，Euler の関係式 \noteshiki{10.12} が成り立つことを示せ。Level 1 で扱った $U = KS^{3}/(nV)$ が，ここで求めた条件をすべて満たすことも確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-20 A ◎◎○◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+\begin{align*}
+U(\lambda S,\lambda V,\lambda n)&=\lambda^{a+b+c}KS^{a}V^{b}n^{c}\\
+&=\lambda U(S,V,n)
+\end{align*}
+\[ \therefore\ a+b+c=1 \]
+\toi{2}{◎}{}
+\[ \left(\pdv{U}{S}\right)_{V,n}=T>0 \qquad \therefore\ T=\frac{aU}{S}>0 \]
+\[ \therefore\ a>0 \]
+\[ \left(\pdv{U}{V}\right)_{S,n}=-p<0 \qquad p=-\frac{bU}{V}>0 \]
+\[ \therefore\ b<0 \]
+\[ \left(\pdv{U}{n}\right)_{S,V}=\mu=\frac{cU}{n} \]
+\toi{3}{○}{記述}
+\[ C_{V}=\frac{T}{\left(\pdv{T}{S}\right)_{V,n}}, \qquad \left(\pdv{T}{S}\right)_{V,n}=a(a-1)\frac{U}{S^{2}} \]
+\[ C_{V}=\frac{1}{a(a-1)}\cdot\frac{S^{2}T}{U}>0 \]
+\[ \therefore\ a(a-1)>0 \qquad \therefore\ a<0,\ 1<a \]
+\[ \therefore\ 1<a \]
+\[ \kappa_{S}=\frac{-1}{V\left(\pdv{p}{V}\right)_{S,n}}, \qquad \left(\pdv{p}{V}\right)_{S,n}=-b(b-1)\frac{U}{V^{2}} \]
+\[ \kappa_{S}=\frac{1}{b(b-1)}\cdot\frac{V}{U}>0 \]
+\[ b(b-1)>0 \qquad b<0,\ 1<b \]
+\[ \therefore\ b<0 \]
+\nuke{凸性}
+\naze{$C_{V}>0$，$\kappa_{S}>0$ が $U$ の凸性から来る条件であることが書かれていない。$C_{V}$ の分母 $(\partial T/\partial S)_{V,n}$ は $\partial^{2}U/\partial S^{2}$，$\kappa_{S}$ の分母の $-(\partial p/\partial V)_{S,n}$ は $\partial^{2}U/\partial V^{2}$ で，$U$ が下に凸（$T$ が $S$ の非減少関数，$p$ が $V$ の非増加関数）ならどちらも正になる，と添える。}
+\toi{4}{◎}{}
+\begin{align*}
+U&=TS-pV+\mu n\\
+&=\frac{aU}{S}\cdot S+\frac{bU}{V}V+\frac{cU}{n}n\\
+&=(a+b+c)U\\
+&=U
+\end{align*}
+より成り立つ。
+\[ a=3>1, \qquad b=-1<0, \qquad c=-1 \]
+\[ a+b+c=3-1-1=1 \]
+より満たす。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $C_{V}=T/(\partial T/\partial S)_{V,n}>0$ と $\kappa_{S}>0$ は，$U$ が下に凸であること（熱力学的な安定性）の言い換えである。条件 $a>1$，$b<0$ を出したら，それが $\partial^{2}U/\partial S^{2}>0$，$\partial^{2}U/\partial V^{2}>0$ から来ることを一言書く。
+\item \mae{第8章 問題2 (3)・11-16} 前回も，結果は合っていて「なぜそうなるか」の一言が無かった。計算した条件・量を書いたら，それが何から来るか（ここでは $U$ の凸性）を1行添える。
+\end{kizuki}
+\begin{tadashii}
+\houshin 示量性は $\lambda$ 倍したときの指数の比較で，$T$，$p$，$\mu$ は \noteshiki{10.4} の偏微分で求める。$C_{V}$ と $\kappa_{S}$ は \noteshiki{10.9}，\noteshiki{10.10} の右側の形で計算し，正であるための条件を出す。
+\keisan \shoumonkai{1} $U(\lambda S,\lambda V,\lambda n) = \lambda^{a+b+c}U(S,V,n)$ が任意の $\lambda > 0$ で $\lambda U$ に等しいので，$a + b + c = 1$。
+
+\shoumonkai{2} べき関数なので
+\[ T = \left(\pdv{U}{S}\right)_{V,n} = \frac{aU}{S}, \qquad p = -\left(\pdv{U}{V}\right)_{S,n} = -\frac{bU}{V}, \qquad \mu = \left(\pdv{U}{n}\right)_{S,V} = \frac{cU}{n} \]
+$U > 0$，$S > 0$，$V > 0$ なので，$T > 0$ から $a > 0$，$p > 0$ から $b < 0$ である。
+
+\shoumonkai{3} $(\partial T/\partial S)_{V,n} = a(a-1)KS^{a-2}V^{b}n^{c} = a(a-1)U/S^{2}$ なので
+\[ C_{V} = T\Big/\left(\pdv{T}{S}\right)_{V,n} = \frac{aU}{S}\cdot\frac{S^{2}}{a(a-1)U} = \frac{S}{a-1} \]
+$C_{V} > 0$ には $a > 1$ が必要である。また $(\partial p/\partial V)_{S,n} = -b(b-1)U/V^{2}$ なので
+\[ \kappa_{S} = -1\Big/V\left(\pdv{p}{V}\right)_{S,n} = \frac{V}{b(b-1)U} \]
+$\kappa_{S} > 0$ には $b(b-1) > 0$，すなわち $b < 0$ または $b > 1$ が必要で，(2) の $b < 0$ ならば満たされる。
+
+\shoumonkai{4} (2) の結果から
+\[ TS - pV + \mu n = aU + bU + cU = (a + b + c)U = U \]
+で，(1) の条件のもとで Euler の関係式が成り立つ。Level 1 の $U = KS^{3}/(nV)$ は $a = 3$，$b = -1$，$c = -1$ の場合で，$a + b + c = 1$，$a = 3 > 1$，$b = -1 < 0$ をすべて満たす。このとき $C_{V} = S/2$ で，Level 1 で求めた $C_{V} = 3U/(2T) = 3S/6 = S/2$（$U = TS/3$）と一致する。
+\kotae{\shoumonkai{1} $a + b + c = 1$ \shoumonkai{2} $a > 0$，$b < 0$。$T = aU/S$，$p = -bU/V$，$\mu = cU/n$ \shoumonkai{3} $C_{V} = S/(a-1)$，$\kappa_{S} = V/(b(b-1)U)$。$a > 1$（$b < 0$ なら $\kappa_{S} > 0$ は自動的） \shoumonkai{4} $TS - pV + \mu n = (a + b + c)U = U$。$a = 3$，$b = c = -1$ は条件を満たす}
+\begin{ronten}
+  \item \shoumonkai{1} 示量性を任意の $\lambda > 0$ について要求し，指数を比べることを書く。
+  \item \shoumonkai{3} $C_{V} > 0$，$\kappa_{S} > 0$ が $U$ の凸性（$T$ が $S$ の非減少関数，$p$ が $V$ の非増加関数）から来る条件であることを述べる。
+  \item \shoumonkai{4} Euler の関係式が示量性（1次の同次性）から出ることを述べる。
+\end{ronten}
+\kenzan $C_{V} = S/(a-1)$ はエントロピーの次元，$\kappa_{S} = V/(b(b-1)U)$ は体積／エネルギー＝$1/$圧力 の次元で正しい。$a \to 1$ では $T = U/S$ が $S$ によらなくなり，$C_{V} \to \infty$ になる。
+\tsumazuki $C_{V}$ を $(\partial U/\partial T)_{V}$ で求めようとすると $U$ を $T$ で表し直す必要があり手間がかかる。\noteshiki{10.9} の $T/(\partial T/\partial S)_{V,n}$ の形を使う。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\080_2026-11-20.tex
+\mondaibangou{5}
+\begin{mondai}{080-gibbs-duhem}{計算}{Gibbs-Duhem の式による化学ポテンシャルの圧力依存性，等温圧縮率を密度で表す式，第8章の状態方程式を使う}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ の一成分気体の状態方程式が，第8章で扱った
+  \[ V = \frac{nRT}{p} + nb \]
+  （$b$ は正の定数）で与えられるとする。
+  \begin{shoumon}
+    \item Gibbs-Duhem の式 \noteshiki{10.13} を使い，温度一定のもとで化学ポテンシャルの差 $\mu(T,p) - \mu(T,p_{0})$ を求めよ。
+    \item 等温圧縮率 $\kappa_{T}$ を，定義から直接求めたものと，\noteshiki{10.15} の真ん中の形（密度 $\rho = n/V$ の圧力微分）で求めたものが一致することを確かめよ。
+    \item $b = \qty{3.20e-5}{\metre\cubed\per\mole}$，$T = \qty{300}{\kelvin}$ のとき，圧力を \qty{1.00e5}{\pascal} から \qty{1.00e7}{\pascal} に上げたときの $\mu$ の変化を有効数字3桁で求めよ。そのうち $b$ による部分はいくらか。
+  \end{shoumon}
+\notekiroku{2026-11-20 A ◎○◎}
+\begin{kotaeutsushi}{2026-11-20}
+\toi{1}{◎}{}
+\[ S\dd T-V\dd p+n\dd\mu=0 \]
+$T$ 一定より $\dd T=0$
+\begin{align*}
+n\dd\mu&=V\dd p\\
+\dd\mu&=\frac{V}{n}\dd p\\
+&=\kakimachigai{\frac{RT}{p}+b\,\dd p}{\left(\frac{RT}{p}+b\right)\dd p}
+\end{align*}
+\begin{align*}
+\mu(T,p)-\mu(T,p_{0})&=\int_{p_{0}}^{p}\kakimachigai{\frac{RT}{p}+b\,\dd p}{\left(\frac{RT}{p}+b\right)\dd p}\\
+&=\Bigl[RT\ln p+bp\Bigr]_{p_{0}}^{p}\\
+&=RT\ln\frac{p}{p_{0}}+b(p-p_{0})
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+\kappa_{T}&=-\frac{1}{V}\left(\pdv{V}{p}\right)_{T,n}\\
+&=-\frac{1}{V}\cdot\kakimachigai{\frac{nRT}{p^{2}}}{\left(-\frac{nRT}{p^{2}}\right)}\\
+&=\frac{p}{bp+RT}\cdot\frac{RT}{p^{2}}=\frac{RT}{p(bp+RT)}
+\end{align*}
+\[ \kappa_{T}=\frac{1}{\rho}\left(\pdv{\rho}{p}\right)_{T}\nuke{n\ \text{によらない}} \]
+\[ \rho=\frac{n}{V}=\frac{1}{\frac{RT}{p}+b}=\frac{p}{RT+bp} \]
+\begin{align*}
+\kappa_{T}&=\left(\frac{RT}{p}+b\right)\cdot\frac{RT}{(RT+bp)^{2}}\\
+&=\frac{1}{p^{2}}\cdot\frac{RT}{\frac{RT}{p}+b}\\
+&=\frac{RT}{p(bp+RT)}
+\end{align*}
+で一致する。
+\naze{密度の微分で $n$ を固定する添字を外してよい理由が無い。$\rho=n/V=p/(RT+bp)$ は示強変数で $T$ と $p$ だけで決まり $n$ によらないので，$(\partial\rho/\partial p)_{T}$ と書ける，と添える。}
+\toi{3}{◎}{}
+\begin{align*}
+&RT\ln10^{2}+b(\num{1.0e7}-\num{1.0e5})\\
+&=\qty{1.18e4}{\joule\per\mole}
+\end{align*}
+$b$ による部分 \qty{317}{\joule\per\mole}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第8章 問題6 (4)・11-16} 偏微分は何を固定するかまでが定義である。$V$ は示量変数なので $(\partial V/\partial p)_{T,n}$ と $n$ の固定が要るが，$\rho=n/V$ や $v=V/n$ のような示強変数は $(T,p)$ だけの関数なので $(\partial\rho/\partial p)_{T}$ と書ける。添字を変えたり外したりしたときは，その理由を一言書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 温度一定では Gibbs-Duhem の式 \noteshiki{10.13} から $n\dd\mu = V\dd p$ となるので，状態方程式の $V/n$ を圧力で積分すれば $\mu$ の圧力依存性が求まる。等温圧縮率は定義と \noteshiki{10.15} の両方で計算して比べる。
+\keisan \shoumonkai{1} $\dd T = 0$ では $\dd\mu = (V/n)\dd p$ で，$V/n = RT/p + b$ なので
+\[ \mu(T,p) - \mu(T,p_{0}) = \int_{p_{0}}^{p}\left(\frac{RT}{p'} + b\right)\dd p' = RT\ln\frac{p}{p_{0}} + b(p - p_{0}) \]
+\shoumonkai{2} 定義から，$(\partial V/\partial p)_{T,n} = -nRT/p^{2}$ なので
+\[ \kappa_{T} = \frac{1}{V}\cdot\frac{nRT}{p^{2}} = \frac{nRT}{p^{2}}\cdot\frac{p}{n(RT + bp)} = \frac{RT}{p(RT + bp)} \]
+一方，$\rho = n/V = p/(RT + bp)$ なので
+\[ \left(\pdv{\rho}{p}\right)_{T} = \frac{(RT + bp) - bp}{(RT + bp)^{2}} = \frac{RT}{(RT + bp)^{2}}, \qquad \frac{1}{\rho}\left(\pdv{\rho}{p}\right)_{T} = \frac{RT}{p(RT + bp)} \]
+で，両者は一致する。
+
+\shoumonkai{3} $RT\ln(p/p_{0}) = 8.314 \times 300 \times \ln 100 = 2494.2 \times 4.6052 = \qty{11486}{\joule\per\mole}$，$b(p - p_{0}) = \num{3.20e-5} \times \num{9.90e6} = \qty{316.8}{\joule\per\mole}$ なので
+\[ \Delta\mu = 11486 + 317 = \qty{1.18e4}{\joule\per\mole} \]
+そのうち $b$ による部分は \qty{317}{\joule\per\mole} である。
+\kotae{\shoumonkai{1} $\mu(T,p) - \mu(T,p_{0}) = RT\ln(p/p_{0}) + b(p - p_{0})$ \shoumonkai{2} どちらも $\kappa_{T} = RT/(p(RT + bp))$ \shoumonkai{3} $\Delta\mu = \qty{1.18e4}{\joule\per\mole}$，$b$ による部分 \qty{317}{\joule\per\mole}}
+\begin{ronten}
+  \item \shoumonkai{1} 温度一定で Gibbs-Duhem の式の $S\dd T$ が消えることを述べる。
+  \item \shoumonkai{2} $\rho$ が示強変数で $n$ によらないので，$n$ 固定の条件を外して密度の圧力微分で書けることを述べる。
+\end{ronten}
+\kenzan $b \to 0$ で理想気体の $\mu - \mu_{0} = RT\ln(p/p_{0})$，$\kappa_{T} = 1/p$ に戻る。$\mu$ の次元は \unit{\joule\per\mole} で，$b\,p$（体積／物質量 × 圧力）も同じ次元である。$\kappa_{T} < 1/p$ で，体積 $nb$ の分だけ圧縮されにくい。
+\tsumazuki $\mu$ は単位物質量当たりの量（示強変数）なので，$\dd\mu = V\dd p$ と $n$ を落とさない。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

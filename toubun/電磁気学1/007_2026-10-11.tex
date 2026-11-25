@@ -1,0 +1,21 @@
+% 電磁気学1 電磁気学1-1 問題4（007-shisuu。当時は 電磁気学1-1-2 問題7・shou01-02-l2-shisuu） 解いた日 2026-10-11
+%% kotae
+\toi{1}{△}{記述}
+\[ \nabla\times(\vect{A}\times\vect{B})=\nabla\times(\epsilon_{klm}A_{l}B_{m}) \]
+\begin{align*}
+&[\nabla\times(\epsilon_{klm}A_{l}B_{m})]_{i}\\
+&=\epsilon_{ijk}\partial_{j}(\epsilon_{klm}A_{l}B_{m})=\epsilon_{kij}\epsilon_{klm}\kakimachigai{\partial_{j}A_{l}B_{m}}{\partial_{j}(A_{l}B_{m})}\\
+&=(\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})\partial_{j}A_{l}B_{m}\\
+&=\partial_{j}(A_{i}B_{j})-\partial_{j}(A_{j}B_{i})\\
+&=(\partial_{j}A_{i})B_{j}+A_{i}(\partial_{j}B_{j})\\
+&\qquad-(\partial_{j}A_{j})B_{i}-A_{j}(\partial_{j}B_{i})
+\end{align*}
+$\therefore$（\nuke{4項の対応}
+\naze{4項はそれぞれ $[(\vect{B}\cdot\nabla)\vect{A}]_{i}$，$[\vect{A}(\nabla\cdot\vect{B})]_{i}$，$[\vect{B}(\nabla\cdot\vect{A})]_{i}$，$[(\vect{A}\cdot\nabla)\vect{B}]_{i}$ で，すべての $i$ で成り立つので示すべきベクトルの等式になる。この対応を書く最後の一行が無く，証明が終わっていない。$\epsilon_{ijk}=\epsilon_{kij}$（巡回的な入れ替えで符号が変わらない）を使ったことも一言書く。}
+\toi{2}{◎}{}
+\begin{align*}
+\nabla\cdot(\nabla f\times\nabla g)&=\kakimachigai{\nabla g}{\nabla g\cdot}(\nabla\times\nabla f)\\
+&\qquad-\kakimachigai{\nabla f}{\nabla f\cdot}(\nabla\times\nabla g)=0
+\end{align*}
+%% kizuki
+\item 成分で示した式は，最後に各項を $[(\vect{B}\cdot\nabla)\vect{A}]_{i}=B_{j}\partial_{j}A_{i}$ などと対応させ，「すべての $i$ で成り立つのでベクトルの等式になる」まで書いて終わる。$(\vect{B}\cdot\nabla)\vect{A}$ の $i$ 成分が $B_{j}\partial_{j}A_{i}$ になることを自分で書けるようにする。

@@ -1,0 +1,28 @@
+% 熱物理学 熱物理学-3 問題2（017-pfaff） 解いた日 2026-11-12
+%% kotae
+\toi{1}{▲}{方針}
+\[ \frac{\partial}{\partial T}\left(2T^{2}V-\frac{c}{V^{2}}\right)=4TV \]
+\[ \frac{\partial}{\partial V}(2TV^{2}+b)=4TV \]
+より全微分。
+\begin{align*}
+F(T,V)&=\int(2TV^{2}+b)\,\dd T\\
+&\qquad\ayamari{+\int\left(2T^{2}V-\frac{c}{V^{2}}\right)\dd V}{+g(V)}\\
+&=T^{2}V^{2}+bT+T^{2}V^{2}+\frac{c}{V}\\
+&=2T^{2}V^{2}+bT+\frac{c}{V}
+\end{align*}
+\naze{2つの係数をそれぞれ積分して足すと，両方から出る $T^{2}V^{2}$ を2回数える（この $F$ を $T$ で微分すると $4TV^{2}+b$ で，$\dd T$ の係数に戻らない）。$T$ で不定積分して $F=T^{2}V^{2}+bT+g(V)$ とおき，$V$ で微分して $2T^{2}V-c/V^{2}$ と比べると $g'(V)=-c/V^{2}$ なので，$F=T^{2}V^{2}+bT+c/V+(\text{定数})$。以降はこの誤りを引き継ぐ。}
+\toi{2}{◎}{}
+\[ \frac{\partial}{\partial T}(-T)=-1, \qquad \frac{\partial}{\partial V}V=1 \]
+より全微分でない。
+\toi{3}{△}{未着手}
+\begin{align*}
+&\frac{\partial}{\partial T}(nT)=n, && \frac{\partial}{\partial V}(nV)=n\\
+&\frac{\partial}{\partial n}(nT)=T, && \frac{\partial}{\partial V}(TV+2n)=T\\
+&\frac{\partial}{\partial n}(nV)=V, && \frac{\partial}{\partial T}(TV+2n)=V
+\end{align*}
+より，すべて成り立つ。\nuke{原始関数 $F(T,V,n)$}
+\naze{条件2の確認までで，問われている原始関数を求めていない。$nV$ を $T$ で不定積分して $F=nTV+h(V,n)$ とおき，$V$ 微分を $nT$ と比べて $h$ が $V$ によらないこと，$n$ 微分を $TV+2n$ と比べて $h'(n)=2n$ を得るので，$F=nTV+n^{2}+(\text{定数})$。}
+%% kizuki
+\item 原始関数は $\int A\,\dd T+\int B\,\dd V$ の和ではない。$(\partial F/\partial T)_{V}=A$ を $T$ で積分すると $V$ を固定していたので「積分定数」は $V$ の関数 $g(V)$ になり，$g$ は $(\partial F/\partial V)_{T}=B$ と見比べて決める。両方を積分して足すと，共通の項 $T^{2}V^{2}$ を2回数えてしまう。
+\item 求めた $F$ は偏微分して $\dd T$・$\dd V$（・$\dd n$）の係数に戻るかで検算する。(1) の $2T^{2}V^{2}+bT+c/V$ は $T$ 微分が $4TV^{2}+b$ になり，ここで誤りに気付ける。
+\item (3) は条件2を確かめたところで止めず，原始関数まで求める。3変数でも $F=nTV+h(V,n)$ から始め，残りの係数と1つずつ見比べる。

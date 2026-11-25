@@ -1,0 +1,25 @@
+% 連続体力学 連続体力学-1 問題1（001-temperature） 解いた日 2026-10-18
+%% kotae
+\toi{1}{◎}{}
+\[ \pdv{T}{t}=-\frac{a}{\tau}x_{1}^{2}\ee^{-t/\tau} \]
+\toi{2}{◎}{}
+\begin{align*}
+(\vect{u}\cdot\vect{\nabla})T&=\Bigl(kx_{1}\pdv{}{x_{1}}\kakimachigai{+kx_{2}}{-kx_{2}}\pdv{}{x_{2}}\Bigr)T\\
+&=kx_{1}\cdot2ax_{1}\ee^{-t/\tau}-kx_{2}\cdot0\\
+&=2akx_{1}^{2}\ee^{-t/\tau}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\frac{\mathrm{D}T}{\mathrm{D}t}&=\pdv{T}{t}+(\vect{u}\cdot\vect{\nabla})T\\
+&=-\frac{a}{\tau}x_{1}^{2}\ee^{-t/\tau}+2akx_{1}^{2}\ee^{-t/\tau}\\
+&=\Bigl(2k-\frac{1}{\tau}\Bigr)ax_{1}^{2}\ee^{-t/\tau}
+\end{align*}
+\toi{4}{◎}{}
+\[ 2k-\frac{1}{\tau}=0,\quad \tau=\frac{1}{2k} \]
+\[ \frac{\mathrm{D}x_{1}}{\mathrm{D}t}=kx_{1},\quad \therefore\ x_{1}(t)=X_{1}\ee^{kt} \]
+\begin{align*}
+T&=T_{0}+aX_{1}^{2}\ee^{2kt}\ee^{-t/\tau}\\
+&=T_{0}+aX_{1}^{2}
+\end{align*}
+温度が低い粒子が流れこんでくるから。
+%% kizuki

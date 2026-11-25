@@ -1,0 +1,29 @@
+% 熱物理学 熱物理学-3 問題6（021-setsumei） 解いた日 2026-11-12
+%% kotae
+\toi{1}{△}{記述}
+固定した変数について考えていない。
+\naze{理由が足りない。3つの因子は等積・等圧・等温という別々の変化に沿った比なので，分母と分子に出てくる同じ文字の微小量（たとえば第1因子の $\partial T$ と第2因子の $\partial T$）は同じ量ではなく，約分できない，まで書く。}
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{\alpha}{\kappa_{T}} \]
+\[ \left(\pdv{T}{V}\right)_{p}=\frac{1}{\alpha V} \]
+\[ \left(\pdv{V}{p}\right)_{T}=-\kappa_{T}V \]
+\[ \frac{\alpha}{\kappa_{T}}\cdot\frac{1}{\alpha V}\cdot(-\kappa_{T}V)=-1 \]
+となり整合している。
+\naze{この積は $\alpha$，$\kappa_{T}$ の符号によらず $-1$ になるので，符号の整合の説明にならない。因子ごとに符号を決める：$\alpha>0$ なので $(\partial T/\partial V)_{p}=1/(\alpha V)>0$，$\kappa_{T}>0$ なので $(\partial V/\partial p)_{T}=-\kappa_{T}V<0$，その結果 $(\partial p/\partial T)_{V}=\alpha/\kappa_{T}>0$。正・正・負の積なので負で，$-1$ と整合する。}
+\toi{2}{△}{記述}
+\[ \left(\pdv{X}{T}\right)_{p}=\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T} \]
+より，
+\[ \left(\pdv{X}{T}\right)_{p}=\left(\pdv{X}{T}\right)_{V} \]
+となるのは，
+\[ \left(\pdv{X}{V}\right)_{T}=0 \]
+のとき，つまり状態量 $X$ が $V$ によらない場合。\nuke{または $\alpha=0$}
+
+（図：縦軸 $T$・横軸 $V$ の平面に，交わる直線・曲線を描いたもの2つ）
+
+（図：縦軸 $V$・横軸 $T$ の平面に，水平な平行線を2本）
+
+等積線と等圧線の傾きが同じ。
+\naze{$V>0$ なので，差 $\alpha V(\partial X/\partial V)_{T}$ が0になるのは $\alpha=0$ か $(\partial X/\partial V)_{T}=0$ の2通りで，$\alpha=0$ が式で挙がっていない（図の「傾きが同じ」は $\alpha=0$ の意味に当たるが，$\alpha$ と結び付けていない）。等圧線の傾きは $(\partial V/\partial T)_{p}=\alpha V$ なので，$\alpha=0$ は等圧線がその点で等積線に接する場合である。$(\partial X/\partial V)_{T}=0$ は，等圧線が等積線からずれて体積が $\alpha V\,\dd T$ 変わっても，$X$ がその方向に変わらないので差が出ない場合，と等積線・等圧線の言葉で説明する。}
+%% kizuki
+\item 約分できない理由は，3つの因子が等積・等圧・等温という別々の変化に沿った比で，分母と分子の $\partial T$ などが同じ量ではないこと。「固定した変数」だけでなく，それぞれ何を固定した変化かを書く。
+\item 符号の整合は，積を計算しても示せない（$\alpha$，$\kappa_{T}$ の符号によらず $-1$ になる）。因子ごとに $\alpha>0$，$\kappa_{T}>0$ から符号を決めて，正・正・負の積が負になることを書く。
+\item 積が0になるのはどちらかの因子が0のときなので，$\alpha V(\partial X/\partial V)_{T}=0$ は「$\alpha=0$ または $(\partial X/\partial V)_{T}=0$」の2通り。$\alpha=0$ は等圧線（傾き $\alpha V$）が等積線に接すること，と図の言葉に結び付ける。

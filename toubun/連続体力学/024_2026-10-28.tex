@@ -1,0 +1,21 @@
+% 連続体力学 連続体力学-3 問題7（024-shear） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ \tens{F}=\begin{pmatrix}0&0&0\\0&0&-\frac{1}{2}\Omega_{1}\\0&\frac{1}{2}\Omega_{1}&0\end{pmatrix} \]
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&\frac{1}{2}(\gamma-\Omega_{1})\\0&\frac{1}{2}(\gamma+\Omega_{1})&0\end{pmatrix} \]
+\toi{2}{◎}{}
+\[ \Omega_{1}=\pm\gamma \]
+i) $\Omega_{1}=+\gamma$
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&0\\0&\gamma&0\end{pmatrix} \]
+\[ \delta\vect{r}=\tens{D}\cdot\delta\vect{x}=(0,\ 0,\ \gamma\,\delta x_{2}) \]
+ii) $\Omega_{1}=-\gamma$
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&\gamma\\0&0&0\end{pmatrix} \]
+\[ \delta\vect{r}=\tens{D}\cdot\delta\vect{x}=(0,\ \gamma\,\delta x_{3},\ 0) \]
+\toi{3}{△}{方針}
+（図：$x_{2}$ 軸を右，$x_{3}$ 軸を上にとった一辺 $\ell$ の正方形 →（$\tens{E}$）→ 頂点 $(\ell,\ \nuke{\ell}\gamma/2)$ のひし形 →（$\tens{F}$）→ $x_{3}$ 軸に沿う辺が立ったままで，$x_{2}$ 軸に沿う辺が $x_{3}$ 側へ傾いた平行四辺形。回転の矢印に $\Omega_{1}$）
+
+$x_{1}$ 軸まわり　反時計　角度 $\ayamari{\Omega_{1}}{\Omega_{1}/2=\gamma/2}$
+\naze{回転角は $\Omega_{1}$ の半分で $\gamma/2$ である（$\gamma$ で答える）。図の頂点も $\ell$ が抜けていて，正しくは $(\ell,\ \gamma\ell/2)$。}
+%% kizuki
+\item 問題4 (4) と同じく，回転角は $\abs{\vect{\Omega}}$ の半分である。単純剪断 $D_{32}=\gamma$ は，2辺が $\gamma/2$ ずつ近づく純粋剪断と，角度 $\gamma/2$ の回転の和で，$\gamma$ 全部が回転ではない。
+\item 図の頂点の座標は，問題4 (3) と同じく歪みに $\ell$ を掛けて書く。

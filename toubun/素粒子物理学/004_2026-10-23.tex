@@ -1,0 +1,46 @@
+% 素粒子物理学 素粒子物理学-1 問題4（004-uncertainty） 解いた日 2026-10-23
+%% kotae
+\toi{1}{◎}{}
+（脇に $\qty{197}{\electronvolt\nano\metre}=1$）
+\begin{align*}
+  &\Delta x\,\Delta pc=\frac{1}{2}\\
+  \therefore\ \Delta pc&=\qty{5}{\per\nano\metre}\\
+  &=\qty{985}{\electronvolt}
+\end{align*}
+\begin{align*}
+  K&=\frac{(\Delta p)^{2}}{2\melec}\\
+  &=\frac{(\qty{985}{\electronvolt})^{2}}{2\cdot\qty{5.11e5}{\electronvolt}}=\qty{0.949}{\electronvolt}
+\end{align*}
+\toi{2}{◎}{}
+（脇に $\qty{197}{\mega\electronvolt\femto\metre}=1$）
+\begin{align*}
+  \Delta pc&=\qty{0.5}{\per\femto\metre}\\
+  &=\qty{98.5}{\mega\electronvolt}
+\end{align*}
+\begin{align*}
+  K&=\frac{(\Delta p)^{2}}{2\mprot}\\
+  &=\frac{(\qty{98.5}{\mega\electronvolt})^{2}}{2\cdot\qty{938}{\mega\electronvolt}}=\qty{5.17}{\mega\electronvolt}
+\end{align*}
+\toi{3}{○}{記述}
+$K\gg\melec$ となり，光速に近づくため。
+\begin{align*}
+  E&=\sqrt{(\qty{98.5}{\mega\electronvolt})^{2}+(\qty{0.511}{\mega\electronvolt})^{2}}\\
+  &=\qty{98.5}{\mega\electronvolt}
+\end{align*}
+$\Delta pc\sim E$ となる。\nuke{陽子との比較}
+\naze{問いの後半「陽子の場合の結果と比べて何が言えるか」が無い。$E=\qty{98.5}{\mega\electronvolt}$ は，陽子を同じ \qty{1}{\femto\metre} に閉じ込めた $K=\qty{5.17}{\mega\electronvolt}$ や原子核のエネルギースケール（\unit{\mega\electronvolt}）より1桁以上大きいので，電子が原子核の中に閉じ込められているとは考えにくい。また理由は $K$ でなく $\Delta p\,c\gg\melec c^{2}$（$p\ll m$ が成り立たない）と書くほうが正確である。}
+\toi{4}{△}{未着手}
+\begin{align*}
+  &\Delta t\,\Delta E=\frac{1}{2}\\
+  \therefore\ \Delta E&=\qty{0.227}{\per\micro\second}=\qty{2.27e5}{\per\second}\\
+  &=\frac{\qty{2.27e5}{\per\second}}{\qty{3.0e8}{\metre\per\second}}\\
+  &=\qty{7.576e-4}{\per\metre}=\qty{7.576e-13}{\per\nano\metre}\\
+  &=\qty{1.49e-10}{\electronvolt}
+\end{align*}
+\[ m_{\mu}=\qty{106}{\mega\electronvolt}\qquad m_{\mu}\gg\Delta E \]
+\nuke{比 $\Delta E/m_{\mu}$}
+\naze{$\Delta E$ は正しい（$\unit{\per\micro\second}\to\unit{\per\metre}\to\unit{\per\nano\metre}$ と直して $\hbar c=\qty{197}{\electronvolt\nano\metre}$ を使う方法も正しい）。問われている質量との比が無い。$\qty{1.49e-10}{\electronvolt}/\qty{106e6}{\electronvolt}=\num{1.41e-18}$ まで出す。}
+%% kizuki
+\item 「〜と比べて何が言えるか」と問われたら，比べる相手の数値（陽子の \qty{5.17}{\mega\electronvolt}，原子核の \unit{\mega\electronvolt} 程度）を並べ，そこから言える結論（電子は原子核の中にいられない）まで1文で書く。
+\item 小問の「求めよ」の数を数えて，最後に全部に答えたかを確かめる。(4) は $\Delta E$ と「質量との比」の2つで，$m_{\mu}\gg\Delta E$ という大小だけでは比を求めたことにならない。
+\item 非相対論が使えるかは $\Delta p\,c$ と $mc^{2}$ の大小で判定する（$K$ は非相対論の式で出した値なので，判定の根拠に使うと循環する）。

@@ -1,0 +1,24 @@
+% 熱物理学 熱物理学-8 問題3（061-energy-eq） 解いた日 2026-11-16
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\left(\pdv{p}{T}\right)_{V}-p\\
+&=T\cdot\frac{nR}{V-nb}-\frac{nRT}{V-nb}\\
+&=0
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\biggl(\frac{nR}{V}+\frac{n^{2}RB(T)}{V^{2}}\\
+&\qquad+\frac{n^{2}RTB'(T)}{V^{2}}\biggr)-p\\
+&=\frac{n^{2}RTB(T)}{V^{2}}+\frac{n^{2}RT^{2}B'(T)}{V^{2}}\\
+&\qquad-\frac{n^{2}RTB(T)}{V^{2}}\\
+&=\frac{n^{2}RT^{2}B'(T)}{V^{2}}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int\left(\pdv{U}{V}\right)_{T}\dd V&=\int\frac{n^{2}RT^{2}B'(T)}{V^{2}}\,\dd V\\
+&=-\frac{n^{2}RT^{2}B'(T)}{V}+C
+\end{align*}
+$V\to\infty$ で $C=U_{0}(T)$。
+\[ U(T,V)=-\frac{n^{2}RT^{2}B'(T)}{V}+U_{0}(T) \]
+%% kizuki

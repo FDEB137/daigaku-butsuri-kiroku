@@ -1,0 +1,90 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{電磁気学1　第3章「マクスウェル方程式（電荷の保存・ローレンツ力・積分形の法則）」}{2026-11-25}
+%% note-moto	problems\電磁気学1\shou03\電磁気学1-3.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-001-tani}{1}}{L1・計算}{◎○◎}{A}{2026-10-18 2回目 (2)単位}
+  \ichirangyou{2}{L1・計算}{}{未着手}{}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L1・計算}{}{未着手}{}
+  \ichirangyou{6}{L1・計算}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L2・計算}{}{未着手}{}
+  \ichirangyou{9}{L2・計算}{}{未着手}{}
+  \ichirangyou{10}{L3・導出}{}{未着手}{}
+  \ichirangyou{11}{L3・導出}{}{未着手}{}
+  \ichirangyou{12}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\電磁気学1\001_2026-10-18.tex
+\mondaibangou{1}
+\begin{mondai}{001-tani}{計算}{SI単位系と物理定数の表}
+\begin{teisuu}
+  真空の誘電率 & $\varepsilon_0$ & \qty{8.854e-12}{\second\squared\coulomb\squared\per\kilogram\per\metre\cubed}\\
+  真空の透磁率 & $\mu_0$ & $4\pi\times\qty{e-7}{\kilogram\metre\per\coulomb\squared}$\\
+  真空中の光速 & $c$ & \qty{299792458}{\metre\per\second}\\
+\end{teisuu}
+定数表の値を用いて，次の問いに答えよ。
+  \begin{shoumon}
+    \item $\varepsilon_0$ と $\mu_0$ の単位から，積 $\varepsilon_0\mu_0$ の単位を求めよ。
+    \item $1/\sqrt{\varepsilon_0\mu_0}$ を有効数字4桁で求め，光速 $c$ と比べよ。
+    \item $1/(4\pi\varepsilon_0)$ を有効数字3桁で求め，その単位をニュートン \unit{\newton} を含む形で表せ。
+  \end{shoumon}
+\notekiroku{2026-10-11 B ◎◎△ → 2026-10-18 A ◎○◎}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{◎}{}
+\[ (\mathrm{s^{2}\,C^{2}\,kg^{-1}\,m^{-3}})\cdot(\mathrm{kg\,m\,C^{-2}})=\mathrm{s^{2}\,m^{-2}} \]
+\toi{2}{○}{単位}
+\begin{align*}
+\frac{1}{\sqrt{\varepsilon_{0}\mu_{0}}}&=2.9979\cdots\times10^{8}\\
+&=2.998\times10^{8}\ \nuke{\mathrm{m/s}}\ \nuke{{}=c}
+\end{align*}
+\naze{数値は正しいが，単位 \unit{\metre\per\second} が書かれていない。また「光速 $c$ と比べよ」への答え（有効数字4桁で $c=\qty{2.998e8}{\metre\per\second}$ と一致する）が無い。}
+\toi{3}{◎}{}
+\begin{align*}
+\frac{1}{4\pi\varepsilon_{0}}&=8.987\cdots\times10^{9}\\
+&=8.99\times10^{9}
+\end{align*}
+\begin{align*}
+(\mathrm{s^{2}\,C^{2}\,kg^{-1}\,m^{-3}})^{-1}&=\mathrm{s^{-2}\,C^{-2}\,kg\,m^{3}}\\
+&=\mathrm{m^{2}\,C^{-2}}\,(\mathrm{kg\,m\,s^{-2}})\\
+&=\mathrm{N\,m^{2}\,C^{-2}}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1-2章 問題1・10-11} 前回は (3) で \unit{\newton} を取り出した残りの指数を落とし，今回は (2) で数値に単位を付け忘れた。どちらも単位の扱いの誤りである。数値の答えを書いたら必ず単位を付け，その単位が速さ（\unit{\metre\per\second}）になっているかを (1) の結果の平方根の逆数で確かめる。
+\item 「$c$ と比べよ」のように比較を求められたら，比べた結果（有効数字4桁で $c=\qty{2.998e8}{\metre\per\second}$ と一致する）を一文で書く。計算した値だけでは問いに答えたことにならない。
+\end{kizuki}
+\begin{maekizuki}{2026-10-11}
+\item 単位を \unit{\newton} を含む形に書き換えるときは，$\unit{\newton}=\mathrm{kg\,m\,s^{-2}}$ を取り出した残りの指数（ここでは $\mathrm{m^{2}}$）を数え直す。クーロンの法則 $F=q^{2}/(4\pi\varepsilon_{0}r^{2})$ から $1/(4\pi\varepsilon_{0})=Fr^{2}/q^{2}$ なので $\mathrm{N\,m^{2}\,C^{-2}}$，と次元で検算できる。
+\end{maekizuki}
+\begin{tadashii}
+\houshin 単位は分子と分母の指数を足し合わせて約分する。数値は定数表の値をそのまま代入する。
+\keisan \shoumonkai{1} 2つの単位を掛けると，\unit{\kilogram} と \unit{\coulomb\squared} が約分される。
+\[ \frac{\unit{\second\squared\coulomb\squared}}{\unit{\kilogram\metre\cubed}}\times\frac{\unit{\kilogram\metre}}{\unit{\coulomb\squared}} = \frac{\unit{\second\squared}}{\unit{\metre\squared}} \]
+よって $\varepsilon_0\mu_0$ の単位は \unit{\second\squared\per\metre\squared}（速さの2乗の逆数）である。
+
+\shoumonkai{2} 積を計算する。
+\begin{align*}
+  \varepsilon_0\mu_0 &= \num{8.854e-12}\times\num{1.2566e-6}\ \unit{\second\squared\per\metre\squared} \\
+  &= \qty{1.1126e-17}{\second\squared\per\metre\squared}
+\end{align*}
+平方根の逆数をとると
+\[ \frac{1}{\sqrt{\varepsilon_0\mu_0}} = \frac{1}{\qty{3.3356e-9}{\second\per\metre}} = \qty{2.998e8}{\metre\per\second} \]
+となり，有効数字4桁で光速 $c = \qty{2.998e8}{\metre\per\second}$ と一致する（$\varepsilon_0\mu_0c^2 = \num{1.000}$）。
+
+\shoumonkai{3} $4\pi\varepsilon_0 = \num{1.1126e-10}$ だから
+\[ \frac{1}{4\pi\varepsilon_0} = \num{8.988e9} \approx \num{8.99e9} \]
+単位は $\varepsilon_0$ の単位の逆数 \unit{\kilogram\metre\cubed\per\second\squared\per\coulomb\squared} で，$\unit{\newton} = \unit{\kilogram\metre\per\second\squared}$（表1）を使うと \unit{\newton\metre\squared\per\coulomb\squared} になる。
+\kotae{\shoumonkai{1} \unit{\second\squared\per\metre\squared} \shoumonkai{2} $1/\sqrt{\varepsilon_0\mu_0} = \qty{2.998e8}{\metre\per\second}$（$c$ と一致） \shoumonkai{3} $\qty{8.99e9}{\newton\metre\squared\per\coulomb\squared}$}
+\kenzan 第2問の単位は，第1問の結果の平方根の逆数から \unit{\metre\per\second} となり，速さの単位として正しい。第3問の値はクーロンの法則の比例定数としてよく知られた約 $\num{9e9}$ と合う。
+\tsumazuki $\mu_0 = 4\pi\times\num{e-7}$ の $4\pi$ を落としやすい。答えの桁数は $\varepsilon_0$ の有効数字4桁で決まる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

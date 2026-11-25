@@ -1,0 +1,54 @@
+% 素粒子物理学 素粒子物理学-2 問題2（012-nonrel） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  E&=K+m\\
+  \therefore\ E^{2}&=K^{2}+m^{2}+2mK\\
+  p^{2}+m^{2}&=K^{2}+m^{2}+2mK\\
+  \therefore\ p^{2}&=K^{2}+2mK
+\end{align*}
+\begin{align*}
+  \frac{p}{p_{\mathrm{nr}}}&=\frac{\sqrt{K^{2}+2mK}}{\sqrt{2mK}}\\
+  &=\sqrt{\frac{1}{2}\left(\frac{K}{m}\right)+1}
+\end{align*}
+\toi{2}{○}{単位}
+(a)
+\[ \frac{K}{\melec c^{2}}=\frac{\qty{1.00}{\kilo\electronvolt}}{\qty{511}{\kilo\electronvolt}}=\num{1.96e-3} \]
+\begin{align*}
+  pc&=\sqrt{(\qty{1.00}{\kilo\electronvolt})^{2}+2\times\qty{511}{\kilo\electronvolt}\times\qty{1.00}{\kilo\electronvolt}}\\
+  &=\qty{32.0}{\kilo\electronvolt}
+\end{align*}
+\[ \lambda=\frac{2\pi\times\qty{197}{\kilo\electronvolt\pico\metre}}{pc\ (\unit{\kilo\electronvolt})}=\qty{38.7}{\pico\metre} \]
+(b)
+\[ \frac{K}{\melec c^{2}}=\frac{200}{511}=0.391 \]
+\begin{align*}
+  pc&=\sqrt{(\qty{200}{\kilo\electronvolt})^{2}+2\times\qty{511}{\kilo\electronvolt}\times\qty{200}{\kilo\electronvolt}}\\
+  &=\qty{494}{\kilo\electronvolt}
+\end{align*}
+\[ \lambda=\frac{2\pi\times\qty{197}{\kilo\electronvolt\pico\metre}}{pc\ (\unit{\kilo\electronvolt})}=\qty{2.50}{\pico\metre} \]
+(c)
+\[ \frac{K}{m_{\alpha}c^{2}}=\frac{\qty{8.00}{\mega\electronvolt}}{\qty{3.73e3}{\mega\electronvolt}}=\num{2.14e-3} \]
+\begin{align*}
+  pc&=\sqrt{(\qty{8.00}{\mega\electronvolt})^{2}+2\times\num{3.73e3}\times8.00\,(\unit{\mega\electronvolt})^{2}}\\
+  &=\qty{244}{\mega\electronvolt}
+\end{align*}
+\[ \lambda=\frac{2\pi\times\qty{197}{\mega\electronvolt\femto\metre}}{pc\ (\unit{\mega\electronvolt})}=\ayamari{\qty{5.07}{\femto\metre}}{\qty{5.06}{\femto\metre}} \]
+\naze{丸めた $pc=244$ で割ったため3桁目がずれた。$pc=\qty{244.43}{\mega\electronvolt}$ を丸めずに使うと $1237.8/244.43=\qty{5.06}{\femto\metre}$。}
+(d)
+\[ \frac{K}{\melec c^{2}}=\frac{200}{0.511}=391 \]
+\[ pc=\sqrt{(200)^{2}+2\times0.511\times200}=\qty{201}{\mega\electronvolt} \]
+\[ \lambda=\qty{6.17}{\femto\metre} \]
+\toi{3}{△}{立式}
+\[ \frac{p}{p_{\mathrm{nr}}}=\sqrt{\frac{1}{2}\left(\frac{K}{m}\right)+1} \]
+\[ \text{(a)}\ \frac{p}{p_{\mathrm{nr}}}=1.000\qquad\text{(b)}\ \frac{p}{p_{\mathrm{nr}}}=1.093 \]
+\[ \text{(c)}\ \frac{p}{p_{\mathrm{nr}}}=1.000\qquad\text{(d)}\ \frac{p}{p_{\mathrm{nr}}}=14.02 \]
+(a) と (c)
+
+(d) で $p_{\mathrm{nr}}$ を使うと $\lambda$ は \ayamari{0.07}{14.0} 倍
+\naze{$p_{\mathrm{nr}}$ は $p$ の $1/14.0$ に過小評価され，$\lambda\propto1/p$ なので $\lambda$ は逆に14.0倍（約 \qty{87}{\femto\metre}）に見積もられる。0.07 は $p_{\mathrm{nr}}/p$ の値で，$\lambda$ の倍率ではない。}
+\[ E\sim K\gg m \]
+\[ p=\sqrt{E^{2}-m^{2}}\sim E \]
+%% kizuki
+\item 「$A$ を使うと $B$ は何倍か」は，$B$ と $A$ の関係（比例か反比例か）を先に書いてから倍率を出す。$\lambda\propto1/p$ なので，$p$ が $1/14$ になれば $\lambda$ は14倍である。答えた後に「運動量を小さく見積もれば波長は長くなるはず」と向きで確かめる。
+\item \mae{第1回 問題1 (2)・10-23} 前回も $\hbar c$ を掛けるか割るかで逆数を取り違えた。比や換算の向きは，単位か大小の向き（長くなるか短くなるか）で確かめる。
+\item \mae{第1回 問題5 (5)・10-25} 途中の値を3桁に丸めて次の計算に使うと，答えの3桁目がずれる。途中は4桁以上を残し，最後だけ3桁に丸める。

@@ -1,0 +1,438 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{熱物理学　第8章「エントロピー（理想気体のエントロピー・$T\dd S$ 方程式）」}{2026-11-25}
+%% note-moto	problems\熱物理学\shou08\熱物理学-8.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-059-ig-entropy}{1}}{L1・計算}{◎◎◎}{S}{2026-11-16}
+  \ichirangyou{\hyperlink{bt-m-060-cv-t3}{2}}{L1・計算}{◎◎○}{A}{2026-11-16 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-061-energy-eq}{3}}{L1・計算}{◎◎◎}{S}{2026-11-16}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{\hyperlink{bt-m-063-suv-model}{5}}{L2・計算}{◎◎△}{B}{2026-11-16 (3)未着手}
+  \ichirangyou{\hyperlink{bt-m-064-tp-entropy}{6}}{L2・導出}{◎◎○○}{B}{2026-11-16 ヒント1 (3)立式 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-065-ig-sref}{7}}{L2・導出}{◎◎○}{A}{2026-11-16 (3)記述}
+  \ichirangyou{8}{L3・計算}{}{未着手}{}
+  \ichirangyou{9}{L3・導出}{}{未着手}{}
+  \ichirangyou{10}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item エントロピーの定義 % 出典: p.38
+    \[ \dd S = \frac{\delta Q}{T} \notetag{8.4} \]
+  \item エントロピーと定積・定圧比熱 % 出典: p.38
+    \[ C_{V} = T\left(\pdv{S}{T}\right)_{V}, \qquad C_{p} = T\left(\pdv{S}{T}\right)_{p} \notetag{8.6} \]
+  \item エネルギー方程式 % 出典: p.39
+    \[ \left(\pdv{U}{V}\right)_{T} = T\left(\pdv{p}{T}\right)_{V} - p \notetag{8.7} \]
+  \item Mayer の関係式の一般化 % 出典: p.40
+    \[ C_{p} - C_{V} = \frac{TV\alpha^{2}}{\kappa_{T}} \notetag{8.10} \]
+  \item エンタルピー方程式 % 出典: p.40
+    \[ \left(\pdv{H}{p}\right)_{T} = V - T\left(\pdv{V}{T}\right)_{p} \notetag{8.12} \]
+  \item 第二 $T\dd S$ 方程式 % 出典: p.41
+    \[ T\dd S = C_{p}\dd T - T\left(\pdv{V}{T}\right)_{p}\dd p = C_{p}\dd T - TV\alpha\dd p \notetag{8.13} \]
+  \item $S(U,V)$ の偏微分 % 出典: p.41
+    \[ \left(\pdv{S}{U}\right)_{V} = \frac{1}{T}, \qquad \left(\pdv{S}{V}\right)_{U} = \frac{p}{T} \notetag{8.16} \]
+  \item 理想気体のエントロピー % 出典: p.42
+    \[ S(T,V,n) = nc_{V}\ln RT + nR\ln\frac{V}{n} + ns^{*} \notetag{8.17} \]
+  \item 理想気体の準静的断熱過程 % 出典: p.42
+    \[ TV^{R/c_{V}} = TV^{\gamma-1} = \text{一定} \notetag{8.18} \]
+  \item 理想気体のエントロピーの $(U,V,n)$ 表示（$\tilde{c}_{V} = c_{V}/R$，$\tilde{s}^{*} = s^{*}/R$） % 出典: p.43
+    \[ S(U,V,n) = nR\left(\tilde{c}_{V}\ln\frac{U - nu^{*}}{n\tilde{c}_{V}} + \ln\frac{V}{n} + \tilde{s}^{*}\right) \notetag{8.19} \]
+  \item 基準状態（温度 $T^{*}$，密度 $\rho^{*}$）を使って書き直した形 % 出典: p.43
+    \[ S(T,V,n) = nc_{V}\ln\frac{T}{T^{*}} + nR\ln\frac{\rho^{*}V}{n} + ns^{*} \notetag{8.20} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\熱物理学\059_2026-11-16.tex
+\mondaibangou{1}
+\begin{mondai}{059-ig-entropy}{計算}{エントロピーが状態変数であること，理想気体のエントロピー差，準静的断熱過程でエントロピーが一定であること}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+二原子分子理想気体 \qty{2.00}{\mole}（単位物質量当たりの定積比熱 $c_{V} = 5R/2$）を，状態 A（温度 \qty{300}{\kelvin}，体積 \qty{10.0}{\litre}）から状態 B（温度 \qty{450}{\kelvin}，体積 \qty{25.0}{\litre}）へ移す。物質量は変わらない。答えは有効数字3桁で求めよ。
+  \begin{shoumon}
+    \item エントロピーの差 $S(\mathrm{B}) - S(\mathrm{A})$ を求めよ。
+    \item 状態 A から準静的断熱過程で体積 \qty{25.0}{\litre} まで膨張させた状態を C とする。C の温度 $T_{\mathrm{C}}$ と $S(\mathrm{C}) - S(\mathrm{A})$ を求めよ。
+    \item 状態 C から体積を一定に保って準静的に B まで加熱する。この過程に沿って $\delta Q/T$ を積分して $S(\mathrm{B}) - S(\mathrm{C})$ を求め，(1) の結果と一致することを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-16 S ◎◎◎}
+\begin{kotaeutsushi}{2026-11-16}
+\toi{1}{◎}{}
+\begin{align*}
+S(\mathrm{B})-S(\mathrm{A})&=2\cdot\frac{5}{2}R\ln\frac{450}{300}+2R\ln\frac{25}{10}\\
+&=5R\ln\frac{3}{2}+2R\ln\frac{5}{2}\\
+&=\qty{32.1}{\joule\per\kelvin}
+\end{align*}
+\toi{2}{◎}{}
+\[ T_{\mathrm{A}}V_{\mathrm{A}}^{R/(5R/2)}=T_{\mathrm{C}}V_{\mathrm{C}}^{R/(5R/2)} \]
+\begin{align*}
+\therefore\ T_{\mathrm{C}}&=T_{\mathrm{A}}\left(\frac{V_{\mathrm{A}}}{V_{\mathrm{C}}}\right)^{2/5}\\
+&=\qty{208}{\kelvin}
+\end{align*}
+断熱過程なので $S(\mathrm{C})-S(\mathrm{A})=0$。
+\toi{3}{◎}{}
+定積なので $\delta Q=\kakimachigai{\delta U}{\dd U}=nc_{V}\,\dd T$。
+\begin{align*}
+\int\frac{\delta Q}{T}&=\int_{T_{\mathrm{C}}}^{T_{\mathrm{B}}}\frac{nc_{V}}{T}\,\dd T\\
+&=nc_{V}\ln\frac{T_{\mathrm{B}}}{T_{\mathrm{C}}}\\
+&=\qty{32.1}{\joule\per\kelvin}
+\end{align*}
+(1) と一致。
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\060_2026-11-16.tex
+\mondaibangou{2}
+\begin{mondai}{060-cv-t3}{計算}{比熱とエントロピーの関係 $C_{V} = T(\partial S/\partial T)_{V}$，熱とエントロピー変化の違い}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+ある固体の定積比熱が，低温の範囲で $C_{V} = AT^{3}$（$A$ は正の定数）と表される。体積を一定に保ったまま，温度を $T_{1}$ から $T_{2}$（$T_{2} > T_{1}$）まで準静的に上げる。
+  \begin{shoumon}
+    \item エントロピーの変化 $\Delta S = S(T_{2},V) - S(T_{1},V)$ を求めよ。
+    \item この過程で固体に与えられる熱 $Q$ を求めよ。
+    \item $T_{\mathrm{m}} = Q/\Delta S$ とおく。$T_{1} \to 0$ の極限での $T_{\mathrm{m}}$ を $T_{2}$ で表せ。また，この極限で $\Delta S$ が有限に留まることを，理想気体のエントロピー \noteshiki{8.17} の温度依存性と比べて述べよ。
+  \end{shoumon}
+\notekiroku{2026-11-16 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-16}
+\toi{1}{◎}{}
+\[ \left(\pdv{S}{T}\right)_{V}=\frac{C_{V}}{T}=AT^{2} \]
+\[ S(T,V)=\int AT^{2}\,\dd T=\frac{1}{3}AT^{3}+S_{0} \]
+\[ \Delta S=\frac{1}{3}A\left(T_{2}^{3}-T_{1}^{3}\right) \]
+\toi{2}{◎}{}
+\[ \delta Q=\kakimachigai{\delta U}{\dd U}=C_{V}\,\dd T \]
+\[ Q=\int_{T_{1}}^{T_{2}}AT^{3}\,\dd T=\frac{1}{4}A\left(T_{2}^{4}-T_{1}^{4}\right) \]
+\toi{3}{○}{記述}
+\begin{align*}
+T_{\mathrm{m}}&=\frac{\frac{1}{4}A(T_{2}^{4}-T_{1}^{4})}{\frac{1}{3}A(T_{2}^{3}-T_{1}^{3})}\\
+&=\frac{3(T_{2}^{4}-T_{1}^{4})}{4(T_{2}^{3}-T_{1}^{3})}\\
+&\xrightarrow[T_{1}\to0]{}\frac{3}{4}T_{2}
+\end{align*}
+理想気体の $S$ の温度依存部分は $\ln(T_{2}/T_{1})$。$T_{1}\to0$ で $\ln(T_{2}/T_{1})\to\infty$ と発散する。\nuke{$\Delta S$ は有限}
+\naze{問われている「$\Delta S$ が有限に留まる」こととその理由が無い。(1) から $T_{1}\to0$ で $\Delta S\to AT_{2}^{3}/3$ と有限であり，それは被積分関数 $C_{V}/T=AT^{2}$ が $T\to0$ で0になり積分できる（比熱が十分速く0に近づく）からである。理想気体の被積分関数は $nc_{V}/T$ なので発散する，と並べて述べる。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $\Delta S=\int C_{V}/T\,\dd T$ の下端 $T_{1}\to0$ での振る舞いは被積分関数で決まる。$C_{V}=AT^{3}$ なら $AT^{2}$ で積分は有限，比熱一定の理想気体なら $nc_{V}/T$ で $\ln T_{1}\to-\infty$ と発散する。2つを「被積分関数の違い」として並べて書く。
+\item \mae{第3章 問題4 (5)・11-12} 前回は「比べよ」の比較が無く，今回は比較だけで本題（$\Delta S$ が有限）が無い。解き終えたら問題文の問い（「表せ」「述べよ」）を数え，それぞれに答えた式か文があるかを確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin \noteshiki{8.6} から $(\partial S/\partial T)_{V} = C_{V}/T$ なので，体積を固定して $T$ で積分すればエントロピー変化が求まる。熱は体積一定の準静的過程の $\delta Q = C_{V}\,\dd T$ を積分する。
+\keisan \shoumonkai{1}
+\[ \Delta S = \int_{T_{1}}^{T_{2}} \frac{C_{V}}{T}\,\dd T = A\int_{T_{1}}^{T_{2}} T^{2}\,\dd T = \frac{A}{3}\left(T_{2}^{3} - T_{1}^{3}\right) \]
+\shoumonkai{2} 体積一定なので $\delta W = 0$，$\delta Q = C_{V}\,\dd T$ である。
+\[ Q = \int_{T_{1}}^{T_{2}} AT^{3}\,\dd T = \frac{A}{4}\left(T_{2}^{4} - T_{1}^{4}\right) \]
+\shoumonkai{3}
+\[ T_{\mathrm{m}} = \frac{Q}{\Delta S} = \frac{3}{4}\,\frac{T_{2}^{4} - T_{1}^{4}}{T_{2}^{3} - T_{1}^{3}} \longrightarrow \frac{3}{4}T_{2} \quad (T_{1} \to 0) \]
+このとき $\Delta S \to AT_{2}^{3}/3$ と有限に留まる。一方，理想気体のエントロピー \noteshiki{8.17} は温度について $nc_{V}\ln T$ の形で変わるので，同じ $T_{2}$ まで温める場合でも，$T_{1} \to 0$ で $nc_{V}\ln(T_{2}/T_{1})$ が限りなく大きくなる。$C_{V} = AT^{3}$ のように $T \to 0$ で比熱が十分速く0に近づく系では $C_{V}/T$ が積分でき，エントロピー差が有限になる。比熱が一定の理想気体の表式は絶対零度の近くでは使えない。
+\kotae{\shoumonkai{1} $\Delta S = A(T_{2}^{3} - T_{1}^{3})/3$ \shoumonkai{2} $Q = A(T_{2}^{4} - T_{1}^{4})/4$ \shoumonkai{3} $T_{\mathrm{m}} \to 3T_{2}/4$。$\Delta S \to AT_{2}^{3}/3$ は有限だが，比熱一定の理想気体では $nc_{V}\ln(T_{2}/T_{1})$ が発散する}
+\begin{ronten}
+  \item \shoumonkai{3} $\Delta S$ が有限になる理由を，$C_{V}/T$ が $T \to 0$ で積分できること（$C_{V} \to 0$ が十分速い）として書く。
+  \item \shoumonkai{3} 理想気体の $\ln T$ 依存性では $T_{1} \to 0$ で発散することを，比較として述べる。
+\end{ronten}
+\kenzan $A$ の単位は \unit{\joule\per\kelvin\tothe{4}} なので，$\Delta S$ は \unit{\joule\per\kelvin}，$Q$ は \unit{\joule} で正しい。$T_{1} \to T_{2}$ では $Q \approx C_{V}\Delta T$，$\Delta S \approx C_{V}\Delta T/T$ となり，$T_{\mathrm{m}} \to T_{2}$ となる（式で確かめると，分子と分母の比は $(3/4) \times 4T_{2}^{3}/(3T_{2}^{2}) = T_{2}$）。$T_{\mathrm{m}}$ は $T_{1}$ と $T_{2}$ の間にある。
+\tsumazuki $\Delta S = Q/T$ が使えるのは温度一定のときだけである。温度が変わる過程では $\delta Q/T$ を積分する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\061_2026-11-16.tex
+\mondaibangou{3}
+\begin{mondai}{061-energy-eq}{計算}{エネルギー方程式（状態方程式だけで $(\partial U/\partial V)_{T}$ が決まること）}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ の閉じた一成分流体について，次の状態方程式それぞれに対して $(\partial U/\partial V)_{T}$ を求めよ。$R$ は気体定数，$b$ は正の定数，$B(T)$ は温度だけの関数で，$B'(T) = \dd B/\dd T$ と書く。
+  \begin{shoumon}
+    \item $p = nRT/(V - nb)$
+    \item 次の状態方程式
+    \[ p = \frac{nRT}{V}\left(1 + \frac{nB(T)}{V}\right) \]
+    \item (2) の流体の内部エネルギーは，温度を一定にして体積を無限に大きくした極限で $U_{0}(T)$ に近づくとする。$U(T,V)$ を $U_{0}(T)$ と $B(T)$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-11-16 S ◎◎◎}
+\begin{kotaeutsushi}{2026-11-16}
+\toi{1}{◎}{}
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\left(\pdv{p}{T}\right)_{V}-p\\
+&=T\cdot\frac{nR}{V-nb}-\frac{nRT}{V-nb}\\
+&=0
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\biggl(\frac{nR}{V}+\frac{n^{2}RB(T)}{V^{2}}\\
+&\qquad+\frac{n^{2}RTB'(T)}{V^{2}}\biggr)-p\\
+&=\frac{n^{2}RTB(T)}{V^{2}}+\frac{n^{2}RT^{2}B'(T)}{V^{2}}\\
+&\qquad-\frac{n^{2}RTB(T)}{V^{2}}\\
+&=\frac{n^{2}RT^{2}B'(T)}{V^{2}}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\int\left(\pdv{U}{V}\right)_{T}\dd V&=\int\frac{n^{2}RT^{2}B'(T)}{V^{2}}\,\dd V\\
+&=-\frac{n^{2}RT^{2}B'(T)}{V}+C
+\end{align*}
+$V\to\infty$ で $C=U_{0}(T)$。
+\[ U(T,V)=-\frac{n^{2}RT^{2}B'(T)}{V}+U_{0}(T) \]
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\熱物理学\063_2026-11-16.tex
+\mondaibangou{5}
+\begin{mondai}{063-suv-model}{計算}{$(U,V)$ 表示のエントロピーから温度・圧力・状態方程式・$U(T,V)$ を導くこと（完全な熱力学関数），エネルギー方程式}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ の閉じた一成分の系のエントロピーが，内部エネルギー $U$（$U > 0$），体積 $V$，物質量 $n$ の関数として
+  \[ S(U,V,n) = An^{1/2}U^{1/4}V^{1/4} \]
+  で与えられるとする（$A$ は正の定数）。$n$ は一定とする。
+  \begin{shoumon}
+    \item 温度 $T$ と圧力 $p$ を $U$，$V$，$n$ で表せ。また，$S$ が $U$ と $V$ の増加関数であることを確かめよ。
+    \item 内部エネルギー $U(T,V)$ と状態方程式 $p(T,V)$ を求めよ。
+    \item (2) の結果がエネルギー方程式 \noteshiki{8.7} を満たすことを確かめ，定積比熱 $C_{V}$ を $T$，$V$，$n$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-11-16 B ◎◎△}
+\begin{kotaeutsushi}{2026-11-16}
+\toi{1}{◎}{}
+（図：熱力学の四角形。上の辺に $S$，$U$，$V$，左に $H$，右に $F$，下の辺に $p$，$G$，$T$）
+\[ \dd U=T\,\dd S-p\,\dd V \]
+\[ \therefore\ \dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V \]
+\[ \left(\pdv{S}{U}\right)_{V}=\frac{1}{T},\qquad\left(\pdv{S}{V}\right)_{U}=\frac{p}{T} \]
+\[ \left(\pdv{S}{U}\right)_{V}=\frac{1}{4}An^{1/2}U^{-3/4}V^{1/4}=\frac{1}{T} \]
+\[ T=4A^{-1}n^{-1/2}U^{3/4}V^{-1/4} \]
+\[ \left(\pdv{S}{V}\right)_{U}=\frac{1}{4}An^{1/2}U^{1/4}V^{-3/4}=\frac{p}{T} \]
+\[ p=\frac{U}{V} \]
+$A>0$，$n>0$，$U>0$，$V>0$ より $(\partial S/\partial U)_{V}>0$，$(\partial S/\partial V)_{U}>0$ なので，$S$ は $U$，$V$ の増加関数。
+\toi{2}{◎}{}
+\[ T=4A^{-1}n^{-1/2}U^{3/4}V^{-1/4} \]
+\[ \therefore\ U^{3/4}=\frac{1}{4}An^{1/2}V^{1/4}T \]
+\[ U(T,V)=\left(\frac{AT}{4}\right)^{4/3}n^{2/3}V^{1/3} \]
+\[ p(T,V)=\left(\frac{AT}{4}\right)^{4/3}\left(\frac{n}{V}\right)^{2/3} \]
+\toi{3}{△}{未着手}
+\[ \left(\pdv{U}{V}\right)_{T}=\frac{1}{3}\left(\frac{AT}{4}\right)^{4/3}\left(\frac{n}{V}\right)^{2/3} \]
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{4}{3}\left(\frac{AT}{4}\right)^{4/3}T^{-1}\left(\frac{n}{V}\right)^{2/3} \]
+より，
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{p}{T}\right)_{V}-p \]
+が成り立つ。\nuke{$C_{V}$}
+\naze{問われている定積比熱 $C_{V}$ を求めていない。(2) の $U(T,V)$ を $V$ 一定で $T$ について微分して $C_{V}=(\partial U/\partial T)_{V}=\frac{4}{3}(A/4)^{4/3}n^{2/3}V^{1/3}T^{1/3}$（$=4U/(3T)>0$）である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第3章 問題2 (3)・問題4 (5)・11-12} 小問の後半の答え落としが続いている。1つの小問に問いが2つ（「確かめ」「表せ」）あるときは後半まで答える。解き終えたら「求めよ」「表せ」「確かめよ」を数え，それぞれに答えがあるか印を付ける。
+\item $C_{V}=(\partial U/\partial T)_{V}$ は，$U$ を $(T,V)$ の関数として書けば微分1回で出る（(2) で $U(T,V)$ を求めさせたのはこのため）。$U\propto T^{4/3}$ なので $C_{V}=4U/(3T)>0$ で検算する。
+\end{kizuki}
+\begin{tadashii}
+\houshin $(U,V)$ 表示のエントロピーは完全な熱力学関数なので，\noteshiki{8.16} の偏微分から $T$ と $p$ が求まり，それを $(T,V)$ について解き直せば $U(T,V)$ と状態方程式が得られる。最後にエネルギー方程式で整合を確かめる。
+\keisan \shoumonkai{1} $n$ を固定して偏微分する。
+\[ \frac{1}{T} = \left(\pdv{S}{U}\right)_{V} = \frac{A}{4}n^{1/2}U^{-3/4}V^{1/4}, \qquad \frac{p}{T} = \left(\pdv{S}{V}\right)_{U} = \frac{A}{4}n^{1/2}U^{1/4}V^{-3/4} \]
+よって
+\[ T = \frac{4U^{3/4}}{An^{1/2}V^{1/4}} \]
+であり，2式の比をとると
+\[ p = \frac{(\partial S/\partial V)_{U}}{(\partial S/\partial U)_{V}} = \frac{U^{1/4}V^{-3/4}}{U^{-3/4}V^{1/4}} = \frac{U}{V} \]
+$A > 0$，$n > 0$，$U > 0$，$V > 0$ なので2つの偏微分はどちらも正であり，$S$ は $U$ と $V$ の増加関数である。
+
+\shoumonkai{2} $1/T$ の式から $U^{3/4} = (A/4)n^{1/2}V^{1/4}T$ なので，両辺を $4/3$ 乗して
+\[ U(T,V) = \left(\frac{A}{4}\right)^{4/3}n^{2/3}V^{1/3}T^{4/3} \]
+これを $p = U/V$ に代入して
+\[ p(T,V) = \left(\frac{A}{4}\right)^{4/3}n^{2/3}V^{-2/3}T^{4/3} \]
+
+\shoumonkai{3} (2) の $U(T,V)$ から
+\[ \left(\pdv{U}{V}\right)_{T} = \frac{1}{3}\left(\frac{A}{4}\right)^{4/3}n^{2/3}V^{-2/3}T^{4/3} = \frac{p}{3} \]
+一方，$p \propto T^{4/3}$ なので $T(\partial p/\partial T)_{V} = 4p/3$ であり，
+\[ T\left(\pdv{p}{T}\right)_{V} - p = \frac{4p}{3} - p = \frac{p}{3} \]
+となって，エネルギー方程式 \noteshiki{8.7} を満たす。定積比熱は
+\[ C_{V} = \left(\pdv{U}{T}\right)_{V} = \frac{4}{3}\left(\frac{A}{4}\right)^{4/3}n^{2/3}V^{1/3}T^{1/3} \]
+\kotae{\shoumonkai{1} $T = 4U^{3/4}/(An^{1/2}V^{1/4})$，$p = U/V$ \shoumonkai{2} $U = (A/4)^{4/3}n^{2/3}V^{1/3}T^{4/3}$，$p = (A/4)^{4/3}n^{2/3}V^{-2/3}T^{4/3}$ \shoumonkai{3} 両辺とも $p/3$ で成立。$C_{V} = (4/3)(A/4)^{4/3}n^{2/3}V^{1/3}T^{1/3}$}
+\begin{ronten}
+  \item \shoumonkai{1} $1/T$ と $p/T$ を \noteshiki{8.16} の偏微分として与えること，増加関数であることを偏微分の符号で示すことを書く。
+\end{ronten}
+\kenzan 示量性：$U \propto n^{2/3}V^{1/3}$ は $n$，$V$ を $\lambda$ 倍すると $\lambda$ 倍になり，示量変数として正しい。$T \propto U^{3/4}n^{-1/2}V^{-1/4}$ は $U$，$V$，$n$ をそろって $\lambda$ 倍しても $\lambda^{3/4 - 1/2 - 1/4} = \lambda^{0}$ で変わらず，示強変数として正しい。$C_{V} = 4U/(3T) > 0$ である。
+\tsumazuki $(\partial S/\partial V)_{U}$ は $U$ を固定した微分であり，$(\partial S/\partial V)_{T}$ とは別物である。$S$ を $U$ と $V$ の関数として書いたまま微分する。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\064_2026-11-16.tex
+\mondaibangou{6}
+\begin{mondai}{064-tp-entropy}{導出}{$(T,p)$ 表示のエントロピー：第二 $T\dd S$ 方程式の積分可能条件，エンタルピー方程式，Mayer の関係式の一般化}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+物質量 $n$ の閉じた一成分の気体の状態方程式が
+  \[ V = \frac{nRT}{p} + nb \]
+  （$b$ は正の定数）で与えられ，定圧比熱 $C_{p}$ はある温度・圧力の範囲で一定値 $nc_{p}$ をとるとする。
+  \begin{shoumon}
+    \item 第二 $T\dd S$ 方程式 \noteshiki{8.13} と，$\dd S$ が全微分であることを使って，$C_{p}$ を $p$ によらない一定値としたことがこの状態方程式と矛盾しないことを示せ。
+    \item エンタルピー方程式 \noteshiki{8.12} を使って $(\partial H/\partial p)_{T}$ を求め，エンタルピー $H(T,p)$ を求めよ（付加定数を $H_{0}$ とする）。
+    \item エントロピー $S(T,p)$ を求めよ。基準とする温度・圧力 $(T_{0},p_{0})$ でのエントロピーを $S_{0}$ とする。
+    \item 内部エネルギー $U$ を $T$，$p$ で表し，定積比熱 $C_{V}$ を求めよ。結果が Mayer の関係式の一般化 \noteshiki{8.10} と一致することを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-16 B ◎◎○○ (ヒント1)}
+\begin{kotaeutsushi}{2026-11-16}
+\toi{1}{◎}{}
+\[ \dd S=\frac{C_{p}}{T}\dd T-V\alpha\,\dd p \]
+\begin{align*}
+\frac{\partial}{\partial p}\left(\frac{C_{p}}{T}\right)_{T}&=\frac{\partial}{\partial T}(-V\alpha)_{p}\\
+&=-\frac{\partial}{\partial T}\left(\pdv{V}{T}\right)_{p}\\
+&=-\frac{\partial}{\partial T}\left(\frac{nR}{p}\right)_{p}\\
+&=0
+\end{align*}
+よって $C_{p}$ は $p$ に依存しない。
+\toi{2}{◎}{}
+\begin{align*}
+\left(\pdv{H}{p}\right)_{T}&=V-T\left(\pdv{V}{T}\right)_{p}\\
+&=V-T\cdot\frac{nR}{p}\\
+&=nb
+\end{align*}
+\begin{align*}
+\dd H&=\left(\pdv{H}{p}\right)_{T}\dd p+\left(\pdv{H}{T}\right)_{p}\dd T\\
+&=nb\,\dd p+C_{p}\,\dd T
+\end{align*}
+\[ H=nbp+nc_{p}T+H_{0} \]
+\toi{3}{○}{立式}
+\[ \dd S=\frac{nc_{p}}{T}\dd T-\frac{nR}{p}\dd p \]
+\begin{align*}
+S(T,p)&=nc_{p}\ln\ayamari{T}{\frac{T}{T_{0}}}\\
+&\qquad-nR\ln\ayamari{p}{\frac{p}{p_{0}}}+S_{0}
+\end{align*}
+\naze{問題は $S_{0}$ を基準 $(T_{0},p_{0})$ でのエントロピーと指定している。この式に $T=T_{0}$，$p=p_{0}$ を入れても $S_{0}$ にならず，$S_{0}$ がただの積分定数になっている（$\ln T$，$\ln p$ は次元のある量の対数でもある）。$(T_{0},p_{0})$ から積分して $S=nc_{p}\ln(T/T_{0})-nR\ln(p/p_{0})+S_{0}$ とする。}
+\toi{4}{○}{記述}
+$U=H-pV$ より，
+\begin{align*}
+U(T,p)&=nbp+nc_{p}T+H_{0}\\
+&\qquad-nRT-nbp\\
+&=n(c_{p}-R)T+H_{0}
+\end{align*}
+\[ \left(\pdv{U}{T}\right)_{\ayamari{p}{V}}=n(c_{p}-R)=C_{V} \]
+\[ \therefore\ C_{p}-C_{V}=nR \]
+\[ \alpha=V^{-1}\left(\pdv{V}{T}\right)_{p}=\frac{nR}{pV} \]
+\[ \kappa_{T}=-V^{-1}\left(\pdv{V}{p}\right)_{T}=\frac{nRT}{p^{2}V} \]
+\begin{align*}
+\frac{TV\alpha^{2}}{\kappa_{T}}&=\frac{TV\left(\frac{nR}{pV}\right)^{2}}{\frac{nRT}{p^{2}V}}\\
+&=\frac{n^{2}R^{2}Tp^{2}V^{2}}{nRTp^{2}V^{2}}=nR
+\end{align*}
+\naze{$C_{V}$ は $(\partial U/\partial T)_{V}$ であり，圧力一定の微分ではない。ここで値が一致するのは $U$ が $T$ だけの関数（$(\partial U/\partial V)_{T}=0$）だからで，「$U$ は $T$ だけの関数なので $(\partial U/\partial T)_{V}=\dd U/\dd T=n(c_{p}-R)$」と書く。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第3章 問題6 (1)・11-12} 偏微分は何を固定するかまでが定義である。$C_{V}=(\partial U/\partial T)_{V}$，$C_{p}=(\partial H/\partial T)_{p}$ であり，$(\partial U/\partial T)_{p}=(\partial U/\partial T)_{V}+(\partial U/\partial V)_{T}(\partial V/\partial T)_{p}$ なので一般には $(\partial U/\partial T)_{p}\neq C_{V}$。この気体では $U$ が $V$ によらないので一致する，と理由を書く。偏微分を書くたびに，添字が定義と合っているかを確かめる。
+\item 「基準 $(T_{0},p_{0})$ での値を $S_{0}$ とする」と指定されたら，積分の下端を基準状態にして $\ln(T/T_{0})$ の形で書く。$T=T_{0}$，$p=p_{0}$ を入れて $S=S_{0}$ になるかで検算する。
+\end{kizuki}
+\begin{tadashii}
+\houshin $(T,p)$ 表示では，第二 $T\dd S$ 方程式 \noteshiki{8.13} を $T$ で割った式が全微分であることから $C_{p}$ と状態方程式の関係が出る。エンタルピー方程式 \noteshiki{8.12} で $H$ の圧力依存性を決め，$C_{p} = (\partial H/\partial T)_{p}$ と合わせて $H(T,p)$ を積分する。$S$ も同様に積分し，$U = H - pV$ から $C_{V}$ を求める。
+\keisan \shoumonkai{1} \noteshiki{8.13} を $T$ で割ると
+\[ \dd S = \frac{C_{p}}{T}\dd T - \left(\pdv{V}{T}\right)_{p}\dd p \]
+$S(T,p)$ は状態変数で $\dd S$ は全微分なので，2階偏微分は微分の順序によらない（第3章の全微分の条件）。
+\[ \frac{\partial}{\partial p}\left(\frac{C_{p}}{T}\right)_{T} = -\frac{\partial}{\partial T}\left(\pdv{V}{T}\right)_{p} \]
+左辺では $T$ を固定しているので $1/T$ は外に出せて，
+\[ \left(\pdv{C_{p}}{p}\right)_{T} = -T\left(\pdv[2]{V}{T}\right)_{p} \]
+この状態方程式では $(\partial V/\partial T)_{p} = nR/p$ は $T$ によらないので $(\partial^{2}V/\partial T^{2})_{p} = 0$ であり，$(\partial C_{p}/\partial p)_{T} = 0$ となる。$C_{p}$ が $p$ によらないことは状態方程式と矛盾しない。
+
+\shoumonkai{2} \noteshiki{8.12} から
+\[ \left(\pdv{H}{p}\right)_{T} = V - T\cdot\frac{nR}{p} = \frac{nRT}{p} + nb - \frac{nRT}{p} = nb \]
+$(\partial H/\partial T)_{p} = C_{p} = nc_{p}$ と合わせて $\dd H = nc_{p}\,\dd T + nb\,\dd p$ であり，係数が定数なので
+\[ H(T,p) = nc_{p}T + nbp + H_{0} \]
+（両方の偏微分を満たすことはすぐ確かめられる）。
+
+\shoumonkai{3} (1) の $\dd S$ に $C_{p} = nc_{p}$，$(\partial V/\partial T)_{p} = nR/p$ を入れて
+\[ \dd S = nc_{p}\frac{\dd T}{T} - nR\frac{\dd p}{p} \]
+$(T_{0},p_{0})$ から積分して
+\[ S(T,p) = nc_{p}\ln\frac{T}{T_{0}} - nR\ln\frac{p}{p_{0}} + S_{0} \]
+
+\shoumonkai{4} $pV = nRT + nbp$ なので
+\[ U = H - pV = nc_{p}T + nbp + H_{0} - nRT - nbp = n(c_{p} - R)T + H_{0} \]
+$U$ は $T$ だけの関数なので，体積一定で温度を変えても $\dd U = n(c_{p} - R)\,\dd T$ であり，
+\[ C_{V} = \left(\pdv{U}{T}\right)_{V} = n(c_{p} - R) \]
+したがって $C_{p} - C_{V} = nR$ である。一方，$\alpha = V^{-1}(\partial V/\partial T)_{p} = nR/(pV)$，$\kappa_{T} = -V^{-1}(\partial V/\partial p)_{T} = nRT/(p^{2}V)$ より
+\[ \frac{TV\alpha^{2}}{\kappa_{T}} = TV \cdot \frac{n^{2}R^{2}}{p^{2}V^{2}} \cdot \frac{p^{2}V}{nRT} = nR \]
+となり，\noteshiki{8.10} と一致する。
+\kotae{\shoumonkai{1} $(\partial C_{p}/\partial p)_{T} = -T(\partial^{2}V/\partial T^{2})_{p} = 0$ で矛盾しない \shoumonkai{2} $(\partial H/\partial p)_{T} = nb$，$H = nc_{p}T + nbp + H_{0}$ \shoumonkai{3} $S = nc_{p}\ln(T/T_{0}) - nR\ln(p/p_{0}) + S_{0}$ \shoumonkai{4} $U = n(c_{p} - R)T + H_{0}$，$C_{V} = n(c_{p} - R)$，$C_{p} - C_{V} = nR = TV\alpha^{2}/\kappa_{T}$}
+\begin{ronten}
+  \item \shoumonkai{1} $S$ が状態変数で $\dd S$ が全微分であることを，偏微分の順序を入れ替える根拠として書く。
+  \item \shoumonkai{2} $H$ を $T$ と $p$ の両方の偏微分から決め，付加定数が $T$，$p$ によらないことを述べる。
+  \item \shoumonkai{4} $U$ が $T$ だけの関数なので，体積一定の微分が $\dd U/\dd T$ に等しいことを書く。
+\end{ronten}
+\kenzan $b \to 0$ では理想気体に戻り，$H = nc_{p}T + H_{0}$，$C_{p} - C_{V} = nR$ はいずれも理想気体の結果と一致する。$S$ の式で $T$ を上げると増え，$p$ を上げると（体積が減って）減る。対数の引数は $T/T_{0}$，$p/p_{0}$ で無次元である。
+\tsumazuki $S$ に $b$ が現れないのは，$(\partial V/\partial T)_{p}$ に $b$ が入らないためである。$U$ も $b$ によらないが，$H$ は $nbp$ の分だけ理想気体と異なる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\熱物理学\065_2026-11-16.tex
+\mondaibangou{7}
+\begin{mondai}{065-ig-sref}{導出}{理想気体のエントロピーの $(U,V,n)$ 表示から状態方程式と内部エネルギーを再現すること，示量性，基準状態と $s^{*}$ の意味}
+\begin{teisuu}
+  気体定数 & $R$ & \qty{8.314}{\joule\per\kelvin\per\mole}\\
+\end{teisuu}
+理想気体のエントロピーは，$U$，$V$，$n$ の関数として \noteshiki{8.19} で与えられる（$\tilde{c}_{V} = c_{V}/R$，$\tilde{s}^{*} = s^{*}/R$，$u^{*}$ はいずれも定数）。
+  \begin{shoumon}
+    \item \noteshiki{8.16} を使って，\noteshiki{8.19} だけから内部エネルギー $U(T,V,n)$ と状態方程式を導け。
+    \item $S$ が示量変数であること，すなわち任意の $\lambda > 0$ に対して $S(\lambda U,\lambda V,\lambda n) = \lambda S(U,V,n)$ が成り立つことを確かめよ。
+    \item \noteshiki{8.20} の基準状態を $(T^{*},\rho^{*})$ から別の $(T^{**},\rho^{**})$ に取り替え，定数 $s^{*}$ を $s^{**}$ に替えた式
+    \[ S(T,V,n) = nc_{V}\ln\frac{T}{T^{**}} + nR\ln\frac{\rho^{**}V}{n} + ns^{**} \]
+    が，元の式と同じエントロピーを表すとする。$s^{**}$ を $s^{*}$，$c_{V}$，$R$，$T^{*}$，$T^{**}$，$\rho^{*}$，$\rho^{**}$ で表し，$s^{**}$ が元の式で計算した何の値になっているかを述べよ。また，物質量が等しい2つの状態のエントロピーの差は，基準状態の選び方によらないことを示せ。
+  \end{shoumon}
+\notekiroku{2026-11-16 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-16}
+\toi{1}{◎}{}
+\[ \left(\pdv{S}{U}\right)_{V}=nR\tilde{c}_{V}\cdot\frac{1}{U-nu^{*}}=\frac{1}{T} \]
+\[ \left(\pdv{S}{V}\right)_{U}=nR\frac{1}{V}=\frac{p}{T} \]
+（矢印で1つ目の式から次の2行に，2つ目の式から最後の行につなぐ）
+\[ U-nu^{*}=nRT\tilde{c}_{V} \]
+\[ U(T,V,n)=nc_{V}T+nu^{*} \]
+\[ pV=nRT \]
+\toi{2}{◎}{}
+\begin{align*}
+S(\lambda U,\lambda V,\lambda n)&=\lambda nR\biggl(\tilde{c}_{V}\ln\frac{\lambda U-\lambda nu^{*}}{\lambda n\tilde{c}_{V}}\\
+&\qquad+\ln\frac{\lambda V}{\lambda n}+\kakimachigai{s^{*}}{\tilde{s}^{*}}\biggr)\\
+&=\lambda S(U,V,n)
+\end{align*}
+\toi{3}{○}{記述}
+\begin{align*}
+&nc_{V}\ln\frac{T}{T^{**}}+nR\ln\frac{\rho^{**}V}{n}+ns^{**}\\
+&\qquad=nc_{V}\ln\frac{T}{T^{*}}+nR\ln\frac{\rho^{*}V}{n}+ns^{*}
+\end{align*}
+\begin{align*}
+\therefore\ s^{**}&=c_{V}\left(\ln\frac{T}{T^{*}}-\ln\frac{T}{T^{**}}\right)\\
+&\qquad+R\left(\ln\frac{\rho^{*}V}{n}-\ln\frac{\rho^{**}V}{n}\right)+s^{*}\\
+&=c_{V}\ln\frac{T^{**}}{T^{*}}+R\ln\frac{\rho^{*}}{\rho^{**}}+s^{*}
+\end{align*}
+元の式における \qty{1}{\mole} あたりの，$T^{**}$，$\rho^{**}$ のときのエントロピー。
+\begin{align*}
+&S(T_{2},V_{2},n)-S(T_{1},V_{1},n)\\
+&\qquad=nc_{V}\ln\frac{T_{2}}{T_{1}}+nR\ayamari{\frac{V_{2}}{V_{1}}}{\ln\frac{V_{2}}{V_{1}}}
+\end{align*}
+となり，$T^{*}$，$\rho^{*}$，$s^{*}$ に依存しない。
+\naze{第2項の $\ln$ が落ちている。正しくは $nR\ln(V_{2}/V_{1})$ である。同じ状態（$T_{2}=T_{1}$，$V_{2}=V_{1}$）を入れると $nR$ が残って差が0にならないので，ここで気付ける。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 理想気体のエントロピーの差は，各項が「定数 $\times$ $\ln$（無次元の比）」の形である。書き終えたら同じ状態（$T_{2}=T_{1}$，$V_{2}=V_{1}$）を入れて差が0になるかを確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin \noteshiki{8.19} は完全な熱力学関数なので，\noteshiki{8.16} の偏微分から $1/T$ と $p/T$ が求まる。示量性は対数の引数が $\lambda$ によらないことで示す。基準状態の取り替えは，2つの式がすべての状態で等しいという条件から $s^{**}$ を決める。
+\keisan \shoumonkai{1} $n$ を固定して偏微分する。
+\[ \frac{1}{T} = \left(\pdv{S}{U}\right)_{V} = \frac{nR\tilde{c}_{V}}{U - nu^{*}} = \frac{nc_{V}}{U - nu^{*}} \]
+より $U(T,V,n) = nu^{*} + nc_{V}T$ である。また
+\[ \frac{p}{T} = \left(\pdv{S}{V}\right)_{U} = \frac{nR}{V} \]
+より状態方程式 $pV = nRT$ を得る。
+
+\shoumonkai{2} $U$，$V$，$n$ を $\lambda$ 倍すると，対数の引数は
+\[ \frac{\lambda U - \lambda nu^{*}}{\lambda n\tilde{c}_{V}} = \frac{U - nu^{*}}{n\tilde{c}_{V}}, \qquad \frac{\lambda V}{\lambda n} = \frac{V}{n} \]
+で変わらない。括弧の前の $nR$ だけが $\lambda nR$ になるので，$S(\lambda U,\lambda V,\lambda n) = \lambda S(U,V,n)$ である。
+
+\shoumonkai{3} 2つの式が任意の $(T,V,n)$ で等しいとして差をとる。$\ln(T/T^{*}) - \ln(T/T^{**}) = \ln(T^{**}/T^{*})$，$\ln(\rho^{*}V/n) - \ln(\rho^{**}V/n) = \ln(\rho^{*}/\rho^{**})$ なので
+\[ n\left(c_{V}\ln\frac{T^{**}}{T^{*}} + R\ln\frac{\rho^{*}}{\rho^{**}} + s^{*} - s^{**}\right) = 0 \]
+よって
+\[ s^{**} = s^{*} + c_{V}\ln\frac{T^{**}}{T^{*}} + R\ln\frac{\rho^{*}}{\rho^{**}} \]
+これは元の式 \noteshiki{8.20} で $T = T^{**}$，$n/V = \rho^{**}$ とおいたときの $S/n$，すなわち新しい基準状態での単位物質量当たりのエントロピーである。
+
+物質量 $n$ が等しい2状態 $(T_{1},V_{1})$，$(T_{2},V_{2})$ の差は，どちらの基準状態の式でも
+\[ S(T_{2},V_{2},n) - S(T_{1},V_{1},n) = nc_{V}\ln\frac{T_{2}}{T_{1}} + nR\ln\frac{V_{2}}{V_{1}} \]
+となり，$T^{*}$，$\rho^{*}$，$s^{*}$（または $T^{**}$，$\rho^{**}$，$s^{**}$）を含まない。
+\kotae{\shoumonkai{1} $U = nu^{*} + nc_{V}T$，$pV = nRT$ \shoumonkai{2} 対数の引数が $\lambda$ によらず，$S(\lambda U,\lambda V,\lambda n) = \lambda S$ \shoumonkai{3} $s^{**} = s^{*} + c_{V}\ln(T^{**}/T^{*}) + R\ln(\rho^{*}/\rho^{**})$（元の式で計算した新しい基準状態での $S/n$）。差は $nc_{V}\ln(T_{2}/T_{1}) + nR\ln(V_{2}/V_{1})$ で基準状態によらない}
+\begin{ronten}
+  \item \shoumonkai{1} $1/T$ と $p/T$ を \noteshiki{8.16} の偏微分として与えることを述べる。
+  \item \shoumonkai{3} 2つの式がすべての状態で一致することを条件にして $s^{**}$ を決め，それが基準状態での $S/n$ であることを述べる。
+  \item \shoumonkai{3} エントロピーの差では基準の量が打ち消し合うことを式で示す。
+\end{ronten}
+\kenzan (1) の結果は，第5章で扱った理想気体の内部エネルギー $U = nu^{*} + nc_{V}T$ と状態方程式 $pV = nRT$ そのものである。(3) で $T^{**} = T^{*}$，$\rho^{**} = \rho^{*}$ なら $s^{**} = s^{*}$ に戻る。基準の密度を大きく取る（$\rho^{**} > \rho^{*}$）と $s^{**}$ は小さくなり，密度が高いほどエントロピーが小さいことと合う。
+\tsumazuki \noteshiki{8.17} のように次元のある量の対数を書くと，体積の単位（\unit{\metre\cubed} か \unit{\centi\metre\cubed} か）で数値が変わる。基準状態で割った形にすれば，単位の選び方は $s^{*}$ の値に吸収される。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

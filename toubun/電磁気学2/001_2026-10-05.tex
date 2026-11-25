@@ -1,0 +1,40 @@
+% 電磁気学2 電磁気学2-1 問題1（001-nabla。当時は 電磁気学2-1 問題1・kai01-l1-nabla） 解いた日 2026-10-05
+%% kotae
+\toi{1}{◎}{}
+\[ \nabla\cdot\vect{A}=2xy+2yz+2zx=2(xy+yz+zx) \]
+\begin{align*}
+\nabla\times\vect{A}&=\biggl(\pdv{}{y}(z^{2}x)-\pdv{}{z}y^{2}z,\\
+&\qquad\pdv{}{z}(x^{2}y)-\pdv{}{x}(z^{2}x),\\
+&\qquad\pdv{}{x}(y^{2}z)-\pdv{}{y}(x^{2}y)\biggr)\\
+&=(-y^{2},-z^{2},-x^{2})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\nabla\cdot(\nabla\times\vect{A})\\
+&=\left(\pdv{}{x}(-y^{2})+\pdv{}{y}(-z^{2})+\pdv{}{z}(-x^{2})\right)=0
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\nabla\phi&=\left(\pdv{\phi}{x},\pdv{\phi}{y},\pdv{\phi}{z}\right)=(2xyz,x^{2}z,x^{2}y)\\
+\Delta\phi&=\pdv[2]{\phi}{x}+\pdv[2]{\phi}{y}+\pdv[2]{\phi}{z}\\
+&=2yz+0+0=2yz
+\end{align*}
+\begin{align*}
+\nabla\times(\nabla\phi)&=\biggl(\pdv{}{y}(x^{2}y)-\pdv{}{z}(x^{2}z),\\
+&\qquad\pdv{}{z}(2xyz)-\pdv{}{x}(x^{2}y),\\
+&\qquad\pdv{}{x}(x^{2}z)-\pdv{}{y}(2xyz)\biggr)\\
+&=(x^{2}-x^{2},2xy-2xy,2xz-2xz)=0
+\end{align*}
+\toi{4}{△}{記述}
+\begin{align*}
+\nabla\cdot(\nabla\times\vect{A})&=\nabla\cdot\biggl(\pdv{}{y}A_{z}-\pdv{}{z}A_{y},\\
+&\qquad\pdv{}{z}A_{x}-\pdv{}{x}A_{z},\\
+&\qquad\pdv{}{x}A_{y}-\pdv{}{y}A_{x}\biggr)\\
+&=\pdv{}{x}\pdv{}{y}A_{z}-\pdv{}{x}\pdv{}{z}A_{y}\\
+&\qquad+\pdv{}{y}\pdv{}{z}A_{x}-\pdv{}{y}\pdv{}{x}A_{z}\\
+&\qquad+\pdv{}{z}\pdv{}{x}A_{y}-\pdv{}{z}\pdv{}{y}A_{x}\\
+&\nuke{\text{順序交換}}=0
+\end{align*}
+\naze{0 になる根拠が書かれていない。2階偏導関数が連続なので微分の順序を交換でき（$\partial^{2}A_{z}/\partial x\,\partial y=\partial^{2}A_{z}/\partial y\,\partial x$ など），6項を $A_{x},A_{y},A_{z}$ ごとに2項ずつ組にすると各組が打ち消し合う。問題文の「2階までの偏導関数が連続」はこのための条件である。}
+%% kizuki
+\item $\nabla\cdot(\nabla\times\vect{A})$ の6項が消えるのは，混合偏微分の順序を交換できる（$\partial_{x}\partial_{y}A_{z}=\partial_{y}\partial_{x}A_{z}$）からで，その条件が「2階偏導関数が連続」である。問題文にある条件は答案のどこで使ったかを書く。

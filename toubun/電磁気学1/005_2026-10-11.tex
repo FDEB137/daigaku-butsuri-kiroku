@@ -1,0 +1,22 @@
+% 電磁気学1 電磁気学1-2 問題2（005-delta。当時は 電磁気学1-1-2 問題5・shou01-02-l1-delta） 解いた日 2026-10-11
+%% kotae
+\toi{1}{×}{立式}
+\[ \delta(x^{2}-4)=\ayamari{\frac{1}{\abs{-8}}\delta(x+2)}{\frac{\delta(x-2)+\delta(x+2)}{4}} \]
+\[ \int_{-\infty}^{\infty}\dd x\,\frac{1}{8}(x^{2}+1)\delta(x+2)=\frac{5}{8} \]
+\naze{$g(x)=x^{2}-4$ の零点は $x=\pm2$ の2つあり，$\abs{g'(\pm2)}=\abs{2\cdot(\pm2)}=4$ である。零点 $x=2$ を落とし，係数も $1/8$ と誤っている。正しくは積分は $5/4+5/4=5/2$ である。以降はこの誤りを引き継ぐ。}
+\toi{2}{△}{立式}
+\[ \int_{-1}^{1}\dd x\,\ayamari{\frac{1}{8}(x^{2}+1)\delta(x+2)}{(x^{2}+1)\delta(x^{2}-4)}=0 \]
+\naze{答えの $0$ は正しいが，(1) の誤った展開（$\delta(x+2)$ だけ）を使っている。零点 $x=\pm2$ がどちらも区間 $[-1,1]$ の外にあるので $0$，と確かめる必要がある。}
+\toi{3}{◎}{}
+\begin{align*}
+\delta(x^{2}-3x+2)&=\frac{1}{\abs{2\cdot1-3}}\delta(x-1)+\frac{1}{\abs{2\cdot2-3}}\delta(x-2)\\
+&=\delta(x-1)+\delta(x-2)
+\end{align*}
+\[ \int_{0}^{3}\dd x\,\ee^{x}\bigl(\delta(x-1)+\delta(x-2)\bigr)=\ee+\ee^{2} \]
+\toi{4}{◎}{}
+\[ \int_{-\infty}^{\infty}\dd x\,x^{2}\,\frac{1}{3}\delta(x+2)=\frac{4}{3} \]
+\toi{5}{◎}{}
+\[ \kakimachigai{\int}{\int_{-\infty}^{\infty}}\dd x\,\cos x\,\delta\Bigl(x-\frac{\pi}{3}\Bigr)=\frac{1}{2} \]
+%% kizuki
+\item 引数が2次式のデルタ関数 $\delta(g(x))$ は，$g$ の零点をすべて挙げ，零点ごとに $1/\abs{g'(x_{n})}$ を付けて足す（$\delta(x^{2}-4)=\delta(x-2)/4+\delta(x+2)/4$）。(3) ではできていたので，零点の数と $\abs{g'}$ を零点ごとに毎回確かめる。
+\item 積分範囲があるときは，零点ごとに区間の内側か外側かを書く（(2) は $x=\pm2$ がどちらも $[-1,1]$ の外なので $0$）。

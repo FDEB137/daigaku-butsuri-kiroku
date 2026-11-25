@@ -1,0 +1,54 @@
+% 電磁気学1 電磁気学1-1 問題5（008-kyoku。当時は 電磁気学1-1-2 問題8・shou01-02-l2-kyoku） 解いた日 2026-10-11
+%% kotae
+\toi{1}{◎}{}
+（脇で偏微分を計算）$\pdv{f}{r}=-2\cos\theta\,r^{-3}$，$\pdv{f}{\theta}=-\sin\theta/r^{2}$，$\pdv{f}{\phi}=0$
+\begin{align*}
+\vect{E}=-\nabla f&=-\pdv{f}{r}\hat{\vect{r}}-\frac{1}{r}\pdv{f}{\theta}\hat{\vect{\theta}}\\
+&\qquad-\frac{1}{r\sin\theta}\pdv{f}{\phi}\hat{\vect{\phi}}\\
+&=\frac{2\cos\theta}{r^{3}}\hat{\vect{r}}+\frac{\sin\theta}{r^{3}}\hat{\vect{\theta}}
+\end{align*}
+\toi{2}{△}{計算}
+\begin{align*}
+\nabla\cdot\vect{E}&=\frac{1}{r^{2}}\pdv{}{r}\Bigl(\frac{2\cos\theta}{r}\Bigr)\\
+&\qquad+\frac{1}{r\sin\theta}\pdv{}{\theta}\Bigl(\frac{\sin^{2}\theta}{r^{3}}\Bigr)\\
+&=-\frac{2\cos\theta}{r^{4}}+\frac{1}{r\sin\theta}\,\frac{2\sin\theta\cos\theta}{r^{3}}\\
+&=\ayamari{\frac{-\cos\theta}{r^{4}}}{0}
+\end{align*}
+\naze{第2項は $(1/(r\sin\theta))\cdot2\sin\theta\cos\theta/r^{3}=2\cos\theta/r^{4}$ で，第1項 $-2\cos\theta/r^{4}$ とちょうど打ち消し合う。$\nabla\cdot\vect{E}=0$ である。}
+\toi{3}{◎}{}
+\begin{align*}
+\nabla\times\vect{E}&=\frac{1}{r\sin\theta}(0-0)\hat{\vect{r}}\\
+&\qquad+\frac{1}{r}\Bigl(\frac{1}{\sin\theta}\,0-\pdv{}{r}\,0\Bigr)\hat{\vect{\theta}}\\
+&\qquad+\frac{1}{r}\biggl(\pdv{}{r}\Bigl(\frac{\sin\theta}{r^{2}}\Bigr)\\
+&\qquad\quad-\pdv{}{\theta}\Bigl(\frac{2\cos\theta}{r^{3}}\Bigr)\biggr)\hat{\vect{\phi}}\\
+&=\frac{1}{r}\Bigl(\frac{-2\sin\theta}{r^{3}}+\frac{2\sin\theta}{r^{3}}\Bigr)\hat{\vect{\phi}}=0
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\nabla^{2}f&=\frac{1}{r^{2}}\pdv{}{r}\Bigl(r^{2}\,\frac{-2\cos\theta}{r^{3}}\Bigr)\\
+&\qquad+\frac{1}{r^{2}\sin\theta}\pdv{}{\theta}\Bigl(\sin\theta\cdot\frac{-\sin\theta}{r^{2}}\Bigr)\\
+&\qquad+\frac{1}{r^{2}\sin^{2}\theta}\cdot0\\
+&=\frac{1}{r^{2}}\pdv{}{r}\Bigl(\frac{-2\cos\theta}{r}\Bigr)\\
+&\qquad+\frac{1}{r^{2}\sin\theta}\pdv{}{\theta}\Bigl(\frac{-\sin^{2}\theta}{r^{2}}\Bigr)\\
+&=\frac{1}{r^{2}}\Bigl(\frac{2\cos\theta}{r^{2}}\Bigr)+\frac{1}{r^{2}\sin\theta}\,\frac{-2\sin\theta\cos\theta}{r^{2}}\\
+&=\frac{2\cos\theta}{r^{4}}-\frac{2\cos\theta}{r^{4}}=0\quad(=-\nabla\cdot\vect{E})
+\end{align*}
+\toi{5}{×}{立式}
+\[ f=\frac{\cos\theta}{r^{2}}=\frac{\ayamari{x}{z}}{(x^{2}+y^{2}+z^{2})^{3/2}} \]
+\naze{極座標の $\theta$ は $z$ 軸から測る角なので $\cos\theta=z/r$ で，$f=z/(x^{2}+y^{2}+z^{2})^{3/2}$ である。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+\vect{E}&=-\nabla f\\
+&=\biggl(-\pdv{}{x}\frac{x}{(x^{2}+y^{2}+z^{2})^{3/2}},\\
+&\qquad-\pdv{}{y}\frac{x}{(x^{2}+y^{2}+z^{2})^{3/2}},\\
+&\qquad-\pdv{}{z}\frac{x}{(x^{2}+y^{2}+z^{2})^{3/2}}\biggr)\\
+&=\biggl(-\frac{1\cdot r^{3}-x\cdot\frac{3}{2}r\cdot2x}{r^{6}},\\
+&\qquad\ayamari{\frac{3x}{2}\cdot\frac{1}{r^{5}}}{\frac{3xy}{r^{5}}},\ \ayamari{\frac{3x}{2}\cdot\frac{1}{r^{5}}}{\frac{3xz}{r^{5}}}\biggr)
+\end{align*}
+\naze{（$f$ を $x/r^{3}$ としたままでも）$y$ での微分は $-\partial_{y}(x\,r^{-3})=3xy/r^{5}$ で，$y$ が抜けている（$z$ も同じ）。$z$ 軸上では $0$ になるので，ここでは結果は変わらない。}
+$x=0$，$y=0$
+\[ \vect{E}=\ayamari{\Bigl(-\frac{1}{z^{3}},\ 0,\ 0\Bigr)}{\Bigl(0,\ 0,\ \frac{2}{z^{3}}\Bigr)} \]
+\nuke{第1問との比較}
+\naze{正しくは $\partial_{z}f=1/z^{3}-3/z^{3}=-2/z^{3}$ から $\vect{E}=2\hat{\vect{z}}/z^{3}$ で，第1問で $\theta=0$（$\hat{\vect{r}}=\hat{\vect{z}}$，$r=z$）とした $2\hat{\vect{z}}/z^{3}$ と一致する。この比較も問われている。}
+%% kizuki
+\item 極座標の $\theta$ は $z$ 軸から測る角なので $\cos\theta=z/r$（$x/r$ ではない）。$z$ 軸上では $\theta=0$，$\hat{\vect{r}}=\hat{\vect{z}}$ になるので，(1) の結果と同じ向き（$z$ 方向）になるかで確かめられる。$x$ 方向の答えが出た時点で誤りに気付ける。
+\item (2) は2項を約分してから足し直す。(4) で「$=-\nabla\cdot\vect{E}$」と書いたときは，(2) の結果と実際に見比べる（$0$ と $-\cos\theta/r^{4}$ が食い違っていた）。照合の小問は，前の答えの誤りを拾う場面である。

@@ -1,0 +1,57 @@
+% 数理物理2 数理物理2-1 問題3（003-demoivre） 解いた日 2026-11-04
+%% kotae
+\toi{1}{◎}{}
+（先にオイラーの公式で $\cos3\theta$・$\sin3\theta$ を求めている。見出しは「(2)」と書いてある）
+\begin{align*}
+\cos3\theta&=\frac{1}{2}(\ee^{3\ii\theta}+\ee^{-3\ii\theta})\\
+&=\frac{1}{2}\bigl((\ee^{\ii\theta}+\ee^{-\ii\theta})(\ee^{2\ii\theta}-1+\ee^{-2\ii\theta})\bigr)\\
+&=\cos\theta\bigl((\ee^{\ii\theta}+\ee^{-\ii\theta})^{2}-3\bigr)\\
+&=\kakimachigai{\cos}{\cos\theta}(4\cos^{2}\theta-3)\\
+&=4\cos^{3}\theta-3\cos\theta
+\end{align*}
+\begin{align*}
+\sin3\theta&=\frac{1}{2\ii}(\ee^{3\ii\theta}-\ee^{-3\ii\theta})\\
+&=\frac{1}{2\ii}\bigl((\ee^{\ii\theta}-\ee^{-\ii\theta})(\ee^{2\ii\theta}+1+\ee^{-2\ii\theta})\bigr)\\
+&=\sin\theta\bigl((\ee^{\ii\theta}+\ee^{-\ii\theta})^{2}-1\bigr)\\
+&=\sin\theta\bigl(4(1-\sin^{2}\theta)-1\bigr)\\
+&=3\sin\theta-4\sin^{3}\theta
+\end{align*}
+（続けて見出し「(1)」でド・モアブルの定理を使う）
+\begin{align*}
+(\cos\theta+\ii\sin\theta)^{3}&=\cos3\theta+\ii\sin3\theta\\
+&=\cos^{3}\theta+3\ii\cos^{2}\theta\sin\theta\\
+&\qquad+3\cos\theta(\ii\sin\theta)^{2}+(\ii\sin\theta)^{3}\\
+&=\cos^{3}\theta-3\cos\theta(1-\cos^{2}\theta)\\
+&\qquad+\ii\bigl(3\sin\theta(1-\sin^{2}\theta)-\sin^{3}\theta\bigr)\\
+&=4\cos^{3}\theta-3\cos\theta+\ii(3\sin\theta-4\sin^{3}\theta)
+\end{align*}
+\begin{align*}
+\therefore\ \cos3\theta&=4\cos^{3}\theta-3\cos\theta\\
+\sin3\theta&=3\sin\theta-4\sin^{3}\theta
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\cos^{3}\theta&=\Bigl(\frac{\ee^{\ii\theta}+\ee^{-\ii\theta}}{2}\Bigr)^{3}\\
+&=\frac{1}{8}(\ee^{3\ii\theta}+3\ee^{\ii\theta}+3\ee^{-\ii\theta}+\ee^{-3\ii\theta})\\
+&=\frac{1}{4}\cos3\theta+\frac{3}{4}\cos\theta
+\end{align*}
+\begin{align*}
+\cos3\theta&=4\cos^{3}\theta-3\cos\theta\\
+&=(\cos3\theta+3\cos\theta)-3\cos\theta\\
+&=\cos3\theta
+\end{align*}
+より一致。
+\toi{3}{◎}{}
+\begin{align*}
+\sin^{4}\theta&=\Bigl(\frac{\ee^{\ii\theta}-\ee^{-\ii\theta}}{\kakimachigai{2}{2\ii}}\Bigr)^{4}\\
+&=\frac{1}{16}(\ee^{4\ii\theta}-4\ee^{2\ii\theta}+6-4\ee^{-2\ii\theta}+\ee^{-4\ii\theta})\\
+&=\frac{1}{8}\cos4\theta-\frac{1}{2}\cos2\theta+\frac{3}{8}
+\end{align*}
+\begin{align*}
+I&=\frac{1}{8}\int_{0}^{2\pi}\kakimachigai{\cos4\theta-4\cos2\theta+3}{(\cdots)}\,\dd\theta\\
+&=\frac{1}{8}\Bigl[\frac{1}{4}\sin4\theta-2\sin2\theta+3\theta\Bigr]_{0}^{2\pi}\\
+&=\frac{1}{8}(6\pi-0)=\frac{3}{4}\pi
+\end{align*}
+%% kizuki
+\item (3) で $\sin\theta=(\ee^{\ii\theta}-\ee^{-\ii\theta})/(2\ii)$ の分母を $2$ と書いた。$(2\ii)^{4}=16=2^{4}$ なので4乗では結果が変わらないが，奇数乗では符号と $\ii$ が残る。$\sin$ の分母は $2\ii$ と覚え，$\theta=\pi/2$ を入れて $\sin\theta=1$ になるかで確かめる。
+\item 被積分関数が2項以上のときは括弧でくくってから $\dd\theta$ を書く（$\int(\cos4\theta-4\cos2\theta+3)\,\dd\theta$）。

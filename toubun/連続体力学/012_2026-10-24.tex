@@ -1,0 +1,23 @@
+% 連続体力学 連続体力学-2 問題4（012-eom） 解いた日 2026-10-24
+%% kotae
+\toi{1}{○}{記述}
+\[ \tens{P}=\begin{pmatrix}\vect{a}^{(1)}\\\vect{a}^{(2)}\\\vect{a}^{(3)}\end{pmatrix},\quad \tens{P}\cdot\vect{n}=\begin{pmatrix}\vect{a}^{(1)}\cdot\vect{n}\\\vect{a}^{(2)}\cdot\vect{n}\\\vect{a}^{(3)}\cdot\vect{n}\end{pmatrix} \]
+より
+\[ (\tens{P}\cdot\vect{n})_{i}=\vect{a}^{(i)}\cdot\vect{n} \]
+\[ \int_{S}\vect{a}^{(i)}\cdot\vect{n}\,\dd S=\int_{V}\vect{\nabla}\cdot\vect{a}^{(i)}\,\dd V \]
+\nuke{$\vect{\nabla}\cdot\vect{a}^{(i)}=(\vect{\nabla}\cdot\tens{P})_{i}$}
+\[ \therefore\ \Bigl(\int_{S}\tens{P}\cdot\vect{n}\,\dd S\Bigr)_{i}=\Bigl(\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V\Bigr)_{i} \]
+\naze{右辺の $\vect{\nabla}\cdot\vect{a}^{(i)}$ から $(\vect{\nabla}\cdot\tens{P})_{i}$ へ移る1行が要る。$\vect{\nabla}\cdot\vect{a}^{(i)}=\sum_{j}\partial P_{ij}/\partial x_{j}$ で，これは式(45) の $(\vect{\nabla}\cdot\tens{P})_{i}$ そのものである。}
+\toi{2}{×}{未着手}
+\[ \therefore\ \int_{S}\tens{P}\cdot\vect{n}\,\dd S=\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V \]
+\naze{(1) をベクトルで書き直したところで止まっている。続きは，式(11) の $i$ 成分に $\int_{S}(\tens{P}\cdot\vect{n})_{i}\,\dd S=\int_{V}(\vect{\nabla}\cdot\tens{P})_{i}\,\dd V$ を入れて $\int_{V}f_{i}\,\dd V=0$（$f_{i}=\rho\,\mathrm{D}u_{i}/\mathrm{D}t-\sum_{j}\partial P_{ij}/\partial x_{j}-K_{i}$）にまとめる。$f_{i}$ は連続なので，ある点 $\vect{x}_{0}$ で $f_{i}(\vect{x}_{0})>0$ なら $\vect{x}_{0}$ のまわりの小さな球では $f_{i}>0$ で積分が正になり，$V$ が任意であることに反する。よって $f_{i}=0$ で，式(17) が出る。}
+\toi{3}{△}{記述}
+\[ \ayamari{\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{K}}{\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{\nabla}\cdot\tens{P}+\vect{K}} \]
+\nuke{$\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V=\int_{S}\vect{p}\,\dd S=\vect{0}$}
+\[ \int_{V}\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}\,\dd V=\int_{V}\vect{K}\,\dd V \]
+内力が作用・反作用で打ち消し合うため
+\naze{各点では $\vect{\nabla}\cdot\tens{P}\neq\vect{0}$ でよく，$\rho\,\mathrm{D}\vect{u}/\mathrm{D}t=\vect{K}$ は一般に成り立たない。微分形の運動方程式を $V$ で積分し，$\vect{\nabla}\cdot\tens{P}$ の項を式(43) で表面積分 $\int_{S}\vect{p}\,\dd S$ に直すと，表面で $\vect{p}=\vect{0}$ なので消える，という1段が導出の要である。}
+%% kizuki
+\item \mae{第1回 問題4 (1)・10-20} 定義に当てはめる1行が抜けた（前回は式(4) を成分に当てはめる「$A=u_{j}$」の1行）。今回は $\vect{\nabla}\cdot\vect{a}^{(i)}=\sum_{j}\partial P_{ij}/\partial x_{j}=(\vect{\nabla}\cdot\tens{P})_{i}$ で，導出の問題ではこの「定義どおりに書くと一致する」行を飛ばさずに書く。
+\item (2) は「1つの体積積分 $\int_{V}f_{i}\,\dd V=0$ にまとめる」「$f_{i}(\vect{x}_{0})>0$ なら小さな球で積分が正になって矛盾」の2段で $f_{i}=0$ を示す。問われている「理由」はこの背理法である。
+\item 点ごとに成り立つのは $\rho\,\mathrm{D}\vect{u}/\mathrm{D}t=\vect{\nabla}\cdot\tens{P}+\vect{K}$ で，全体で積分すると $\vect{\nabla}\cdot\tens{P}$ の項が $\int_{S}\vect{p}\,\dd S=\vect{0}$ になって消える。「内力が打ち消し合う」の式の中身はこの面積分である（(3)）。

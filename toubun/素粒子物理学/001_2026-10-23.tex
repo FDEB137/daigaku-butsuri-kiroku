@@ -1,0 +1,32 @@
+% 素粒子物理学 素粒子物理学-1 問題1（001-units） 解いた日 2026-10-23
+%% kotae
+\toi{1}{○}{単位}
+\begin{align*}
+  \qty{1}{\tera\electronvolt}&=1\times10^{12}\times1.60\times10^{-19}\\
+  &=\ayamari{\qty{1.6e-7}{\joule}}{\qty{1.60e-7}{\joule}}
+\end{align*}
+\naze{値は正しいが，問題の指定は有効数字3桁なので $\qty{1.60e-7}{\joule}$ と書く。}
+\toi{2}{△}{計算}
+\begin{align*}
+  1&=\qty{197}{\mega\electronvolt\femto\metre}\\
+  \therefore\ \qty{1}{\femto\metre}&=\frac{1}{197}\,\unit{\per\mega\electronvolt}\\
+  &=\qty{5.08e-3}{\per\mega\electronvolt}
+\end{align*}
+\begin{align*}
+  \qty{1}{\per\giga\electronvolt}&=\ayamari{\frac{1000}{197}}{\frac{197}{1000}}\,\unit{\femto\metre}\\
+  &=\ayamari{5.08}{0.197}\,\unit{\femto\metre}
+\end{align*}
+\naze{エネルギーの逆数を長さに戻すときは $\hbar c$ を掛ける：$\qty{1}{\per\giga\electronvolt}=\hbar c/\qty{1000}{\mega\electronvolt}=\qty{197}{\mega\electronvolt\femto\metre}/\qty{1000}{\mega\electronvolt}=\qty{0.197}{\femto\metre}$。前半の $\qty{1}{\femto\metre}=\frac{1}{197}\,\unit{\per\mega\electronvolt}$ をそのまま逆にすると，$\qty{1}{\per\mega\electronvolt}=\qty{197}{\femto\metre}$ で，$\qty{1}{\per\giga\electronvolt}$ はその $1/1000$ である。}
+\toi{3}{△}{計算}
+\[ \frac{1000}{197}\times10^{-15}\,\unit{\metre}\div\qty{3.00e8}{\metre\per\second}=\qty{1.69e-23}{\second} \]
+\naze{長さを $c$ で割る方針は正しいが，(2) の誤った長さを使っている（以降はこの誤りを引き継ぐ）。正しくは $\qty{0.197e-15}{\metre}/\qty{3.00e8}{\metre\per\second}=\qty{6.57e-25}{\second}$。}
+\toi{4}{◎}{}
+\begin{align*}
+  T&=\frac{\melec c^{2}}{\kB}\\
+  &=\frac{\qty{0.511e6}{\electronvolt}}{\qty{8.62e-5}{\electronvolt\per\kelvin}}\\
+  &=\qty{5.93e9}{\kelvin}
+\end{align*}
+%% kizuki
+\item エネルギーの逆数と長さの換算は，$\hbar c=\qty{197}{\mega\electronvolt\femto\metre}$ を「掛けると長さ，割るとエネルギーの逆数」と単位で決める。$\unit{\mega\electronvolt\femto\metre}/\unit{\mega\electronvolt}=\unit{\femto\metre}$ になる向き（$197/1000$）が正しく，$1000/197$ では単位が長さにならない。
+\item 換算の結果は大きさの感覚で確かめる。\qty{1}{\per\giga\electronvolt} は \qty{1}{\per\mega\electronvolt}（\qty{197}{\femto\metre}）より短いはずなので，\qty{5.08}{\femto\metre} はおかしいと気付ける。
+\item 数値の答えは問題が指定した有効数字（3桁）にそろえる。$1.6$ ではなく $1.60$ と書く。

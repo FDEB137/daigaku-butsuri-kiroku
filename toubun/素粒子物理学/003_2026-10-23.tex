@@ -1,0 +1,51 @@
+% 素粒子物理学 素粒子物理学-1 問題3（003-debroglie） 解いた日 2026-10-23
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  pc&=\sqrt{2m_{\mathrm{n}}K}\\
+  &=\sqrt{2\cdot\qty{940}{\mega\electronvolt}\cdot\qty{25}{\milli\electronvolt}}\\
+  &=\sqrt{\qty{4.7e7}{\electronvolt\squared}}\\
+  &=6.855\ldots\times10^{3}\,\unit{\electronvolt}
+\end{align*}
+\[ 2\pi\hbar c=1237\ldots\,\unit{\electronvolt\nano\metre} \]
+\begin{align*}
+  \lambda&=\frac{2\pi\hbar c}{pc}\\
+  &=\frac{\qty{1237}{\electronvolt\nano\metre}}{\qty{6.855e3}{\electronvolt}}\\
+  &=0.1805\ldots\,\unit{\nano\metre}\\
+  &=\qty{0.181}{\nano\metre}
+\end{align*}
+（原子のサイズと）同程度。
+\toi{2}{▲}{立式}
+非相対論
+\begin{align*}
+  pc&=\sqrt{2mK}\\
+  &=(2\times\ayamari{\qty{940}{\mega\electronvolt}}{\qty{0.511}{\mega\electronvolt}}\times\qty{1.00}{\mega\electronvolt})^{1/2}\\
+  &=\qty{43.36}{\mega\electronvolt}
+\end{align*}
+\naze{問題 (2) の粒子は電子なので，質量は $\melec=\qty{0.511}{\mega\electronvolt}$（\qty{940}{\mega\electronvolt} は (1) の中性子の質量）。以降はこの誤りを引き継ぐ。正しくは非相対論 $\sqrt{2\times0.511\times1.00}=\qty{1.01}{\mega\electronvolt}$。}
+相対論
+\begin{align*}
+  pc&=\sqrt{E^{2}-m^{2}}=\sqrt{(K+m)^{2}-m^{2}}\\
+  &=\sqrt{(\qty{941}{\mega\electronvolt})^{2}-(\qty{940}{\mega\electronvolt})^{2}}\\
+  &=\qty{43.37}{\mega\electronvolt}
+\end{align*}
+$E\gg m$ とは言えない $\to$ 非相対論
+\begin{align*}
+  \lambda&=\frac{2\pi\hbar c}{pc}\\
+  &=\frac{\qty{1237}{\mega\electronvolt\femto\metre}}{\qty{43.36}{\mega\electronvolt}}\\
+  &=\qty{28.52}{\femto\metre}\qquad\qty{28.5}{\femto\metre}
+\end{align*}
+\naze{電子では $K=\qty{1.00}{\mega\electronvolt}$ が $\melec$ の約2倍で $K\ll m$ が成り立たないので，相対論の値 $pc=\sqrt{K(K+2m)}=\qty{1.42}{\mega\electronvolt}$ が正しく（非相対論の値は約29\%小さい），$\lambda=1238/1.422=\qty{870}{\femto\metre}$。比べて選ぶという方針は正しい。}
+\toi{3}{▲}{立式}
+\begin{align*}
+  pc&=\frac{2\pi\hbar c}{\lambda}=\frac{\qty{1237}{\mega\electronvolt\femto\metre}}{\qty{0.5}{\femto\metre}}\\
+  &=\qty{2474}{\mega\electronvolt}\\
+  E^{2}&=(mc^{2})^{2}+p^{2}\\
+  &=(\ayamari{\qty{940}{\mega\electronvolt}}{\qty{0.511}{\mega\electronvolt}})^{2}+(\qty{2474}{\mega\electronvolt})^{2}\\
+  E&=\qty{2.65}{\giga\electronvolt}
+\end{align*}
+\naze{(3) も電子なので $m=\qty{0.511}{\mega\electronvolt}$。$pc\gg\melec$ なので $E=\sqrt{(pc)^{2}+\melec^{2}}\simeq pc=\qty{2.48}{\giga\electronvolt}$ となる。$pc$ までは正しい。}
+%% kizuki
+\item 小問ごとに問題文の粒子を読み直してから質量を入れる。(1) は中性子（\qty{940}{\mega\electronvolt}），(2)(3) は電子（\qty{0.511}{\mega\electronvolt}）で，3桁以上違う。
+\item 非相対論と相対論の値がほぼ一致したら $K\ll m$ のはずである。「電子で $K=\qty{1}{\mega\electronvolt}$」なら $K\approx2\melec$ で大きく違うはずなので，一致したこと自体が質量の取り違えの合図になる。
+\item 相対論か非相対論かは $K/m$（または $pc/m$）で判定する。(3) の答え $E=\qty{2.65}{\giga\electronvolt}$ が $pc=\qty{2.47}{\giga\electronvolt}$ より \qty{0.2}{\giga\electronvolt} も大きいのは，電子ならありえない（$pc\gg\melec$ なら $E\simeq pc$）。

@@ -1,0 +1,34 @@
+% 熱物理学 熱物理学-8 問題7（065-ig-sref） 解いた日 2026-11-16
+%% kotae
+\toi{1}{◎}{}
+\[ \left(\pdv{S}{U}\right)_{V}=nR\tilde{c}_{V}\cdot\frac{1}{U-nu^{*}}=\frac{1}{T} \]
+\[ \left(\pdv{S}{V}\right)_{U}=nR\frac{1}{V}=\frac{p}{T} \]
+（矢印で1つ目の式から次の2行に，2つ目の式から最後の行につなぐ）
+\[ U-nu^{*}=nRT\tilde{c}_{V} \]
+\[ U(T,V,n)=nc_{V}T+nu^{*} \]
+\[ pV=nRT \]
+\toi{2}{◎}{}
+\begin{align*}
+S(\lambda U,\lambda V,\lambda n)&=\lambda nR\biggl(\tilde{c}_{V}\ln\frac{\lambda U-\lambda nu^{*}}{\lambda n\tilde{c}_{V}}\\
+&\qquad+\ln\frac{\lambda V}{\lambda n}+\kakimachigai{s^{*}}{\tilde{s}^{*}}\biggr)\\
+&=\lambda S(U,V,n)
+\end{align*}
+\toi{3}{○}{記述}
+\begin{align*}
+&nc_{V}\ln\frac{T}{T^{**}}+nR\ln\frac{\rho^{**}V}{n}+ns^{**}\\
+&\qquad=nc_{V}\ln\frac{T}{T^{*}}+nR\ln\frac{\rho^{*}V}{n}+ns^{*}
+\end{align*}
+\begin{align*}
+\therefore\ s^{**}&=c_{V}\left(\ln\frac{T}{T^{*}}-\ln\frac{T}{T^{**}}\right)\\
+&\qquad+R\left(\ln\frac{\rho^{*}V}{n}-\ln\frac{\rho^{**}V}{n}\right)+s^{*}\\
+&=c_{V}\ln\frac{T^{**}}{T^{*}}+R\ln\frac{\rho^{*}}{\rho^{**}}+s^{*}
+\end{align*}
+元の式における \qty{1}{\mole} あたりの，$T^{**}$，$\rho^{**}$ のときのエントロピー。
+\begin{align*}
+&S(T_{2},V_{2},n)-S(T_{1},V_{1},n)\\
+&\qquad=nc_{V}\ln\frac{T_{2}}{T_{1}}+nR\ayamari{\frac{V_{2}}{V_{1}}}{\ln\frac{V_{2}}{V_{1}}}
+\end{align*}
+となり，$T^{*}$，$\rho^{*}$，$s^{*}$ に依存しない。
+\naze{第2項の $\ln$ が落ちている。正しくは $nR\ln(V_{2}/V_{1})$ である。同じ状態（$T_{2}=T_{1}$，$V_{2}=V_{1}$）を入れると $nR$ が残って差が0にならないので，ここで気付ける。}
+%% kizuki
+\item 理想気体のエントロピーの差は，各項が「定数 $\times$ $\ln$（無次元の比）」の形である。書き終えたら同じ状態（$T_{2}=T_{1}$，$V_{2}=V_{1}$）を入れて差が0になるかを確かめる。

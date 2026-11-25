@@ -1,0 +1,43 @@
+% 連続体力学 連続体力学-2 問題6（014-rotation） 解いた日 2026-10-25
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\vect{\nabla}\cdot\vect{u}&=\pdv{}{x_{1}}(-\Omega x_{2})+\pdv{}{x_{2}}(\Omega x_{1})\\
+&\qquad+\pdv{}{x_{3}}0\\
+&=0
+\end{align*}
+\begin{align*}
+\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}&=\pdv{\vect{u}}{t}+u_{1}\pdv{\vect{u}}{x_{1}}+u_{2}\pdv{\vect{u}}{x_{2}}\\
+&=0-\Omega x_{2}(\Omega\vect{e}_{2})\\
+&\qquad+\Omega x_{1}(\kakimachigai{+\Omega\vect{e}_{1}}{-\Omega\vect{e}_{1}})\\
+&=-\Omega^{2}(x_{1}\vect{e}_{1}+x_{2}\vect{e}_{2})
+\end{align*}
+\toi{2}{◎}{}
+\[ \rho\bigl(-\Omega^{2}(x_{1}\vect{e}_{1}+x_{2}\vect{e}_{2})\bigr)=-\vect{\nabla}p+\rho\vect{g} \]
+（矢印で成分の式につなぐ）
+\begin{align*}
+-\rho\Omega^{2}x_{1}&=-\pdv{p}{x_{1}}\\
+-\rho\Omega^{2}x_{2}&=-\pdv{p}{x_{2}}\\
+0&=-\pdv{p}{x_{3}}-\rho g
+\end{align*}
+\begin{align*}
+\therefore\ \pdv{p}{x_{1}}&=\rho\Omega^{2}x_{1},\quad p=\frac{1}{2}\rho\Omega^{2}x_{1}^{2}+\phi(x_{2},x_{3})\\
+\pdv{p}{x_{2}}&=\rho\Omega^{2}x_{2},\quad p=\frac{1}{2}\rho\Omega^{2}x_{2}^{2}+\phi(x_{1},x_{3})\\
+\pdv{p}{x_{3}}&=-\rho g,\quad p=-\rho gx_{3}+\phi(x_{1},x_{2})
+\end{align*}
+\[ \therefore\ p=\frac{1}{2}\rho\Omega^{2}(x_{1}^{2}+x_{2}^{2})-\rho gx_{3}+C \]
+原点で $p=p_{0}$ より $C=p_{0}$
+\[ p(\vect{x})=\frac{1}{2}\rho\Omega^{2}(x_{1}^{2}+x_{2}^{2})-\rho gx_{3}+p_{0} \]
+\toi{3}{◎}{}
+\[ \frac{1}{2}\rho\Omega^{2}(x_{1}^{2}+x_{2}^{2})=\rho gx_{3} \]
+\[ \therefore\ x_{3}=\frac{\Omega^{2}}{2g}(x_{1}^{2}+x_{2}^{2}) \]
+\toi{4}{△}{計算}
+移流項
+
+向き：\ayamari{原点に向かう方向}{回転軸に向かう水平な方向}
+
+大きさ：$\ayamari{\Omega^{2}(x_{1}^{2}+x_{2}^{2})}{\Omega^{2}\sqrt{x_{1}^{2}+x_{2}^{2}}}$
+\naze{大きさは $\abs{-\Omega^{2}(x_{1}\vect{e}_{1}+x_{2}\vect{e}_{2})}=\Omega^{2}\sqrt{x_{1}^{2}+x_{2}^{2}}=\Omega^{2}r$（$r$ は回転軸からの距離）で，根号が抜けている。$\Omega^{2}(x_{1}^{2}+x_{2}^{2})$ は $\unit{\per\second\squared}\cdot\unit{\metre\squared}$ で加速度の次元にならない。向きは，加速度に $\vect{e}_{3}$ 成分が無いので $x_{3}$ 軸へ水平に向かう向きで，$x_{3}\neq0$ の点では原点の方向とは違う。}
+%% kizuki
+\item \mae{第1回 問題4 (2)・10-17} 同じ回転流の加速度の大きさで，前回は $-r\Omega^{2}$ と負にし，今回は根号が抜けた。大きさは $\abs{\vect{a}}=\sqrt{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}}$ を1行書いてから計算し，次元（$\Omega^{2}\times$長さ が加速度）と正負で検算する。
+\item 向きは加速度の成分で決める。$-\Omega^{2}(x_{1},x_{2},0)$ は $\vect{e}_{3}$ 成分が $0$ なので，その点から回転軸（$x_{3}$ 軸）へ水平に向かう。「原点に向かう」のは $x_{3}=0$ の面の上だけである。

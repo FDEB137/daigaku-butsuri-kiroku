@@ -1,0 +1,39 @@
+% 熱物理学 熱物理学-10 問題4（079-power-law） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+U(\lambda S,\lambda V,\lambda n)&=\lambda^{a+b+c}KS^{a}V^{b}n^{c}\\
+&=\lambda U(S,V,n)
+\end{align*}
+\[ \therefore\ a+b+c=1 \]
+\toi{2}{◎}{}
+\[ \left(\pdv{U}{S}\right)_{V,n}=T>0 \qquad \therefore\ T=\frac{aU}{S}>0 \]
+\[ \therefore\ a>0 \]
+\[ \left(\pdv{U}{V}\right)_{S,n}=-p<0 \qquad p=-\frac{bU}{V}>0 \]
+\[ \therefore\ b<0 \]
+\[ \left(\pdv{U}{n}\right)_{S,V}=\mu=\frac{cU}{n} \]
+\toi{3}{○}{記述}
+\[ C_{V}=\frac{T}{\left(\pdv{T}{S}\right)_{V,n}}, \qquad \left(\pdv{T}{S}\right)_{V,n}=a(a-1)\frac{U}{S^{2}} \]
+\[ C_{V}=\frac{1}{a(a-1)}\cdot\frac{S^{2}T}{U}>0 \]
+\[ \therefore\ a(a-1)>0 \qquad \therefore\ a<0,\ 1<a \]
+\[ \therefore\ 1<a \]
+\[ \kappa_{S}=\frac{-1}{V\left(\pdv{p}{V}\right)_{S,n}}, \qquad \left(\pdv{p}{V}\right)_{S,n}=-b(b-1)\frac{U}{V^{2}} \]
+\[ \kappa_{S}=\frac{1}{b(b-1)}\cdot\frac{V}{U}>0 \]
+\[ b(b-1)>0 \qquad b<0,\ 1<b \]
+\[ \therefore\ b<0 \]
+\nuke{凸性}
+\naze{$C_{V}>0$，$\kappa_{S}>0$ が $U$ の凸性から来る条件であることが書かれていない。$C_{V}$ の分母 $(\partial T/\partial S)_{V,n}$ は $\partial^{2}U/\partial S^{2}$，$\kappa_{S}$ の分母の $-(\partial p/\partial V)_{S,n}$ は $\partial^{2}U/\partial V^{2}$ で，$U$ が下に凸（$T$ が $S$ の非減少関数，$p$ が $V$ の非増加関数）ならどちらも正になる，と添える。}
+\toi{4}{◎}{}
+\begin{align*}
+U&=TS-pV+\mu n\\
+&=\frac{aU}{S}\cdot S+\frac{bU}{V}V+\frac{cU}{n}n\\
+&=(a+b+c)U\\
+&=U
+\end{align*}
+より成り立つ。
+\[ a=3>1, \qquad b=-1<0, \qquad c=-1 \]
+\[ a+b+c=3-1-1=1 \]
+より満たす。
+%% kizuki
+\item $C_{V}=T/(\partial T/\partial S)_{V,n}>0$ と $\kappa_{S}>0$ は，$U$ が下に凸であること（熱力学的な安定性）の言い換えである。条件 $a>1$，$b<0$ を出したら，それが $\partial^{2}U/\partial S^{2}>0$，$\partial^{2}U/\partial V^{2}>0$ から来ることを一言書く。
+\item \mae{第8章 問題2 (3)・11-16} 前回も，結果は合っていて「なぜそうなるか」の一言が無かった。計算した条件・量を書いたら，それが何から来るか（ここでは $U$ の凸性）を1行添える。

@@ -1,0 +1,488 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{連続体力学　第1回「連続体とは（Euler 記述と Lagrange 記述・連続の式）」}{2026-11-25}
+%% note-moto	problems\連続体力学\kai01\連続体力学-1.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-001-temperature}{1}}{L1・計算}{◎◎◎◎}{S}{2026-10-18 2回目}
+  \ichirangyou{\hyperlink{bt-m-002-expansion}{2}}{L1・計算}{◎◎◎▲}{C}{2026-10-17 ヒント2 (4)立式}
+  \ichirangyou{\hyperlink{bt-m-003-kijutsu}{3}}{L1・説明}{◎△◎}{B}{2026-10-19 2回目 (2)立式}
+  \ichirangyou{\hyperlink{bt-m-004-accel}{4}}{L2・導出}{○◎◎○}{A}{2026-10-20 2回目 (1)記述 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-005-box}{5}}{L2・導出}{◎○◎}{C}{2026-10-17 ヒント2 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-006-incomp}{6}}{L2・計算}{◎◎◎△}{A}{2026-10-21 2回目 (4)計算}
+  \ichirangyou{7}{L3・導出}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item Lagrange 記述での粒子の速度 % 出典: p.14
+    \[ \vect{u}(\vect{x}(t)) = \frac{\mathrm{D}\vect{x}(t)}{\mathrm{D}t} \notetag{1} \]
+  \item 粒子の加速度 % 出典: p.14
+    \[ \vect{a}(\vect{x}(t)) = \frac{\mathrm{D}\vect{u}(\vect{x}(t))}{\mathrm{D}t} \notetag{2} \]
+  \item Lagrange 微分と Euler 微分の関係 % 出典: p.17
+    \[ \begin{aligned} \frac{\mathrm{D}A(\vect{x}(t))}{\mathrm{D}t} &= \pdv{A(\vect{x}(t))}{t} + \sum_{i=1}^{3} u_i\pdv{A(\vect{x}(t))}{x_i} \\ &= \left(\pdv{}{t} + \vect{u}\cdot\vect{\nabla}\right)A(\vect{x}(t)) \end{aligned} \notetag{4} \]
+  \item 固定した閉曲面 $S$ を通して単位時間あたりに流入する質量 % 出典: p.21
+    \[ -\int_S \rho\vect{u}\cdot\vect{n}\,\dd S \notetag{5} \]
+  \item 質量保存則（積分形） % 出典: p.23
+    \[ \pdv{}{t}\int_V \rho\,\dd V = -\int_S \rho\vect{u}\cdot\vect{n}\,\dd S \notetag{6} \]
+  \item Gauss の発散定理 % 出典: p.23
+    \[ -\int_S \rho\vect{u}\cdot\vect{n}\,\dd S = -\int_V \vect{\nabla}\cdot(\rho\vect{u})\,\dd V \notetag{7} \]
+  \item Euler 記述における質量に関する連続の式 % 出典: p.23
+    \[ \pdv{\rho}{t} + \vect{\nabla}\cdot(\rho\vect{u}) = 0 \notetag{8} \]
+  \item $\vect{\nabla}\cdot(\rho\vect{u})$ の展開 % 出典: p.24
+    \[ \vect{\nabla}\cdot(\rho\vect{u}) = \sum_{i=1}^{3}\pdv{(\rho u_i)}{x_i} = \vect{u}\cdot\vect{\nabla}\rho + \rho\vect{\nabla}\cdot\vect{u} \notetag{9} \]
+  \item Lagrange 微分で表した連続の式 % 出典: p.25
+    \[ \frac{\mathrm{D}\rho}{\mathrm{D}t} + \rho\vect{\nabla}\cdot\vect{u} = 0 \notetag{11} \]
+  \item 流れに沿った密度が時間変化しない条件 % 出典: p.25
+    \[ \frac{\mathrm{D}\rho}{\mathrm{D}t} = 0 \notetag{12} \]
+  \item 非圧縮条件の式 % 出典: p.25
+    \[ \vect{\nabla}\cdot\vect{u} = 0 \notetag{13} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\連続体力学\001_2026-10-18.tex
+\mondaibangou{1}
+\begin{mondai}{001-temperature}{計算}{Euler 微分・移流項・Lagrange 微分の関係}
+速度場が
+  \[ \vect{u}(\vect{x}) = (kx_1,\ -kx_2,\ 0) \]
+  で与えられる定常な2次元の流れ（淀み点流れ。$k>0$ は定数）の中で、温度場が
+  \[ T(\vect{x},t) = T_0 + a x_1^{2}\,\ee^{-t/\tau} \]
+  で与えられている（$T_0$、$a>0$、$\tau>0$ は定数）。
+  \begin{shoumon}
+    \item 空間の固定点で観測される温度の変化率 $\partial T/\partial t$ を求めよ。
+    \item 移流項 $(\vect{u}\cdot\vect{\nabla})T$ を求めよ。
+    \item 流体粒子に随伴して観測される温度の変化率 $\mathrm{D}T/\mathrm{D}t$ を求めよ。
+    \item すべての流体粒子について $\mathrm{D}T/\mathrm{D}t = 0$ となる $\tau$ を $k$ で表せ。また、このとき固定点では温度が下がり続けるのに流体粒子の温度が変わらない理由を、粒子の動きに注目して説明せよ。
+  \end{shoumon}
+\notekiroku{2026-10-17 A ◎◎◎○ → 2026-10-18 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-18}
+\toi{1}{◎}{}
+\[ \pdv{T}{t}=-\frac{a}{\tau}x_{1}^{2}\ee^{-t/\tau} \]
+\toi{2}{◎}{}
+\begin{align*}
+(\vect{u}\cdot\vect{\nabla})T&=\Bigl(kx_{1}\pdv{}{x_{1}}\kakimachigai{+kx_{2}}{-kx_{2}}\pdv{}{x_{2}}\Bigr)T\\
+&=kx_{1}\cdot2ax_{1}\ee^{-t/\tau}-kx_{2}\cdot0\\
+&=2akx_{1}^{2}\ee^{-t/\tau}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\frac{\mathrm{D}T}{\mathrm{D}t}&=\pdv{T}{t}+(\vect{u}\cdot\vect{\nabla})T\\
+&=-\frac{a}{\tau}x_{1}^{2}\ee^{-t/\tau}+2akx_{1}^{2}\ee^{-t/\tau}\\
+&=\Bigl(2k-\frac{1}{\tau}\Bigr)ax_{1}^{2}\ee^{-t/\tau}
+\end{align*}
+\toi{4}{◎}{}
+\[ 2k-\frac{1}{\tau}=0,\quad \tau=\frac{1}{2k} \]
+\[ \frac{\mathrm{D}x_{1}}{\mathrm{D}t}=kx_{1},\quad \therefore\ x_{1}(t)=X_{1}\ee^{kt} \]
+\begin{align*}
+T&=T_{0}+aX_{1}^{2}\ee^{2kt}\ee^{-t/\tau}\\
+&=T_{0}+aX_{1}^{2}
+\end{align*}
+温度が低い粒子が流れこんでくるから。
+\end{kotaeutsushi}
+\begin{maekizuki}{2026-10-17}
+\item 「粒子の動きに注目して説明せよ」では，粒子の軌道 $x_{1}(t)=X_{1}\ee^{kt}$ を求め，粒子の温度を $X_{1}$ で表し（$T_{0}+aX_{1}^{2}$ で一定），固定点に来る粒子の出発点 $\abs{X_{1}}=\abs{x_{1}}\ee^{-kt}$ が時間とともに $x_{1}=0$ に近づく，という順に式で示す。「低い粒子が流れ込む」は，どこから来た粒子かを書いて初めて理由になる。
+\end{maekizuki}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\002_2026-10-17.tex
+\mondaibangou{2}
+\begin{mondai}{002-expansion}{計算}{Euler 形・Lagrange 形の連続の式と非圧縮条件の判定}
+$x_1$ 方向にだけ一様に膨張する連続体を考える。$t \ge 0$ で密度と速度場が
+  \[ \rho(\vect{x},t) = \frac{\rho_0}{1+\alpha t},\qquad \vect{u}(\vect{x},t) = \left(\frac{\alpha x_1}{1+\alpha t},\ 0,\ 0\right) \]
+  で与えられる（$\rho_0>0$、$\alpha>0$ は定数）。
+  \begin{shoumon}
+    \item $\vect{\nabla}\cdot\vect{u}$ を求めよ。
+    \item この場が Euler 記述の連続の式 \noteshiki{8} を満たすことを示せ。
+    \item $\mathrm{D}\rho/\mathrm{D}t$ を求め、Lagrange 微分で表した連続の式 \noteshiki{11} が成り立つことを確かめよ。
+    \item 時刻 0 に $x_1 = X_1$ にあった流体粒子の位置 $x_1(t)$ を求めよ。また、時刻 0 に $x_1 = X_1$ と $x_1 = X_1 + \ell$（$\ell>0$）にあった2つの粒子に挟まれた部分の、$x_1$ 軸に垂直な単位面積あたりの質量が時間によらないことを示せ。この流れは非圧縮条件 \noteshiki{13} を満たすか。
+  \end{shoumon}
+\notekiroku{2026-10-17 C ◎◎◎▲ (ヒント2)}
+\begin{kotaeutsushi}{2026-10-17}
+\toi{1}{◎}{}
+\[ \vect{\nabla}\cdot\vect{u}=\frac{\alpha}{1+\alpha t}+0+0=\frac{\alpha}{1+\alpha t} \]
+\toi{2}{◎}{}
+\[ \pdv{\rho}{t}=-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}} \]
+\begin{align*}
+\vect{\nabla}\cdot(\rho\vect{u})&=\vect{\nabla}\cdot\Bigl(\frac{\rho_{0}\alpha x_{1}}{(1+\alpha t)^{2}},0,0\Bigr)\\
+&=\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}
+\end{align*}
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\toi{3}{◎}{}
+\begin{align*}
+\frac{\mathrm{D}\rho}{\mathrm{D}t}&=u_{1}\pdv{\rho}{x_{1}}+\pdv{\rho}{t}\\
+&=\frac{\alpha x_{1}}{1+\alpha t}\cdot0-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}\\
+&=-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}
+\end{align*}
+\begin{align*}
+\frac{\mathrm{D}\rho}{\mathrm{D}t}+\rho\vect{\nabla}\cdot\vect{u}&=-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}\\
+&\qquad+\frac{\rho_{0}}{1+\alpha t}\cdot\frac{\alpha}{1+\alpha t}=0
+\end{align*}
+\toi{4}{▲}{立式}
+\[ \frac{\mathrm{D}x_{1}}{\mathrm{D}t}=u_{1}=\frac{\alpha x_{1}}{1+\alpha t} \]
+\[ \frac{1}{x_{1}}\,\mathrm{D}x_{1}=\frac{\alpha}{1+\alpha t}\,\mathrm{D}t \]
+\[ \therefore\ \ln x_{1}=\ln(1+\alpha t)+C \]
+\[ x_{1}=C'(1+\alpha t) \]
+$t=0$ で $x_{1}=X_{1}$ より
+\[ X_{1}=C' \]
+\[ x_{1}(t)=X_{1}(1+\alpha t) \]
+\begin{align*}
+M&=\ayamari{\int_{x_{1}}^{x_{1}+\ell}\rho x_{1}\,\dd x_{1}}{\rho\cdot\ell(1+\alpha t)}\\
+&=\Bigl[\frac{1}{2}\rho x_{1}^{2}\Bigr]_{x_{1}}^{x_{1}+\ell}\\
+&=\frac{1}{2}\rho(2x_{1}\ell+\ell^{2})
+\end{align*}
+より $t$ に依存しない。
+\naze{単位面積あたりの質量は「密度×長さ」なので被積分関数は $\rho$ だけで，余計な $x_{1}$ は要らない。また範囲は2つの粒子とともに動き，時刻 $t$ には $X_{1}(1+\alpha t)$ から $(X_{1}+\ell)(1+\alpha t)$ まで（間隔 $\ell(1+\alpha t)$）である。正しくは $M=\rho\cdot\ell(1+\alpha t)=\rho_{0}\ell$ で時間によらない。以降はこの誤りを引き継ぐ。なお書いた結果も $\rho=\rho_{0}/(1+\alpha t)$ を含むので，そのままでは「$t$ に依存しない」は言えない。}
+\[ \vect{\nabla}\cdot\vect{u}=\frac{\alpha}{1+\alpha t}\ \text{より満たさない} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item Lagrange 記述で「2つの粒子に挟まれた部分」を追うときは，範囲の端も粒子とともに動く。求めた軌道から間隔 $\ell(1+\alpha t)$ を出し，質量は「密度×間隔」$=\rho\cdot\ell(1+\alpha t)=\rho_{0}\ell$ とする。固定した区間 $[x_{1},x_{1}+\ell]$ で積分すると，同じ粒子の集まりを追っていない。
+\item 「$t$ によらない」と結論する前に，得た式に $t$ を含む量（ここでは $\rho$）が残っていないかを見る。質量の式は次元（密度×長さ）でも検算する（$\rho x_{1}\,\dd x_{1}$ は密度×長さ${}^{2}$ になる）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 与えられた場を式 \noteshiki{8}・\noteshiki{11} に代入する。粒子の軌道は式 \noteshiki{1} の常微分方程式を解いて求める。
+\keisan \shoumonkai{1} $u_2 = u_3 = 0$ なので
+\[ \vect{\nabla}\cdot\vect{u} = \pdv{u_1}{x_1} = \frac{\alpha}{1+\alpha t} \]
+となる。
+\shoumonkai{2} 2つの項はそれぞれ
+\[ \pdv{\rho}{t} = -\frac{\rho_0\alpha}{(1+\alpha t)^{2}},\qquad \vect{\nabla}\cdot(\rho\vect{u}) = \pdv{}{x_1}\left(\frac{\rho_0\alpha x_1}{(1+\alpha t)^{2}}\right) = \frac{\rho_0\alpha}{(1+\alpha t)^{2}} \]
+であり、和は 0 になる。よって式 \noteshiki{8} を満たす。
+\shoumonkai{3} $\rho$ は位置によらないので $\vect{u}\cdot\vect{\nabla}\rho = 0$ である。式 \noteshiki{4} より
+\[ \frac{\mathrm{D}\rho}{\mathrm{D}t} = \pdv{\rho}{t} + \vect{u}\cdot\vect{\nabla}\rho = -\frac{\rho_0\alpha}{(1+\alpha t)^{2}} \]
+となる。一方、小問1の結果より
+\[ \rho\,\vect{\nabla}\cdot\vect{u} = \frac{\rho_0}{1+\alpha t}\cdot\frac{\alpha}{1+\alpha t} = \frac{\rho_0\alpha}{(1+\alpha t)^{2}} \]
+なので、$\mathrm{D}\rho/\mathrm{D}t + \rho\vect{\nabla}\cdot\vect{u} = 0$ が成り立つ。
+\shoumonkai{4} 式 \noteshiki{1} の第1成分は
+\[ \frac{\mathrm{D}x_1}{\mathrm{D}t} = \frac{\alpha x_1}{1+\alpha t} \]
+である。$X_1 \neq 0$ のとき両辺を $x_1$ で割り、時刻 0 から $t$ まで積分すると
+\[ \ln\frac{x_1(t)}{X_1} = \ln(1+\alpha t) \]
+となるので、$x_1(t) = X_1(1+\alpha t)$ である（$X_1 = 0$ の粒子は $u_1 = 0$ なので動かず、この式に含まれる）。2つの粒子の間隔は
+\[ X_1(1+\alpha t) + \ell(1+\alpha t) - X_1(1+\alpha t) = \ell(1+\alpha t) \]
+となる。密度は位置によらないので、間に挟まれた部分の単位面積あたりの質量は
+\[ \rho\cdot\ell(1+\alpha t) = \frac{\rho_0}{1+\alpha t}\cdot\ell(1+\alpha t) = \rho_0\ell \]
+で、時間によらない。また、小問1より $\vect{\nabla}\cdot\vect{u} = \alpha/(1+\alpha t) \neq 0$ なので、この流れは非圧縮条件 \noteshiki{13} を満たさない（小問3より $\mathrm{D}\rho/\mathrm{D}t \neq 0$ でもある）。
+\kotae{\shoumonkai{1} $\vect{\nabla}\cdot\vect{u} = \alpha/(1+\alpha t)$ \shoumonkai{2} $\partial\rho/\partial t$ と $\vect{\nabla}\cdot(\rho\vect{u})$ が打ち消し合う（示す問題） \shoumonkai{3} $\mathrm{D}\rho/\mathrm{D}t = -\rho_0\alpha/(1+\alpha t)^{2}$ \shoumonkai{4} $x_1(t) = X_1(1+\alpha t)$、質量は $\rho_0\ell$ で一定。$\vect{\nabla}\cdot\vect{u} \neq 0$ なので非圧縮ではない}
+\kenzan $\alpha$ は時間の逆数の次元なので、$\alpha x_1/(1+\alpha t)$ は速度の次元をもつ。$\alpha\to0$ では $\rho = \rho_0$、$\vect{u} = \vect{0}$ となり、静止した一様な連続体に戻る。小問4で質量が一定になったことは質量保存則そのものであり、小問2・3の結果と整合する。
+\tsumazuki 密度が一様でも $\partial\rho/\partial t \neq 0$ なら非圧縮ではない。「密度が一様」と「非圧縮」は別の条件である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\003_2026-10-19.tex
+\mondaibangou{3}
+\begin{mondai}{003-kijutsu}{説明}{連続体の概念と Lagrange 記述・Euler 記述の違い}
+次の問いに答えよ。
+  \begin{shoumon}
+    \item 質点・剛体・連続体の違いを、大きさと、物体を構成する原子・分子の相対位置に注目して説明せよ。また、連続体で「歪み」とよぶものは何か。
+    \item 川の水温の時間変化を、橋脚に固定した温度計と、水に浮かべて流れとともに動く温度計の2通りで測る。それぞれの読みの時間変化率は、Euler 微分・Lagrange 微分のどちらに当たるか。また、両者の差を表す項の名前と式を答えよ。
+    \item 流れも水温の分布も時間によらない（各点で $\partial T/\partial t = 0$ の）とき、流れとともに動く温度計の読みが変わることはあるか。理由とともに答えよ。
+  \end{shoumon}
+\notekiroku{2026-10-17 B ○○○ → 2026-10-19 B ◎△◎}
+\begin{kotaeutsushi}{2026-10-19}
+\toi{1}{◎}{}
+質点…大きさがない。
+
+剛体…相対位置が変わらない。
+
+連続体…相対位置が変わる。
+
+歪み…相対位置の変化量
+\toi{2}{△}{立式}
+固定…E
+
+流れ…L
+
+移流項　$\ayamari{(\vect{v}\cdot\vect{\nabla})\vect{v}}{(\vect{u}\cdot\vect{\nabla})T}$
+\naze{$(\vect{v}\cdot\vect{\nabla})\vect{v}$ は速度場に物質微分を当てたとき（加速度）の移流項である。温度計の読みの差は式(4)で $A=T$ とした $\mathrm{D}T/\mathrm{D}t-\partial T/\partial t=(\vect{u}\cdot\vect{\nabla})T=\sum_{i}u_{i}\,\partial T/\partial x_{i}$ である。}
+\toi{3}{◎}{}
+ある。各点で温度が変化しないだけで、流れとともに温度計が違う温度の点に行ったら変化する。
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1回 問題3・10-17}移流項は「何の量の変化率か」で中身が変わる。温度なら $(\vect{u}\cdot\vect{\nabla})T$，加速度なら $(\vect{u}\cdot\vect{\nabla})\vect{u}$ である。前回は演算子 $\vect{u}\cdot\vect{\nabla}$ だけを書き，今回は速度に当てた形を書いた。式(4)の $A$ に問われている量（ここでは $T$）を入れてから書く。
+\item 速度の記号は教材に合わせて $\vect{u}$ にする（$\vect{v}$ と混ぜない）。
+\end{kizuki}
+\begin{maekizuki}{2026-10-17}
+\item 歪みは原子・分子の相対位置の「変化」である。剛体（相対位置が固定）と連続体（相対位置が変化）の違いがそのまま歪みの定義になっている。
+\item 2つの温度計の差は $\mathrm{D}T/\mathrm{D}t-\partial T/\partial t=(\vect{u}\cdot\vect{\nabla})T$ で，(3) はこの式で $\partial T/\partial t=0$ とおけば移流項だけが残る，と答えられる。「式を答えよ」「理由とともに」では，名前や言い換えで済ませず式を1行書く。
+\end{maekizuki}
+\begin{tadashii}
+\houshin 二つの温度計の比較と、式 \noteshiki{4} の各項の意味に基づいて答える。 % 出典: p.9--10
+\keisan \shoumonkai{1} 質点は大きさを無視した物体である。剛体は大きさをもつが変形しない物体で、微視的には原子・分子の相対位置が固定されている。連続体は変形する物体で、原子・分子の相対位置が変化する。いずれも質点の集合という点は共通であり、違いは相対位置が変わるかどうかにある。この相対位置の変化を「歪み」とよぶ。
+\shoumonkai{2} 橋脚に固定した温度計は空間の定点での変化率を測るので Euler 微分 $\partial T/\partial t$ に当たる。流れとともに動く温度計は同じ流体粒子に随伴した変化率を測るので Lagrange 微分 $\mathrm{D}T/\mathrm{D}t$ に当たる。式 \noteshiki{4} で $A = T$ とすると
+\[ \frac{\mathrm{D}T}{\mathrm{D}t} - \pdv{T}{t} = (\vect{u}\cdot\vect{\nabla})T = \sum_{i=1}^{3} u_i\pdv{T}{x_i} \]
+であり、この差は移流項である。
+\shoumonkai{3} 変わることがある。$\partial T/\partial t = 0$ でも $\mathrm{D}T/\mathrm{D}t = (\vect{u}\cdot\vect{\nabla})T$ が残り、流れの向きに温度の勾配があれば 0 でない。例えば上流が冷たく下流が暖かい定常な川では、流される温度計は暖かい場所へ運ばれていくので読みが上がる。読みが変わらないのは、流れが等温面に沿う（$\vect{u}$ が $\vect{\nabla}T$ に垂直）か、温度が一様なときに限る。
+\kotae{\shoumonkai{1} 質点は大きさを無視、剛体は相対位置が不変、連続体は相対位置が変化する。相対位置の変化が歪み \shoumonkai{2} 固定した温度計は Euler 微分、流れる温度計は Lagrange 微分。差は移流項 $(\vect{u}\cdot\vect{\nabla})T$ \shoumonkai{3} ある。$(\vect{u}\cdot\vect{\nabla})T \neq 0$ なら読みが変わる}
+\kenzan 流れが無い（$\vect{u} = \vect{0}$）ときは2つの温度計が同じ点にとどまるので、読みの変化率は一致するはずである。これは式 \noteshiki{4} で $\vect{u} = \vect{0}$ とすると移流項が消えることと整合する。
+\tsumazuki 「定常」は固定点で見て時間変化が無いという意味であり、流体粒子が経験する量が一定であることを意味しない。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\連続体力学\004_2026-10-20.tex
+\mondaibangou{4}
+\begin{mondai}{004-accel}{導出}{Euler 記述での加速度（物質微分のベクトル場への適用）と Lagrange 記述との対応}
+\begin{shoumon}
+    \item 粒子の加速度の定義 \noteshiki{2} と式 \noteshiki{4} から、Euler 記述での加速度が
+    \[ \vect{a} = \pdv{\vect{u}}{t} + (\vect{u}\cdot\vect{\nabla})\vect{u},\qquad a_j = \pdv{u_j}{t} + \sum_{i=1}^{3} u_i\pdv{u_j}{x_i}\quad (j=1,2,3) \]
+    となることを示せ。
+    \item $x_3$ 軸のまわりに一定の角速度 $\Omega$ で回転する流れ $\vect{u} = (-\Omega x_2,\ \Omega x_1,\ 0)$ について、各点で $\partial\vect{u}/\partial t = \vect{0}$ であるにもかかわらず $\vect{a} \neq \vect{0}$ であることを示し、$\vect{a}$ の向きと大きさを $r = \sqrt{x_1^{2}+x_2^{2}}$ を用いて答えよ。
+    \item 小問2の流れで、時刻 0 に $\vect{X} = (X_1, X_2, X_3)$ にあった粒子の位置 $\vect{x}(t)$ を求め、その2階の Lagrange 微分が小問2の $\vect{a}$ と一致することを確かめよ。
+    \item 1次元の流れ
+    \[ \vect{u} = \left(\frac{x_1}{t+t_0},\ 0,\ 0\right) \]
+    （$t_0>0$ は定数、$t\ge0$）では、$x_1\neq0$ の各点で $\partial\vect{u}/\partial t \neq \vect{0}$ であるにもかかわらず $\vect{a} = \vect{0}$ となることを示せ。また、粒子の軌道を求めて、その理由を説明せよ。
+  \end{shoumon}
+\notekiroku{2026-10-17 C △○△○ → 2026-10-20 A ○◎◎○}
+\begin{kotaeutsushi}{2026-10-20}
+\toi{1}{○}{記述}
+\[ \vect{a}=\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\pdv{\vect{u}}{t}+(\vect{u}\cdot\vect{\nabla})\vect{u} \]
+\nuke{$a_{j}=\mathrm{D}u_{j}/\mathrm{D}t$，式(4)で $A=u_{j}$}
+\[ a_{j}=\pdv{u_{j}}{t}+\sum_{i=1}^{3}u_{i}\pdv{u_{j}}{x_{i}} \]
+\naze{示すべき式をそのまま書いた形で，導出の段が無い。式(4)はスカラー量 $A$ についての関係なので，加速度の第 $j$ 成分 $a_{j}=\mathrm{D}u_{j}/\mathrm{D}t$ をとり，$u_{j}$ を1つのスカラー量とみなして $A=u_{j}$ とおく，と1行書けば導出になる。}
+\toi{2}{◎}{}
+\begin{align*}
+\vect{a}&=\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}\\
+&=\pdv{\vect{u}}{t}-\Omega x_{2}\pdv{\vect{u}}{x_{1}}+\Omega x_{1}\pdv{\vect{u}}{x_{2}}\\
+&=0-\Omega x_{2}(0,\Omega,0)+\Omega x_{1}(-\Omega,0,0)\\
+&=(-\Omega^{2}x_{1},-\Omega^{2}x_{2},0)
+\end{align*}
+（図：点から原点の向きへの矢印）
+\[ \abs{\vect{a}}=\Omega^{2}r \]
+\toi{3}{◎}{}
+\[ \vect{u}=\frac{\mathrm{D}\vect{x}}{\mathrm{D}t} \]
+\[ -\Omega x_{2}=\frac{\mathrm{D}x_{1}}{\mathrm{D}t} \]
+\[ \Omega x_{1}=\frac{\mathrm{D}x_{2}}{\mathrm{D}t},\quad \therefore\ \Omega\frac{\mathrm{D}x_{1}}{\mathrm{D}t}=\frac{\mathrm{D}^{2}x_{2}}{\mathrm{D}t^{2}} \]
+\[ 0=\frac{\mathrm{D}x_{3}}{\mathrm{D}t},\quad \therefore\ x_{3}=X_{3} \]
+\[ \frac{\mathrm{D}^{2}x_{2}}{\mathrm{D}t^{2}}=-\Omega^{2}x_{2} \]
+\[ x_{2}(t)=C_{1}\sin(\Omega t)+C_{2}\cos(\Omega t) \]
+\[ x_{2}(0)=C_{2}=X_{2} \]
+\begin{align*}
+x_{1}(t)&=\frac{1}{\Omega}\bigl(C_{1}\Omega\cos(\Omega t)-C_{2}\Omega\sin(\Omega t)\bigr)\\
+&=C_{1}\cos(\Omega t)-C_{2}\sin(\Omega t)
+\end{align*}
+\[ x_{1}(0)=C_{1}=X_{1} \]
+\[ \vect{x}(t)=\begin{pmatrix}X_{1}\cos(\Omega t)-X_{2}\sin(\Omega t)\\X_{1}\sin(\Omega t)+X_{2}\cos(\Omega t)\\X_{3}\end{pmatrix} \]
+\begin{align*}
+\frac{\mathrm{D}^{2}\vect{x}}{\mathrm{D}t^{2}}&=\begin{pmatrix}-\Omega^{2}\bigl(X_{1}\cos(\Omega t)-X_{2}\sin(\Omega t)\bigr)\\-\Omega^{2}\bigl(X_{1}\sin(\Omega t)+X_{2}\cos(\Omega t)\bigr)\\0\end{pmatrix}\\
+&=\begin{pmatrix}-\Omega^{2}x_{1}\\-\Omega^{2}x_{2}\\0\end{pmatrix}
+\end{align*}
+\toi{4}{○}{記述}
+\begin{align*}
+\vect{a}&=\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\pdv{\vect{u}}{t}+\frac{x_{1}}{t+t_{0}}\pdv{\vect{u}}{x_{1}}\\
+&=-\frac{x_{1}}{(t+t_{0})^{2}}+\frac{x_{1}}{t+t_{0}}\cdot\frac{1}{t+t_{0}}\\
+&=0
+\end{align*}
+\[ \vect{u}=\frac{\mathrm{D}\vect{x}}{\mathrm{D}t},\quad \frac{x_{1}}{t+t_{0}}=\frac{\mathrm{D}x_{1}}{\mathrm{D}t} \]
+\[ \therefore\ \frac{\mathrm{D}t}{t+t_{0}}=\frac{\mathrm{D}x_{1}}{x_{1}} \]
+\[ \log(t+t_{0})+C=\log x_{1} \]
+\[ \therefore\ x_{1}(t)=C(t+t_{0}) \]
+$\vect{x}(0)=(X_{1},X_{2},X_{3})$ とすると
+\[ \vect{x}(t)=\begin{pmatrix}\frac{X_{1}}{t_{0}}(t+t_{0})\\X_{2}\\X_{3}\end{pmatrix} \]
+固定点では粒子は加速しているように見えるが、流れる粒子は等速直線運動をしているから。\nuke{粒子の入れ替わり}
+\naze{各粒子が等速であることは $\vect{a}=\vect{0}$ の理由になっているが，固定点で速度が変わる（$\partial\vect{u}/\partial t\neq\vect{0}$）理由が無い。速度 $X_{1}/t_{0}$ の小さい（出発点が原点に近い）粒子ほど遅れてその点に着き，次々と入れ替わるので，固定点の速度 $x_{1}/(t+t_{0})$ は減っていく。「加速しているように見える」より「速度が変わる（減る）」が正確である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1回 問題4・10-17}(1) で前回と同じく「$A=u_{j}$ とおく」段が抜けた。式(4)はスカラーの式なので，ベクトルに使うときは「第 $j$ 成分 $a_{j}=\mathrm{D}u_{j}/\mathrm{D}t$ で $A=u_{j}$」と最初に1行書いてから成分の式を書く。
+\item \mae{第1回 問題4・10-17}(4) の理由も前回と同じ所が抜けた。粒子ごとに見た量（速度 $X_{1}/t_{0}$）が一定でも，固定点には別の粒子が次々と来るので場の値は変わる。軌道 $x_{1}=X_{1}(t+t_{0})/t_{0}$ から，時刻 $t$ に $x_{1}$ に来る粒子の速度 $X_{1}/t_{0}=x_{1}/(t+t_{0})$ が後ほど小さいことを1文で書く（問題1 (4) と同じ形）。
+\end{kizuki}
+\begin{maekizuki}{2026-10-17}
+\item 式(4)はスカラー量 $A$ についての関係である。ベクトルの加速度に使うときは「第 $j$ 成分 $a_{j}=\mathrm{D}u_{j}/\mathrm{D}t$ で $A=u_{j}$ とおく」と1行書けば導出になる（(1)）。
+\item 軌道を求めたら，最後に $t=0$ を代入して $\vect{x}(0)=\vect{X}$ になるかを3成分とも確かめる。$u_{3}=0$ の成分は「動かない」なので $x_{3}=X_{3}$ で，0 ではない（(3)）。大きさは絶対値なので負にならないことも見直す（(2)）。
+\item (4) の理由は問題1 (4) と同じ形である。粒子ごとに見た量（ここでは速度 $X_{1}/t_{0}$）が一定でも，固定点には別の粒子が次々と来るので場の値は変わる。「どの粒子が来るか」を書く。
+\end{maekizuki}
+\begin{tadashii}
+\houshin 式 \noteshiki{4} を速度の各成分に当てはめて、加速度を Euler 記述で書く。具体的な流れで計算し、式 \noteshiki{1} から求めた Lagrange 記述の軌道の2階微分と比べる。
+\keisan \shoumonkai{1} 式 \noteshiki{2} の第 $j$ 成分は $a_j = \mathrm{D}u_j/\mathrm{D}t$ である。$u_j(\vect{x}(t),t)$ は流れに沿ったスカラー量なので、式 \noteshiki{4} で $A = u_j$ とおけて
+\[ a_j = \frac{\mathrm{D}u_j}{\mathrm{D}t} = \pdv{u_j}{t} + \sum_{i=1}^{3} u_i\pdv{u_j}{x_i}\quad (j=1,2,3) \]
+となる。右辺第2項は、演算子
+\[ \vect{u}\cdot\vect{\nabla} = \sum_{i=1}^{3} u_i\pdv{}{x_i} \]
+を $u_j$ に作用させたものなので、3成分をまとめて $\vect{a} = \partial\vect{u}/\partial t + (\vect{u}\cdot\vect{\nabla})\vect{u}$ と書ける。
+\shoumonkai{2} $\vect{u}$ は $t$ を含まないので $\partial\vect{u}/\partial t = \vect{0}$ である。0 でない偏微分は $\partial u_1/\partial x_2 = -\Omega$ と $\partial u_2/\partial x_1 = \Omega$ だけで、$u_3 = 0$ である。小問1の式より
+\begin{align*}
+a_1 &= u_1\pdv{u_1}{x_1} + u_2\pdv{u_1}{x_2} = 0 + \Omega x_1\cdot(-\Omega) = -\Omega^{2}x_1,\\
+a_2 &= u_1\pdv{u_2}{x_1} + u_2\pdv{u_2}{x_2} = (-\Omega x_2)\cdot\Omega + 0 = -\Omega^{2}x_2,\\
+a_3 &= 0
+\end{align*}
+となる（$u_3 = 0$ で、どの成分も $x_3$ によらないので、$i = 3$ の項は消える）。よって $\vect{a} = -\Omega^{2}(x_1, x_2, 0) \neq \vect{0}$ で、向きは $x_3$ 軸に垂直に軸へ向かう向き、大きさは $\Omega^{2}r$ である。速度場は時間によらないが、粒子が速度の向きの異なる場所へ次々と移るので、粒子には加速度が生じる。
+\shoumonkai{3} 式 \noteshiki{1} を成分で書くと
+\[ \frac{\mathrm{D}x_1}{\mathrm{D}t} = -\Omega x_2,\qquad \frac{\mathrm{D}x_2}{\mathrm{D}t} = \Omega x_1,\qquad \frac{\mathrm{D}x_3}{\mathrm{D}t} = 0 \]
+である。第3式から $x_3 = X_3$。第1式を $t$ で微分して第2式を代入すると
+\[ \frac{\mathrm{D}^{2}x_1}{\mathrm{D}t^{2}} = -\Omega\frac{\mathrm{D}x_2}{\mathrm{D}t} = -\Omega^{2}x_1 \]
+となるので、$x_1 = C_1\cos\Omega t + C_2\sin\Omega t$ と書ける。$x_1(0) = X_1$ から $C_1 = X_1$、第1式で $t = 0$ とした $\Omega C_2 = -\Omega X_2$ から $C_2 = -X_2$ である。第1式から $x_2 = -(\mathrm{D}x_1/\mathrm{D}t)/\Omega$ なので
+\[ x_1 = X_1\cos\Omega t - X_2\sin\Omega t,\qquad x_2 = X_1\sin\Omega t + X_2\cos\Omega t,\qquad x_3 = X_3 \]
+を得る（$x_2(0) = X_2$ を満たす）。これを2回微分すると
+\[ \frac{\mathrm{D}^{2}x_1}{\mathrm{D}t^{2}} = -\Omega^{2}(X_1\cos\Omega t - X_2\sin\Omega t) = -\Omega^{2}x_1,\qquad \frac{\mathrm{D}^{2}x_2}{\mathrm{D}t^{2}} = -\Omega^{2}x_2 \]
+となり、第3成分は 0 である。これは小問2の $\vect{a}$ と一致する。
+\shoumonkai{4} $u_1 = x_1/(t+t_0)$ について
+\[ \pdv{u_1}{t} = -\frac{x_1}{(t+t_0)^{2}},\qquad u_1\pdv{u_1}{x_1} = \frac{x_1}{t+t_0}\cdot\frac{1}{t+t_0} = \frac{x_1}{(t+t_0)^{2}} \]
+であるから、$x_1 \neq 0$ で $\partial u_1/\partial t \neq 0$ だが、小問1の式より $a_1 = 0$ となる（$a_2 = a_3 = 0$ は明らかに成り立つ。$u_2 = u_3 = 0$ だから）。軌道は
+\[ \frac{\mathrm{D}x_1}{\mathrm{D}t} = \frac{x_1}{t+t_0} \]
+を変数分離して時刻 0 から $t$ まで積分し、$\ln(x_1/X_1) = \ln((t+t_0)/t_0)$、すなわち
+\[ x_1(t) = X_1\,\frac{t+t_0}{t_0} \]
+となる（$X_1 = 0$ の粒子は静止したままで、この式に含まれる）。粒子の速度 $X_1/t_0$ は粒子ごとに一定なので、どの粒子も加速しない。固定点 $x_1$ の速度 $x_1/(t+t_0)$ が時間とともに減るのは、速度 $X_1/t_0$ の小さい（出発点が原点に近い）粒子ほど遅れてその点に到着し、次々と入れ替わるからである。
+\kotae{\shoumonkai{1} $\vect{a} = \partial\vect{u}/\partial t + (\vect{u}\cdot\vect{\nabla})\vect{u}$（示す問題） \shoumonkai{2} $\vect{a} = -\Omega^{2}(x_1, x_2, 0)$。$x_3$ 軸に向かう向きで大きさ $\Omega^{2}r$ \shoumonkai{3} $\vect{x}(t) = (X_1\cos\Omega t - X_2\sin\Omega t,\ X_1\sin\Omega t + X_2\cos\Omega t,\ X_3)$ \shoumonkai{4} $x_1(t) = X_1(t+t_0)/t_0$。各粒子は等速で、固定点には遅い粒子が順に入れ替わってくる}
+\kenzan 小問2の $\Omega^{2}r$ は加速度の次元をもち、速さ $\Omega r$ の等速円運動の向心加速度 $(\Omega r)^{2}/r$ と一致する。小問3の軌道は $x_1^{2}+x_2^{2} = X_1^{2}+X_2^{2}$ を保ち、円運動になっている。小問4の $x_1/(t+t_0)^{2}$ は速度を時間で割った次元である。
+\tsumazuki 定常流（$\partial\vect{u}/\partial t = \vect{0}$）を「加速度が 0」と取り違えない。逆に、$\partial\vect{u}/\partial t \neq \vect{0}$ でも粒子が加速しないことがある。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\005_2026-10-17.tex
+\mondaibangou{5}
+\begin{mondai}{005-box}{導出}{質量保存則の微小直方体への適用と積分形の連続の式の応用}
+点 $\vect{x} = (x_1, x_2, x_3)$ を1つの頂点とし、そこから各座標軸の正の向きに長さ $\Delta x_1$、$\Delta x_2$、$\Delta x_3$ の辺をもつ、空間に固定した微小な直方体（体積 $\Delta V = \Delta x_1\Delta x_2\Delta x_3$）を考える。$\rho$ と $\vect{u}$ は滑らかで、$\Delta x_i$ は十分小さいとする。各面の上の $\rho\vect{u}$ は、その面の角のうち点 $\vect{x}$ に最も近い角での値で代表してよい（$\Delta x_i$ について最低次まで考える）。
+  \begin{shoumon}
+    \item $x_1$ 軸に垂直な2つの面（$x_1$ の面と $x_1+\Delta x_1$ の面）から単位時間あたりに流出する質量の和が、最低次で
+    \[ \pdv{(\rho u_1)}{x_1}\Delta V \]
+    となることを示せ。
+    \item 6つの面すべてを考え、質量保存則から、Gauss の発散定理を使わずに Euler 記述の連続の式 \noteshiki{8} を導け。
+    \item 断面積が場所によって変わる管の中を、気体が定常に流れている。上流の断面1（面積 $A_1$）と下流の断面2（面積 $A_2$）では、密度と速さがそれぞれ一様で $\rho_1$、$U_1$ と $\rho_2$、$U_2$ であり、流れの向きは断面に垂直である。管の側面からの出入りは無い。断面1・断面2と管の側面で囲まれた固定した領域に式 \noteshiki{6} を当てはめ、$U_2$ を $\rho_1$、$U_1$、$A_1$、$\rho_2$、$A_2$ で表せ。また、密度が一定の場合の $U_2$ を答えよ。
+  \end{shoumon}
+\notekiroku{2026-10-17 C ◎○◎ (ヒント2)}
+\begin{kotaeutsushi}{2026-10-17}
+\toi{1}{◎}{}
+（図：微小な直方体。辺 $\Delta x_{1}$・$\Delta x_{2}$・$\Delta x_{3}$，$x_{1}$ の面と $x_{1}+\Delta x_{1}$ の面に外向きの法線 $\vect{n}$）
+\begin{align*}
+&\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S\\
+&=\int_{S:x_{1}}\rho\vect{u}\cdot(-\vect{e}_{1})\,\dd S\\
+&\qquad+\int_{S:x_{1}+\Delta x_{1}}\rho\vect{u}\cdot\vect{e}_{1}\,\dd S\\
+&=-\int\rho u_{1}(x_{1},x_{2},x_{3},t)\,\dd S\\
+&\qquad+\int\rho u_{1}(x_{1}+\Delta x_{1},x_{2},x_{3},t)\,\dd S\\
+&=\bigl(\rho u_{1}(x_{1}+\Delta x_{1})-\rho u_{1}(x_{1})\bigr)\Delta x_{2}\Delta x_{3}
+\end{align*}
+\begin{align*}
+\rho u_{1}(x_{1}+\Delta x_{1})&=\rho u_{1}(x_{1})+\pdv{(\rho u_{1})}{x_{1}}\kakimachigai{\Delta x}{\Delta x_{1}}\\
+&\qquad+O(\Delta x^{2})
+\end{align*}
+より
+\begin{align*}
+\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S&=\pdv{(\rho u_{1})}{x_{1}}\underbrace{\Delta x_{1}\Delta x_{2}\Delta x_{3}}_{\Delta V}\\
+&=\pdv{(\rho u_{1})}{x_{1}}\Delta V
+\end{align*}
+\toi{2}{○}{記述}
+(1) より，流出の合計は
+\begin{align*}
+&\Bigl(\pdv{(\rho u_{1})}{x_{1}}+\pdv{(\rho u_{2})}{x_{2}}+\pdv{(\rho u_{3})}{x_{3}}\Bigr)\Delta V\\
+&=\vect{\nabla}\cdot(\rho\vect{u})\Delta V
+\end{align*}
+流入量は $\pdv{\rho}{t}\Delta V$ で書けるので\nuke{質量保存則}
+\naze{「流入量は $\partial\rho/\partial t\,\Delta V$」の根拠が要る。直方体は空間に固定されているので，中の質量 $\rho\,\Delta V$ の時間変化は Euler 微分で $\Delta V\,\partial\rho/\partial t$ と書け，質量保存則によりそれが流入量（流出量の符号を変えたもの）に等しい。}
+\[ \pdv{\rho}{t}\Delta V+\vect{\nabla}\cdot(\rho\vect{u})\Delta V=0 \]
+\[ \therefore\ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\toi{3}{◎}{}
+（図：太さの変わる管。左の断面 $A_{1}$ に外向きの法線 $-\vect{e}$，右の細い断面に法線 $\vect{e}$，間の領域 $V$。上流は $\rho_{1}$，$U_{1}$，下流は $\rho_{2}$，$U_{2}$）
+\[ \pdv{}{t}\int_{V}\rho\,\dd V=-\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S \]
+定常 $\to$
+\[ 0=-\int_{S}\rho\vect{u}\cdot\vect{n}\,\dd S \]
+\[ \therefore\ \int_{S:A_{1}}\rho\vect{u}\cdot(-\vect{e})\,\dd S+\int_{S:A_{2}}\rho\vect{u}\cdot\vect{e}\,\dd S=0 \]
+\[ \therefore\ -\rho_{1}U_{1}A_{1}+\rho_{2}U_{2}A_{2}=0 \]
+\[ U_{2}=\frac{\rho_{1}A_{1}}{\rho_{2}A_{2}}U_{1} \]
+$\rho_{1}=\rho_{2}$ のとき
+\[ U_{2}=\frac{A_{1}}{A_{2}}U_{1} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 固定した領域の中の質量の時間変化は $\pdv{}{t}\int_{V}\rho\,\dd V$（微小直方体なら $\Delta V\,\partial\rho/\partial t$）で，偏微分になるのは領域が固定されているからである。これが流入量に等しいのが質量保存則で，(2) ではこの2つを書いてから式を等号で結ぶ。
+\end{kizuki}
+\begin{tadashii}
+\houshin 式 \noteshiki{5} の面積分を直方体の6つの面の和で書き、各面の値を Taylor 展開して最低次まで評価する。小問3は、定常流では式 \noteshiki{6} の左辺が 0 になることを使う。
+\keisan \shoumonkai{1} 以下、$(\rho u_1)(x_1)$ は $(\rho u_1)(x_1, x_2, x_3, t)$ の略記とする。$x_1+\Delta x_1$ の面では外向きの法線が $\vect{n} = \vect{e}_1$ なので $\rho\vect{u}\cdot\vect{n} = \rho u_1$、$x_1$ の面では $\vect{n} = -\vect{e}_1$ なので $\rho\vect{u}\cdot\vect{n} = -\rho u_1$ である。面積はどちらも $\Delta x_2\Delta x_3$ なので、2つの面からの流出量の和は
+\begin{align*}
+&\bigl[(\rho u_1)(x_1+\Delta x_1) - (\rho u_1)(x_1)\bigr]\Delta x_2\Delta x_3 \\
+&= \left[(\rho u_1)(x_1) + \pdv{(\rho u_1)}{x_1}\Delta x_1 + O(\Delta x_1^{2}) - (\rho u_1)(x_1)\right]\Delta x_2\Delta x_3 \\
+&= \pdv{(\rho u_1)}{x_1}\Delta V + O(\Delta x_1^{2}\Delta x_2\Delta x_3)
+\end{align*}
+となる。
+\shoumonkai{2} $x_2$ 軸に垂直な2つの面では外向きの法線が $\pm\vect{e}_2$、面積が $\Delta x_3\Delta x_1$ であり、小問1の計算で添字 1 を 2 に置き換えると、流出量の和は $\Delta V\,\partial(\rho u_2)/\partial x_2$ になる。$x_3$ 軸に垂直な2つの面でも、添字を 3 に置き換えて $\Delta V\,\partial(\rho u_3)/\partial x_3$ になる。6つの面からの流出量の合計は、式 \noteshiki{9} の第1の等号より
+\[ \sum_{i=1}^{3}\pdv{(\rho u_i)}{x_i}\Delta V = \vect{\nabla}\cdot(\rho\vect{u})\,\Delta V \]
+である。直方体の中の質量は最低次で $\rho\,\Delta V$ であり、直方体は空間に固定されているので、その時間変化は $\Delta V\,\partial\rho/\partial t$ である。質量保存則（式 \noteshiki{6}）により、これが流入量（流出量の符号を変えたもの）に等しいので
+\[ \pdv{\rho}{t}\Delta V = -\vect{\nabla}\cdot(\rho\vect{u})\,\Delta V \]
+となる。両辺を $\Delta V$ で割って $\Delta x_i\to0$ とすると、式 \noteshiki{8}
+\[ \pdv{\rho}{t} + \vect{\nabla}\cdot(\rho\vect{u}) = 0 \]
+を得る。この計算は、微小な直方体について Gauss の発散定理 \noteshiki{7} を確かめたことにも当たる。
+\shoumonkai{3} 定常なので式 \noteshiki{6} の左辺は 0 であり
+\[ \int_S \rho\vect{u}\cdot\vect{n}\,\dd S = 0 \]
+となる。外向きの法線について、断面1では $\vect{u}\cdot\vect{n} = -U_1$（流入）、断面2では $\vect{u}\cdot\vect{n} = U_2$（流出）、側面では $\vect{u}\cdot\vect{n} = 0$ である。断面上で $\rho$ と速さは一様なので
+\[ -\rho_1U_1A_1 + \rho_2U_2A_2 = 0 \]
+となり、$U_2 = \rho_1U_1A_1/(\rho_2A_2)$ を得る。密度が一定（$\rho_1 = \rho_2$）なら $U_2 = U_1A_1/A_2$ である。
+\kotae{\shoumonkai{1} 流出量の和 $= \Delta V\,\partial(\rho u_1)/\partial x_1$（示す問題） \shoumonkai{2} $\partial\rho/\partial t + \vect{\nabla}\cdot(\rho\vect{u}) = 0$ \shoumonkai{3} $U_2 = \rho_1U_1A_1/(\rho_2A_2)$、密度一定なら $U_2 = U_1A_1/A_2$}
+\kenzan $\Delta V\,\partial(\rho u_1)/\partial x_1$ は（密度 $\times$ 速度 $\div$ 長さ）$\times$ 体積 $=$ 質量 $\div$ 時間 の次元で、流出量の次元と一致する。小問3で $A_1 = A_2$、$\rho_1 = \rho_2$ なら $U_2 = U_1$ となり、太さが一定の管で速さが変わらないことと整合する。密度が一定なら、細い所（$A_2 < A_1$）ほど速くなる。
+\tsumazuki 面の法線は外向きにとる。$x_1$ の面では $\vect{n} = -\vect{e}_1$ で、$\rho u_1$ の符号が逆になる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\006_2026-10-21.tex
+\mondaibangou{6}
+\begin{mondai}{006-incomp}{計算}{非圧縮条件の意味と、密度が一様であることとの違い}
+\begin{shoumon}
+    \item 一様な流れ $\vect{u} = (U, 0, 0)$（$U$ は定数）の中で、密度が
+    \[ \rho(\vect{x},t) = \rho_0\bigl[1 + \varepsilon\sin\bigl(\kappa(x_1 - Ut)\bigr)\bigr] \]
+    であるとする（$\rho_0>0$、$0<\varepsilon<1$、$\kappa$ は定数）。この場が連続の式 \noteshiki{8} を満たすことを示せ。
+    \item 小問1の場について $\vect{\nabla}\cdot\vect{u}$ と $\mathrm{D}\rho/\mathrm{D}t$ を求め、この流れが非圧縮であるかを判定せよ。また、密度が一様でないことと矛盾しないかを説明せよ。
+    \item 単純ずれの流れ $\vect{u} = (\gamma x_2, 0, 0)$（$\gamma>0$ は定数）の中で、密度場 $\rho = \rho_0(1 + x_1/L)$（$L>0$ は定数。考える領域は $\rho>0$ の範囲に限る）が時間によらずに保たれることはないことを、連続の式 \noteshiki{8} を使って示せ。
+    \item 小問3の流れで、時刻 0 の密度が $\rho(\vect{x},0) = \rho_0(1 + x_1/L)$ であったとする。この流れが非圧縮であることを確かめ、式 \noteshiki{12} を使って時刻 $t$ の密度場 $\rho(\vect{x},t)$ を求めよ。また、等密度面（$\rho$ が一定の面）は時間とともにどう変わるか。
+  \end{shoumon}
+\notekiroku{2026-10-17 B ◎◎○△ → 2026-10-21 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-10-21}
+\toi{1}{◎}{}
+\[ \pdv{\rho}{t}=-\rho_{0}\varepsilon\kappa U\cos(\kappa(x_{1}-Ut)) \]
+\[ \pdv{}{x_{1}}(\rho u_{1})=\rho_{0}\varepsilon\kappa U\cos(\kappa(x_{1}-Ut)) \]
+よって
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\toi{2}{◎}{}
+$\vect{\nabla}\cdot\vect{u}=0$　非圧縮
+\[ \frac{\mathrm{D}\rho}{\mathrm{D}t}=\pdv{\rho}{t}+u_{1}\pdv{\rho}{x_{1}}=0 \]
+（矢印で上の式から次の文につなぐ）
+
+これが示しているのは、流れている粒子の密度が一定ということであって、密度が一様でないこととは矛盾しない。
+\toi{3}{◎}{}
+\[ \pdv{\rho}{t}=0 \]
+\[ \pdv{}{x_{1}}(\rho u_{1})=\frac{\gamma\rho_{0}x_{2}}{L} \]
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})\neq0 \]
+より、保たれない。
+\toi{4}{△}{計算}
+$\vect{\nabla}\cdot\vect{u}=0$ より非圧縮
+\[ \frac{\mathrm{D}\rho}{\mathrm{D}t}=\pdv{\rho}{t}+u_{1}\pdv{\rho}{x_{1}}+0=0 \]
+\[ \therefore\ \pdv{\rho}{t}=-\frac{\gamma\rho_{0}x_{2}}{L} \]
+\naze{ここで $\partial\rho/\partial x_{1}$ を時刻0の値 $\rho_{0}/L$ のまま使っている。時間がたっても変わらない理由が要る。粒子の軌道 $x_{2}=X_{2}$，$x_{1}=X_{1}+\gamma X_{2}t$ から出発点 $X_{1}=x_{1}-\gamma x_{2}t$ を出して初期の密度に代入するか，得た $\rho$ を代入して $\partial\rho/\partial x_{1}=\rho_{0}/L$ のままであることを確かめれば閉じる。}
+\[ \rho(\vect{x},t)=-\frac{\gamma\rho_{0}}{L}x_{2}t+C \]
+\[ \rho(\vect{x},0)=\rho_{0}(1+x_{1}/L)=C \]
+\[ \rho(\vect{x},t)=\rho_{0}\Bigl(1+\frac{x_{1}}{L}-\frac{\gamma x_{2}}{L}t\Bigr) \]
+\[ x_{1}-\gamma x_{2}t=K\quad (K\text{ は定数}) \]
+（図：$x_{1}x_{2}$ 平面に，原点の近くを通る傾いた直線が2本。直線の上端の間に回転の向きを示す矢印）
+
+\ayamari{反時計回り}{時計回り}に回転する。
+\naze{$t=0$ では $x_{1}=K$（$x_{1}$ 軸に垂直）で，時刻 $t$ では $x_{1}=K+\gamma t\,x_{2}$ である。$x_{2}>0$ の部分は $+x_{1}$ 向きに流されるので，等密度面は $x_{2}$ 軸から角度 $\phi$（$\tan\phi=\gamma t$）だけ時計回りに倒れ，流れの向き（$x_{1}$ 軸）に近づいていく。図の直線の傾きは正しいが，矢印と文が逆向きである。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 等密度面の回転の向きは，1点を流れに沿って動かして確かめる。$x_{2}>0$ の点は $+x_{1}$ 向き，$x_{2}<0$ の点は $-x_{1}$ 向きに流されるので，$x_{2}$ 軸に沿った線は上が右へ，下が左へずれて時計回りに倒れる（$x_{1}$ 軸に近づく）。
+\item \mae{第1回 問題6・10-17}前回は $\mathrm{D}\rho/\mathrm{D}t=0$ で止まった。今回は密度場まで出せたが，$\partial\rho/\partial x_{1}$ を一定として $\partial\rho/\partial t$ を出す所に根拠が無い。$\mathrm{D}\rho/\mathrm{D}t=0$ は「各粒子が時刻0の密度を運ぶ」ことなので，軌道から出発点 $X_{1}=x_{1}-\gamma x_{2}t$ を求めて初期の密度に代入するのが確実で，得た $\rho$ は $\partial\rho/\partial t+\gamma x_{2}\,\partial\rho/\partial x_{1}=0$ に代入して検算する。
+\end{kizuki}
+\begin{maekizuki}{2026-10-17}
+\item $\mathrm{D}\rho/\mathrm{D}t=0$ は「各粒子が時刻0の密度を運ぶ」という意味である。密度場を求めるには，粒子の軌道を解き，時刻 $t$ に $\vect{x}$ にいる粒子の出発点 $\vect{X}$ を $\vect{x}$ と $t$ で表して初期の密度に代入する（(4)）。求めた場は $\partial\rho/\partial t+\gamma x_{2}\,\partial\rho/\partial x_{1}=0$ に代入して検算できる。
+\item 「$\neq0$」と書くときは，どこで0にならないかを確かめる。位置を含む式（$\rho_{0}\gamma x_{2}/L$）は，0になる点（$x_{2}=0$）を除いて言う（(3)）。
+\end{maekizuki}
+\begin{tadashii}
+\houshin 与えられた場を式 \noteshiki{8}・\noteshiki{4} に代入する。非圧縮条件は式 \noteshiki{12}（流れに沿った密度が変わらない）であり、密度が空間的に一様であることとは別の条件である点に注意する。小問4は、粒子ごとに密度を運ぶ Lagrange 記述で解く。
+\keisan \shoumonkai{1} $\theta = \kappa(x_1 - Ut)$ とおくと、$\rho = \rho_0(1 + \varepsilon\sin\theta)$ なので
+\[ \pdv{\rho}{t} = \rho_0\varepsilon\cos\theta\cdot(-\kappa U) = -\rho_0\varepsilon\kappa U\cos\theta \]
+である。$\rho\vect{u} = (\rho U, 0, 0)$ で $U$ は定数なので
+\[ \vect{\nabla}\cdot(\rho\vect{u}) = U\pdv{\rho}{x_1} = U\rho_0\varepsilon\kappa\cos\theta \]
+となる。2つの和は 0 なので、式 \noteshiki{8} を満たす。
+\shoumonkai{2} $\vect{u}$ は一様なので $\vect{\nabla}\cdot\vect{u} = 0$ である。式 \noteshiki{4} より
+\[ \frac{\mathrm{D}\rho}{\mathrm{D}t} = \pdv{\rho}{t} + U\pdv{\rho}{x_1} = -\rho_0\varepsilon\kappa U\cos\theta + \rho_0\varepsilon\kappa U\cos\theta = 0 \]
+となる。式 \noteshiki{12}・\noteshiki{13} がともに成り立つので、この流れは非圧縮である。密度が一様でないことと矛盾はしない。非圧縮条件が要求するのは、各流体粒子の密度が時間とともに変わらないことであり、粒子ごとに密度が違ってもよい。この場では、密度の模様が形を変えずに速さ $U$ で運ばれており（$\rho$ は $x_1 - Ut$ だけの関数）、各粒子は自分の密度を保っている。
+\shoumonkai{3} $\rho = \rho_0(1 + x_1/L)$ が時間によらないと仮定すると $\partial\rho/\partial t = 0$ である。また $\rho\vect{u} = (\rho\gamma x_2, 0, 0)$ で、$\gamma x_2$ は $x_1$ によらないので
+\[ \vect{\nabla}\cdot(\rho\vect{u}) = \gamma x_2\pdv{\rho}{x_1} = \frac{\rho_0\gamma x_2}{L} \]
+となる。式 \noteshiki{8} の左辺は $\rho_0\gamma x_2/L$ になり、$x_2 \neq 0$ の点で 0 でない。よって式 \noteshiki{8} に反するので、この密度場は時間によらずに保たれることはない。
+\shoumonkai{4} $\vect{\nabla}\cdot\vect{u} = \partial(\gamma x_2)/\partial x_1 = 0$ なので、この流れは非圧縮である。式 \noteshiki{11} より $\mathrm{D}\rho/\mathrm{D}t = -\rho\vect{\nabla}\cdot\vect{u} = 0$ となり、式 \noteshiki{12} が成り立つ。つまり各粒子は時刻 0 の密度を保つ。粒子の軌道は、式 \noteshiki{1} の第2成分 $\mathrm{D}x_2/\mathrm{D}t = 0$ から $x_2 = X_2$、第1成分 $\mathrm{D}x_1/\mathrm{D}t = \gamma X_2$ から $x_1 = X_1 + \gamma X_2t$ である。時刻 $t$ に $\vect{x}$ にいる粒子は、時刻 0 に $X_1 = x_1 - \gamma x_2t$ にいたので
+\[ \rho(\vect{x},t) = \rho_0\left(1 + \frac{X_1}{L}\right) = \rho_0\left(1 + \frac{x_1 - \gamma x_2t}{L}\right) \]
+となる。等密度面は $x_1 - \gamma t\,x_2 = \text{一定}$ の平面である。時刻 0 には $x_1$ 軸に垂直だった面が、$x_1x_2$ 面内で $x_2$ 軸から角度 $\phi$（$\tan\phi = \gamma t$）だけ傾き、時間とともに流れの向き（$x_1$ 軸）に近づくように倒れていく。
+\kotae{\shoumonkai{1} $\partial\rho/\partial t$ と $\vect{\nabla}\cdot(\rho\vect{u})$ が打ち消し合う（示す問題） \shoumonkai{2} $\vect{\nabla}\cdot\vect{u} = 0$、$\mathrm{D}\rho/\mathrm{D}t = 0$ で非圧縮。各粒子の密度が一定であればよく、密度が一様である必要はない \shoumonkai{3} $\vect{\nabla}\cdot(\rho\vect{u}) = \rho_0\gamma x_2/L \neq 0$ なので定常に保てない \shoumonkai{4} $\rho = \rho_0[1 + (x_1 - \gamma x_2t)/L]$。等密度面は $x_2$ 軸から $\tan\phi = \gamma t$ の角度で傾いていく}
+\kenzan 小問1で $\varepsilon\to0$ とすると一様な密度・一様な流れになり、各式は自明に成り立つ。小問4の結果は $t = 0$ で初期条件に戻り、$\gamma\to0$（流れが無い）では初期の密度のまま変わらない。また、小問4の結果を代入すると
+\[ \pdv{\rho}{t} + \gamma x_2\pdv{\rho}{x_1} = -\frac{\rho_0\gamma x_2}{L} + \frac{\rho_0\gamma x_2}{L} = 0 \]
+となり、式 \noteshiki{8}（$\vect{\nabla}\cdot\vect{u} = 0$ なので $\vect{u}\cdot\vect{\nabla}\rho$ だけが残る）を満たす。
+\tsumazuki 「非圧縮 $=$ 密度が一様」ではない。非圧縮条件の式 \noteshiki{13} は速度場だけの条件であり、密度の分布そのものには制限を付けない（ただし式 \noteshiki{11} から、各粒子の密度は保たれる）。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

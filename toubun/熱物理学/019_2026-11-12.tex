@@ -1,0 +1,37 @@
+% 熱物理学 熱物理学-3 問題4（019-joutai） 解いた日 2026-11-12
+%% kotae
+\toi{1}{◎}{}
+\[ \alpha=\frac{1}{V}\left(\pdv{V}{T}\right)_{p} \]
+\[ V=\frac{nRT}{p}+nb \]
+\[ \left(\pdv{V}{T}\right)_{p}=\frac{nR}{p}=\frac{1}{p}\cdot\frac{p(V-nb)}{T}=\frac{V-nb}{T} \]
+\[ \alpha=\frac{1}{V}\cdot\frac{V-nb}{T}=\frac{V-nb}{VT} \]
+\[ \kappa_{T}=-\frac{1}{V}\left(\pdv{V}{p}\right)_{T} \]
+\begin{align*}
+\left(\pdv{V}{p}\right)_{T}&=-\frac{nRT}{p^{2}}=-\frac{p(V-nb)}{p^{2}}\\
+&=-\frac{V-nb}{p}
+\end{align*}
+\[ \kappa_{T}=\frac{V-nb}{pV} \]
+\toi{2}{◎}{}
+\[ p=\frac{nRT}{V-nb} \]
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{nR}{V-nb}=\frac{p}{T} \]
+\[ \frac{\alpha}{\kappa_{T}}=\frac{\frac{V-nb}{VT}}{\frac{V-nb}{pV}}=\frac{pV}{VT}=\frac{p}{T} \]
+\toi{3}{◎}{}
+\[ \left(\pdv{p}{V}\right)_{T}=-\frac{nRT}{(V-nb)^{2}}=-\frac{p}{V-nb} \]
+\[ -\frac{1}{\kappa_{T}V}=-\frac{1}{\frac{V-nb}{pV}V}=-\frac{p}{V-nb} \]
+\toi{4}{◎}{}
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{p}{T} \]
+\[ \left(\pdv{T}{V}\right)_{p}=\frac{p}{nR} \]
+\[ \left(\pdv{V}{p}\right)_{T}=-\frac{nRT}{p^{2}} \]
+\begin{align*}
+&\left(\pdv{p}{T}\right)_{V}\left(\pdv{T}{V}\right)_{p}\left(\pdv{V}{p}\right)_{T}\\
+&\qquad=\frac{p}{T}\cdot\frac{p}{nR}\cdot\left(-\frac{nRT}{p^{2}}\right)=-1
+\end{align*}
+\toi{5}{△}{計算}
+\begin{align*}
+\alpha&=\frac{V-nb}{VT}=\frac{1}{T}\left(1-\frac{nb}{V}\right)\\
+&=\ayamari{\num{2.67e-4}}{\qty{3.27e-3}{\per\kelvin}}
+\end{align*}
+\naze{$(1-0.0200)/\qty{300}{\kelvin}=0.980/300=\qty{3.27e-3}{\per\kelvin}$ である（$\num{2.67e-4}$ は $0.08/300$ に当たり，$1-0.0200$ の引き算を誤ったとみられる）。単位 \unit{\per\kelvin} が無く，問われている同じ温度の理想気体の値 $1/T=\qty{3.33e-3}{\per\kelvin}$ との比較（$0.980$ 倍で 2.0\,\% 小さい）も無い。}
+%% kizuki
+\item $nb/V=0.0200$ は小さな補正なので，$\alpha$ は理想気体の $1/T=\qty{3.33e-3}{\per\kelvin}$ に近いはずである。数値を出したら $b\to0$ の値と同じ桁かを確かめる（$\num{2.67e-4}$ は1桁小さく，ここで気付ける）。
+\item 数値の答えには単位（\unit{\per\kelvin}）を付け，「比べよ」には比（$0.980$ 倍）か差で答える。

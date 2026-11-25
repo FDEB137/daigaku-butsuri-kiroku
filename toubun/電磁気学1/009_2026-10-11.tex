@@ -1,0 +1,37 @@
+% 電磁気学1 電磁気学1-2 問題3（009-ensui。当時は 電磁気学1-1-2 問題9・shou01-02-l2-ensui） 解いた日 2026-10-11
+%% kotae
+\toi{1}{×}{方針}
+\[ \vect{r}=\rho\hat{\vect{\rho}}+k\rho\hat{\vect{z}} \]
+\[ \pdv{\vect{r}}{\rho}=\begin{pmatrix}1\\0\\k\end{pmatrix},\quad\pdv{\vect{r}}{\varphi}=\begin{pmatrix}0\\\rho\\0\end{pmatrix} \]
+\[ \pdv{\vect{r}}{\rho}\times\pdv{\vect{r}}{\varphi}=\begin{pmatrix}-k\rho\\0\\\rho\end{pmatrix} \]
+\[ \abs{\pdv{\vect{r}}{\rho}\times\pdv{\vect{r}}{\varphi}}=\rho\sqrt{k^{2}+1} \]
+\[ \hat{\vect{n}}=\frac{\ayamari{-k}{k}}{\sqrt{k^{2}+1}}\hat{\vect{\rho}}+\frac{\ayamari{1}{-1}}{\sqrt{k^{2}+1}}\hat{\vect{z}} \]
+\[ \dd S=\rho\sqrt{k^{2}+1}\,\dd\rho\,\dd\varphi \]
+\naze{外積は $\hat{\vect{z}}$ 成分が正で $\hat{\vect{\rho}}$ 成分が負なので，円錐の内側（軸の側・上向き）を向く。閉曲面の法線は外向きに選ぶので，符号を反転して $\hat{\vect{n}}=(k\hat{\vect{\rho}}-\hat{\vect{z}})/\sqrt{1+k^{2}}$ とする。}
+\toi{2}{◎}{}
+\[ S_{1}=(R^{2}+h^{2})\pi\cdot\frac{R}{\sqrt{R^{2}+h^{2}}}=R\sqrt{R^{2}+h^{2}}\,\pi \]
+\toi{3}{△}{計算}
+\begin{align*}
+\vect{F}&=\rho\cos\varphi\cdot z\,\hat{\vect{x}}+\rho\sin\varphi\cdot z\,\hat{\vect{y}}\\
+&=\rho z\,\hat{\vect{\rho}}
+\end{align*}
+\begin{align*}
+\int_{S_{1}}\dd\vect{S}\cdot\vect{F}&=\int_{S_{1}}\ayamari{\begin{pmatrix}-k\rho\\0\\\rho\end{pmatrix}}{\begin{pmatrix}k\rho\\0\\-\rho\end{pmatrix}}\\
+&\qquad\begin{pmatrix}\rho(k\rho)\\0\\0\end{pmatrix}\dd\rho\,\kakimachigai{\dd\lambda}{\dd\varphi}\\
+&=\int_{0}^{2\pi}\dd\varphi\int_{0}^{R}\dd\rho\,(\ayamari{-k\rho^{3}}{k^{2}\rho^{3}})\\
+&=2\pi\cdot\Bigl(-\frac{k}{4}R^{4}\Bigr)=-\frac{k\pi R^{4}}{2}
+\end{align*}
+\[ \int_{S_{2}}\dd\vect{S}\cdot\vect{F}=\int\begin{pmatrix}0\\0\\1\end{pmatrix}\cdot\begin{pmatrix}\rho h\\0\\0\end{pmatrix}\dd S=0 \]
+\[ \int_{S}\dd\vect{S}\cdot\vect{F}=-\frac{k\pi R^{4}}{2} \]
+\naze{誤りは2つある。(i) (1) の内向きの法線をそのまま使ったので符号が逆。(ii) $(-k\rho)\cdot\rho(k\rho)=-k^{2}\rho^{3}$ の $k$ を1つ落としている。外向きの法線では被積分関数は $+k^{2}\rho^{3}$ で，答えは $\pi k^{2}R^{4}/2=\pi R^{2}h^{2}/2$ である。以降はこの誤りを引き継ぐ。}
+\toi{4}{×}{立式}
+\[ \nabla\cdot\vect{F}=\frac{1}{\rho}\pdv{}{\rho}(\rho^{2}z)=\frac{1}{\rho}\cdot2\rho z=2z \]
+\begin{align*}
+\int_{V}\dd V\,\nabla\cdot\vect{F}&=\int_{0}^{h}\dd z\int_{0}^{2\pi}\dd\varphi\int_{0}^{\ayamari{R}{z/k}}\dd\rho\,\nuke{\rho}\,2z\\
+&=2\pi Rh^{2}
+\end{align*}
+\naze{円錐なので高さ $z$ での断面は $\rho\le z/k$ の円板で（$0$〜$R$ の円柱ではない），円柱座標の体積要素は $\rho\,\dd\rho\,\dd\varphi\,\dd z$ である。正しくは $\int_{0}^{h}\dd z\,2z\cdot2\pi(z/k)^{2}/2=\pi h^{4}/(2k^{2})=\pi R^{2}h^{2}/2$ で，第3問と一致する。}
+%% kizuki
+\item 閉曲面の面積分では法線を外向きに選ぶ。パラメータの偏微分の外積は「どちらかの向きの法線」でしかないので，成分の符号（ここでは $\hat{\vect{z}}$ 成分が正＝上向き＝軸の側）から内外を判定し，内向きなら符号を反転する。
+\item 円柱座標の体積要素は $\rho\,\dd\rho\,\dd\varphi\,\dd z$。積分範囲は「高さ $z$ での断面」を描いて決める（円錐なら $\rho\le z/k$）。
+\item ガウスの定理を確かめる問題では，面積分と体積積分の答えを必ず見比べる。食い違ったらどちらかに誤りがある。成分の内積は成分ごとに掛けて，文字（ここでは $k$）の数を数え直す。

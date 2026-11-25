@@ -1,0 +1,26 @@
+% 連続体力学 連続体力学-1 問題3（003-kijutsu） 解いた日 2026-10-17
+%% kotae
+\toi{1}{○}{記述}
+質点…大きさをもたない。
+
+剛体…原子・分子の相対位置が変わらない。
+
+連続体…原子・分子の相対位置が変わる。
+
+歪み…原子・分子の相対位置\nuke{の変化}
+\naze{歪みは相対位置そのものではなく，相対位置の「変化」である。}
+\toi{2}{○}{記述}
+固定：Euler
+
+動く：Lagrange
+
+移流項：$\vect{u}\cdot\vect{\nabla}$\nuke{$(\vect{u}\cdot\vect{\nabla})T$}
+\naze{問いは差を表す項の式を求めている。演算子だけでなく，$\mathrm{D}T/\mathrm{D}t-\partial T/\partial t=(\vect{u}\cdot\vect{\nabla})T=\sum_{i}u_{i}\,\partial T/\partial x_{i}$ と $T$ に作用させた形で書く。}
+\toi{3}{○}{記述}
+ある。
+
+水温の分布に沿って流れる粒子の温度が変わるから。
+\naze{理由が結論の言い換えになっている。$\partial T/\partial t=0$ でも $\mathrm{D}T/\mathrm{D}t=(\vect{u}\cdot\vect{\nabla})T$ が残り，流れの向きに温度の勾配があれば0でない，と式で根拠を書く。}
+%% kizuki
+\item 歪みは原子・分子の相対位置の「変化」である。剛体（相対位置が固定）と連続体（相対位置が変化）の違いがそのまま歪みの定義になっている。
+\item 2つの温度計の差は $\mathrm{D}T/\mathrm{D}t-\partial T/\partial t=(\vect{u}\cdot\vect{\nabla})T$ で，(3) はこの式で $\partial T/\partial t=0$ とおけば移流項だけが残る，と答えられる。「式を答えよ」「理由とともに」では，名前や言い換えで済ませず式を1行書く。

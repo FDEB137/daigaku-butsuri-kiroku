@@ -1,0 +1,370 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{素粒子物理学　第2回「素粒子物理の世界観2」}{2026-11-25}
+%% note-moto	problems\素粒子物理学\kai02\素粒子物理学-2.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-011-fourvector}{1}}{L1・計算}{○○△}{C}{2026-10-28 (1)単位 (2)単位 (3)方針}
+  \ichirangyou{\hyperlink{bt-m-012-nonrel}{2}}{L1・計算}{◎○△}{B}{2026-10-28 (2)単位 (3)立式}
+  \ichirangyou{\hyperlink{bt-m-013-thomson}{3}}{L1・計算}{◎◎◎◎}{S}{2026-10-28}
+  \ichirangyou{\hyperlink{bt-m-014-kosei}{4}}{L1・説明}{○◎◎}{A}{2026-10-28 (1)記述}
+  \ichirangyou{5}{L2・計算}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\素粒子物理学\011_2026-10-28.tex
+\mondaibangou{1}
+\begin{mondai}{011-fourvector}{計算}{反変ベクトルと共変ベクトル，4元ベクトルの内積の不変性，4元勾配 $\partial_\mu$ が下付きになること}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+   & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電気素量 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  陽子の質量 & $\mprot$ & \qty{1.67e-27}{\kilogram}（$\mprot c^2=\qty{938}{\mega\electronvolt}$）\\
+  電子の質量 & $\melec c^2$ & \qty{0.511}{\mega\electronvolt}\\
+  $\alpha$ 粒子の質量 & $m_\alpha c^2$ & \qty{3.73e3}{\mega\electronvolt}\\
+  中性 $\pi$ 中間子の質量 & $m_{\pi^0}c^2$ & \qty{135}{\mega\electronvolt}\\
+  $\eta$ 中間子の質量 & $m_\eta c^2$ & \qty{548}{\mega\electronvolt}\\
+  Z ボソンの質量 & $m_Zc^2$ & \qty{91.2}{\giga\electronvolt}\\
+\end{teisuu}
+自然単位系（$c=1$）で，粒子 A，B の4元運動量の成分 $(E,p_x,p_y,p_z)$ が次のとおりである（単位は \unit{\giga\electronvolt}）。
+  \[ p_A^\mu=(5.00,\ 3.00,\ 0,\ 0),\qquad p_B^\mu=(3.00,\ 0,\ 3.00,\ 0) \]
+  答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item 共変ベクトル $p_{A\mu}$，$p_{B\mu}$ の成分を書け。また $p_A^\mu p_{A\mu}$，$p_B^\mu p_{B\mu}$，$p_A^\mu p_{B\mu}$ を求め，A，B の質量を答えよ。
+    \item $x$ 方向に $-\beta$ で動く系から見る。前問で使ったブースト $E'=\gamma E+\gamma\beta p_x$，$p_x'=\gamma\beta E+\gamma p_x$（$p_y$，$p_z$ は変わらない）を $\beta=0.600$ で使い，$p_A'^\mu$，$p_B'^\mu$ を求めよ。さらに，前の小問の3つの量がこの系でも同じ値になることを確かめよ。
+    \item 時空座標 $x^\mu=(t,x,y,z)$ について，$\partial_\mu x^\mu$ を求めよ。また $p_{A\nu}x^\nu$ を $t,x,y,z$ で書き，$\partial_\mu(p_{A\nu}x^\nu)$ の4成分を求めて，$p_{A\mu}$ と一致することを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 C ○○△}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{○}{単位}
+\begin{align*}
+  p_{A\mu}&=(5.00,\ -3.00,\ 0,\ 0)\\
+  p_{B\mu}&=(3.00,\ 0,\ -3.00,\ 0)
+\end{align*}
+\begin{align*}
+  p_{A}^{\mu}p_{A\mu}&=25.00-9.00=\ayamari{16.00}{\qty{16.0}{\giga\electronvolt\squared}}\\
+  m_{A}&=4.00\,\nuke{\unit{\giga\electronvolt}}\\
+  p_{B}^{\mu}p_{B\mu}&=9.00-9.00=0.00\\
+  m_{B}&=0.00\\
+  p_{A}^{\mu}p_{B\mu}&=15.00-0=\ayamari{15.00}{\qty{15.0}{\giga\electronvolt\squared}}
+\end{align*}
+\naze{値はすべて正しいが，単位（内積は \unit{\giga\electronvolt\squared}，質量は \unit{\giga\electronvolt}）がどこにも無く，16.00 などは4桁（指定は3桁）である。}
+\toi{2}{○}{単位}
+\begin{align*}
+  \gamma&=\frac{1}{\sqrt{1-\beta^{2}}}=\frac{1}{0.800}=\frac{5}{4}\\
+  \beta&=0.600=\frac{3}{5}
+\end{align*}
+\begin{align*}
+  p_{A}'^{\mu}&=\biggl(\frac{5}{4}\cdot5.00+\frac{3}{4}\cdot3.00,\\
+  &\qquad\frac{3}{4}\cdot5.00+\frac{5}{4}\cdot3.00,\ 0,\ 0\biggr)\\
+  &=(6.25+2.25,\ 3.75+3.75,\ 0,\ 0)\\
+  &=(\ayamari{8.5}{8.50},\ \ayamari{7.5}{7.50},\ 0,\ 0)\,\nuke{\unit{\giga\electronvolt}}
+\end{align*}
+\begin{align*}
+  p_{B}'^{\mu}&=\biggl(\frac{5}{4}\cdot3.00+\frac{3}{4}\cdot0,\\
+  &\qquad\frac{3}{4}\cdot3.00+\frac{5}{4}\cdot0,\ 3.00,\ 0\biggr)\\
+  &=(3.75,\ 2.25,\ 3.00,\ 0)
+\end{align*}
+\begin{align*}
+  p_{A}'^{\mu}p'_{A\mu}&=(8.5)^{2}-(7.5)^{2}=16.00\\
+  p_{B}'^{\mu}p'_{B\mu}&=(3.75)^{2}-(2.25)^{2}-(3.00)^{2}=0\\
+  p_{A}'^{\mu}p'_{B\mu}&=8.5\cdot3.75-7.5\cdot2.25-0\\
+  &=15.00
+\end{align*}
+\naze{ブーストと不変性の確認は正しい。単位（\unit{\giga\electronvolt}，\unit{\giga\electronvolt\squared}）が無く，$8.5$，$7.5$ は2桁である（3桁なら 8.50，7.50）。}
+\toi{3}{△}{方針}
+\begin{align*}
+  \partial_{\mu}x^{\mu}&=\left(\pdv{t}{t},\ \pdv{x}{x},\ \pdv{y}{y},\ \pdv{z}{z}\right)\\
+  &=\ayamari{(1,\ 1,\ 1,\ 1)}{1+1+1+1=4}
+\end{align*}
+\naze{上付きと下付きに同じ添字 $\mu$ があるときは $\mu=0$〜3 の和をとるので，$\partial_{\mu}x^{\mu}=\pdv{t}{t}+\pdv{x}{x}+\pdv{y}{y}+\pdv{z}{z}=4$ というスカラーになる。後半は添字 $\mu$ が1つだけ残るのでベクトルで，正しい。}
+\begin{align*}
+  p_{A\nu}x^{\nu}&=5t-3x\\
+  \partial_{\mu}(p_{A\nu}x^{\nu})&=(5.00,\ -3.00,\ 0,\ 0)\\
+  &=p_{A\mu}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item アインシュタインの規約：1つの項の中で同じ添字が上と下に1回ずつ現れたら和をとり，その添字は消える。残った添字の数で，答えがスカラー（0個）かベクトル（1個）かが決まる。$\partial_{\mu}x^{\mu}$ は添字が残らないのでスカラー4，$\partial_{\mu}(p_{A\nu}x^{\nu})$ は $\mu$ が残るのでベクトルである。
+\item \mae{第1回 問題1 (1)・問題2 (2)・10-23} 有効数字は3桁にそろえる。今回は単位も書き落とした。自然単位系でも数値の答えには単位（\unit{\giga\electronvolt}，\unit{\giga\electronvolt\squared}）を付け，内積は（エネルギー）$^{2}$ の次元になることで確かめる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 下付きは空間成分の符号を反転したものなので，内積は $p^\mu q_\mu=E_pE_q-\vect{p}\cdot\vect{q}$ で計算する。ブーストの式をそのまま使い，内積が変わらないことを数値で確かめる。 % 出典: p.5・p.6
+\keisan \shoumonkai{1} 空間成分の符号を反転して
+\[ p_{A\mu}=(5.00,\ -3.00,\ 0,\ 0)\,\unit{\giga\electronvolt},\qquad p_{B\mu}=(3.00,\ 0,\ -3.00,\ 0)\,\unit{\giga\electronvolt} \]
+成分ごとに掛けて和をとると
+\begin{align*}
+  p_A^\mu p_{A\mu}&=5.00^2-3.00^2=\qty{16.0}{\giga\electronvolt\squared},\\
+  p_B^\mu p_{B\mu}&=3.00^2-3.00^2=0,\\
+  p_A^\mu p_{B\mu}&=5.00\times3.00-(3.00\times0+0\times3.00+0\times0)=\qty{15.0}{\giga\electronvolt\squared}
+\end{align*}
+$p^\mu p_\mu=m^2$ より，A の質量は $\qty{4.00}{\giga\electronvolt}$，B の質量は0である。
+
+\shoumonkai{2} $\beta=0.600$ では $\gamma=1/\sqrt{1-0.360}=1/0.800=1.25$，$\gamma\beta=0.750$ である。A について
+\begin{align*}
+  E_A'&=1.25\times5.00+0.750\times3.00=\qty{8.50}{\giga\electronvolt},\\
+  p_{Ax}'&=0.750\times5.00+1.25\times3.00=\qty{7.50}{\giga\electronvolt}
+\end{align*}
+B について（$p_x=0$，$p_y$ は変わらない）
+\begin{align*}
+  E_B'&=1.25\times3.00+0.750\times0=\qty{3.75}{\giga\electronvolt},\\
+  p_{Bx}'&=0.750\times3.00+1.25\times0=\qty{2.25}{\giga\electronvolt}
+\end{align*}
+よって $p_A'^\mu=(8.50,\ 7.50,\ 0,\ 0)$，$p_B'^\mu=(3.75,\ 2.25,\ 3.00,\ 0)$（単位 \unit{\giga\electronvolt}）。この系での3つの量は
+\begin{align*}
+  p_A'^\mu p_{A\mu}'&=8.50^2-7.50^2=72.25-56.25=\qty{16.0}{\giga\electronvolt\squared},\\
+  p_B'^\mu p_{B\mu}'&=3.75^2-2.25^2-3.00^2=14.0625-5.0625-9.00=0,\\
+  p_A'^\mu p_{B\mu}'&=8.50\times3.75-7.50\times2.25=31.875-16.875=\qty{15.0}{\giga\electronvolt\squared}
+\end{align*}
+となり，前の小問と一致する。
+
+\shoumonkai{3} $\partial_\mu x^\mu$ は $\mu=0,1,2,3$ の和で，各項は座標をその座標自身で微分したものなので
+\[ \partial_\mu x^\mu=\pdv{t}{t}+\pdv{x}{x}+\pdv{y}{y}+\pdv{z}{z}=4 \]
+次に $p_{A\nu}x^\nu=5.00\,t+(-3.00)\,x+0\cdot y+0\cdot z=5.00\,t-3.00\,x$（単位 \unit{\giga\electronvolt}）である。$\partial_\mu=(\partial_t,\partial_x,\partial_y,\partial_z)$ を作用させると
+\[ \partial_\mu(p_{A\nu}x^\nu)=(5.00,\ -3.00,\ 0,\ 0)\,\unit{\giga\electronvolt} \]
+で，これは $p_{A\mu}$ と一致する。上付きの $x^\mu$ で割る（微分する）と下付きの量になることの例である。
+\kotae{\shoumonkai{1} $p_{A\mu}=(5.00,-3.00,0,0)$，$p_{B\mu}=(3.00,0,-3.00,0)$（\unit{\giga\electronvolt}）。$p_A^\mu p_{A\mu}=\qty{16.0}{\giga\electronvolt\squared}$，$p_B^\mu p_{B\mu}=0$，$p_A^\mu p_{B\mu}=\qty{15.0}{\giga\electronvolt\squared}$。質量は A が \qty{4.00}{\giga\electronvolt}，B が0 \shoumonkai{2} $p_A'^\mu=(8.50,7.50,0,0)$，$p_B'^\mu=(3.75,2.25,3.00,0)$（\unit{\giga\electronvolt}）。3つの量は \qty{16.0}{\giga\electronvolt\squared}，0，\qty{15.0}{\giga\electronvolt\squared} で不変 \shoumonkai{3} $\partial_\mu x^\mu=4$。$p_{A\nu}x^\nu=5.00\,t-3.00\,x$，$\partial_\mu(p_{A\nu}x^\nu)=(5.00,-3.00,0,0)=p_{A\mu}$}
+\kenzan 内積は（エネルギー）$^2$ の次元をもつ。B は質量0なので $E=\abs{\vect{p}}$ が成り立ち（$3.00=3.00$，ブースト後も $3.75^2=2.25^2+3.00^2$），光子のような粒子である。$\beta\to0$ では $\gamma=1$，$\gamma\beta=0$ となり，成分は変わらない。
+\tsumazuki $p_A^\mu p_{B\mu}$ で空間成分に負号を付け忘れ，$15.0+0$ のつもりで符号を誤ることがある。下付きにするのは片方だけである（両方を下付きにした $p_{A\mu}p_{B\mu}$ のような和はとらない）。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\素粒子物理学\012_2026-10-28.tex
+\mondaibangou{2}
+\begin{mondai}{012-nonrel}{計算}{相対論的か非相対論的かの判定（$K\ll m$），運動量の厳密な値と非相対論的な値の違い，探れる大きさ $\lambda=2\pi\hbar c/(pc)$}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+   & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電気素量 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  陽子の質量 & $\mprot$ & \qty{1.67e-27}{\kilogram}（$\mprot c^2=\qty{938}{\mega\electronvolt}$）\\
+  電子の質量 & $\melec c^2$ & \qty{0.511}{\mega\electronvolt}\\
+  $\alpha$ 粒子の質量 & $m_\alpha c^2$ & \qty{3.73e3}{\mega\electronvolt}\\
+  中性 $\pi$ 中間子の質量 & $m_{\pi^0}c^2$ & \qty{135}{\mega\electronvolt}\\
+  $\eta$ 中間子の質量 & $m_\eta c^2$ & \qty{548}{\mega\electronvolt}\\
+  Z ボソンの質量 & $m_Zc^2$ & \qty{91.2}{\giga\electronvolt}\\
+\end{teisuu}
+自然単位系（$c=1$）で，質量 $m$，運動エネルギー $K$（$E=K+m$）の粒子を考える。運動量の厳密な値を $p$，非相対論的な値を $p_{\mathrm{nr}}=\sqrt{2mK}$ とする。次の4つの場合を考える。
+  (a) 電子，$K=\qty{1.00}{\kilo\electronvolt}$（電子顕微鏡）\quad
+  (b) 電子，$K=\qty{200}{\kilo\electronvolt}$\quad
+  (c) $\alpha$ 粒子，$K=\qty{8.00}{\mega\electronvolt}$\quad
+  (d) 電子，$K=\qty{200}{\mega\electronvolt}$（加速器の電子ビーム）\\
+  質量は定数表の値を使い，答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item $E^2=p^2+m^2$ と $E=K+m$ から $p^2=K^2+2mK$ を示し，比 $p/p_{\mathrm{nr}}$ を $K/m$ だけで表せ。
+    \item (a)--(d) のそれぞれについて，$K/m$，運動量 $pc$，波長 $\lambda=2\pi\hbar c/(pc)$ を求めよ（$\lambda$ は (a)(b) では \unit{\pico\metre}，(c)(d) では \unit{\femto\metre} で答えよ）。
+    \item $p_{\mathrm{nr}}$ を使ったときの $p$ の誤差が1\%未満になるのはどれか。また (d) で $p_{\mathrm{nr}}$ を使うと $\lambda$ は何倍に見積もられるか。(d) のような場合に $p\sim E$ とおく理由を述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 B ◎○△}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\begin{align*}
+  E&=K+m\\
+  \therefore\ E^{2}&=K^{2}+m^{2}+2mK\\
+  p^{2}+m^{2}&=K^{2}+m^{2}+2mK\\
+  \therefore\ p^{2}&=K^{2}+2mK
+\end{align*}
+\begin{align*}
+  \frac{p}{p_{\mathrm{nr}}}&=\frac{\sqrt{K^{2}+2mK}}{\sqrt{2mK}}\\
+  &=\sqrt{\frac{1}{2}\left(\frac{K}{m}\right)+1}
+\end{align*}
+\toi{2}{○}{単位}
+(a)
+\[ \frac{K}{\melec c^{2}}=\frac{\qty{1.00}{\kilo\electronvolt}}{\qty{511}{\kilo\electronvolt}}=\num{1.96e-3} \]
+\begin{align*}
+  pc&=\sqrt{(\qty{1.00}{\kilo\electronvolt})^{2}+2\times\qty{511}{\kilo\electronvolt}\times\qty{1.00}{\kilo\electronvolt}}\\
+  &=\qty{32.0}{\kilo\electronvolt}
+\end{align*}
+\[ \lambda=\frac{2\pi\times\qty{197}{\kilo\electronvolt\pico\metre}}{pc\ (\unit{\kilo\electronvolt})}=\qty{38.7}{\pico\metre} \]
+(b)
+\[ \frac{K}{\melec c^{2}}=\frac{200}{511}=0.391 \]
+\begin{align*}
+  pc&=\sqrt{(\qty{200}{\kilo\electronvolt})^{2}+2\times\qty{511}{\kilo\electronvolt}\times\qty{200}{\kilo\electronvolt}}\\
+  &=\qty{494}{\kilo\electronvolt}
+\end{align*}
+\[ \lambda=\frac{2\pi\times\qty{197}{\kilo\electronvolt\pico\metre}}{pc\ (\unit{\kilo\electronvolt})}=\qty{2.50}{\pico\metre} \]
+(c)
+\[ \frac{K}{m_{\alpha}c^{2}}=\frac{\qty{8.00}{\mega\electronvolt}}{\qty{3.73e3}{\mega\electronvolt}}=\num{2.14e-3} \]
+\begin{align*}
+  pc&=\sqrt{(\qty{8.00}{\mega\electronvolt})^{2}+2\times\num{3.73e3}\times8.00\,(\unit{\mega\electronvolt})^{2}}\\
+  &=\qty{244}{\mega\electronvolt}
+\end{align*}
+\[ \lambda=\frac{2\pi\times\qty{197}{\mega\electronvolt\femto\metre}}{pc\ (\unit{\mega\electronvolt})}=\ayamari{\qty{5.07}{\femto\metre}}{\qty{5.06}{\femto\metre}} \]
+\naze{丸めた $pc=244$ で割ったため3桁目がずれた。$pc=\qty{244.43}{\mega\electronvolt}$ を丸めずに使うと $1237.8/244.43=\qty{5.06}{\femto\metre}$。}
+(d)
+\[ \frac{K}{\melec c^{2}}=\frac{200}{0.511}=391 \]
+\[ pc=\sqrt{(200)^{2}+2\times0.511\times200}=\qty{201}{\mega\electronvolt} \]
+\[ \lambda=\qty{6.17}{\femto\metre} \]
+\toi{3}{△}{立式}
+\[ \frac{p}{p_{\mathrm{nr}}}=\sqrt{\frac{1}{2}\left(\frac{K}{m}\right)+1} \]
+\[ \text{(a)}\ \frac{p}{p_{\mathrm{nr}}}=1.000\qquad\text{(b)}\ \frac{p}{p_{\mathrm{nr}}}=1.093 \]
+\[ \text{(c)}\ \frac{p}{p_{\mathrm{nr}}}=1.000\qquad\text{(d)}\ \frac{p}{p_{\mathrm{nr}}}=14.02 \]
+(a) と (c)
+
+(d) で $p_{\mathrm{nr}}$ を使うと $\lambda$ は \ayamari{0.07}{14.0} 倍
+\naze{$p_{\mathrm{nr}}$ は $p$ の $1/14.0$ に過小評価され，$\lambda\propto1/p$ なので $\lambda$ は逆に14.0倍（約 \qty{87}{\femto\metre}）に見積もられる。0.07 は $p_{\mathrm{nr}}/p$ の値で，$\lambda$ の倍率ではない。}
+\[ E\sim K\gg m \]
+\[ p=\sqrt{E^{2}-m^{2}}\sim E \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「$A$ を使うと $B$ は何倍か」は，$B$ と $A$ の関係（比例か反比例か）を先に書いてから倍率を出す。$\lambda\propto1/p$ なので，$p$ が $1/14$ になれば $\lambda$ は14倍である。答えた後に「運動量を小さく見積もれば波長は長くなるはず」と向きで確かめる。
+\item \mae{第1回 問題1 (2)・10-23} 前回も $\hbar c$ を掛けるか割るかで逆数を取り違えた。比や換算の向きは，単位か大小の向き（長くなるか短くなるか）で確かめる。
+\item \mae{第1回 問題5 (5)・10-25} 途中の値を3桁に丸めて次の計算に使うと，答えの3桁目がずれる。途中は4桁以上を残し，最後だけ3桁に丸める。
+\end{kizuki}
+\begin{tadashii}
+\houshin $E=K+m$ と $E^2=p^2+m^2$ から厳密な $p$ を出し，非相対論的な $p_{\mathrm{nr}}=\sqrt{2mK}$ と比べる。比は $K/m$ だけで決まるので，非相対論的の判定条件 $K\ll m$ がそのまま現れる。
+\keisan \shoumonkai{1} $E=K+m$ を2乗して $E^2=p^2+m^2$ に代入すると
+\[ K^2+2mK+m^2=p^2+m^2\quad\Longrightarrow\quad p^2=K^2+2mK \]
+したがって
+\[ \frac{p}{p_{\mathrm{nr}}}=\sqrt{\frac{K^2+2mK}{2mK}}=\sqrt{1+\frac{K}{2m}} \]
+\shoumonkai{2} $2\pi\hbar c=2\pi\times\qty{197}{\mega\electronvolt\femto\metre}=\qty{1238}{\mega\electronvolt\femto\metre}$ である。$\qty{1}{\mega\electronvolt\femto\metre}=\qty{e6}{\electronvolt}\times\qty{e-15}{\metre}=\qty{1}{\kilo\electronvolt\pico\metre}$ なので，これは $\qty{1238}{\kilo\electronvolt\pico\metre}$ でもある。
+
+(a) $m=\qty{511}{\kilo\electronvolt}$，$K=\qty{1.00}{\kilo\electronvolt}$：
+\[ \frac{K}{m}=\num{1.96e-3},\qquad (pc)^2=1.00^2+2\times511\times1.00=1023\ \unit{\kilo\electronvolt\squared},\qquad pc=\qty{32.0}{\kilo\electronvolt} \]
+\[ \lambda=\frac{\qty{1238}{\kilo\electronvolt\pico\metre}}{\qty{31.98}{\kilo\electronvolt}}=\qty{38.7}{\pico\metre} \]
+(b) $K=\qty{200}{\kilo\electronvolt}$：
+\[ \frac{K}{m}=0.391,\qquad (pc)^2=200^2+2\times511\times200=\num{2.444e5}\ \unit{\kilo\electronvolt\squared},\qquad pc=\qty{494}{\kilo\electronvolt} \]
+\[ \lambda=\frac{\qty{1238}{\kilo\electronvolt\pico\metre}}{\qty{494.4}{\kilo\electronvolt}}=\qty{2.50}{\pico\metre} \]
+(c) $m=\qty{3730}{\mega\electronvolt}$，$K=\qty{8.00}{\mega\electronvolt}$：
+\[ \frac{K}{m}=\num{2.14e-3},\qquad (pc)^2=8.00^2+2\times3730\times8.00=\num{5.974e4}\ \unit{\mega\electronvolt\squared},\qquad pc=\qty{244}{\mega\electronvolt} \]
+\[ \lambda=\frac{\qty{1238}{\mega\electronvolt\femto\metre}}{\qty{244.4}{\mega\electronvolt}}=\qty{5.06}{\femto\metre} \]
+(d) $m=\qty{0.511}{\mega\electronvolt}$，$K=\qty{200}{\mega\electronvolt}$：
+\[ \frac{K}{m}=391,\qquad (pc)^2=200^2+2\times0.511\times200=\num{4.020e4}\ \unit{\mega\electronvolt\squared},\qquad pc=\qty{201}{\mega\electronvolt} \]
+\[ \lambda=\frac{\qty{1238}{\mega\electronvolt\femto\metre}}{\qty{200.5}{\mega\electronvolt}}=\qty{6.17}{\femto\metre} \]
+（途中の値は丸めずに使った。）(a)(c) は $K\ll m$ で非相対論的，(b) は $K/m$ が1に近くどちらの近似も使えない中間の領域，(d) は $K\gg m$ で相対論的である。
+
+\shoumonkai{3} 誤差が1\%未満になる条件は
+\[ \sqrt{1+\frac{K}{2m}}<1.01\quad\Longleftrightarrow\quad \frac{K}{m}<2\times(1.01^2-1)=0.0402 \]
+これを満たすのは (a)（比 1.0005）と (c)（比 1.0005）である。(b) では比が $\sqrt{1.196}=1.09$ で約9\%ずれる。(d) では
+\[ \frac{p}{p_{\mathrm{nr}}}=\sqrt{1+\frac{200}{2\times0.511}}=\sqrt{196.7}=14.0 \]
+なので，$p_{\mathrm{nr}}$ を使うと運動量を $1/14.0$ に過小評価し，$\lambda\propto1/p$ は14.0倍（約 \qty{86.6}{\femto\metre}）に見積もられてしまう。$K\gg m$ では $p^2=K^2+2mK\simeq K^2$，さらに $E=K+m\simeq K$ なので $p\simeq E$ となり（(d) では $pc=\qty{200.5}{\mega\electronvolt}$ と $E=\qty{200.5}{\mega\electronvolt}$ の差は0.1\%未満），$p\sim E$ とおける。
+\kotae{\shoumonkai{1} $p^2=K^2+2mK$，$p/p_{\mathrm{nr}}=\sqrt{1+K/(2m)}$ \shoumonkai{2} (a) $K/m=\num{1.96e-3}$，$pc=\qty{32.0}{\kilo\electronvolt}$，$\lambda=\qty{38.7}{\pico\metre}$。(b) $0.391$，\qty{494}{\kilo\electronvolt}，\qty{2.50}{\pico\metre}。(c) \num{2.14e-3}，\qty{244}{\mega\electronvolt}，\qty{5.06}{\femto\metre}。(d) 391，\qty{201}{\mega\electronvolt}，\qty{6.17}{\femto\metre} \shoumonkai{3} 1\%未満は (a) と (c)。(d) では $\lambda$ を14.0倍に見積もる。$K\gg m$ では $p^2\simeq K^2$，$E\simeq K$ なので $p\sim E$}
+\kenzan 次元：$(pc)^2$ と $K^2$，$mK$ はどれも（エネルギー）$^2$。極限：$K\to0$ で比は1（非相対論の極限），$m\to0$ では $p=K=E$（質量0の粒子）。(a) と (d) の波長は講義で挙げられた約 \qty{40}{\pico\metre}，約 \qty{6}{\femto\metre} と合う。
+\tsumazuki 「電子は軽いから常に相対論的」ではない。判定は粒子の種類ではなく $K/m$ で行う（(a) の電子は非相対論的，(c) の重い $\alpha$ 粒子も非相対論的）。\unit{\kilo\electronvolt} と \unit{\mega\electronvolt} を混ぜて代入しないこと。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\素粒子物理学\013_2026-10-28.tex
+\mondaibangou{3}
+\begin{mondai}{013-thomson}{計算}{トムソンの陰極線の実験による比電荷 $q/m$ の測定と，電子の質量の見積もり}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+   & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電気素量 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  陽子の質量 & $\mprot$ & \qty{1.67e-27}{\kilogram}（$\mprot c^2=\qty{938}{\mega\electronvolt}$）\\
+  電子の質量 & $\melec c^2$ & \qty{0.511}{\mega\electronvolt}\\
+  $\alpha$ 粒子の質量 & $m_\alpha c^2$ & \qty{3.73e3}{\mega\electronvolt}\\
+  中性 $\pi$ 中間子の質量 & $m_{\pi^0}c^2$ & \qty{135}{\mega\electronvolt}\\
+  $\eta$ 中間子の質量 & $m_\eta c^2$ & \qty{548}{\mega\electronvolt}\\
+  Z ボソンの質量 & $m_Zc^2$ & \qty{91.2}{\giga\electronvolt}\\
+\end{teisuu}
+この問題は SI 単位で考える。陰極線（同じ粒子の流れ）を一様な磁場 $B$ に垂直に入射させると，半径 $r$ の円軌道を描いた。同じ陰極線を熱量計に当てると，運ばれた全運動エネルギーは $W$，全電荷の大きさは $Q$ であった。粒子1個の質量を $m$，電荷の大きさを $q$，速さを $v$，粒子数を $N$ とし，粒子は非相対論的に扱う。
+  \begin{shoumon}
+    \item $mv^2/r=qvB$，$W=N\cdot\frac{1}{2}mv^2$，$Q=Nq$ から $v$ と $N$ を消去して，比電荷 $q/m$ を $W$，$Q$，$B$，$r$ で表せ。
+    \item $B=\qty{5.00e-4}{\tesla}$，$r=\qty{0.100}{\metre}$，$W=\qty{4.40e-4}{\joule}$，$Q=\qty{2.00e-6}{\coulomb}$ のとき，$q/m$ を有効数字3桁で求めよ。
+    \item 水素イオン（陽子）の比電荷 $e/\mprot$ を求め，前の小問の $q/m$ との比を有効数字3桁で求めよ。$q=e$ とすると，この粒子の質量は陽子の質量の何分の1か。また粒子の速さ $v$ を求め，非相対論的に扱ってよいことを確かめよ。
+    \item 陰極の物質を変えても同じ $q/m$ が得られた。このことから何が結論できるかを述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ W=\frac{Q}{q}\cdot\frac{1}{2}mv^{2} \]
+\[ \frac{mv}{r}=qB\qquad v=\frac{qBr}{m} \]
+\begin{align*}
+  W&=\frac{Q}{q}\cdot\frac{1}{2}m\frac{q^{2}B^{2}r^{2}}{m^{2}}\\
+  W&=\frac{qQB^{2}r^{2}}{2m}\\
+  \therefore\ \frac{q}{m}&=\frac{2W}{QB^{2}r^{2}}
+\end{align*}
+\toi{2}{◎}{}
+\[ \qty{1.76e11}{\coulomb\per\kilogram} \]
+\toi{3}{◎}{}
+\[ \frac{e}{\mprot}=\qty{9.58e7}{\coulomb\per\kilogram} \]
+\[ \frac{\num{9.58e7}}{\num{1.76e11}}=\num{5.44e-4} \]
+1837分の1
+\[ v=\frac{q}{m}Br=\qty{8.8e6}{\metre\per\second}\ll c \]
+\toi{4}{◎}{}
+その粒子が原子よりもはるかに軽い。どの物質にも含まれる粒子。
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\素粒子物理学\014_2026-10-28.tex
+\mondaibangou{4}
+\begin{mondai}{014-kosei}{説明}{素粒子の個性（スピン・charge・質量），スピンと波動方程式の対応，クライン・ゴルドン方程式の位置づけ}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  換算プランク定数 & $\hbar$ & \qty{1.05e-34}{\joule\second}\\
+   & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電気素量 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  陽子の質量 & $\mprot$ & \qty{1.67e-27}{\kilogram}（$\mprot c^2=\qty{938}{\mega\electronvolt}$）\\
+  電子の質量 & $\melec c^2$ & \qty{0.511}{\mega\electronvolt}\\
+  $\alpha$ 粒子の質量 & $m_\alpha c^2$ & \qty{3.73e3}{\mega\electronvolt}\\
+  中性 $\pi$ 中間子の質量 & $m_{\pi^0}c^2$ & \qty{135}{\mega\electronvolt}\\
+  $\eta$ 中間子の質量 & $m_\eta c^2$ & \qty{548}{\mega\electronvolt}\\
+  Z ボソンの質量 & $m_Zc^2$ & \qty{91.2}{\giga\electronvolt}\\
+\end{teisuu}
+素粒子の個性とスピンの歴史について，次の問いに答えよ。
+  \begin{shoumon}
+    \item 大きさをもたない素粒子の「個性」を決める3つの性質を挙げよ。また，スピン0，1/2，1の素粒子が従う波動方程式の名前をそれぞれ答え，スピンによって波動方程式が異なる理由を，角運動量の保存と空間回転に触れて説明せよ。
+    \item この講義でいう charge とは何かを説明せよ。また，電磁気力・弱い力・強い力のそれぞれについて，力を伝えるボソン（質量の有無を含む）と，それに対応する charge を答えよ。
+    \item クライン・ゴルドン方程式は，作られた当初（1926年）は原子スペクトルを再現できなかった。それでも現在重要とされる理由を述べ，この方程式に従う粒子の例を2つ挙げよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 A ○◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{○}{記述}
+スピン，charge，質量
+
+0：クライン・ゴルドン方程式
+
+1/2：ディラック方程式
+
+1：プロカ方程式
+
+角運動量の保存は軌道角運動量とスピンの合計だから。\nuke{空間回転}
+\naze{問われている空間回転に触れていない（答案に必要な論点）。空間を回転したときに波動関数がどう変換されるかはスピンで決まるので，スピンが違えば従う波動方程式も異なる，という一言が要る。3つの性質と方程式の対応は正しい。}
+\toi{2}{◎}{}
+相互作用に対する敏感さ
+
+電：光子，0，電荷
+
+弱：ウィークボソンなど，あり，2種類の弱荷
+
+強：グルーオン，0，カラー荷
+\toi{3}{◎}{}
+クライン・ゴルドン方程式はスピン0の粒子の方程式だから。
+
+$\pi$中間子，アルファ粒子
+\end{kotaeutsushi}
+\begin{kizuki}
+\item スピンは粒子固有の角運動量で，空間回転に対する波動関数の変換のしかたを決める。角運動量の保存（軌道とスピンの合計）は「スピンが何か」の説明で，「なぜ方程式が違うか」には，回転で波動関数がどう変わるかがスピンで違う，という空間回転の側の一言が要る。
+\item \mae{第1回 問題4 (3)・10-23} 問題文が「〜に触れて」「〜と比べて」と観点を指定したら，その語を答えに含めたかを最後に確かめる。前回は陽子との比較が，今回は空間回転が抜けた。
+\end{kizuki}
+\begin{tadashii}
+\houshin 素粒子の個性と，相対論的量子力学とスピンの歴史の内容をまとめる。
+\keisan \shoumonkai{1} 素粒子の個性を決めるのは，スピン・charge・質量の3つである。スピンが0，1/2，1の素粒子は，それぞれクライン・ゴルドン方程式，ディラック方程式，プロカ方程式に従う。スピンは粒子固有の角運動量で，角運動量の保存は軌道角運動量とスピンの合計で考えなければならない。空間を回転したときに波動関数がどう変換されるか（空間回転に対する性質）はスピンで決まるので，スピンが違えば従う波動方程式も異なり，性質の異なる粒子になる。 % 出典: p.19・p.20
+
+\shoumonkai{2} charge は「その力にどのくらい敏感か」，すなわち力を伝えるボソンとどのくらい強く結合するか（反応するか）を表す量である。力はボソンとの反応として扱われる。 % 出典: p.20
+\begin{itemize}
+  \item 電磁気力：光子（質量0），charge は電荷
+  \item 弱い力：質量をもつボソン（\hanigai W ボソン・Z ボソン），charge は2種類の弱荷
+  \item 強い力：グルオン（質量0），charge はカラー荷
+\end{itemize}
+
+\shoumonkai{3} クライン・ゴルドン方程式は電子（スピン1/2）の方程式ではなく，結果的にスピン0の粒子の方程式であった。そのため，スピン0の粒子を記述する方程式として重要である。例は，ヒッグス粒子と，1934年に湯川が提唱し1947年に発見されたパイ中間子。また，パウリ（1934年）によって場の量子論の中で正しい方程式として扱えることが示された。 % 出典: p.24・p.24--25・p.25
+\kotae{\shoumonkai{1} スピン・charge・質量。スピン0：クライン・ゴルドン方程式，1/2：ディラック方程式，1：プロカ方程式。角運動量の保存は軌道とスピンの合計で考える必要があり，空間回転に対する性質がスピンで決まるため \shoumonkai{2} charge はボソンとの結合の強さ。電磁気力は光子（質量0）と電荷，弱い力は質量をもつボソンと2種類の弱荷，強い力はグルオン（質量0）とカラー荷 \shoumonkai{3} スピン0の粒子の方程式だから。例：ヒッグス粒子，パイ中間子}
+\kenzan 素粒子の個性の表（スピン0／1/2／1 と方程式の対応，3つの力とボソン・charge の対応）とすべて一致する。電子はスピン1/2なので，スピン0の方程式で原子スペクトルが再現できなかったことと矛盾しない。
+\tsumazuki 「charge＝電荷」だけではない。この講義の charge は，弱荷・カラー荷も含めた「ボソンとの結合の強さ」の総称である。質量もボソンとの相互作用で作り出せる点にも注意する。 % 出典: p.20
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

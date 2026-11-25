@@ -1,0 +1,59 @@
+% 熱物理学 熱物理学-3 問題5（020-henkan） 解いた日 2026-11-12
+%% kotae
+\toi{1}{○}{記述}
+\[ \dd V=\left(\pdv{V}{T}\right)_{p}\dd T+\left(\pdv{V}{p}\right)_{T}\dd p \]
+\[ \alpha=\frac{1}{V}\left(\pdv{V}{T}\right)_{p} \quad \therefore\ \left(\pdv{V}{T}\right)_{p}=\alpha V \]
+\[ \kappa_{T}=-\frac{1}{V}\left(\pdv{V}{p}\right)_{T} \quad \therefore\ \left(\pdv{V}{p}\right)_{T}=-\kappa_{T}V \]
+\[ \therefore\ \dd V=\alpha V\,\dd T-\kappa_{T}V\,\dd p \]
+\begin{align*}
+\dd X&=\left(\pdv{X}{T}\right)_{V}\dd T+\left(\pdv{X}{V}\right)_{T}\dd V\\
+&=\left(\pdv{X}{T}\right)_{V}\dd T\\
+&\qquad+\left(\pdv{X}{V}\right)_{T}(\alpha V\,\dd T-\kappa_{T}V\,\dd p)\\
+&=\biggl(\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T}\biggr)\dd T\\
+&\qquad-\kappa_{T}V\left(\pdv{X}{V}\right)_{T}\dd p
+\end{align*}
+\[ \left(\pdv{X}{T}\right)_{p}=\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T} \]
+\[ \left(\pdv{X}{p}\right)_{T}=-\kappa_{T}V\left(\pdv{X}{V}\right)_{T} \]
+\naze{係数を比べる相手の全微分 $\dd X=(\partial X/\partial T)_{p}\,\dd T+(\partial X/\partial p)_{T}\,\dd p$（$X$ を $(T,p)$ の関数とみたもの）と，係数を比べてよい理由（$\dd T$ と $\dd p$ が独立に選べる）が書かれていない。}
+\toi{2}{○}{記述}
+\begin{align*}
+\dd X&=\left(\pdv{X}{V}\right)_{p}\dd V+\left(\pdv{X}{p}\right)_{V}\dd p\\
+&=\left(\pdv{X}{V}\right)_{p}(\alpha V\,\dd T-\kappa_{T}V\,\dd p)\\
+&\qquad+\left(\pdv{X}{p}\right)_{V}\dd p\\
+&=\alpha V\left(\pdv{X}{V}\right)_{p}\dd T\\
+&\qquad+\biggl(\left(\pdv{X}{p}\right)_{V}-\kappa_{T}V\left(\pdv{X}{V}\right)_{p}\biggr)\dd p
+\end{align*}
+\[ \left(\pdv{X}{T}\right)_{p}=\alpha V\left(\pdv{X}{V}\right)_{p} \]
+\[ \therefore\ \left(\pdv{X}{V}\right)_{p}=\frac{1}{\alpha V}\left(\pdv{X}{T}\right)_{V}+\left(\pdv{X}{V}\right)_{T} \]
+\nuke{$\alpha\neq0$ だから}
+\[ \left(\pdv{X}{p}\right)_{T}=\left(\pdv{X}{p}\right)_{V}-\kappa_{T}V\left(\pdv{X}{V}\right)_{p} \]
+\begin{align*}
+\therefore\ \left(\pdv{X}{p}\right)_{V}&=-\kappa_{T}V\left(\pdv{X}{V}\right)_{T}+\kappa_{T}V\left(\pdv{X}{V}\right)_{p}\\
+&=-\kappa_{T}V\left(\pdv{X}{V}\right)_{T}\\
+&\qquad+\kappa_{T}V\biggl(\frac{1}{\alpha V}\left(\pdv{X}{T}\right)_{V}+\left(\pdv{X}{V}\right)_{T}\biggr)\\
+&=\frac{\kappa_{T}}{\alpha}\left(\pdv{X}{T}\right)_{V}
+\end{align*}
+\begin{align*}
+\left(\pdv{T}{V}\right)_{p}&=\frac{1}{\alpha V}\left(\pdv{T}{T}\right)_{V}+\left(\pdv{T}{V}\right)_{T}\\
+\left(\pdv{T}{p}\right)_{V}&=\frac{\kappa_{T}}{\alpha}\left(\pdv{T}{T}\right)_{V}
+\end{align*}
+\[ \left(\pdv{V}{T}\right)_{p}\left(\pdv{T}{V}\right)_{p}=\alpha V\cdot\frac{1}{\alpha V}=1 \]
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{\alpha}{\kappa_{T}} \]
+\naze{(1) と同じく，$\dd T$ と $\dd p$ が独立に選べるので係数を比べてよい，という根拠が無い。また $1/(\alpha V)$ を作るときに $\alpha\neq0$ を使ったことを明記していない。}
+\toi{3}{◎}{}
+\begin{align*}
+\left(\pdv{X}{T}\right)_{p}&=\left(\pdv{X}{T}\right)_{V}+\alpha V\left(\pdv{X}{V}\right)_{T}\\
+&=c+\frac{V-nb}{TV}\cdot V\cdot\left(-\frac{k}{V^{2}}\right)\\
+&=c-\frac{k(V-nb)}{TV^{2}}
+\end{align*}
+\[ V=\frac{nRT}{p}+nb \]
+\[ X(T,p)=cT+\frac{kp}{nRT+nbp} \]
+\[ \left(\pdv{X}{T}\right)_{p}=c-nR\frac{kp}{(nRT+nbp)^{2}} \]
+\begin{align*}
+c-\frac{k(V-nb)}{TV^{2}}&=c-\frac{k\frac{nRT}{p}}{T\left(\frac{nRT}{p}+nb\right)^{2}}\\
+&=c-\frac{nRkpT}{T(nRT+nbp)^{2}}
+\end{align*}
+一致する。
+%% kizuki
+\item 係数を比べるときは，比べる相手の全微分（ここでは $X$ を $(T,p)$ の関数とみた $\dd X$）を書き，比べる2つの微小量（$\dd T$ と $\dd p$）が独立に選べることを一言添える。$\dd T$，$\dd V$，$\dd p$ は状態方程式で結ばれていて，独立に選べるのは2つだけである。
+\item 割り算をしたら，割った量が0でないこと（ここでは $\alpha\neq0$）を書く。$\alpha=0$ の状態（水の \qty{4}{\degreeCelsius} 付近）では $(V,p)$ を独立変数に選べない。

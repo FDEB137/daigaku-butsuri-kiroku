@@ -1,0 +1,43 @@
+% 数理物理2 数理物理2-1 問題4（006-kyousei） 解いた日 2026-11-04
+%% kotae
+\toi{1}{◎}{}
+$m,\gamma,k,F_{0}$ は実数なので
+\[ \Re\Bigl(m\kakimachigai{\frac{\dd z^{2}}{\dd t^{2}}}{\dv[2]{z}{t}}+\gamma\dv{z}{t}+kz-F_{0}\ee^{\ii\omega t}\Bigr)=0 \]
+\[ \therefore\ m\kakimachigai{\frac{\dd x^{2}}{\dd t^{2}}}{\dv[2]{x}{t}}+\gamma\dv{x}{t}+kx-F_{0}\cos\omega t=0 \]
+\toi{2}{○}{記述}
+\begin{align*}
+&m(\ii\omega)^{2}A\ee^{\ii\omega t}+\gamma(\ii\omega)A\ee^{\ii\omega t}+kA\ee^{\ii\omega t}\\
+&\qquad=F_{0}\ee^{\ii\omega t}\\
+&-m\omega^{2}A+\ii\gamma\omega A+kA=F_{0}
+\end{align*}
+\[ A=\frac{F_{0}}{k-m\omega^{2}+\ii\gamma\omega} \]
+\naze{$\gamma\omega>0$ なので分母 $k-m\omega^{2}+\ii\gamma\omega$ は0にならず，$A$ が定まる，の一言が要る。}
+\toi{3}{△}{立式}
+\begin{align*}
+A^{-1}&=\frac{k-m\omega^{2}}{F_{0}}+\ii\frac{\gamma\omega}{F_{0}}\\
+\abs{A^{-1}}&=\frac{1}{F_{0}}\sqrt{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}}\\
+\abs{A}&=\frac{F_{0}}{\sqrt{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}}}
+\end{align*}
+\begin{align*}
+\frac{A}{\abs{A}}&=\Bigl(\frac{A^{-1}}{\abs{A^{-1}}}\Bigr)^{-1}=\ee^{-\ii\delta}\\
+&=\biggl(\frac{k-m\omega^{2}+\ii\gamma\omega}{\sqrt{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}}}\biggr)^{-1}
+\end{align*}
+\[ \therefore\ \ee^{\ii\delta}=\frac{k-m\omega^{2}+\ii\gamma\omega}{\sqrt{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}}} \]
+\[ \tan\delta=\frac{\gamma\omega}{k-m\omega^{2}} \]
+\nuke{$\delta$ の象限}
+\begin{align*}
+x(t)&=\ayamari{\abs{A}\cos\delta\cos\omega t}{\abs{A}\cos(\omega t-\delta)}\\
+&=\frac{F_{0}}{\sqrt{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}}}\\
+&\qquad\times\sqrt{\frac{1}{1+\left(\frac{\gamma\omega}{k-m\omega^{2}}\right)^{2}}}\cos\omega t\\
+&=\frac{(k-m\omega^{2})F_{0}}{(k-m\omega^{2})^{2}+(\gamma\omega)^{2}}\cos\omega t
+\end{align*}
+\naze{$\abs{A}\cos\delta\cos\omega t$ は $\Re(A)\cos\omega t$ で，$\Re(A\ee^{\ii\omega t})$ ではない（$A$ の虚部が $\sin\omega t$ の係数として入る項が落ちている）。正しくは $x(t)=\Re\bigl(\abs{A}\ee^{\ii(\omega t-\delta)}\bigr)=\abs{A}\cos(\omega t-\delta)$。以降はこの誤りを引き継ぐ。また，$\tan\delta$ だけでは象限が決まらないので，$\sin\delta=\abs{A}\gamma\omega/F_{0}>0$ から $0<\delta<\pi$ と確かめる（$k<m\omega^{2}$ では第2象限）。}
+\toi{4}{○}{記述}
+$\omega=\qty{3.0}{\radian\per\second}$　$\abs{A}=\qty{0.43}{\metre}$　$\delta=\qty{0.71}{\radian}$
+
+$\omega=\qty{4.0}{\radian\per\second}$　$\abs{A}=\qty{0.50}{\metre}$　$\delta=\pi/2$
+\naze{$\omega=\qty{4.0}{\radian\per\second}$ では $k-m\omega^{2}=0$ で $\tan\delta$ が定まらない。$\cos\delta=\abs{A}(k-m\omega^{2})/F_{0}=0$ と $\sin\delta>0$ から $\delta=\pi/2$ とする，の根拠が要る。}
+%% kizuki
+\item 複素数の積の実部は，実部どうしの積ではない。$A=a+b\ii$ とすると $\Re(A\ee^{\ii\omega t})=a\cos\omega t-b\sin\omega t$ で，虚部 $b$ も $\sin\omega t$ の係数として入る。極形式で $\Re(\abs{A}\ee^{\ii(\omega t-\delta)})=\abs{A}\cos(\omega t-\delta)$ と書けば落ちない。
+\item 特別な値を入れて確かめる。共振 $\omega=\sqrt{k/m}$ で $k-m\omega^{2}=0$ を入れると，自分の式では $x(t)=0$ になるが，実際は振幅 $F_{0}/(\gamma\omega)$ で振動する（(4) で自分で求めた $\abs{A}=\qty{0.50}{\metre}$ とも合わない）。
+\item 位相は $\tan$ だけで決めず，$\cos\delta$ と $\sin\delta$ の符号で象限を決める。$\tan\delta$ の分母が0になる場合（(4) の $\omega=\qty{4.0}{\radian\per\second}$）も $\cos\delta=0$ から決められる。

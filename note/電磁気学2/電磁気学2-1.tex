@@ -1,0 +1,216 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{電磁気学2　第1章「マックスウェル方程式とエネルギー保存」}{2026-11-25}
+%% note-moto	problems\電磁気学2\shou01\電磁気学2-1.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-001-nabla}{1}}{L1・計算}{◎◎◎○}{A}{2026-10-19 2回目 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-002-theorems}{2}}{L1・計算}{◎◎}{S}{2026-10-20 2回目}
+  \ichirangyou{3}{L1・計算}{}{未着手}{}
+  \ichirangyou{4}{L1・計算}{}{未着手}{}
+  \ichirangyou{5}{L2・導出}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L2・計算}{}{未着手}{}
+  \ichirangyou{9}{L2・説明}{}{未着手}{}
+  \ichirangyou{10}{L2・導出}{}{未着手}{}
+  \ichirangyou{11}{L2・計算}{}{未着手}{}
+  \ichirangyou{12}{L3・計算}{}{未着手}{}
+  \ichirangyou{13}{L3・導出}{}{未着手}{}
+  \ichirangyou{14}{L3・導出}{}{未着手}{}
+  \ichirangyou{15}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\電磁気学2\001_2026-10-19.tex
+\mondaibangou{1}
+\begin{mondai}{001-nabla}{計算}{ナブラによる発散・回転・勾配・ラプラシアンの計算と2つの恒等式}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e10}{\centi\metre\per\second}（$=\qty{3.00e8}{\metre\per\second}$）\\
+  電気素量（cgs-Gauss） & $e$ & \qty{4.80e-10}{\esu}\\
+  電気素量（SI） & $e$ & \qty{1.60e-19}{\coulomb}\\
+  銅の電気伝導率（cgs-Gauss，室温） & $\sigma$ & \qty{5.4e17}{\per\second}\\
+  電子の質量 & $m$ & \qty{9.11e-28}{\gram}\\
+  真空の誘電率（SI） & $\varepsilon_0$ & \qty{8.85e-12}{\farad\per\metre}\\
+\end{teisuu}
+ベクトル場 $\vect{A}=(x^2y,\ y^2z,\ z^2x)$ とスカラー場 $\phi=x^2yz$ について，次の問いに答えよ。
+\begin{shoumon}
+  \item $\nabla\cdot\vect{A}$ と $\nabla\times\vect{A}$ を求めよ。
+  \item (1)の結果を用いて $\nabla\cdot(\nabla\times\vect{A})=0$ を確かめよ。
+  \item $\nabla\phi$ と $\Delta\phi$ を求め，$\nabla\times(\nabla\phi)=0$ を確かめよ。
+  \item 2階までの偏導関数が連続な任意のベクトル場 $\vect{A}$ について，$\nabla\cdot(\nabla\times\vect{A})=0$ を成分で示せ。
+\end{shoumon}
+\notekiroku{2026-10-05 A ◎◎◎△ → 2026-10-19 A ◎◎◎○}
+\begin{kotaeutsushi}{2026-10-19}
+\toi{1}{◎}{}
+\begin{align*}
+\nabla\cdot\vect{A}&=\pdv{}{x}(x^{2}y)+\pdv{}{y}(y^{2}z)+\pdv{}{z}(z^{2}x)\\
+&=2xy+2yz+2zx
+\end{align*}
+\begin{align*}
+\nabla\times\vect{A}&=\biggl(\pdv{}{y}(z^{2}x)-\pdv{}{z}(y^{2}z),\\
+&\qquad\pdv{}{z}(x^{2}y)-\pdv{}{x}(z^{2}x),\\
+&\qquad\pdv{}{x}(y^{2}z)-\pdv{}{y}(x^{2}y)\biggr)\\
+&=(-y^{2},-z^{2},-x^{2})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\nabla\cdot(\nabla\times\vect{A})\\
+&=\pdv{}{x}(-y^{2})+\pdv{}{y}(-z^{2})+\pdv{}{z}(-x^{2})=0
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\nabla\phi&=\left(\pdv{}{x}(x^{2}yz),\pdv{}{y}(x^{2}yz),\pdv{}{z}(x^{2}yz)\right)\\
+&=(2xyz,x^{2}z,x^{2}y)\\
+\Delta\phi&=\pdv{}{x}(2xyz)+\pdv{}{y}(x^{2}z)+\pdv{}{z}(x^{2}y)\\
+&=2yz
+\end{align*}
+\begin{align*}
+\nabla\times(\nabla\phi)&=\biggl(\pdv{}{y}(x^{2}y)-\pdv{}{z}(x^{2}z),\\
+&\qquad\pdv{}{z}(2xyz)-\pdv{}{x}(x^{2}y),\\
+&\qquad\pdv{}{x}(x^{2}z)-\pdv{}{y}(2xyz)\biggr)\\
+&=(x^{2}-x^{2},2xy-2xy,2xz-2xz)\\
+&=0
+\end{align*}
+\toi{4}{○}{記述}
+\begin{align*}
+\nabla\cdot(\nabla\times\vect{A})&=\nabla\cdot\biggl(\pdv{}{y}A_{z}-\pdv{}{z}A_{y},\\
+&\qquad\pdv{}{z}A_{x}-\pdv{}{x}A_{z},\\
+&\qquad\pdv{}{x}A_{y}-\pdv{}{y}A_{x}\biggr)\\
+&=\pdv{}{x}\pdv{}{y}A_{z}-\pdv{}{x}\pdv{}{z}A_{y}\\
+&\qquad+\pdv{}{y}\pdv{}{z}A_{x}-\pdv{}{y}\pdv{}{x}A_{z}\\
+&\qquad+\pdv{}{z}\pdv{}{x}A_{y}-\pdv{}{z}\pdv{}{y}A_{x}\\
+\intertext{（式の左に添えて）\ayamari{微分の連鎖律より}{2階偏導関数が連続なので微分の順序を交換できて}}
+&=\left(\frac{\partial^{2}}{\partial x\,\partial y}A_{z}-\frac{\partial^{2}}{\partial x\,\partial y}A_{z}\right)\\
+&\qquad+\left(\frac{\partial^{2}}{\partial x\,\partial z}A_{y}-\frac{\partial^{2}}{\partial x\,\partial z}A_{y}\right)\\
+&\qquad+\left(\frac{\partial^{2}}{\partial y\,\partial z}A_{x}-\frac{\partial^{2}}{\partial y\,\partial z}A_{x}\right)\\
+&=0
+\end{align*}
+\naze{連鎖律（合成関数の微分）は使っていない。ここで使うのは，2階偏導関数が連続なので混合偏微分の順序を交換できる（$\partial^{2}A_{z}/\partial y\,\partial x=\partial^{2}A_{z}/\partial x\,\partial y$ など）ことで，問題文の「2階までの偏導関数が連続」はこのための条件である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{電磁気学2-1 問題1・10-05} 前回は (4) の根拠を書かず，今回は書いたが名前が違った。6項が打ち消すのは「2階偏導関数が連続 $\Rightarrow$ 混合偏微分の順序を交換できる」からで，連鎖律ではない。問題文の条件（連続性）と結びつけて根拠を書く。
+\end{kizuki}
+\begin{maekizuki}{2026-10-05}
+\item $\nabla\cdot(\nabla\times\vect{A})$ の6項が消えるのは，混合偏微分の順序を交換できる（$\partial_{x}\partial_{y}A_{z}=\partial_{y}\partial_{x}A_{z}$）からで，その条件が「2階偏導関数が連続」である。問題文にある条件は答案のどこで使ったかを書く。
+\end{maekizuki}
+\begin{tadashii}
+\houshin 成分表示の定義（発散・回転・勾配・ラプラシアン）にそのまま代入する。回転は成分の添字の順序（$x\to y\to z\to x$ の循環）に注意する。
+\keisan
+\shoumonkai{1}
+\begin{align*}
+\nabla\cdot\vect{A}&=\pdv{}{x}(x^2y)+\pdv{}{y}(y^2z)+\pdv{}{z}(z^2x)=2xy+2yz+2zx,\\[2pt]
+(\nabla\times\vect{A})_x&=\pdv{A_z}{y}-\pdv{A_y}{z}=\pdv{}{y}(z^2x)-\pdv{}{z}(y^2z)=0-y^2=-y^2,\\
+(\nabla\times\vect{A})_y&=\pdv{A_x}{z}-\pdv{A_z}{x}=0-z^2=-z^2,\\
+(\nabla\times\vect{A})_z&=\pdv{A_y}{x}-\pdv{A_x}{y}=0-x^2=-x^2
+\end{align*}
+よって $\nabla\times\vect{A}=(-y^2,-z^2,-x^2)$。
+\shoumonkai{2}
+\[
+\nabla\cdot(\nabla\times\vect{A})=\pdv{}{x}(-y^2)+\pdv{}{y}(-z^2)+\pdv{}{z}(-x^2)=0+0+0=0
+\]
+各成分がその微分変数を含まないので0になる。
+\shoumonkai{3}
+$\nabla\phi=(2xyz,\ x^2z,\ x^2y)$。
+\[
+\Delta\phi=\pdv[2]{\phi}{x}+\pdv[2]{\phi}{y}+\pdv[2]{\phi}{z}=2yz+0+0=2yz
+\]
+
+\begin{align*}
+(\nabla\times\nabla\phi)_x&=\pdv{}{y}(x^2y)-\pdv{}{z}(x^2z)=x^2-x^2=0,\\
+(\nabla\times\nabla\phi)_y&=\pdv{}{z}(2xyz)-\pdv{}{x}(x^2y)=2xy-2xy=0,\\
+(\nabla\times\nabla\phi)_z&=\pdv{}{x}(x^2z)-\pdv{}{y}(2xyz)=2xz-2xz=0
+\end{align*}
+\shoumonkai{4}
+\[
+\nabla\cdot(\nabla\times\vect{A})=\pdv{}{x}\left(\pdv{A_z}{y}-\pdv{A_y}{z}\right)+\pdv{}{y}\left(\pdv{A_x}{z}-\pdv{A_z}{x}\right)+\pdv{}{z}\left(\pdv{A_y}{x}-\pdv{A_x}{y}\right)
+\]
+2階偏導関数が連続なので微分の順序を交換でき，
+\[
+\frac{\partial^2A_z}{\partial x\,\partial y}=\frac{\partial^2A_z}{\partial y\,\partial x}\quad\text{など}
+\]
+$A_x,A_y,A_z$ の項がそれぞれ正負で打ち消し合って0になる。
+\kotae{\shoumonkai{1} $\nabla\cdot\vect{A}=2(xy+yz+zx)$，$\nabla\times\vect{A}=(-y^2,-z^2,-x^2)$ \shoumonkai{2} 0になる \shoumonkai{3} $\nabla\phi=(2xyz,x^2z,x^2y)$，$\Delta\phi=2yz$，$\nabla\times\nabla\phi=\vect{0}$ \shoumonkai{4} 混合偏微分の順序交換により各項が相殺する}
+\begin{ronten}
+  \item \shoumonkai{4} 混合偏微分の順序を交換できる根拠として，2階偏導関数が連続であることを述べる。
+  \item \shoumonkai{4} 展開した6項を $A_x,A_y,A_z$ ごとに2項ずつ組にし，各組が微分の順序だけが違う2項の差であることを示してから0とする。
+\end{ronten}
+\kenzan $\vect{A}$ は $x\to y\to z\to x$ の置き換えで各成分が循環する形なので，$\nabla\cdot\vect{A}$ はこの置き換えで不変，$\nabla\times\vect{A}$ の成分も $-y^2\to-z^2\to-x^2$ と循環しており整合する。また，別の経路でも
+\[
+\Delta\phi=\nabla\cdot(\nabla\phi)=\pdv{}{x}(2xyz)+\pdv{}{y}(x^2z)+\pdv{}{z}(x^2y)=2yz
+\]
+と一致する。
+\tsumazuki 回転の $y$ 成分は $\pdv{A_x}{z}$ から $\pdv{A_z}{x}$ を引いたものであり，引く順序を逆にして符号を誤りやすい。循環 $(x,y,z)\to(y,z,x)$ で覚えるとよい。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\電磁気学2\002_2026-10-20.tex
+\mondaibangou{2}
+\begin{mondai}{002-theorems}{計算}{ガウスの定理とストークスの定理の具体的な検証}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e10}{\centi\metre\per\second}（$=\qty{3.00e8}{\metre\per\second}$）\\
+  電気素量（cgs-Gauss） & $e$ & \qty{4.80e-10}{\esu}\\
+  電気素量（SI） & $e$ & \qty{1.60e-19}{\coulomb}\\
+  銅の電気伝導率（cgs-Gauss，室温） & $\sigma$ & \qty{5.4e17}{\per\second}\\
+  電子の質量 & $m$ & \qty{9.11e-28}{\gram}\\
+  真空の誘電率（SI） & $\varepsilon_0$ & \qty{8.85e-12}{\farad\per\metre}\\
+\end{teisuu}
+ベクトル場 $\vect{A}=(x^2y,\ y^2z,\ z^2x)$ について，次の問いに答えよ。
+\begin{shoumon}
+  \item 立方体 $V:\ 0\le x\le1,\ 0\le y\le1,\ 0\le z\le1$ について，体積積分と，表面 $S$ での外向き法線 $\vect{n}$ による面積分を別々に計算し，ガウスの定理が成り立つことを確かめよ。
+  \[
+  \int_V\nabla\cdot\vect{A}\,\dd V \qquad\text{と}\qquad \oint_S\vect{A}\cdot\vect{n}\,\dd S
+  \]
+  \item 平面 $z=1$ 上の正方形 $0\le x\le1,\ 0\le y\le1$ の周 $C$ を，$+z$ 側から見て反時計回りに1周する。線積分と，$\vect{n}=\hat{\vect{z}}$ とした面積分を別々に計算し，ストークスの定理が成り立つことを確かめよ。
+  \[
+  \oint_C\vect{A}\cdot\dd\vect{r} \qquad\text{と}\qquad \int_S(\nabla\times\vect{A})\cdot\vect{n}\,\dd S
+  \]
+\end{shoumon}
+\notekiroku{2026-10-05 C ◎× → 2026-10-20 S ◎◎}
+\begin{kotaeutsushi}{2026-10-20}
+\toi{1}{◎}{}
+\begin{align*}
+\int_{V}\nabla\cdot\vect{A}\,\dd V&=\int_{V}2(xy+yz+zx)\,\dd V\\
+&=2\int_{0}^{1}\dd z\int_{0}^{1}\dd y\int_{0}^{1}\dd x\,(xy+yz+zx)\\
+&=2\int_{0}^{1}\dd z\int_{0}^{1}\dd y\\
+&\qquad\times\left[\frac{1}{2}x^{2}y+xyz+\frac{1}{2}zx^{2}\right]_{0}^{1}\\
+&=\int_{0}^{1}\dd z\int_{0}^{1}\dd y\,(y+z+2yz)\\
+&=\int_{0}^{1}\dd z\left[\frac{1}{2}y^{2}+yz+y^{2}z\right]_{0}^{1}\\
+&=\int_{0}^{1}\dd z\left(2z+\frac{1}{2}\right)\\
+&=\left[z^{2}+\frac{1}{2}z\right]_{0}^{1}=\frac{3}{2}
+\end{align*}
+（図：座標軸を付けた立方体）
+\[ \oint_{S}\vect{A}\cdot\vect{n}\,\dd S \]
+\[ \kakimachigai{\oint_{S_{1}:x=0}}{\int_{S_{1}:x=0}}\begin{pmatrix}0\\y^{2}z\\0\end{pmatrix}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}\dd S=0 \]
+\begin{align*}
+\oint_{S_{2}:x=1}\begin{pmatrix}y\\y^{2}z\\z^{2}\end{pmatrix}\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}\dd S&=\int_{0}^{1}\dd z\int_{0}^{1}\dd y\,y=\frac{1}{2}\\
+\oint_{S_{3}:y=0}\begin{pmatrix}0\\0\\z^{2}x\end{pmatrix}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}\dd S&=0\\
+\oint_{S_{4}:y=1}\begin{pmatrix}x^{2}\\z\\z^{2}x\end{pmatrix}\cdot\begin{pmatrix}0\\1\\0\end{pmatrix}\dd S&=\int_{0}^{1}\dd z\int_{0}^{1}\dd x\,z=\frac{1}{2}\\
+\oint_{S_{5}:z=0}\begin{pmatrix}x^{2}y\\0\\0\end{pmatrix}\cdot\begin{pmatrix}0\\0\\-1\end{pmatrix}\dd S&=0\\
+\oint_{S_{6}:z=1}\begin{pmatrix}x^{2}y\\y^{2}\\x\end{pmatrix}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}\dd S&=\int_{0}^{1}\dd x\int_{0}^{1}\dd y\,x=\frac{1}{2}
+\end{align*}
+\[ \oint_{S}\vect{A}\cdot\vect{n}\,\dd S=\frac{1}{2}+\frac{1}{2}+\frac{1}{2}=\frac{3}{2} \]
+\toi{2}{◎}{}
+（図：$z=1$ 上の正方形）
+\begin{align*}
+\int_{C_{1}:x=0}\begin{pmatrix}0\\y^{2}\\0\end{pmatrix}\cdot\dv{\vect{r}}{y}\,\dd y&=\int_{1}^{0}y^{2}\,\dd y=-\frac{1}{3}\\
+\int_{C_{2}:y=0}\begin{pmatrix}0\\0\\x\end{pmatrix}\cdot\dv{\vect{r}}{x}\,\dd x&=\kakimachigai{\int_{0}^{1}0}{\int_{0}^{1}0\,\dd x}=0\\
+\int_{C_{3}:x=1}\begin{pmatrix}y\\y^{2}\\1\end{pmatrix}\cdot\dv{\vect{r}}{y}\,\dd y&=\int_{0}^{1}y^{2}\,\dd y=\frac{1}{3}\\
+\int_{C_{4}:y=1}\begin{pmatrix}x^{2}\\1\\x\end{pmatrix}\cdot\dv{\vect{r}}{x}\,\dd x&=\int_{1}^{0}x^{2}\,\dd x=-\frac{1}{3}
+\end{align*}
+\[ \nabla\times\vect{A}=(-y^{2},-z^{2},-x^{2}) \]
+\begin{align*}
+\int_{S}\begin{pmatrix}-y^{2}\\-z^{2}\\-x^{2}\end{pmatrix}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}\dd S&=-\int_{0}^{1}\dd y\int_{0}^{1}\dd x\,x^{2}\\
+&=-\frac{1}{3}
+\end{align*}
+\[ \oint_{C}\vect{A}\cdot\dd\vect{r}=\int_{S}(\nabla\times\vect{A})\cdot\vect{n}\,\dd S=-\frac{1}{3} \]
+\end{kotaeutsushi}
+\begin{maekizuki}{2026-10-05}
+\item 線積分の $\dd\vect{r}$ は経路に沿った微小変位で，$\dd\vect{r}=(\dd\vect{r}/\dd s)\,\dd s$ である。各辺で $\dd\vect{r}$ に平行な $\vect{A}$ の成分だけを積分する（$x$ 方向の辺なら $A_{x}\,\dd x$）。
+\item 定理を「確かめよ」という問題で両辺が合わなかったら，答案を終える前にどちらの計算が誤っているかを見直す。
+\end{maekizuki}
+\end{mondai}
+
+\noteowari
+\end{document}

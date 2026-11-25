@@ -1,0 +1,40 @@
+% 連続体力学 連続体力学-1 問題2（002-expansion） 解いた日 2026-10-17
+%% kotae
+\toi{1}{◎}{}
+\[ \vect{\nabla}\cdot\vect{u}=\frac{\alpha}{1+\alpha t}+0+0=\frac{\alpha}{1+\alpha t} \]
+\toi{2}{◎}{}
+\[ \pdv{\rho}{t}=-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}} \]
+\begin{align*}
+\vect{\nabla}\cdot(\rho\vect{u})&=\vect{\nabla}\cdot\Bigl(\frac{\rho_{0}\alpha x_{1}}{(1+\alpha t)^{2}},0,0\Bigr)\\
+&=\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}
+\end{align*}
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\toi{3}{◎}{}
+\begin{align*}
+\frac{\mathrm{D}\rho}{\mathrm{D}t}&=u_{1}\pdv{\rho}{x_{1}}+\pdv{\rho}{t}\\
+&=\frac{\alpha x_{1}}{1+\alpha t}\cdot0-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}\\
+&=-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}
+\end{align*}
+\begin{align*}
+\frac{\mathrm{D}\rho}{\mathrm{D}t}+\rho\vect{\nabla}\cdot\vect{u}&=-\frac{\rho_{0}\alpha}{(1+\alpha t)^{2}}\\
+&\qquad+\frac{\rho_{0}}{1+\alpha t}\cdot\frac{\alpha}{1+\alpha t}=0
+\end{align*}
+\toi{4}{▲}{立式}
+\[ \frac{\mathrm{D}x_{1}}{\mathrm{D}t}=u_{1}=\frac{\alpha x_{1}}{1+\alpha t} \]
+\[ \frac{1}{x_{1}}\,\mathrm{D}x_{1}=\frac{\alpha}{1+\alpha t}\,\mathrm{D}t \]
+\[ \therefore\ \ln x_{1}=\ln(1+\alpha t)+C \]
+\[ x_{1}=C'(1+\alpha t) \]
+$t=0$ で $x_{1}=X_{1}$ より
+\[ X_{1}=C' \]
+\[ x_{1}(t)=X_{1}(1+\alpha t) \]
+\begin{align*}
+M&=\ayamari{\int_{x_{1}}^{x_{1}+\ell}\rho x_{1}\,\dd x_{1}}{\rho\cdot\ell(1+\alpha t)}\\
+&=\Bigl[\frac{1}{2}\rho x_{1}^{2}\Bigr]_{x_{1}}^{x_{1}+\ell}\\
+&=\frac{1}{2}\rho(2x_{1}\ell+\ell^{2})
+\end{align*}
+より $t$ に依存しない。
+\naze{単位面積あたりの質量は「密度×長さ」なので被積分関数は $\rho$ だけで，余計な $x_{1}$ は要らない。また範囲は2つの粒子とともに動き，時刻 $t$ には $X_{1}(1+\alpha t)$ から $(X_{1}+\ell)(1+\alpha t)$ まで（間隔 $\ell(1+\alpha t)$）である。正しくは $M=\rho\cdot\ell(1+\alpha t)=\rho_{0}\ell$ で時間によらない。以降はこの誤りを引き継ぐ。なお書いた結果も $\rho=\rho_{0}/(1+\alpha t)$ を含むので，そのままでは「$t$ に依存しない」は言えない。}
+\[ \vect{\nabla}\cdot\vect{u}=\frac{\alpha}{1+\alpha t}\ \text{より満たさない} \]
+%% kizuki
+\item Lagrange 記述で「2つの粒子に挟まれた部分」を追うときは，範囲の端も粒子とともに動く。求めた軌道から間隔 $\ell(1+\alpha t)$ を出し，質量は「密度×間隔」$=\rho\cdot\ell(1+\alpha t)=\rho_{0}\ell$ とする。固定した区間 $[x_{1},x_{1}+\ell]$ で積分すると，同じ粒子の集まりを追っていない。
+\item 「$t$ によらない」と結論する前に，得た式に $t$ を含む量（ここでは $\rho$）が残っていないかを見る。質量の式は次元（密度×長さ）でも検算する（$\rho x_{1}\,\dd x_{1}$ は密度×長さ${}^{2}$ になる）。

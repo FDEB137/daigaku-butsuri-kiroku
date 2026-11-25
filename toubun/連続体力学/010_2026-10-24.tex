@@ -1,0 +1,57 @@
+% 連続体力学 連続体力学-2 問題2（010-gauss） 解いた日 2026-10-24
+%% kotae
+\[ \tens{P}=\begin{pmatrix}-p_{0}+kx_{2}&kx_{1}&0\\kx_{1}&-p_{0}&0\\0&0&-p_{0}\end{pmatrix} \]
+\toi{1}{◎}{}
+\begin{align*}
+\vect{\nabla}\cdot\tens{P}&=(0+0+0,\ 0+k+0,\ 0+0+0)\\
+&=(0,k,0)=k\vect{e}_{2}
+\end{align*}
+\toi{2}{◎}{}
+\[ \int_{S:x_{2}=0}\tens{P}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}=\int_{S}p_{0} \]
+（ここで止め，以降に使っていない）
+\begin{align*}
+&\int_{S:x_{1}=0}\tens{P}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}p_{0}-kx_{2}\\0\\0\end{pmatrix}\dd x_{2}\,\dd x_{3}\\
+&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{2}\,(p_{0}-kx_{2})\vect{e}_{1}\\
+&=\Bigl(a^{2}p_{0}-\frac{1}{2}ka^{3}\Bigr)\vect{e}_{1}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{1}=a}\tens{P}\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}-p_{0}+kx_{2}\\ka\\0\end{pmatrix}\dd x_{2}\,\dd x_{3}\\
+&=\Bigl(-a^{2}p_{0}+\frac{1}{2}ka^{3}\Bigr)\vect{e}_{1}+(ka^{3})\vect{e}_{2}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{2}=0}\tens{P}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}-kx_{1}\\p_{0}\\0\end{pmatrix}\dd x_{1}\,\dd x_{3}\\
+&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{1}\begin{pmatrix}-kx_{1}\\p_{0}\\0\end{pmatrix}\\
+&=-\frac{1}{2}ka^{3}\vect{e}_{1}+p_{0}a^{2}\vect{e}_{2}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{2}=a}\tens{P}\cdot\begin{pmatrix}0\\1\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}kx_{1}\\-p_{0}\\0\end{pmatrix}\dd x_{1}\,\dd x_{3}\\
+&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{1}\begin{pmatrix}kx_{1}\\-p_{0}\\0\end{pmatrix}\\
+&=\frac{1}{2}ka^{3}\vect{e}_{1}-p_{0}a^{2}\vect{e}_{2}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{3}=0}\tens{P}\cdot\begin{pmatrix}0\\0\\-1\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}0\\0\\p_{0}\end{pmatrix}\dd x_{1}\,\dd x_{2}\\
+&=p_{0}a^{2}\vect{e}_{3}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{3}=a}\tens{P}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}\kakimachigai{=}{\dd S=}\int_{S}\begin{pmatrix}0\\0\\-p_{0}\end{pmatrix}\dd x_{1}\,\dd x_{2}\\
+&=-p_{0}a^{2}\vect{e}_{3}
+\end{align*}
+\[ \vect{F}_{\mathrm{S}}=ka^{3}\vect{e}_{2} \]
+\begin{align*}
+\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{2}\int_{0}^{a}\dd x_{1}\,k\vect{e}_{2}\\
+&=ka^{3}\vect{e}_{2}\quad\text{一致}
+\end{align*}
+\toi{3}{△}{計算}
+\[ \rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{\nabla}\cdot\tens{P}+0 \]
+\[ \therefore\ \frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\ayamari{\frac{ka^{3}}{\rho}}{\frac{k}{\rho}}\vect{e}_{2} \]
+\naze{運動方程式 $\rho\,\mathrm{D}\vect{u}/\mathrm{D}t=\vect{\nabla}\cdot\tens{P}+\vect{K}$ は点ごとの式なので，$\vect{\nabla}\cdot\tens{P}$ には (1) の $k\vect{e}_{2}$ を入れる。(2) の $ka^{3}\vect{e}_{2}$ は立方体全体で積分した力である。}
+\[ 0=\vect{\nabla}\cdot\tens{P}+\vect{K}\quad\therefore\ \vect{K}=\ayamari{-ka^{3}\vect{e}_{2}}{-k\vect{e}_{2}} \]
+\naze{同じく，静止の条件も点ごとに $\vect{K}=-\vect{\nabla}\cdot\tens{P}=-k\vect{e}_{2}$ である。}
+%% kizuki
+\item $\vect{\nabla}\cdot\tens{P}$ は各点での単位体積あたりの力で，(1) で求めた $k\vect{e}_{2}$ がそのまま微分形の運動方程式に入る。(2) の $ka^{3}\vect{e}_{2}$ はそれを立方体で積分した「力」なので，点ごとの式に入れてはいけない。
+\item 次元で検算する。$k$ は $\unit{\newton\per\metre\cubed}$ で $k/\rho$ は加速度 $\unit{\metre\per\second\squared}$ になるが，$ka^{3}/\rho$ は加速度×体積の次元になって合わない。

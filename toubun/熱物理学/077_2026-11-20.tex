@@ -1,0 +1,34 @@
+% 熱物理学 熱物理学-10 問題2（077-u-tv） 解いた日 2026-11-20
+%% kotae
+\toi{1}{○}{記述}
+\begin{align*}
+\left(\pdv{U}{V}\right)_{T}&=T\left(\pdv{p}{T}\right)_{V,n}-p\\
+0&=T\left(\pdv{p}{T}\right)_{V,n}-p\\
+p&=T\left(\pdv{p}{T}\right)_{V,n}
+\end{align*}
+\[ \therefore\ p=Tf(V,n) \]
+\naze{$p=T(\partial p/\partial T)_{V,n}$ から $p=Tf(V,n)$ へ1行で飛んでいる。$V$，$n$ を固定して $\frac{\partial}{\partial T}(p/T)=(1/T)(\partial p/\partial T)_{V,n}-p/T^{2}=0$ なので，$p/T$ は $T$ によらない $V$，$n$ だけの任意の関数 $f(V,n)$ になる，とつなぐ。}
+$p=nRT/V$ について
+\begin{align*}
+p&=T\left(\pdv{p}{T}\right)_{V,n}\\
+&=T\cdot\frac{nR}{V}\\
+&=\frac{nRT}{V}
+\end{align*}
+$p=nRT/V+bn^{2}T/V^{2}$ について
+\begin{align*}
+p&=T\left(\pdv{p}{T}\right)_{V,n}=T\left(\frac{nR}{V}+\frac{bn^{2}}{V^{2}}\right)\\
+&=\frac{nRT}{V}+\frac{bn^{2}T}{V^{2}}
+\end{align*}
+どちらも成り立つ。
+\toi{2}{◎}{}
+\[ \left(\pdv{U}{S}\right)_{V}=T(S,V), \qquad \left(\pdv{U}{V}\right)_{S}=-p(S,V) \]
+より，$p$，$T$，$V$ の式に変形できるから。
+\toi{3}{○}{記述}
+\[ \delta W=-p\dd V+\mu\dd n \]
+\[ \dd U=T\dd S-p\dd V+\mu\dd n \]
+\[ (T,S),\quad (p,V),\quad (\mu,n) \]
+\nuke{$\mu$ の説明}
+\naze{問われている「化学ポテンシャルを $\delta W$ の中の係数として説明せよ」の答えが無い。$\mu\dd n$ は物質の授受に伴う仕事（化学的仕事）で，$\mu$ は $S$ と $V$ を一定に保って物質量を $\dd n$ だけ増やすときに系に与えられる仕事の係数である，と書く。}
+%% kizuki
+\item \mae{第3章 問題5 (1)(2)・11-12} 式変形の根拠を書かずに「$\therefore$」で飛ぶ癖が続いている。$T(\partial p/\partial T)_{V,n}=p$ は「$V$，$n$ を固定すると $p/T$ の $T$ 微分が0」という意味で，積分定数に当たるものが $V$，$n$ の任意関数 $f(V,n)$ として残る。これが $U(T,V)$ だけでは状態方程式が決まらない（完全でない）ことの中身である。「$\therefore$」の前に，何を使ったかを1語でも書く。
+\item \mae{第3章 問題2 (3)・11-12，第8章 問題5 (3)・11-16} 小問の後半の答え落としが3回目である。(3) は「挙げよ」の後に「説明せよ」がある。$-p\dd V$ が体積を変える仕事であるのと同じく，$\mu\dd n$ は物質を出し入れする仕事である。解き終えたら問題文の「求めよ」「挙げよ」「説明せよ」に印を付け，答えの数と合わせる。

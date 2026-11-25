@@ -1,0 +1,22 @@
+% 連続体力学 連続体力学-3 問題1（018-grad） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\[ \tens{D}=\begin{pmatrix}a&0&b\\0&0&0\\c&0&0\end{pmatrix} \]
+\toi{2}{◎}{}
+\[ \tens{E}=\begin{pmatrix}a&0&\frac{b+c}{2}\\0&0&0\\\frac{b+c}{2}&0&0\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}0&0&\frac{b-c}{2}\\0&0&0\\\frac{c-b}{2}&0&0\end{pmatrix} \]
+\toi{3}{◎}{}
+\[ \Omega_{1}=0,\quad \Omega_{2}=b-c,\quad \Omega_{3}=0 \]
+\begin{align*}
+\vect{\nabla}\times\vect{r}&=\biggl(\pdv{}{x_{2}}cx_{1}-\pdv{}{x_{3}}0,\\
+&\qquad\pdv{}{x_{3}}(ax_{1}+bx_{3})-\pdv{}{x_{1}}cx_{1},\\
+&\qquad\pdv{}{x_{1}}0-\pdv{}{x_{2}}(ax_{1}+bx_{3})\biggr)\\
+&=(0,\ b-c,\ 0)
+\end{align*}
+\toi{4}{◎}{}
+\[ \tens{F}=0\quad\therefore\ b=c \]
+\[ \tens{E}=0\quad a=0\text{ かつ }c=-b \]
+$\tens{E}=0$ のとき
+\[ \tens{F}=\begin{pmatrix}0&0&b\\0&0&0\\-b&0&0\end{pmatrix} \]
+$x_{2}$ 軸　反時計　角度 $b$
+%% kizuki

@@ -1,0 +1,28 @@
+% 電磁気学1 電磁気学1-2 問題1（004-koubai。当時は 電磁気学1-1-2 問題4・shou01-02-l1-koubai） 解いた日 2026-10-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\nabla\times\vect{F}&=\Bigl(\pdv{}{y}(xy)-\pdv{}{z}(xz+2y),\\
+&\qquad\pdv{}{z}(yz)-\pdv{}{x}xy,\\
+&\qquad\pdv{}{x}(xz+2y)-\pdv{}{y}yz\Bigr)\\
+&=(x-x,\ y-y,\ z-z)=(0,\ 0,\ 0)
+\end{align*}
+\toi{2}{◎}{}
+\[ f=\int yz\,\dd x+\phi_{1}(y,z)=xyz+\phi_{1}(y,z) \]
+\[ \pdv{f}{y}=xz+\pdv{\phi_{1}}{y}=xz+2y \]
+\[ \therefore\ \phi_{1}(y,z)=y^{2}+\phi_{2}(z) \]
+\[ \pdv{f}{z}=xy+\pdv{\phi_{2}}{z}=xy\qquad\therefore\ \phi_{2}=C \]
+$f(0,0,0)=C=0$ より $f=xyz+y^{2}$
+\toi{3}{◎}{}
+\begin{align*}
+\int_{C}\dd\vect{r}\cdot\vect{F}&=\int_{0}^{1}\dd\lambda\,\bigl(yz\cdot1+(xz+2y)\cdot2\lambda\\
+&\qquad+xy\cdot3\lambda^{2}\bigr)\\
+&=\int_{0}^{1}\dd\lambda\,(\lambda^{5}+2\lambda^{5}+4\lambda^{3}+3\lambda^{5})\\
+&=\bigl[\lambda^{6}+\lambda^{4}\bigr]_{0}^{1}=2
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\int_{C}\dd\vect{r}\cdot\vect{F}&=\int_{C}\dd\vect{r}\cdot\nabla f=f(1,1,1)-f(0,0,0)\\
+&=2-0=2
+\end{align*}
+%% kizuki

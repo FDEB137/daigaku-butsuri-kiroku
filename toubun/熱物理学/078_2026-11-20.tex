@@ -1,0 +1,47 @@
+% 熱物理学 熱物理学-10 問題3（078-legendre） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+f'&=\ln x+x\cdot\frac{1}{x}-1\\
+&=\ln x
+\end{align*}
+（増減表：$0<x<1$ で $f'<0$ で減少，$x=1$ で $f'=0$，$f=-1$，$x>1$ で $f'>0$ で増加）
+\[ f''=\frac{1}{x}>0 \]
+より下に凸。
+\[ y=\ln x \qquad \therefore\ x=\ee^{y} \]
+\begin{align*}
+g(y)&=f(\ee^{y})-y\ee^{y}\\
+&=\ee^{y}\ln\ee^{y}-\ee^{y}-y\ee^{y}\\
+&=-\ee^{y}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\ee^{y}&=-\frac{\dd}{\dd y}(-\ee^{y})\\
+&=\ee^{y}
+\end{align*}
+より (10.17) が成り立つ。
+\[ g'=-\ee^{y}, \qquad g''=-\ee^{y}<0 \]
+より上に凸。
+\toi{3}{◎}{}
+\[ x(y)=\ee^{y} \qquad \therefore\ y(x)=\ln x \]
+\begin{align*}
+f(x)&=g(y(x))+xy(x)\\
+&=-\ee^{\ln x}+x\ln x\\
+&=x\ln x-x
+\end{align*}
+\toi{4}{△}{計算}
+\[ f_{C}(x)=(x-C)\ln(x-C)-(x-C) \]
+\[ f_{C}'(x)=\frac{\dd}{\dd x}f_{C}(x)=\ln(x-C)+1-1 \]
+\[ \ee^{y}=x-C \qquad \therefore\ x_{C}(y)=\ee^{y}+C \]
+\begin{align*}
+g_{C}(y)&=f_{C}(x_{C}(y))-yx_{C}(y)\\
+&=\ee^{y}\ln\ee^{y}-\ee^{y}-y(\ee^{y}+C)\\
+&=\ayamari{-\ee^{y}+C}{-\ee^{y}-Cy}
+\end{align*}
+\naze{$-y(\ee^{y}+C)=-y\ee^{y}-Cy$ なので，$C$ にも $y$ が掛かる。$g_{C}(y)=-\ee^{y}-Cy=g(y)-Cy$ で，平行移動の情報は傾き $-C$ の1次の項として残る。以降の結論「$g(y)$ を $-C$ 平行移動したもの」はこの誤りを引き継ぐ。}
+$g(y)$ を $-C$ 平行移動したものになる。
+\[ f_{C}(x_{C}(y))=(y-1)\ee^{y} \]
+$C$ によらない。
+%% kizuki
+\item $f$ を $x$ 方向に $C$ ずらすと，Legendre 変換は $g_{C}(y)=g(y)-Cy$ と1次の項が加わり，上下の平行移動にはならない。傾き $y$ の接線を右に $C$ ずらすと，$x=0$ での切片は $-Cy$ だけ変わる，と図で考える。
+\item \mae{第3章 問題4 (5)・11-12} 前回は引き算の誤りを，$b\to0$ の値と比べる検算で防げた。今回は Legendre 変換の導関数の関係 $-g_{C}'(y)=x_{C}(y)$ で検算する：$-\ee^{y}+C$ では $-g_{C}'=\ee^{y}$ で $x_{C}=\ee^{y}+C$ と合わず，ここで気付ける。括弧を展開したら，括弧の中のすべての項に掛けたかを見直す。

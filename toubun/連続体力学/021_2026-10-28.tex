@@ -1,0 +1,23 @@
+% 連続体力学 連続体力学-3 問題4（021-types） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+(a) $\tens{E}\neq0$，$\tens{F}=0$　伸縮
+
+(b) $\tens{E}\neq0$，$\tens{F}=0$　純粋剪断
+
+(c) $\tens{E}=0$，$\tens{F}\neq0$　回転
+
+(d) $\tens{E}\neq0$，$\tens{F}=0$　多軸伸縮
+\toi{2}{◎}{}
+（図：$x_{1}$ 軸・$x_{2}$ 軸に沿う一辺 $\ell$ の正方形 → 横 $\ell$・縦 $\ell(1-\varepsilon)$ の長方形）
+\toi{3}{○}{記述}
+（図：$x_{1}$ 軸・$x_{3}$ 軸に沿う一辺 $\ell$ の正方形 → ひし形。頂点に $(\nuke{\ell}\gamma/2,\ \ell)$ と $(\ell,\ \nuke{\ell}\gamma/2)$）
+\naze{座標は長さなので，無次元の $\gamma/2$ には $\ell$ が掛かる。正しくは $(\gamma\ell/2,\ \ell)$，$(\ell,\ \gamma\ell/2)$ である。}
+\toi{4}{△}{方針}
+\[ \vect{\Omega}=(2\theta,\ 0,\ 0) \]
+$x_{1}$ 軸まわり　反時計　$\ayamari{2\theta}{\theta}$ 回転
+\naze{回転角は $\vect{\Omega}$ の大きさの半分で，$\Omega_{1}/2=\theta$ である（$\tens{F}\cdot\delta\vect{x}=\frac{1}{2}\vect{\Omega}\times\delta\vect{x}$ の $\frac{1}{2}$）。$\tens{D}$ から $\delta\vect{r}=(0,-\theta\,\delta x_{3},\theta\,\delta x_{2})$ を作ると，角度 $\theta$ の回転だと確かめられる。}
+%% kizuki
+\item 回転角は $\abs{\vect{\Omega}}$ の半分である。$\tens{F}\cdot\delta\vect{x}=\frac{1}{2}\vect{\Omega}\times\delta\vect{x}$ と，角度 $\phi$ の微小回転 $\delta\vect{r}=\phi\,\vect{e}\times\delta\vect{x}$（$\vect{e}$ は回転軸の単位ベクトル）を比べると $\phi=\abs{\vect{\Omega}}/2$ になる。問題1 (4) ではできていたので，$\vect{\Omega}$ を求めたら「角度はその半分」と書く手順を毎回入れる。
+\item \mae{第1回 問題6 (4)・10-21} 回転の読み取りの誤り（前回は向き，今回は角度）。回転は $\tens{D}$ から1点の $\delta\vect{r}$ を作り，向きと角度の両方を確かめる。
+\item 図に座標を書いたら次元を確かめる。変位は「無次元の歪み $\times$ 長さ」なので，$\gamma/2$ には $\ell$ が掛かる（(3)）。

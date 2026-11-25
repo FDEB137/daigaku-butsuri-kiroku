@@ -1,0 +1,583 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{連続体力学　第2回「連続体に働く力と運動方程式」}{2026-11-25}
+%% note-moto	problems\連続体力学\kai02\連続体力学-2.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-009-stressvec}{1}}{L1・計算}{◎△◎}{B}{2026-10-24 (2)計算}
+  \ichirangyou{\hyperlink{bt-m-010-gauss}{2}}{L1・計算}{◎◎△}{B}{2026-10-24 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-011-force}{3}}{L1・説明}{◎◎△}{B}{2026-10-24 (3)未着手}
+  \ichirangyou{\hyperlink{bt-m-012-eom}{4}}{L2・導出}{○×△}{D}{2026-10-24 (1)記述 (2)未着手 (3)記述}
+  \ichirangyou{\hyperlink{bt-m-013-archimedes}{5}}{L2・導出}{○△◎}{C}{2026-10-24 ヒント2 (1)記述 (2)立式}
+  \ichirangyou{\hyperlink{bt-m-014-rotation}{6}}{L2・計算}{◎◎◎△}{A}{2026-10-25 (4)計算}
+  \ichirangyou{\hyperlink{bt-m-015-column}{7}}{L2・計算}{○◎◎△}{B}{2026-10-25 (1)立式 (4)計算}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L3・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 面積力の合力 % 出典: p.19
+    \[ \vect{F}_{\mathrm{S}}=\int_S \vect{p}(\vect{x},\vect{n})\,\dd S \notetag{9} \]
+  \item 作用反作用則 % 出典: p.19
+    \[ \vect{p}(\vect{x},\vect{n})=-\vect{p}(\vect{x},-\vect{n}) \notetag{10} \]
+  \item 積分形の運動方程式 % 出典: p.21
+    \[ \int_V \rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}\,\dd V=\int_S \vect{p}(\vect{x},\vect{n})\,\dd S+\int_V \vect{K}(\vect{x})\,\dd V \notetag{11} \]
+  \item Cauchy の応力定理 % 出典: p.22
+    \[ \vect{p}(\vect{x},\vect{n})=\tens{P}(\vect{x})\cdot\vect{n} \notetag{12} \]
+  \item 応力ベクトルの成分 % 出典: p.23
+    \[ p_i=\sum_{j=1}^{3}P_{ij}n_j \notetag{13} \]
+  \item 微分形の運動方程式 % 出典: p.25
+    \[ \rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{\nabla}\cdot\tens{P}+\vect{K} \notetag{16} \]
+  \item 運動方程式の成分表示 % 出典: p.26
+    \[ \rho\frac{\mathrm{D}u_i}{\mathrm{D}t}=\sum_{j=1}^{3}\pdv{P_{ij}}{x_j}+K_i \notetag{17} \]
+  \item 重力下の Euler 方程式 % 出典: p.27
+    \[ \rho\left(\pdv{\vect{u}}{t}+(\vect{u}\cdot\vect{\nabla})\vect{u}\right)=-\vect{\nabla}p+\rho\vect{g} \notetag{20} \]
+  \item 応力テンソルの成分の定義 % 出典: p.33
+    \[ p_i(\vect{n})=\sum_{j=1}^{3}P_{ij}(\vect{x})n_j,\qquad P_{ij}(\vect{x}):=p_i(\vect{x},\vect{e}_j) \notetag{28} \]
+  \item ベクトルに対する Gauss の発散定理（$\mathrm{div}\,\vect{u}$ とも書く） % 出典: p.42
+    \[ \int_S \vect{u}\cdot\vect{n}\,\dd S=\int_V \vect{\nabla}\cdot\vect{u}\,\dd V \notetag{39} \]
+  \item テンソルに対する Gauss の発散定理 % 出典: p.46
+    \[ \int_S \tens{P}\cdot\vect{n}\,\dd S=\int_V \vect{\nabla}\cdot\tens{P}\,\dd V \notetag{43} \]
+  \item テンソルの発散 % 出典: p.47
+    \[ (\vect{\nabla}\cdot\tens{P})_i=\sum_{j=1}^{3}\pdv{P_{ij}}{x_j} \notetag{45} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\連続体力学\009_2026-10-24.tex
+\mondaibangou{1}
+\begin{mondai}{009-stressvec}{計算}{応力テンソルから応力ベクトルを求めること，成分 $P_{ij}$ の添字の意味}
+連続体中のある点 $\vect{x}$ で，応力テンソルが
+\[ \tens{P}=\begin{pmatrix} -p & \tau & 0\\ \tau & -p & 0\\ 0 & 0 & -p \end{pmatrix} \]
+であるとする（$p>0$，$\tau>0$ は定数）。単位法線ベクトル $\vect{n}$ の面に働く応力ベクトル $\vect{p}=\vect{p}(\vect{x},\vect{n})$ について，$\vect{p}\cdot\vect{n}$ を法線応力，$\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}$ を接線応力とよぶ。
+\begin{shoumon}
+  \item $\vect{n}=\vect{e}_1$ の面に働く応力ベクトルと，その法線応力・接線応力を求めよ。
+  \item $\vect{n}=(\vect{e}_1+\vect{e}_2)/\sqrt{2}$ の面と $\vect{n}'=(\vect{e}_1-\vect{e}_2)/\sqrt{2}$ の面について，同じものを求めよ。
+  \item 成分 $P_{12}=\tau$ は，法線がどの向きの面に働く応力ベクトルの，どの向きの成分か。$P_{ij}$ の定義に従って答え，$\tens{P}\cdot\vect{e}_2$ を計算して確かめよ。
+\end{shoumon}
+\notekiroku{2026-10-24 B ◎△◎}
+\begin{kotaeutsushi}{2026-10-24}
+\toi{1}{◎}{}
+\[ \tens{P}\cdot\vect{e}_{1}=\begin{pmatrix}-p&\tau&0\\\tau&-p&0\\0&0&-p\end{pmatrix}\begin{pmatrix}1\\0\\0\end{pmatrix}=\begin{pmatrix}-p\\\tau\\0\end{pmatrix} \]
+\[ \vect{p}\cdot\vect{e}_{1}=-p \]
+\[ \vect{p}-(\vect{p}\cdot\vect{e}_{1})\vect{e}_{1}=\begin{pmatrix}0\\\tau\\0\end{pmatrix} \]
+\toi{2}{△}{計算}
+\begin{align*}
+\vect{p}&=\begin{pmatrix}-p&\tau&0\\\tau&-p&0\\0&0&-p\end{pmatrix}\begin{pmatrix}1/\sqrt{2}\\1/\sqrt{2}\\0\end{pmatrix}\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\-p+\tau\\0\end{pmatrix}
+\end{align*}
+\begin{align*}
+&\vect{p}\cdot\frac{1}{\sqrt{2}}(\vect{e}_{1}+\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}(\vect{p}\cdot\vect{e}_{1}+\vect{p}\cdot\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\Bigl(\frac{1}{\sqrt{2}}(-p+\tau)+\frac{1}{\sqrt{2}}(\tau-p)\Bigr)\\
+&=-p+\tau
+\end{align*}
+\begin{align*}
+&\vect{p}-(-p+\tau)\frac{1}{\sqrt{2}}(\vect{e}_{1}+\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\-p+\tau\\0\end{pmatrix}-\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\-p+\tau\\0\end{pmatrix}=0
+\end{align*}
+\begin{align*}
+\vect{p}&=\begin{pmatrix}-p&\tau&0\\\tau&-p&0\\0&0&-p\end{pmatrix}\begin{pmatrix}1/\sqrt{2}\\-1/\sqrt{2}\\0\end{pmatrix}\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}\ayamari{-p+\tau}{-p-\tau}\\\ayamari{p-\tau}{p+\tau}\\0\end{pmatrix}
+\end{align*}
+\naze{$\vect{n}'$ の第2成分は $-1/\sqrt{2}$ なので，$\tau$ に掛かる符号が入れ替わる。第1成分は $(-p)\cdot1+\tau\cdot(-1)=-p-\tau$，第2成分は $\tau\cdot1+(-p)\cdot(-1)=p+\tau$ で，正しくは $\tens{P}\cdot\vect{n}'=-(p+\tau)\vect{n}'$ である。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+&\vect{p}\cdot\frac{1}{\sqrt{2}}(\vect{e}_{1}-\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}(\vect{p}\cdot\vect{e}_{1}-\vect{p}\cdot\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\Bigl(\frac{1}{\sqrt{2}}(-p+\tau)-\frac{1}{\sqrt{2}}(p-\tau)\Bigr)\\
+&=-p+\tau
+\end{align*}
+\begin{align*}
+&\vect{p}-(-p+\tau)\frac{1}{\sqrt{2}}(\vect{e}_{1}-\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\p-\tau\\0\end{pmatrix}-\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\p-\tau\\0\end{pmatrix}=0
+\end{align*}
+法：$-p+\tau$\quad 接：$0$
+\naze{このまとめは $\vect{n}$ の面だけに正しい。$\vect{n}'$ の面の法線応力は $-(p+\tau)$，接線応力は $\vect{0}$ である。}
+\toi{3}{◎}{}
+法線が $\vect{e}_{2}$ の面にはたらく応力ベクトルの $\vect{e}_{1}$ 成分
+\[ \tens{P}\cdot\vect{e}_{2}=\begin{pmatrix}\tau\\-p\\0\end{pmatrix} \]
+（第1成分の $\tau$ に矢印を付けている）
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 行列とベクトルの積の第 $i$ 成分は「$\tens{P}$ の第 $i$ 行と $\vect{n}$ の内積」である。$\vect{n}'=(1,-1,0)/\sqrt{2}$ では第2列に $-1$ が掛かるので，$\tau$ の項の符号が $\vect{n}$ のときと入れ替わり，$\tens{P}\cdot\vect{n}'=-(p+\tau)\vect{n}'$ になる。符号は $(-p)\cdot1+\tau\cdot(-1)$ のように1成分ずつ書き出して確かめる。
+\item 検算：直交する2つの面 $\vect{n}$，$\vect{n}'$ の法線応力の和は $P_{11}+P_{22}=-2p$ になる（対角成分の和は座標の回し方によらない）。今回の答えでは $(-p+\tau)+(-p+\tau)=-2p+2\tau$ となって合わない。
+\end{kizuki}
+\begin{tadashii}
+\houshin \noteshiki{13} で $p_i=P_{ij}n_j$（$j$ について和をとる）を計算する。法線応力は $\vect{n}$ との内積で，接線応力はそこから法線方向の部分を引いて求める。
+\keisan \shoumonkai{1} $\vect{e}_1=(1,0,0)^{\mathrm{T}}$ を掛けると $\tens{P}$ の第1列が取り出されるので，
+\[ \vect{p}(\vect{x},\vect{e}_1)=\tens{P}\cdot\vect{e}_1=\begin{pmatrix}-p\\ \tau\\ 0\end{pmatrix}=-p\,\vect{e}_1+\tau\,\vect{e}_2 \]
+である。法線応力は $\vect{p}\cdot\vect{e}_1=-p$，接線応力は
+\[ \vect{p}-(\vect{p}\cdot\vect{e}_1)\vect{e}_1=(-p\,\vect{e}_1+\tau\,\vect{e}_2)-(-p)\vect{e}_1=\tau\,\vect{e}_2 \]
+である。
+\shoumonkai{2} $\vect{n}=(1,1,0)^{\mathrm{T}}/\sqrt{2}$ について，行列とベクトルの積を成分ごとに計算すると
+\[ \tens{P}\cdot\vect{n}=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\ \tau-p\\ 0\end{pmatrix}=(\tau-p)\,\vect{n} \]
+となり，応力ベクトルは $\vect{n}$ に平行である。$\abs{\vect{n}}=1$ なので法線応力は $\vect{p}\cdot\vect{n}=\tau-p$，接線応力は $(\tau-p)\vect{n}-(\tau-p)\vect{n}=\vect{0}$ である。
+$\vect{n}'=(1,-1,0)^{\mathrm{T}}/\sqrt{2}$ について同様に
+\[ \tens{P}\cdot\vect{n}'=\frac{1}{\sqrt{2}}\begin{pmatrix}-p-\tau\\ \tau+p\\ 0\end{pmatrix}=-(p+\tau)\,\vect{n}' \]
+となる。法線応力は $-(p+\tau)$，接線応力は $\vect{0}$ である。
+\shoumonkai{3} 定義 \noteshiki{28} $P_{ij}=p_i(\vect{x},\vect{e}_j)$ では，第2添字 $j$ が面の法線の向き，第1添字 $i$ が力の成分を表す。したがって $P_{12}$ は，法線が $\vect{e}_2$ の面（$x_2$ 軸に垂直な面）に働く応力ベクトルの $x_1$ 成分である。実際に
+\[ \tens{P}\cdot\vect{e}_2=\begin{pmatrix}P_{12}\\ P_{22}\\ P_{32}\end{pmatrix}=\begin{pmatrix}\tau\\ -p\\ 0\end{pmatrix} \]
+で，第1成分が $\tau$ になっている。
+\kotae{\shoumonkai{1} $\vect{p}=-p\,\vect{e}_1+\tau\,\vect{e}_2$，法線応力 $-p$，接線応力 $\tau\,\vect{e}_2$ \shoumonkai{2} $\vect{n}$ の面：$\vect{p}=(\tau-p)\vect{n}$，法線応力 $\tau-p$，接線応力 $\vect{0}$。$\vect{n}'$ の面：$\vect{p}=-(p+\tau)\vect{n}'$，法線応力 $-(p+\tau)$，接線応力 $\vect{0}$ \shoumonkai{3} 法線が $\vect{e}_2$ の面に働く応力ベクトルの $x_1$ 成分}
+\kenzan $\tau=0$ とすると $\tens{P}=-p\tens{I}$（静水圧）で，(1)(2) のどの面でも $\vect{p}=-p\,\vect{n}$（法線応力 $-p$，接線応力 $\vect{0}$）になり，完全流体の性質と一致する。法線応力・接線応力はどれも $\tens{P}$ の成分と同じ次元（単位面積あたりの力）である。法線応力が負であることは，面が外側から押されている（圧縮）ことを表し，$p>0$ と整合する。
+\tsumazuki $\tens{P}\cdot\vect{e}_1$ は $\tens{P}$ の第1列であって第1行ではない。いまの $\tens{P}$ は対称なので第1行でも同じ値になるが，添字の意味（第2添字が面の向き）を取り違えないこと。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\010_2026-10-24.tex
+\mondaibangou{2}
+\begin{mondai}{010-gauss}{計算}{応力テンソルの発散，テンソルに対する Gauss の発散定理，微分形の運動方程式}
+密度 $\rho$（一様）の連続体の中で，応力テンソルの成分が
+\[ P_{11}=-p_0+kx_2,\qquad P_{12}=P_{21}=kx_1,\qquad P_{22}=P_{33}=-p_0 \]
+で，ほかの成分は $0$ であるとする（$p_0$，$k$ は定数）。
+\begin{shoumon}
+  \item $\vect{\nabla}\cdot\tens{P}$ の各成分を求めよ。
+  \item 立方体 $0\le x_1\le a$，$0\le x_2\le a$，$0\le x_3\le a$ の6つの面に働く面積力を面ごとに計算して足し合わせ，立方体全体に働く面積力 $\vect{F}_{\mathrm{S}}$ を求めよ。また，それが $\vect{\nabla}\cdot\tens{P}$ を立方体全体で体積積分したものと一致することを確かめよ。
+  \item 体積力が無いとき，この連続体の加速度 $\mathrm{D}\vect{u}/\mathrm{D}t$ を求めよ。また，この応力のもとで連続体が静止し続けるために必要な体積力 $\vect{K}$ を求めよ。
+\end{shoumon}
+\notekiroku{2026-10-24 B ◎◎△}
+\begin{kotaeutsushi}{2026-10-24}
+\[ \tens{P}=\begin{pmatrix}-p_{0}+kx_{2}&kx_{1}&0\\kx_{1}&-p_{0}&0\\0&0&-p_{0}\end{pmatrix} \]
+\toi{1}{◎}{}
+\begin{align*}
+\vect{\nabla}\cdot\tens{P}&=(0+0+0,\ 0+k+0,\ 0+0+0)\\
+&=(0,k,0)=k\vect{e}_{2}
+\end{align*}
+\toi{2}{◎}{}
+\[ \int_{S:x_{2}=0}\tens{P}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}=\int_{S}p_{0} \]
+（ここで止め，以降に使っていない）
+\begin{align*}
+&\int_{S:x_{1}=0}\tens{P}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}p_{0}-kx_{2}\\0\\0\end{pmatrix}\dd x_{2}\,\dd x_{3}\\
+&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{2}\,(p_{0}-kx_{2})\vect{e}_{1}\\
+&=\Bigl(a^{2}p_{0}-\frac{1}{2}ka^{3}\Bigr)\vect{e}_{1}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{1}=a}\tens{P}\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}-p_{0}+kx_{2}\\ka\\0\end{pmatrix}\dd x_{2}\,\dd x_{3}\\
+&=\Bigl(-a^{2}p_{0}+\frac{1}{2}ka^{3}\Bigr)\vect{e}_{1}+(ka^{3})\vect{e}_{2}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{2}=0}\tens{P}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}-kx_{1}\\p_{0}\\0\end{pmatrix}\dd x_{1}\,\dd x_{3}\\
+&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{1}\begin{pmatrix}-kx_{1}\\p_{0}\\0\end{pmatrix}\\
+&=-\frac{1}{2}ka^{3}\vect{e}_{1}+p_{0}a^{2}\vect{e}_{2}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{2}=a}\tens{P}\cdot\begin{pmatrix}0\\1\\0\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}kx_{1}\\-p_{0}\\0\end{pmatrix}\dd x_{1}\,\dd x_{3}\\
+&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{1}\begin{pmatrix}kx_{1}\\-p_{0}\\0\end{pmatrix}\\
+&=\frac{1}{2}ka^{3}\vect{e}_{1}-p_{0}a^{2}\vect{e}_{2}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{3}=0}\tens{P}\cdot\begin{pmatrix}0\\0\\-1\end{pmatrix}\dd S\\
+&=\int_{S}\begin{pmatrix}0\\0\\p_{0}\end{pmatrix}\dd x_{1}\,\dd x_{2}\\
+&=p_{0}a^{2}\vect{e}_{3}
+\end{align*}
+\begin{align*}
+&\int_{S:x_{3}=a}\tens{P}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}\kakimachigai{=}{\dd S=}\int_{S}\begin{pmatrix}0\\0\\-p_{0}\end{pmatrix}\dd x_{1}\,\dd x_{2}\\
+&=-p_{0}a^{2}\vect{e}_{3}
+\end{align*}
+\[ \vect{F}_{\mathrm{S}}=ka^{3}\vect{e}_{2} \]
+\begin{align*}
+\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V&=\int_{0}^{a}\dd x_{3}\int_{0}^{a}\dd x_{2}\int_{0}^{a}\dd x_{1}\,k\vect{e}_{2}\\
+&=ka^{3}\vect{e}_{2}\quad\text{一致}
+\end{align*}
+\toi{3}{△}{計算}
+\[ \rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{\nabla}\cdot\tens{P}+0 \]
+\[ \therefore\ \frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\ayamari{\frac{ka^{3}}{\rho}}{\frac{k}{\rho}}\vect{e}_{2} \]
+\naze{運動方程式 $\rho\,\mathrm{D}\vect{u}/\mathrm{D}t=\vect{\nabla}\cdot\tens{P}+\vect{K}$ は点ごとの式なので，$\vect{\nabla}\cdot\tens{P}$ には (1) の $k\vect{e}_{2}$ を入れる。(2) の $ka^{3}\vect{e}_{2}$ は立方体全体で積分した力である。}
+\[ 0=\vect{\nabla}\cdot\tens{P}+\vect{K}\quad\therefore\ \vect{K}=\ayamari{-ka^{3}\vect{e}_{2}}{-k\vect{e}_{2}} \]
+\naze{同じく，静止の条件も点ごとに $\vect{K}=-\vect{\nabla}\cdot\tens{P}=-k\vect{e}_{2}$ である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $\vect{\nabla}\cdot\tens{P}$ は各点での単位体積あたりの力で，(1) で求めた $k\vect{e}_{2}$ がそのまま微分形の運動方程式に入る。(2) の $ka^{3}\vect{e}_{2}$ はそれを立方体で積分した「力」なので，点ごとの式に入れてはいけない。
+\item 次元で検算する。$k$ は $\unit{\newton\per\metre\cubed}$ で $k/\rho$ は加速度 $\unit{\metre\per\second\squared}$ になるが，$ka^{3}/\rho$ は加速度×体積の次元になって合わない。
+\end{kizuki}
+\begin{tadashii}
+\houshin \noteshiki{45} で発散を成分ごとに計算する。面積力は各面の応力ベクトル \noteshiki{12} を面上で積分して足し，\noteshiki{43} の両辺が一致することを確かめる。最後に \noteshiki{16} を使う。
+\keisan \shoumonkai{1} $P_{13}=P_{23}=P_{31}=P_{32}=0$ に注意して，\noteshiki{45} から
+\begin{align*}
+(\vect{\nabla}\cdot\tens{P})_1&=\pdv{P_{11}}{x_1}+\pdv{P_{12}}{x_2}+\pdv{P_{13}}{x_3}=\pdv{(-p_0+kx_2)}{x_1}+\pdv{(kx_1)}{x_2}+0=0,\\
+(\vect{\nabla}\cdot\tens{P})_2&=\pdv{P_{21}}{x_1}+\pdv{P_{22}}{x_2}+\pdv{P_{23}}{x_3}=\pdv{(kx_1)}{x_1}+\pdv{(-p_0)}{x_2}+0=k,\\
+(\vect{\nabla}\cdot\tens{P})_3&=\pdv{P_{31}}{x_1}+\pdv{P_{32}}{x_2}+\pdv{P_{33}}{x_3}=0+0+\pdv{(-p_0)}{x_3}=0
+\end{align*}
+である。よって $\vect{\nabla}\cdot\tens{P}=k\,\vect{e}_2$。
+\shoumonkai{2} 向かい合う2面ずつ計算する。各面の面積は $a^{2}$ である。
+
+面 $x_1=a$（外向き法線 $\vect{e}_1$）の応力ベクトルは $\tens{P}\cdot\vect{e}_1=(P_{11},P_{21},P_{31})^{\mathrm{T}}=(-p_0+kx_2,\ ka,\ 0)^{\mathrm{T}}$ で，これを $0\le x_2\le a$，$0\le x_3\le a$ で積分すると
+\[ \int_0^a\!\!\int_0^a(-p_0+kx_2)\,\dd x_2\,\dd x_3=-p_0a^{2}+\frac{ka^{3}}{2},\qquad \int_0^a\!\!\int_0^a ka\,\dd x_2\,\dd x_3=ka^{3} \]
+となる。面 $x_1=0$（外向き法線 $-\vect{e}_1$）の応力ベクトルは，$x_1=0$ で $P_{21}=0$ なので $\tens{P}\cdot(-\vect{e}_1)=(p_0-kx_2,\ 0,\ 0)^{\mathrm{T}}$ であり，積分すると第1成分は $p_0a^{2}-ka^{3}/2$ になる。この2面の和は
+\[ \Bigl(-p_0a^{2}+\frac{ka^{3}}{2}+p_0a^{2}-\frac{ka^{3}}{2}\Bigr)\vect{e}_1+ka^{3}\,\vect{e}_2=ka^{3}\,\vect{e}_2 \]
+である。
+
+面 $x_2=a$（外向き法線 $\vect{e}_2$）の応力ベクトルは $\tens{P}\cdot\vect{e}_2=(P_{12},P_{22},P_{32})^{\mathrm{T}}=(kx_1,\ -p_0,\ 0)^{\mathrm{T}}$，面 $x_2=0$（外向き法線 $-\vect{e}_2$）では $(-kx_1,\ p_0,\ 0)^{\mathrm{T}}$ である。どちらも $x_2$ によらないので，同じ範囲で積分すると打ち消し合い，2面の和は $\vect{0}$。
+
+面 $x_3=a$ と面 $x_3=0$ の応力ベクトルは $\tens{P}\cdot(\pm\vect{e}_3)=\pm(0,0,-p_0)^{\mathrm{T}}$ で，2面の和は $\vect{0}$。
+
+以上を足して
+\[ \vect{F}_{\mathrm{S}}=ka^{3}\,\vect{e}_2 \]
+を得る。一方，(1) より体積積分は
+\[ \int_V\vect{\nabla}\cdot\tens{P}\,\dd V=k\,\vect{e}_2\times a^{3}=ka^{3}\,\vect{e}_2 \]
+で，\noteshiki{43} の両辺が一致する。
+\shoumonkai{3} $\vect{K}=\vect{0}$ のとき \noteshiki{16} より
+\[ \frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\frac{1}{\rho}\vect{\nabla}\cdot\tens{P}=\frac{k}{\rho}\vect{e}_2 \]
+である。静止し続ける（どこでも $\vect{u}=\vect{0}$）には左辺が $0$ でなければならないので，$\vect{\nabla}\cdot\tens{P}+\vect{K}=\vect{0}$，すなわち $\vect{K}=-k\,\vect{e}_2$ が必要である。
+\kotae{\shoumonkai{1} $(\vect{\nabla}\cdot\tens{P})_1=0$，$(\vect{\nabla}\cdot\tens{P})_2=k$，$(\vect{\nabla}\cdot\tens{P})_3=0$ \shoumonkai{2} $\vect{F}_{\mathrm{S}}=ka^{3}\,\vect{e}_2$（体積積分 $ka^{3}\,\vect{e}_2$ と一致） \shoumonkai{3} $\mathrm{D}\vect{u}/\mathrm{D}t=(k/\rho)\,\vect{e}_2$，$\vect{K}=-k\,\vect{e}_2$}
+\kenzan $k=0$ なら応力は一様な静水圧 $-p_0\tens{I}$ で，面積力の合力は $\vect{0}$ になる（一様な圧力は閉曲面に正味の力を及ぼさない）。$k$ の次元は（応力）/（長さ）$=\unit{\newton\per\metre\cubed}$ なので，$k/\rho$ の次元は $\unit{\newton\per\kilogram}=\unit{\metre\per\second\squared}$ で加速度の次元に合う。
+\tsumazuki $\vect{e}_2$ 方向の正味の力は，面 $x_1=a$ と面 $x_1=0$ の $P_{21}$（法線 $\vect{e}_1$ の面に働く $x_2$ 成分）の差から生じる。面 $x_2=\text{一定}$ の $P_{12}$ だけを見て「$x_2$ 方向の力は無い」と考えないこと。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\011_2026-10-24.tex
+\mondaibangou{3}
+\begin{mondai}{011-force}{説明}{体積力と面積力の区別と起源，力の大きさの寸法依存性}
+連続体に働く力について，次の問いに答えよ。
+\begin{shoumon}
+  \item 次の力を体積力と面積力に分けよ。(a) 地球の重力。(b) 静止した水の中の水の塊に，周りの水が及ぼす圧力による力。(c) 電荷を帯びた流体に外部の電場が及ぼす力。(d) 回転する容器とともに回る座標系で流体に働く遠心力。(e) 速さの違う隣の流体の層が，境界面を通じてずれの向きに及ぼす摩擦の力。
+  \item 連続体内部の粒子どうしの力（内力）のうち，ある領域に働く正味の力として残るのはどのような力か。それが領域の表面積に比例する理由とともに説明せよ。
+  \item 一辺 $\ell$ の立方体の連続体要素に働く体積力（慣性力を含む）と面積力は，それぞれ $\ell$ の何乗に比例するか。それを使って，$\ell\to0$ の極限では，要素の表面に働く応力ベクトルの合力を $\ell^{2}$ で割ったものが $0$ に近づくことを，積分形の運動方程式をもとに説明せよ。
+\end{shoumon}
+\notekiroku{2026-10-24 B ◎◎△}
+\begin{kotaeutsushi}{2026-10-24}
+\toi{1}{◎}{}
+体：a，c，d
+
+面：b，e
+\toi{2}{◎}{}
+表面をつらぬく力
+
+内力どうしは作用・反作用で打ち消し合い，表面をつらぬく方向の力のみが残るため，表面積に比例する。
+\toi{3}{△}{未着手}
+面：$\ell^{2}$
+
+体：$\ell^{3}$
+
+\nuke{$\ell\to0$ の説明}
+\naze{問いの後半が無い。積分形の運動方程式を $\int_{S}\vect{p}\,\dd S=\int_{V}(\rho\,\mathrm{D}\vect{u}/\mathrm{D}t-\vect{K})\,\dd V$ と移項し，右辺の被積分関数の大きさが $M$ 以下なら右辺の大きさは $M\ell^{3}$ 以下である。両辺を $\ell^{2}$ で割ると右辺は $M\ell$ 以下になり，$\ell\to0$ で $0$ に近づく。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「$\ell$ の何乗か」は説明の材料で，それを使って移項した運動方程式 $\int_{S}\vect{p}\,\dd S=\int_{V}(\rho\,\mathrm{D}\vect{u}/\mathrm{D}t-\vect{K})\,\dd V$ の右辺を $M\ell^{3}$ で抑え，$\ell^{2}$ で割って $M\ell\to0$，まで書いて答えになる。
+\item \mae{第1回 問題4 (4)・10-20} 小問の後半の「説明せよ」を書かずに止めた（前回は「理由」の部分が抜けた）。答える前に問題文の「求めよ」「説明せよ」を数え，答えの数とそろえる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 体積力は要素の中身すべてに働き体積に比例する力，面積力は境界面を通じて働き面積に比例する力として分類する。寸法依存性は積分形の運動方程式 \noteshiki{11} の各項を見積もって調べる。
+\keisan \shoumonkai{1} (a) 重力は外場による力で，要素内のすべての粒子に働くので体積力。(b) 周りの水が及ぼす圧力は，塊の表面を通じて外側から働くので面積力。(c) 外部の電場が電荷に及ぼす力は外場による力で体積力。(d) 遠心力は慣性力で，要素内のすべての粒子に働くので体積力。(e) 隣の層の摩擦は，層の境界面を通じた内部の相互作用なので面積力。
+
+\shoumonkai{2} 領域内部の2つの粒子の間の力は，作用反作用の法則により大きさが等しく向きが逆の組になり，足し合わせると打ち消し合う。一方，一方の粒子が領域の内部，他方が外部にある組では，相手の粒子が領域内に無いので打ち消し合わず，領域が外部から受ける力として残る。このような組は領域の表面を貫く相互作用であり，その数は表面積に比例する（講義資料 図2）。\hanigai 相互作用の届く距離が要素の大きさに比べて十分短いため，表面のごく近くの薄い層の粒子だけが寄与すると考えると，表面積に比例することが理解できる。こうして残った力が面積力（応力）であり，表面積分 \noteshiki{9} で表される。
+
+\shoumonkai{3} $\vect{K}$ と $\rho\,\mathrm{D}\vect{u}/\mathrm{D}t$ が有界なら，体積力・慣性力は（有界な量）$\times$（体積 $\ell^{3}$）なので $\ell^{3}$ に比例する。面積力は（応力ベクトルの大きさ）$\times$（表面積 $6\ell^{2}$）なので $\ell^{2}$ に比例する。\noteshiki{11} を移項すると
+\[ \int_S \vect{p}\,\dd S=\int_V\left(\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}-\vect{K}\right)\dd V \]
+で，被積分関数の大きさの上限を $M$ とすると右辺の大きさは $M\ell^{3}$ 以下である。両辺を $\ell^{2}$ で割ると
+\[ \abs{\frac{1}{\ell^{2}}\int_S \vect{p}\,\dd S}\le M\ell\to0\qquad(\ell\to0) \]
+となる。つまり十分小さな要素では，表面の応力ベクトルの合力は面積力の典型的な大きさ（$\ell^{2}$ に比例）に比べて無視でき，各面の応力ベクトルが釣り合う。これが Cauchy の応力定理（例題 2-1）の出発点である。
+\kotae{\shoumonkai{1} 体積力：(a)(c)(d)，面積力：(b)(e) \shoumonkai{2} 表面を貫く（内部の粒子と外部の粒子の）相互作用だけが残る。内部どうしの組は作用反作用で打ち消し合い，打ち消し合わない組の数は表面積に比例する \shoumonkai{3} 体積力 $\propto\ell^{3}$，面積力 $\propto\ell^{2}$。合力を $\ell^{2}$ で割ると $\ell$ に比例する量以下になり $0$ に近づく}
+\kenzan (3) の比は（体積力）/（面積力）$\propto\ell^{3}/\ell^{2}=\ell$ で，要素を小さくするほど体積力が相対的に効かなくなる。逆に大きな物体（たとえば山や星）では重力（体積力）が支配的になる，という日常の感覚とも整合する。
+\tsumazuki 慣性力 $\rho\,\mathrm{D}\vect{u}/\mathrm{D}t$ も体積力と同じく体積に比例する。「面積力の合力が $0$ になる」のは微小要素の極限での話で，有限の大きさの領域では面積力の合力は加速度と体積力に応じた値をとる。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\連続体力学\012_2026-10-24.tex
+\mondaibangou{4}
+\begin{mondai}{012-eom}{導出}{Cauchy の応力定理と Gauss の発散定理による微分形の運動方程式の導出}
+連続体の任意の体積 $V$（表面 $S$，外向き単位法線 $\vect{n}$）について，積分形の運動方程式 \noteshiki{11} が成り立つとする。応力ベクトルは Cauchy の応力定理 \noteshiki{12} により $\vect{p}=\tens{P}\cdot\vect{n}$ と書けるとし，$\rho$，$\vect{u}$，$\tens{P}$，$\vect{K}$ は滑らかな関数とする。
+\begin{shoumon}
+  \item $i$ を1つ固定し，$\tens{P}$ の第 $i$ 行を成分とするベクトル $\vect{a}^{(i)}=(P_{i1},P_{i2},P_{i3})$ を考える。$(\tens{P}\cdot\vect{n})_i=\vect{a}^{(i)}\cdot\vect{n}$ を示し，ベクトルに対する Gauss の発散定理 \noteshiki{39} だけを使って，テンソルに対する発散定理 \noteshiki{43} の $i$ 成分を導け。ただし $\vect{\nabla}\cdot\tens{P}$ の成分は \noteshiki{45} で定める。
+  \item 前問の結果を使って \noteshiki{11} の $i$ 成分を1つの体積積分にまとめ，$V$ が任意であることから成分表示の運動方程式 \noteshiki{17} を導け。被積分関数が $0$ になる理由もはっきり述べること。
+  \item 周りから力を受けない（表面 $S$ のどこでも応力ベクトルが $\vect{0}$ の）連続体の全体を $V$ とする。このとき
+  \[ \int_V \rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}\,\dd V=\int_V \vect{K}\,\dd V \]
+  となることを示し，応力（内力）が連続体全体の運動に寄与しない理由を説明せよ。
+\end{shoumon}
+\notekiroku{2026-10-24 D ○×△}
+\begin{kotaeutsushi}{2026-10-24}
+\toi{1}{○}{記述}
+\[ \tens{P}=\begin{pmatrix}\vect{a}^{(1)}\\\vect{a}^{(2)}\\\vect{a}^{(3)}\end{pmatrix},\quad \tens{P}\cdot\vect{n}=\begin{pmatrix}\vect{a}^{(1)}\cdot\vect{n}\\\vect{a}^{(2)}\cdot\vect{n}\\\vect{a}^{(3)}\cdot\vect{n}\end{pmatrix} \]
+より
+\[ (\tens{P}\cdot\vect{n})_{i}=\vect{a}^{(i)}\cdot\vect{n} \]
+\[ \int_{S}\vect{a}^{(i)}\cdot\vect{n}\,\dd S=\int_{V}\vect{\nabla}\cdot\vect{a}^{(i)}\,\dd V \]
+\nuke{$\vect{\nabla}\cdot\vect{a}^{(i)}=(\vect{\nabla}\cdot\tens{P})_{i}$}
+\[ \therefore\ \Bigl(\int_{S}\tens{P}\cdot\vect{n}\,\dd S\Bigr)_{i}=\Bigl(\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V\Bigr)_{i} \]
+\naze{右辺の $\vect{\nabla}\cdot\vect{a}^{(i)}$ から $(\vect{\nabla}\cdot\tens{P})_{i}$ へ移る1行が要る。$\vect{\nabla}\cdot\vect{a}^{(i)}=\sum_{j}\partial P_{ij}/\partial x_{j}$ で，これは式(45) の $(\vect{\nabla}\cdot\tens{P})_{i}$ そのものである。}
+\toi{2}{×}{未着手}
+\[ \therefore\ \int_{S}\tens{P}\cdot\vect{n}\,\dd S=\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V \]
+\naze{(1) をベクトルで書き直したところで止まっている。続きは，式(11) の $i$ 成分に $\int_{S}(\tens{P}\cdot\vect{n})_{i}\,\dd S=\int_{V}(\vect{\nabla}\cdot\tens{P})_{i}\,\dd V$ を入れて $\int_{V}f_{i}\,\dd V=0$（$f_{i}=\rho\,\mathrm{D}u_{i}/\mathrm{D}t-\sum_{j}\partial P_{ij}/\partial x_{j}-K_{i}$）にまとめる。$f_{i}$ は連続なので，ある点 $\vect{x}_{0}$ で $f_{i}(\vect{x}_{0})>0$ なら $\vect{x}_{0}$ のまわりの小さな球では $f_{i}>0$ で積分が正になり，$V$ が任意であることに反する。よって $f_{i}=0$ で，式(17) が出る。}
+\toi{3}{△}{記述}
+\[ \ayamari{\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{K}}{\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=\vect{\nabla}\cdot\tens{P}+\vect{K}} \]
+\nuke{$\int_{V}\vect{\nabla}\cdot\tens{P}\,\dd V=\int_{S}\vect{p}\,\dd S=\vect{0}$}
+\[ \int_{V}\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}\,\dd V=\int_{V}\vect{K}\,\dd V \]
+内力が作用・反作用で打ち消し合うため
+\naze{各点では $\vect{\nabla}\cdot\tens{P}\neq\vect{0}$ でよく，$\rho\,\mathrm{D}\vect{u}/\mathrm{D}t=\vect{K}$ は一般に成り立たない。微分形の運動方程式を $V$ で積分し，$\vect{\nabla}\cdot\tens{P}$ の項を式(43) で表面積分 $\int_{S}\vect{p}\,\dd S$ に直すと，表面で $\vect{p}=\vect{0}$ なので消える，という1段が導出の要である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1回 問題4 (1)・10-20} 定義に当てはめる1行が抜けた（前回は式(4) を成分に当てはめる「$A=u_{j}$」の1行）。今回は $\vect{\nabla}\cdot\vect{a}^{(i)}=\sum_{j}\partial P_{ij}/\partial x_{j}=(\vect{\nabla}\cdot\tens{P})_{i}$ で，導出の問題ではこの「定義どおりに書くと一致する」行を飛ばさずに書く。
+\item (2) は「1つの体積積分 $\int_{V}f_{i}\,\dd V=0$ にまとめる」「$f_{i}(\vect{x}_{0})>0$ なら小さな球で積分が正になって矛盾」の2段で $f_{i}=0$ を示す。問われている「理由」はこの背理法である。
+\item 点ごとに成り立つのは $\rho\,\mathrm{D}\vect{u}/\mathrm{D}t=\vect{\nabla}\cdot\tens{P}+\vect{K}$ で，全体で積分すると $\vect{\nabla}\cdot\tens{P}$ の項が $\int_{S}\vect{p}\,\dd S=\vect{0}$ になって消える。「内力が打ち消し合う」の式の中身はこの面積分である（(3)）。
+\end{kizuki}
+\begin{tadashii}
+\houshin テンソルの第 $i$ 行をベクトルとみなせば，テンソルの発散定理は各 $i$ についてベクトルの発散定理になる。次に，運動方程式を1つの体積積分にまとめ，任意の $V$ で成り立つことから被積分関数を $0$ とする。
+\keisan \shoumonkai{1} \noteshiki{13} より
+\[ (\tens{P}\cdot\vect{n})_i=\sum_{j=1}^{3}P_{ij}n_j=P_{i1}n_1+P_{i2}n_2+P_{i3}n_3=\vect{a}^{(i)}\cdot\vect{n} \]
+である。\noteshiki{39} をベクトル場 $\vect{a}^{(i)}$ に当てはめると
+\[ \int_S(\tens{P}\cdot\vect{n})_i\,\dd S=\int_S\vect{a}^{(i)}\cdot\vect{n}\,\dd S=\int_V\vect{\nabla}\cdot\vect{a}^{(i)}\,\dd V=\int_V\sum_{j=1}^{3}\pdv{P_{ij}}{x_j}\,\dd V=\int_V(\vect{\nabla}\cdot\tens{P})_i\,\dd V \]
+となり，最後の等号で \noteshiki{45} を使った。これが \noteshiki{43} の $i$ 成分である。
+\shoumonkai{2} \noteshiki{11} の $i$ 成分に $p_i=(\tens{P}\cdot\vect{n})_i$ を入れ，(1) で面積分を体積積分に直すと
+\[ \int_V\rho\frac{\mathrm{D}u_i}{\mathrm{D}t}\,\dd V=\int_V(\vect{\nabla}\cdot\tens{P})_i\,\dd V+\int_VK_i\,\dd V \]
+である。右辺を左辺に移して1つにまとめると
+\[ \int_Vf_i\,\dd V=0,\qquad f_i=\rho\frac{\mathrm{D}u_i}{\mathrm{D}t}-\sum_{j=1}^{3}\pdv{P_{ij}}{x_j}-K_i \]
+となる。$f_i$ は連続である。ある点 $\vect{x}_0$ で $f_i(\vect{x}_0)>0$ と仮定すると，連続性から $\vect{x}_0$ を中心とする十分小さな球 $B$ の中で $f_i>0$ となり，$V=B$ ととれば $f_i$ の $B$ での積分は正になって上式と矛盾する。$f_i(\vect{x}_0)<0$ でも同様に矛盾する。よってどこでも $f_i=0$ であり，
+\[ \rho\frac{\mathrm{D}u_i}{\mathrm{D}t}=\sum_{j=1}^{3}\pdv{P_{ij}}{x_j}+K_i \]
+を得る。これが \noteshiki{17} である。
+\shoumonkai{3} \noteshiki{16} を連続体全体 $V$ で積分すると
+\[ \int_V\rho\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}\,\dd V=\int_V\vect{\nabla}\cdot\tens{P}\,\dd V+\int_V\vect{K}\,\dd V \]
+である。右辺の第1項は \noteshiki{43} と \noteshiki{12} により
+\[ \int_V\vect{\nabla}\cdot\tens{P}\,\dd V=\int_S\tens{P}\cdot\vect{n}\,\dd S=\int_S\vect{p}\,\dd S=\vect{0} \]
+となる（表面で $\vect{p}=\vect{0}$）。よって示すべき式が成り立つ。応力は連続体の各部分が隣の部分に及ぼす内力であり，隣り合う部分どうしの力は作用反作用則 \noteshiki{10} で打ち消し合う。発散定理はこの打ち消し合いを表しており，内部の応力の寄与は表面の項だけに集まる。外部から表面に力が働かなければ，内力は全体の運動（運動量の変化）に寄与しない。これは質点系で内力が重心運動に効かないことに対応する。
+\kotae{\shoumonkai{1} $(\tens{P}\cdot\vect{n})_i=\vect{a}^{(i)}\cdot\vect{n}$ に \noteshiki{39} を使い，$\vect{\nabla}\cdot\vect{a}^{(i)}$（$\partial P_{ij}/\partial x_j$ の $j$ についての和）から \noteshiki{43} の $i$ 成分を得る \shoumonkai{2} 被積分関数 $f_i$ が連続で任意の $V$ で積分が $0$ なので $f_i=0$，すなわち \noteshiki{17} \shoumonkai{3} $\vect{\nabla}\cdot\tens{P}$ の体積積分は表面の $\vect{p}$ の積分で $\vect{0}$。内力は作用反作用で打ち消し合う}
+\kenzan 完全流体 $P_{ij}=-p\,\delta_{ij}$ を \noteshiki{17} に入れると $\partial P_{ij}/\partial x_j$（$j$ について和）が $-\partial p/\partial x_i$ となり，$K_i=\rho g_i$ とすれば Euler 方程式 \noteshiki{20} の成分に一致する。次元は，$\partial P_{ij}/\partial x_j$ が（応力）/（長さ）$=\unit{\newton\per\metre\cubed}$ で，単位体積あたりの力 $K_i$ や $\rho\,\mathrm{D}u_i/\mathrm{D}t$ と同じ。
+\tsumazuki \noteshiki{45} では微分を第2添字 $j$ で取る。$\vect{a}^{(i)}$ は $\tens{P}$ の第 $i$ 行（$P_{i1},P_{i2},P_{i3}$）であり，第 $i$ 列 $(P_{1i},P_{2i},P_{3i})$ と取り違えないこと。また，「積分が $0$ だから被積分関数が $0$」と言えるのは，$V$ が任意であるときだけである。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\013_2026-10-24.tex
+\mondaibangou{5}
+\begin{mondai}{013-archimedes}{導出}{完全流体の静水圧（Euler 方程式）と，Gauss の発散定理による浮力の導出}
+密度 $\rho_0$（一様）の完全流体（$\tens{P}=-p\tens{I}$）が，重力 $\vect{K}=\rho_0\vect{g}$（$\vect{g}=-g\vect{e}_3$，$g>0$）のもとで静止している。水面は $x_3=0$ にあり，水面での圧力は $p_{\mathrm{a}}$（一定）とする。
+\begin{shoumon}
+  \item Euler 方程式 \noteshiki{20} から，$x_3\le0$ での圧力 $p$ を $x_3$ の関数として求めよ。
+  \item 体積 $V$，表面 $S$ の物体が流体中に完全に沈んで静止している。物体表面の外向き単位法線を $\vect{n}$ とし，物体表面の点で物体が流体から受ける単位面積あたりの力は，その点の流体の応力テンソルを使って $\tens{P}\cdot\vect{n}$ で与えられるとする。流体が物体に及ぼす力 $\vect{F}$ を $S$ 上の面積分で表し，テンソルに対する Gauss の発散定理 \noteshiki{43} を使って
+  \[ \vect{F}=\rho_0gV\vect{e}_3 \]
+  を導け。物体の内部には流体の応力が無いので，発散定理をそのまま使えない点をどう扱うかも述べよ。
+  \item 物体の密度が $\rho_{\mathrm{b}}$（一様）のとき，物体を静止させておくために外から（糸などで）加える力を求めよ。
+\end{shoumon}
+\notekiroku{2026-10-24 C ○△◎ (ヒント2)}
+\begin{kotaeutsushi}{2026-10-24}
+\toi{1}{○}{記述}
+\[ \rho_{0}\Bigl(\pdv{\vect{u}}{t}+(\vect{u}\cdot\vect{\nabla})\vect{u}\Bigr)=-\vect{\nabla}p+\rho_{0}\vect{g} \]
+\nuke{第1・第2成分：$\partial p/\partial x_{1}=\partial p/\partial x_{2}=0$}
+\[ \therefore\ \rho_{0}\underbrace{\frac{\mathrm{D}u_{3}}{\mathrm{D}t}}_{=0}=-\pdv{}{x_{3}}p(x_{3})-\rho_{0}g \]
+\[ \pdv{}{x_{3}}p(x_{3})=-\rho_{0}g \]
+\[ p(x_{3})=-\rho_{0}gx_{3}+C \]
+$p(0)=p_{\mathrm{a}}$ より
+\[ p(x_{3})=p_{\mathrm{a}}-\rho_{0}gx_{3} \]
+\naze{最初から $p(x_{3})$ と書いているが，$p$ が $x_{1}$，$x_{2}$ によらないことは Euler 方程式の第1・第2成分（静止しているので $\partial p/\partial x_{1}=\partial p/\partial x_{2}=0$）から示す。}
+\toi{2}{△}{立式}
+\[ \vect{F}=-\int_{S}p\cdot\vect{n}\,\dd S=-\int_{S}p\vect{n}\,\dd S \]
+$V$ の内部
+\[ \tilde{p}(\vect{x})=\ayamari{(p_{\mathrm{a}}-\rho_{0}gx_{3})\vect{e}_{3}}{p_{\mathrm{a}}-\rho_{0}gx_{3}} \]
+\naze{圧力はスカラーである。ベクトルにすると次の式の被積分関数 $(\ldots)\vect{e}_{3}\cdot\vect{n}$ がスカラーになり，左辺のベクトル $\vect{F}$ と等しくならない（この式で出せるのは $F_{3}$ だけで，$F_{1}=F_{2}=0$ は示せない）。正しくはスカラー $\tilde{p}$ でテンソル $-\tilde{p}\tens{I}$ を作って式(43) を使い，$\vect{F}=\int_{S}(-\tilde{p}\tens{I})\cdot\vect{n}\,\dd S=-\int_{V}\vect{\nabla}\tilde{p}\,\dd V=\rho_{0}gV\vect{e}_{3}$ とする（$S$ 上で $\tilde{p}$ は流体の圧力と一致するので面積分は変わらない）。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+\vect{F}&=-\int(p_{\mathrm{a}}-\rho_{0}gx_{3})\vect{e}_{3}\cdot\vect{n}\,\dd S\\
+&=-\int_{V}\vect{\nabla}\cdot(p_{\mathrm{a}}-\rho_{0}gx_{3})\vect{e}_{3}\,\dd V\\
+&=-\int(-\rho_{0}g)\vect{e}_{3}\,\dd V\\
+&=\rho_{0}gV\vect{e}_{3}
+\end{align*}
+\toi{3}{◎}{}
+（図：物体の箱に，上向きの矢印 $\rho_{0}gV$ と下向きの矢印 $\rho_{\mathrm{b}}gV$）
+
+上向きに $(\rho_{\mathrm{b}}-\rho_{0})gV$
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 完全流体の応力は $-p\tens{I}$ で，圧力 $p$ はスカラーである。$-\int_{S}p\vect{n}\,\dd S$ に発散定理を使うときは，テンソル $-\tilde{p}\tens{I}$ に式(43) を当てはめ，$\vect{\nabla}\cdot(-\tilde{p}\tens{I})=-\vect{\nabla}\tilde{p}$ とする。これで3成分が一度に出る。式を書いたら，両辺がベクトルかスカラーかがそろっているかを見る。
+\item (1) は Euler 方程式の3成分を全部書き，第1・第2成分から $p$ が $x_{1}$，$x_{2}$ によらないことを示してから $p(x_{3})$ と書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin 静止流体では Euler 方程式の左辺が $0$ になり，圧力勾配と重力が釣り合う。浮力は表面積分を発散定理で体積積分に直して求めるが，物体内部には流体の応力が無いので，表面で一致する仮想的な圧力場を内部に定義してから定理を使う。
+\keisan \shoumonkai{1} $\vect{u}=\vect{0}$ なので $\pdv{\vect{u}}{t}=\vect{0}$，$(\vect{u}\cdot\vect{\nabla})\vect{u}=\vect{0}$ で，\noteshiki{20} は $\vect{0}=-\vect{\nabla}p+\rho_0\vect{g}$ となる。成分で書くと
+\[ \pdv{p}{x_1}=0,\qquad \pdv{p}{x_2}=0,\qquad \pdv{p}{x_3}=-\rho_0g \]
+である。$p$ は $x_3$ だけの関数で，$x_3$ で積分して $x_3=0$ で $p=p_{\mathrm{a}}$ とすると
+\[ p=p_{\mathrm{a}}-\rho_0gx_3\qquad(x_3\le0) \]
+である。
+\shoumonkai{2} 物体表面で物体が受ける単位面積あたりの力は $\tens{P}\cdot\vect{n}=-p\tens{I}\cdot\vect{n}=-p\,\vect{n}$ なので
+\[ \vect{F}=\int_S\tens{P}\cdot\vect{n}\,\dd S=-\int_Sp\,\vect{n}\,\dd S \]
+である。この面積分が使うのは $S$ 上の $p$ の値だけである。そこで，(1) の式を物体の内部にもそのまま延ばした関数
+\[ \tilde{p}(\vect{x})=p_{\mathrm{a}}-\rho_0gx_3 \]
+を考える。$\tilde{p}$ は $V$ を含む領域で滑らかで，$S$ 上では流体の圧力 $p$ と一致する（物体を同じ形の流体で置き換えたときの圧力にあたる）。テンソル $-\tilde{p}\tens{I}$ に \noteshiki{43} を使うと，$(\vect{\nabla}\cdot(-\tilde{p}\tens{I}))_i=-\pdv{\tilde{p}}{x_i}$（要点整理の完全流体の項と同じ計算）なので
+\[ \vect{F}=\int_S(-\tilde{p}\tens{I})\cdot\vect{n}\,\dd S=\int_V\vect{\nabla}\cdot(-\tilde{p}\tens{I})\,\dd V=-\int_V\vect{\nabla}\tilde{p}\,\dd V \]
+となる。$\vect{\nabla}\tilde{p}=-\rho_0g\,\vect{e}_3$ は一定なので
+\[ \vect{F}=-\int_V(-\rho_0g\,\vect{e}_3)\,\dd V=\rho_0gV\vect{e}_3 \]
+を得る。これは物体が押しのけた流体の重さに等しい上向きの力（浮力）である。
+\shoumonkai{3} 物体に働く力は，重力 $\rho_{\mathrm{b}}V\vect{g}=-\rho_{\mathrm{b}}gV\vect{e}_3$，流体からの力 $\vect{F}=\rho_0gV\vect{e}_3$，外から加える力 $\vect{T}$ で，静止しているので和が $\vect{0}$ である。
+\[ \vect{T}-\rho_{\mathrm{b}}gV\vect{e}_3+\rho_0gV\vect{e}_3=\vect{0}\quad\Longrightarrow\quad\vect{T}=(\rho_{\mathrm{b}}-\rho_0)gV\vect{e}_3 \]
+\kotae{\shoumonkai{1} $p=p_{\mathrm{a}}-\rho_0gx_3$ \shoumonkai{2} 浮力の表面積分に，表面で $p$ と一致する $\tilde{p}=p_{\mathrm{a}}-\rho_0gx_3$ を内部に延ばして \noteshiki{43} を使い $\vect{F}=\rho_0gV\vect{e}_3$ \shoumonkai{3} $(\rho_{\mathrm{b}}-\rho_0)gV\vect{e}_3$（$\rho_{\mathrm{b}}>\rho_0$ なら上向きに支える）}
+\kenzan $\vect{F}$ の次元は $\unit{\kilogram\per\metre\cubed}\cdot\unit{\metre\per\second\squared}\cdot\unit{\metre\cubed}=\unit{\newton}$。水面の圧力 $p_{\mathrm{a}}$ は一様なので，その寄与 $-p_{\mathrm{a}}$ と $\vect{n}$ の閉曲面積分は（定数テンソル $-p_{\mathrm{a}}\tens{I}$ の発散が $0$ なので）$\vect{0}$ となり，結果に入らない。浮力は物体の深さによらない。$\rho_{\mathrm{b}}=\rho_0$ なら $\vect{T}=\vect{0}$（中立浮力）で妥当。
+\tsumazuki 物体の内部の応力は流体の応力ではないので，「$S$ 上の流体の応力」に発散定理を直接使ってはいけない。表面の値だけで決まる面積分を，表面で一致する滑らかな場に置き換えて体積積分に直すのが要点である。また，$\vect{n}$ を物体の外向きにとると，$\tens{P}\cdot\vect{n}$ は物体が外（流体）から受ける力である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\014_2026-10-25.tex
+\mondaibangou{6}
+\begin{mondai}{014-rotation}{計算}{移流項による加速度と Euler 方程式（剛体回転する完全流体の圧力分布）}
+$x_3$ 軸を鉛直上向きにとる。密度 $\rho$（一様）の完全流体が，円筒容器とともに $x_3$ 軸のまわりに一定の角速度 $\Omega$ で剛体回転している。流体の速度場は
+\[ \vect{u}=\Omega\,(-x_2\vect{e}_1+x_1\vect{e}_2) \]
+で，重力は $\vect{K}=\rho\vect{g}$（$\vect{g}=-g\vect{e}_3$）とする。
+\begin{shoumon}
+  \item $\vect{\nabla}\cdot\vect{u}=0$ を確かめ，加速度 $\mathrm{D}\vect{u}/\mathrm{D}t$ を求めよ。
+  \item Euler 方程式 \noteshiki{20} から圧力 $p(\vect{x})$ を求めよ。ただし原点（回転軸上，$x_3=0$）で $p=p_0$ とする。
+  \item 原点を通る自由表面（圧力が $p_0$ の面）の形を $x_3$ を $x_1$，$x_2$ の関数として表せ。
+  \item この流れは $\pdv{\vect{u}}{t}=\vect{0}$（定常）なのに流体粒子は加速している。加速度を生む項の名前と，加速度の向き・大きさを答えよ。
+\end{shoumon}
+\notekiroku{2026-10-25 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-10-25}
+\toi{1}{◎}{}
+\begin{align*}
+\vect{\nabla}\cdot\vect{u}&=\pdv{}{x_{1}}(-\Omega x_{2})+\pdv{}{x_{2}}(\Omega x_{1})\\
+&\qquad+\pdv{}{x_{3}}0\\
+&=0
+\end{align*}
+\begin{align*}
+\frac{\mathrm{D}\vect{u}}{\mathrm{D}t}&=\pdv{\vect{u}}{t}+u_{1}\pdv{\vect{u}}{x_{1}}+u_{2}\pdv{\vect{u}}{x_{2}}\\
+&=0-\Omega x_{2}(\Omega\vect{e}_{2})\\
+&\qquad+\Omega x_{1}(\kakimachigai{+\Omega\vect{e}_{1}}{-\Omega\vect{e}_{1}})\\
+&=-\Omega^{2}(x_{1}\vect{e}_{1}+x_{2}\vect{e}_{2})
+\end{align*}
+\toi{2}{◎}{}
+\[ \rho\bigl(-\Omega^{2}(x_{1}\vect{e}_{1}+x_{2}\vect{e}_{2})\bigr)=-\vect{\nabla}p+\rho\vect{g} \]
+（矢印で成分の式につなぐ）
+\begin{align*}
+-\rho\Omega^{2}x_{1}&=-\pdv{p}{x_{1}}\\
+-\rho\Omega^{2}x_{2}&=-\pdv{p}{x_{2}}\\
+0&=-\pdv{p}{x_{3}}-\rho g
+\end{align*}
+\begin{align*}
+\therefore\ \pdv{p}{x_{1}}&=\rho\Omega^{2}x_{1},\quad p=\frac{1}{2}\rho\Omega^{2}x_{1}^{2}+\phi(x_{2},x_{3})\\
+\pdv{p}{x_{2}}&=\rho\Omega^{2}x_{2},\quad p=\frac{1}{2}\rho\Omega^{2}x_{2}^{2}+\phi(x_{1},x_{3})\\
+\pdv{p}{x_{3}}&=-\rho g,\quad p=-\rho gx_{3}+\phi(x_{1},x_{2})
+\end{align*}
+\[ \therefore\ p=\frac{1}{2}\rho\Omega^{2}(x_{1}^{2}+x_{2}^{2})-\rho gx_{3}+C \]
+原点で $p=p_{0}$ より $C=p_{0}$
+\[ p(\vect{x})=\frac{1}{2}\rho\Omega^{2}(x_{1}^{2}+x_{2}^{2})-\rho gx_{3}+p_{0} \]
+\toi{3}{◎}{}
+\[ \frac{1}{2}\rho\Omega^{2}(x_{1}^{2}+x_{2}^{2})=\rho gx_{3} \]
+\[ \therefore\ x_{3}=\frac{\Omega^{2}}{2g}(x_{1}^{2}+x_{2}^{2}) \]
+\toi{4}{△}{計算}
+移流項
+
+向き：\ayamari{原点に向かう方向}{回転軸に向かう水平な方向}
+
+大きさ：$\ayamari{\Omega^{2}(x_{1}^{2}+x_{2}^{2})}{\Omega^{2}\sqrt{x_{1}^{2}+x_{2}^{2}}}$
+\naze{大きさは $\abs{-\Omega^{2}(x_{1}\vect{e}_{1}+x_{2}\vect{e}_{2})}=\Omega^{2}\sqrt{x_{1}^{2}+x_{2}^{2}}=\Omega^{2}r$（$r$ は回転軸からの距離）で，根号が抜けている。$\Omega^{2}(x_{1}^{2}+x_{2}^{2})$ は $\unit{\per\second\squared}\cdot\unit{\metre\squared}$ で加速度の次元にならない。向きは，加速度に $\vect{e}_{3}$ 成分が無いので $x_{3}$ 軸へ水平に向かう向きで，$x_{3}\neq0$ の点では原点の方向とは違う。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第1回 問題4 (2)・10-17} 同じ回転流の加速度の大きさで，前回は $-r\Omega^{2}$ と負にし，今回は根号が抜けた。大きさは $\abs{\vect{a}}=\sqrt{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}}$ を1行書いてから計算し，次元（$\Omega^{2}\times$長さ が加速度）と正負で検算する。
+\item 向きは加速度の成分で決める。$-\Omega^{2}(x_{1},x_{2},0)$ は $\vect{e}_{3}$ 成分が $0$ なので，その点から回転軸（$x_{3}$ 軸）へ水平に向かう。「原点に向かう」のは $x_{3}=0$ の面の上だけである。
+\end{kizuki}
+\begin{tadashii}
+\houshin 定常流なので加速度は移流項 $(\vect{u}\cdot\vect{\nabla})\vect{u}$ だけである。これを成分で計算して Euler 方程式に入れ，圧力勾配の3成分を同時に満たす $p$ を積分で求める。
+\keisan \shoumonkai{1} 速度の成分は $u_1=-\Omega x_2$，$u_2=\Omega x_1$，$u_3=0$ である。発散は
+\[ \vect{\nabla}\cdot\vect{u}=\pdv{u_1}{x_1}+\pdv{u_2}{x_2}+\pdv{u_3}{x_3}=\pdv{(-\Omega x_2)}{x_1}+\pdv{(\Omega x_1)}{x_2}+0=0 \]
+である。$\vect{u}$ は $t$ を含まないので $\pdv{\vect{u}}{t}=\vect{0}$ で，加速度は移流項だけになる。$u_1$ は $x_2$ だけ，$u_2$ は $x_1$ だけの関数なので
+\begin{align*}
+\bigl((\vect{u}\cdot\vect{\nabla})\vect{u}\bigr)_1&=u_1\pdv{u_1}{x_1}+u_2\pdv{u_1}{x_2}=0+\Omega x_1\cdot(-\Omega)=-\Omega^{2}x_1,\\
+\bigl((\vect{u}\cdot\vect{\nabla})\vect{u}\bigr)_2&=u_1\pdv{u_2}{x_1}+u_2\pdv{u_2}{x_2}=(-\Omega x_2)\cdot\Omega+0=-\Omega^{2}x_2,\\
+\bigl((\vect{u}\cdot\vect{\nabla})\vect{u}\bigr)_3&=0
+\end{align*}
+である。よって
+\[ \frac{\mathrm{D}\vect{u}}{\mathrm{D}t}=-\Omega^{2}(x_1\vect{e}_1+x_2\vect{e}_2) \]
+\shoumonkai{2} \noteshiki{20} を成分で書くと，$\rho\vect{g}=-\rho g\,\vect{e}_3$ より
+\[ -\rho\Omega^{2}x_1=-\pdv{p}{x_1},\qquad -\rho\Omega^{2}x_2=-\pdv{p}{x_2},\qquad 0=-\pdv{p}{x_3}-\rho g \]
+である。第1式を $x_1$ で積分すると $p=\rho\Omega^{2}x_1^{2}/2+f(x_2,x_3)$ で，第2式から $\pdv{f}{x_2}=\rho\Omega^{2}x_2$，よって $f=\rho\Omega^{2}x_2^{2}/2+h(x_3)$。第3式から $\dv{h}{x_3}=-\rho g$ で $h=-\rho gx_3+C$。原点で $p=p_0$ より $C=p_0$ となり，
+\[ p=p_0+\frac{1}{2}\rho\Omega^{2}(x_1^{2}+x_2^{2})-\rho gx_3 \]
+を得る。
+\shoumonkai{3} $p=p_0$ とおくと
+\[ \frac{1}{2}\rho\Omega^{2}(x_1^{2}+x_2^{2})-\rho gx_3=0\quad\Longrightarrow\quad x_3=\frac{\Omega^{2}}{2g}(x_1^{2}+x_2^{2}) \]
+で，自由表面は回転放物面である。
+\shoumonkai{4} 加速度を生むのは移流項 $(\vect{u}\cdot\vect{\nabla})\vect{u}$ である。定点で見た速度は変わらないが，流体粒子が円を描いて動くことで粒子の速度の向きが変わる。加速度 $-\Omega^{2}(x_1\vect{e}_1+x_2\vect{e}_2)$ は回転軸に向かう向き（向心加速度）で，軸からの距離を $r=\sqrt{x_1^{2}+x_2^{2}}$ とすると大きさは $\Omega^{2}r$ である。
+\kotae{\shoumonkai{1} $\vect{\nabla}\cdot\vect{u}=0$，$\mathrm{D}\vect{u}/\mathrm{D}t=-\Omega^{2}(x_1\vect{e}_1+x_2\vect{e}_2)$ \shoumonkai{2} $p=p_0+\frac{1}{2}\rho\Omega^{2}(x_1^{2}+x_2^{2})-\rho gx_3$ \shoumonkai{3} $x_3=\frac{\Omega^{2}}{2g}(x_1^{2}+x_2^{2})$（回転放物面） \shoumonkai{4} 移流項。回転軸に向かう向き，大きさ $\Omega^{2}r$（$r$ は軸からの距離）}
+\kenzan $\Omega\to0$ で $p=p_0-\rho gx_3$（静水圧）と水平な自由表面 $x_3=0$ に戻る。$\Omega^{2}r^{2}/g$ の次元は $\unit{\per\second\squared}\cdot\unit{\metre\squared}/\unit{\metre\per\second\squared}=\unit{\metre}$ で長さになる。圧力の3つの偏微分の式は $\partial^{2}p/\partial x_1\partial x_2=0$ などで互いに矛盾せず，$p$ が存在する。加速度の大きさ $\Omega^{2}r$ は質点の等速円運動の向心加速度と一致する。
+\tsumazuki $\pdv{\vect{u}}{t}=\vect{0}$ から「加速度が $0$」としないこと。Lagrange 微分は Euler 微分と移流項の和である。また，圧力は軸から離れるほど高く，その圧力勾配が流体粒子に向心力を与えている。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\015_2026-10-25.tex
+\mondaibangou{7}
+\begin{mondai}{015-column}{計算}{運動方程式の静的なつり合い，表面の応力ベクトルと境界条件，斜めの面の法線応力・接線応力}
+$x_3$ 軸を鉛直上向きにとる。密度 $\rho$（一様）の柱 $0\le x_1\le b$，$0\le x_2\le b$，$0\le x_3\le h$ が，水平な床（$x_3=0$）の上に自重で静止している。重力は $\vect{K}=\rho\vect{g}$（$\vect{g}=-g\vect{e}_3$）とする。柱の中の応力テンソルは $P_{33}$ だけが $0$ でなく，$P_{33}$ は $x_3$ だけの関数であるとする。柱の上面と側面は，周りから力を受けない（その面の応力ベクトルが $\vect{0}$）。
+\begin{shoumon}
+  \item 静止状態での運動方程式 \noteshiki{17} の各成分を書き，上面の条件を使って $P_{33}(x_3)$ を求めよ。
+  \item 側面（$x_1=0,b$ と $x_2=0,b$）の応力ベクトルが $\vect{0}$ であり，仮定と矛盾しないことを確かめよ。
+  \item 柱の底面（$x_3=0$）が床から受ける応力ベクトルと，底面全体が受ける力を求め，柱の重さとつり合うことを確かめよ。
+  \item 柱の内部の高さ $x_3$ の点で，単位法線 $\vect{n}=\sin\varphi\,\vect{e}_1+\cos\varphi\,\vect{e}_3$（$0\le\varphi\le\pi/2$）の面を考える。この面の法線応力 $\vect{p}\cdot\vect{n}$ と接線応力の大きさを求めよ。また，接線応力の大きさが最大になる $\varphi$ とその最大値を求めよ。
+\end{shoumon}
+\notekiroku{2026-10-25 B ○◎◎△}
+\begin{kotaeutsushi}{2026-10-25}
+\toi{1}{○}{立式}
+\[ \rho\frac{\mathrm{D}u_{i}}{\mathrm{D}t}=\sum_{j=1}^{3}\ayamari{\pdv{P_{ij}}{x_{i}}}{\pdv{P_{ij}}{x_{j}}}+K_{i} \]
+\naze{微分は第2添字の座標 $x_{j}$ について取る（式(45)）。第3成分は $\partial P_{31}/\partial x_{1}+\partial P_{32}/\partial x_{2}+\partial P_{33}/\partial x_{3}$ である。この問題では $P_{31}=P_{32}=0$ なので答えは変わらないが，一般の応力では結果が変わる。以降の第3成分の式はこの誤りを引き継ぐ。}
+1)\enspace $0=0+0$
+
+2)\enspace $0=0+0$
+
+3)
+\begin{align*}
+0&=\pdv{P_{31}}{x_{3}}+\pdv{P_{32}}{x_{3}}+\pdv{P_{33}}{x_{3}}+K_{3}\\
+0&=0+0+\pdv{P_{33}}{x_{3}}-\rho g
+\end{align*}
+\[ \therefore\ \pdv{P_{33}}{x_{3}}=\rho g \]
+\[ P_{33}=\rho gx_{3}+C \]
+$x_{3}=h$ において
+\[ \tens{P}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}=P_{33}=0 \]
+よって $C=-\rho gh$
+\[ P_{33}=\rho g(x_{3}-h) \]
+\toi{2}{◎}{}
+\begin{align*}
+x_{1}=0&:\quad\tens{P}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}=0\\
+x_{1}=b&:\quad\tens{P}\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}=0\\
+x_{2}=0&:\quad\tens{P}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}=0\\
+x_{2}=b&:\quad\tens{P}\cdot\begin{pmatrix}0\\1\\0\end{pmatrix}=0
+\end{align*}
+\toi{3}{◎}{}
+\[ x_{3}=0:\quad\tens{P}\cdot\begin{pmatrix}0\\0\\-1\end{pmatrix}=\bigl(0,0,-\rho g(x_{3}-h)\bigr) \]
+\begin{align*}
+\vect{F}&=\int_{S:x_{3}=0}\rho g(h-x_{3})\vect{e}_{3}\,\dd S\\
+&=\int_{0}^{b}\dd x_{1}\int_{0}^{b}\dd x_{2}\,\rho gh\vect{e}_{3}\\
+&=\rho gb^{2}h\vect{e}_{3}
+\end{align*}
+（図：柱の直方体に，上向きの矢印 $\rho gb^{2}h$ と下向きの矢印 $\rho gb^{2}h$）
+\toi{4}{△}{計算}
+\[ \vect{p}=\tens{P}\cdot\vect{n}=\bigl(0,0,\rho g(x_{3}-h)\cos\varphi\bigr) \]
+\[ \vect{p}\cdot\vect{n}=\rho g(x_{3}-h)\cos^{2}\varphi \]
+\begin{align*}
+&\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}\\
+&=\rho g(x_{3}-h)\cos\varphi\,\vect{e}_{3}\\
+&\qquad-\bigl(\rho g(x_{3}-h)\cos^{2}\varphi\bigr)\vect{n}
+\end{align*}
+\begin{align*}
+\text{大きさ}&=\ayamari{\rho g(x_{3}-h)}{\rho g(h-x_{3})}\sqrt{\cos^{2}\varphi\sin^{2}\varphi}\\
+&=\frac{1}{2}\rho g(x_{3}-h)\sin2\varphi
+\end{align*}
+\naze{$\sqrt{P_{33}^{2}}=\abs{P_{33}}$ で，$x_{3}\le h$ では $P_{33}=\rho g(x_{3}-h)\le0$ なので，大きさは $\frac{1}{2}\rho g(h-x_{3})\sin2\varphi$ である。以降はこの誤りを引き継ぐ。書いた式は $\varphi=\pi/4$ で最も負になり，「$\varphi=\pi/4$ で最大」とも食い違っている。正しい最大値は $\frac{1}{2}\rho g(h-x_{3})$。}
+$\varphi=\pi/4$ のとき Max\quad $\frac{1}{2}\rho g(x_{3}-h)$
+\end{kotaeutsushi}
+\begin{kizuki}
+\item $\vect{\nabla}\cdot\tens{P}$ の第 $i$ 成分は $\sum_{j}\partial P_{ij}/\partial x_{j}$ で，和をとる $j$ が $P$ の第2添字と分母の座標の両方に現れる。成分を書き出したら，$\partial P_{31}/\partial x_{1}+\partial P_{32}/\partial x_{2}+\partial P_{33}/\partial x_{3}$ のように分子の第2添字と分母の添字がそろっているかを見る（(1)）。
+\item \mae{第1回 問題4 (2)・10-17} 大きさを負のまま答えた（前回も $-r\Omega^{2}$）。$\sqrt{P_{33}^{2}\cos^{2}\varphi\sin^{2}\varphi}=\abs{P_{33}}\cos\varphi\sin\varphi$ と絶対値を1行書いてから外し，$x_{3}\le h$ で $\abs{P_{33}}=\rho g(h-x_{3})$ とする。答えが 0 以上か，「最大」と言った $\varphi$ で本当に最大かを確かめる（問題6 (4) の根号の抜けと同じく，大きさの式の見直し）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 静止状態では \noteshiki{17} の左辺が $0$ で，応力の発散と体積力が釣り合う。境界面の条件は，その面の外向き法線 $\vect{n}$ について応力ベクトル $\tens{P}\cdot\vect{n}$ で表す。
+\keisan \shoumonkai{1} $\vect{u}=\vect{0}$ で，$\vect{K}=(0,0,-\rho g)$。0 でない成分は $P_{33}(x_3)$ だけなので，\noteshiki{17} の各成分は
+\[ i=1:\ 0=\pdv{P_{11}}{x_1}+\pdv{P_{12}}{x_2}+\pdv{P_{13}}{x_3}+0=0,\qquad i=2:\ 0=0 \]
+\[ i=3:\ 0=\pdv{P_{31}}{x_1}+\pdv{P_{32}}{x_2}+\dv{P_{33}}{x_3}-\rho g=\dv{P_{33}}{x_3}-\rho g \]
+となり，第1・第2成分は自動的に満たされる。第3成分を積分して $P_{33}=\rho gx_3+C$。上面 $x_3=h$ の外向き法線は $\vect{e}_3$ で，応力ベクトルは $\tens{P}\cdot\vect{e}_3=(P_{13},P_{23},P_{33})^{\mathrm{T}}=(0,0,P_{33}(h))^{\mathrm{T}}$ である。これが $\vect{0}$ なので $P_{33}(h)=0$，すなわち $C=-\rho gh$ で
+\[ P_{33}(x_3)=-\rho g(h-x_3) \]
+である。
+\shoumonkai{2} 側面 $x_1=0,b$ の外向き法線は $\mp\vect{e}_1$ で，応力ベクトルは $\mp(P_{11},P_{21},P_{31})^{\mathrm{T}}=\vect{0}$。側面 $x_2=0,b$ でも $\mp(P_{12},P_{22},P_{32})^{\mathrm{T}}=\vect{0}$。$P_{33}$ 以外の成分が $0$ という仮定は，側面が力を受けないことと矛盾しない。
+\shoumonkai{3} 底面の外向き法線は $-\vect{e}_3$ なので，床から受ける応力ベクトルは
+\[ \vect{p}(\vect{x},-\vect{e}_3)=\tens{P}\cdot(-\vect{e}_3)=-P_{33}(0)\,\vect{e}_3=\rho gh\,\vect{e}_3 \]
+である。底面（面積 $b^{2}$）全体では $\rho ghb^{2}\,\vect{e}_3$ となる。柱の重さは $\rho b^{2}h\vect{g}=-\rho gb^{2}h\,\vect{e}_3$ で，両者の和は $\vect{0}$ となり釣り合う。
+\shoumonkai{4} $\vect{n}=(\sin\varphi,0,\cos\varphi)^{\mathrm{T}}$ について，0 でない成分は $P_{33}$ だけなので
+\[ \tens{P}\cdot\vect{n}=P_{33}\cos\varphi\,\vect{e}_3 \]
+である。法線応力は
+\[ \vect{p}\cdot\vect{n}=P_{33}\cos^{2}\varphi=-\rho g(h-x_3)\cos^{2}\varphi \]
+接線応力の大きさは，$\abs{\vect{p}}^{2}=(\vect{p}\cdot\vect{n})^{2}+(\text{接線応力の大きさ})^{2}$ より
+\[ \sqrt{P_{33}^{2}\cos^{2}\varphi-P_{33}^{2}\cos^{4}\varphi}=\abs{P_{33}}\cos\varphi\sin\varphi=\frac{1}{2}\rho g(h-x_3)\sin2\varphi \]
+である。$0\le\varphi\le\pi/2$ で $\sin2\varphi$ は $\varphi=\pi/4$ のとき最大値 $1$ をとるので，最大値は $\rho g(h-x_3)/2$ である。
+\kotae{\shoumonkai{1} $0=\dv{P_{33}}{x_3}-\rho g$（第1・第2成分は恒等的に成立），$P_{33}=-\rho g(h-x_3)$ \shoumonkai{2} 側面の応力ベクトルはどれも $\vect{0}$ \shoumonkai{3} $\rho gh\,\vect{e}_3$，全体で $\rho ghb^{2}\,\vect{e}_3$（重さ $-\rho gb^{2}h\,\vect{e}_3$ と釣り合う） \shoumonkai{4} 法線応力 $-\rho g(h-x_3)\cos^{2}\varphi$，接線応力の大きさ $\frac{1}{2}\rho g(h-x_3)\sin2\varphi$，最大は $\varphi=\pi/4$ で $\rho g(h-x_3)/2$}
+\kenzan $P_{33}\le0$ は圧縮を表し，柱の下ほど上に載る部分の重さを支えるので大きくなる（$x_3=0$ で $\rho gh$ は単位面積あたりの柱の重さ）。$\varphi=0$（水平な面）では法線応力 $P_{33}$・接線応力 $0$，$\varphi=\pi/2$（鉛直な面）では両方 $0$ で，(1)(2) と整合する。次元は $\rho gh$ が $\unit{\kilogram\per\metre\cubed}\cdot\unit{\metre\per\second\squared}\cdot\unit{\metre}=\unit{\pascal}$ で応力の次元。
+\tsumazuki 底面では外向き法線が $-\vect{e}_3$ である。$\tens{P}\cdot\vect{e}_3$ を使うと符号が逆になり，「床が柱を下に引く」という誤った結論になる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

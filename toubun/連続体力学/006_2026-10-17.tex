@@ -1,0 +1,36 @@
+% 連続体力学 連続体力学-1 問題6（006-incomp） 解いた日 2026-10-17
+%% kotae
+\toi{1}{◎}{}
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\[ \pdv{\rho}{t}=-\kappa U\bigl(\rho_{0}\varepsilon\cos(\kappa(x_{1}-Ut))\bigr) \]
+\begin{align*}
+\vect{\nabla}\cdot(\rho\vect{u})&=\pdv{}{x_{1}}\Bigl(\rho_{0}U\bigl[1+\varepsilon\sin(\kappa(x_{1}-Ut))\bigr]\Bigr)\\
+&=\kappa\rho_{0}U\varepsilon\cos(\kappa(x_{1}-Ut))
+\end{align*}
+よって
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})=0 \]
+\toi{2}{◎}{}
+$\vect{\nabla}\cdot\vect{u}=0$ より非圧縮
+\begin{align*}
+\frac{\mathrm{D}\rho}{\mathrm{D}t}&=\pdv{\rho}{t}+U\pdv{\rho}{x_{1}}\\
+&=-\kappa\rho_{0}U\varepsilon\cos(\kappa(x_{1}-Ut))\\
+&\qquad+\kappa\rho_{0}U\varepsilon\cos(\kappa(x_{1}-Ut))=0
+\end{align*}
+各粒子の密度が変化しなければ非圧縮といえるので，矛盾しない。
+\toi{3}{○}{記述}
+\[ \pdv{\rho}{t}=0 \]
+\begin{align*}
+\vect{\nabla}\cdot(\rho\vect{u})&=\pdv{}{x_{1}}\Bigl(\rho_{0}\Bigl(1+\frac{x_{1}}{L}\Bigr)\gamma x_{2}\Bigr)\\
+&=\frac{\rho_{0}\gamma x_{2}}{L}
+\end{align*}
+\[ \pdv{\rho}{t}+\vect{\nabla}\cdot(\rho\vect{u})\neq0\ \nuke{(x_{2}\neq0)} \]
+連続の式を満たさないので，保たれることはない。
+\naze{$\rho_{0}\gamma x_{2}/L$ は $x_{2}=0$ では0なので，「$x_{2}\neq0$ の点で」と限定が要る。また $\partial\rho/\partial t=0$ は「時間によらないと仮定すると」と仮定であることを書く。}
+\toi{4}{△}{未着手}
+\[ \vect{\nabla}\cdot\vect{u}=\pdv{}{x_{1}}(\gamma x_{2})=0\ \text{より非圧縮} \]
+\[ \frac{\mathrm{D}\rho}{\mathrm{D}t}=0 \]
+\nuke{$\rho(\vect{x},t)$，等密度面}
+\naze{$\mathrm{D}\rho/\mathrm{D}t=0$ で止まっている。続きは，粒子の軌道 $x_{2}=X_{2}$，$x_{1}=X_{1}+\gamma X_{2}t$ を求め，時刻 $t$ に $\vect{x}$ にいる粒子の出発点 $X_{1}=x_{1}-\gamma x_{2}t$ を時刻0の密度に代入して $\rho=\rho_{0}[1+(x_{1}-\gamma x_{2}t)/L]$ を得る。等密度面は $x_{1}-\gamma t\,x_{2}=\text{一定}$ の平面で，$x_{2}$ 軸から $\tan\phi=\gamma t$ の角度で傾いていく。}
+%% kizuki
+\item $\mathrm{D}\rho/\mathrm{D}t=0$ は「各粒子が時刻0の密度を運ぶ」という意味である。密度場を求めるには，粒子の軌道を解き，時刻 $t$ に $\vect{x}$ にいる粒子の出発点 $\vect{X}$ を $\vect{x}$ と $t$ で表して初期の密度に代入する（(4)）。求めた場は $\partial\rho/\partial t+\gamma x_{2}\,\partial\rho/\partial x_{1}=0$ に代入して検算できる。
+\item 「$\neq0$」と書くときは，どこで0にならないかを確かめる。位置を含む式（$\rho_{0}\gamma x_{2}/L$）は，0になる点（$x_{2}=0$）を除いて言う（(3)）。

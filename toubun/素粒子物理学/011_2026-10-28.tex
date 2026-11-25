@@ -1,0 +1,52 @@
+% 素粒子物理学 素粒子物理学-2 問題1（011-fourvector） 解いた日 2026-10-28
+%% kotae
+\toi{1}{○}{単位}
+\begin{align*}
+  p_{A\mu}&=(5.00,\ -3.00,\ 0,\ 0)\\
+  p_{B\mu}&=(3.00,\ 0,\ -3.00,\ 0)
+\end{align*}
+\begin{align*}
+  p_{A}^{\mu}p_{A\mu}&=25.00-9.00=\ayamari{16.00}{\qty{16.0}{\giga\electronvolt\squared}}\\
+  m_{A}&=4.00\,\nuke{\unit{\giga\electronvolt}}\\
+  p_{B}^{\mu}p_{B\mu}&=9.00-9.00=0.00\\
+  m_{B}&=0.00\\
+  p_{A}^{\mu}p_{B\mu}&=15.00-0=\ayamari{15.00}{\qty{15.0}{\giga\electronvolt\squared}}
+\end{align*}
+\naze{値はすべて正しいが，単位（内積は \unit{\giga\electronvolt\squared}，質量は \unit{\giga\electronvolt}）がどこにも無く，16.00 などは4桁（指定は3桁）である。}
+\toi{2}{○}{単位}
+\begin{align*}
+  \gamma&=\frac{1}{\sqrt{1-\beta^{2}}}=\frac{1}{0.800}=\frac{5}{4}\\
+  \beta&=0.600=\frac{3}{5}
+\end{align*}
+\begin{align*}
+  p_{A}'^{\mu}&=\biggl(\frac{5}{4}\cdot5.00+\frac{3}{4}\cdot3.00,\\
+  &\qquad\frac{3}{4}\cdot5.00+\frac{5}{4}\cdot3.00,\ 0,\ 0\biggr)\\
+  &=(6.25+2.25,\ 3.75+3.75,\ 0,\ 0)\\
+  &=(\ayamari{8.5}{8.50},\ \ayamari{7.5}{7.50},\ 0,\ 0)\,\nuke{\unit{\giga\electronvolt}}
+\end{align*}
+\begin{align*}
+  p_{B}'^{\mu}&=\biggl(\frac{5}{4}\cdot3.00+\frac{3}{4}\cdot0,\\
+  &\qquad\frac{3}{4}\cdot3.00+\frac{5}{4}\cdot0,\ 3.00,\ 0\biggr)\\
+  &=(3.75,\ 2.25,\ 3.00,\ 0)
+\end{align*}
+\begin{align*}
+  p_{A}'^{\mu}p'_{A\mu}&=(8.5)^{2}-(7.5)^{2}=16.00\\
+  p_{B}'^{\mu}p'_{B\mu}&=(3.75)^{2}-(2.25)^{2}-(3.00)^{2}=0\\
+  p_{A}'^{\mu}p'_{B\mu}&=8.5\cdot3.75-7.5\cdot2.25-0\\
+  &=15.00
+\end{align*}
+\naze{ブーストと不変性の確認は正しい。単位（\unit{\giga\electronvolt}，\unit{\giga\electronvolt\squared}）が無く，$8.5$，$7.5$ は2桁である（3桁なら 8.50，7.50）。}
+\toi{3}{△}{方針}
+\begin{align*}
+  \partial_{\mu}x^{\mu}&=\left(\pdv{t}{t},\ \pdv{x}{x},\ \pdv{y}{y},\ \pdv{z}{z}\right)\\
+  &=\ayamari{(1,\ 1,\ 1,\ 1)}{1+1+1+1=4}
+\end{align*}
+\naze{上付きと下付きに同じ添字 $\mu$ があるときは $\mu=0$〜3 の和をとるので，$\partial_{\mu}x^{\mu}=\pdv{t}{t}+\pdv{x}{x}+\pdv{y}{y}+\pdv{z}{z}=4$ というスカラーになる。後半は添字 $\mu$ が1つだけ残るのでベクトルで，正しい。}
+\begin{align*}
+  p_{A\nu}x^{\nu}&=5t-3x\\
+  \partial_{\mu}(p_{A\nu}x^{\nu})&=(5.00,\ -3.00,\ 0,\ 0)\\
+  &=p_{A\mu}
+\end{align*}
+%% kizuki
+\item アインシュタインの規約：1つの項の中で同じ添字が上と下に1回ずつ現れたら和をとり，その添字は消える。残った添字の数で，答えがスカラー（0個）かベクトル（1個）かが決まる。$\partial_{\mu}x^{\mu}$ は添字が残らないのでスカラー4，$\partial_{\mu}(p_{A\nu}x^{\nu})$ は $\mu$ が残るのでベクトルである。
+\item \mae{第1回 問題1 (1)・問題2 (2)・10-23} 有効数字は3桁にそろえる。今回は単位も書き落とした。自然単位系でも数値の答えには単位（\unit{\giga\electronvolt}，\unit{\giga\electronvolt\squared}）を付け，内積は（エネルギー）$^{2}$ の次元になることで確かめる。

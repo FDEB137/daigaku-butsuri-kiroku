@@ -1,0 +1,63 @@
+% 電磁気学2 電磁気学2-1 問題2（002-theorems。当時は 電磁気学2-1 問題2・kai01-l1-theorems） 解いた日 2026-10-05
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\int_{V}\nabla\cdot\vect{A}\,\dd V&=\int\dd x\,\dd y\,\dd z\,\bigl(2(xy+yz+zx)\bigr)\\
+&=2\int_{0}^{1}\dd x\int_{0}^{1}\dd y\int_{0}^{1}\dd z\,(xy+yz+zx)\\
+&=2\int_{0}^{1}\dd x\int_{0}^{1}\dd y\\
+&\qquad\times\left[xyz+\frac{1}{2}yz^{2}+\frac{1}{2}z^{2}x\right]_{0}^{1}\\
+&=\int_{0}^{1}\dd x\int_{0}^{1}\dd y\,(2xy+y+x)\\
+&=\int_{0}^{1}\dd x\left[xy^{2}+\frac{1}{2}y^{2}+xy\right]_{0}^{1}\\
+&=\int_{0}^{1}\dd x\left(2x+\frac{1}{2}\right)\\
+&=\left[x^{2}+\frac{1}{2}x\right]_{0}^{1}\\
+&=\frac{3}{2}
+\end{align*}
+（図：立方体）
+\begin{align*}
+\oint_{S}\vect{A}\cdot\vect{n}\,\dd S&=\kakimachigai{\oint_{x=0}}{\int_{x=0}}\vect{A}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}\dd y\,\dd z\\
+&\qquad+\kakimachigai{\oint_{x=1}}{\int_{x=1}}\vect{A}\cdot\begin{pmatrix}+1\\0\\0\end{pmatrix}\dd y\,\dd z+\cdots
+\end{align*}
+\begin{align*}
+\oint_{x=0}\vect{A}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}\dd y\,\dd z&=\int_{0}^{1}\dd z\int_{0}^{1}\dd y\cdot 0=0
+\end{align*}
+$y=0$，$z=0$ でも同様。
+\begin{align*}
+\oint_{x=1}\vect{A}\cdot\begin{pmatrix}+1\\0\\0\end{pmatrix}\dd y\,\dd z&=\int_{0}^{1}\dd z\int_{0}^{1}\dd y\,y\\
+&=\int_{0}^{1}\frac{1}{2}\,\dd z=\frac{1}{2}
+\end{align*}
+対称性より，$y=1$，$z=1$ でも $1/2$。よって，
+\[ \oint_{S}\vect{A}\cdot\vect{n}\,\dd S=\frac{1}{2}\cdot 3=\frac{3}{2} \]
+\toi{2}{×}{立式}
+\begin{align*}
+\oint_{C}\vect{A}\cdot\dd\vect{r}&=\int_{C_{1}(y=0)}\vect{A}\cdot\dd\vect{r}+\int_{C_{2}(x=1)}\vect{A}\cdot\dd\vect{r}\\
+&\qquad+\int_{C_{3}(y=1)}\vect{A}\cdot\dd\vect{r}+\int_{C_{4}(x=0)}\vect{A}\cdot\dd\vect{r}
+\end{align*}
+\begin{align*}
+\int_{C_{1}}\vect{A}\cdot\dd\vect{r}&=\int_{0}^{1}\dd s\begin{pmatrix}0\\0\\s\end{pmatrix}\cdot\ayamari{\begin{pmatrix}s\\0\\1\end{pmatrix}}{\begin{pmatrix}1\\0\\0\end{pmatrix}}\\
+&=\int_{0}^{1}\dd s\,s=\frac{1}{2}
+\end{align*}
+\naze{$\dd\vect{r}$ は経路に沿った微小変位で，パラメータ $s$ で表すと $\dd\vect{r}=(\dd\vect{r}/\dd s)\,\dd s$ である。位置ベクトル $\vect{r}(s)$ そのものを掛けるのではない。辺 $C_{1}$ では $\dd\vect{r}/\dd s=(1,0,0)$ で，$A_{x}=0$ だけを積分する。}
+\begin{align*}
+\int_{C_{2}}\vect{A}\cdot\dd\vect{r}&=\int_{0}^{1}\dd s\begin{pmatrix}s\\s^{2}\\1\end{pmatrix}\cdot\ayamari{\begin{pmatrix}1\\s\\1\end{pmatrix}}{\begin{pmatrix}0\\1\\0\end{pmatrix}}\\
+&=\int_{0}^{1}\dd s\,(s^{3}+s+1)=\frac{1}{4}+\frac{1}{2}+1=\frac{7}{4}
+\end{align*}
+\begin{align*}
+\int_{C_{3}}\vect{A}\cdot\dd\vect{r}&=\int_{1}^{0}\dd s\begin{pmatrix}s^{2}\\1\\s\end{pmatrix}\cdot\ayamari{\begin{pmatrix}s\\1\\1\end{pmatrix}}{\begin{pmatrix}1\\0\\0\end{pmatrix}}\\
+&=\int_{1}^{0}\dd s\,(s^{3}+s+1)=-\frac{7}{4}
+\end{align*}
+\begin{align*}
+\int_{C_{4}}\vect{A}\cdot\dd\vect{r}&=\int_{1}^{0}\dd s\begin{pmatrix}0\\s^{2}\\0\end{pmatrix}\cdot\ayamari{\begin{pmatrix}0\\s\\1\end{pmatrix}}{\begin{pmatrix}0\\1\\0\end{pmatrix}}\\
+&=\int_{1}^{0}\dd s\,s^{3}=-\frac{1}{4}
+\end{align*}
+\[ \oint_{C}\vect{A}\cdot\dd\vect{r}=\frac{1}{2}+\frac{7}{4}-\frac{7}{4}-\frac{1}{4}=\frac{1}{4} \]
+\naze{以降は上の誤りを引き継ぐ。正しくは各辺 $0$，$\int_{0}^{1}s^{2}\,\dd s=1/3$，$\int_{1}^{0}s^{2}\,\dd s=-1/3$，$\int_{1}^{0}s^{2}\,\dd s=-1/3$ で，合計 $-1/3$ となる。}
+\begin{align*}
+\int_{S}(\nabla\times\vect{A})\cdot\vect{n}\,\dd S&=\int_{S}\begin{pmatrix}-y^{2}\\-z^{2}\\-x^{2}\end{pmatrix}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}\dd x\,\dd y\\
+&=\int_{0}^{1}\dd y\int_{0}^{1}\dd x\,(-x^{2})\\
+&=-\int_{0}^{1}\dd y\,\frac{1}{3}\\
+&=-\frac{1}{3}
+\end{align*}
+\naze{線積分 $1/4$ と面積分 $-1/3$ が一致しないことに触れずに終わっている。「確かめよ」で両辺が合わなければ，どちらかの立式を疑って見直す。}
+%% kizuki
+\item 線積分の $\dd\vect{r}$ は経路に沿った微小変位で，$\dd\vect{r}=(\dd\vect{r}/\dd s)\,\dd s$ である。各辺で $\dd\vect{r}$ に平行な $\vect{A}$ の成分だけを積分する（$x$ 方向の辺なら $A_{x}\,\dd x$）。
+\item 定理を「確かめよ」という問題で両辺が合わなかったら，答案を終える前にどちらの計算が誤っているかを見直す。

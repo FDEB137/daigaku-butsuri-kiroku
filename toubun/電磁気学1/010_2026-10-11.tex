@@ -1,0 +1,52 @@
+% 電磁気学1 電磁気学1-2 問題4（010-stokes。当時は 電磁気学1-1-2 問題10・shou01-02-l2-stokes） 解いた日 2026-10-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\nabla\times\vect{F}&=\Bigl(\pdv{}{y}y-\pdv{}{z}x,\ \pdv{}{z}z-\pdv{}{x}y,\\
+&\qquad\pdv{}{x}x-\pdv{}{y}z\Bigr)=(1,\ 1,\ 1)
+\end{align*}
+\[ \begin{pmatrix}\hat{\vect{x}}\\\hat{\vect{y}}\\\hat{\vect{z}}\end{pmatrix}=\begin{pmatrix}\sin\theta\cos\phi&\cos\theta\cos\phi&-\sin\phi\\\sin\theta\sin\phi&\cos\theta\sin\phi&\cos\phi\\\cos\theta&-\sin\theta&0\end{pmatrix}\begin{pmatrix}\hat{\vect{r}}\\\hat{\vect{\theta}}\\\hat{\vect{\phi}}\end{pmatrix} \]
+\begin{align*}
+&\hat{\vect{x}}+\hat{\vect{y}}+\hat{\vect{z}}\\
+&=(\sin\theta\cos\phi+\sin\theta\sin\phi+\cos\theta)\hat{\vect{r}}\\
+&\quad+(\kakimachigai{\sin\theta\sin\phi}{\cos\theta\cos\phi}+\cos\theta\sin\phi\\
+&\qquad+\kakimachigai{\cos\phi}{-\sin\theta})\hat{\vect{\theta}}\\
+&\quad+(\kakimachigai{\cos\theta-\sin\theta}{\cos\phi-\sin\phi})\hat{\vect{\phi}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\int_{S}\dd\vect{S}\cdot(\nabla\times\vect{F})\\
+&=\int_{0}^{\pi/2}\dd\theta\int_{0}^{2\pi}\dd\phi\\
+&\qquad(\sin\theta\cos\phi+\sin\theta\sin\phi+\cos\theta)R^{2}\sin\theta\\
+&=R^{2}\int_{0}^{\pi/2}\dd\theta\,\Bigl[\sin^{2}\theta\sin\phi-\sin^{2}\theta\cos\phi\\
+&\qquad+\phi\sin\theta\cos\theta\Bigr]_{0}^{2\pi}\\
+&=R^{2}\int_{0}^{\pi/2}\dd\theta\,(\pi\sin2\theta)=R^{2}\Bigl[-\frac{\pi}{2}\cos2\theta\Bigr]_{0}^{\pi/2}\\
+&=R^{2}\Bigl(\frac{\pi}{2}-\Bigl(-\frac{\pi}{2}\Bigr)\Bigr)=\pi R^{2}
+\end{align*}
+\toi{3}{◎}{}
+\[ \dd\vect{r}=\begin{pmatrix}-R\sin t\\R\cos t\\0\end{pmatrix}\dd t,\quad\vect{F}=\begin{pmatrix}0\\R\cos t\\R\sin t\end{pmatrix} \]
+\[ \dd\vect{r}\cdot\vect{F}=R^{2}\cos^{2}t\,\dd t \]
+\begin{align*}
+\oint_{C}\dd\vect{r}\cdot\vect{F}&=\int_{0}^{2\pi}R^{2}\cos^{2}t\,\dd t\\
+&=R^{2}\int_{0}^{2\pi}\Bigl(\frac{1}{2}+\frac{\cos2t}{2}\Bigr)\dd t\\
+&=R^{2}\Bigl[\frac{t}{2}+\frac{\sin2t}{4}\Bigr]_{0}^{2\pi}=\pi R^{2}
+\end{align*}
+\toi{4}{△}{記述}
+\[ \int_{V}\dd V\,\nabla\cdot(\nabla\times\vect{F})=0 \]
+\naze{これだけでは曲面によらない理由にならない。(i) $S$ と $S'$ で囲まれた領域 $V$ にガウスの定理を使い，$\nabla\cdot(\nabla\times\vect{F})=0$ から閉曲面 $S+S'$ の外向きの面積分が $0$ になること，(ii) $V$ の外向きの法線は $S'$ 上で $-\hat{\vect{z}}$ で，$C$ の向きに合わせた法線 $+\hat{\vect{z}}$ と逆なので，「$S$ の面積分 $=$ $S'$ の面積分」になること，を書く。}
+$x=r\cos\theta$，$y=r\sin\theta$，$z=0$
+\[ \begin{matrix}\hat{\vect{x}}\\\hat{\vect{y}}\end{matrix}=\ayamari{\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}}{\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}}\begin{bmatrix}\hat{\vect{r}}\\\hat{\vect{\theta}}\end{bmatrix} \]
+\begin{align*}
+\nabla\times\vect{F}&=(\cos\theta-\sin\theta)\hat{\vect{r}}+(\sin\theta+\cos\theta)\hat{\vect{\theta}}\\
+&\qquad+\hat{\vect{z}}
+\end{align*}
+\naze{$\hat{\vect{x}}=\cos\theta\,\hat{\vect{r}}-\sin\theta\,\hat{\vect{\theta}}$，$\hat{\vect{y}}=\sin\theta\,\hat{\vect{r}}+\cos\theta\,\hat{\vect{\theta}}$ なので，行列は書いたものの転置が正しい（$\hat{\vect{r}}$ の係数は $\cos\theta+\sin\theta$，$\hat{\vect{\theta}}$ の係数は $\cos\theta-\sin\theta$）。面積分に効くのは $\hat{\vect{z}}$ 成分だけなので，答えには影響しない。}
+\begin{align*}
+&\int_{\kakimachigai{C}{S'}}\dd\vect{S}\cdot(\nabla\times\vect{F})\\
+&=\int_{0}^{2\pi}\dd\theta\int_{0}^{R}\dd r\begin{pmatrix}0\\0\\r\end{pmatrix}\begin{pmatrix}\cos\theta-\sin\theta\\\sin\theta+\cos\theta\\1\end{pmatrix}\\
+&=\int_{0}^{2\pi}\dd\theta\int_{0}^{R}\dd r\,r\\
+&=2\pi\cdot\frac{1}{2}R^{2}=\pi R^{2}
+\end{align*}
+%% kizuki
+\item 曲面によらないことは「2つの曲面で囲まれた領域にガウスの定理」で示す。閉曲面の外向きの法線は，片方（$S'$）では $C$ の向きに合わせた法線と逆向きになり，その符号のおかげで2つの面積分が等しいと言える。この2点を文で書く。
+\item 基底の変換行列は，$\hat{\vect{x}}$ を $\hat{\vect{r}}$，$\hat{\vect{\theta}}$ で表すのか，その逆かで転置の関係になる。$\theta=\pi/2$ で $\hat{\vect{x}}=-\hat{\vect{\theta}}$ になるかで確かめる。和 $\hat{\vect{x}}+\hat{\vect{y}}+\hat{\vect{z}}$ の各基底の係数は，行列の列（同じ基底の係数）を足して作る（(1) では行を足していた）。

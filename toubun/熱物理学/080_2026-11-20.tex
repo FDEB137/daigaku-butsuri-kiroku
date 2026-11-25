@@ -1,0 +1,38 @@
+% 熱物理学 熱物理学-10 問題5（080-gibbs-duhem） 解いた日 2026-11-20
+%% kotae
+\toi{1}{◎}{}
+\[ S\dd T-V\dd p+n\dd\mu=0 \]
+$T$ 一定より $\dd T=0$
+\begin{align*}
+n\dd\mu&=V\dd p\\
+\dd\mu&=\frac{V}{n}\dd p\\
+&=\kakimachigai{\frac{RT}{p}+b\,\dd p}{\left(\frac{RT}{p}+b\right)\dd p}
+\end{align*}
+\begin{align*}
+\mu(T,p)-\mu(T,p_{0})&=\int_{p_{0}}^{p}\kakimachigai{\frac{RT}{p}+b\,\dd p}{\left(\frac{RT}{p}+b\right)\dd p}\\
+&=\Bigl[RT\ln p+bp\Bigr]_{p_{0}}^{p}\\
+&=RT\ln\frac{p}{p_{0}}+b(p-p_{0})
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+\kappa_{T}&=-\frac{1}{V}\left(\pdv{V}{p}\right)_{T,n}\\
+&=-\frac{1}{V}\cdot\kakimachigai{\frac{nRT}{p^{2}}}{\left(-\frac{nRT}{p^{2}}\right)}\\
+&=\frac{p}{bp+RT}\cdot\frac{RT}{p^{2}}=\frac{RT}{p(bp+RT)}
+\end{align*}
+\[ \kappa_{T}=\frac{1}{\rho}\left(\pdv{\rho}{p}\right)_{T}\nuke{n\ \text{によらない}} \]
+\[ \rho=\frac{n}{V}=\frac{1}{\frac{RT}{p}+b}=\frac{p}{RT+bp} \]
+\begin{align*}
+\kappa_{T}&=\left(\frac{RT}{p}+b\right)\cdot\frac{RT}{(RT+bp)^{2}}\\
+&=\frac{1}{p^{2}}\cdot\frac{RT}{\frac{RT}{p}+b}\\
+&=\frac{RT}{p(bp+RT)}
+\end{align*}
+で一致する。
+\naze{密度の微分で $n$ を固定する添字を外してよい理由が無い。$\rho=n/V=p/(RT+bp)$ は示強変数で $T$ と $p$ だけで決まり $n$ によらないので，$(\partial\rho/\partial p)_{T}$ と書ける，と添える。}
+\toi{3}{◎}{}
+\begin{align*}
+&RT\ln10^{2}+b(\num{1.0e7}-\num{1.0e5})\\
+&=\qty{1.18e4}{\joule\per\mole}
+\end{align*}
+$b$ による部分 \qty{317}{\joule\per\mole}
+%% kizuki
+\item \mae{第8章 問題6 (4)・11-16} 偏微分は何を固定するかまでが定義である。$V$ は示量変数なので $(\partial V/\partial p)_{T,n}$ と $n$ の固定が要るが，$\rho=n/V$ や $v=V/n$ のような示強変数は $(T,p)$ だけの関数なので $(\partial\rho/\partial p)_{T}$ と書ける。添字を変えたり外したりしたときは，その理由を一言書く。

@@ -1,0 +1,37 @@
+% 素粒子物理学 素粒子物理学-1 問題2（002-fourmomentum） 解いた日 2026-10-23
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+  &E^{2}-p^{2}=m^{2}\\
+  \therefore\ E^{2}&=p^{2}+m^{2}\\
+  &=(\qty{2.00e3}{\mega\electronvolt})^{2}+(\qty{938}{\mega\electronvolt})^{2}\\
+  &=\qty{4.880e6}{\mega\electronvolt\squared}\\
+  \therefore\ E&\simeq\qty{2.209e3}{\mega\electronvolt}\\
+  &\simeq\qty{2.21}{\giga\electronvolt}
+\end{align*}
+\toi{2}{○}{単位}
+\begin{align*}
+  \beta&=\frac{p}{E}=\frac{\qty{2.00}{\giga\electronvolt}}{\qty{2.209}{\giga\electronvolt}}\\
+  &=0.9053=0.905\\
+  \gamma&=\frac{E}{\mprot}=\frac{\qty{2.209}{\giga\electronvolt}}{\qty{938}{\mega\electronvolt}}\\
+  &=2.355=\ayamari{2.356}{2.36}
+\end{align*}
+\naze{$\beta$ は正しい。$\gamma=2.355$ を4桁で答え，丸めも誤っている（$2.355$ を4桁のまま書き直しても $2.356$ にはならない）。有効数字3桁の指定なので $\gamma=2.36$ と書く。}
+\toi{3}{◎}{}
+\begin{align*}
+  K&=E-\mprot=\qty{2.21}{\giga\electronvolt}-\qty{0.938}{\giga\electronvolt}\\
+  &=\qty{1.27}{\giga\electronvolt}
+\end{align*}
+\toi{4}{○}{記述}
+\[ p^{\mu}=\begin{pmatrix}E\\ p_{x}\\ p_{y}\\ p_{z}\end{pmatrix}=\begin{pmatrix}\qty{2.21}{\giga\electronvolt}\\ \qty{2.00}{\giga\electronvolt}\\ 0\\ 0\end{pmatrix} \]
+\[ p_{\mu}=\begin{pmatrix}E\\ -p_{x}\\ \ayamari{p_{y}}{-p_{y}}\\ \ayamari{p_{z}}{-p_{z}}\end{pmatrix}=\begin{pmatrix}\qty{2.21}{\giga\electronvolt}\\ \qty{-2.00}{\giga\electronvolt}\\ 0\\ 0\end{pmatrix} \]
+\naze{下付きにするときは空間成分すべての符号を反転する：$p_{\mu}=(E,-p_{x},-p_{y},-p_{z})$。今回は $p_{y}=p_{z}=0$ なので数値と結論には影響しない。}
+\begin{align*}
+  p^{\mu}p_{\mu}&=(\qty{2.209}{\giga\electronvolt})^{2}-(\qty{2.00}{\giga\electronvolt})^{2}\\
+  &=\qty{0.8796}{\giga\electronvolt\squared}\simeq\qty{0.880}{\giga\electronvolt\squared}\\
+  \mprot^{2}&=(\qty{0.938}{\giga\electronvolt})^{2}\\
+  &=\qty{0.8798}{\giga\electronvolt\squared}\simeq\qty{0.880}{\giga\electronvolt\squared}
+\end{align*}
+%% kizuki
+\item 下付きの成分は「空間成分の符号をすべて反転」したもので，$p_{\mu}=(E,-\vect{p})$ である。成分が0でも記号の段階で $-p_{y}$，$-p_{z}$ と書いておくと，成分が0でない問題で誤らない。
+\item 問題1 (1) と同じく，答えは有効数字3桁にそろえる。途中は4桁で計算してよいが，最後の答えを3桁に丸め，丸めた後の値が途中の値と合っているかを見る（$2.355\to2.36$）。

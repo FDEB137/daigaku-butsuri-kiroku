@@ -1,0 +1,47 @@
+% 素粒子物理学 素粒子物理学-1 問題5（005-muon） 解いた日 2026-10-25
+%% kotae
+（図：上空のミューオン生成点から地上まで \qty{15}{\kilo\metre}。$m_{\mu}=\qty{106}{\mega\electronvolt}$）
+\toi{1}{◎}{}
+\begin{align*}
+  \begin{pmatrix}c\Delta t'\\ \Delta x'\end{pmatrix}
+  &=\begin{pmatrix}\gamma&\gamma\beta\\ \gamma\beta&\gamma\end{pmatrix}\begin{pmatrix}c\Delta t\\ \Delta x\end{pmatrix}\\
+  &=\begin{pmatrix}\gamma c\tau\\ \gamma\beta c\tau\end{pmatrix}
+\end{align*}
+\[ \tau'=\gamma\tau=\frac{\tau}{\sqrt{1-\beta^{2}}} \]
+（脇に $E=\gamma m_{\mu}$，$p_{x}=\gamma\beta m_{\mu}$）
+\begin{align*}
+  L'&=\gamma\beta c\tau\\
+  &=\frac{p_{x}}{m_{\mu}}c\tau
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  c\tau&=\qty{3.0e8}{\metre\per\second}\cdot\qty{2.20e-6}{\second}\\
+  &=6.6\times10^{2}=\qty{660}{\metre}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  &L'\ge L\\
+  &\frac{p_{x}}{m_{\mu}}c\tau\ge L\\
+  p_{x}&\ge\frac{m_{\mu}L}{c\tau}=\frac{\qty{106}{\mega\electronvolt}\cdot\qty{15}{\kilo\metre}}{\qty{660}{\metre}}\\
+  &=\qty{2.41}{\giga\electronvolt}
+\end{align*}
+\toi{4}{○}{単位}
+\[ p_{x}=\gamma\beta m_{\mu}\qquad E=\gamma m_{\mu} \]
+\begin{align*}
+  \gamma&=\frac{E}{m_{\mu}}=\frac{\sqrt{p_{x}^{2}+m_{\mu}^{2}}}{m_{\mu}}\\
+  &=\sqrt{1+\left(\frac{p_{x}}{m_{\mu}}\right)^{2}}\quad\nuke{=22.7}
+\end{align*}
+\begin{align*}
+  \tau'&=\gamma\tau\\
+  &=50.0\,\ayamari{\unit{\milli\second}}{\unit{\micro\second}}
+\end{align*}
+\naze{$\gamma$ の数値が答えとして書かれていない（消しかけの薄い行にしか無い）。$\gamma=\sqrt{1+(2409/106)^{2}}=22.7$ を書く。$\tau$ が \unit{\micro\second} なので $\gamma\tau$ も \unit{\micro\second} で，$\tau'=\qty{50.0}{\micro\second}$（\unit{\milli\second} では1000倍になる）。}
+\toi{5}{○}{単位}
+\[ \frac{L}{\gamma}=\ayamari{\qty{660}{\metre}}{\qty{659}{\metre}} \]
+\[ \beta c\tau=\frac{p}{E}c\tau=\qty{659}{\metre} \]
+一致
+\naze{3桁で計算すると $L/\gamma=15000/22.75=\qty{659}{\metre}$ で，$\beta c\tau$ と3桁まで一致する（$L=\gamma\beta c\tau$ のとき $L/\gamma=\beta c\tau$ は恒等的に成り立つ）。660 と 659 のままでは「一致」の根拠が弱い。}
+%% kizuki
+\item 単位は元の量から引き継ぐ。$\tau=\qty{2.20}{\micro\second}$ に無次元の $\gamma$ を掛けたので，答えも \unit{\micro\second} である。書いた後に「$\tau'$ は $\tau$ の約23倍」と比で確かめると，\unit{\milli\second}（約2万倍）の誤りに気付ける。
+\item \mae{第1回 問題1 (1)・問題2 (2)・10-23} 答えは有効数字3桁にそろえる。今回は $L/\gamma$ を丸めた途中の値で 660 とし，比べる相手の 659 とずれた。比べる2つの量は同じ桁数で，途中を丸めずに計算する。
+\item \mae{第1回 問題4 (4)・10-23} 問われた量（ここでは $\gamma$ の値）を答えとして書き残す。式だけ出して数値を消すと，答えが無いことになる。

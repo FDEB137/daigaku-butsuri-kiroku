@@ -1,0 +1,474 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{素粒子物理学　第1回「素粒子物理の世界観1」}{2026-11-25}
+%% note-moto	problems\素粒子物理学\kai01\素粒子物理学-1.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-001-units}{1}}{L1・計算}{○△△◎}{C}{2026-10-23 (1)単位 (2)計算 (3)計算}
+  \ichirangyou{\hyperlink{bt-m-002-fourmomentum}{2}}{L1・計算}{◎○◎○}{A}{2026-10-23 (2)単位 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-003-debroglie}{3}}{L1・計算}{◎▲▲}{C}{2026-10-23 (2)立式 (3)立式}
+  \ichirangyou{\hyperlink{bt-m-004-uncertainty}{4}}{L1・計算}{◎◎○△}{B}{2026-10-23 (3)記述 (4)未着手}
+  \ichirangyou{\hyperlink{bt-m-005-muon}{5}}{L2・計算}{◎◎◎○○}{C}{2026-10-25 ヒント2 (4)単位 (5)単位}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L2・計算}{}{未着手}{}
+  \ichirangyou{8}{L2・説明}{}{未着手}{}
+  \ichirangyou{9}{L3・導出}{}{未着手}{}
+  \ichirangyou{10}{L3・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\素粒子物理学\001_2026-10-23.tex
+\mondaibangou{1}
+\begin{mondai}{001-units}{計算}{eV の定義と，自然単位系でのエネルギー・長さ・時間・温度の換算}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  素電荷 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  換算プランク定数×光速 & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}（$=\qty{197}{\electronvolt\nano\metre}$）\\
+  微細構造定数 & $\alpha$ & $1/137$\\
+  ボルツマン定数 & $\kB$ & \qty{8.62e-5}{\electronvolt\per\kelvin}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電子の質量 & $\melec$ & \qty{0.511}{\mega\electronvolt}\\
+  陽子の質量 & $\mprot$ & \qty{938}{\mega\electronvolt}（$=\qty{1.67e-27}{\kilogram}$）\\
+  中性子の質量 & $m_{\mathrm{n}}$ & \qty{940}{\mega\electronvolt}\\
+  ミューオンの質量 & $m_{\mu}$ & \qty{106}{\mega\electronvolt}\\
+  ミューオンの平均寿命（静止系） & $\tau$ & \qty{2.20}{\micro\second}\\
+\end{teisuu}
+自然単位系（$\hbar=c=1$）では，長さと時間をエネルギーの逆数で，温度を $\kB T$ のエネルギーで表す。定数表の値を用いて次の量を求めよ。答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item エネルギー \qty{1}{\tera\electronvolt} をジュールで表せ。
+    \item 長さ \qty{1}{\femto\metre} を \unit{\per\mega\electronvolt} の単位で表せ。また，\qty{1}{\per\giga\electronvolt} の長さを \unit{\femto\metre} で表せ。
+    \item \qty{1}{\per\giga\electronvolt} の時間を秒で表せ。
+    \item $\kB T$ が電子の質量 $\melec$（$\melec c^2$ のこと）に等しくなる温度 $T$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-23 C ○△△◎}
+\begin{kotaeutsushi}{2026-10-23}
+\toi{1}{○}{単位}
+\begin{align*}
+  \qty{1}{\tera\electronvolt}&=1\times10^{12}\times1.60\times10^{-19}\\
+  &=\ayamari{\qty{1.6e-7}{\joule}}{\qty{1.60e-7}{\joule}}
+\end{align*}
+\naze{値は正しいが，問題の指定は有効数字3桁なので $\qty{1.60e-7}{\joule}$ と書く。}
+\toi{2}{△}{計算}
+\begin{align*}
+  1&=\qty{197}{\mega\electronvolt\femto\metre}\\
+  \therefore\ \qty{1}{\femto\metre}&=\frac{1}{197}\,\unit{\per\mega\electronvolt}\\
+  &=\qty{5.08e-3}{\per\mega\electronvolt}
+\end{align*}
+\begin{align*}
+  \qty{1}{\per\giga\electronvolt}&=\ayamari{\frac{1000}{197}}{\frac{197}{1000}}\,\unit{\femto\metre}\\
+  &=\ayamari{5.08}{0.197}\,\unit{\femto\metre}
+\end{align*}
+\naze{エネルギーの逆数を長さに戻すときは $\hbar c$ を掛ける：$\qty{1}{\per\giga\electronvolt}=\hbar c/\qty{1000}{\mega\electronvolt}=\qty{197}{\mega\electronvolt\femto\metre}/\qty{1000}{\mega\electronvolt}=\qty{0.197}{\femto\metre}$。前半の $\qty{1}{\femto\metre}=\frac{1}{197}\,\unit{\per\mega\electronvolt}$ をそのまま逆にすると，$\qty{1}{\per\mega\electronvolt}=\qty{197}{\femto\metre}$ で，$\qty{1}{\per\giga\electronvolt}$ はその $1/1000$ である。}
+\toi{3}{△}{計算}
+\[ \frac{1000}{197}\times10^{-15}\,\unit{\metre}\div\qty{3.00e8}{\metre\per\second}=\qty{1.69e-23}{\second} \]
+\naze{長さを $c$ で割る方針は正しいが，(2) の誤った長さを使っている（以降はこの誤りを引き継ぐ）。正しくは $\qty{0.197e-15}{\metre}/\qty{3.00e8}{\metre\per\second}=\qty{6.57e-25}{\second}$。}
+\toi{4}{◎}{}
+\begin{align*}
+  T&=\frac{\melec c^{2}}{\kB}\\
+  &=\frac{\qty{0.511e6}{\electronvolt}}{\qty{8.62e-5}{\electronvolt\per\kelvin}}\\
+  &=\qty{5.93e9}{\kelvin}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item エネルギーの逆数と長さの換算は，$\hbar c=\qty{197}{\mega\electronvolt\femto\metre}$ を「掛けると長さ，割るとエネルギーの逆数」と単位で決める。$\unit{\mega\electronvolt\femto\metre}/\unit{\mega\electronvolt}=\unit{\femto\metre}$ になる向き（$197/1000$）が正しく，$1000/197$ では単位が長さにならない。
+\item 換算の結果は大きさの感覚で確かめる。\qty{1}{\per\giga\electronvolt} は \qty{1}{\per\mega\electronvolt}（\qty{197}{\femto\metre}）より短いはずなので，\qty{5.08}{\femto\metre} はおかしいと気付ける。
+\item 数値の答えは問題が指定した有効数字（3桁）にそろえる。$1.6$ ではなく $1.60$ と書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin \qty{1}{\electronvolt} の定義で \unit{\joule} に直す。長さ・時間は $\hbar c$ と $c$ でエネルギーの逆数と行き来し，温度は $\kB$ で割ってエネルギーから直す。
+\keisan \shoumonkai{1} $\qty{1}{\tera\electronvolt}=\qty{e12}{\electronvolt}$ なので
+\[ \qty{1}{\tera\electronvolt}=\num{e12}\times\qty{1.60e-19}{\joule}=\qty{1.60e-7}{\joule} \]
+\shoumonkai{2} $\hbar c=\qty{197}{\mega\electronvolt\femto\metre}$ を自然単位系で1とおくので，長さ \qty{1}{\femto\metre} は
+\[ \qty{1}{\femto\metre}=\frac{\qty{1}{\femto\metre}}{\hbar c}=\frac{\qty{1}{\femto\metre}}{\qty{197}{\mega\electronvolt\femto\metre}}=\qty{5.08e-3}{\per\mega\electronvolt} \]
+逆に，エネルギーの逆数に $\hbar c$ を掛けると長さになる。
+\[ \qty{1}{\per\giga\electronvolt}=\frac{\hbar c}{\qty{1000}{\mega\electronvolt}}=\frac{\qty{197}{\mega\electronvolt\femto\metre}}{\qty{1000}{\mega\electronvolt}}=\qty{0.197}{\femto\metre} \]
+\shoumonkai{3} 時間は，その長さを光が進む時間なので $c$ で割る。
+\[ t=\frac{\qty{0.197e-15}{\metre}}{\qty{3.00e8}{\metre\per\second}}=\qty{6.57e-25}{\second} \]
+\shoumonkai{4} $\kB T=\melec c^2$ を $T$ について解く。
+\[ T=\frac{\melec c^2}{\kB}=\frac{\qty{0.511e6}{\electronvolt}}{\qty{8.62e-5}{\electronvolt\per\kelvin}}=\qty{5.93e9}{\kelvin} \]
+\kotae{\shoumonkai{1} \qty{1.60e-7}{\joule} \shoumonkai{2} \qty{5.08e-3}{\per\mega\electronvolt}，\qty{0.197}{\femto\metre} \shoumonkai{3} \qty{6.57e-25}{\second} \shoumonkai{4} \qty{5.93e9}{\kelvin}}
+\kenzan \shoumonkai{3} 「\qty{1}{\metre} を光が進む時間 \qty{3.33}{\nano\second}」を使うと，$\num{0.197e-15}\times\qty{3.33e-9}{\second}=\qty{6.56e-25}{\second}$ で，丸めの差を除いて一致する。\shoumonkai{4} 「\qty{290}{\kelvin} で $\kB T=\qty{25}{\milli\electronvolt}$」から比例で求めても，$\qty{290}{\kelvin}\times\num{0.511e6}/\num{0.025}=\qty{5.9e9}{\kelvin}$ となり一致する。単位は $\unit{\electronvolt}/(\unit{\electronvolt\per\kelvin})=\unit{\kelvin}$ で正しい。 % 出典: p.10, p.12
+\tsumazuki エネルギーの逆数を長さに戻すときは $\hbar c$ を掛ける。割ると単位が $\unit{\per\mega\electronvolt\squared\per\femto\metre}$ のようになって長さにならないので，単位で確かめるとよい。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\素粒子物理学\002_2026-10-23.tex
+\mondaibangou{2}
+\begin{mondai}{002-fourmomentum}{計算}{4元運動量と不変質量，ブーストの関係 $E=\gamma m$・$p=\gamma\beta m$}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  素電荷 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  換算プランク定数×光速 & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}（$=\qty{197}{\electronvolt\nano\metre}$）\\
+  微細構造定数 & $\alpha$ & $1/137$\\
+  ボルツマン定数 & $\kB$ & \qty{8.62e-5}{\electronvolt\per\kelvin}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電子の質量 & $\melec$ & \qty{0.511}{\mega\electronvolt}\\
+  陽子の質量 & $\mprot$ & \qty{938}{\mega\electronvolt}（$=\qty{1.67e-27}{\kilogram}$）\\
+  中性子の質量 & $m_{\mathrm{n}}$ & \qty{940}{\mega\electronvolt}\\
+  ミューオンの質量 & $m_{\mu}$ & \qty{106}{\mega\electronvolt}\\
+  ミューオンの平均寿命（静止系） & $\tau$ & \qty{2.20}{\micro\second}\\
+\end{teisuu}
+自然単位系（$\hbar=c=1$）で考える。質量 $\mprot=\qty{938}{\mega\electronvolt}$ の陽子が，$x$ 軸の正の向きに運動量の大きさ $p=\qty{2.00}{\giga\electronvolt}$ で運動している。答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item 陽子のエネルギー $E$ を求めよ。
+    \item 陽子の速さ $\beta$（$=v/c$）とローレンツ因子 $\gamma$ を求めよ。
+    \item 陽子の運動エネルギー $K=E-\mprot$ を求めよ。
+    \item 4元運動量 $p^\mu$ と $p_\mu$ を成分で書き，$p^\mu p_\mu$ を計算して $\mprot^2$ に等しいことを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-23 A ◎○◎○}
+\begin{kotaeutsushi}{2026-10-23}
+\toi{1}{◎}{}
+\begin{align*}
+  &E^{2}-p^{2}=m^{2}\\
+  \therefore\ E^{2}&=p^{2}+m^{2}\\
+  &=(\qty{2.00e3}{\mega\electronvolt})^{2}+(\qty{938}{\mega\electronvolt})^{2}\\
+  &=\qty{4.880e6}{\mega\electronvolt\squared}\\
+  \therefore\ E&\simeq\qty{2.209e3}{\mega\electronvolt}\\
+  &\simeq\qty{2.21}{\giga\electronvolt}
+\end{align*}
+\toi{2}{○}{単位}
+\begin{align*}
+  \beta&=\frac{p}{E}=\frac{\qty{2.00}{\giga\electronvolt}}{\qty{2.209}{\giga\electronvolt}}\\
+  &=0.9053=0.905\\
+  \gamma&=\frac{E}{\mprot}=\frac{\qty{2.209}{\giga\electronvolt}}{\qty{938}{\mega\electronvolt}}\\
+  &=2.355=\ayamari{2.356}{2.36}
+\end{align*}
+\naze{$\beta$ は正しい。$\gamma=2.355$ を4桁で答え，丸めも誤っている（$2.355$ を4桁のまま書き直しても $2.356$ にはならない）。有効数字3桁の指定なので $\gamma=2.36$ と書く。}
+\toi{3}{◎}{}
+\begin{align*}
+  K&=E-\mprot=\qty{2.21}{\giga\electronvolt}-\qty{0.938}{\giga\electronvolt}\\
+  &=\qty{1.27}{\giga\electronvolt}
+\end{align*}
+\toi{4}{○}{記述}
+\[ p^{\mu}=\begin{pmatrix}E\\ p_{x}\\ p_{y}\\ p_{z}\end{pmatrix}=\begin{pmatrix}\qty{2.21}{\giga\electronvolt}\\ \qty{2.00}{\giga\electronvolt}\\ 0\\ 0\end{pmatrix} \]
+\[ p_{\mu}=\begin{pmatrix}E\\ -p_{x}\\ \ayamari{p_{y}}{-p_{y}}\\ \ayamari{p_{z}}{-p_{z}}\end{pmatrix}=\begin{pmatrix}\qty{2.21}{\giga\electronvolt}\\ \qty{-2.00}{\giga\electronvolt}\\ 0\\ 0\end{pmatrix} \]
+\naze{下付きにするときは空間成分すべての符号を反転する：$p_{\mu}=(E,-p_{x},-p_{y},-p_{z})$。今回は $p_{y}=p_{z}=0$ なので数値と結論には影響しない。}
+\begin{align*}
+  p^{\mu}p_{\mu}&=(\qty{2.209}{\giga\electronvolt})^{2}-(\qty{2.00}{\giga\electronvolt})^{2}\\
+  &=\qty{0.8796}{\giga\electronvolt\squared}\simeq\qty{0.880}{\giga\electronvolt\squared}\\
+  \mprot^{2}&=(\qty{0.938}{\giga\electronvolt})^{2}\\
+  &=\qty{0.8798}{\giga\electronvolt\squared}\simeq\qty{0.880}{\giga\electronvolt\squared}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 下付きの成分は「空間成分の符号をすべて反転」したもので，$p_{\mu}=(E,-\vect{p})$ である。成分が0でも記号の段階で $-p_{y}$，$-p_{z}$ と書いておくと，成分が0でない問題で誤らない。
+\item 問題1 (1) と同じく，答えは有効数字3桁にそろえる。途中は4桁で計算してよいが，最後の答えを3桁に丸め，丸めた後の値が途中の値と合っているかを見る（$2.355\to2.36$）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 不変質量の式 $E^2-p^2=m^2$ で $E$ を出し，ブーストの関係 $E=\gamma m$，$p=\gamma\beta m$ から $\beta$ と $\gamma$ を読む。
+\keisan \shoumonkai{1} $E^2=p^2+\mprot^2$ より
+\[ E=\sqrt{(\qty{2.00}{\giga\electronvolt})^2+(\qty{0.938}{\giga\electronvolt})^2}=\sqrt{\qty{4.880}{\giga\electronvolt\squared}}=\qty{2.21}{\giga\electronvolt} \]
+\shoumonkai{2} $p=\gamma\beta m$ を $E=\gamma m$ で割ると $\beta=p/E$，$E=\gamma m$ から $\gamma=E/m$ である。
+\[ \beta=\frac{p}{E}=\frac{2.000}{2.209}=0.905,\qquad \gamma=\frac{E}{\mprot}=\frac{2.209}{0.938}=2.36 \]
+\shoumonkai{3} 運動エネルギーは全エネルギーから静止エネルギーを引いたもの。
+\[ K=E-\mprot=\qty{2.209}{\giga\electronvolt}-\qty{0.938}{\giga\electronvolt}=\qty{1.27}{\giga\electronvolt} \]
+\shoumonkai{4} 上付きは $(E,p_x,p_y,p_z)$，下付きは空間成分の符号を反転したもの。
+\[ p^\mu=\begin{pmatrix}2.21\\2.00\\0\\0\end{pmatrix}\unit{\giga\electronvolt},\qquad p_\mu=\begin{pmatrix}2.21\\-2.00\\0\\0\end{pmatrix}\unit{\giga\electronvolt} \]
+内積は
+\[ p^\mu p_\mu=E^2-p_x^2-p_y^2-p_z^2=\qty{4.880}{\giga\electronvolt\squared}-\qty{4.000}{\giga\electronvolt\squared}=\qty{0.880}{\giga\electronvolt\squared}=(\qty{0.938}{\giga\electronvolt})^2 \]
+で，$\mprot^2$ に等しい。
+\kotae{\shoumonkai{1} $E=\qty{2.21}{\giga\electronvolt}$ \shoumonkai{2} $\beta=0.905$，$\gamma=2.36$ \shoumonkai{3} $K=\qty{1.27}{\giga\electronvolt}$ \shoumonkai{4} $p^\mu=(2.21,\,2.00,\,0,\,0)\,\unit{\giga\electronvolt}$，$p_\mu=(2.21,\,-2.00,\,0,\,0)\,\unit{\giga\electronvolt}$，$p^\mu p_\mu=\mprot^2$}
+\kenzan $\gamma\beta=2.355\times0.9054=2.132$ は $p/m=2.000/0.938=2.132$ と一致する。$\gamma^2(1-\beta^2)=5.546\times0.1803=1.000$ で，$\gamma=1/\sqrt{1-\beta^2}$ と整合する。$\beta<1$ であり，$p>m$ なので $\gamma$ が1から大きく離れた相対論的な領域にあることとも合う。
+\tsumazuki 非相対論の式 $K=p^2/(2m)$ を使うと $K=\qty{2.13}{\giga\electronvolt}$ となり，正しい値 \qty{1.27}{\giga\electronvolt} から大きくずれる。$p$ が $m$ と同程度以上のときは相対論の式を使う。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\素粒子物理学\003_2026-10-23.tex
+\mondaibangou{3}
+\begin{mondai}{003-debroglie}{計算}{ド・ブロイ波長 $\lambda=2\pi\hbar c/pc$ と，非相対論的・相対論的な運動量の求め方}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  素電荷 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  換算プランク定数×光速 & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}（$=\qty{197}{\electronvolt\nano\metre}$）\\
+  微細構造定数 & $\alpha$ & $1/137$\\
+  ボルツマン定数 & $\kB$ & \qty{8.62e-5}{\electronvolt\per\kelvin}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電子の質量 & $\melec$ & \qty{0.511}{\mega\electronvolt}\\
+  陽子の質量 & $\mprot$ & \qty{938}{\mega\electronvolt}（$=\qty{1.67e-27}{\kilogram}$）\\
+  中性子の質量 & $m_{\mathrm{n}}$ & \qty{940}{\mega\electronvolt}\\
+  ミューオンの質量 & $m_{\mu}$ & \qty{106}{\mega\electronvolt}\\
+  ミューオンの平均寿命（静止系） & $\tau$ & \qty{2.20}{\micro\second}\\
+\end{teisuu}
+次の粒子のド・ブロイ波長を求めよ。運動量 $p$ は $pc$ の値（エネルギーの単位）で扱い，答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item 運動エネルギー $K=\qty{25.0}{\milli\electronvolt}$（室温程度の熱エネルギー）の中性子（熱中性子）。非相対論的に扱い，波長を \unit{\nano\metre} で求めよ。また，原子のサイズ（\qty{0.1}{\nano\metre}--\qty{1}{\nano\metre}）と比べよ。
+    \item 運動エネルギー $K=\qty{1.00}{\mega\electronvolt}$ の電子。$pc$ を非相対論の式と相対論の式の両方で求めて比べ，正しい波長を \unit{\femto\metre} で求めよ。
+    \item ド・ブロイ波長が $\lambda=\qty{0.500}{\femto\metre}$ の電子のエネルギー $E$ を \unit{\giga\electronvolt} で求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-23 C ◎▲▲}
+\begin{kotaeutsushi}{2026-10-23}
+\toi{1}{◎}{}
+\begin{align*}
+  pc&=\sqrt{2m_{\mathrm{n}}K}\\
+  &=\sqrt{2\cdot\qty{940}{\mega\electronvolt}\cdot\qty{25}{\milli\electronvolt}}\\
+  &=\sqrt{\qty{4.7e7}{\electronvolt\squared}}\\
+  &=6.855\ldots\times10^{3}\,\unit{\electronvolt}
+\end{align*}
+\[ 2\pi\hbar c=1237\ldots\,\unit{\electronvolt\nano\metre} \]
+\begin{align*}
+  \lambda&=\frac{2\pi\hbar c}{pc}\\
+  &=\frac{\qty{1237}{\electronvolt\nano\metre}}{\qty{6.855e3}{\electronvolt}}\\
+  &=0.1805\ldots\,\unit{\nano\metre}\\
+  &=\qty{0.181}{\nano\metre}
+\end{align*}
+（原子のサイズと）同程度。
+\toi{2}{▲}{立式}
+非相対論
+\begin{align*}
+  pc&=\sqrt{2mK}\\
+  &=(2\times\ayamari{\qty{940}{\mega\electronvolt}}{\qty{0.511}{\mega\electronvolt}}\times\qty{1.00}{\mega\electronvolt})^{1/2}\\
+  &=\qty{43.36}{\mega\electronvolt}
+\end{align*}
+\naze{問題 (2) の粒子は電子なので，質量は $\melec=\qty{0.511}{\mega\electronvolt}$（\qty{940}{\mega\electronvolt} は (1) の中性子の質量）。以降はこの誤りを引き継ぐ。正しくは非相対論 $\sqrt{2\times0.511\times1.00}=\qty{1.01}{\mega\electronvolt}$。}
+相対論
+\begin{align*}
+  pc&=\sqrt{E^{2}-m^{2}}=\sqrt{(K+m)^{2}-m^{2}}\\
+  &=\sqrt{(\qty{941}{\mega\electronvolt})^{2}-(\qty{940}{\mega\electronvolt})^{2}}\\
+  &=\qty{43.37}{\mega\electronvolt}
+\end{align*}
+$E\gg m$ とは言えない $\to$ 非相対論
+\begin{align*}
+  \lambda&=\frac{2\pi\hbar c}{pc}\\
+  &=\frac{\qty{1237}{\mega\electronvolt\femto\metre}}{\qty{43.36}{\mega\electronvolt}}\\
+  &=\qty{28.52}{\femto\metre}\qquad\qty{28.5}{\femto\metre}
+\end{align*}
+\naze{電子では $K=\qty{1.00}{\mega\electronvolt}$ が $\melec$ の約2倍で $K\ll m$ が成り立たないので，相対論の値 $pc=\sqrt{K(K+2m)}=\qty{1.42}{\mega\electronvolt}$ が正しく（非相対論の値は約29\%小さい），$\lambda=1238/1.422=\qty{870}{\femto\metre}$。比べて選ぶという方針は正しい。}
+\toi{3}{▲}{立式}
+\begin{align*}
+  pc&=\frac{2\pi\hbar c}{\lambda}=\frac{\qty{1237}{\mega\electronvolt\femto\metre}}{\qty{0.5}{\femto\metre}}\\
+  &=\qty{2474}{\mega\electronvolt}\\
+  E^{2}&=(mc^{2})^{2}+p^{2}\\
+  &=(\ayamari{\qty{940}{\mega\electronvolt}}{\qty{0.511}{\mega\electronvolt}})^{2}+(\qty{2474}{\mega\electronvolt})^{2}\\
+  E&=\qty{2.65}{\giga\electronvolt}
+\end{align*}
+\naze{(3) も電子なので $m=\qty{0.511}{\mega\electronvolt}$。$pc\gg\melec$ なので $E=\sqrt{(pc)^{2}+\melec^{2}}\simeq pc=\qty{2.48}{\giga\electronvolt}$ となる。$pc$ までは正しい。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 小問ごとに問題文の粒子を読み直してから質量を入れる。(1) は中性子（\qty{940}{\mega\electronvolt}），(2)(3) は電子（\qty{0.511}{\mega\electronvolt}）で，3桁以上違う。
+\item 非相対論と相対論の値がほぼ一致したら $K\ll m$ のはずである。「電子で $K=\qty{1}{\mega\electronvolt}$」なら $K\approx2\melec$ で大きく違うはずなので，一致したこと自体が質量の取り違えの合図になる。
+\item 相対論か非相対論かは $K/m$（または $pc/m$）で判定する。(3) の答え $E=\qty{2.65}{\giga\electronvolt}$ が $pc=\qty{2.47}{\giga\electronvolt}$ より \qty{0.2}{\giga\electronvolt} も大きいのは，電子ならありえない（$pc\gg\melec$ なら $E\simeq pc$）。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\lambda=2\pi\hbar c/pc$ を使う。$pc$ は，$K\ll m$ なら非相対論の式 $\sqrt{2mK}$，そうでなければ $E=K+m$ から $\sqrt{E^2-m^2}$ で求める。
+\keisan \shoumonkai{1} $K=\qty{0.0250}{\electronvolt}$ は $m_{\mathrm{n}}c^2=\qty{940}{\mega\electronvolt}$ よりはるかに小さいので，非相対論の式が使える。
+\[ pc=\sqrt{2m_{\mathrm{n}}c^2K}=\sqrt{2\times\qty{940e6}{\electronvolt}\times\qty{0.0250}{\electronvolt}}=\sqrt{\qty{4.70e7}{\electronvolt\squared}}=\qty{6.86e3}{\electronvolt} \]
+\[ \lambda=\frac{2\pi\hbar c}{pc}=\frac{2\pi\times\qty{197}{\electronvolt\nano\metre}}{\qty{6.86e3}{\electronvolt}}=\frac{\qty{1238}{\electronvolt\nano\metre}}{\qty{6856}{\electronvolt}}=\qty{0.181}{\nano\metre} \]
+原子のサイズ（\qty{0.1}{\nano\metre}--\qty{1}{\nano\metre}）と同程度なので，熱中性子は結晶の原子の並びで回折を起こし，原子の配列を調べるのに使える。
+
+\shoumonkai{2} 非相対論の式では
+\[ pc=\sqrt{2\melec c^2K}=\sqrt{2\times\qty{0.511}{\mega\electronvolt}\times\qty{1.00}{\mega\electronvolt}}=\qty{1.01}{\mega\electronvolt} \]
+相対論の式では，$E=K+\melec$ を $pc=\sqrt{E^2-m^2}$ に入れて
+\[ pc=\sqrt{(K+m)^2-m^2}=\sqrt{K(K+2m)}=\sqrt{\qty{1.00}{\mega\electronvolt}\times\qty{2.022}{\mega\electronvolt}}=\qty{1.42}{\mega\electronvolt} \]
+$K$ が $\melec$ の約2倍で $K\ll m$ が成り立たないので，相対論の値が正しい（非相対論の値は約 \qty{29}{\percent} 小さい）。波長は
+\[ \lambda=\frac{2\pi\hbar c}{pc}=\frac{\qty{1238}{\mega\electronvolt\femto\metre}}{\qty{1.422}{\mega\electronvolt}}=\qty{870}{\femto\metre} \]
+\shoumonkai{3} 波長から運動量を出す。
+\[ pc=\frac{2\pi\hbar c}{\lambda}=\frac{\qty{1238}{\mega\electronvolt\femto\metre}}{\qty{0.500}{\femto\metre}}=\qty{2476}{\mega\electronvolt} \]
+$pc\gg\melec c^2$ なので
+\[ E=\sqrt{(pc)^2+(\melec c^2)^2}=\qty{2476}{\mega\electronvolt}\times\left(1+\num{2e-8}\right)\simeq\qty{2.48}{\giga\electronvolt} \]
+\kotae{\shoumonkai{1} \qty{0.181}{\nano\metre}（原子のサイズと同程度） \shoumonkai{2} 非相対論 \qty{1.01}{\mega\electronvolt}，相対論 \qty{1.42}{\mega\electronvolt}，$\lambda=\qty{870}{\femto\metre}$ \shoumonkai{3} \qty{2.48}{\giga\electronvolt}}
+\kenzan \shoumonkai{2} $K\ll m$ の極限では $\sqrt{K(K+2m)}\to\sqrt{2mK}$ となり，非相対論の式に戻る。\shoumonkai{3} 「\qty{200}{\mega\electronvolt} で \qty{6}{\femto\metre}」から $\lambda\propto1/E$ で比例させると，$\qty{6}{\femto\metre}\times200/2476=\qty{0.48}{\femto\metre}$ でほぼ一致する（\qty{6}{\femto\metre} は丸めた値）。単位は $\unit{\electronvolt\nano\metre}/\unit{\electronvolt}=\unit{\nano\metre}$ で正しい。 % 出典: p.39
+\tsumazuki $\sqrt{E^2-m^2}$ の $E$ は全エネルギー（$K+m$）であり，運動エネルギー $K$ を入れない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\素粒子物理学\004_2026-10-23.tex
+\mondaibangou{4}
+\begin{mondai}{004-uncertainty}{計算}{不確定性関係 $\Delta p_x\Delta x>\hbar/2$・$\Delta E\Delta t>\hbar/2$ と，原子（\unit{\electronvolt}）・原子核（\unit{\mega\electronvolt}）のエネルギースケール}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  素電荷 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  換算プランク定数×光速 & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}（$=\qty{197}{\electronvolt\nano\metre}$）\\
+  微細構造定数 & $\alpha$ & $1/137$\\
+  ボルツマン定数 & $\kB$ & \qty{8.62e-5}{\electronvolt\per\kelvin}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電子の質量 & $\melec$ & \qty{0.511}{\mega\electronvolt}\\
+  陽子の質量 & $\mprot$ & \qty{938}{\mega\electronvolt}（$=\qty{1.67e-27}{\kilogram}$）\\
+  中性子の質量 & $m_{\mathrm{n}}$ & \qty{940}{\mega\electronvolt}\\
+  ミューオンの質量 & $m_{\mu}$ & \qty{106}{\mega\electronvolt}\\
+  ミューオンの平均寿命（静止系） & $\tau$ & \qty{2.20}{\micro\second}\\
+\end{teisuu}
+粒子が大きさ $\Delta x$ の領域に閉じ込められているとき，不確定性関係の下限（等号）から運動量の広がり $\Delta p$ を求め，それを運動量の大きさの目安として運動エネルギーを見積もる。答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item 電子を $\Delta x=\qty{0.100}{\nano\metre}$（原子の大きさ）に閉じ込めるとき，$\Delta p\,c$ を \unit{\electronvolt} で求め，非相対論的な運動エネルギー $K=(\Delta p)^2/(2\melec)$ を \unit{\electronvolt} で見積もれ。
+    \item 陽子を $\Delta x=\qty{1.00}{\femto\metre}$（原子核の大きさ）に閉じ込めるとき，$\Delta p\,c$ と $K$ を \unit{\mega\electronvolt} で見積もれ。
+    \item 電子を $\Delta x=\qty{1.00}{\femto\metre}$ に閉じ込めるとき，非相対論の式が使えない理由を述べ，次の式でエネルギー $E$ を \unit{\mega\electronvolt} で見積もれ。
+      \[ E=\sqrt{(\Delta p\,c)^2+(\melec c^2)^2} \]
+      また，陽子の場合の結果と比べて何が言えるかを述べよ。
+    \item 静止したミューオンの平均寿命 $\tau=\qty{2.20}{\micro\second}$ を $\Delta t$ とみなして，エネルギーの不確定さ $\Delta E$ の下限を \unit{\electronvolt} で求め，ミューオンの質量 $m_\mu$ との比を求めよ。
+  \end{shoumon}
+\notekiroku{2026-10-23 B ◎◎○△}
+\begin{kotaeutsushi}{2026-10-23}
+\toi{1}{◎}{}
+（脇に $\qty{197}{\electronvolt\nano\metre}=1$）
+\begin{align*}
+  &\Delta x\,\Delta pc=\frac{1}{2}\\
+  \therefore\ \Delta pc&=\qty{5}{\per\nano\metre}\\
+  &=\qty{985}{\electronvolt}
+\end{align*}
+\begin{align*}
+  K&=\frac{(\Delta p)^{2}}{2\melec}\\
+  &=\frac{(\qty{985}{\electronvolt})^{2}}{2\cdot\qty{5.11e5}{\electronvolt}}=\qty{0.949}{\electronvolt}
+\end{align*}
+\toi{2}{◎}{}
+（脇に $\qty{197}{\mega\electronvolt\femto\metre}=1$）
+\begin{align*}
+  \Delta pc&=\qty{0.5}{\per\femto\metre}\\
+  &=\qty{98.5}{\mega\electronvolt}
+\end{align*}
+\begin{align*}
+  K&=\frac{(\Delta p)^{2}}{2\mprot}\\
+  &=\frac{(\qty{98.5}{\mega\electronvolt})^{2}}{2\cdot\qty{938}{\mega\electronvolt}}=\qty{5.17}{\mega\electronvolt}
+\end{align*}
+\toi{3}{○}{記述}
+$K\gg\melec$ となり，光速に近づくため。
+\begin{align*}
+  E&=\sqrt{(\qty{98.5}{\mega\electronvolt})^{2}+(\qty{0.511}{\mega\electronvolt})^{2}}\\
+  &=\qty{98.5}{\mega\electronvolt}
+\end{align*}
+$\Delta pc\sim E$ となる。\nuke{陽子との比較}
+\naze{問いの後半「陽子の場合の結果と比べて何が言えるか」が無い。$E=\qty{98.5}{\mega\electronvolt}$ は，陽子を同じ \qty{1}{\femto\metre} に閉じ込めた $K=\qty{5.17}{\mega\electronvolt}$ や原子核のエネルギースケール（\unit{\mega\electronvolt}）より1桁以上大きいので，電子が原子核の中に閉じ込められているとは考えにくい。また理由は $K$ でなく $\Delta p\,c\gg\melec c^{2}$（$p\ll m$ が成り立たない）と書くほうが正確である。}
+\toi{4}{△}{未着手}
+\begin{align*}
+  &\Delta t\,\Delta E=\frac{1}{2}\\
+  \therefore\ \Delta E&=\qty{0.227}{\per\micro\second}=\qty{2.27e5}{\per\second}\\
+  &=\frac{\qty{2.27e5}{\per\second}}{\qty{3.0e8}{\metre\per\second}}\\
+  &=\qty{7.576e-4}{\per\metre}=\qty{7.576e-13}{\per\nano\metre}\\
+  &=\qty{1.49e-10}{\electronvolt}
+\end{align*}
+\[ m_{\mu}=\qty{106}{\mega\electronvolt}\qquad m_{\mu}\gg\Delta E \]
+\nuke{比 $\Delta E/m_{\mu}$}
+\naze{$\Delta E$ は正しい（$\unit{\per\micro\second}\to\unit{\per\metre}\to\unit{\per\nano\metre}$ と直して $\hbar c=\qty{197}{\electronvolt\nano\metre}$ を使う方法も正しい）。問われている質量との比が無い。$\qty{1.49e-10}{\electronvolt}/\qty{106e6}{\electronvolt}=\num{1.41e-18}$ まで出す。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「〜と比べて何が言えるか」と問われたら，比べる相手の数値（陽子の \qty{5.17}{\mega\electronvolt}，原子核の \unit{\mega\electronvolt} 程度）を並べ，そこから言える結論（電子は原子核の中にいられない）まで1文で書く。
+\item 小問の「求めよ」の数を数えて，最後に全部に答えたかを確かめる。(4) は $\Delta E$ と「質量との比」の2つで，$m_{\mu}\gg\Delta E$ という大小だけでは比を求めたことにならない。
+\item 非相対論が使えるかは $\Delta p\,c$ と $mc^{2}$ の大小で判定する（$K$ は非相対論の式で出した値なので，判定の根拠に使うと循環する）。
+\end{kizuki}
+\begin{tadashii}
+\houshin $\Delta p_x\Delta x=\hbar/2$（下限）から $\Delta p\,c=\hbar c/(2\Delta x)$ を求め，運動エネルギーは $\Delta p\,c$ と $mc^2$ の大小で非相対論か相対論の式を選ぶ。時間の不確定さは $\Delta E=\hbar/(2\Delta t)$ で，$\hbar c$ を使うために $c\Delta t$ に直す。
+\keisan \shoumonkai{1} 下限は
+\[ \Delta p\,c=\frac{\hbar c}{2\Delta x}=\frac{\qty{197}{\electronvolt\nano\metre}}{2\times\qty{0.100}{\nano\metre}}=\qty{985}{\electronvolt} \]
+$\Delta p\,c\ll\melec c^2$ なので非相対論でよい。
+\[ K=\frac{(\Delta p\,c)^2}{2\melec c^2}=\frac{(\qty{985}{\electronvolt})^2}{2\times\qty{0.511e6}{\electronvolt}}=\qty{0.949}{\electronvolt} \]
+\shoumonkai{2} 同様に
+\[ \Delta p\,c=\frac{\qty{197}{\mega\electronvolt\femto\metre}}{2\times\qty{1.00}{\femto\metre}}=\qty{98.5}{\mega\electronvolt} \]
+$\Delta p\,c\ll\mprot c^2=\qty{938}{\mega\electronvolt}$ なので非相対論でよい。
+\[ K=\frac{(\qty{98.5}{\mega\electronvolt})^2}{2\times\qty{938}{\mega\electronvolt}}=\qty{5.17}{\mega\electronvolt} \]
+\shoumonkai{3} $\Delta p\,c=\qty{98.5}{\mega\electronvolt}$ は $\melec c^2=\qty{0.511}{\mega\electronvolt}$ の約200倍なので，$p\ll m$ を前提とする非相対論の式は使えない。
+\[ E=\sqrt{(\qty{98.5}{\mega\electronvolt})^2+(\qty{0.511}{\mega\electronvolt})^2}=\qty{98.5}{\mega\electronvolt} \]
+陽子を同じ大きさに閉じ込めたときの運動エネルギー（\qty{5.17}{\mega\electronvolt}）や，原子核で発現するエネルギー（\unit{\mega\electronvolt} 程度）より1桁以上大きい。電子を原子核の大きさに閉じ込めるには非常に大きなエネルギーがいるので，電子が原子核の中に閉じ込められているとは考えにくい。 % 出典: p.12
+
+\shoumonkai{4} $\Delta E\Delta t=\hbar/2$ で $\Delta t=\tau$ とし，分母と分子に $c$ を掛ける。$\hbar c=\qty{197e6}{\electronvolt}\times\qty{e-15}{\metre}=\qty{1.97e-7}{\electronvolt\metre}$，$c\tau=\qty{3.00e8}{\metre\per\second}\times\qty{2.20e-6}{\second}=\qty{660}{\metre}$ なので
+\[ \Delta E=\frac{\hbar c}{2c\tau}=\frac{\qty{1.97e-7}{\electronvolt\metre}}{2\times\qty{660}{\metre}}=\qty{1.49e-10}{\electronvolt} \]
+質量との比は
+\[ \frac{\Delta E}{m_\mu c^2}=\frac{\qty{1.49e-10}{\electronvolt}}{\qty{106e6}{\electronvolt}}=\num{1.41e-18} \]
+\kotae{\shoumonkai{1} $\Delta p\,c=\qty{985}{\electronvolt}$，$K=\qty{0.949}{\electronvolt}$ \shoumonkai{2} $\Delta p\,c=\qty{98.5}{\mega\electronvolt}$，$K=\qty{5.17}{\mega\electronvolt}$ \shoumonkai{3} $E=\qty{98.5}{\mega\electronvolt}$（$\Delta p\,c\gg\melec c^2$。原子核のエネルギースケールより1桁以上大きい） \shoumonkai{4} $\Delta E=\qty{1.49e-10}{\electronvolt}$，比 \num{1.41e-18}}
+\kenzan \shoumonkai{1} $K=\qty{0.949}{\electronvolt}$ は，原子で発現するエネルギー（\unit{\electronvolt}）とオーダーが合う。 % 出典: p.12
+\shoumonkai{2} $K=\qty{5.17}{\mega\electronvolt}$ は，原子核で発現するエネルギー（\unit{\mega\electronvolt}）とオーダーが合う。電子を原子に閉じ込めた値との比で確かめると，$K\propto1/(m\Delta x^2)$ より % 出典: p.12
+\[ \frac{K_{\mathrm{p}}}{K_{\mathrm{e}}}=\frac{\melec}{\mprot}\left(\frac{\qty{0.100}{\nano\metre}}{\qty{1.00}{\femto\metre}}\right)^2=\num{5.45e-4}\times\num{e10}=\num{5.45e6} \]
+で，$\qty{0.949}{\electronvolt}\times\num{5.45e6}=\qty{5.17}{\mega\electronvolt}$ と一致する。\shoumonkai{4} $\Delta E$ は質量に比べて無視できるほど小さく，寿命の長い粒子の質量は精度よく決まる。
+\tsumazuki 不確定性関係の右辺は $\hbar/2$ であり，$\hbar$ や $h$ と取り違えると2倍や $4\pi$ 倍ずれる（オーダー評価では許されるが，問題の指定に従う）。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\素粒子物理学\005_2026-10-25.tex
+\mondaibangou{5}
+\begin{mondai}{005-muon}{計算}{ローレンツブーストを時空の4元ベクトルに使った時間の遅れと，寿命・飛行距離・ローレンツ収縮}
+\begin{teisuu}
+  光速 & $c$ & \qty{3.00e8}{\metre\per\second}\\
+  素電荷 & $e$ & \qty{1.60e-19}{\coulomb}\\
+  換算プランク定数×光速 & $\hbar c$ & \qty{197}{\mega\electronvolt\femto\metre}（$=\qty{197}{\electronvolt\nano\metre}$）\\
+  微細構造定数 & $\alpha$ & $1/137$\\
+  ボルツマン定数 & $\kB$ & \qty{8.62e-5}{\electronvolt\per\kelvin}\\
+  重力定数 & $G$ & \qty{6.67e-11}{\metre\cubed\per\kilogram\per\second\squared}\\
+  電子の質量 & $\melec$ & \qty{0.511}{\mega\electronvolt}\\
+  陽子の質量 & $\mprot$ & \qty{938}{\mega\electronvolt}（$=\qty{1.67e-27}{\kilogram}$）\\
+  中性子の質量 & $m_{\mathrm{n}}$ & \qty{940}{\mega\electronvolt}\\
+  ミューオンの質量 & $m_{\mu}$ & \qty{106}{\mega\electronvolt}\\
+  ミューオンの平均寿命（静止系） & $\tau$ & \qty{2.20}{\micro\second}\\
+\end{teisuu}
+宇宙線が上空で大気と衝突し，地上からの高さ $L=\qty{15.0}{\kilo\metre}$ でミューオンが生成されて，鉛直下向きにまっすぐ進むとする。鉛直下向きを $x$ 軸の正の向きとする。ミューオンの質量は $m_\mu=\qty{106}{\mega\electronvolt}$，静止したミューオンの平均寿命は $\tau=\qty{2.20}{\micro\second}$ である。質量・運動量は $mc^2$・$pc$ の値を \unit{\mega\electronvolt} で，長さと時間は SI で表す。答えは有効数字3桁とする。
+  \begin{shoumon}
+    \item ミューオンの静止系で，生成と崩壊の2つの事象の時空座標の差は $(c\Delta t,\Delta x)=(c\tau,0)$ である。ブースト行列（$x$ 方向。$y,z$ 成分は省く）をこの差に作用させて，ミューオンが速さ $\beta$ で動いて見える地上の系での寿命 $\tau'$ と，崩壊までの平均飛行距離 $L'$ を，$\gamma$，$\beta$，$\tau$，$c$ で表せ。さらに $L'$ を運動量 $p$ と $m_\mu$ を使って書け。 % 出典: p.16--17
+    \item 時間の遅れが無いとしたときの，ミューオンが進める距離の上限 $c\tau$ を求めよ。
+    \item 平均飛行距離 $L'$ が $L$ 以上になるための運動量 $p$ の最小値を \unit{\giga\electronvolt} で求めよ。
+    \item $p$ がこの最小値のとき，$\gamma$ と地上の系での寿命 $\tau'$ を求めよ。
+    \item \hanigai ミューオンの静止系では，地上から生成点までの距離がローレンツ収縮して $L/\gamma$ に見える。$p$ がこの最小値のときの $L/\gamma$ を計算して $\beta c\tau$ と比べ，2つの系での見方が矛盾しないことを説明せよ。
+  \end{shoumon}
+\notekiroku{2026-10-25 C ◎◎◎○○ (ヒント2)}
+\begin{kotaeutsushi}{2026-10-25}
+（図：上空のミューオン生成点から地上まで \qty{15}{\kilo\metre}。$m_{\mu}=\qty{106}{\mega\electronvolt}$）
+\toi{1}{◎}{}
+\begin{align*}
+  \begin{pmatrix}c\Delta t'\\ \Delta x'\end{pmatrix}
+  &=\begin{pmatrix}\gamma&\gamma\beta\\ \gamma\beta&\gamma\end{pmatrix}\begin{pmatrix}c\Delta t\\ \Delta x\end{pmatrix}\\
+  &=\begin{pmatrix}\gamma c\tau\\ \gamma\beta c\tau\end{pmatrix}
+\end{align*}
+\[ \tau'=\gamma\tau=\frac{\tau}{\sqrt{1-\beta^{2}}} \]
+（脇に $E=\gamma m_{\mu}$，$p_{x}=\gamma\beta m_{\mu}$）
+\begin{align*}
+  L'&=\gamma\beta c\tau\\
+  &=\frac{p_{x}}{m_{\mu}}c\tau
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+  c\tau&=\qty{3.0e8}{\metre\per\second}\cdot\qty{2.20e-6}{\second}\\
+  &=6.6\times10^{2}=\qty{660}{\metre}
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+  &L'\ge L\\
+  &\frac{p_{x}}{m_{\mu}}c\tau\ge L\\
+  p_{x}&\ge\frac{m_{\mu}L}{c\tau}=\frac{\qty{106}{\mega\electronvolt}\cdot\qty{15}{\kilo\metre}}{\qty{660}{\metre}}\\
+  &=\qty{2.41}{\giga\electronvolt}
+\end{align*}
+\toi{4}{○}{単位}
+\[ p_{x}=\gamma\beta m_{\mu}\qquad E=\gamma m_{\mu} \]
+\begin{align*}
+  \gamma&=\frac{E}{m_{\mu}}=\frac{\sqrt{p_{x}^{2}+m_{\mu}^{2}}}{m_{\mu}}\\
+  &=\sqrt{1+\left(\frac{p_{x}}{m_{\mu}}\right)^{2}}\quad\nuke{=22.7}
+\end{align*}
+\begin{align*}
+  \tau'&=\gamma\tau\\
+  &=50.0\,\ayamari{\unit{\milli\second}}{\unit{\micro\second}}
+\end{align*}
+\naze{$\gamma$ の数値が答えとして書かれていない（消しかけの薄い行にしか無い）。$\gamma=\sqrt{1+(2409/106)^{2}}=22.7$ を書く。$\tau$ が \unit{\micro\second} なので $\gamma\tau$ も \unit{\micro\second} で，$\tau'=\qty{50.0}{\micro\second}$（\unit{\milli\second} では1000倍になる）。}
+\toi{5}{○}{単位}
+\[ \frac{L}{\gamma}=\ayamari{\qty{660}{\metre}}{\qty{659}{\metre}} \]
+\[ \beta c\tau=\frac{p}{E}c\tau=\qty{659}{\metre} \]
+一致
+\naze{3桁で計算すると $L/\gamma=15000/22.75=\qty{659}{\metre}$ で，$\beta c\tau$ と3桁まで一致する（$L=\gamma\beta c\tau$ のとき $L/\gamma=\beta c\tau$ は恒等的に成り立つ）。660 と 659 のままでは「一致」の根拠が弱い。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 単位は元の量から引き継ぐ。$\tau=\qty{2.20}{\micro\second}$ に無次元の $\gamma$ を掛けたので，答えも \unit{\micro\second} である。書いた後に「$\tau'$ は $\tau$ の約23倍」と比で確かめると，\unit{\milli\second}（約2万倍）の誤りに気付ける。
+\item \mae{第1回 問題1 (1)・問題2 (2)・10-23} 答えは有効数字3桁にそろえる。今回は $L/\gamma$ を丸めた途中の値で 660 とし，比べる相手の 659 とずれた。比べる2つの量は同じ桁数で，途中を丸めずに計算する。
+\item \mae{第1回 問題4 (4)・10-23} 問われた量（ここでは $\gamma$ の値）を答えとして書き残す。式だけ出して数値を消すと，答えが無いことになる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 時空の4元ベクトルの差にブースト行列を作用させて，地上の系での時間と距離を求める。ブーストの関係 $\gamma\beta=p/m$ で運動量に結びつける。
+\keisan \shoumonkai{1} 静止系での差 $(c\tau,0)$ にブースト行列を作用させる。
+\[ \begin{pmatrix} c\Delta t'\\ \Delta x'\end{pmatrix}=\begin{pmatrix}\gamma&\gamma\beta\\ \gamma\beta&\gamma\end{pmatrix}\begin{pmatrix} c\tau\\ 0\end{pmatrix}=\begin{pmatrix}\gamma c\tau\\ \gamma\beta c\tau\end{pmatrix} \]
+よって地上の系での寿命と平均飛行距離は $\tau'=\gamma\tau$，$L'=\gamma\beta c\tau$。ブーストの関係 $E=\gamma m_\mu$，$p=\gamma\beta m_\mu$ から $\gamma\beta=p/m_\mu$ なので
+\[ L'=\frac{p}{m_\mu}\,c\tau \]
+\shoumonkai{2} 時間の遅れが無ければ，速さは $c$ を超えないので進める距離は $c\tau$ 以下である。
+\[ c\tau=\qty{3.00e8}{\metre\per\second}\times\qty{2.20e-6}{\second}=\qty{660}{\metre} \]
+\shoumonkai{3} $L'\ge L$ を $p$ について解く。
+\[ p\ge m_\mu\frac{L}{c\tau}=\qty{106}{\mega\electronvolt}\times\frac{\qty{15.0e3}{\metre}}{\qty{660}{\metre}}=\qty{2409}{\mega\electronvolt}=\qty{2.41}{\giga\electronvolt} \]
+\shoumonkai{4} $E=\sqrt{p^2+m_\mu^2}$ から $\gamma=E/m_\mu$ を求める。
+\[ E=\sqrt{(\qty{2409}{\mega\electronvolt})^2+(\qty{106}{\mega\electronvolt})^2}=\qty{2411}{\mega\electronvolt},\qquad \gamma=\frac{2411}{106}=22.7 \]
+\[ \tau'=\gamma\tau=22.75\times\qty{2.20}{\micro\second}=\qty{50.0}{\micro\second} \]
+\shoumonkai{5} 収縮した距離は
+\[ \frac{L}{\gamma}=\frac{\qty{15.0e3}{\metre}}{22.75}=\qty{659}{\metre} \]
+一方，静止系では地面が速さ $\beta=p/E=2409/2411=0.99903$ で近づき，寿命 $\tau$ の間に進む距離は
+\[ \beta c\tau=0.99903\times\qty{660}{\metre}=\qty{659}{\metre} \]
+で，$L/\gamma$ と等しい。$L=L'=\gamma\beta c\tau$ のとき $L/\gamma=\beta c\tau$ が恒等的に成り立つ。地上の系では「時間が遅れて寿命が延びるので \qty{15.0}{\kilo\metre} 進める」，ミューオンの静止系では「寿命は $\tau$ のままだが距離が縮んでいるので届く」と見え，平均してちょうど地上に届くという結論は一致する。
+\kotae{\shoumonkai{1} $\tau'=\gamma\tau$，$L'=\gamma\beta c\tau=(p/m_\mu)\,c\tau$ \shoumonkai{2} \qty{660}{\metre} \shoumonkai{3} \qty{2.41}{\giga\electronvolt} \shoumonkai{4} $\gamma=22.7$，$\tau'=\qty{50.0}{\micro\second}$ \shoumonkai{5} $L/\gamma=\beta c\tau=\qty{659}{\metre}$ で一致し，矛盾しない}
+\kenzan $L'$ は $(p/m)$（無次元）$\times c\tau$（長さ）で長さの次元をもつ。$p\to0$ で $L'\to0$（止まった粒子は進まない）。$p\gg m$ では $\gamma\simeq p/m=22.7$ で，上で求めた $\gamma=22.7$ と合う。また $\beta c\tau'=0.99903\times\qty{3.00e8}{\metre\per\second}\times\qty{50.05e-6}{\second}=\qty{1.50e4}{\metre}$ で $L$ に戻る。
+\tsumazuki 動いている粒子の寿命は $\gamma\tau$ で延びる（$\tau/\gamma$ ではない）。また，飛行距離の係数は $\gamma\beta=p/m$ であり，$\gamma=E/m$ ではない（$\gamma\gg1$ ではほぼ等しいが，$p\lesssim m$ では大きく違う）。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

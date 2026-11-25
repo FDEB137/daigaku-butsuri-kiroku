@@ -1,0 +1,345 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{電磁気学1　第2章「積分定理とデルタ関数」}{2026-11-25}
+%% note-moto	problems\電磁気学1\shou02\電磁気学1-2.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-004-koubai}{1}}{L1・計算}{◎◎◎◎}{S}{2026-10-11}
+  \ichirangyou{\hyperlink{bt-m-005-delta}{2}}{L1・計算}{×△◎◎◎}{C}{2026-10-11 (1)立式 (2)立式}
+  \ichirangyou{\hyperlink{bt-m-009-ensui}{3}}{L2・計算}{×◎△×}{D}{2026-10-11 ヒント2 (1)方針 (3)計算 (4)立式}
+  \ichirangyou{\hyperlink{bt-m-010-stokes}{4}}{L2・計算}{◎◎◎△}{A}{2026-10-11 (4)記述}
+  \ichirangyou{5}{L3・導出}{}{未着手}{}
+  \ichirangyou{6}{L3・導出}{}{未着手}{}
+  \ichirangyou{7}{L3・計算}{}{未着手}{}
+  \ichirangyou{8}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 回転の発散 % 出典: p.10
+    \[ \nabla\cdot(\nabla\times\vect{V}) = 0 \notetag{2.1} \]
+  \item 円柱座標の発散 % 出典: p.14
+    \[ \nabla\cdot\vect{V} = \frac{1}{\rho}\pdv{(\rho V_\rho)}{\rho} + \frac{1}{\rho}\pdv{V_\varphi}{\varphi} + \pdv{V_z}{z} \notetag{2.2} \]
+  \item 円柱座標の基底の微分 % 出典: p.14
+    \[ \pdv{\hat{\vect{\rho}}}{\varphi} = \hat{\vect{\varphi}}, \qquad \pdv{\hat{\vect{\varphi}}}{\varphi} = -\hat{\vect{\rho}} \notetag{2.3} \]
+  \item 線積分のパラメータ表示 % 出典: p.19
+    \[ \int_C \dd\vect{r}\cdot\vect{F}(\vect{r}) = \int_{\lambda_A}^{\lambda_B}\dd\lambda\left(F_x\pdv{x}{\lambda} + F_y\pdv{y}{\lambda} + F_z\pdv{z}{\lambda}\right) \notetag{2.8} \]
+  \item 勾配の線積分 % 出典: p.20
+    \[ \int_C \dd\vect{r}\cdot\nabla f(\vect{r}) = f(\vect{r}_B) - f(\vect{r}_A) \notetag{2.9} \]
+  \item 面要素 % 出典: p.20
+    \[ \dd S = \abs{\pdv{\vect{r}}{\lambda_1}\times\pdv{\vect{r}}{\lambda_2}}\dd\lambda_1\,\dd\lambda_2 \notetag{2.10} \]
+  \item 面要素ベクトル（$\hat{\vect{n}}$ は面の単位法線ベクトルで，閉曲面では外向き） % 出典: p.20
+    \[ \dd\vect{S} \equiv \hat{\vect{n}}\,\dd S \notetag{2.11} \]
+  \item 円柱座標の体積要素 % 出典: p.23
+    \[ \dd V = \rho\,\dd\rho\,\dd\varphi\,\dd z \notetag{2.12} \]
+  \item 半径 $R$ の球面の面要素 % 出典: p.24
+    \[ \dd S = R^2\sin\theta\,\dd\theta\,\dd\phi \notetag{2.13} \]
+  \item ガウスの定理 % 出典: p.24
+    \[ \int_V \dd V\,\nabla\cdot\vect{F} = \int_S \dd\vect{S}\cdot\vect{F} \notetag{2.14} \]
+  \item ストークスの定理 % 出典: p.26
+    \[ \int_S \dd\vect{S}\cdot(\nabla\times\vect{F}) = \oint_C \dd\vect{r}\cdot\vect{F} \notetag{2.15} \]
+  \item 積分範囲とデルタ関数（$b < a < c$） % 出典: p.29
+    \[ \int_{-\infty}^{\infty}\dd x\,f(x)\delta(x-a) = \int_b^c\dd x\,f(x)\delta(x-a) = f(a) \notetag{2.18} \]
+  \item 引数の定数倍（$a \neq 0$） % 出典: p.29
+    \[ \delta(ax) = \frac{1}{\abs{a}}\delta(x) \notetag{2.19} \]
+  \item 合成関数のデルタ関数（$g(x_n) = 0$，$g'(x_n) \neq 0$） % 出典: p.29
+    \[ \delta[g(x)] = \sum_n \frac{1}{\abs{g'(x_n)}}\delta(x - x_n) \notetag{2.20} \]
+  \item 階段関数の微分 % 出典: p.30
+    \[ \dv{\Theta(x)}{x} = \delta(x) \notetag{2.21} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\電磁気学1\004_2026-10-11.tex
+\mondaibangou{1}
+\begin{mondai}{004-koubai}{計算}{線積分のパラメータ表示と，勾配の線積分が端点だけで決まること}
+ベクトル場 $\vect{F} = yz\,\hat{\vect{x}} + (xz + 2y)\,\hat{\vect{y}} + xy\,\hat{\vect{z}}$ を考える。
+  \begin{shoumon}
+    \item $\nabla\times\vect{F} = \vect{0}$ を確かめよ。
+    \item $\vect{F} = \nabla f$，$f(0,0,0) = 0$ を満たすスカラー場 $f$ を求めよ。
+    \item 曲線 $C$：$\vect{r}(\lambda) = \lambda\,\hat{\vect{x}} + \lambda^2\,\hat{\vect{y}} + \lambda^3\,\hat{\vect{z}}$（$0 \le \lambda \le 1$）に沿った次の線積分を，\noteshiki{2.8} を用いて直接計算せよ。
+    \[ \int_C \dd\vect{r}\cdot\vect{F} \]
+    \item 前問の結果が \noteshiki{2.9} と一致することを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{◎}{}
+\begin{align*}
+\nabla\times\vect{F}&=\Bigl(\pdv{}{y}(xy)-\pdv{}{z}(xz+2y),\\
+&\qquad\pdv{}{z}(yz)-\pdv{}{x}xy,\\
+&\qquad\pdv{}{x}(xz+2y)-\pdv{}{y}yz\Bigr)\\
+&=(x-x,\ y-y,\ z-z)=(0,\ 0,\ 0)
+\end{align*}
+\toi{2}{◎}{}
+\[ f=\int yz\,\dd x+\phi_{1}(y,z)=xyz+\phi_{1}(y,z) \]
+\[ \pdv{f}{y}=xz+\pdv{\phi_{1}}{y}=xz+2y \]
+\[ \therefore\ \phi_{1}(y,z)=y^{2}+\phi_{2}(z) \]
+\[ \pdv{f}{z}=xy+\pdv{\phi_{2}}{z}=xy\qquad\therefore\ \phi_{2}=C \]
+$f(0,0,0)=C=0$ より $f=xyz+y^{2}$
+\toi{3}{◎}{}
+\begin{align*}
+\int_{C}\dd\vect{r}\cdot\vect{F}&=\int_{0}^{1}\dd\lambda\,\bigl(yz\cdot1+(xz+2y)\cdot2\lambda\\
+&\qquad+xy\cdot3\lambda^{2}\bigr)\\
+&=\int_{0}^{1}\dd\lambda\,(\lambda^{5}+2\lambda^{5}+4\lambda^{3}+3\lambda^{5})\\
+&=\bigl[\lambda^{6}+\lambda^{4}\bigr]_{0}^{1}=2
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+\int_{C}\dd\vect{r}\cdot\vect{F}&=\int_{C}\dd\vect{r}\cdot\nabla f=f(1,1,1)-f(0,0,0)\\
+&=2-0=2
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\電磁気学1\005_2026-10-11.tex
+\mondaibangou{2}
+\begin{mondai}{005-delta}{計算}{1次元デルタ関数の性質（積分範囲，引数の定数倍，合成関数，階段関数の微分）}
+次の積分を求めよ。
+  \begin{shoumon}
+    \item \[ \int_{-\infty}^{\infty}\dd x\,(x^2 + 1)\,\delta(x^2 - 4) \]
+    \item \[ \int_{-1}^{1}\dd x\,(x^2 + 1)\,\delta(x^2 - 4) \]
+    \item \[ \int_{0}^{3}\dd x\,\ee^{x}\,\delta(x^2 - 3x + 2) \]
+    \item \[ \int_{-\infty}^{\infty}\dd x\,x^2\,\delta(3x + 6) \]
+    \item \[ \int_{-\infty}^{\infty}\dd x\,\cos x\,\dv{}{x}\Theta\!\left(x - \frac{\pi}{3}\right) \]
+  \end{shoumon}
+\notekiroku{2026-10-11 C ×△◎◎◎}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{×}{立式}
+\[ \delta(x^{2}-4)=\ayamari{\frac{1}{\abs{-8}}\delta(x+2)}{\frac{\delta(x-2)+\delta(x+2)}{4}} \]
+\[ \int_{-\infty}^{\infty}\dd x\,\frac{1}{8}(x^{2}+1)\delta(x+2)=\frac{5}{8} \]
+\naze{$g(x)=x^{2}-4$ の零点は $x=\pm2$ の2つあり，$\abs{g'(\pm2)}=\abs{2\cdot(\pm2)}=4$ である。零点 $x=2$ を落とし，係数も $1/8$ と誤っている。正しくは積分は $5/4+5/4=5/2$ である。以降はこの誤りを引き継ぐ。}
+\toi{2}{△}{立式}
+\[ \int_{-1}^{1}\dd x\,\ayamari{\frac{1}{8}(x^{2}+1)\delta(x+2)}{(x^{2}+1)\delta(x^{2}-4)}=0 \]
+\naze{答えの $0$ は正しいが，(1) の誤った展開（$\delta(x+2)$ だけ）を使っている。零点 $x=\pm2$ がどちらも区間 $[-1,1]$ の外にあるので $0$，と確かめる必要がある。}
+\toi{3}{◎}{}
+\begin{align*}
+\delta(x^{2}-3x+2)&=\frac{1}{\abs{2\cdot1-3}}\delta(x-1)+\frac{1}{\abs{2\cdot2-3}}\delta(x-2)\\
+&=\delta(x-1)+\delta(x-2)
+\end{align*}
+\[ \int_{0}^{3}\dd x\,\ee^{x}\bigl(\delta(x-1)+\delta(x-2)\bigr)=\ee+\ee^{2} \]
+\toi{4}{◎}{}
+\[ \int_{-\infty}^{\infty}\dd x\,x^{2}\,\frac{1}{3}\delta(x+2)=\frac{4}{3} \]
+\toi{5}{◎}{}
+\[ \kakimachigai{\int}{\int_{-\infty}^{\infty}}\dd x\,\cos x\,\delta\Bigl(x-\frac{\pi}{3}\Bigr)=\frac{1}{2} \]
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 引数が2次式のデルタ関数 $\delta(g(x))$ は，$g$ の零点をすべて挙げ，零点ごとに $1/\abs{g'(x_{n})}$ を付けて足す（$\delta(x^{2}-4)=\delta(x-2)/4+\delta(x+2)/4$）。(3) ではできていたので，零点の数と $\abs{g'}$ を零点ごとに毎回確かめる。
+\item 積分範囲があるときは，零点ごとに区間の内側か外側かを書く（(2) は $x=\pm2$ がどちらも $[-1,1]$ の外なので $0$）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 引数がゼロになる点を求め，それが積分範囲に入るかを \noteshiki{2.18} で判定する。引数が1次式なら \noteshiki{2.19}，2次式なら \noteshiki{2.20} で通常のデルタ関数に直す。
+\keisan \shoumonkai{1} $g(x) = x^2 - 4$ の零点は $x = \pm 2$，$g'(x) = 2x$ より $\abs{g'(\pm 2)} = 4$。\noteshiki{2.20} から
+\[ \delta(x^2 - 4) = \frac{1}{4}\delta(x - 2) + \frac{1}{4}\delta(x + 2) \]
+なので，積分は $(4 + 1)/4 + (4 + 1)/4 = 5/2$。
+
+\shoumonkai{2} 零点 $x = \pm 2$ はどちらも区間 $[-1, 1]$ に入らないので，積分は $0$。
+
+\shoumonkai{3} $x^2 - 3x + 2 = (x - 1)(x - 2)$ の零点は $x = 1, 2$ で，どちらも区間 $[0, 3]$ の内部にある。$g'(x) = 2x - 3$ より $\abs{g'(1)} = \abs{g'(2)} = 1$。よって積分は $\ee^{1} + \ee^{2} = \ee + \ee^2$。
+
+\shoumonkai{4} $\delta(3x + 6) = \delta(3(x + 2))$ に \noteshiki{2.19}（$a = 3$，変数を $x + 2$ とみる）を使うと $\delta(x + 2)/3$。よって積分は $(-2)^2/3 = 4/3$。
+
+\shoumonkai{5} \noteshiki{2.21} の変数を $x - \pi/3$ に置き換えると，$\dd\Theta(x - \pi/3)/\dd x = \delta(x - \pi/3)$。よって積分は $\cos(\pi/3) = 1/2$。
+\kotae{\shoumonkai{1} $5/2$ \shoumonkai{2} $0$ \shoumonkai{3} $\ee + \ee^2$ \shoumonkai{4} $4/3$ \shoumonkai{5} $1/2$}
+\begin{ronten}
+  \item 各小問で，デルタ関数の引数がゼロになる点を求め，それが積分区間の内部にあるかどうかを明記する（区間の外なら寄与は $0$。\noteshiki{2.18}）。
+  \item \noteshiki{2.20} を使う小問では，各零点で $g'\neq0$ であることを確かめ，係数に $g'$ の絶対値をとることを書く。
+\end{ronten}
+\kenzan 第4問を \noteshiki{2.20} で解き直すと，$g = 3x + 6$ の零点 $x = -2$，$\abs{g'} = 3$ で同じ $4/3$ になる。第1問と第2問は被積分関数が同じで範囲だけが違い，零点を含むかどうかで結果が変わる。
+\tsumazuki \noteshiki{2.20} の係数は $g'$ の絶対値である。第3問で $g'(1) = -1$ をそのまま使うと $-\ee + \ee^2$ と誤る。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\電磁気学1\009_2026-10-11.tex
+\mondaibangou{3}
+\begin{mondai}{009-ensui}{計算}{面要素のパラメータ表示，円柱座標の発散と体積要素，ガウスの定理}
+$R$，$h$ を正の定数，$k \equiv h/R$ とし，円錐の内部の領域
+  \[ V = \left\{(x,y,z) \;\middle|\; k\sqrt{x^2 + y^2} \le z \le h\right\} \]
+  を考える。$V$ の表面は側面 $S_1$ と上面 $S_2$（$z = h$，$\rho \le R$）からなる。ベクトル場を $\vect{F} = xz\,\hat{\vect{x}} + yz\,\hat{\vect{y}}$ とする。
+  \begin{shoumon}
+    \item 側面 $S_1$ を $(\lambda_1,\lambda_2) = (\rho,\varphi)$ で次のように表す（$0 \le \rho \le R$，$0 \le \varphi < 2\pi$）。
+    \[ \vect{r}(\rho,\varphi) = \rho\cos\varphi\,\hat{\vect{x}} + \rho\sin\varphi\,\hat{\vect{y}} + k\rho\,\hat{\vect{z}} \]
+    次の外積を $\hat{\vect{\rho}}$，$\hat{\vect{\varphi}}$，$\hat{\vect{z}}$ で表し，面要素 $\dd S$ と $V$ の外向きの法線ベクトル $\hat{\vect{n}}$ を求めよ。
+    \[ \pdv{\vect{r}}{\rho}\times\pdv{\vect{r}}{\varphi} \]
+    \item 側面 $S_1$ の面積を $R$，$h$ で表せ。
+    \item $V$ の全表面 $S = S_1 + S_2$ についての面積分
+    \[ \int_S \dd\vect{S}\cdot\vect{F} \]
+    を求めよ。
+    \item $\nabla\cdot\vect{F}$ を \noteshiki{2.2} で求め，
+    \[ \int_V \dd V\,\nabla\cdot\vect{F} \]
+    を \noteshiki{2.12} を用いて計算して，前問の結果と一致することを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 D ×◎△× (ヒント2)}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{×}{方針}
+\[ \vect{r}=\rho\hat{\vect{\rho}}+k\rho\hat{\vect{z}} \]
+\[ \pdv{\vect{r}}{\rho}=\begin{pmatrix}1\\0\\k\end{pmatrix},\quad\pdv{\vect{r}}{\varphi}=\begin{pmatrix}0\\\rho\\0\end{pmatrix} \]
+\[ \pdv{\vect{r}}{\rho}\times\pdv{\vect{r}}{\varphi}=\begin{pmatrix}-k\rho\\0\\\rho\end{pmatrix} \]
+\[ \abs{\pdv{\vect{r}}{\rho}\times\pdv{\vect{r}}{\varphi}}=\rho\sqrt{k^{2}+1} \]
+\[ \hat{\vect{n}}=\frac{\ayamari{-k}{k}}{\sqrt{k^{2}+1}}\hat{\vect{\rho}}+\frac{\ayamari{1}{-1}}{\sqrt{k^{2}+1}}\hat{\vect{z}} \]
+\[ \dd S=\rho\sqrt{k^{2}+1}\,\dd\rho\,\dd\varphi \]
+\naze{外積は $\hat{\vect{z}}$ 成分が正で $\hat{\vect{\rho}}$ 成分が負なので，円錐の内側（軸の側・上向き）を向く。閉曲面の法線は外向きに選ぶので，符号を反転して $\hat{\vect{n}}=(k\hat{\vect{\rho}}-\hat{\vect{z}})/\sqrt{1+k^{2}}$ とする。}
+\toi{2}{◎}{}
+\[ S_{1}=(R^{2}+h^{2})\pi\cdot\frac{R}{\sqrt{R^{2}+h^{2}}}=R\sqrt{R^{2}+h^{2}}\,\pi \]
+\toi{3}{△}{計算}
+\begin{align*}
+\vect{F}&=\rho\cos\varphi\cdot z\,\hat{\vect{x}}+\rho\sin\varphi\cdot z\,\hat{\vect{y}}\\
+&=\rho z\,\hat{\vect{\rho}}
+\end{align*}
+\begin{align*}
+\int_{S_{1}}\dd\vect{S}\cdot\vect{F}&=\int_{S_{1}}\ayamari{\begin{pmatrix}-k\rho\\0\\\rho\end{pmatrix}}{\begin{pmatrix}k\rho\\0\\-\rho\end{pmatrix}}\\
+&\qquad\begin{pmatrix}\rho(k\rho)\\0\\0\end{pmatrix}\dd\rho\,\kakimachigai{\dd\lambda}{\dd\varphi}\\
+&=\int_{0}^{2\pi}\dd\varphi\int_{0}^{R}\dd\rho\,(\ayamari{-k\rho^{3}}{k^{2}\rho^{3}})\\
+&=2\pi\cdot\Bigl(-\frac{k}{4}R^{4}\Bigr)=-\frac{k\pi R^{4}}{2}
+\end{align*}
+\[ \int_{S_{2}}\dd\vect{S}\cdot\vect{F}=\int\begin{pmatrix}0\\0\\1\end{pmatrix}\cdot\begin{pmatrix}\rho h\\0\\0\end{pmatrix}\dd S=0 \]
+\[ \int_{S}\dd\vect{S}\cdot\vect{F}=-\frac{k\pi R^{4}}{2} \]
+\naze{誤りは2つある。(i) (1) の内向きの法線をそのまま使ったので符号が逆。(ii) $(-k\rho)\cdot\rho(k\rho)=-k^{2}\rho^{3}$ の $k$ を1つ落としている。外向きの法線では被積分関数は $+k^{2}\rho^{3}$ で，答えは $\pi k^{2}R^{4}/2=\pi R^{2}h^{2}/2$ である。以降はこの誤りを引き継ぐ。}
+\toi{4}{×}{立式}
+\[ \nabla\cdot\vect{F}=\frac{1}{\rho}\pdv{}{\rho}(\rho^{2}z)=\frac{1}{\rho}\cdot2\rho z=2z \]
+\begin{align*}
+\int_{V}\dd V\,\nabla\cdot\vect{F}&=\int_{0}^{h}\dd z\int_{0}^{2\pi}\dd\varphi\int_{0}^{\ayamari{R}{z/k}}\dd\rho\,\nuke{\rho}\,2z\\
+&=2\pi Rh^{2}
+\end{align*}
+\naze{円錐なので高さ $z$ での断面は $\rho\le z/k$ の円板で（$0$〜$R$ の円柱ではない），円柱座標の体積要素は $\rho\,\dd\rho\,\dd\varphi\,\dd z$ である。正しくは $\int_{0}^{h}\dd z\,2z\cdot2\pi(z/k)^{2}/2=\pi h^{4}/(2k^{2})=\pi R^{2}h^{2}/2$ で，第3問と一致する。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 閉曲面の面積分では法線を外向きに選ぶ。パラメータの偏微分の外積は「どちらかの向きの法線」でしかないので，成分の符号（ここでは $\hat{\vect{z}}$ 成分が正＝上向き＝軸の側）から内外を判定し，内向きなら符号を反転する。
+\item 円柱座標の体積要素は $\rho\,\dd\rho\,\dd\varphi\,\dd z$。積分範囲は「高さ $z$ での断面」を描いて決める（円錐なら $\rho\le z/k$）。
+\item ガウスの定理を確かめる問題では，面積分と体積積分の答えを必ず見比べる。食い違ったらどちらかに誤りがある。成分の内積は成分ごとに掛けて，文字（ここでは $k$）の数を数え直す。
+\end{kizuki}
+\begin{tadashii}
+\houshin 側面のパラメータ表示から \noteshiki{2.10} で面要素を求め，外向きになるように法線の符号を選ぶ（\noteshiki{2.11}）。$\vect{F}$ を円柱座標で $z\rho\,\hat{\vect{\rho}}$ と書き直すと，面積分も発散も簡単になる。
+\keisan \shoumonkai{1} $\vect{r} = \rho\,\hat{\vect{\rho}} + k\rho\,\hat{\vect{z}}$ と書けるので，\noteshiki{2.3} を使って
+\[ \pdv{\vect{r}}{\rho} = \hat{\vect{\rho}} + k\,\hat{\vect{z}}, \qquad \pdv{\vect{r}}{\varphi} = \rho\,\hat{\vect{\varphi}} \]
+$\hat{\vect{\rho}}\times\hat{\vect{\varphi}} = \hat{\vect{z}}$，$\hat{\vect{z}}\times\hat{\vect{\varphi}} = -\hat{\vect{\rho}}$ より
+\[ \pdv{\vect{r}}{\rho}\times\pdv{\vect{r}}{\varphi} = \rho\,\hat{\vect{z}} - k\rho\,\hat{\vect{\rho}} \]
+大きさは $\rho\sqrt{1 + k^2}$ なので $\dd S = \rho\sqrt{1 + k^2}\,\dd\rho\,\dd\varphi$。この外積は $\hat{\vect{z}}$ 成分が正で $\hat{\vect{\rho}}$ 成分が負なので，円錐の内側（軸の側・上向き）を向く。$V$ の外側は $\rho$ が大きく $z$ が小さい側だから，符号を反転して
+\[ \hat{\vect{n}} = \frac{k\,\hat{\vect{\rho}} - \hat{\vect{z}}}{\sqrt{1 + k^2}}, \qquad \dd\vect{S} = (k\,\hat{\vect{\rho}} - \hat{\vect{z}})\,\rho\,\dd\rho\,\dd\varphi \]
+
+\shoumonkai{2} 面積は
+\[ \int_{S_1}\dd S = \sqrt{1 + k^2}\int_0^{2\pi}\dd\varphi\int_0^R\rho\,\dd\rho = \pi R^2\sqrt{1 + \frac{h^2}{R^2}} = \pi R\sqrt{R^2 + h^2} \]
+
+\shoumonkai{3} 円柱座標では $x\hat{\vect{x}} + y\hat{\vect{y}} = \rho\,\hat{\vect{\rho}}$ なので $\vect{F} = z\rho\,\hat{\vect{\rho}}$。側面では $z = k\rho$ だから
+\[ \vect{F}\cdot\dd\vect{S} = z\rho\,\hat{\vect{\rho}}\cdot(k\,\hat{\vect{\rho}} - \hat{\vect{z}})\,\rho\,\dd\rho\,\dd\varphi = k^2\rho^3\,\dd\rho\,\dd\varphi \]
+となり
+\[ \int_{S_1}\dd\vect{S}\cdot\vect{F} = k^2\int_0^{2\pi}\dd\varphi\int_0^R\rho^3\,\dd\rho = \frac{\pi k^2R^4}{2} = \frac{\pi R^2h^2}{2} \]
+上面 $S_2$ では $\hat{\vect{n}} = \hat{\vect{z}}$ で $\vect{F}\cdot\hat{\vect{z}} = 0$ なので寄与は $0$。合計は $\pi R^2h^2/2$。
+
+\shoumonkai{4} \noteshiki{2.2} で $F_\rho = z\rho$，$F_\varphi = F_z = 0$ だから
+\[ \nabla\cdot\vect{F} = \frac{1}{\rho}\pdv{}{\rho}(\rho\cdot z\rho) = 2z \]
+高さ $z$ での断面は $\rho \le z/k$ なので，\noteshiki{2.12} を使って
+\[ \int_V\dd V\,\nabla\cdot\vect{F} = \int_0^h\dd z\,2z\int_0^{2\pi}\dd\varphi\int_0^{z/k}\rho\,\dd\rho = \int_0^h\dd z\,\frac{2\pi z^3}{k^2} = \frac{\pi h^4}{2k^2} = \frac{\pi R^2h^2}{2} \]
+となり，第3問と一致する（ガウスの定理 \noteshiki{2.14}）。
+\kotae{\shoumonkai{1} $\dd S = \rho\sqrt{1 + k^2}\,\dd\rho\,\dd\varphi$，$\hat{\vect{n}} = (k\hat{\vect{\rho}} - \hat{\vect{z}})/\sqrt{1 + k^2}$ \shoumonkai{2} $\pi R\sqrt{R^2 + h^2}$ \shoumonkai{3} $\pi R^2h^2/2$ \shoumonkai{4} $\nabla\cdot\vect{F} = 2z$，体積積分も $\pi R^2h^2/2$}
+\begin{ronten}
+  \item \shoumonkai{1} 外積が $V$ の内側を向くことを成分の符号から示し，外向きの法線にするために符号を反転する理由を書く（\noteshiki{2.11}）。
+  \item \shoumonkai{3} 上面 $S_2$ の外向きの法線が $\hat{\vect{z}}$ で，$\vect{F}$ に $z$ 成分が無いので寄与が $0$ になることを述べる。
+  \item \shoumonkai{4} 高さ $z$ での断面が $\rho\le z/k$ であることから，体積積分の範囲を決めたことを書く。
+\end{ronten}
+\kenzan 第2問は母線の長さ $\sqrt{R^2 + h^2}$ を使った円錐の側面積の公式と一致する。直交座標でも $\nabla\cdot\vect{F} = \partial_x(xz) + \partial_y(yz) = 2z$ となる。$\vect{F}$ の次元を長さの2乗とすると，面積分は長さの4乗で，$\pi R^2h^2/2$ と合う。$h \to 0$ で $0$ になる。
+\tsumazuki 外積の向きをそのまま使うと内向きの法線になり，面積分の符号が逆になる。$\partial\vect{r}/\partial\varphi$ を求めるとき，$\hat{\vect{\rho}}$ が $\varphi$ に依存することを忘れない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\電磁気学1\010_2026-10-11.tex
+\mondaibangou{4}
+\begin{mondai}{010-stokes}{計算}{ストークスの定理（曲がった曲面での確認と，曲面の選び方によらないこと）}
+ベクトル場 $\vect{F} = z\,\hat{\vect{x}} + x\,\hat{\vect{y}} + y\,\hat{\vect{z}}$ を考える。曲面 $S$ を半径 $R$ の上半球面（$r = R$，$0 \le \theta \le \pi/2$）とし，法線ベクトルを $\hat{\vect{n}} = \hat{\vect{r}}$ に選ぶ。$S$ の縁 $C$ は $xy$ 平面上の円 $x^2 + y^2 = R^2$ で，$z$ 軸正の側から見て反時計回りに回る。
+  \begin{shoumon}
+    \item $\nabla\times\vect{F}$ を求めよ。
+    \item $\dd\vect{S} = \hat{\vect{r}}\,R^2\sin\theta\,\dd\theta\,\dd\phi$（\noteshiki{2.13}）を用いて，
+    \[ \int_S \dd\vect{S}\cdot(\nabla\times\vect{F}) \]
+    を計算せよ。
+    \item $C$ を $\vect{r}(t) = R\cos t\,\hat{\vect{x}} + R\sin t\,\hat{\vect{y}}$（$0 \le t \le 2\pi$）と表して，線積分
+    \[ \oint_C \dd\vect{r}\cdot\vect{F} \]
+    を計算し，\noteshiki{2.15} が成り立つことを確かめよ。
+    \item $S$ を，同じ $C$ を縁とする別の曲面 $S'$（法線の向きは $C$ の向きに合わせる）に置き換えても第2問の値が変わらないことを，\noteshiki{2.1} とガウスの定理 \noteshiki{2.14} を用いて説明せよ。また $S'$ を $xy$ 平面上の円板として，実際に同じ値になることを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-11 A ◎◎◎△}
+\begin{kotaeutsushi}{2026-10-11}
+\toi{1}{◎}{}
+\begin{align*}
+\nabla\times\vect{F}&=\Bigl(\pdv{}{y}y-\pdv{}{z}x,\ \pdv{}{z}z-\pdv{}{x}y,\\
+&\qquad\pdv{}{x}x-\pdv{}{y}z\Bigr)=(1,\ 1,\ 1)
+\end{align*}
+\[ \begin{pmatrix}\hat{\vect{x}}\\\hat{\vect{y}}\\\hat{\vect{z}}\end{pmatrix}=\begin{pmatrix}\sin\theta\cos\phi&\cos\theta\cos\phi&-\sin\phi\\\sin\theta\sin\phi&\cos\theta\sin\phi&\cos\phi\\\cos\theta&-\sin\theta&0\end{pmatrix}\begin{pmatrix}\hat{\vect{r}}\\\hat{\vect{\theta}}\\\hat{\vect{\phi}}\end{pmatrix} \]
+\begin{align*}
+&\hat{\vect{x}}+\hat{\vect{y}}+\hat{\vect{z}}\\
+&=(\sin\theta\cos\phi+\sin\theta\sin\phi+\cos\theta)\hat{\vect{r}}\\
+&\quad+(\kakimachigai{\sin\theta\sin\phi}{\cos\theta\cos\phi}+\cos\theta\sin\phi\\
+&\qquad+\kakimachigai{\cos\phi}{-\sin\theta})\hat{\vect{\theta}}\\
+&\quad+(\kakimachigai{\cos\theta-\sin\theta}{\cos\phi-\sin\phi})\hat{\vect{\phi}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&\int_{S}\dd\vect{S}\cdot(\nabla\times\vect{F})\\
+&=\int_{0}^{\pi/2}\dd\theta\int_{0}^{2\pi}\dd\phi\\
+&\qquad(\sin\theta\cos\phi+\sin\theta\sin\phi+\cos\theta)R^{2}\sin\theta\\
+&=R^{2}\int_{0}^{\pi/2}\dd\theta\,\Bigl[\sin^{2}\theta\sin\phi-\sin^{2}\theta\cos\phi\\
+&\qquad+\phi\sin\theta\cos\theta\Bigr]_{0}^{2\pi}\\
+&=R^{2}\int_{0}^{\pi/2}\dd\theta\,(\pi\sin2\theta)=R^{2}\Bigl[-\frac{\pi}{2}\cos2\theta\Bigr]_{0}^{\pi/2}\\
+&=R^{2}\Bigl(\frac{\pi}{2}-\Bigl(-\frac{\pi}{2}\Bigr)\Bigr)=\pi R^{2}
+\end{align*}
+\toi{3}{◎}{}
+\[ \dd\vect{r}=\begin{pmatrix}-R\sin t\\R\cos t\\0\end{pmatrix}\dd t,\quad\vect{F}=\begin{pmatrix}0\\R\cos t\\R\sin t\end{pmatrix} \]
+\[ \dd\vect{r}\cdot\vect{F}=R^{2}\cos^{2}t\,\dd t \]
+\begin{align*}
+\oint_{C}\dd\vect{r}\cdot\vect{F}&=\int_{0}^{2\pi}R^{2}\cos^{2}t\,\dd t\\
+&=R^{2}\int_{0}^{2\pi}\Bigl(\frac{1}{2}+\frac{\cos2t}{2}\Bigr)\dd t\\
+&=R^{2}\Bigl[\frac{t}{2}+\frac{\sin2t}{4}\Bigr]_{0}^{2\pi}=\pi R^{2}
+\end{align*}
+\toi{4}{△}{記述}
+\[ \int_{V}\dd V\,\nabla\cdot(\nabla\times\vect{F})=0 \]
+\naze{これだけでは曲面によらない理由にならない。(i) $S$ と $S'$ で囲まれた領域 $V$ にガウスの定理を使い，$\nabla\cdot(\nabla\times\vect{F})=0$ から閉曲面 $S+S'$ の外向きの面積分が $0$ になること，(ii) $V$ の外向きの法線は $S'$ 上で $-\hat{\vect{z}}$ で，$C$ の向きに合わせた法線 $+\hat{\vect{z}}$ と逆なので，「$S$ の面積分 $=$ $S'$ の面積分」になること，を書く。}
+$x=r\cos\theta$，$y=r\sin\theta$，$z=0$
+\[ \begin{matrix}\hat{\vect{x}}\\\hat{\vect{y}}\end{matrix}=\ayamari{\begin{bmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{bmatrix}}{\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}}\begin{bmatrix}\hat{\vect{r}}\\\hat{\vect{\theta}}\end{bmatrix} \]
+\begin{align*}
+\nabla\times\vect{F}&=(\cos\theta-\sin\theta)\hat{\vect{r}}+(\sin\theta+\cos\theta)\hat{\vect{\theta}}\\
+&\qquad+\hat{\vect{z}}
+\end{align*}
+\naze{$\hat{\vect{x}}=\cos\theta\,\hat{\vect{r}}-\sin\theta\,\hat{\vect{\theta}}$，$\hat{\vect{y}}=\sin\theta\,\hat{\vect{r}}+\cos\theta\,\hat{\vect{\theta}}$ なので，行列は書いたものの転置が正しい（$\hat{\vect{r}}$ の係数は $\cos\theta+\sin\theta$，$\hat{\vect{\theta}}$ の係数は $\cos\theta-\sin\theta$）。面積分に効くのは $\hat{\vect{z}}$ 成分だけなので，答えには影響しない。}
+\begin{align*}
+&\int_{\kakimachigai{C}{S'}}\dd\vect{S}\cdot(\nabla\times\vect{F})\\
+&=\int_{0}^{2\pi}\dd\theta\int_{0}^{R}\dd r\begin{pmatrix}0\\0\\r\end{pmatrix}\begin{pmatrix}\cos\theta-\sin\theta\\\sin\theta+\cos\theta\\1\end{pmatrix}\\
+&=\int_{0}^{2\pi}\dd\theta\int_{0}^{R}\dd r\,r\\
+&=2\pi\cdot\frac{1}{2}R^{2}=\pi R^{2}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 曲面によらないことは「2つの曲面で囲まれた領域にガウスの定理」で示す。閉曲面の外向きの法線は，片方（$S'$）では $C$ の向きに合わせた法線と逆向きになり，その符号のおかげで2つの面積分が等しいと言える。この2点を文で書く。
+\item 基底の変換行列は，$\hat{\vect{x}}$ を $\hat{\vect{r}}$，$\hat{\vect{\theta}}$ で表すのか，その逆かで転置の関係になる。$\theta=\pi/2$ で $\hat{\vect{x}}=-\hat{\vect{\theta}}$ になるかで確かめる。和 $\hat{\vect{x}}+\hat{\vect{y}}+\hat{\vect{z}}$ の各基底の係数は，行列の列（同じ基底の係数）を足して作る（(1) では行を足していた）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 回転を求めた後，面積分は球面の面要素で，線積分は円のパラメータ表示で別々に計算して比べる。曲面によらないことは，2つの曲面で囲まれた領域にガウスの定理を使って示す。
+\keisan \shoumonkai{1} 成分で計算すると
+\begin{align*}
+  (\nabla\times\vect{F})_x &= \partial_y(y) - \partial_z(x) = 1 \\
+  (\nabla\times\vect{F})_y &= \partial_z(z) - \partial_x(y) = 1 \\
+  (\nabla\times\vect{F})_z &= \partial_x(x) - \partial_y(z) = 1
+\end{align*}
+なので $\nabla\times\vect{F} = \hat{\vect{x}} + \hat{\vect{y}} + \hat{\vect{z}}$。
+
+\shoumonkai{2} $(\nabla\times\vect{F})\cdot\hat{\vect{r}} = \sin\theta\cos\phi + \sin\theta\sin\phi + \cos\theta$。$\phi$ について $0$ から $2\pi$ まで積分すると $\cos\phi$ と $\sin\phi$ の項は消えるので
+\[ \int_S\dd\vect{S}\cdot(\nabla\times\vect{F}) = R^2\int_0^{2\pi}\dd\phi\int_0^{\pi/2}\dd\theta\,\sin\theta\cos\theta = 2\pi R^2\cdot\frac{1}{2} = \pi R^2 \]
+
+\shoumonkai{3} $C$ 上では $x = R\cos t$，$y = R\sin t$，$z = 0$ なので $\vect{F} = R\cos t\,\hat{\vect{y}} + R\sin t\,\hat{\vect{z}}$，$\dd\vect{r} = R(-\sin t\,\hat{\vect{x}} + \cos t\,\hat{\vect{y}})\,\dd t$。よって
+\[ \oint_C\dd\vect{r}\cdot\vect{F} = \int_0^{2\pi}\dd t\,R^2\cos^2t = \pi R^2 \]
+となり，第2問と一致する。$C$ を $z$ 軸正の側から見て反時計回りに回ると $\hat{\vect{n}} = \hat{\vect{r}}$ は手前（上）を向くので，\noteshiki{2.15} の向きの約束とも合っている。
+
+\shoumonkai{4} 上半球面 $S$ と，下から閉じる円板 $S'$ で囲まれた半球の領域を $V'$ とする。$V'$ の外向きの法線は，$S$ 上では $\hat{\vect{r}}$，$S'$ 上では $-\hat{\vect{z}}$ である。ガウスの定理と \noteshiki{2.1} から
+\[ 0 = \int_{V'}\dd V\,\nabla\cdot(\nabla\times\vect{F}) = \int_S\dd S\,\hat{\vect{r}}\cdot(\nabla\times\vect{F}) + \int_{S'}\dd S\,(-\hat{\vect{z}})\cdot(\nabla\times\vect{F}) \]
+$C$ の向きに合わせた $S'$ の法線は $+\hat{\vect{z}}$ なので，この式は「$S$ についての面積分 $=$ $S'$ についての面積分（法線 $+\hat{\vect{z}}$）」を意味する。同じ議論は $C$ を縁とする任意の曲面について成り立つ。円板で実際に計算すると，$(\nabla\times\vect{F})\cdot\hat{\vect{z}} = 1$ なので面積分は円板の面積 $\pi R^2$ となり，第2問と同じである。
+\kotae{\shoumonkai{1} $\hat{\vect{x}} + \hat{\vect{y}} + \hat{\vect{z}}$ \shoumonkai{2} $\pi R^2$ \shoumonkai{3} $\pi R^2$（第2問と一致） \shoumonkai{4} $\nabla\cdot(\nabla\times\vect{F}) = 0$ とガウスの定理から曲面によらない。円板でも $\pi R^2$}
+\begin{ronten}
+  \item \shoumonkai{3} $C$ の回る向きと $\hat{\vect{n}}=\hat{\vect{r}}$ の組合せが，\noteshiki{2.15} の向きの約束（反時計回りに回る側から見て法線が手前を向く）に合っていることを述べる。
+  \item \shoumonkai{4} $S$ と $S'$ で囲まれた領域にガウスの定理を使い，\noteshiki{2.1} から発散の体積積分が $0$ になることを根拠にする。
+  \item \shoumonkai{4} 囲まれた領域の外向きの法線は，$S'$ 上では $C$ の向きに合わせた法線と逆向き（$-\hat{\vect{z}}$）になることを書き，その符号から2つの面積分が等しいと結論する。
+\end{ronten}
+\kenzan $\vect{F}$ の次元を長さとすると，回転は無次元，面積分は長さの2乗で $\pi R^2$ と合う。$R \to 0$ で $0$ になる。$\nabla\times\vect{F}$ の $x$，$y$ 成分は，上半球面の $x > 0$ と $x < 0$ の部分（$y$ も同様）で打ち消し合うので，結果に効くのは $z$ 成分だけである。
+\tsumazuki 線積分の向きを逆にとると符号が反転する。ストークスの定理では，曲面の法線の向きと縁の回る向きの組合せを必ず確かめる。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}

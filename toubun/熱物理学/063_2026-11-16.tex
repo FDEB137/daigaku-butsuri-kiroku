@@ -1,0 +1,27 @@
+% 熱物理学 熱物理学-8 問題5（063-suv-model） 解いた日 2026-11-16
+%% kotae
+\toi{1}{◎}{}
+（図：熱力学の四角形。上の辺に $S$，$U$，$V$，左に $H$，右に $F$，下の辺に $p$，$G$，$T$）
+\[ \dd U=T\,\dd S-p\,\dd V \]
+\[ \therefore\ \dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V \]
+\[ \left(\pdv{S}{U}\right)_{V}=\frac{1}{T},\qquad\left(\pdv{S}{V}\right)_{U}=\frac{p}{T} \]
+\[ \left(\pdv{S}{U}\right)_{V}=\frac{1}{4}An^{1/2}U^{-3/4}V^{1/4}=\frac{1}{T} \]
+\[ T=4A^{-1}n^{-1/2}U^{3/4}V^{-1/4} \]
+\[ \left(\pdv{S}{V}\right)_{U}=\frac{1}{4}An^{1/2}U^{1/4}V^{-3/4}=\frac{p}{T} \]
+\[ p=\frac{U}{V} \]
+$A>0$，$n>0$，$U>0$，$V>0$ より $(\partial S/\partial U)_{V}>0$，$(\partial S/\partial V)_{U}>0$ なので，$S$ は $U$，$V$ の増加関数。
+\toi{2}{◎}{}
+\[ T=4A^{-1}n^{-1/2}U^{3/4}V^{-1/4} \]
+\[ \therefore\ U^{3/4}=\frac{1}{4}An^{1/2}V^{1/4}T \]
+\[ U(T,V)=\left(\frac{AT}{4}\right)^{4/3}n^{2/3}V^{1/3} \]
+\[ p(T,V)=\left(\frac{AT}{4}\right)^{4/3}\left(\frac{n}{V}\right)^{2/3} \]
+\toi{3}{△}{未着手}
+\[ \left(\pdv{U}{V}\right)_{T}=\frac{1}{3}\left(\frac{AT}{4}\right)^{4/3}\left(\frac{n}{V}\right)^{2/3} \]
+\[ \left(\pdv{p}{T}\right)_{V}=\frac{4}{3}\left(\frac{AT}{4}\right)^{4/3}T^{-1}\left(\frac{n}{V}\right)^{2/3} \]
+より，
+\[ \left(\pdv{U}{V}\right)_{T}=T\left(\pdv{p}{T}\right)_{V}-p \]
+が成り立つ。\nuke{$C_{V}$}
+\naze{問われている定積比熱 $C_{V}$ を求めていない。(2) の $U(T,V)$ を $V$ 一定で $T$ について微分して $C_{V}=(\partial U/\partial T)_{V}=\frac{4}{3}(A/4)^{4/3}n^{2/3}V^{1/3}T^{1/3}$（$=4U/(3T)>0$）である。}
+%% kizuki
+\item \mae{第3章 問題2 (3)・問題4 (5)・11-12} 小問の後半の答え落としが続いている。1つの小問に問いが2つ（「確かめ」「表せ」）あるときは後半まで答える。解き終えたら「求めよ」「表せ」「確かめよ」を数え，それぞれに答えがあるか印を付ける。
+\item $C_{V}=(\partial U/\partial T)_{V}$ は，$U$ を $(T,V)$ の関数として書けば微分1回で出る（(2) で $U(T,V)$ を求めさせたのはこのため）。$U\propto T^{4/3}$ なので $C_{V}=4U/(3T)>0$ で検算する。

@@ -1,0 +1,45 @@
+% 連続体力学 連続体力学-2 問題1（009-stressvec） 解いた日 2026-10-24
+%% kotae
+\toi{1}{◎}{}
+\[ \tens{P}\cdot\vect{e}_{1}=\begin{pmatrix}-p&\tau&0\\\tau&-p&0\\0&0&-p\end{pmatrix}\begin{pmatrix}1\\0\\0\end{pmatrix}=\begin{pmatrix}-p\\\tau\\0\end{pmatrix} \]
+\[ \vect{p}\cdot\vect{e}_{1}=-p \]
+\[ \vect{p}-(\vect{p}\cdot\vect{e}_{1})\vect{e}_{1}=\begin{pmatrix}0\\\tau\\0\end{pmatrix} \]
+\toi{2}{△}{計算}
+\begin{align*}
+\vect{p}&=\begin{pmatrix}-p&\tau&0\\\tau&-p&0\\0&0&-p\end{pmatrix}\begin{pmatrix}1/\sqrt{2}\\1/\sqrt{2}\\0\end{pmatrix}\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\-p+\tau\\0\end{pmatrix}
+\end{align*}
+\begin{align*}
+&\vect{p}\cdot\frac{1}{\sqrt{2}}(\vect{e}_{1}+\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}(\vect{p}\cdot\vect{e}_{1}+\vect{p}\cdot\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\Bigl(\frac{1}{\sqrt{2}}(-p+\tau)+\frac{1}{\sqrt{2}}(\tau-p)\Bigr)\\
+&=-p+\tau
+\end{align*}
+\begin{align*}
+&\vect{p}-(-p+\tau)\frac{1}{\sqrt{2}}(\vect{e}_{1}+\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\-p+\tau\\0\end{pmatrix}-\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\-p+\tau\\0\end{pmatrix}=0
+\end{align*}
+\begin{align*}
+\vect{p}&=\begin{pmatrix}-p&\tau&0\\\tau&-p&0\\0&0&-p\end{pmatrix}\begin{pmatrix}1/\sqrt{2}\\-1/\sqrt{2}\\0\end{pmatrix}\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}\ayamari{-p+\tau}{-p-\tau}\\\ayamari{p-\tau}{p+\tau}\\0\end{pmatrix}
+\end{align*}
+\naze{$\vect{n}'$ の第2成分は $-1/\sqrt{2}$ なので，$\tau$ に掛かる符号が入れ替わる。第1成分は $(-p)\cdot1+\tau\cdot(-1)=-p-\tau$，第2成分は $\tau\cdot1+(-p)\cdot(-1)=p+\tau$ で，正しくは $\tens{P}\cdot\vect{n}'=-(p+\tau)\vect{n}'$ である。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+&\vect{p}\cdot\frac{1}{\sqrt{2}}(\vect{e}_{1}-\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}(\vect{p}\cdot\vect{e}_{1}-\vect{p}\cdot\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\Bigl(\frac{1}{\sqrt{2}}(-p+\tau)-\frac{1}{\sqrt{2}}(p-\tau)\Bigr)\\
+&=-p+\tau
+\end{align*}
+\begin{align*}
+&\vect{p}-(-p+\tau)\frac{1}{\sqrt{2}}(\vect{e}_{1}-\vect{e}_{2})\\
+&=\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\p-\tau\\0\end{pmatrix}-\frac{1}{\sqrt{2}}\begin{pmatrix}-p+\tau\\p-\tau\\0\end{pmatrix}=0
+\end{align*}
+法：$-p+\tau$\quad 接：$0$
+\naze{このまとめは $\vect{n}$ の面だけに正しい。$\vect{n}'$ の面の法線応力は $-(p+\tau)$，接線応力は $\vect{0}$ である。}
+\toi{3}{◎}{}
+法線が $\vect{e}_{2}$ の面にはたらく応力ベクトルの $\vect{e}_{1}$ 成分
+\[ \tens{P}\cdot\vect{e}_{2}=\begin{pmatrix}\tau\\-p\\0\end{pmatrix} \]
+（第1成分の $\tau$ に矢印を付けている）
+%% kizuki
+\item 行列とベクトルの積の第 $i$ 成分は「$\tens{P}$ の第 $i$ 行と $\vect{n}$ の内積」である。$\vect{n}'=(1,-1,0)/\sqrt{2}$ では第2列に $-1$ が掛かるので，$\tau$ の項の符号が $\vect{n}$ のときと入れ替わり，$\tens{P}\cdot\vect{n}'=-(p+\tau)\vect{n}'$ になる。符号は $(-p)\cdot1+\tau\cdot(-1)$ のように1成分ずつ書き出して確かめる。
+\item 検算：直交する2つの面 $\vect{n}$，$\vect{n}'$ の法線応力の和は $P_{11}+P_{22}=-2p$ になる（対角成分の和は座標の回し方によらない）。今回の答えでは $(-p+\tau)+(-p+\tau)=-2p+2\tau$ となって合わない。

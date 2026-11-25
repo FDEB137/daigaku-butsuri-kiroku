@@ -1,0 +1,29 @@
+% 連続体力学 連続体力学-2 問題5（013-archimedes） 解いた日 2026-10-24
+%% kotae
+\toi{1}{○}{記述}
+\[ \rho_{0}\Bigl(\pdv{\vect{u}}{t}+(\vect{u}\cdot\vect{\nabla})\vect{u}\Bigr)=-\vect{\nabla}p+\rho_{0}\vect{g} \]
+\nuke{第1・第2成分：$\partial p/\partial x_{1}=\partial p/\partial x_{2}=0$}
+\[ \therefore\ \rho_{0}\underbrace{\frac{\mathrm{D}u_{3}}{\mathrm{D}t}}_{=0}=-\pdv{}{x_{3}}p(x_{3})-\rho_{0}g \]
+\[ \pdv{}{x_{3}}p(x_{3})=-\rho_{0}g \]
+\[ p(x_{3})=-\rho_{0}gx_{3}+C \]
+$p(0)=p_{\mathrm{a}}$ より
+\[ p(x_{3})=p_{\mathrm{a}}-\rho_{0}gx_{3} \]
+\naze{最初から $p(x_{3})$ と書いているが，$p$ が $x_{1}$，$x_{2}$ によらないことは Euler 方程式の第1・第2成分（静止しているので $\partial p/\partial x_{1}=\partial p/\partial x_{2}=0$）から示す。}
+\toi{2}{△}{立式}
+\[ \vect{F}=-\int_{S}p\cdot\vect{n}\,\dd S=-\int_{S}p\vect{n}\,\dd S \]
+$V$ の内部
+\[ \tilde{p}(\vect{x})=\ayamari{(p_{\mathrm{a}}-\rho_{0}gx_{3})\vect{e}_{3}}{p_{\mathrm{a}}-\rho_{0}gx_{3}} \]
+\naze{圧力はスカラーである。ベクトルにすると次の式の被積分関数 $(\ldots)\vect{e}_{3}\cdot\vect{n}$ がスカラーになり，左辺のベクトル $\vect{F}$ と等しくならない（この式で出せるのは $F_{3}$ だけで，$F_{1}=F_{2}=0$ は示せない）。正しくはスカラー $\tilde{p}$ でテンソル $-\tilde{p}\tens{I}$ を作って式(43) を使い，$\vect{F}=\int_{S}(-\tilde{p}\tens{I})\cdot\vect{n}\,\dd S=-\int_{V}\vect{\nabla}\tilde{p}\,\dd V=\rho_{0}gV\vect{e}_{3}$ とする（$S$ 上で $\tilde{p}$ は流体の圧力と一致するので面積分は変わらない）。以降はこの誤りを引き継ぐ。}
+\begin{align*}
+\vect{F}&=-\int(p_{\mathrm{a}}-\rho_{0}gx_{3})\vect{e}_{3}\cdot\vect{n}\,\dd S\\
+&=-\int_{V}\vect{\nabla}\cdot(p_{\mathrm{a}}-\rho_{0}gx_{3})\vect{e}_{3}\,\dd V\\
+&=-\int(-\rho_{0}g)\vect{e}_{3}\,\dd V\\
+&=\rho_{0}gV\vect{e}_{3}
+\end{align*}
+\toi{3}{◎}{}
+（図：物体の箱に，上向きの矢印 $\rho_{0}gV$ と下向きの矢印 $\rho_{\mathrm{b}}gV$）
+
+上向きに $(\rho_{\mathrm{b}}-\rho_{0})gV$
+%% kizuki
+\item 完全流体の応力は $-p\tens{I}$ で，圧力 $p$ はスカラーである。$-\int_{S}p\vect{n}\,\dd S$ に発散定理を使うときは，テンソル $-\tilde{p}\tens{I}$ に式(43) を当てはめ，$\vect{\nabla}\cdot(-\tilde{p}\tens{I})=-\vect{\nabla}\tilde{p}$ とする。これで3成分が一度に出る。式を書いたら，両辺がベクトルかスカラーかがそろっているかを見る。
+\item (1) は Euler 方程式の3成分を全部書き，第1・第2成分から $p$ が $x_{1}$，$x_{2}$ によらないことを示してから $p(x_{3})$ と書く。

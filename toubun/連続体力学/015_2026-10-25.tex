@@ -1,0 +1,52 @@
+% 連続体力学 連続体力学-2 問題7（015-column） 解いた日 2026-10-25
+%% kotae
+\toi{1}{○}{立式}
+\[ \rho\frac{\mathrm{D}u_{i}}{\mathrm{D}t}=\sum_{j=1}^{3}\ayamari{\pdv{P_{ij}}{x_{i}}}{\pdv{P_{ij}}{x_{j}}}+K_{i} \]
+\naze{微分は第2添字の座標 $x_{j}$ について取る（式(45)）。第3成分は $\partial P_{31}/\partial x_{1}+\partial P_{32}/\partial x_{2}+\partial P_{33}/\partial x_{3}$ である。この問題では $P_{31}=P_{32}=0$ なので答えは変わらないが，一般の応力では結果が変わる。以降の第3成分の式はこの誤りを引き継ぐ。}
+1)\enspace $0=0+0$
+
+2)\enspace $0=0+0$
+
+3)
+\begin{align*}
+0&=\pdv{P_{31}}{x_{3}}+\pdv{P_{32}}{x_{3}}+\pdv{P_{33}}{x_{3}}+K_{3}\\
+0&=0+0+\pdv{P_{33}}{x_{3}}-\rho g
+\end{align*}
+\[ \therefore\ \pdv{P_{33}}{x_{3}}=\rho g \]
+\[ P_{33}=\rho gx_{3}+C \]
+$x_{3}=h$ において
+\[ \tens{P}\cdot\begin{pmatrix}0\\0\\1\end{pmatrix}=P_{33}=0 \]
+よって $C=-\rho gh$
+\[ P_{33}=\rho g(x_{3}-h) \]
+\toi{2}{◎}{}
+\begin{align*}
+x_{1}=0&:\quad\tens{P}\cdot\begin{pmatrix}-1\\0\\0\end{pmatrix}=0\\
+x_{1}=b&:\quad\tens{P}\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}=0\\
+x_{2}=0&:\quad\tens{P}\cdot\begin{pmatrix}0\\-1\\0\end{pmatrix}=0\\
+x_{2}=b&:\quad\tens{P}\cdot\begin{pmatrix}0\\1\\0\end{pmatrix}=0
+\end{align*}
+\toi{3}{◎}{}
+\[ x_{3}=0:\quad\tens{P}\cdot\begin{pmatrix}0\\0\\-1\end{pmatrix}=\bigl(0,0,-\rho g(x_{3}-h)\bigr) \]
+\begin{align*}
+\vect{F}&=\int_{S:x_{3}=0}\rho g(h-x_{3})\vect{e}_{3}\,\dd S\\
+&=\int_{0}^{b}\dd x_{1}\int_{0}^{b}\dd x_{2}\,\rho gh\vect{e}_{3}\\
+&=\rho gb^{2}h\vect{e}_{3}
+\end{align*}
+（図：柱の直方体に，上向きの矢印 $\rho gb^{2}h$ と下向きの矢印 $\rho gb^{2}h$）
+\toi{4}{△}{計算}
+\[ \vect{p}=\tens{P}\cdot\vect{n}=\bigl(0,0,\rho g(x_{3}-h)\cos\varphi\bigr) \]
+\[ \vect{p}\cdot\vect{n}=\rho g(x_{3}-h)\cos^{2}\varphi \]
+\begin{align*}
+&\vect{p}-(\vect{p}\cdot\vect{n})\vect{n}\\
+&=\rho g(x_{3}-h)\cos\varphi\,\vect{e}_{3}\\
+&\qquad-\bigl(\rho g(x_{3}-h)\cos^{2}\varphi\bigr)\vect{n}
+\end{align*}
+\begin{align*}
+\text{大きさ}&=\ayamari{\rho g(x_{3}-h)}{\rho g(h-x_{3})}\sqrt{\cos^{2}\varphi\sin^{2}\varphi}\\
+&=\frac{1}{2}\rho g(x_{3}-h)\sin2\varphi
+\end{align*}
+\naze{$\sqrt{P_{33}^{2}}=\abs{P_{33}}$ で，$x_{3}\le h$ では $P_{33}=\rho g(x_{3}-h)\le0$ なので，大きさは $\frac{1}{2}\rho g(h-x_{3})\sin2\varphi$ である。以降はこの誤りを引き継ぐ。書いた式は $\varphi=\pi/4$ で最も負になり，「$\varphi=\pi/4$ で最大」とも食い違っている。正しい最大値は $\frac{1}{2}\rho g(h-x_{3})$。}
+$\varphi=\pi/4$ のとき Max\quad $\frac{1}{2}\rho g(x_{3}-h)$
+%% kizuki
+\item $\vect{\nabla}\cdot\tens{P}$ の第 $i$ 成分は $\sum_{j}\partial P_{ij}/\partial x_{j}$ で，和をとる $j$ が $P$ の第2添字と分母の座標の両方に現れる。成分を書き出したら，$\partial P_{31}/\partial x_{1}+\partial P_{32}/\partial x_{2}+\partial P_{33}/\partial x_{3}$ のように分子の第2添字と分母の添字がそろっているかを見る（(1)）。
+\item \mae{第1回 問題4 (2)・10-17} 大きさを負のまま答えた（前回も $-r\Omega^{2}$）。$\sqrt{P_{33}^{2}\cos^{2}\varphi\sin^{2}\varphi}=\abs{P_{33}}\cos\varphi\sin\varphi$ と絶対値を1行書いてから外し，$x_{3}\le h$ で $\abs{P_{33}}=\rho g(h-x_{3})$ とする。答えが 0 以上か，「最大」と言った $\varphi$ で本当に最大かを確かめる（問題6 (4) の根号の抜けと同じく，大きさの式の見直し）。

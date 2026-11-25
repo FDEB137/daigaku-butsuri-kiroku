@@ -1,0 +1,30 @@
+% 連続体力学 連続体力学-3 問題5（022-decomp） 解いた日 2026-10-28
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+r_{1}(\vect{x}+\delta\vect{x})-r_{1}(\vect{x})&=\pdv{r_{1}}{x_{1}}\delta x_{1}+\pdv{r_{1}}{x_{2}}\delta x_{2}\\
+&\qquad+\pdv{r_{1}}{x_{3}}\delta x_{3}\\
+r_{2}(\vect{x}+\delta\vect{x})-r_{2}(\vect{x})&=\pdv{r_{2}}{x_{1}}\delta x_{1}+\pdv{r_{2}}{x_{2}}\delta x_{2}\\
+&\qquad+\pdv{r_{2}}{x_{3}}\delta x_{3}\\
+r_{3}(\vect{x}+\delta\vect{x})-r_{3}(\vect{x})&=\pdv{r_{3}}{x_{1}}\delta x_{1}+\pdv{r_{3}}{x_{2}}\delta x_{2}\\
+&\qquad+\pdv{r_{3}}{x_{3}}\delta x_{3}
+\end{align*}
+\[ \therefore\ \vect{r}(\vect{x}+\delta\vect{x})-\vect{r}(\vect{x})=\tens{D}\cdot\delta\vect{x} \]
+\[ D_{ij}=\pdv{r_{i}}{x_{j}} \]
+\kakimachigai{$r_{i}$}{$D_{ij}$} は $\vect{x}$ によってのみ決まる。
+\toi{2}{△}{記述}
+\[ \tens{E}=\frac{1}{2}(\tens{D}+\tens{D}^{\mathrm{T}}) \]
+\[ \tens{F}=\frac{1}{2}(\tens{D}-\tens{D}^{\mathrm{T}}) \]
+\nuke{一意性の証明}
+\naze{問われている「ただ一通りに分けられること」の証明が無い。別の分け方 $\tens{D}=\tens{E}'+\tens{F}'$（$\tens{E}'$ 対称，$\tens{F}'$ 反対称）があると仮定すると $\tens{E}-\tens{E}'=\tens{F}'-\tens{F}$ で，左辺は対称，右辺は反対称なので，この量は対称かつ反対称で 0 になる。よって $\tens{E}'=\tens{E}$，$\tens{F}'=\tens{F}$ である。}
+\toi{3}{◎}{}
+\[ (\tens{F}\cdot\delta\vect{x})_{1}=-\frac{1}{2}\Omega_{3}\,\delta x_{2}+\frac{1}{2}\Omega_{2}\,\delta x_{3} \]
+\[ \frac{1}{2}(\vect{\Omega}\times\delta\vect{x})_{1}=\frac{1}{2}(\Omega_{2}\,\delta x_{3}-\Omega_{3}\,\delta x_{2}) \]
+他成分も同様に一致
+\toi{4}{◎}{}
+$\tens{E}$ … 6　$\tens{F}$ … 3
+
+回転ベクトル
+%% kizuki
+\item 「ただ一通りに分けられる」は，別の分け方 $\tens{D}=\tens{E}'+\tens{F}'$ があると仮定し，$\tens{E}-\tens{E}'=\tens{F}'-\tens{F}$ の左辺が対称・右辺が反対称なので両方 0，と示す。分け方を1つ見つけること（存在）と，それしか無いこと（一意性）は別の主張である。
+\item \mae{第2回 問題4 (2)・10-24} 「示せ」の主張の要の段を書かずに終えた（前回は $f_{i}=0$ を出す背理法，今回は一意性）。問題文の「示し」「表せ」を数え，答えの数とそろえる。

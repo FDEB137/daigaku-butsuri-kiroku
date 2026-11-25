@@ -1,0 +1,37 @@
+% 数理物理2 数理物理2-1 問題1（001-enzan） 解いた日 2026-11-04
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&(\sqrt{3}+\ii)(-1+\ii)\\
+&=-\sqrt{3}-\ii+\sqrt{3}\,\ii-1\\
+&=-(\sqrt{3}+1)+(\sqrt{3}-1)\ii
+\end{align*}
+\begin{align*}
+&\frac{\sqrt{3}+\ii}{-1+\ii}\\
+&=\frac{(\sqrt{3}+\ii)(-1-\ii)}{(-1+\ii)(-1-\ii)}\\
+&=\frac{-\sqrt{3}-\ii-\sqrt{3}\,\ii-\ii^{2}}{1-\ii^{2}}\\
+&=\frac{-\sqrt{3}+1-(\sqrt{3}+1)\ii}{2}
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+z_{1}&=2\ee^{\ii\pi/6}\\
+z_{2}&=\sqrt{2}\,\ayamari{\ee^{3\pi/4}}{\ee^{3\pi\ii/4}}
+\end{align*}
+\naze{指数の $\ii$ が抜けている。$\ee^{3\pi/4}$ は実数（約 \num{10.6}）で，$\ee^{3\pi\ii/4}$ とは別の数である。また，$z_{2}=-1+\ii$ は実部が負・虚部が正で第2象限にあるので偏角が $3\pi/4$ になる，という根拠が無い。}
+\toi{3}{◎}{}
+\begin{align*}
+z_{1}z_{2}&=2\sqrt{2}\,\ee^{\ii(\pi/6+3\pi/4)}=2\sqrt{2}\,\ee^{\ii\frac{11}{12}\pi}\\
+\frac{z_{1}}{z_{2}}&=\sqrt{2}\,\ee^{\ii(\pi/6-3\pi/4)}=\sqrt{2}\,\ee^{-\ii\frac{7}{12}\pi}
+\end{align*}
+\begin{align*}
+\cos\frac{11}{12}\pi&=\frac{-(\sqrt{3}+1)}{2\sqrt{2}}=-\frac{\sqrt{6}+\sqrt{2}}{4}\\
+\sin\frac{11}{12}\pi&=\frac{\sqrt{3}-1}{2\sqrt{2}}=\frac{\sqrt{6}-\sqrt{2}}{4}
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+z_{1}^{6}&=64\ee^{\ii\pi}=-64\\
+z_{2}^{8}&=16\kakimachigai{\ee^{6\pi}}{\ee^{6\pi\ii}}=16
+\end{align*}
+%% kizuki
+\item 極形式の指数には必ず $\ii$ を書く。$\ee^{3\pi/4}$ は実数で，絶対値1の位相因子 $\ee^{3\pi\ii/4}$ とはまったく別の数である。書き終えたら，指数が $\ii\times(\text{実数})$ の形になっているかを見直す（(2) と (4) で同じ書き落としをした）。
+\item 偏角は $\arctan(b/a)$ だけで決めず，実部・虚部の符号で象限を先に決めて書く。$z_{2}=-1+\ii$ は第2象限なので $3\pi/4$ である（$\arctan(-1)=-\pi/4$ は第4象限の値）。

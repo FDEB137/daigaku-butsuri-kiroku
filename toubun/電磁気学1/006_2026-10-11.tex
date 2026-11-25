@@ -1,0 +1,24 @@
+% 電磁気学1 電磁気学1-1 問題3（006-kitei。当時は 電磁気学1-1-2 問題6・shou01-02-l1-kitei） 解いた日 2026-10-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\dot{\hat{\vect{\rho}}}&=\pdv{\hat{\vect{\rho}}}{\varphi}\pdv{\varphi}{t}=\dot{\varphi}\hat{\vect{\varphi}}\\
+\dot{\hat{\vect{\varphi}}}&=\pdv{\hat{\vect{\varphi}}}{\varphi}\pdv{\varphi}{t}=-\dot{\varphi}\hat{\vect{\rho}}
+\end{align*}
+\begin{align*}
+\dot{\vect{r}}&=\pdv{\rho}{t}\hat{\vect{\rho}}+\rho\dot{\hat{\vect{\rho}}}+\pdv{z}{t}\hat{\vect{z}}\\
+&=\dot{\rho}\hat{\vect{\rho}}+\rho\dot{\varphi}\hat{\vect{\varphi}}+\dot{z}\hat{\vect{z}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\ddot{\vect{r}}&=\ddot{\rho}\hat{\vect{\rho}}+\dot{\rho}\dot{\hat{\vect{\rho}}}+(\dot{\rho}\dot{\varphi}+\rho\ddot{\varphi})\hat{\vect{\varphi}}\\
+&\qquad+\rho\dot{\varphi}\dot{\hat{\vect{\varphi}}}+\ddot{z}\hat{\vect{z}}\\
+&=\ddot{\rho}\hat{\vect{\rho}}+\dot{\rho}\dot{\varphi}\hat{\vect{\varphi}}+(\dot{\rho}\dot{\varphi}+\rho\ddot{\varphi})\hat{\vect{\varphi}}\\
+&\qquad-\rho\dot{\varphi}^{2}\hat{\vect{\rho}}+\ddot{z}\hat{\vect{z}}\\
+&=(\ddot{\rho}-\rho\dot{\varphi}^{2})\hat{\vect{\rho}}+(2\dot{\rho}\dot{\varphi}+\rho\ddot{\varphi})\hat{\vect{\varphi}}\\
+&\qquad+\ddot{z}\hat{\vect{z}}
+\end{align*}
+\toi{3}{◎}{}
+\[ \abs{\dot{\vect{r}}}=\abs{a\omega\hat{\vect{\varphi}}+u\hat{\vect{z}}}=\sqrt{a^{2}\omega^{2}+u^{2}} \]
+\[ \ddot{\vect{r}}=-a\omega^{2}\hat{\vect{\rho}} \]
+%% kizuki
