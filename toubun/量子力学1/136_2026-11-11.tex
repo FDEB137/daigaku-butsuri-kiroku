@@ -1,0 +1,40 @@
+% 量子力学1 量子力学1-5 問題13（136-powerlaw。当時は 量子力学1-9 問題9） 解いた日 2026-11-11
+%% kotae
+\toi{1}{○}{記述}
+\[ \expval{\hat{T}}=\frac{1}{2}\expval{xV'(x)} \]
+（矢印で $xV'(x)$ を脇で計算）
+\begin{align*}
+&x\cdot\ayamari{\lambda\nu\abs{x}^{\nu-1}}{\lambda\nu\abs{x}^{\nu-1}\sgn x}\\
+&=\lambda\nu\abs{x}^{\nu}=\nu V(x)
+\end{align*}
+\naze{$x<0$ では $\abs{x}^{\nu}$ の微分に $\sgn x$ が付く。書いた式では $x\abs{x}^{\nu-1}\neq\abs{x}^{\nu}$ で，2つの符号の誤りが打ち消している。$x\neq0$ で $V'=\lambda\nu\abs{x}^{\nu-1}\sgn x$，$x\sgn x=\abs{x}$ から $xV'=\nu V$ となる。}
+\begin{gather*}
+\expval{\hat{T}}=\frac{\nu}{2}\expval{V}\\
+\expval{\hat{T}}+\expval{V}=E
+\end{gather*}
+\[ \therefore\quad\Bigl(\frac{\nu}{2}+1\Bigr)\expval{V}=E\qquad\therefore\quad\expval{V}=\frac{2E}{\nu+2} \]
+\[ \expval{\hat{T}}=\frac{\nu E}{\nu+2} \]
+$\nu=2$ のとき，$\expval{V}=E/2$，$\expval{\hat{T}}=E/2$ となり，調和振動子でポテンシャルエネルギーと運動エネルギーが一致しているときと同じ状態。
+
+$\nu\to\infty$ のとき
+\[ \expval{V}=0\qquad\expval{\hat{T}}=\ayamari{1}{E} \]
+\naze{$\nu/(\nu+2)\to1$ なので $\expval{\hat{T}}=\nu E/(\nu+2)\to E$ である。$1$ に近づくのは係数である。}
+無限に深い井戸と同じ状態。
+\toi{2}{◎}{}
+\[ xV'(x)=-gx\delta'(x)=g\delta(x) \]
+\begin{gather*}
+2\expval{\hat{T}}=-\expval{V}\\
+2\expval{\hat{T}}+\expval{V}=0
+\end{gather*}
+\[ \expval{\hat{T}}+\expval{V}=E\qquad\therefore\quad\expval{\hat{T}}=-E\quad\expval{V}=2E \]
+\[ \expval{V}=-\frac{2mg^{2}}{2\hbar^{2}}=-\frac{mg^{2}}{\hbar^{2}} \]
+\begin{align*}
+\expval{V}&=-g\abs{\phi(0)}^{2}\\
+&=-g\beta\\
+&=-\frac{mg^{2}}{\hbar^{2}}\quad\text{一致}
+\end{align*}
+\toi{3}{×}{未着手}
+\mikai
+%% kizuki
+\item \mae{第3章 問題4（020-gauss）・10-18} 途中の誤りが打ち消して答えが合った（前回は微分の項を落としたが奇関数で一致した）。$\abs{x}$ を含む関数は $x>0$ と $x<0$ に分けて微分する（$\dd\abs{x}/\dd x=\sgn x$）。
+\item \mae{第4章 問題7・10-28，第7章 問題8 (5)・11-07} 最後の小問の未着手は3回目である。(3) は使える定数 $\hbar^{2}/m$ と $\lambda$ の次元を（エネルギー）と（長さ）で書くところから始める。

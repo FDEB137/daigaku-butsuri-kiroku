@@ -1,0 +1,105 @@
+% 量子力学1 量子力学1-3 問題13（071-virial。当時は 量子力学1-9 問題6） 解いた日 2026-11-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\frac{\dd}{\dd t}\int\psi^{*}\hat{A}\psi\dd x\\
+&=\frac{\ii}{\hbar}\int\psi^{*}(\hat{H}\hat{A}-\hat{A}\hat{H})\psi\dd x
+\end{align*}
+\begin{align*}
+\text{右辺}&=\frac{\ii}{\hbar}\Bigl(\int\psi^{*}\hat{H}\hat{A}\psi\dd x\\
+&\qquad-\int\psi^{*}\hat{A}\hat{H}\psi\dd x\Bigr)\\
+&=\int\frac{\ii}{\hbar}(\hat{H}\psi^{*})\hat{A}\psi\dd x\\
+&\qquad-\int\psi^{*}\hat{A}\frac{\ii}{\hbar}\hat{H}\psi\dd x\\
+&=\int\pdv{\psi^{*}}{t}\hat{A}\psi\dd x+\int\psi^{*}\hat{A}\pdv{\psi}{t}\dd x
+\end{align*}
+（脇に $\hat{H}\psi^{*}=-\ii\hbar\,\partial\psi^{*}/\partial t$）
+\begin{align*}
+\text{左辺}&=\int\pdv{}{t}\bigl(\psi^{*}(\hat{A}\psi)\bigr)\dd x\\
+&=\int\Bigl(\pdv{\psi^{*}}{t}\hat{A}\psi+\psi^{*}\hat{A}\pdv{\psi}{t}\Bigr)\dd x\\
+&=\int\pdv{\psi^{*}}{t}\hat{A}\psi\dd x+\int\psi^{*}\hat{A}\pdv{\psi}{t}\dd x
+\end{align*}
+より示された。
+\toi{2}{◎}{}
+\begin{align*}
+\comm{\hat{H}}{\hat{x}}&=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{x}}+\underbrace{\comm{V(\hat{x})}{\hat{x}}}_{0}\\
+&=\frac{1}{2m}(\hat{p}\comm{\hat{p}}{\hat{x}}+\comm{\hat{p}}{\hat{x}}\hat{p})\\
+&=-\frac{\ii\hbar}{m}\hat{p}
+\end{align*}
+\[ \comm{\hat{H}}{\hat{p}}=\frac{1}{2m}\underbrace{\comm{\hat{p}^{2}}{\hat{p}}}_{0}+\comm{V(\hat{x})}{\hat{p}} \]
+\begin{align*}
+&\comm{V(\hat{x})}{\hat{p}}f(x)\\
+&=V(\hat{x})\hat{p}f(\hat{x})-\hat{p}V(\hat{x})f(\hat{x})\\
+&=-\ii\hbar V(\hat{x})f'(\hat{x})+\ii\hbar\frac{\dd}{\dd\hat{x}}\bigl(V(\hat{x})f(\hat{x})\bigr)\\
+&=\ii\hbar\bigl(-V(\hat{x})f'(\hat{x})+V'(\hat{x})f(\hat{x})\\
+&\qquad+V(\hat{x})f'(\hat{x})\bigr)\\
+&=\ii\hbar V'(\hat{x})f(\hat{x})
+\end{align*}
+\begin{align*}
+\comm{V(\hat{x})}{\hat{p}}&=\ii\hbar V'(\hat{x})\\
+\comm{\hat{H}}{\hat{p}}&=\ii\hbar V'(\hat{x})
+\end{align*}
+\begin{align*}
+\frac{\dd\expval{x}}{\dd t}&=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{x}}}\\
+&=\frac{\ii}{\hbar}\expval{-\frac{\ii\hbar}{m}\hat{p}}\\
+&=\frac{\expval{\hat{p}}}{m}
+\end{align*}
+より $\dd\expval{x}/\dd t=\expval{p}/m$
+\begin{align*}
+\frac{\dd\expval{\hat{p}}}{\dd t}&=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{p}}}\\
+&=\frac{\ii}{\hbar}\expval{\ii\hbar V'(\hat{x})}\\
+&=-\expval{V'(\hat{x})}
+\end{align*}
+より $\dd\expval{p}/\dd t=-\expval{V'(x)}$
+\toi{3}{◎}{}
+\[ \frac{\dd\expval{\hat{G}}}{\dd t}=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{G}}} \]
+\begin{align*}
+\comm{\hat{H}}{\hat{G}}&=\comm{\hat{H}}{\hat{x}\hat{p}}\\
+&=\comm{\hat{H}}{\hat{x}}\hat{p}+\hat{x}\comm{\hat{H}}{\hat{p}}\\
+&=-\frac{\ii\hbar}{m}\hat{p}^{2}+\ii\hbar\hat{x}V'(\hat{x})
+\end{align*}
+\begin{align*}
+\frac{\dd\expval{\hat{G}}}{\dd t}&=\frac{\ii}{\hbar}\kakimachigai{\Bigl(-\frac{\ii\hbar}{m}\hat{p}^{2}+\ii\hbar\hat{x}V'(\hat{x})\Bigr)}{\expval{\cdots}}\\
+&=\expval{2\cdot\frac{\hat{p}^{2}}{2m}-\hat{x}V'(\hat{x})}\\
+&=2\expval{\hat{T}}-\expval{xV'(x)}
+\end{align*}
+定常状態では
+\begin{align*}
+\expval{\hat{G}}&=\int_{-\infty}^{\infty}\psi^{*}\hat{x}\hat{p}\psi\dd x\\
+&=\int_{-\infty}^{\infty}\phi^{*}(x)\ee^{\ii Et/\hbar}\cdot x\\
+&\qquad\cdot(-\ii\hbar)\phi'(x)\ee^{-\ii Et/\hbar}\dd x\\
+&=\int_{-\infty}^{\infty}-\ii\hbar x\phi^{*}(x)\phi'(x)\dd x
+\end{align*}
+より
+\[ \frac{\dd\expval{\hat{G}}}{\dd t}=0\qquad\therefore\quad2\expval{\hat{T}}=\expval{xV'(x)} \]
+\toi{4}{◎}{}
+\begin{align*}
+\expval{\hat{T}}&=\frac{1}{2}\expval{xV'(x)}\\
+&=\frac{1}{2}\expval{x\cdot m\omega^{2}x}\\
+&=\frac{m\omega^{2}}{2}\expval{x^{2}}
+\end{align*}
+\[ \expval{V}=\frac{m\omega^{2}}{2}\expval{x^{2}} \]
+$\dd\expval{x}/\dd t=0$ より $\expval{p}=0$
+
+$\dd\expval{p}/\dd t=0$ より $\expval{V'(x)}=0$
+\begin{align*}
+\therefore\quad m\omega^{2}\expval{x}&=0\\
+\expval{x}&=0
+\end{align*}
+\begin{align*}
+\expval{\hat{H}}&=E_{0}=\frac{\hbar\omega}{2}\\
+\therefore\quad\expval{\hat{T}}+\expval{V}&=\frac{\hbar\omega}{2}
+\end{align*}
+$\expval{\hat{T}}=\expval{V}$ より
+\[ \expval{\hat{T}}=\expval{V}=\frac{\hbar\omega}{4} \]
+\[ \delta x=\sqrt{\expval{x^{2}}-\expval{x}^{2}} \]
+\begin{align*}
+\expval{V}=\frac{m\omega^{2}}{2}\expval{x^{2}}&=\frac{\hbar\omega}{4}\\
+\therefore\quad\expval{x^{2}}&=\frac{\hbar}{2m\omega}
+\end{align*}
+\[ \delta p=\sqrt{\expval{p^{2}}-\expval{p}^{2}} \]
+\begin{align*}
+\expval{\hat{T}}=\frac{1}{2m}\expval{\hat{p}^{2}}&=\frac{\hbar\omega}{4}\\
+\expval{\hat{p}^{2}}&=\frac{m\hbar\omega}{2}
+\end{align*}
+\[ \delta x\,\delta p=\sqrt{\frac{\hbar}{2m\omega}}\cdot\sqrt{\frac{m\hbar\omega}{2}}=\frac{\hbar}{2} \]
+%% kizuki

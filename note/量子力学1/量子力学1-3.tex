@@ -12,11 +12,11 @@
   \ichirangyou{\hyperlink{bt-m-021-reflect}{6}}{L2・計算}{△○△}{C}{2026-10-18 (1)立式 (2)記述 (3)計算}
   \ichirangyou{\hyperlink{bt-m-022-box}{7}}{L2・計算}{◎◎◎◎}{S}{2026-10-18}
   \ichirangyou{8}{L2・計算}{}{未着手}{}
-  \ichirangyou{9}{L2・計算}{◎◎◎△}{B}{2026-11-11 ヒント1 (4)未着手}
+  \ichirangyou{\hyperlink{bt-m-070-anharm}{9}}{L2・計算}{◎◎◎△}{B}{2026-11-11 ヒント1 (4)未着手}
   \ichirangyou{\hyperlink{bt-m-025-absorb}{10}}{L3・導出}{◎◎◎}{S}{2026-10-29}
   \ichirangyou{11}{L3・計算}{}{未着手}{}
   \ichirangyou{12}{L3・導出}{}{未着手}{}
-  \ichirangyou{13}{L3・導出}{◎◎◎◎}{B}{2026-11-11 ヒント1}
+  \ichirangyou{\hyperlink{bt-m-071-virial}{13}}{L3・導出}{◎◎◎◎}{B}{2026-11-11 ヒント1}
   \ichirangyou{14}{L4・導出}{}{未着手}{}
 \end{kirokuichiran}
 
@@ -626,6 +626,106 @@ T&=\frac{2\pi}{\omega_{21}}\\
 \end{kotaeutsushi}
 \end{mondai}
 
+% toubun: kiroku\toubun\量子力学1\070_2026-11-11.tex
+\mondaibangou{9}
+\begin{mondai}{070-anharm}{計算}{力の期待値と期待値での力の違い（非調和ポテンシャル）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+質量 $m$ の粒子が1次元のポテンシャル $V(x)$ 中を運動する。Ehrenfest の定理 $\dd\expval{p}/\dd t=-\expval{V'(x)}$ について考える。
+  \begin{shoumon}
+    \item $V(x)=c_{0}+c_{1}x+c_{2}x^{2}$（$c_{0},c_{1},c_{2}$ は実定数）なら $\expval{V'(x)}=V'(\expval{x})$ が成り立ち，$\expval{x}$ が古典力学の運動方程式 $m\,\dd^{2}\expval{x}/\dd t^{2}=-V'(\expval{x})$ に正確に従うことを示せ。
+    \item $V(x)=\frac{1}{4}\beta x^{4}$（$\beta>0$）とする。ある時刻の確率密度が
+    \[ \abs{\psi(x,t)}^{2}=\frac{1}{\sqrt{2\pi s^{2}}}\exp\Bigl(-\frac{(x-x_{0})^{2}}{2s^{2}}\Bigr) \]
+    （$x_{0}>0$，$s>0$）であった。$y=x-x_{0}$ の期待値は奇数乗が $0$，2乗が $s^{2}$ であることを使い，$\expval{x}$ と $\expval{V'(x)}$ を求めて $V'(\expval{x})$ と比べよ。
+    \item (2) で $s/x_{0}=\num{0.100}$ のとき，相対的なずれ $[\expval{V'(x)}-V'(\expval{x})]/V'(\expval{x})$ を有効数字3桁で求めよ。
+    \item 一般の $V(x)$ について，$V'(x)$ を $\expval{x}$ のまわりで2次までテイラー展開し，$\expval{V'(x)}-V'(\expval{x})$ を標準偏差 $\delta x$ と $V'''(\expval{x})$ で表せ。それをもとに，$\expval{x}$ がほぼ古典力学に従って運動する条件を説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-11 B ◎◎◎△ (ヒント1)}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+\begin{align*}
+\expval{V'(x)}&=\expval{c_{1}+2c_{2}x}\\
+&=c_{1}+2c_{2}\expval{x}\\
+&=V'(\expval{x})
+\end{align*}
+Ehrenfest の定理より
+\begin{align*}
+\frac{\dd\expval{p}}{\dd t}&=-(c_{1}+\kakimachigai{c_{2}}{2c_{2}}\expval{x})\\
+\frac{\dd\expval{x}}{\dd t}&=\frac{\expval{p}}{m}\\
+\frac{\dd^{2}\expval{x}}{\dd t^{2}}&=-\frac{1}{m}(c_{1}+\kakimachigai{c_{2}}{2c_{2}}\expval{x})\\
+\therefore\quad m\frac{\dd^{2}\expval{x}}{\dd t^{2}}&=-V'(\expval{x})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\expval{x}&=\int_{-\infty}^{\infty}x\abs{\psi(x,t)}^{2}\dd x\\
+&=\frac{1}{\sqrt{2\pi s^{2}}}\underbrace{\int_{-\infty}^{\infty}y\exp\Bigl(-\frac{y^{2}}{2s^{2}}\Bigr)\dd y}_{0}\\
+&\qquad+\frac{x_{0}}{\sqrt{2\pi s^{2}}}\int_{-\infty}^{\infty}\exp\Bigl(-\frac{y^{2}}{2s^{2}}\Bigr)\dd y\\
+&=\frac{x_{0}}{\sqrt{2\pi s^{2}}}\sqrt{2\pi s^{2}}\\
+&=x_{0}
+\end{align*}
+\begin{align*}
+\expval{V'(x)}&=\expval{\beta x^{3}}\\
+&=\beta\expval{(y+x_{0})^{3}}\\
+&=\beta\expval{y^{3}+3x_{0}y^{2}+3x_{0}^{2}y+x_{0}^{3}}\\
+&=\beta(3x_{0}s^{2}+x_{0}^{3})
+\end{align*}
+$V'(\expval{x})=\beta x_{0}^{3}$\quad $3\beta x_{0}s^{2}$ の項がない。
+\toi{3}{◎}{}
+\begin{align*}
+&\frac{\expval{V'(x)}-V'(\expval{x})}{V'(\expval{x})}\\
+&=\frac{\beta x_{0}^{3}+3\beta x_{0}s^{2}-\beta x_{0}^{3}}{\beta x_{0}^{3}}\\
+&=3\frac{s^{2}}{x_{0}^{2}}=\num{3.00e-2}
+\end{align*}
+\toi{4}{△}{未着手}
+\begin{align*}
+\kakimachigai{V(x)}{V'(x)}&=\frac{V'(\expval{x})}{0!}+\frac{V''(\expval{x})}{1!}(x-\expval{x})\\
+&\qquad+\frac{V'''(\expval{x})}{2!}(x-\expval{x})^{2}
+\end{align*}
+\begin{align*}
+\expval{V'(x)}&=V'(\expval{x})+V''(\expval{x})\underbrace{\expval{x-\expval{x}}}_{0}\\
+&\qquad+\frac{1}{2}V'''(\expval{x})\delta x^{2}
+\end{align*}
+\[ \therefore\quad\expval{V'(x)}-V'(\expval{x})=\frac{1}{2}V'''(\expval{x})\delta x^{2} \]
+\nuke{古典的に運動する条件}
+\naze{問われている「$\expval{x}$ がほぼ古典力学に従って運動する条件」が無い。補正を力の大きさと比べて $\frac{1}{2}\abs{V'''(\expval{x})}\delta x^{2}\ll\abs{V'(\expval{x})}$，つまり波束の幅 $\delta x$ の範囲で力 $-V'(x)$ がほぼ一定とみなせるとき，と書く。また3次以上の項を捨てているので，展開の式は $=$ でなく $\approx$ である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第7章 問題3（059-ring）・11-04} 「説明せよ」まで答えて1問である。式を出したら，補正 $\frac{1}{2}\abs{V'''}\delta x^{2}$ と力 $\abs{V'}$ を比べる不等式と，その意味（力が変わる長さに比べて波束が狭い）を書く。解き終えたら「求めよ」「説明せよ」の数と答えた数を合わせる。
+\end{kizuki}
+\begin{tadashii}
+\houshin 期待値の線形性から，$V'$ が $x$ の1次式なら $\expval{V'(x)}=V'(\expval{x})$。3次式以上では $x$ の高次の積率が入り，波束の広がりの分だけずれる。一般の場合はテイラー展開でずれの主要項を求める。
+\keisan \shoumonkai{1} $V'(x)=c_{1}+2c_{2}x$。$\psi$ は規格化されているので $\expval{c_{1}}=c_{1}$，期待値は線形なので
+\[ \expval{V'(x)}=c_{1}+2c_{2}\expval{x}=V'(\expval{x}) \]
+Ehrenfest の定理の2式から
+\[ m\dv[2]{\expval{x}}{t}=\dv{\expval{p}}{t}=-\expval{V'(x)}=-V'(\expval{x}) \]
+となり，古典力学の運動方程式と同じ形になる。
+
+\shoumonkai{2} $x=x_{0}+y$ とすると $\expval{y}=0$ なので $\expval{x}=x_{0}$。$V'(x)=\beta x^{3}$ で，
+\[ \expval{x^{3}}=\expval{(x_{0}+y)^{3}}=x_{0}^{3}+3x_{0}^{2}\expval{y}+3x_{0}\expval{y^{2}}+\expval{y^{3}}=x_{0}^{3}+3x_{0}s^{2} \]
+よって
+\[ \expval{V'(x)}=\beta(x_{0}^{3}+3x_{0}s^{2}),\qquad V'(\expval{x})=\beta x_{0}^{3} \]
+差は $\expval{V'(x)}-V'(\expval{x})=3\beta x_{0}s^{2}$ で，正（$x_{0}>0$）。つまり力の期待値 $-\expval{V'}$ は，期待値の位置での力 $-V'(\expval{x})$ より大きさが大きい。
+
+\shoumonkai{3} 相対的なずれは
+\[ \frac{3\beta x_{0}s^{2}}{\beta x_{0}^{3}}=3\Bigl(\frac{s}{x_{0}}\Bigr)^{2}=3\times(\num{0.100})^{2}=\num{3.00e-2} \]
+\shoumonkai{4} $V'(x)$ を $\expval{x}$ のまわりで2次まで展開し，期待値をとる。$\expval{x-\expval{x}}=0$，$\expval{(x-\expval{x})^{2}}=(\delta x)^{2}$ なので
+\[ \expval{V'(x)}\approx V'(\expval{x})+\frac{1}{2}V'''(\expval{x})(\delta x)^{2} \]
+したがって $\expval{x}$ が $m\,\dd^{2}\expval{x}/\dd t^{2}\approx-V'(\expval{x})$ にほぼ従うのは，補正が力に比べて小さいとき，すなわち
+\[ \frac{1}{2}\abs{V'''(\expval{x})}(\delta x)^{2}\ll\abs{V'(\expval{x})} \]
+のときである。言いかえると，波束の広がり $\delta x$ の範囲で力 $-V'(x)$ がほぼ一定とみなせる（力の変化の尺度に比べて波束が十分狭い）ときに，期待値は古典的な軌道に近い運動をする。$V$ が2次式以下なら $V'''=0$ で，(1) のとおり正確に従う。
+\kotae{\shoumonkai{1} $\expval{V'(x)}=c_{1}+2c_{2}\expval{x}=V'(\expval{x})$ \shoumonkai{2} $\expval{x}=x_{0}$，$\expval{V'(x)}=\beta(x_{0}^{3}+3x_{0}s^{2})$，$V'(\expval{x})=\beta x_{0}^{3}$ \shoumonkai{3} $\num{3.00e-2}$ \shoumonkai{4} $\expval{V'(x)}-V'(\expval{x})\approx\frac{1}{2}V'''(\expval{x})(\delta x)^{2}$。$\frac{1}{2}\abs{V'''}(\delta x)^{2}\ll\abs{V'}$（波束の幅の範囲で力がほぼ一定）のとき古典的に運動する}
+\begin{ronten}
+  \item \shoumonkai{1} 期待値の線形性と $\psi$ の規格化から，1次式の $V'$ では期待値を $V'$ の中に入れてよいことを述べる。
+  \item \shoumonkai{4} 展開の1次の項が期待値で消える理由（$\expval{x-\expval{x}}=0$）を書き，3次以上の項を無視する近似であることを述べる。
+  \item \shoumonkai{4} 古典的に運動する条件は，2次の補正の大きさを力の大きさと比べる形で書く。
+\end{ronten}
+\kenzan (4) を (2) に当てはめると $V'''(x)=6\beta x$ より $\frac{1}{2}\cdot6\beta x_{0}\cdot s^{2}=3\beta x_{0}s^{2}$ で，(2) の差と一致する（$V'$ が3次式なので，3次の項 $\expval{y^{3}}=0$ を除いて展開は正確）。$s\to0$ でずれは $0$ になり，点状の粒子（古典極限）に戻る。次元：$\beta x^{4}$ がエネルギーなので $\beta x_{0}s^{2}$ は（エネルギー）/（長さ）＝力で整合する。
+\tsumazuki $\expval{V'(x)}$ と $V'(\expval{x})$ を同じものと思い込むと，「Ehrenfest の定理から期待値はいつも古典力学に従う」という誤った結論になる。
+\end{tadashii}
+\end{mondai}
+
 \level{3}
 % toubun: kiroku\toubun\量子力学1\025_2026-10-29.tex
 \mondaibangou{10}
@@ -701,6 +801,128 @@ T&=\frac{2\pi}{\omega_{21}}\\
 確率がだんだん失われる。
 
 $\Gamma=0$ で $N(t)$ は保存する。規格化が保たれている。
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\071_2026-11-11.tex
+\mondaibangou{13}
+\begin{mondai}{071-virial}{導出}{期待値の時間変化と交換子，Ehrenfest の定理，ビリアル定理}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+\end{teisuu}
+1次元の系で $\hat{H}=\hat{p}^{2}/(2m)+V(\hat{x})$ とし，規格化された波動関数 $\psi(x,t)$ が $\ii\hbar\,\partial\psi/\partial t=\hat{H}\psi$ に従うとする。$\hat{H}$ はエルミート（任意の $f,g$ で $\int(\hat{H}f)^{*}g\,\dd x=\int f^{*}\hat{H}g\,\dd x$）で，$\comm{\hat{x}}{\hat{p}}=\ii\hbar$ である。期待値は $\expval{\hat{A}}=\int\psi^{*}\hat{A}\psi\,\dd x$ とする。
+  \begin{shoumon}
+    \item $\hat{A}$ があらわに時間によらないとき，次を示せ。
+    \[ \dv{\expval{\hat{A}}}{t}=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{A}}} \]
+    \item $\comm{\hat{H}}{\hat{x}}$ と $\comm{\hat{H}}{\hat{p}}$ を求め，(1) から Ehrenfest の定理 $\dd\expval{x}/\dd t=\expval{p}/m$，$\dd\expval{p}/\dd t=-\expval{V'(x)}$ を導け。
+    \item $\hat{G}=\hat{x}\hat{p}$，$\hat{T}=\hat{p}^{2}/(2m)$ とする。$\dd\expval{\hat{G}}/\dd t=2\expval{\hat{T}}-\expval{xV'(x)}$ を示せ。さらに定常状態 $\psi(x,t)=\phi(x)\ee^{-\ii Et/\hbar}$ では $2\expval{\hat{T}}=\expval{xV'(x)}$（ビリアル定理）が成り立つことを示せ。
+    \item $V(x)=\frac{1}{2}m\omega^{2}x^{2}$ の基底状態（エネルギー $E_{0}=\hbar\omega/2$ の定常状態）について，波動関数を使わずに $\expval{\hat{T}}$，$\expval{V}$，$\expval{x}$，$\expval{p}$ を求めよ。さらに標準偏差の積 $\delta x\,\delta p$ を求め，$\hbar/2$ と比べよ。
+  \end{shoumon}
+\notekiroku{2026-11-11 B ◎◎◎◎ (ヒント1)}
+\begin{kotaeutsushi}{2026-11-11}
+\toi{1}{◎}{}
+\begin{align*}
+&\frac{\dd}{\dd t}\int\psi^{*}\hat{A}\psi\dd x\\
+&=\frac{\ii}{\hbar}\int\psi^{*}(\hat{H}\hat{A}-\hat{A}\hat{H})\psi\dd x
+\end{align*}
+\begin{align*}
+\text{右辺}&=\frac{\ii}{\hbar}\Bigl(\int\psi^{*}\hat{H}\hat{A}\psi\dd x\\
+&\qquad-\int\psi^{*}\hat{A}\hat{H}\psi\dd x\Bigr)\\
+&=\int\frac{\ii}{\hbar}(\hat{H}\psi^{*})\hat{A}\psi\dd x\\
+&\qquad-\int\psi^{*}\hat{A}\frac{\ii}{\hbar}\hat{H}\psi\dd x\\
+&=\int\pdv{\psi^{*}}{t}\hat{A}\psi\dd x+\int\psi^{*}\hat{A}\pdv{\psi}{t}\dd x
+\end{align*}
+（脇に $\hat{H}\psi^{*}=-\ii\hbar\,\partial\psi^{*}/\partial t$）
+\begin{align*}
+\text{左辺}&=\int\pdv{}{t}\bigl(\psi^{*}(\hat{A}\psi)\bigr)\dd x\\
+&=\int\Bigl(\pdv{\psi^{*}}{t}\hat{A}\psi+\psi^{*}\hat{A}\pdv{\psi}{t}\Bigr)\dd x\\
+&=\int\pdv{\psi^{*}}{t}\hat{A}\psi\dd x+\int\psi^{*}\hat{A}\pdv{\psi}{t}\dd x
+\end{align*}
+より示された。
+\toi{2}{◎}{}
+\begin{align*}
+\comm{\hat{H}}{\hat{x}}&=\frac{1}{2m}\comm{\hat{p}^{2}}{\hat{x}}+\underbrace{\comm{V(\hat{x})}{\hat{x}}}_{0}\\
+&=\frac{1}{2m}(\hat{p}\comm{\hat{p}}{\hat{x}}+\comm{\hat{p}}{\hat{x}}\hat{p})\\
+&=-\frac{\ii\hbar}{m}\hat{p}
+\end{align*}
+\[ \comm{\hat{H}}{\hat{p}}=\frac{1}{2m}\underbrace{\comm{\hat{p}^{2}}{\hat{p}}}_{0}+\comm{V(\hat{x})}{\hat{p}} \]
+\begin{align*}
+&\comm{V(\hat{x})}{\hat{p}}f(x)\\
+&=V(\hat{x})\hat{p}f(\hat{x})-\hat{p}V(\hat{x})f(\hat{x})\\
+&=-\ii\hbar V(\hat{x})f'(\hat{x})+\ii\hbar\frac{\dd}{\dd\hat{x}}\bigl(V(\hat{x})f(\hat{x})\bigr)\\
+&=\ii\hbar\bigl(-V(\hat{x})f'(\hat{x})+V'(\hat{x})f(\hat{x})\\
+&\qquad+V(\hat{x})f'(\hat{x})\bigr)\\
+&=\ii\hbar V'(\hat{x})f(\hat{x})
+\end{align*}
+\begin{align*}
+\comm{V(\hat{x})}{\hat{p}}&=\ii\hbar V'(\hat{x})\\
+\comm{\hat{H}}{\hat{p}}&=\ii\hbar V'(\hat{x})
+\end{align*}
+\begin{align*}
+\frac{\dd\expval{x}}{\dd t}&=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{x}}}\\
+&=\frac{\ii}{\hbar}\expval{-\frac{\ii\hbar}{m}\hat{p}}\\
+&=\frac{\expval{\hat{p}}}{m}
+\end{align*}
+より $\dd\expval{x}/\dd t=\expval{p}/m$
+\begin{align*}
+\frac{\dd\expval{\hat{p}}}{\dd t}&=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{p}}}\\
+&=\frac{\ii}{\hbar}\expval{\ii\hbar V'(\hat{x})}\\
+&=-\expval{V'(\hat{x})}
+\end{align*}
+より $\dd\expval{p}/\dd t=-\expval{V'(x)}$
+\toi{3}{◎}{}
+\[ \frac{\dd\expval{\hat{G}}}{\dd t}=\frac{\ii}{\hbar}\expval{\comm{\hat{H}}{\hat{G}}} \]
+\begin{align*}
+\comm{\hat{H}}{\hat{G}}&=\comm{\hat{H}}{\hat{x}\hat{p}}\\
+&=\comm{\hat{H}}{\hat{x}}\hat{p}+\hat{x}\comm{\hat{H}}{\hat{p}}\\
+&=-\frac{\ii\hbar}{m}\hat{p}^{2}+\ii\hbar\hat{x}V'(\hat{x})
+\end{align*}
+\begin{align*}
+\frac{\dd\expval{\hat{G}}}{\dd t}&=\frac{\ii}{\hbar}\kakimachigai{\Bigl(-\frac{\ii\hbar}{m}\hat{p}^{2}+\ii\hbar\hat{x}V'(\hat{x})\Bigr)}{\expval{\cdots}}\\
+&=\expval{2\cdot\frac{\hat{p}^{2}}{2m}-\hat{x}V'(\hat{x})}\\
+&=2\expval{\hat{T}}-\expval{xV'(x)}
+\end{align*}
+定常状態では
+\begin{align*}
+\expval{\hat{G}}&=\int_{-\infty}^{\infty}\psi^{*}\hat{x}\hat{p}\psi\dd x\\
+&=\int_{-\infty}^{\infty}\phi^{*}(x)\ee^{\ii Et/\hbar}\cdot x\\
+&\qquad\cdot(-\ii\hbar)\phi'(x)\ee^{-\ii Et/\hbar}\dd x\\
+&=\int_{-\infty}^{\infty}-\ii\hbar x\phi^{*}(x)\phi'(x)\dd x
+\end{align*}
+より
+\[ \frac{\dd\expval{\hat{G}}}{\dd t}=0\qquad\therefore\quad2\expval{\hat{T}}=\expval{xV'(x)} \]
+\toi{4}{◎}{}
+\begin{align*}
+\expval{\hat{T}}&=\frac{1}{2}\expval{xV'(x)}\\
+&=\frac{1}{2}\expval{x\cdot m\omega^{2}x}\\
+&=\frac{m\omega^{2}}{2}\expval{x^{2}}
+\end{align*}
+\[ \expval{V}=\frac{m\omega^{2}}{2}\expval{x^{2}} \]
+$\dd\expval{x}/\dd t=0$ より $\expval{p}=0$
+
+$\dd\expval{p}/\dd t=0$ より $\expval{V'(x)}=0$
+\begin{align*}
+\therefore\quad m\omega^{2}\expval{x}&=0\\
+\expval{x}&=0
+\end{align*}
+\begin{align*}
+\expval{\hat{H}}&=E_{0}=\frac{\hbar\omega}{2}\\
+\therefore\quad\expval{\hat{T}}+\expval{V}&=\frac{\hbar\omega}{2}
+\end{align*}
+$\expval{\hat{T}}=\expval{V}$ より
+\[ \expval{\hat{T}}=\expval{V}=\frac{\hbar\omega}{4} \]
+\[ \delta x=\sqrt{\expval{x^{2}}-\expval{x}^{2}} \]
+\begin{align*}
+\expval{V}=\frac{m\omega^{2}}{2}\expval{x^{2}}&=\frac{\hbar\omega}{4}\\
+\therefore\quad\expval{x^{2}}&=\frac{\hbar}{2m\omega}
+\end{align*}
+\[ \delta p=\sqrt{\expval{p^{2}}-\expval{p}^{2}} \]
+\begin{align*}
+\expval{\hat{T}}=\frac{1}{2m}\expval{\hat{p}^{2}}&=\frac{\hbar\omega}{4}\\
+\expval{\hat{p}^{2}}&=\frac{m\hbar\omega}{2}
+\end{align*}
+\[ \delta x\,\delta p=\sqrt{\frac{\hbar}{2m\omega}}\cdot\sqrt{\frac{m\hbar\omega}{2}}=\frac{\hbar}{2} \]
 \end{kotaeutsushi}
 \end{mondai}
 

@@ -1,0 +1,131 @@
+% 量子力学1 量子力学1-18 問題8（080-conserved。当時は 量子力学1-9 問題7） 解いた日 2026-11-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+&\matrixel{\psi(t)}{\hat{A}_{\mathrm{S}}}{\psi(t)}\\
+&=\matrixel{\psi(0)}{\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}}{\psi(0)}\\
+&=\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)}
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{A}_{\mathrm{H}}(t)}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\begin{align*}
+&\frac{\dd}{\dd t}\matrixel{\psi(0)}{\hat{A}_{\mathrm{H}}(t)}{\psi(0)}=\frac{\dd}{\dd t}\expval{\hat{A}}_{t}\\
+&=\frac{\ii}{\hbar}\bra{\psi(0)}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}\\
+&\qquad\times\ee^{-\ii\hat{H}t/\hbar}\ket{\psi(0)}\\
+&=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)}
+\end{align*}
+\[ \therefore\quad\frac{\dd\expval{\hat{A}}_{t}}{\dd t}=\frac{\ii}{\hbar}\matrixel{\psi(t)}{\comm{\hat{H}}{\hat{A}_{\mathrm{S}}}}{\psi(t)} \]
+$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}=0$ なら $\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{n}}=0$ を示す。
+
+$\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{k}}=0$ を仮定する。
+\begin{align*}
+\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{k+1}}&=\underbrace{\comm{\hat{A}_{\mathrm{S}}}{\hat{H}}}_{=0}\hat{H}^{k}+\hat{H}\underbrace{\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{k}}}_{=0}\\
+&=0
+\end{align*}
+数学的帰納法より $\comm{\hat{A}_{\mathrm{S}}}{\hat{H}^{n}}=0$。
+
+よって $\comm{\hat{A}_{\mathrm{S}}}{\ee^{\ii\hat{H}t/\hbar}}=0$
+\begin{align*}
+\hat{A}_{\mathrm{H}}(t)&=\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=\hat{A}_{\mathrm{S}}\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}\\
+&=\hat{A}_{\mathrm{S}}
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\frac{\dd\hat{A}_{\mathrm{H}}}{\dd t}&=\frac{\dd}{\dd t}\bigl(\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}\bigr)\\
+&=\frac{\ii\hat{H}}{\hbar}\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\frac{\dd}{\dd t}\bigl(\hat{A}_{\mathrm{S}}(t)\ee^{-\ii\hat{H}t/\hbar}\bigr)\\
+&=\frac{\ii}{\hbar}\hat{H}\hat{A}_{\mathrm{H}}+\ee^{\ii\hat{H}t/\hbar}\Bigl(\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\hat{A}_{\mathrm{S}}(t)\cdot\Bigl(-\frac{\ii\hat{H}}{\hbar}\Bigr)\ee^{-\ii\hat{H}t/\hbar}\Bigr)\\
+&=\frac{\ii}{\hbar}\hat{H}\hat{A}_{\mathrm{H}}\\
+&\qquad-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\hat{H}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+$\comm{\hat{H}}{\ee^{\ii\hat{H}t/\hbar}}=0$ より
+\begin{align*}
+&=-\frac{\ii}{\hbar}\bigl(\ee^{\ii\hat{H}t/\hbar}\hat{A}_{\mathrm{S}}\ee^{-\ii\hat{H}t/\hbar}\hat{H}-\hat{H}\hat{A}_{\mathrm{H}}\bigr)\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\comm{\hat{A}_{\mathrm{H}}}{\hat{H}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{A}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\toi{3}{△}{未着手}
+$\comm{\hat{p}}{\hat{H}}=0$ より $\comm{\hat{p}}{\ee^{\pm\ii\hat{H}t/\hbar}}=0$
+\begin{align*}
+\frac{\dd\hat{G}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{2m\hbar}\comm{\hat{G}_{\mathrm{H}}}{\hat{p}^{2}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\Bigl(-\frac{\hat{p}}{m}\Bigr)\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{2m\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{G}_{\mathrm{S}}(t)}{\hat{p}^{2}}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad-\frac{\hat{p}}{m}\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\begin{align*}
+\comm{\hat{x}-\frac{\hat{p}t}{m}}{\hat{p}^{2}}&=\comm{\hat{x}}{\hat{p}^{2}}-\frac{t}{m}\comm{\hat{p}}{\hat{p}^{2}}\\
+&=\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}}\\
+&=2\ii\hbar\hat{p}
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{G}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{2m\hbar}\cdot2\ii\hbar\hat{p}\,\ee^{\ii\hat{H}t/\hbar}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad-\frac{\hat{p}}{m}\\
+&=\frac{\hat{p}}{m}-\frac{\hat{p}}{m}\\
+&=0
+\end{align*}
+$\hat{G}_{\mathrm{H}}(t)$ は時間によらない。
+
+$\hat{G}_{\mathrm{H}}(0)=\hat{G}_{\mathrm{S}}(0)=\hat{x}$ より
+\[ \hat{G}_{\mathrm{H}}(t)=\hat{x}\qquad\nuke{保存量の意味} \]
+\naze{問われている「この保存量の意味を期待値の言葉で述べよ」が無い。$\hat{G}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}(t)-\hat{p}_{\mathrm{H}}(t)t/m$ の期待値をとり，$\expval{\hat{x}}_{t}-(t/m)\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0}$ がどの状態でも成り立つ，つまり時刻 $t$ の中心の位置から平均の速さ $\expval{\hat{p}}_{t}/m$ で時間を逆にたどると初期位置に戻る，と述べる。}
+\toi{4}{○}{記述}
+\begin{align*}
+\frac{\dd\hat{Q}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{Q}_{\mathrm{H}}}{\hat{H}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{Q}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{Q}_{\mathrm{S}}(t)}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad-F
+\end{align*}
+（矢印で $\comm{\hat{Q}_{\mathrm{S}}(t)}{\hat{H}}$ を脇で計算）
+\begin{align*}
+&\comm{\hat{p}-Ft}{\hat{H}}\\
+&=\comm{\hat{p}}{\hat{H}}-\underbrace{\comm{Ft}{\hat{H}}}_{0}\\
+&=\comm{\hat{p}}{\frac{\hat{p}^{2}}{2m}-F\hat{x}}\\
+&=\comm{\hat{p}}{\frac{\hat{p}^{2}}{2m}}-F\comm{\hat{p}}{\hat{x}}\\
+&=\ii\hbar F
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{Q}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\cdot\ii\hbar F-F\\
+&=0
+\end{align*}
+$\hat{Q}_{\mathrm{H}}$ は時間によらない。
+\begin{align*}
+\frac{\dd\hat{R}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\comm{\hat{R}_{\mathrm{H}}}{\hat{H}}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\pdv{\hat{R}_{\mathrm{S}}}{t}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{R}_{\mathrm{S}}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&\qquad+\ee^{\ii\hat{H}t/\hbar}\Bigl(-\frac{\hat{p}}{m}+\frac{Ft}{m}\Bigr)\ee^{-\ii\hat{H}t/\hbar}
+\end{align*}
+\begin{align*}
+\comm{\hat{R}_{\mathrm{S}}}{\hat{H}}&=\comm{\hat{x}}{\hat{H}}-\frac{t}{m}\comm{\hat{p}}{\hat{H}}\\
+&\qquad+\frac{Ft^{2}}{2m}\underbrace{\comm{\hat{1}}{\hat{H}}}_{0}\\
+\comm{\hat{x}}{\hat{H}}&=\comm{\hat{x}}{\frac{\hat{p}^{2}}{2m}}-F\comm{\hat{x}}{\hat{x}}\\
+&=\frac{\ii\hbar}{m}\hat{p}\\
+\comm{\hat{p}}{\hat{H}}&=\frac{1}{2m}\comm{\hat{p}}{\hat{p}^{2}}-F\comm{\hat{p}}{\hat{x}}\\
+&=\ii\hbar F\\
+\comm{\hat{R}_{\mathrm{S}}}{\hat{H}}&=\frac{\ii\hbar}{m}\hat{p}-\frac{t}{m}\ii\hbar F
+\end{align*}
+\begin{align*}
+\frac{\dd\hat{R}_{\mathrm{H}}}{\dd t}&=-\frac{\ii}{\hbar}\Bigl(\frac{\ii\hbar}{m}\ayamari{\hat{p}}{\hat{p}_{\mathrm{H}}}-\frac{t}{m}\ii\hbar F\Bigr)\\
+&\qquad+\Bigl(-\frac{\ayamari{\hat{p}}{\hat{p}_{\mathrm{H}}}}{m}+\frac{Ft}{m}\Bigr)\\
+&=\Bigl(\frac{\hat{p}}{m}-\frac{Ft}{m}\Bigr)+\Bigl(-\frac{\hat{p}}{m}+\frac{Ft}{m}\Bigr)\\
+&=0
+\end{align*}
+\naze{$\comm{\hat{p}}{\hat{H}}=\ii\hbar F\neq0$ なので，$\ee^{\ii\hat{H}t/\hbar}\hat{p}\,\ee^{-\ii\hat{H}t/\hbar}$ は $\hat{p}$ のままにならず $\hat{p}_{\mathrm{H}}(t)=\hat{p}+Ft$ である。以降はこの誤りを引き継ぐが，2つの項が同じ $\hat{p}_{\mathrm{H}}$ になって打ち消すので結論の $0$ は正しい。}
+$\hat{R}_{\mathrm{H}}$ は時間によらない。
+\begin{align*}
+\hat{Q}_{\mathrm{H}}(0)&=\hat{Q}_{\mathrm{S}}(0)=\hat{p}\qquad\therefore\quad\hat{Q}_{\mathrm{H}}(t)=\hat{p}\\
+\hat{R}_{\mathrm{H}}(0)&=\hat{R}_{\mathrm{S}}(0)=\hat{x}\qquad\therefore\quad\hat{R}_{\mathrm{H}}(t)=\hat{x}
+\end{align*}
+\[ \hat{R}_{\mathrm{H}}(t)=\hat{x}_{\mathrm{H}}-\hat{p}_{\mathrm{H}}\cdot\frac{t}{m}+\frac{Ft^{2}}{2m}=\hat{x} \]
+\begin{align*}
+\therefore\quad\hat{x}_{\mathrm{H}}(t)&=\hat{x}+(\hat{p}+Ft)\cdot\frac{t}{m}-\frac{Ft^{2}}{2m}\\
+&=\hat{x}+\frac{t}{m}\hat{p}+\frac{Ft^{2}}{2m}
+\end{align*}
+%% kizuki
+\item \mae{第7章 問題3（059-ring）・11-04} 「保存量の意味を期待値の言葉で述べよ」に答えていない。演算子の等式 $\hat{G}_{\mathrm{H}}(t)=\hat{x}$ の期待値をとり，測れる量の関係 $\expval{\hat{x}}_{t}-(t/m)\expval{\hat{p}}_{t}=\expval{\hat{x}}_{0}$ に言い直す。
+\item $\ee^{\ii\hat{H}t/\hbar}\hat{A}\,\ee^{-\ii\hat{H}t/\hbar}=\hat{A}$ と書けるのは $\comm{\hat{A}}{\hat{H}}=0$ のときだけ（(1) で示したこと）。(3) の自由粒子では $\hat{p}_{\mathrm{H}}=\hat{p}$ だが，(4) では $\hat{p}_{\mathrm{H}}=\hat{p}+Ft$ である。

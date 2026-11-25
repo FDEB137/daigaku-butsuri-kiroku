@@ -1,0 +1,142 @@
+% 量子力学1 量子力学1-18 問題4（077-oscillator。当時は 量子力学1-9 問題5） 解いた日 2026-11-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\comm{\hat{x}}{\hat{H}}&=\frac{1}{2m}\comm{\hat{x}}{\hat{p}^{2}}+\frac{K}{2}\comm{\hat{x}}{\hat{x}^{2}}\\
+&=\frac{1}{2m}(\comm{\hat{x}}{\hat{p}}\hat{p}+\hat{p}\comm{\hat{x}}{\hat{p}})+0\\
+&=\frac{\ii\hbar}{m}\hat{p}
+\end{align*}
+\begin{align*}
+\comm{\hat{p}}{\hat{H}}&=\frac{1}{2m}\comm{\hat{p}}{\hat{p}^{2}}+\frac{K}{2}\comm{\hat{p}}{\hat{x}^{2}}\\
+&=0+\frac{K}{2}(\comm{\hat{p}}{\hat{x}}\hat{x}+\hat{x}\comm{\hat{p}}{\hat{x}})\\
+&=-\ii\hbar K\hat{x}
+\end{align*}
+\begin{align*}
+\frac{\dd}{\dd t}\hat{x}_{\mathrm{H}}(t)&=-\frac{\ii}{\hbar}\comm{\hat{x}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{x}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=\frac{1}{m}\hat{p}_{\mathrm{H}}(t)
+\end{align*}
+\begin{align*}
+\frac{\dd}{\dd t}\hat{p}_{\mathrm{H}}(t)&=-\frac{\ii}{\hbar}\comm{\hat{p}_{\mathrm{H}}(t)}{\hat{H}}\\
+&=-\frac{\ii}{\hbar}\ee^{\ii\hat{H}t/\hbar}\comm{\hat{p}}{\hat{H}}\ee^{-\ii\hat{H}t/\hbar}\\
+&=-K\hat{x}_{\mathrm{H}}(t)
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\frac{\dd^{2}}{\dd t^{2}}\hat{x}_{\mathrm{H}}(t)&=-\omega^{2}\hat{x}_{\mathrm{H}}(t)\\
+\hat{x}_{\mathrm{H}}(t)&=C_{1}\cos\omega t+C_{2}\sin\omega t\\
+\hat{x}_{\mathrm{H}}(0)&=C_{1}=\hat{x}
+\end{align*}
+\begin{align*}
+\hat{p}_{\mathrm{H}}(t)&=m(-C_{1}\omega\sin\omega t+C_{2}\omega\cos\omega t)\\
+&=-\sqrt{mK}\,\hat{x}\sin\omega t+\sqrt{mK}\,C_{2}\cos\omega t
+\end{align*}
+\[ \hat{p}_{\mathrm{H}}(0)=\sqrt{mK}\,C_{2}=\hat{p}\qquad C_{2}=\frac{\hat{p}}{\sqrt{mK}} \]
+\begin{align*}
+\hat{x}_{\mathrm{H}}(t)&=\hat{x}\cos\omega t+\frac{\hat{p}}{m\omega}\sin\omega t\\
+\hat{p}_{\mathrm{H}}(t)&=-m\omega\hat{x}\sin\omega t+\hat{p}\cos\omega t
+\end{align*}
+\toi{3}{○}{計算}
+\begin{align*}
+\expval{\hat{x}}_{0}&=\matrixel{\psi(0)}{\hat{x}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{x}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}\underbrace{x}_{\text{奇}}\underbrace{\abs{\varphi(x)}^{2}}_{\text{偶}}\dd x\\
+&=0\quad\text{（奇関数の積分なので）}
+\end{align*}
+\begin{align*}
+\expval{\hat{p}}_{0}&=\matrixel{\psi(0)}{\hat{p}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{p}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}-\ii\hbar\frac{\dd\varphi}{\dd x}\varphi(x)\dd x\\
+&=-\ii\hbar\biggl(\Bigl[\varphi(x)^{2}\Bigr]_{-\infty}^{\infty}\\
+&\qquad-\underbrace{\int_{-\infty}^{\infty}\frac{\dd\varphi}{\dd x}\varphi(x)\dd x}_{I}\biggr)
+\end{align*}
+\begin{align*}
+\therefore\quad-\ii\hbar I&=-\ii\hbar\Bigl(\Bigl[\varphi(x)^{2}\Bigr]_{-\infty}^{\infty}-I\Bigr)\\
+\therefore\quad2I&=\Bigl[\varphi(x)^{2}\Bigr]_{-\infty}^{\infty}=0\\
+\therefore\quad I&=0
+\end{align*}
+$\expval{\hat{p}}_{0}=0$
+\[ \expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=\matrixel{\psi(0)}{\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(0)} \]
+\begin{align*}
+&\matrixel{\psi(0)}{\hat{x}\hat{p}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{x}\hat{p}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}\ayamari{-\ii\hbar\frac{\dd}{\dd x}(x\varphi(x))}{x(-\ii\hbar\varphi')}\,\varphi(x)\dd x\\
+&=-\ii\hbar\int_{-\infty}^{\infty}\Bigl(\varphi(x)+x\frac{\dd}{\dd x}\varphi(x)\Bigr)\varphi(x)\dd x\\
+&=-\ii\hbar\int_{-\infty}^{\infty}\Bigl(\varphi^{2}(x)+x\varphi(x)\frac{\dd}{\dd x}\varphi(x)\Bigr)\dd x
+\end{align*}
+（矢印で2行目の積分を部分積分した次の式につなぐ）
+\begin{align*}
+&=-\ii\hbar\biggl(\underbrace{\Bigl[x\varphi^{2}(x)\Bigr]_{-\infty}^{\infty}}_{0}\\
+&\qquad-\underbrace{\int_{-\infty}^{\infty}x\varphi(x)\frac{\dd}{\dd x}\varphi(x)\dd x}_{J}\biggr)
+\end{align*}
+\naze{$\hat{x}\hat{p}$ は右の $\hat{p}$ が先に $\varphi$ に作用するので，被積分関数は $\varphi\,x(-\ii\hbar\varphi')$ である。書いた $-\ii\hbar(x\varphi)'\varphi$ は $\hat{p}\hat{x}$ の式である。}
+\[ \therefore\quad\underbrace{\int_{-\infty}^{\infty}\varphi^{2}(x)\dd x}_{1}+J=0-J\qquad\therefore\quad J=\ayamari{\frac{1}{2}}{-\frac{1}{2}} \]
+\naze{$1+J=-J$ から $1+2J=0$ で $J=-1/2$ である。ここで2つ目の誤りが1つ目と打ち消し合い，以下の値は正しく出ている。正しくは $\expval{\hat{x}\hat{p}}_{0}=-\ii\hbar J=\ii\hbar/2$，$\expval{\hat{p}\hat{x}}_{0}=-\ii\hbar(1+J)=-\ii\hbar/2$ である。}
+\[ \expval{\hat{x}\hat{p}}_{0}=\ii\hbar J=\frac{\ii\hbar}{2} \]
+\begin{align*}
+&\matrixel{\psi(0)}{\hat{p}\hat{x}}{\psi(0)}\\
+&=\int_{-\infty}^{\infty}\matrixel{\psi(0)}{\hat{p}\hat{x}}{x}\braket{x}{\psi(0)}\dd x\\
+&=\int_{-\infty}^{\infty}\ayamari{-\ii\hbar x\varphi(x)\frac{\dd}{\dd x}\varphi(x)}{-\ii\hbar(x\varphi)'\varphi}\dd x\\
+&=-\ii\hbar J\\
+&=-\frac{\ii\hbar}{2}
+\end{align*}
+\naze{$\hat{p}\hat{x}$ の側も $\hat{x}\hat{p}$ と入れ替わっている。}
+\[ \expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=\frac{\ii\hbar}{2}-\frac{\ii\hbar}{2}=0 \]
+\[ \delta x(t)=\sqrt{\expval{\hat{x}^{2}}_{t}-\expval{\hat{x}}_{t}^{2}} \]
+\begin{align*}
+\expval{\hat{x}}_{t}&=\matrixel{\psi(0)}{\hat{x}_{\mathrm{H}}}{\psi(0)}\\
+&=\cos\omega t\underbrace{\matrixel{\psi(0)}{\hat{x}}{\psi(0)}}_{\expval{\hat{x}}_{0}}\\
+&\qquad+\frac{\sin\omega t}{m\omega}\underbrace{\matrixel{\psi(0)}{\hat{p}}{\psi(0)}}_{\expval{\hat{p}}_{0}}\\
+&=0
+\end{align*}
+\begin{align*}
+\expval{\hat{x}^{2}}_{t}&=\matrixel{\psi(0)}{\hat{x}_{\mathrm{H}}^{2}}{\psi(0)}\\
+&=\cos^{2}\omega t\matrixel{\psi(0)}{\hat{x}^{2}}{\psi(0)}\\
+&\qquad+\frac{\sin^{2}\omega t}{m^{2}\omega^{2}}\matrixel{\psi(0)}{\hat{p}^{2}}{\psi(0)}\\
+&\qquad+\frac{\cos\omega t\sin\omega t}{m\omega}\\
+&\qquad\quad\times\underbrace{\matrixel{\psi(0)}{\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(0)}}_{\expval{\hat{x}\hat{p}+\hat{p}\hat{x}}_{0}=0}
+\end{align*}
+\begin{align*}
+\matrixel{\psi(0)}{\hat{x}^{2}}{\psi(0)}&=\expval{\hat{x}^{2}}_{0}=\delta x(0)^{2}\\
+\matrixel{\psi(0)}{\hat{p}^{2}}{\psi(0)}&=\expval{\hat{p}^{2}}_{0}=\delta p(0)^{2}
+\end{align*}
+\[ \delta x(t)=\sqrt{\cos^{2}\omega t\cdot\delta x(0)^{2}+\frac{\sin^{2}\omega t}{m^{2}\omega^{2}}\cdot\delta p(0)^{2}} \]
+\toi{4}{◎}{}
+\begin{align*}
+\expval{\hat{x}^{2}}_{0}&=\int_{-\infty}^{\infty}x^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\exp(-b^{2}x^{2})\dd x\\
+&=\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\cdot\frac{1}{2}\sqrt{\frac{\pi}{b^{6}}}\\
+&=\frac{1}{2b^{2}}
+\end{align*}
+\begin{align*}
+\expval{\hat{p}^{2}}_{0}&=\int_{-\infty}^{\infty}\varphi^{*}(x)(-\ii\hbar)^{2}\frac{\dd^{2}}{\dd x^{2}}\varphi(x)\dd x\\
+&=-\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\int_{-\infty}^{\infty}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\\
+&\qquad\times\frac{\dd}{\dd x}\Bigl(-b^{2}x\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\Bigr)\dd x\\
+&=-\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\int_{-\infty}^{\infty}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\\
+&\qquad\times\Bigl(-b^{2}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\\
+&\qquad\quad+b^{4}x^{2}\exp\Bigl(-\frac{b^{2}x^{2}}{2}\Bigr)\Bigr)\dd x\\
+&=b^{2}\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\int_{-\infty}^{\infty}\bigl(\exp(-b^{2}x^{2})\\
+&\qquad-b^{2}x^{2}\exp(-b^{2}x^{2})\bigr)\dd x\\
+&=b^{2}\hbar^{2}\Bigl(\frac{b^{2}}{\pi}\Bigr)^{1/2}\Bigl(\sqrt{\frac{\pi}{b^{2}}}-\frac{b^{2}}{2}\sqrt{\frac{\pi}{b^{6}}}\Bigr)\\
+&=\frac{b^{2}\hbar^{2}}{2}
+\end{align*}
+\begin{align*}
+\delta x(t)&=\sqrt{\frac{1}{2b^{2}}\cos^{2}\omega t+\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\sin^{2}\omega t}\\
+&=\biggl(\Bigl(\frac{1}{2b^{2}}-\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\Bigr)\cos^{2}\omega t\\
+&\qquad+\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\biggr)^{1/2}
+\end{align*}
+（脇で係数が $0$ になる条件を求める）
+\begin{gather*}
+\frac{1}{2b^{2}}-\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}=0\\
+\therefore\quad\frac{1}{b^{2}}=\frac{\hbar^{2}b^{2}}{m^{2}\omega^{2}}
+\end{gather*}
+$b=\sqrt{m\omega/\hbar}$ のとき $\delta x(t)$ は $t$ によらない。
+
+（矢印で2行目の式につなぐ）
+\begin{align*}
+&=\biggl(\Bigl(\frac{1}{2b^{2}}-\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\Bigr)\Bigl(\frac{1}{2}(1+\cos2\omega t)\Bigr)\\
+&\qquad+\frac{\hbar^{2}b^{2}}{2m^{2}\omega^{2}}\biggr)^{1/2}
+\end{align*}
+\[ T=\frac{2\pi}{2\omega}=\frac{\pi}{\omega} \]
+%% kizuki
+\item 位置表示の期待値は右の演算子から順に $\varphi$ に作用させる。$\expval{\hat{x}\hat{p}}=\int\varphi\,x(-\ii\hbar\varphi')\dd x$，$\expval{\hat{p}\hat{x}}=\int\varphi(-\ii\hbar)(x\varphi)'\dd x$ である。2つの誤りが打ち消して答えが合ったので，途中の式も確かめる。
+\item \mae{第6章 問題2・11-01，第7章 問題2・11-04} 符号の誤り。$1+J=-J$ は $J=-1/2$。ガウス関数では $x\varphi\varphi'=-b^{2}x^{2}\varphi^{2}\le0$ なので，$J<0$ は被積分関数の符号から分かる。

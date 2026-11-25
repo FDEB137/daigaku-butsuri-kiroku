@@ -1,0 +1,50 @@
+% 量子力学1 量子力学1-3 問題9（070-anharm。当時は 量子力学1-9 問題4） 解いた日 2026-11-11
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\expval{V'(x)}&=\expval{c_{1}+2c_{2}x}\\
+&=c_{1}+2c_{2}\expval{x}\\
+&=V'(\expval{x})
+\end{align*}
+Ehrenfest の定理より
+\begin{align*}
+\frac{\dd\expval{p}}{\dd t}&=-(c_{1}+\kakimachigai{c_{2}}{2c_{2}}\expval{x})\\
+\frac{\dd\expval{x}}{\dd t}&=\frac{\expval{p}}{m}\\
+\frac{\dd^{2}\expval{x}}{\dd t^{2}}&=-\frac{1}{m}(c_{1}+\kakimachigai{c_{2}}{2c_{2}}\expval{x})\\
+\therefore\quad m\frac{\dd^{2}\expval{x}}{\dd t^{2}}&=-V'(\expval{x})
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+\expval{x}&=\int_{-\infty}^{\infty}x\abs{\psi(x,t)}^{2}\dd x\\
+&=\frac{1}{\sqrt{2\pi s^{2}}}\underbrace{\int_{-\infty}^{\infty}y\exp\Bigl(-\frac{y^{2}}{2s^{2}}\Bigr)\dd y}_{0}\\
+&\qquad+\frac{x_{0}}{\sqrt{2\pi s^{2}}}\int_{-\infty}^{\infty}\exp\Bigl(-\frac{y^{2}}{2s^{2}}\Bigr)\dd y\\
+&=\frac{x_{0}}{\sqrt{2\pi s^{2}}}\sqrt{2\pi s^{2}}\\
+&=x_{0}
+\end{align*}
+\begin{align*}
+\expval{V'(x)}&=\expval{\beta x^{3}}\\
+&=\beta\expval{(y+x_{0})^{3}}\\
+&=\beta\expval{y^{3}+3x_{0}y^{2}+3x_{0}^{2}y+x_{0}^{3}}\\
+&=\beta(3x_{0}s^{2}+x_{0}^{3})
+\end{align*}
+$V'(\expval{x})=\beta x_{0}^{3}$\quad $3\beta x_{0}s^{2}$ の項がない。
+\toi{3}{◎}{}
+\begin{align*}
+&\frac{\expval{V'(x)}-V'(\expval{x})}{V'(\expval{x})}\\
+&=\frac{\beta x_{0}^{3}+3\beta x_{0}s^{2}-\beta x_{0}^{3}}{\beta x_{0}^{3}}\\
+&=3\frac{s^{2}}{x_{0}^{2}}=\num{3.00e-2}
+\end{align*}
+\toi{4}{△}{未着手}
+\begin{align*}
+\kakimachigai{V(x)}{V'(x)}&=\frac{V'(\expval{x})}{0!}+\frac{V''(\expval{x})}{1!}(x-\expval{x})\\
+&\qquad+\frac{V'''(\expval{x})}{2!}(x-\expval{x})^{2}
+\end{align*}
+\begin{align*}
+\expval{V'(x)}&=V'(\expval{x})+V''(\expval{x})\underbrace{\expval{x-\expval{x}}}_{0}\\
+&\qquad+\frac{1}{2}V'''(\expval{x})\delta x^{2}
+\end{align*}
+\[ \therefore\quad\expval{V'(x)}-V'(\expval{x})=\frac{1}{2}V'''(\expval{x})\delta x^{2} \]
+\nuke{古典的に運動する条件}
+\naze{問われている「$\expval{x}$ がほぼ古典力学に従って運動する条件」が無い。補正を力の大きさと比べて $\frac{1}{2}\abs{V'''(\expval{x})}\delta x^{2}\ll\abs{V'(\expval{x})}$，つまり波束の幅 $\delta x$ の範囲で力 $-V'(x)$ がほぼ一定とみなせるとき，と書く。また3次以上の項を捨てているので，展開の式は $=$ でなく $\approx$ である。}
+%% kizuki
+\item \mae{第7章 問題3（059-ring）・11-04} 「説明せよ」まで答えて1問である。式を出したら，補正 $\frac{1}{2}\abs{V'''}\delta x^{2}$ と力 $\abs{V'}$ を比べる不等式と，その意味（力が変わる長さに比べて波束が狭い）を書く。解き終えたら「求めよ」「説明せよ」の数と答えた数を合わせる。
