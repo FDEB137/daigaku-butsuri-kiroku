@@ -1,0 +1,59 @@
+% 量子力学1 量子力学1-11 問題1（057-eigen。当時は 量子力学1-7 問題1） 解いた日 2026-11-04
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\hat{\vect{p}}\phi_{\vect{k}}(\vect{r})&=-\ii\hbar\nabla(2\pi)^{-3/2}\\
+&\qquad\times\ee^{\ii(k_{x}x+k_{y}y+k_{z}z)}\\
+&=-\ii\hbar(2\pi)^{-3/2}\,\ii(k_{x},k_{y},k_{z})\,\ee^{\ii\vect{k}\cdot\vect{r}}\\
+&=(2\pi)^{-3/2}\hbar\vect{k}\,\ee^{\ii\vect{k}\cdot\vect{r}}\\
+&=\hbar\vect{k}\,\phi_{\vect{k}}(\vect{r})
+\end{align*}
+固有値 $\hbar\vect{k}$
+\toi{2}{◎}{}
+\begin{align*}
+&\kakimachigai{\abs{\phi_{\vect{k}}(\vect{a})}^{2}}{\abs{\phi_{\vect{k}}(\vect{a})}^{2}\dd V}\\
+&\qquad=\frac{1}{(2\pi)^{3}}\ee^{-\ii\vect{k}\cdot\vect{a}}\cdot\ee^{\ii\vect{k}\cdot\vect{a}}\dd V\\
+&\qquad=\frac{\dd V}{(2\pi)^{3}}
+\end{align*}
+\[ \int\abs{\phi_{\vect{k}}(\vect{r})}^{2}\dd V\longrightarrow\infty \]
+相対的に読む。位置は全く定まらない。
+\toi{3}{○}{記述}
+\begin{align*}
+\hat{\vect{p}}\chi(\vect{r})&=-\ii\hbar\nabla\frac{1}{\sqrt{2}}\bigl[\phi_{\vect{k}}(\vect{r})+\phi_{-\vect{k}}(\vect{r})\bigr]\\
+&=\frac{(2\pi)^{-3/2}}{\sqrt{2}}\hbar\bigl(\vect{k}\,\ee^{\ii\vect{k}\cdot\vect{r}}-\vect{k}\,\ee^{-\ii\vect{k}\cdot\vect{r}}\bigr)\\
+&=\hbar\vect{k}\Bigl(\frac{1}{\sqrt{2}}\bigl[\phi_{\vect{k}}(\vect{r})-\phi_{-\vect{k}}(\vect{r})\bigr]\Bigr)
+\end{align*}
+\nuke{$\chi$ の定数倍でない理由}\ 固有関数でない。
+\naze{結果が $\chi$ の定数倍かどうかの判定が書かれていない。$\vect{k}\neq\vect{0}$ では $\phi_{\vect{k}}$ と $\phi_{-\vect{k}}$ は比例しない関数なので，$\phi_{\vect{k}}-\phi_{-\vect{k}}$ は $\chi\propto\phi_{\vect{k}}+\phi_{-\vect{k}}$ の定数倍にならない，まで書く。}
+\begin{align*}
+\hat{\vect{p}}^{2}\chi(\vect{r})&=-\hbar^{2}\nabla^{2}\Bigl(\frac{1}{\sqrt{2}}\bigl[\phi_{\vect{k}}(\vect{r})+\phi_{-\vect{k}}(\vect{r})\bigr]\Bigr)
+\end{align*}
+\begin{align*}
+(2\pi)^{3/2}\nabla^{2}\phi_{\vect{k}}(\vect{r})&=\bigl((\ii k_{x})^{2}+(\ii k_{y})^{2}+(\ii k_{z})^{2}\bigr)\\
+&\qquad\times\ee^{\ii\vect{k}\cdot\vect{r}}\\
+&=-\abs{\vect{k}}^{2}\ee^{\ii\vect{k}\cdot\vect{r}}
+\end{align*}
+\begin{align*}
+(2\pi)^{3/2}\nabla^{2}\phi_{-\vect{k}}(\vect{r})&=\bigl((-\ii k_{x})^{2}+(-\ii k_{y})^{2}+(-\ii k_{z})^{2}\bigr)\\
+&\qquad\times\ee^{-\ii\vect{k}\cdot\vect{r}}\\
+&=-\abs{\vect{k}}^{2}\ee^{-\ii\vect{k}\cdot\vect{r}}
+\end{align*}
+\begin{align*}
+\hat{\vect{p}}^{2}\chi(\vect{r})&=\hbar^{2}\abs{\vect{k}}^{2}\Bigl(\frac{1}{\sqrt{2}}\bigl[\phi_{\vect{k}}(\vect{r})+\phi_{-\vect{k}}(\vect{r})\bigr]\Bigr)
+\end{align*}
+固有関数。
+\begin{align*}
+\abs{\chi(\vect{a})}^{2}&=\frac{1}{2}\bigl(\phi_{\vect{k}}^{*}(\vect{a})+\phi_{-\vect{k}}^{*}(\vect{a})\bigr)\\
+&\qquad\times\bigl(\phi_{\vect{k}}(\vect{a})+\phi_{-\vect{k}}(\vect{a})\bigr)\\
+&=\frac{1}{2}\bigl(\abs{\phi_{\vect{k}}}^{2}+\abs{\phi_{-\vect{k}}}^{2}\\
+&\qquad+\phi_{\vect{k}}^{*}\phi_{-\vect{k}}+\phi_{-\vect{k}}^{*}\phi_{\vect{k}}\bigr)\\
+&=\frac{1}{2}\bigl((2\pi)^{-3}+(2\pi)^{-3}\\
+&\qquad+(2\pi)^{-3}(\ee^{-2\ii\vect{k}\cdot\vect{a}}+\ee^{2\ii\vect{k}\cdot\vect{a}})\bigr)\\
+&=(2\pi)^{-3}(1+\cos2\vect{k}\cdot\vect{a})\\
+&=(2\pi)^{-3}\cdot2\cos^{2}(\vect{k}\cdot\vect{a})
+\end{align*}
+\[ \frac{\abs{\chi(\vect{a})}^{2}\dd V}{\abs{\chi(\vect{b})}^{2}\dd V}=\frac{\cos^{2}(\vect{k}\cdot\vect{a})}{\cos^{2}(\vect{k}\cdot\vect{b})} \]
+%% kizuki
+\item \mae{第5章 問題7・10-30} 「固有関数でない」と結論だけを書き，理由を書かなかった（前回も成り立たないことを示しただけで「定数倍にならない」理由が無かった）。固有関数かどうかは「作用させた結果が元の関数の定数倍か」で決まる。$\hat{\vect{p}}\chi\propto\phi_{\vect{k}}-\phi_{-\vect{k}}$ を出したら，$\vect{k}\neq\vect{0}$ で $\phi_{\pm\vect{k}}$ が比例しないので $\chi$ の定数倍でない，と1文で判定する。
+\item 重ね合わせ $c_{1}\phi_{1}+c_{2}\phi_{2}$ が固有関数になるのは，2つの固有値が等しいときだけである。$\hat{\vect{p}}$ では $\pm\hbar\vect{k}$ と違い，$\hat{\vect{p}}^{2}$ では2乗が等しいので固有関数になる。
+\item (2) で左辺を $\abs{\phi_{\vect{k}}(\vect{a})}^{2}$ と書き，右辺にだけ $\dd V$ を付けた。等式を書いたら両辺に同じ量（$\dd V$）があるかを確かめる。

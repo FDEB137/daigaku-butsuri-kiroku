@@ -1,0 +1,35 @@
+% 量子力学1 量子力学1-11 問題2（058-delta。当時は 量子力学1-7 問題2） 解いた日 2026-11-04
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\tilde{\phi}(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}\phi(x)\\
+&=\frac{1}{4\pi}\int\dd x\,\ee^{-\ii kx}(\ee^{\ii k_{0}x}+\ee^{-\ii k_{0}x})\\
+&=\frac{1}{4\pi}\int\dd x\,\kakimachigai{\ee^{\ii(k_{0}-k)x}+\ee^{-\ii(k+k_{0})x}}{(\cdots)}\\
+&=\frac{1}{2}\bigl(\delta(k-k_{0})+\delta(k+k_{0})\bigr)
+\end{align*}
+$1/2$ で $\hbar k_{0}$，$1/2$ で $-\hbar k_{0}$。
+\toi{2}{△}{計算}
+\begin{align*}
+\tilde{\phi}(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}\\
+&\qquad\times\frac{1}{\sqrt{2}}\bigl(\delta(x-x_{0})-\delta(x+x_{0})\bigr)\\
+&=\frac{1}{2\sqrt{\pi}}(\ee^{-\ii kx_{0}}-\ee^{\ii kx_{0}})\\
+&=\ayamari{\frac{-1}{\ii\sqrt{\pi}}}{\frac{1}{\ii\sqrt{\pi}}}\sin(kx_{0})
+\end{align*}
+\naze{$\ee^{-\ii\theta}-\ee^{\ii\theta}=-2\ii\sin\theta$ なので，正しくは $\tilde{\phi}(k)=-\ii\sin(kx_{0})/\sqrt{\pi}=\sin(kx_{0})/(\ii\sqrt{\pi})$ である。書いた $-1/\ii$ は $+\ii$ で，符号が逆になっている。(3) の $\abs{\tilde{\phi}(k)}^{2}$ には影響しない。}
+\toi{3}{◎}{}
+\begin{align*}
+\tilde{\phi}(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}\delta(x-x_{0})\\
+&=\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx_{0}}
+\end{align*}
+\[ \abs{\tilde{\phi}(k)}^{2}=\frac{1}{2\pi}\ee^{-\ii kx_{0}}\cdot\ee^{\ii kx_{0}}=\frac{1}{2\pi} \]
+\begin{align*}
+\abs{\tilde{\phi}_{(2)}(k)}^{2}&=\frac{1}{\pi}\sin^{2}(kx_{0})\\
+&=\frac{1}{2\pi}\bigl(1-\cos(2kx_{0})\bigr)
+\end{align*}
+\[ 2kx_{0}=2n\pi,\qquad k=\frac{n\pi}{x_{0}} \]
+\[ T=\frac{2\pi}{2x_{0}}=\frac{\pi}{x_{0}} \]
+$\sin^{2}(kx_{0})$ の1周期平均は $1/2$。
+\[ \frac{1}{2\pi} \]
+%% kizuki
+\item \mae{第2章 問題4・10-14，第6章 問題2・11-01} $\ii$ と符号の誤り（前回は $-3\ii\hbar$ の符号，括弧を外すときの符号）。$\ee^{-\ii\theta}-\ee^{\ii\theta}=-2\ii\sin\theta$ は，$\theta$ が小さいとき $(1-\ii\theta)-(1+\ii\theta)=-2\ii\theta$ と1次の項で確かめる。$1/\ii=-\ii$ を使って書き直したら，もう一度この形と比べる。
+\item 全体の符号（位相 $-1$）は $\abs{\tilde{\phi}}^{2}$ には効かないが，ほかの状態と重ね合わせると干渉の符号が変わるので，答えとしては区別する。
