@@ -1,0 +1,25 @@
+% 統計力学1 統計力学1-3 問題3（005-helium。当時は 統計力学1-1 問題5・shou01-l2-helium） 解いた日 2026-10-27
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+S_{0}&=N\kB\biggl[\log\frac{V}{N}\\
+&\qquad+\frac{3}{2}\log\frac{4\pi m\cdot\frac{3}{2}N\kB T}{3Nh^{2}}+\frac{5}{2}\biggr]\\
+&=N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{2\pi m\kB T}{h^{2}}+\frac{5}{2}\right]\\
+&=N\kB\left[\log\frac{V}{N}+\log\left(\frac{1}{\lambda^{2}}\right)^{3/2}+\frac{5}{2}\right]\\
+&=N\kB\left[\log\frac{V}{N\lambda^{3}}+\frac{5}{2}\right]
+\end{align*}
+\toi{2}{○}{単位}
+\[ \frac{V}{N}=\frac{\kB T}{p}=\num{4.14e-26}\,\nuke{\unit{\metre\cubed}} \]
+\[ \lambda=\num{5.04e-11}\,\nuke{\unit{\metre}} \]
+\[ \frac{V}{N\lambda^{3}}=\num{3.24e5} \]
+\naze{$V/N$ と $\lambda$ は次元をもつ量なので単位が要る。正しくは $V/N=\qty{4.14e-26}{\metre\cubed}$，$\lambda=\qty{5.04e-11}{\metre}$ である（$V/(N\lambda^{3})$ は無次元で正しい）。}
+\toi{3}{○}{単位}
+\[ S_{0}=126\,\nuke{\unit{\joule\per\kelvin}} \]
+\naze{正しくは $S_{0}=\qty{126}{\joule\per\kelvin}$ である。}
+\toi{4}{○}{計算}
+\[ \frac{\abs{\kB\log(\Delta U/U)}}{S}=\ayamari{\num{1.09e-24}}{\num{2.5e-24}} \]
+$-24$ オーダー
+\naze{この教材の $\log$ は自然対数で，$\abs{\log(\num{1.0e-10})}=\num{23.0}$ である。$S_{0}=\num{15.19}\,N\kB$ なので比は $\num{23.0}/(\num{15.19}\times\num{6.022e23})=\num{2.5e-24}$ になる。常用対数の $10$ を使うと $\num{1.09e-24}$ になるので，$\log$ を常用対数で計算したと考えられる。オーダー $10^{-24}$ は正しい。}
+%% kizuki
+\item 物理の式の $\log$ は自然対数である。電卓で $\log$ を押す前に $\ln$ か $\log_{10}$ かを確かめ，$\log(\num{1.0e-10})=-10\log10=-\num{23.0}$ のように手で概算して見比べる。
+\item 問題2 (2) と同じく，数値の答えに単位を書き落とした。$V/N$ は \unit{\metre\cubed}，$\lambda$ は \unit{\metre}，$S_{0}$ は \unit{\joule\per\kelvin} で，無次元になるのは対数の中身の $V/(N\lambda^{3})$ だけである。

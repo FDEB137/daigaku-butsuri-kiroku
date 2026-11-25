@@ -1,0 +1,29 @@
+% 統計力学1 統計力学1-3 問題1（002-ratio。当時は 統計力学1-1 問題2・shou01-l1-ratio） 解いた日 2026-10-27
+%% kotae
+\toi{1}{◎}{}
+（(1)(2) をまとめて書いている）
+\begin{align*}
+\Delta S&=N\kB\left(\log\frac{2V}{N}-\log\frac{V}{N}\right)\\
+&=N\kB\log2
+\end{align*}
+\toi{2}{○}{単位}
+\[ =5.76\,\nuke{\unit{\joule\per\kelvin}} \]
+\naze{エントロピーの値には単位 \unit{\joule\per\kelvin} が要る。正しくは $\Delta S=\qty{5.76}{\joule\per\kelvin}$ である。}
+\toi{3}{◎}{}
+\[ w_{\text{後}}=\ee^{S(U,2V,N)/\kB} \]
+\[ w_{\text{前}}=\ee^{S(U,V,N)/\kB} \]
+\begin{align*}
+\frac{w_{\text{後}}}{w_{\text{前}}}&=\ee^{\Delta S/\kB}\\
+&=2^{N}
+\end{align*}
+\begin{align*}
+2^{N}&=10^{x}\\
+x&=N\log_{10}2\\
+&=\num{1.81e23}
+\end{align*}
+\toi{4}{△}{記述}
+粒子が動ける範囲は\ayamari{$N$ によってのみ決まる}{体積で決まり，粒子1個ごとに2倍になる}ため。
+\naze{動ける範囲を決めるのは $N$ ではなく体積 $V$ である。$w\propto V^{N}$ で，$V$ 以外の因子は $U$・$N$・$m$ だけで決まり，$U$ が変わらないので運動量側は変わらない。粒子間に相互作用がないので各粒子は独立に容器全体を動け，位置の範囲が粒子1個ごとに $V$ から $2V$ の2倍になり，$N$ 個で $2^{N}$ 倍になる。}
+%% kizuki
+\item 状態数の比 $w_{\text{後}}/w_{\text{前}}$ が何で決まるかは，$w\propto V^{N}$ の形から読む。$V$ が2倍で各粒子の位置の範囲が2倍，粒子は互いに独立なので全体で $2^{N}$ 倍になる。運動量側は $U$ と $N$ だけで決まるので変わらない。
+\item 数値の答えには単位を付ける。エントロピーは \unit{\joule\per\kelvin} で，書き終えたら「この数値の単位は何か」を確かめる。

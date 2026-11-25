@@ -1,0 +1,54 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{統計力学1　第1章「熱力学の復習（熱力学関数・ルジャンドル変換・マクスウェルの関係式）」}{2026-11-25}
+%% note-moto	problems\統計力学1\shou01\統計力学1-1.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-003-thermo}{1}}{L1・計算}{◎◎◎◎}{S}{2026-11-11 2回目}
+  \ichirangyou{2}{L1・計算}{◎◎◎◎}{S}{2026-11-11}
+  \ichirangyou{3}{L2・計算}{◎◎◎○}{C}{2026-11-11 ヒント2 (4)記述}
+  \ichirangyou{4}{L2・計算}{○○◎◎}{C}{2026-11-11 ヒント2 (1)記述 (2)記述}
+  \ichirangyou{5}{L3・導出}{}{未着手}{}
+  \ichirangyou{6}{L4・導出}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\統計力学1\003_2026-10-27.tex
+\mondaibangou{1}
+\begin{mondai}{003-thermo}{計算}{エントロピー $S(U,V)$ から温度・圧力・熱容量・自由エネルギーを求める熱力学関係式}
+% 出典: 講義ノート p.1（1.1節），p.6 式(19)--(21)
+ある系のエントロピーが内部エネルギー $U$ と体積 $V$ の関数として
+\[S(U,V)=\frac{4}{3}\,a^{1/4}V^{1/4}U^{3/4}\]
+で与えられている（$a$ は正の定数）。$1/T=(\partial S/\partial U)_{V}$ と $p/T=(\partial S/\partial V)_{U}$ を用いて，次の問いに答えよ。
+\begin{shoumon}
+  \item 内部エネルギー $U$ を $T$ と $V$ で表せ。
+  \item 圧力 $p$ を $U$ と $V$ で表せ。
+  \item 定積熱容量 $C_{V}$ を $T$ と $V$ で表せ。
+  \item ヘルムホルツ自由エネルギー $F=U-TS$ を $T$ と $V$ で表せ。
+\end{shoumon}
+\notekiroku{2026-10-27 S ◎◎◎◎ → 2026-11-11 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-27}
+\toi{1}{◎}{}
+\begin{align*}
+\left(\pdv{S}{U}\right)_{V}&=a^{1/4}V^{1/4}U^{-1/4}\\
+&=\left(\frac{aV}{U}\right)^{1/4}=\frac{1}{T}
+\end{align*}
+\[ U=aVT^{4} \]
+\toi{2}{◎}{}
+\[ \left(\pdv{S}{V}\right)_{U}=\frac{1}{3}a^{1/4}\left(\frac{U}{V}\right)^{3/4}=\frac{p}{T} \]
+\[ \therefore\ \frac{1}{3}a^{1/4}\left(\frac{U}{V}\right)^{3/4}=p\left(\frac{aV}{U}\right)^{1/4} \]
+\[ \therefore\ p=\frac{U}{3V} \]
+\toi{3}{◎}{}
+\[ C_{V}=\left(\pdv{U}{T}\right)_{V}=4aVT^{3} \]
+\toi{4}{◎}{}
+\begin{align*}
+F&=aVT^{4}-T\cdot\frac{4}{3}a^{1/4}V^{1/4}\left(aVT^{4}\right)^{3/4}\\
+&=aVT^{4}-\frac{4}{3}aVT^{4}\\
+&=-\frac{1}{3}aVT^{4}
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+\noteowari
+\end{document}

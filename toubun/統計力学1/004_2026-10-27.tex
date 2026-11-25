@@ -1,0 +1,39 @@
+% 統計力学1 統計力学1-3 問題2（004-extensive。当時は 統計力学1-1 問題4・shou01-l2-extensive） 解いた日 2026-10-27
+%% kotae
+\toi{1}{◎}{}
+（$w'=N!\,w$ の $N!$ を約分し，$3N/2$ と $\delta U/U$ を斜線で落とす）
+\[ S'=\kB\log\left[\frac{V^{N}(2\pi mU)^{3N/2}}{h^{3N}\Gamma(3N/2+1)}\right] \]
+\begin{align*}
+&=\kB\biggl[N\log V+\frac{3}{2}N\log(2\pi mU)\\
+&\qquad-3N\log h-\log\Gamma\left(\frac{3N}{2}+1\right)\biggr]\\
+&=N\kB\biggl[\log V+\frac{3}{2}\log(2\pi mU)-\frac{3}{2}\log h^{2}\\
+&\qquad-\frac{3}{2}\log\frac{3N}{2}+\frac{3}{2}\biggr]\\
+&=N\kB\left[\log V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+&S(\lambda U,\lambda V,\lambda N)\\
+&=\lambda N\kB\biggl[\log\frac{\lambda V}{\lambda N}+\frac{3}{2}\log\frac{4\pi m\lambda U}{3\lambda Nh^{2}}+\frac{5}{2}\biggr]\\
+&=\lambda N\kB\left[\log\frac{V}{N}+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{5}{2}\right]\\
+&=\lambda S(U,V,N)
+\end{align*}
+\toi{3}{○}{記述}
+\begin{align*}
+&S'(2U,2V,2N)\\
+&=2N\kB\left[\log2V+\frac{3}{2}\log\frac{4\pi mU}{3Nh^{2}}+\frac{3}{2}\right]
+\end{align*}
+\begin{align*}
+&S'(2U,2V,2N)-2\ayamari{S}{S'}(U,V,N)\\
+&=2N\kB\left[\log2V-\log V\right]\\
+&=2N\kB\log2\neq0
+\end{align*}
+示量的でない。
+\naze{引く側も $S'$ でなければならない。書いた式のままだと $S'(2U,2V,2N)-2S(U,V,N)=2N\kB(\log2N-1)$ という別の量になる。計算は $S'$ で行っていて，結果 $2N\kB\log2$ は正しい。}
+\toi{4}{○}{記述}
+\[ S'(2U,2V,2N)-2\ayamari{S}{S'}(U,V,N)=2N\kB\log2\neq0 \]
+\[ S(2U,2V,2N)-2S(U,V,N)=0 \]
+$S$ が変化しないために $N!$ で割る必要がある。
+\naze{(3) と同じプライムの抜けである。説明は「仕切りを外しても巨視的には何も変わらないので，状態量のエントロピーは変わってはならない。$N!$ で割らないと，同種粒子の入れ替えで得られる同じ状態を別々に数えてしまい，$\Delta S'=2N\kB\log2>0$ という矛盾が出る」まで書く。}
+%% kizuki
+\item $S$ と $S'$ は別の関数なので，差をとるときは両方に同じ記号（$S'$ どうし，$S$ どうし）を付ける。書き終えたら，差の式の左辺と右辺で記号がそろっているかを見直す。
+\item $N!$ で割る理由は「巨視的に何も変わらない操作でエントロピーが変わってはならない」ことと，「同種粒子の入れ替えで得られる状態は同じ1つの状態である」ことの2つで言う。
