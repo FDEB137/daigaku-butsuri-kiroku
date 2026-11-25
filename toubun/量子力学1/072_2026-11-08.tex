@@ -23,7 +23,8 @@ $\hat{p}\ket{k}=(\hbar k)\ket{k}$ より $\hat{p}^{n}\ket{k}=(\hbar k)^{n}\ket{k
 \end{align*}
 \begin{align*}
 &\hat{T}(a)\ket{x}\\
-&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\int_{-\infty}^{\infty}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\hat{p}^{n}\\
+&\qquad\times\int_{-\infty}^{\infty}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
 &=\int_{-\infty}^{\infty}\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}(\hbar k)^{n}\\
 &\qquad\times\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
 &=\int_{-\infty}^{\infty}\ee^{-\ii ka}\ket{k}\frac{1}{\sqrt{2\pi}}\ee^{-\ii kx}\dd k\\
@@ -58,7 +59,8 @@ $\hat{p}^{\dagger}=\hat{p}$
 &=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\matrixel{x}{\hat{p}^{n}}{\psi}\\
 &=\sum_{n=0}^{\infty}\frac{1}{n!}\Bigl(-\frac{\ii a}{\hbar}\Bigr)^{n}\\
 &\qquad\times\int_{-\infty}^{\infty}(\hbar k)^{n}\braket{x}{k}\braket{k}{\psi}\dd k\\
-&=\int_{-\infty}^{\infty}\sum_{n=0}^{\infty}\frac{1}{n!}(-\ii ka)^{n}\frac{1}{\sqrt{2\pi}}\ee^{\ii kx}\tilde{\psi}(k)\dd k\\
+&=\int_{-\infty}^{\infty}\sum_{n=0}^{\infty}\frac{1}{n!}(-\ii ka)^{n}\\
+&\qquad\times\frac{1}{\sqrt{2\pi}}\ee^{\ii kx}\tilde{\psi}(k)\dd k\\
 &=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}\ee^{\ii k(x-a)}\tilde{\psi}(k)\dd k\\
 &=\psi(x-a)
 \end{align*}
