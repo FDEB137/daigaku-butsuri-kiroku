@@ -1,0 +1,30 @@
+% 数理物理1 数理物理1-11 問題2（081-seishitsu。当時は 数理物理1-9 問題2・shou09-l1-seishitsu） 解いた日 2026-10-03
+%% kotae
+\toi{1}{◎}{}
+\[ \Fourier[\ee^{-a\abs{x-b}}]=\ee^{-\ii kb}\Fourier[\ee^{-a\abs{x}}]=\frac{2a}{a^{2}+k^{2}}\ee^{-\ii kb} \]
+\toi{2}{◎}{}
+\begin{align*}
+  \Fourier[x\ee^{-ax^{2}}]&=\ii\dv{}{k}\Bigl(\sqrt{\frac{\pi}{a}}\ee^{-k^{2}/(4a)}\Bigr)\\
+  &=\ii\sqrt{\frac{\pi}{a}}\Bigl(-\frac{1}{4a}\ee^{-k^{2}/(4a)}\cdot2k\Bigr)\\
+  &=-\ii\sqrt{\frac{\pi}{a}}\kakimachigai{\frac{k^{2}}{2a}}{\frac{k}{2a}}\ee^{-k^{2}/(4a)}\\
+  &=-\frac{\ii k}{2a}\sqrt{\frac{\pi}{a}}\ee^{-k^{2}/(4a)}
+\end{align*}
+\begin{align*}
+  \Fourier\Bigl[\dv{}{x}\ee^{-ax^{2}}\Bigr]&=\Fourier[-2ax\ee^{-ax^{2}}]=-2a\Fourier[x\ee^{-ax^{2}}]\\
+  &=\ii k\sqrt{\frac{\pi}{a}}\kakimachigai{\ee^{k^{2}/(4a)}}{\ee^{-k^{2}/(4a)}}
+\end{align*}
+\[ \therefore\ \Fourier[x\ee^{-ax^{2}}]=-\frac{\ii k}{2a}\sqrt{\frac{\pi}{a}}\ee^{-k^{2}/(4a)} \]
+\toi{3}{△}{記述}
+\begin{align*}
+  f(x)&=\ee^{-ax}\theta(x)\\
+  \tilde f(k)&=\frac{1}{a+\ii k}\\
+  \tilde f^{*}(k)&=\frac{1}{a-\ii k}\\
+  \tilde f(-k)&=\frac{1}{a-\ii k}
+\end{align*}
+\naze{例 $\ee^{-ax}\theta(x)$ での確かめだけで，一般の $f$ についての証明が無い。複素共役の性質 $\Fourier[f^{*}(x)]=\tilde f^{*}(-k)$ で $f^{*}=f$ とおくと $\tilde f(k)=\tilde f^{*}(-k)$ となり，$k$ を $-k$ に置き換えて $\tilde f(-k)=\tilde f^{*}(k)$ が出る。}
+\toi{4}{×}{未着手}
+\mikai
+%% kizuki
+\item 「示せ」と「確かめよ」は別の作業である。(3) の一般の証明は「実数値」を $f^{*}=f$ と式にして複素共役の性質に入れるだけで，例の計算はその後の確かめである。
+\item (4) は手を付けていない。偶関数 $f(-x)=f(x)$ を反転の性質に入れると $\tilde f(-k)=\tilde f(k)$，これと (3) の $\tilde f^{*}(k)=\tilde f(-k)$ を合わせて $\tilde f^{*}=\tilde f$（実数値）になる。
+\item (2) の途中で $k$ を $k^{2}$ と書いたり指数の負号を落としたりしている（答えは正しい）。$\ee^{-k^{2}/(4a)}$ を写すたびに，$k\to\infty$ で減衰する形かを見る。
