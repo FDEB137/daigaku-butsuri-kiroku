@@ -1,0 +1,44 @@
+% 量子力学1 量子力学1-10 問題7（041-ortho。当時は 量子力学1-5 問題7） 解いた日 2026-10-30
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\int\psi^{*}\hat{A}\psi\dd x&=\int\kakimachigai{(\hat{A}^{\dagger}\psi^{*})}{(\hat{A}\psi)^{*}}\psi\dd x\\
+&=\int\psi\kakimachigai{\hat{A}\psi^{*}}{(\hat{A}\psi)^{*}}\dd x\\
+&=\Bigl(\int\psi^{*}\hat{A}\psi\dd x\Bigr)^{*}
+\end{align*}
+より，$\int\psi^{*}\hat{A}\psi\dd x$ は実数。
+\toi{2}{○}{記述}
+$\psi$ を $\hat{A}$ の固有関数とする。$\lambda$ を固有値とする。
+\[ \hat{A}\psi=\lambda\psi,\qquad\kakimachigai{\hat{A}^{\dagger}\psi^{*}}{(\hat{A}\psi)^{*}}=\lambda^{*}\psi^{*} \]
+\begin{align*}
+\psi^{*}\hat{A}\psi&=\lambda\psi^{*}\psi\\
+&=\kakimachigai{(\hat{A}^{\dagger}\psi^{*})}{(\hat{A}\psi)^{*}}\psi=\lambda^{*}\psi^{*}\psi
+\end{align*}
+\[ \therefore\ \nuke{\textstyle\int\abs{\psi}^{2}\dd x>0}\quad\lambda=\lambda^{*} \]
+固有値は実数。
+\naze{積分記号がすべて落ちている。エルミート性が保証するのは $\int\psi^{*}(\hat{A}\psi)\dd x=\int(\hat{A}\psi)^{*}\psi\dd x$ という積分どうしの等式で，被積分関数どうしは等しくない（$\hat{p}$ では符号が違う）。正しくは (1) の $\psi$ に固有関数を使って $\int\psi^{*}\hat{A}\psi\dd x=\lambda\int\abs{\psi}^{2}\dd x$ と書き，左辺は (1) より実数，$\psi\neq0$ なので $\int\abs{\psi}^{2}\dd x$ は正の実数で割ってよいから，$\lambda$ は実数である。}
+\toi{3}{◎}{}
+\begin{align*}
+\int\phi_{m}^{*}\hat{A}\phi_{n}\dd x&=a_{n}\int\phi_{m}^{*}\phi_{n}\dd x\\
+&=\int\kakimachigai{(\hat{A}^{\dagger}\phi_{m}^{*})}{(\hat{A}\phi_{m})^{*}}\phi_{n}\dd x\\
+&=a_{m}^{*}\int\phi_{m}^{*}\kakimachigai{u_{n}}{\phi_{n}}\dd x
+\end{align*}
+$a_{m}$ は実数なので $a_{m}^{*}=a_{m}$。
+
+$a_{n}\neq a_{m}$ より $\int\phi_{m}^{*}\phi_{n}\dd x=0$。
+\toi{4}{○}{記述}
+\[ \abs{B-\lambda I}=(1-\lambda)(2-\lambda)\quad\therefore\ \lambda=1,\ 2 \]
+$\lambda_{1}=1$
+\[ \begin{pmatrix}0&1\\0&1\end{pmatrix}\vect{v}_{1}=0\quad\therefore\ \vect{v}_{1}=\begin{pmatrix}1\\0\end{pmatrix} \]
+$\lambda_{2}=2$
+\[ \begin{pmatrix}-1&1\\0&0\end{pmatrix}\vect{v}_{2}=0\quad\therefore\ \vect{v}_{2}=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix} \]
+\[ \vect{v}_{1}\cdot\vect{v}_{2}=\frac{1}{\sqrt{2}}\neq0 \]
+\[ B\vect{v}_{1}=\vect{v}_{1},\qquad B\vect{v}_{2}=2\vect{v}_{2} \]
+\[ \vect{v}_{2}^{\dagger}B\vect{v}_{1}=\vect{v}_{2}^{\dagger}\vect{v}_{1} \]
+\[ \kakimachigai{(B^{\dagger}\vect{v}_{2}^{\dagger})\vect{v}_{1}}{(B^{\dagger}\vect{v}_{2})^{\dagger}\vect{v}_{1}}=2\vect{v}_{2}^{\dagger}\vect{v}_{1} \]
+（左辺の括弧と右辺の $2\vect{v}_{2}^{\dagger}$ の下に波線）\nuke{成り立たない理由}
+\naze{「どの段階が成り立たないかを述べよ」の問いなので，波線だけでなく理由の文が要る。ここでは $B^{\dagger}\vect{v}_{2}=2\vect{v}_{2}$（つまり $B^{\dagger}=B$）を使って左に移した行列を固有値で置き換えているが，$B$ はエルミートでなく，実際 $B^{\dagger}\vect{v}_{2}=(1,3)^{\mathrm{T}}/\sqrt{2}$ は $\vect{v}_{2}$ の定数倍でない。だからこの段階が成り立たない。}
+%% kizuki
+\item エルミート性 $\int\phi^{*}(\hat{A}\psi)\dd x=\int(\hat{A}\phi)^{*}\psi\dd x$ は部分積分で演算子を左の関数へ移したときの積分どうしの等式で，積分記号を外した形では使えない。固有値の実数性は積分を付けたまま (1) を使い，最後に $\int\abs{\psi}^{2}\dd x>0$ で割る。
+\item \mae{第2章 問題1・10-14，第4章 問題3・10-28} 結論に要る根拠の1文を書き落とした（前回は位相一定の根拠，$x=-1$ が区間外であること）。「どの段階で成り立たないか」と聞かれたら，式に印を付けた後に，$B^{\dagger}\vect{v}_{2}$ を実際に掛け算して $\vect{v}_{2}$ の定数倍でないことを示し，理由を1文で書く。
+\item \mae{第3章 問題2・10-18，10-21} 複素共役の書き方が崩れている（前回は複素定数の $\abs{A}^{2}$ を $A^{2}$）。(1)〜(3) で $(\hat{A}\psi)^{*}$ を $\hat{A}^{\dagger}\psi^{*}$ と書いたが，これは文字どおりには $\psi^{*}$ に演算子を作用させたもので，$\hat{p}$ なら符号まで変わる。共役は括弧ごと $(\hat{A}\psi)^{*}$ と書き，$^{\dagger}$（エルミート共役）と $^{*}$（複素共役）を混ぜない。

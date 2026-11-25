@@ -1,0 +1,68 @@
+% 量子力学1 量子力学1-10 問題8（128-gram。当時は 量子力学1-5 問題8） 解いた日 2026-10-30
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\abs{A-\lambda I}&=(2-\lambda)^{3}-3(2-\lambda)+2\\
+&=\bigl((2-\lambda)-1\bigr)\\
+&\qquad\cdot\bigl((2-\lambda)^{2}+(2-\lambda)-2\bigr)\\
+&=\bigl((2-\lambda)-1\bigr)^{2}\bigl((2-\lambda)+2\bigr)
+\end{align*}
+\[ \lambda=1,\ 4 \]
+$\lambda=4$ のとき
+\[ \begin{pmatrix}-2&1&1\\1&-2&1\\1&1&-2\end{pmatrix}\begin{pmatrix}1\\1\\1\end{pmatrix}=0 \]
+\[ \vect{e}_{0}=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} \]
+\toi{2}{○}{記述}
+$\lambda=1$ のとき
+\[ \begin{pmatrix}1&1&1\\1&1&1\\1&1&1\end{pmatrix}\vect{u}_{a}=\begin{pmatrix}1-1+0\\1-1+0\\1-1+0\end{pmatrix}=0 \]
+\[ \begin{pmatrix}1&1&1\\1&1&1\\1&1&1\end{pmatrix}\vect{u}_{b}=\begin{pmatrix}1+0-1\\1+0-1\\1+0-1\end{pmatrix}=0 \]
+\nuke{$\vect{u}_{a}\cdot\vect{u}_{b}=1\neq0$}
+\[ \vect{e}_{1}=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\\0\end{pmatrix} \]
+\begin{align*}
+\vect{e}_{2}&=\frac{\vect{u}_{2}-(\vect{u}_{2}\cdot\vect{e}_{1})\vect{e}_{1}}{\abs{\vect{u}_{2}-(\vect{u}_{2}\cdot\kakimachigai{\vect{u}_{1}}{\vect{e}_{1}})\kakimachigai{\vect{u}_{1}}{\vect{e}_{1}}}}\\
+&=\sqrt{\frac{2}{3}}\biggl(\begin{pmatrix}1\\0\\-1\end{pmatrix}-\frac{1}{2}\begin{pmatrix}1\\-1\\0\end{pmatrix}\biggr)\\
+&=\sqrt{\frac{2}{3}}\begin{pmatrix}1/2\\1/2\\-1\end{pmatrix}\\
+&=\frac{1}{\sqrt{6}}\begin{pmatrix}1\\1\\-2\end{pmatrix}
+\end{align*}
+\naze{2点が足りない。(a) 問いの「互いに直交しないことを確かめよ」に当たる $\vect{u}_{a}^{\dagger}\vect{u}_{b}=1\neq0$ が書かれていない（射影の係数 $1/2$ から読み取れるだけ）。(b) 直交化してできた $\vect{e}_{2}$ が固有ベクトルである根拠，つまり「同じ固有値の固有ベクトルの1次結合は，また同じ固有値の固有ベクトル」が無い。}
+\toi{3}{◎}{}
+\begin{align*}
+\begin{pmatrix}1\\0\\0\end{pmatrix}
+&=c_{0}\cdot\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}+c_{1}\cdot\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\\0\end{pmatrix}\\
+&\qquad+\kakimachigai{}{c_{2}}\frac{1}{\sqrt{6}}\begin{pmatrix}1\\1\\-2\end{pmatrix}
+\end{align*}
+\begin{align*}
+\sqrt{6}&=\sqrt{2}c_{0}+\sqrt{3}c_{1}+c_{2}&&\cdots\text{①}\\
+0&=\sqrt{2}c_{0}-\sqrt{3}c_{1}+c_{2}&&\cdots\text{②}\\
+0&=\sqrt{2}c_{0}-2c_{2}&&\cdots\text{③}
+\end{align*}
+①$+$②$+$③ より
+\[ \sqrt{6}=3\sqrt{2}c_{0}\quad\therefore\ c_{0}=\frac{\sqrt{6}}{3\sqrt{2}}=\frac{1}{\sqrt{3}} \]
+①$-$② より
+\[ \sqrt{6}=2\sqrt{3}c_{1}\quad\therefore\ c_{1}=\frac{1}{\sqrt{2}} \]
+③ より
+\[ c_{2}=\frac{1}{\sqrt{2}}c_{0}=\frac{1}{\sqrt{6}} \]
+\begin{align*}
+\vect{v}^{\dagger}A\vect{v}&=(1,0,0)\begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}\begin{pmatrix}1\\0\\0\end{pmatrix}\\
+&=(2,1,1)\begin{pmatrix}1\\0\\0\end{pmatrix}=2
+\end{align*}
+\[ \sum_{j}\abs{c_{j}}^{2}\times\lambda_{j}=\frac{1}{3}\cdot4+\frac{1}{2}\cdot1+\frac{1}{6}\cdot1=2 \]
+\toi{4}{○}{記述}
+\begin{align*}
+\begin{pmatrix}1\\0\\0\end{pmatrix}
+&=c_{0}'\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}+c_{1}'\frac{1}{\sqrt{2}}\begin{pmatrix}1\\0\\-1\end{pmatrix}\\
+&\qquad+c_{2}'\frac{1}{\sqrt{6}}\begin{pmatrix}1\\-2\\1\end{pmatrix}
+\end{align*}
+\begin{align*}
+\sqrt{6}&=\sqrt{2}c_{0}'+\sqrt{3}c_{1}'+c_{2}'\\
+0&=\sqrt{2}c_{0}'-2c_{2}'\\
+0&=\sqrt{2}c_{0}'-\sqrt{3}c_{1}'+c_{2}'
+\end{align*}
+\[ c_{1}'=\frac{1}{\sqrt{2}},\qquad c_{0}'=\frac{1}{\sqrt{3}},\qquad c_{2}'=\frac{1}{\sqrt{6}} \]
+\[ c_{1}'^{2}+c_{2}'^{2}=\frac{1}{2}+\frac{1}{6}=\frac{2}{3} \]
+\[ c_{1}^{2}+c_{2}^{2}=\frac{1}{2}+\frac{1}{6}=\frac{2}{3} \]
+\nuke{基底によらない理由}
+\naze{値が一致することを確かめた後に，なぜ基底を取り替えても変わらないかの1文が要る。縮退した部分の係数の2乗和は，$\vect{v}$ を固有値 $1$ の固有空間へ射影したベクトルの長さの2乗で，$\abs{\vect{v}}^{2}-\abs{c_{0}}^{2}=1-1/3=2/3$ と基底によらずに決まる。}
+%% kizuki
+\item 縮退した固有値 $\lambda$ では，$A\vect{u}_{a}=\lambda\vect{u}_{a}$，$A\vect{u}_{b}=\lambda\vect{u}_{b}$ から $A(\alpha\vect{u}_{a}+\beta\vect{u}_{b})=\lambda(\alpha\vect{u}_{a}+\beta\vect{u}_{b})$ となる。だから固有空間の中で Gram--Schmidt を行っても固有ベクトルのままで，これが直交化してよい理由である。「直交しないことを確かめよ」には内積の値を1行で書く。Gram--Schmidt で引くのは規格化した $\vect{e}_{1}$ 方向の成分である。
+\item \mae{第2章 問題1・10-14，第4章 問題3・10-28} 問題7 (4) と同じく，式で確かめた後の理由の1文が無い。規格直交基底での係数の2乗和は射影したベクトルの長さの2乗なので，固有空間が決まれば基底の選び方によらない。答えを書いたら「なぜそう言えるか」を1行足してから次へ進む。
+\item 規格直交基底なら係数は $c_{j}=\vect{e}_{j}^{\dagger}\vect{v}$ と内積1回で求まる。連立方程式で解いたときは，内積で検算する。
