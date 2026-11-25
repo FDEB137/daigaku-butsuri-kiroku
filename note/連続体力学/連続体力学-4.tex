@@ -1,0 +1,336 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{連続体力学　第4回「線形弾性論 (1)：Hooke の法則」}{2026-11-25}
+%% note-moto	problems\連続体力学\kai04\連続体力学-4.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-027-volume}{1}}{L1・導出}{△△◎}{C}{2026-11-25 (1)記述 (2)計算}
+  \ichirangyou{\hyperlink{bt-m-028-count}{2}}{L1・説明}{△◎×}{C}{2026-11-25 (1)計算 (3)未着手}
+  \ichirangyou{\hyperlink{bt-m-029-hooke}{3}}{L1・計算}{◎◎○}{A}{2026-11-25 (3)単位}
+  \ichirangyou{\hyperlink{bt-m-030-shear}{4}}{L2・計算}{◎◎△△}{B}{2026-11-25 (3)未着手 (4)未着手}
+  \ichirangyou{5}{L2・導出}{}{未着手}{}
+  \ichirangyou{6}{L2・計算}{}{未着手}{}
+  \ichirangyou{7}{L3・導出}{}{未着手}{}
+  \ichirangyou{8}{L3・導出}{}{未着手}{}
+  \ichirangyou{9}{L4・導出}{}{未着手}{}
+  \ichirangyou{10}{L4・説明}{}{未着手}{}
+\end{kirokuichiran}
+
+\youtenseiri
+\begin{noteshikilist}
+  \item 体積変化率 % 出典: p.14
+    \[ \frac{\delta V'-\delta V}{\delta V}=\sum_{i=1}^{3}E_{ii} \notetag{10} \]
+  \item Hooke の法則 % 出典: p.21
+    \[ P_{ij}=\sum_{k,\ell}C_{ijk\ell}E_{k\ell} \notetag{17} \]
+  \item 等方弾性体の弾性率テンソル % 出典: p.37
+    \[ C_{ijk\ell}=\lambda\delta_{ij}\delta_{k\ell}+\mu\left(\delta_{ik}\delta_{j\ell}+\delta_{i\ell}\delta_{jk}\right) \notetag{47} \]
+\end{noteshikilist}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\連続体力学\027_2026-11-25.tex
+\mondaibangou{1}
+\begin{mondai}{027-volume}{導出}{体積変化率が歪みテンソルのトレースになること（行列式の1次の展開）と，近似の精度}
+連続体の微小変形を考える。変形勾配テンソル $\tens{D}$ の成分の大きさはすべて1より十分小さいとする。
+  \begin{shoumon}
+    \item 体積の比 $\delta V'/\delta V=\det(\tens{I}+\tens{D})$ を $\tens{D}$ の成分について1次まで展開し，体積変化率が $\Tr(\tens{E})$ に等しいことを示せ。
+    \item 変位場 $\vect{r}(\vect{x})=(ax_1+\gamma x_2)\vect{e}_1+bx_2\vect{e}_2+cx_3\vect{e}_3$（$a,b,c,\gamma$ は大きさが1より十分小さい定数）について，$\tens{D}$，$\tens{E}$，$\tens{F}$ を求めよ。また，体積変化率を1次の近似で求めよ。
+    \item (2) の変形について $\det(\tens{I}+\tens{D})$ を近似せずに計算し，体積変化率の厳密な値を $a,b,c,\gamma$ で表せ。$a=\num{2.0e-3}$，$b=\num{-1.0e-3}$，$c=\num{5.0e-4}$，$\gamma=\num{3.0e-3}$ のとき，厳密な値から (2) の近似値を引いた差を有効数字2桁で求め，それが歪みの何次の量かを答えよ。
+  \end{shoumon}
+\notekiroku{2026-11-25 C △△◎}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{△}{記述}
+\begin{align*}
+\det(\tens{I}+\tens{D})&=\Bigl(1+\pdv{r_{1}}{x_{1}}\Bigr)\Bigl(1+\pdv{r_{2}}{x_{2}}\Bigr)\\
+&\qquad\times\Bigl(1+\pdv{r_{3}}{x_{3}}\Bigr)\nuke{+(\text{2次以上})}\\
+&\ayamari{=}{\simeq}1+\underbrace{\pdv{r_{1}}{x_{1}}+\pdv{r_{2}}{x_{2}}+\pdv{r_{3}}{x_{3}}}_{\Tr(\tens{E})}
+\end{align*}
+\[ \therefore\ \frac{\delta V'}{\delta V}=1+\Tr(\tens{E}) \]
+\[ \therefore\ \frac{\delta V'-\delta V}{\delta V}=\Tr(\tens{E}) \]
+\naze{行列式は置換についての和で，対角成分の積は恒等置換の項にすぎない。ほかの置換の項は非対角成分 $D_{i\sigma(i)}$ を2つ以上含むので $\tens{D}$ の2次以上として捨てられる，という一言が要の論点である（答案に必要な論点）。これが無いと1行目は一般には誤った等式になる。恒等置換の項も展開して2次以上を捨てるので2行目は $\simeq$。また $\partial r_{i}/\partial x_{i}=D_{ii}=E_{ii}$ となるのは $\tens{F}$ の対角成分が0だからである。}
+\toi{2}{△}{計算}
+\[ \tens{D}=\begin{pmatrix}a&\gamma&0\\0&b&0\\0&0&c\end{pmatrix},\quad \tens{E}=\begin{pmatrix}a&\gamma/2&0\\\gamma/2&b&0\\0&0&c\end{pmatrix} \]
+\[ \tens{F}=\begin{pmatrix}\ayamari{a}{0}&\gamma/2&0\\-\gamma/2&\ayamari{b}{0}&0\\0&0&\ayamari{c}{0}\end{pmatrix} \]
+\naze{$\tens{F}=(\tens{D}-\tens{D}^{\mathrm{T}})/2$ は反対称で，対角成分は必ず0である。対角の $a,b,c$ は $\tens{E}$ だけに入る（書いたままだと $\tens{E}+\tens{F}$ の対角が $2a,2b,2c$ になり $\tens{D}$ に戻らない）。}
+\[ \Tr(\tens{E})=a+b+c \]
+\toi{3}{◎}{}
+\[ \det\begin{pmatrix}1+a&\gamma&0\\0&1+b&0\\0&0&1+c\end{pmatrix}=(1+a)(1+b)(1+c) \]
+体積変化率
+\[ (1+a)(1+b)(1+c)-1\simeq\num{1.498499e-3} \]
+\[ a+b+c=\num{1.50e-3} \]
+\[ \text{差}=\num{-1.5e-6} \]
+（歪みの2次以上の量）
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 行列式の1次の展開は「置換についての和」から考える。恒等置換以外の項は非対角成分を2つ以上含むので2次以上になり，残るのは対角成分の和だけである。「$\det$＝対角成分の積」が厳密に成り立つのは (3) のような三角行列のときだけなので，(1) では捨てた項が2次以上である理由を一言書く。
+\item 反対称テンソル $\tens{F}$ の対角成分は常に0である。$\tens{E}$・$\tens{F}$ を書いたら，$\tens{E}+\tens{F}=\tens{D}$ と $\tens{F}^{\mathrm{T}}=-\tens{F}$ の2つで検算する。
+\item \mae{第3回 問題5 (2)・10-28} 「示せ」の問いで，主張の要の段（前回は分解の一意性，今回は1次の項だけが残る理由）を飛ばした。示す式の各等号が一般に成り立つかを見直し，近似で捨てた項には「2次以上」と書き添える。
+\end{kizuki}
+\begin{tadashii}
+\houshin 行列式を置換についての和で書き，$\tens{D}$ の1次の項だけを取り出す。(3) は $\tens{I}+\tens{D}$ が上三角行列であることを使って近似なしに計算する。
+\keisan \shoumonkai{1} 行列式は置換 $\sigma$ についての和
+\[ \det(\tens{I}+\tens{D})=\sum_{\sigma}\operatorname{sgn}(\sigma)\prod_{i=1}^{3}\left(\delta_{i\sigma(i)}+D_{i\sigma(i)}\right) \]
+である。恒等置換でない $\sigma$ は少なくとも2つの添字を動かすので，その項は非対角成分 $D_{i\sigma(i)}$（$i\neq\sigma(i)$）を2つ以上含み，$\tens{D}$ について2次以上の量になる。恒等置換の項は
+\[ (1+D_{11})(1+D_{22})(1+D_{33})=1+D_{11}+D_{22}+D_{33}+(\text{2次以上}) \]
+である。したがって，1次までで
+\[ \frac{\delta V'-\delta V}{\delta V}=\det(\tens{I}+\tens{D})-1\simeq\sum_{i=1}^{3}D_{ii}. \]
+反対称テンソル $\tens{F}$ の対角成分は $F_{ii}=0$ なので $E_{ii}=D_{ii}$ であり，体積変化率は $\Tr(\tens{E})$ に等しい（\noteshiki{10}）。
+
+\shoumonkai{2} $r_1=ax_1+\gamma x_2$，$r_2=bx_2$，$r_3=cx_3$ を微分すると，0でない成分は $D_{11}=a$，$D_{12}=\gamma$，$D_{22}=b$，$D_{33}=c$ である。対称部分と反対称部分に分けて
+\[ \tens{D}=\begin{pmatrix}a&\gamma&0\\0&b&0\\0&0&c\end{pmatrix},\qquad \tens{E}=\begin{pmatrix}a&\gamma/2&0\\\gamma/2&b&0\\0&0&c\end{pmatrix},\qquad \tens{F}=\begin{pmatrix}0&\gamma/2&0\\-\gamma/2&0&0\\0&0&0\end{pmatrix}. \]
+1次の近似の体積変化率は $\Tr(\tens{E})=a+b+c$ で，$\gamma$ を含まない。
+
+\shoumonkai{3} $\tens{I}+\tens{D}$ は上三角行列なので，行列式は対角成分の積である。
+\begin{align*}
+\frac{\delta V'-\delta V}{\delta V}&=(1+a)(1+b)(1+c)-1\\
+&=(a+b+c)+(ab+bc+ca)+abc.
+\end{align*}
+近似値 $a+b+c$ との差は $ab+bc+ca+abc$ である。数値を代入すると
+\[ ab=\num{-2.0e-6},\quad bc=\num{-5.0e-7},\quad ca=\num{1.0e-6},\quad abc=\num{-1.0e-9} \]
+なので，差は $\num{-1.5e-6}$ である（厳密な値 $\num{1.4985e-3}$，近似値 $\num{1.5e-3}$）。これは歪みの2次の量（$abc$ は3次）である。
+\kotae{\shoumonkai{1} $\det(\tens{I}+\tens{D})-1\simeq\sum D_{ii}=\Tr(\tens{E})$ \shoumonkai{2} $D_{11}=a$，$D_{12}=\gamma$，$D_{22}=b$，$D_{33}=c$；$E_{11}=a$，$E_{12}=E_{21}=\gamma/2$，$E_{22}=b$，$E_{33}=c$，$F_{12}=-F_{21}=\gamma/2$（他の成分は0）；体積変化率 $a+b+c$ \shoumonkai{3} $(1+a)(1+b)(1+c)-1$（$\gamma$ に依らない）；差 $\num{-1.5e-6}$（2次の量）}
+\begin{ronten}
+  \item \shoumonkai{1} 恒等置換以外の項は非対角成分を2つ以上含むので，$\tens{D}$ の2次以上として捨てられることを述べる。
+  \item \shoumonkai{1} $\tens{F}$ の対角成分が0なので $D_{ii}=E_{ii}$ となることを書く。
+  \item \shoumonkai{3} $\tens{I}+\tens{D}$ が上三角行列で，行列式が対角成分の積になることを述べる。
+\end{ronten}
+\kenzan 体積変化率も各成分も無次元で整合する。$a=b=c=0$ のとき（$\gamma$ だけの単純剪断）は厳密に体積が変わらず，第3回の「単純剪断は純粋剪断と回転の和」で純粋剪断の $\Tr(\tens{E})=0$ と一致する。差の大きさ $\num{1.5e-6}$ は1次の値 $\num{1.5e-3}$ の約 $10^{-3}$ 倍で，歪みの大きさ程度の相対誤差になっている。
+\tsumazuki 厳密な体積比が $\gamma$ を含まないのはこの変位場が上三角の $\tens{D}$ を与えるためで，一般の剪断（$D_{12}$ と $D_{21}$ がともに0でない場合）では2次の項に $\gamma$ が現れる。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\028_2026-11-25.tex
+\mondaibangou{2}
+\begin{mondai}{028-count}{説明}{弾性率テンソルの独立な成分の数を，小対称性・大対称性から数える方法と，それぞれの対称性の由来}
+弾性率テンソル $C_{ijk\ell}$ の独立な成分の数を考える。
+  \begin{shoumon}
+    \item 添字が 1, 2 の2つの値だけをとる2次元の弾性体（面内の変形だけを考える）について，(i) 対称性を考えないとき，(ii) 小対称性 $C_{ijk\ell}=C_{jik\ell}=C_{ij\ell k}$ を課したとき，(iii) さらに大対称性 $C_{ijk\ell}=C_{k\ell ij}$ を課したとき，の独立な成分の数を理由をつけて答えよ。
+    \item 添字が $n$ 個の値をとる場合に，(ii) と (iii) の数を $n$ の式で表せ。$n=3$ で講義の結果（36 と 21）になることを確かめよ。
+    \item 小対称性のうち，前半の $i\leftrightarrow j$ の対称性と後半の $k\leftrightarrow\ell$ の対称性は，それぞれ何から来るかを説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-25 C △◎×}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{△}{計算}
+i) $2^{4}=16$
+
+ii)
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=2pt]
+\item[①] $i\neq j$，$k\neq\ell$ … 1通り
+\item[②] $i=j$ または $k=\ell$ … 4通り
+\item[③] $i=j$ かつ $k=\ell$ … 4通り
+\end{itemize}
+9通り
+
+iii)
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=2pt]
+\item[①] 1通り
+\item[②] \ayamari{4通り}{2通り}
+\item[③] \ayamari{1通り}{3通り}
+\end{itemize}
+6通り
+\naze{大対称性 $C_{ijk\ell}=C_{k\ell ij}$ では2つの組の順序を区別しないので，② の $C_{11\,12}$ と $C_{12\,11}$ は同じ成分になり，② は $C_{11\,12}$，$C_{22\,12}$ の2通りである。③ は $C_{11\,11}$，$C_{22\,22}$，$C_{11\,22}$（$=C_{22\,11}$）の3通り。合計6は合っているが内訳が違い，(2) の一般式（② $n\cdot{}_{n}\mathrm{C}_{2}=2$，③ $(n^{2}+n)/2=3$）とも食い違う。}
+\toi{2}{◎}{}
+(ii)
+\begin{itemize}[leftmargin=2em,itemsep=0pt,topsep=2pt]
+\item[①] $({}_{n}\mathrm{C}_{2})^{2}=\frac{1}{4}n^{2}(n-1)^{2}$
+\item[②] $2\cdot n\cdot{}_{n}\mathrm{C}_{2}=n^{2}(n-1)$
+\item[③] $n^{2}$
+\end{itemize}
+\begin{align*}
+&\frac{1}{4}(n^{4}-2n^{3}+n^{2})+n^{3}-n^{2}+n^{2}\\
+&=\frac{1}{4}n^{2}(n+1)^{2}
+\end{align*}
+$n=3$ で $\frac{1}{4}\cdot9\cdot16=36$ 一致。
+
+(iii)
+①
+\begin{align*}
+&\frac{1}{2}\bigl(({}_{n}\mathrm{C}_{2})^{2}-{}_{n}\mathrm{C}_{2}\bigr)+{}_{n}\mathrm{C}_{2}\\
+&=\frac{n(n-1)(n^{2}-n+2)}{8}
+\end{align*}
+② \[ n\cdot{}_{n}\mathrm{C}_{2}=\frac{1}{2}n^{2}(n-1) \]
+③ \[ \frac{1}{2}(n^{2}-n)+n=\frac{n^{2}+n}{2} \]
+\begin{align*}
+&\frac{1}{8}(n^{4}-2n^{3}+3n^{2}-2n)+\frac{4}{8}(n^{3}-n^{2})\\
+&\qquad+\frac{4}{8}(n^{2}+n)\\
+&=\frac{1}{8}(n^{4}+2n^{3}+3n^{2}+2n)
+\end{align*}
+$n=3$ で 21 一致。
+\toi{3}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 大対称性は「組の組」の順序を区別しないことである。異なる組からなる成分（$C_{11\,12}$ と $C_{12\,11}$）は1つに数え，同じ種類の組どうしの $C_{11\,22}$ も数え落とさない。(1) を書いたら (2) の一般式に $n=2$ を入れて内訳ごとに照合する（(2) は正しく数えられている）。
+\item (3) の答え：$i\leftrightarrow j$ は応力テンソルの対称性 $P_{ij}=P_{ji}$（微小要素のトルクのつり合い）から来る。$k\leftrightarrow\ell$ は歪みテンソルが対称で，$C_{ijk\ell}$ と $C_{ij\ell k}$ が同じ $E_{k\ell}=E_{\ell k}$ に掛かるので，平均に置き換えて対称に選べる，という定義上の選び方である。
+\end{kizuki}
+\begin{tadashii}
+\houshin 小対称性があると，添字の組 $\{ij\}$・$\{k\ell\}$ の順序を区別しないので，組を単位に数える。大対称性は2つの組の順序を区別しないことに当たる。
+\keisan \shoumonkai{1} (i) 各添字が2通りなので $2^{4}=16$ 個。(ii) $\{ij\}$ は $\{11\},\{22\},\{12\}$ の3通りで（$\{21\}$ は $\{12\}$ と同じ），$\{k\ell\}$ も3通りなので $3\times3=9$ 個。(iii) 2つの組が同じもの（$C_{11\,11}$，$C_{22\,22}$，$C_{12\,12}$）が3個，異なるもの（$C_{11\,22}$，$C_{11\,12}$，$C_{22\,12}$）が ${}_{3}\mathrm{C}_{2}=3$ 個で，合計6個。
+
+\shoumonkai{2} 添字が $n$ 通りのとき，順序を区別しない組の数は，同じ添字の組 $n$ 個と異なる添字の組 $n(n-1)/2$ 個の和で $N=n(n+1)/2$ である。(ii) は $N^{2}$，(iii) は同じ組どうしの $N$ 個と異なる組の $N(N-1)/2$ 個の和で
+\[ N+\frac{N(N-1)}{2}=\frac{N(N+1)}{2}. \]
+$n=3$ では $N=6$ なので (ii) は $36$，(iii) は $6\cdot7/2=21$ となり，講義の結果と一致する（$n=2$ では $N=3$ で 9 と 6）。
+
+\shoumonkai{3} $i\leftrightarrow j$ の対称性は，応力テンソルの対称性 $P_{ij}=P_{ji}$（第3回。微小要素に働くトルクのつり合い）から来る。$P_{ij}=P_{ji}$ がどんな歪みに対しても成り立つには $C_{ijk\ell}=C_{jik\ell}$ でなければならない。$k\leftrightarrow\ell$ の対称性は，歪みテンソルが対称（$E_{k\ell}=E_{\ell k}$）であることから来る。\noteshiki{17} の和の中で $C_{ijk\ell}$ と $C_{ij\ell k}$ は常に同じ値 $E_{k\ell}=E_{\ell k}$ に掛かるので，両者を平均 $(C_{ijk\ell}+C_{ij\ell k})/2$ に置き換えても応力は変わらず，対称に選べる。
+\kotae{\shoumonkai{1} (i) 16 (ii) 9 (iii) 6 \shoumonkai{2} $N=n(n+1)/2$ として (ii) $N^{2}$，(iii) $N(N+1)/2$（$n=3$ で 36，21） \shoumonkai{3} $i\leftrightarrow j$：応力テンソルの対称性，$k\leftrightarrow\ell$：歪みテンソルの対称性}
+\begin{ronten}
+  \item 小対称性のもとで数える単位が順序を区別しない添字の組であり，その数が $N=n(n+1)/2$ であることを述べる。
+  \item 大対称性のもとでは，同じ組どうしの成分と異なる組からなる成分に分けて数えることを書く。
+  \item \shoumonkai{3} 後半の対称性は，$C_{ijk\ell}$ と $C_{ij\ell k}$ が同じ歪みの値に掛かるので「対称に選べる」という意味であることを書く。
+\end{ronten}
+\kenzan $n=3$ で講義の 36 と 21 を再現する。$n=1$ では $N=1$ で (ii)(iii) とも1になり，1次元のバネ定数が1つであることと合う。
+\tsumazuki $k\leftrightarrow\ell$ の対称性を「物理法則」と考えがちだが，実際は歪みが対称なので非対称な部分が応力に現れない，という定義上の選び方である。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\連続体力学\029_2026-11-25.tex
+\mondaibangou{3}
+\begin{mondai}{029-hooke}{計算}{等方弾性体の Hooke の法則 $P_{ij}=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}$ の導出と，応力の計算}
+Lamé 係数 $\lambda=\qty{60}{\giga\pascal}$，$\mu=\qty{25}{\giga\pascal}$ の等方弾性体を考える。
+  \begin{shoumon}
+    \item Hooke の法則 \noteshiki{17} に等方弾性体の弾性率テンソル \noteshiki{47} を代入し，$P_{ij}=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}$ となることを示せ。
+    \item 歪みテンソルが
+      \[ \tens{E}=\begin{pmatrix}1.0&0.50&0\\0.50&-0.40&0\\0&0&-0.40\end{pmatrix}\times\num{e-3} \]
+      のとき，応力テンソル $\tens{P}$ の成分を \unit{\mega\pascal} 単位で有効数字2桁で求めよ。
+    \item 一般の歪みについて $\Tr(\tens{P})=(3\lambda+2\mu)\Tr(\tens{E})$ を示し，(2) の結果で確かめよ。
+  \end{shoumon}
+\notekiroku{2026-11-25 A ◎◎○}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\begin{align*}
+P_{ij}&=\sum_{k,\ell}C_{ijk\ell}E_{k\ell}\\
+&=\sum_{k,\ell}\bigl(\lambda\delta_{ij}\delta_{k\ell}\\
+&\qquad+\mu(\delta_{ik}\delta_{j\ell}+\delta_{i\ell}\delta_{jk})\bigr)E_{k\ell}\\
+&=\sum_{k}\lambda E_{kk}\delta_{ij}+\underbrace{\mu(E_{ij}+E_{ji})}_{\text{$\tens{E}$ は対称テンソル}}\\
+&=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}
+\end{align*}
+\toi{2}{◎}{}
+\[ \lambda\Tr(\tens{E})=60\times0.2=\kakimachigai{\qty{12}{\giga\pascal}}{\qty{12}{\mega\pascal}} \]
+\[ P_{ij}= \]
+\[ \setlength{\arraycolsep}{2pt}\begin{pmatrix}50\times1.0+12&50\times0.5&0\\50\times0.5&50\times(-0.4)+12&0\\0&0&50\times(-0.4)+12\end{pmatrix} \]
+\begin{align*}
+&\qquad\times10^{-3}\,\unit{\giga\pascal}\\
+&=\begin{pmatrix}62&25&0\\25&-8.0&0\\0&0&-8.0\end{pmatrix}\unit{\mega\pascal}
+\end{align*}
+\toi{3}{○}{単位}
+\begin{align*}
+\Tr(\tens{P})&=\kakimachigai{\sum_{i}}{\sum_{i,j}}P_{ij}\delta_{ij}\\
+&=\sum_{i}(\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}\delta_{ij})\\
+&=3\lambda\Tr(\tens{E})+2\mu\Tr(\tens{E})\\
+&=(3\lambda+2\mu)\Tr(\tens{E})
+\end{align*}
+\[ \Tr(\tens{P})=62-8-8=46\nuke{\unit{\mega\pascal}} \]
+\begin{align*}
+&(3\lambda+2\mu)\times0.2\\
+&=(180+50)\times\frac{1}{5}\\
+&=46\nuke{\unit{\mega\pascal}}
+\end{align*}
+\naze{数値には単位が要る。両辺とも $\qty{46}{\mega\pascal}$ で，右辺は $\qty{230}{\giga\pascal}\times\num{0.20e-3}$ である（$0.2$ は $\num{0.20e-3}$ の $10^{-3}$ を省いた形）。式の変形と数値の一致は正しい。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 歪みの $10^{-3}$ を頭の中で持ち運ぶと，(2) の $\lambda\Tr(\tens{E})=\qty{12}{\giga\pascal}$ や (3) の単位なしの 46 のように，書いた数値と単位がずれる。$\qty{1}{\giga\pascal}\times10^{-3}=\qty{1}{\mega\pascal}$ と書いてから計算し，数値の答えには毎回単位を付ける。
+\end{kizuki}
+\begin{tadashii}
+\houshin \noteshiki{47} を \noteshiki{17} に代入し，Kronecker のデルタで和を1つずつ実行する。得られた式に数値を代入し，トレースをとって (3) を確かめる。
+\keisan \shoumonkai{1} 3つの項に分けて和をとる。
+\begin{align*}
+P_{ij}&=\sum_{k,\ell}\left[\lambda\delta_{ij}\delta_{k\ell}+\mu\left(\delta_{ik}\delta_{j\ell}+\delta_{i\ell}\delta_{jk}\right)\right]E_{k\ell}\\
+&=\lambda\delta_{ij}\sum_{k}E_{kk}+\mu\left(E_{ij}+E_{ji}\right)\\
+&=\lambda\Tr(\tens{E})\,\delta_{ij}+2\mu E_{ij}.
+\end{align*}
+2行目では $\delta_{k\ell}$ で $\ell=k$，$\delta_{ik}\delta_{j\ell}$ で $(k,\ell)=(i,j)$，$\delta_{i\ell}\delta_{jk}$ で $(k,\ell)=(j,i)$ と置き換え，3行目で $E_{ji}=E_{ij}$ を使った。
+
+\shoumonkai{2} $\Tr(\tens{E})=(1.0-0.40-0.40)\times\num{e-3}=\num{0.20e-3}$ なので，$\lambda\Tr(\tens{E})=\qty{60e9}{\pascal}\times\num{0.20e-3}=\qty{12}{\mega\pascal}$。また $2\mu=\qty{50}{\giga\pascal}$ である。
+\begin{align*}
+P_{11}&=12+50\times1.0=\qty{62}{\mega\pascal},\\
+P_{22}&=P_{33}=12+50\times(-0.40)=\qty{-8.0}{\mega\pascal},\\
+P_{12}&=P_{21}=50\times0.50=\qty{25}{\mega\pascal}.
+\end{align*}
+ここで $50\times1.0$ などは $\qty{50e9}{\pascal}\times\num{1.0e-3}=\qty{50}{\mega\pascal}$ を表す。他の成分は0である。
+
+\shoumonkai{3} (1) の式で $i=j$ として $i$ について足すと，$\delta_{ii}$ の和が3なので
+\[ \Tr(\tens{P})=3\lambda\Tr(\tens{E})+2\mu\Tr(\tens{E})=(3\lambda+2\mu)\Tr(\tens{E}). \]
+(2) では左辺が $62-8.0-8.0=\qty{46}{\mega\pascal}$，右辺が $\qty{230}{\giga\pascal}\times\num{0.20e-3}=\qty{46}{\mega\pascal}$ で一致する。
+\kotae{\shoumonkai{1} $P_{ij}=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}$ \shoumonkai{2} $P_{11}=\qty{62}{\mega\pascal}$，$P_{22}=P_{33}=\qty{-8.0}{\mega\pascal}$，$P_{12}=P_{21}=\qty{25}{\mega\pascal}$，他は0 \shoumonkai{3} $\Tr(\tens{P})=\qty{46}{\mega\pascal}$ で一致}
+\begin{ronten}
+  \item \shoumonkai{1} 最後に歪みテンソルの対称性 $E_{ji}=E_{ij}$ を使って $E_{ij}+E_{ji}=2E_{ij}$ としたことを明記する。
+\end{ronten}
+\kenzan 弾性率 [\unit{\pascal}] × 歪み［無次元］で応力の単位 \unit{\pascal} になる。$\tens{P}$ は対称で，応力テンソルの対称性と合う。$\Tr(\tens{E})=0$ の歪みなら $\tens{P}=2\mu\tens{E}$ となり，$\lambda$ は体積変化があるときだけ効く。
+\tsumazuki $\lambda\Tr(\tens{E})$ は対角成分すべてに加わり，非対角成分には加わらない。$P_{22}$ と $P_{33}$ に $\lambda\Tr(\tens{E})$ を足し忘れやすい。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\連続体力学\030_2026-11-25.tex
+\mondaibangou{4}
+\begin{mondai}{030-shear}{計算}{単純剪断で生じる応力と剪断弾性率の意味。回転部分が応力を生まないこと（第3回の単純剪断の分解を使う）}
+Lamé 係数 $\lambda,\mu$ の等方弾性体に，変位場 $\vect{r}(\vect{x})=\alpha x_1\vect{e}_3$（$\alpha$ は大きさが1より十分小さい正の定数）で表される単純剪断を与える。
+  \begin{shoumon}
+    \item 変形勾配テンソル $\tens{D}$，歪みテンソル $\tens{E}$，回転テンソル $\tens{F}$ を求めよ。また回転ベクトル $\vect{\Omega}$ を求め，この変形に含まれる回転の軸・向き・角度を答えよ。
+    \item 応力テンソル $\tens{P}$ の成分と体積変化率を求めよ。
+    \item 小対称性 $C_{ijk\ell}=C_{ij\ell k}$ を満たす任意の弾性率テンソルについて，任意の反対称テンソル $\tens{F}$ に対して $k,\ell$ についての和 $\sum C_{ijk\ell}F_{k\ell}$ が0になることを示せ。これから，(1) の回転部分が応力に寄与しない理由を述べよ。
+    \item $\mu$ が剪断弾性率と呼ばれる理由を，(2) の結果と，$x_1=\text{一定}$ の面の変形のようすから説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-25 B ◎◎△△}
+\begin{kotaeutsushi}{2026-11-25}
+\toi{1}{◎}{}
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&0\\\alpha&0&0\end{pmatrix} \]
+\[ \tens{E}=\begin{pmatrix}0&0&\alpha/2\\0&0&0\\\alpha/2&0&0\end{pmatrix},\quad \tens{F}=\begin{pmatrix}0&0&-\alpha/2\\0&0&0\\\alpha/2&0&0\end{pmatrix} \]
+\[ \vect{\Omega}=\vect{\nabla}\times\vect{r}=(0,-\alpha,0) \]
+$x_{2}$ 軸，時計回り，$\alpha/2$
+\toi{2}{◎}{}
+\begin{align*}
+P_{ij}&=\lambda\Tr(\tens{E})\delta_{ij}+2\mu E_{ij}\\
+&=\begin{pmatrix}0&0&\mu\alpha\\0&0&0\\\mu\alpha&0&0\end{pmatrix}
+\end{align*}
+\[ \frac{\delta V'-\delta V}{\delta V}=\Tr(\tens{E})=0 \]
+\toi{3}{△}{未着手}
+\[ F_{k\ell}=-F_{\ell k} \]
+$C_{ijk\ell}=C_{ij\ell k}$ より
+\[ C_{ijk\ell}F_{k\ell}=-C_{ij\ell k}F_{\ell k} \]
+よって
+\[ \sum C_{ijk\ell}F_{k\ell}=0 \]
+\nuke{回転部分が応力に寄与しない理由}
+\naze{問いの後半（(1) の回転部分が応力に寄与しない理由）が無い。$\tens{D}=\tens{E}+\tens{F}$ なので $\sum C_{ijk\ell}D_{k\ell}=\sum C_{ijk\ell}E_{k\ell}+\sum C_{ijk\ell}F_{k\ell}=P_{ij}$ となり，回転 $\tens{F}$ を含めても応力は変わらない（回転は物体を剛体的に回すだけ），まで書く。前半は，和の添字の名前 $k,\ell$ を入れ替えると和が自分自身の $-1$ 倍になる，という形で書くと項ごとの式から和への移りがはっきりする。}
+\toi{4}{△}{未着手}
+(2) より体積変化はない。
+
+（図：軸の上の正方形が，横にずれた平行四辺形に変わり，さらに縦にずれた平行四辺形に変わる図）
+
+\nuke{$P_{31}/\alpha=\mu$}
+\naze{$\mu$ が剪断弾性率と呼ばれる理由が書かれていない。$P_{31}=\mu\alpha$ は法線が $\vect{e}_{1}$ の面（$x_{1}=\text{一定}$）に働く力の $x_{3}$ 成分，すなわち面に沿った剪断応力である。その面は $x_{3}$ 方向に $\alpha x_{1}$ だけずれ，$x_{1}$ 軸に平行だった線は角度 $\alpha$ だけ傾く。剪断応力と剪断の角度の比が $P_{31}/\alpha=\mu$ なので，$\mu$ は剪断に対する硬さを表す。体積が変わらないことだけでは $\mu$ の意味にならない。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 小問の後半に「理由を述べよ」「説明せよ」があると，前半の計算で止まりやすい（(3)(4)）。(3) は $\tens{D}=\tens{E}+\tens{F}$ と前半の結果から $\sum C_{ijk\ell}D_{k\ell}=\sum C_{ijk\ell}E_{k\ell}$ を1行書けば結論になる。問題文の問いの数と答えの文の数がそろっているかを最後に数える。
+\item \mae{第3回 問題2 (1)・10-28} 物理的な意味を問われて，答えの文を最後まで書かなかった（前回は平行移動 $\vect{c}$ の意味が書きかけ）。$\mu$ の意味は「$P_{31}$ がどの面のどの向きの力か」と「その変形での角度」を並べ，比が $\mu$ になることを書く。
+\item 回転角を $\abs{\vect{\Omega}}$ の半分の $\alpha/2$ と正しく書けた（第3回 問題4 (4)・問題7 (3)・10-28 で取り違えたところ）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 第3回の定義で $\tens{D}$ を求めて対称・反対称に分け，等方弾性体の Hooke の法則で応力を出す。(3) は和の添字の付け替えと対称性で示す。
+\keisan \shoumonkai{1} $r_1=r_2=0$，$r_3=\alpha x_1$ なので，0でない成分は $D_{31}=\partial r_3/\partial x_1=\alpha$ だけである。
+\[ \tens{D}=\begin{pmatrix}0&0&0\\0&0&0\\\alpha&0&0\end{pmatrix},\qquad \tens{E}=\begin{pmatrix}0&0&\alpha/2\\0&0&0\\\alpha/2&0&0\end{pmatrix},\qquad \tens{F}=\begin{pmatrix}0&0&-\alpha/2\\0&0&0\\\alpha/2&0&0\end{pmatrix}. \]
+回転ベクトルは $\Omega_1=2F_{32}=0$，$\Omega_2=2F_{13}=-\alpha$，$\Omega_3=2F_{21}=0$ である（直接 $(\vect{\nabla}\times\vect{r})_2=\partial r_1/\partial x_3-\partial r_3/\partial x_1=-\alpha$ でも確かめられる）。回転角は $\Omega/2$ なので，$x_2$ 軸まわりに $-\alpha/2$，すなわち $-\vect{e}_2$ の向きに右ねじが進む向き（$x_2$ 軸の正の側から見て時計回り）に角度 $\alpha/2$ の回転である。この単純剪断は，第3回のとおり純粋剪断 $\tens{E}$（$E_{13}=E_{31}=\alpha/2$）と回転 $\tens{F}$ の和である。
+
+\shoumonkai{2} $\Tr(\tens{E})=0$ なので $P_{ij}=2\mu E_{ij}$ で，
+\[ P_{13}=P_{31}=\mu\alpha,\qquad \text{他の成分は0}. \]
+体積変化率は $\Tr(\tens{E})=0$ である。
+
+\shoumonkai{3} $S_{ij}=\sum C_{ijk\ell}F_{k\ell}$（$k,\ell$ について和）とおく。和の添字の名前 $k$ と $\ell$ を入れ替えても和は変わらないので
+\[ S_{ij}=\sum_{k,\ell}C_{ij\ell k}F_{\ell k}=\sum_{k,\ell}C_{ijk\ell}\left(-F_{k\ell}\right)=-S_{ij}. \]
+2つ目の等号で小対称性 $C_{ij\ell k}=C_{ijk\ell}$ と反対称性 $F_{\ell k}=-F_{k\ell}$ を使った。よって $S_{ij}=0$ である。$\tens{D}=\tens{E}+\tens{F}$ なので，Hooke の法則で $\tens{E}$ の代わりに $\tens{D}$ を使っても
+\[ \sum_{k,\ell}C_{ijk\ell}D_{k\ell}=\sum_{k,\ell}C_{ijk\ell}E_{k\ell}+S_{ij}=P_{ij} \]
+で応力は変わらない。(1) の回転部分は物体を剛体的に回すだけで，応力に寄与しない。
+
+\shoumonkai{4} 応力テンソルの添字の約束から，$P_{31}$ は法線が $\vect{e}_1$ の面（$x_1=\text{一定}$ の面）に働く単位面積あたりの力の $x_3$ 成分，すなわち面に沿った剪断応力である。この変形では面 $x_1=\text{一定}$ が $x_3$ 方向に $\alpha x_1$ だけずれるので，$x_1$ 軸に平行だった線は角度 $\alpha$（$\tan\alpha\simeq\alpha$）だけ傾く。剪断応力と剪断の角度の比が $P_{31}/\alpha=\mu$ なので，$\mu$ は剪断に対する硬さを表す剪断弾性率である。
+\kotae{\shoumonkai{1} $D_{31}=\alpha$，$E_{13}=E_{31}=\alpha/2$，$F_{31}=-F_{13}=\alpha/2$；$\vect{\Omega}=-\alpha\vect{e}_2$，$x_2$ 軸まわりに $-\alpha/2$ の回転 \shoumonkai{2} $P_{13}=P_{31}=\mu\alpha$，他は0；体積変化率0 \shoumonkai{3} $\sum C_{ijk\ell}F_{k\ell}=0$ なので回転は応力を生まない \shoumonkai{4} 剪断応力／剪断の角度 $=\mu$}
+\begin{ronten}
+  \item \shoumonkai{3} 和の添字の名前の入れ替え，小対称性，$\tens{F}$ の反対称性の3つを使ったことを明記する。
+  \item \shoumonkai{4} $P_{31}$ が $x_1=\text{一定}$ の面に働く $x_3$ 方向の力（剪断応力）であることを述べる。
+\end{ronten}
+\kenzan $\mu\alpha$ は \unit{\pascal} × 無次元で応力の単位になる。$\alpha\to0$ で応力は0。$\alpha>0$ では $x_1$ が大きい側ほど $+x_3$ 方向にずれるので，$x_1=\text{一定}$ の面の正の側から $+x_3$ 向きの力（$P_{31}>0$）が働くという向きも変形と合う。
+\tsumazuki 回転の角度は $\Omega/2$ で，$\Omega$ そのものではない（第3回）。また，Hooke の法則に $\tens{D}$ を入れても結果が同じなのは小対称性があるからである。
+\end{tadashii}
+\end{mondai}
+
+\noteowari
+\end{document}
