@@ -1,0 +1,406 @@
+\documentclass[uplatex,dvipdfmx,a4paper,11pt]{jsarticle}
+\input{../../../templates/note.tex}
+\noteprint{量子力学1　第10章「エルミート演算子と固有値問題」}{2026-11-25}
+%% note-moto	problems\量子力学1\shou10\量子力学1-10.tex
+\begin{document}
+\begin{kirokuichiran}
+  \ichirangyou{\hyperlink{bt-m-026-matrix}{1}}{L1・計算}{◎△◎○}{B}{2026-11-24 2回目 (2)計算 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-027-ortho}{2}}{L1・計算}{◎◎◎}{S}{2026-10-28}
+  \ichirangyou{3}{L1・計算}{◎◎◎}{S}{2026-10-30}
+  \ichirangyou{\hyperlink{bt-m-029-adjoint}{4}}{L2・計算}{◎◎◎◎◎}{S}{2026-10-28}
+  \ichirangyou{\hyperlink{bt-m-030-param}{5}}{L2・計算}{◎◎◎○}{A}{2026-10-28 (4)記述}
+  \ichirangyou{\hyperlink{bt-m-031-expand}{6}}{L2・計算}{◎◎◎◎}{S}{2026-10-28}
+  \ichirangyou{7}{L2・導出}{◎○◎○}{A}{2026-10-30 (2)記述 (4)記述}
+  \ichirangyou{8}{L2・計算}{◎○◎○}{A}{2026-10-30 (2)記述 (4)記述}
+  \ichirangyou{9}{L2・計算}{}{未着手}{}
+  \ichirangyou{10}{L3・導出}{}{未着手}{}
+  \ichirangyou{11}{L3・説明}{}{未着手}{}
+  \ichirangyou{12}{L3・導出}{}{未着手}{}
+  \ichirangyou{13}{L3・計算}{}{未着手}{}
+  \ichirangyou{14}{L3・計算}{}{未着手}{}
+  \ichirangyou{15}{L4・計算}{}{未着手}{}
+\end{kirokuichiran}
+
+\mondaihen
+\level{1}
+% toubun: kiroku\toubun\量子力学1\026_2026-10-28.tex
+\mondaibangou{1}
+\begin{mondai}{026-matrix}{計算}{エルミート行列の判定，固有値・規格化された固有ベクトル，複素ベクトルの直交}
+次の2行2列の行列を考える。
+  \[ P=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix},\qquad Q=\begin{pmatrix}1 & \ii\\ \ii & 1\end{pmatrix} \]
+  \begin{shoumon}
+    \item $P^{\dagger}$，$Q^{\dagger}$ を求め，それぞれがエルミート行列かどうかを判定せよ。
+    \item $P$ の固有値と，規格化された（大きさが 1 の）固有ベクトルをすべて求めよ。固有ベクトルの全体の位相因子は任意に選んでよい。
+    \item (2) で求めた2つの固有ベクトルが直交することを，内積 $\vect{u}^{\dagger}\vect{v}$ を計算して確かめよ。
+    \item $Q$ の固有値を求め，(1) の判定の結果と関係づけて述べよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 A ◎◎◎○ → 2026-11-24 B ◎△◎○}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ P^{\dagger}=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}=P\quad\text{エルミート} \]
+\[ Q^{\dagger}=\begin{pmatrix}1 & -\ii\\ -\ii & 1\end{pmatrix} \]
+\toi{2}{◎}{}
+\begin{align*}
+\begin{vmatrix}1-\lambda & 1+\ii\\ 1-\ii & 2-\lambda\end{vmatrix}
+&=(1-\lambda)(2-\lambda)\\
+&\qquad-(1+\ii)(1-\ii)\\
+&=\lambda^{2}-3\lambda
+\end{align*}
+\[ \lambda=0,\ 3 \]
+\[ \begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}\vect{v}_{1}=0,\qquad \vect{v}_{1}=\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \vect{v}_{1}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \begin{pmatrix}-2 & 1+\ii\\ 1-\ii & -1\end{pmatrix}\vect{v}_{2}=0,\qquad \vect{v}_{2}=\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\[ \vect{v}_{2}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\[ \lambda_{1}=0,\quad \vect{v}_{1}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1+\ii\\ -1\end{pmatrix} \]
+\[ \lambda_{2}=3,\quad \vect{v}_{2}'=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\ 1-\ii\end{pmatrix} \]
+\toi{3}{◎}{}
+\[ \vect{v}_{2}^{\dagger}\vect{v}_{1}=\frac{1}{3}(1,\ 1+\ii)\begin{pmatrix}1+\ii\\ -1\end{pmatrix}=0 \]
+\toi{4}{○}{記述}
+\begin{align*}
+\begin{vmatrix}1-\lambda & \kakimachigai{-\ii}{\ii}\\ \kakimachigai{-\ii}{\ii} & 1-\lambda\end{vmatrix}
+&=(1-\lambda)^{2}-(\ii)^{2}\\
+&=\lambda^{2}-2\lambda+2
+\end{align*}
+\[ \therefore\ \lambda=1\pm\ii \]
+$Q$ はエルミート行列でないため，固有値は\ayamari{実数にならない}{実数とは限らない}。
+\naze{定理が保証するのは「エルミート行列なら固有値は実数」だけで，エルミートでない行列でも固有値が実数になることはある。正しくは「$Q$ はエルミートでないので固有値は実数とは限らず，実際に複素数 $1\pm\ii$ になった」である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 「エルミートなら固有値は実数」の逆は成り立たない（例：$\bigl(\begin{smallmatrix}1&1\\0&2\end{smallmatrix}\bigr)$ はエルミートでないが，固有値は $1$，$2$ で実数）。エルミートでない行列については「実数とは限らない」と書き，実際の値で確かめる。
+\item 固有方程式は $Q-\lambda I$ から立てる。行列式に $Q^{\dagger}$ の成分 $-\ii$ を書いたが，$(\pm\ii)^{2}=-1$ なので答えは変わらなかった。展開する前に，行列式の成分を元の行列と見比べる。
+\end{kizuki}
+\begin{tadashii}
+\houshin エルミート共役は「転置して複素共役」で求める。固有値は固有方程式の根，固有ベクトルは連立方程式の解を規格化して求め，複素ベクトルの内積では左のベクトルの成分の複素共役をとる。
+\keisan \shoumonkai{1} 転置してから複素共役をとる。
+\[ P^{\mathrm{T}}=\begin{pmatrix}1 & 1-\ii\\ 1+\ii & 2\end{pmatrix},\qquad P^{\dagger}=(P^{\mathrm{T}})^{*}=\begin{pmatrix}1 & 1+\ii\\ 1-\ii & 2\end{pmatrix}=P \]
+よって $P$ はエルミート行列である。$Q$ は対称行列なので $Q^{\mathrm{T}}=Q$ であり，
+\[ Q^{\dagger}=Q^{*}=\begin{pmatrix}1 & -\ii\\ -\ii & 1\end{pmatrix}\neq Q \]
+となるので，$Q$ はエルミート行列でない。
+
+\shoumonkai{2} 固有方程式は次のとおり。
+\begin{align*}
+\det(P-\lambda I)&=(1-\lambda)(2-\lambda)-(1+\ii)(1-\ii)\\
+&=\lambda^{2}-3\lambda+2-2=\lambda(\lambda-3)=0
+\end{align*}
+よって固有値は $\lambda=0,\,3$ である。固有ベクトルを $(a,b)^{\mathrm{T}}$ とおき，$(P-\lambda I)$ の第1行の式 $(1-\lambda)a+(1+\ii)b=0$ から比を決める。
+
+$\lambda=3$ のとき $-2a+(1+\ii)b=0$ なので，$b=2$ とすると $a=1+\ii$。大きさの2乗は $\abs{1+\ii}^{2}+2^{2}=2+4=6$ なので，
+\[ \vect{u}_{3}=\frac{1}{\sqrt{6}}\begin{pmatrix}1+\ii\\ 2\end{pmatrix} \]
+第2行 $(1-\ii)a+(2-3)b=(1-\ii)(1+\ii)-2=0$ も満たす。
+
+$\lambda=0$ のとき $a+(1+\ii)b=0$ なので，$b=1$ とすると $a=-1-\ii$。大きさの2乗は $2+1=3$ なので，
+\[ \vect{u}_{0}=\frac{1}{\sqrt{3}}\begin{pmatrix}-1-\ii\\ 1\end{pmatrix} \]
+第2行 $(1-\ii)a+2b=-(1-\ii)(1+\ii)+2=0$ も満たす。
+
+\shoumonkai{3} 内積は左のベクトルの成分の複素共役をとって計算する。$(1+\ii)^{*}=1-\ii$ なので，
+\[ \vect{u}_{3}^{\dagger}\vect{u}_{0}=\frac{1}{\sqrt{18}}\Bigl[(1-\ii)(-1-\ii)+2\cdot 1\Bigr]=\frac{1}{\sqrt{18}}\bigl[-(1-\ii)(1+\ii)+2\bigr]=\frac{-2+2}{\sqrt{18}}=0 \]
+よって直交する。
+
+\shoumonkai{4} 固有方程式は次のとおり。
+\[ \det(Q-\lambda I)=(1-\lambda)^{2}-\ii^{2}=(1-\lambda)^{2}+1=0 \]
+よって $1-\lambda=\pm\ii$，すなわち $\lambda=1\pm\ii$ で，固有値は実数でない。固有値が実数であると保証されるのはエルミート行列だけであり，(1) で $Q$ がエルミート行列でないことを確かめたので矛盾しない。
+\kotae{\shoumonkai{1} $P^{\dagger}=P$（エルミート行列），$Q^{\dagger}=Q^{*}\neq Q$（エルミート行列でない） \shoumonkai{2} $\lambda=3$：$\frac{1}{\sqrt{6}}(1+\ii,\,2)^{\mathrm{T}}$，$\lambda=0$：$\frac{1}{\sqrt{3}}(-1-\ii,\,1)^{\mathrm{T}}$（位相因子は任意） \shoumonkai{3} $\vect{u}_{3}^{\dagger}\vect{u}_{0}=0$ \shoumonkai{4} $\lambda=1\pm\ii$（$Q$ はエルミートでないので実数とは限らない）}
+\begin{ronten}
+  \item \shoumonkai{2} 第1行の式から決めた成分の比が，第2行の式も満たすことを確かめる。
+  \item \shoumonkai{4} 固有値が実数であるという定理はエルミート行列についてのものであり，$Q$ はエルミート行列でなく定理の前提を満たさないので，固有値が実数でなくても矛盾しないことを述べる。
+\end{ronten}
+\kenzan 固有値の和は対角和に，積は行列式に等しい。$P$ では $0+3=1+2$，$0\cdot 3=\det P=2-2=0$。$Q$ では $(1+\ii)+(1-\ii)=2=1+1$，$(1+\ii)(1-\ii)=2=\det Q=1-\ii^{2}$。いずれも一致する。
+\tsumazuki 内積で複素共役をとり忘れると $(1+\ii)(-1-\ii)+2=2-2\ii\neq 0$ となり，直交しないように見えてしまう。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\027_2026-10-28.tex
+\mondaibangou{2}
+\begin{mondai}{027-ortho}{計算}{区間上の関数の組の規格化と直交性}
+区間 $-a\le x\le a$（$a>0$）で定義された次の関数の組を考える。
+  \[ \phi_{n}(x)=N_{n}\cos\frac{(2n-1)\pi x}{2a}\quad(n=1,2,3,\dots),\qquad \psi_{m}(x)=\frac{1}{\sqrt{a}}\sin\frac{m\pi x}{a}\quad(m=1,2,3,\dots) \]
+  \begin{shoumon}
+    \item 次の規格化の条件を満たす正の実数 $N_{n}$ を求めよ。
+    \[ \int_{-a}^{a}\abs{\phi_{n}(x)}^{2}\dd x=1 \]
+    \item $n\neq m$ のとき，$\phi_{n}$ と $\phi_{m}$ が直交すること，すなわち次を示せ。
+    \[ \int_{-a}^{a}\phi_{n}^{*}(x)\phi_{m}(x)\dd x=0 \]
+    \item すべての $n$，$m$ について，$\phi_{n}$ と $\psi_{m}$ が直交することを示せ。
+  \end{shoumon}
+\notekiroku{2026-10-28 S ◎◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ \int_{-a}^{a}N_{n}^{2}\cos^{2}\frac{(2n-1)\pi x}{2a}\dd x=1 \]
+\[ N_{n}^{2}\int_{-a}^{a}\frac{1}{2}\left(\cos\frac{(2n-1)\pi x}{a}+1\right)\dd x=1 \]
+\begin{align*}
+&=N_{n}^{2}\int_{0}^{a}\kakimachigai{\cos\frac{(2n-1)\pi x}{a}+1}{(\cdots+1)}\dd x\\
+&=N_{n}^{2}\left[\frac{a}{(2n-1)\pi}\sin\frac{(2n-1)\pi x}{a}+x\right]_{0}^{a}\\
+&=N_{n}^{2}\left(\frac{a}{(2n-1)\pi}\sin(2n-1)\pi+a\right)\\
+&=aN_{n}^{2}=1
+\end{align*}
+\[ \therefore\ N_{n}=\frac{1}{\sqrt{a}} \]
+\toi{2}{◎}{}
+\[ \int_{-a}^{a}N_{n}^{2}\cos\underbrace{\frac{(2n-1)\pi x}{2a}}_{A}\cos\underbrace{\frac{(2m-1)\pi x}{2a}}_{B}\dd x \]
+\[ \cos A\cos B=\frac{\cos(A+B)+\cos(A-B)}{2} \]
+\[ =\int_{0}^{a}N_{n}^{2}\kakimachigai{\cos(A+B)+\cos(A-B)}{(\cdots)}\dd x \]
+\[ A+B=\frac{2(n+m-1)\pi x}{2a},\qquad A-B=\frac{2(n-m)\pi x}{2a} \]
+\begin{align*}
+&=N_{n}^{2}\biggl[\frac{a}{(n+m-1)\pi}\sin\frac{(n+m-1)\pi x}{a}\\
+&\qquad+\frac{a}{(n-m)\pi}\sin\frac{(n-m)\pi x}{a}\biggr]_{0}^{a}\\
+&=N_{n}^{2}(0+0-0-0)=0
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+&\int_{-a}^{a}\phi_{n}^{*}(x)\psi_{m}(x)\dd x\\
+&=\frac{N_{n}}{\sqrt{a}}\int_{-a}^{a}\cos\frac{(2n-1)\pi x}{2a}\sin\frac{m\pi x}{a}\dd x\\
+&=\frac{N_{n}}{\sqrt{a}}\int_{-a}^{a}\frac{1}{2}\biggl(\underbrace{\sin\frac{(2n+2m-1)\pi x}{2a}}_{\text{奇}}\\
+&\qquad-\underbrace{\sin\frac{(2n-2m-1)\pi x}{2a}}_{\text{奇}}\biggr)\dd x\\
+&=0
+\end{align*}
+より，常に直交
+\end{kotaeutsushi}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\029_2026-10-28.tex
+\mondaibangou{4}
+\begin{mondai}{029-adjoint}{計算}{微分演算子のエルミート共役，積のエルミート共役，ハミルトニアンのエルミート性}
+1次元で考える。関数 $\phi$，$\psi$ は $x\to\pm\infty$ で十分速く 0 になるとし，演算子 $\hat{A}$ のエルミート共役 $\hat{A}^{\dagger}$ を，任意の $\phi$，$\psi$ に対して
+  \[ \int_{-\infty}^{\infty}\phi^{*}\bigl(\hat{A}\psi\bigr)\dd x=\int_{-\infty}^{\infty}\bigl(\hat{A}^{\dagger}\phi\bigr)^{*}\psi\dd x \]
+  が成り立つ演算子と定める。$\hat{x}$ は $x$ を掛ける演算子，$\hat{p}=-\ii\hbar\,\dd /\dd x$ とする。
+  \begin{shoumon}
+    \item $\hat{D}=\dd /\dd x$ のエルミート共役 $\hat{D}^{\dagger}$ を求めよ。
+    \item $\hat{x}$ と $\hat{p}$ がエルミート演算子であることを示せ。
+    \item $V(x)$ を実数値の関数，$m>0$ とする。$\hat{H}=\hat{p}^{2}/(2m)+V(\hat{x})$ がエルミート演算子であることを，エルミート共役の性質（要点整理）を使って示せ。
+    \item $(\hat{x}\hat{p})^{\dagger}$ を $\hat{x}$，$\hat{p}$ で表せ。また，任意の $\psi$ に対して $(\hat{x}\hat{p}-\hat{p}\hat{x})\psi$ を計算し，$\hat{x}\hat{p}$ がエルミート演算子でないことを示せ。
+    \item $\hat{S}=(\hat{x}\hat{p}+\hat{p}\hat{x})/2$ がエルミート演算子であることを示し，$\hat{S}\psi$ を $\psi$ と $\dd \psi/\dd x$ で表せ。
+  \end{shoumon}
+\notekiroku{2026-10-28 S ◎◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ \int_{-\infty}^{\infty}\phi^{*}\dv{\psi}{x}\dd x=\int_{-\infty}^{\infty}(\hat{D}^{\dagger}\phi)^{*}\psi\dd x \]
+\begin{align*}
+\text{左辺}&=\Bigl[\psi\phi^{*}\Bigr]_{-\infty}^{\infty}-\int_{-\infty}^{\infty}\dv{\phi^{*}}{x}\psi\dd x\\
+&=\int_{-\infty}^{\infty}-\dv{}{x}\phi^{*}\psi\dd x
+\end{align*}
+\begin{align*}
+\therefore\ (\hat{D}^{\dagger}\phi)^{*}&=-\dv{}{x}\phi^{*}\\
+\hat{D}^{\dagger}\phi&=\bigl((\hat{D}^{\dagger}\phi)^{*}\bigr)^{*}\\
+&=\Bigl(-\dv{}{x}\phi^{*}\Bigr)^{*}=-\dv{}{x}\phi\\
+\hat{D}^{\dagger}&=-\dv{}{x}
+\end{align*}
+\toi{2}{◎}{}
+\[ \int_{-\infty}^{\infty}\phi^{*}(\hat{x}\psi)\dd x=\int_{-\infty}^{\infty}(\hat{x}^{\dagger}\phi)^{*}\psi\dd x \]
+\[ \text{左辺}=\int_{-\infty}^{\infty}x\phi^{*}\psi\dd x \]
+\[ \therefore\ x\phi^{*}=(\hat{x}^{\dagger}\phi)^{*},\qquad x=\hat{x}^{\dagger}=\hat{x} \]
+\[ \hat{p}=-\ii\hbar\hat{D} \]
+\begin{align*}
+\hat{p}^{\dagger}&=\ii\hbar\hat{D}^{\dagger}\\
+&=-\ii\hbar\hat{D}\\
+\therefore\ \hat{p}&=\hat{p}^{\dagger}
+\end{align*}
+\toi{3}{◎}{}
+（脇で $(\hat{p}^{2})^{\dagger}$ を計算し，矢印で第1項につなぐ：$(\hat{p}\hat{p})^{\dagger}=\hat{p}^{\dagger}\hat{p}^{\dagger}=\hat{p}\hat{p}=\hat{p}^{2}$）
+\begin{align*}
+\hat{H}^{\dagger}&=\frac{1}{2m}(\hat{p}^{2})^{\dagger}+\underbrace{\bigl(V(\hat{x})\bigr)^{\dagger}}_{=V(\hat{x})}\\
+&=\frac{1}{2m}\hat{p}^{2}+V(\hat{x})
+\end{align*}
+\[ \therefore\ \hat{H}=\hat{H}^{\dagger} \]
+\toi{4}{◎}{}
+\[ (\hat{x}\hat{p})^{\dagger}=\hat{p}^{\dagger}\hat{x}^{\dagger}=\hat{p}\hat{x} \]
+\[ \hat{x}\hat{p}\psi=-\ii\hbar x\dv{\psi}{x} \]
+\begin{align*}
+\hat{p}\hat{x}\psi&=-\ii\hbar\dv{}{x}(x\psi)\\
+&=-\ii\hbar\Bigl(1\cdot\psi+x\dv{\psi}{x}\Bigr)\\
+&=-\ii\hbar\psi-\ii\hbar x\dv{\psi}{x}
+\end{align*}
+$(\hat{x}\hat{p}-\hat{p}\hat{x})\psi=\ii\hbar\psi\neq0$ より
+\[ \hat{x}\hat{p}-\hat{p}\hat{x}\neq0 \]
+\[ \therefore\ \hat{x}\hat{p}\neq(\hat{x}\hat{p})^{\dagger} \]
+エルミートでない。
+\toi{5}{◎}{}
+\begin{align*}
+\hat{S}^{\dagger}&=\frac{1}{2}\bigl((\hat{x}\hat{p})^{\dagger}+(\hat{p}\hat{x})^{\dagger}\bigr)\\
+&=\frac{1}{2}(\hat{p}^{\dagger}\hat{x}^{\dagger}+\hat{x}^{\dagger}\hat{p}^{\dagger})\\
+&=\frac{1}{2}(\hat{p}\hat{x}+\hat{x}\hat{p})\\
+&=\hat{S}
+\end{align*}
+$\hat{S}=\hat{S}^{\dagger}$ より，エルミート
+\begin{align*}
+\hat{S}\psi&=\frac{1}{2}(\hat{p}\hat{x}+\hat{x}\hat{p})\psi\\
+&=\frac{1}{2}\Bigl(-\ii\hbar x\dv{\psi}{x}-\ii\hbar\psi\\
+&\qquad-\ii\hbar x\dv{\psi}{x}\Bigr)\\
+&=-\frac{\ii\hbar}{2}\psi-\ii\hbar x\dv{\psi}{x}\\
+&=-\ii\hbar\Bigl(\frac{\psi}{2}+x\dv{\psi}{x}\Bigr)
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\030_2026-10-28.tex
+\mondaibangou{5}
+\begin{mondai}{030-param}{計算}{パラメータを含むエルミート行列の固有値問題，固有ベクトルの直交}
+実数 $\alpha$（$0<\alpha<\pi$）と $\beta$ を含む次の行列を考える。
+  \[ M=\begin{pmatrix}\cos\alpha & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha\end{pmatrix} \]
+  \begin{shoumon}
+    \item $M$ がエルミート行列であることを示し，$M^{2}$ を計算せよ。
+    \item (1) の結果を使って，$M$ の固有値が $+1$ と $-1$ であることを示せ（固有方程式の行列式を展開せずに示し，2つが重ならないことは $M$ の対角和で確かめよ）。
+    \item 固有値 $\pm1$ に属する規格化された固有ベクトル $\vect{u}_{\pm}$ を，$\alpha/2$ の三角関数を使って求めよ。全体の位相因子は任意に選んでよい。
+    \item $\vect{u}_{+}$ と $\vect{u}_{-}$ が直交することを確かめよ。また，$\alpha\to 0$ の極限で $\vect{u}_{\pm}$ がどうなるかを述べ，そのときの $M$ と比べて結果が妥当であることを確かめよ。
+  \end{shoumon}
+\notekiroku{2026-10-28 A ◎◎◎○}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\[ M^{\dagger}=\begin{pmatrix}\cos\alpha & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha\end{pmatrix},\qquad M=M^{\dagger} \]
+\begin{align*}
+M^{2}&=\begin{pmatrix}\cos^{2}\alpha+\sin^{2}\alpha & \ee^{-\ii\beta}\cos\alpha\sin\alpha-\kakimachigai{\ee^{\ii\beta}}{\ee^{-\ii\beta}}\cos\alpha\sin\alpha\\ \ee^{\ii\beta}\cos\alpha\sin\alpha-\ee^{\ii\beta}\cos\alpha\sin\alpha & \sin^{2}\alpha+\cos^{2}\alpha\end{pmatrix}\\
+&=\begin{pmatrix}1&0\\0&1\end{pmatrix}=I
+\end{align*}
+\toi{2}{◎}{}
+\begin{align*}
+M\vect{u}&=\lambda\vect{u}\\
+M^{2}\vect{u}&=\lambda M\vect{u}\\
+I\vect{u}&=\lambda^{2}\vect{u}
+\end{align*}
+\[ \lambda^{2}=1,\qquad \lambda=\pm1 \]
+$\mathrm{tr}(M)=0$ より，重ならない。
+\toi{3}{◎}{}
+\[ \begin{pmatrix}\cos\alpha-1 & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha-1\end{pmatrix}\vect{u}_{+}'=0 \]
+\[ \vect{u}_{+}'=\begin{pmatrix}\ee^{-\ii\beta}\sin\alpha\\ 1-\cos\alpha\end{pmatrix}=\begin{pmatrix}2\ee^{-\ii\beta}\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\\ 2\sin^{2}\frac{\alpha}{2}\end{pmatrix} \]
+\begin{align*}
+\abs{\vect{u}_{+}'}&=\sqrt{\sin^{2}\alpha+\cos^{2}\alpha-2\cos\alpha+1}\\
+&=\sqrt{2(1-\cos\alpha)}\\
+&=\sqrt{4\sin^{2}\frac{\alpha}{2}}\\
+&=2\sin\frac{\alpha}{2}
+\end{align*}
+\[ \vect{u}_{+}=\begin{pmatrix}\ee^{-\ii\beta}\cos\frac{\alpha}{2}\\ \sin\frac{\alpha}{2}\end{pmatrix}=\begin{pmatrix}\cos\frac{\alpha}{2}\\ \ee^{\ii\beta}\sin\frac{\alpha}{2}\end{pmatrix} \]
+\[ \begin{pmatrix}\cos\alpha+1 & \ee^{-\ii\beta}\sin\alpha\\ \ee^{\ii\beta}\sin\alpha & -\cos\alpha+1\end{pmatrix}\vect{u}_{-}'=0 \]
+\[ \vect{u}_{-}'=\begin{pmatrix}\ee^{-\ii\beta}\sin\alpha\\ -\cos\alpha-1\end{pmatrix} \]
+\[ \abs{\vect{u}_{-}'}=\sqrt{2(1+\cos\alpha)}=2\cos\frac{\alpha}{2} \]
+\[ =\begin{pmatrix}2\ee^{-\ii\beta}\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\\ -2\cos^{2}\frac{\alpha}{2}\end{pmatrix} \]
+\[ =\begin{pmatrix}\ee^{-\ii\beta}\sin\frac{\alpha}{2}\\ -\cos\frac{\alpha}{2}\end{pmatrix} \]
+\toi{4}{○}{記述}
+\begin{align*}
+\vect{u}_{+}^{\dagger}\vect{u}_{-}&=\Bigl(\ee^{\ii\beta}\cos\frac{\alpha}{2},\ \sin\frac{\alpha}{2}\Bigr)\begin{pmatrix}\ee^{-\ii\beta}\sin\frac{\alpha}{2}\\ -\cos\frac{\alpha}{2}\end{pmatrix}\\
+&=\cos\frac{\alpha}{2}\sin\frac{\alpha}{2}-\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\\
+&=0
+\end{align*}
+より，直交
+\[ \alpha\to0 \]
+\[ \vect{u}_{+}=\begin{pmatrix}\ee^{-\ii\beta}\\ 0\end{pmatrix},\qquad \vect{u}_{-}=\begin{pmatrix}0\\ -1\end{pmatrix} \]
+\[ M=\begin{pmatrix}1&0\\0&-1\end{pmatrix}\ayamari{=(\vect{u}_{+},\ \vect{u}_{-})}{\text{等号で結べない}} \]
+\naze{$\vect{u}_{+}\to(\ee^{-\ii\beta},0)^{\mathrm{T}}$ なので，$M$ と固有ベクトルを並べた行列は等号で結べない。言うべきことは「$\alpha\to0$ で $M=\mathrm{diag}(1,-1)$ となり，その固有値 $+1$，$-1$ の固有ベクトルは $(1,0)^{\mathrm{T}}$，$(0,1)^{\mathrm{T}}$ で，$\vect{u}_{\pm}$ と位相因子を除いて一致する」である。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 固有ベクトルには全体の位相因子の任意性があるので，極限の形と比べるときは「位相因子を除いて一致する」と書く。行列 $M$ と，固有ベクトルを並べた行列 $(\vect{u}_{+},\vect{u}_{-})$ は別のもので，等号で結べない。比べるのは「$M$ の固有ベクトル」と「$\vect{u}_{\pm}$ の極限」である。
+\end{kizuki}
+\begin{tadashii}
+\houshin $M^{2}=I$ から固有値の候補を $\pm1$ に絞り，対角和で両方が現れることを示す。固有ベクトルは連立方程式を半角の公式で整理して求める。
+\keisan \shoumonkai{1} 転置して複素共役をとると，非対角成分 $\ee^{-\ii\beta}\sin\alpha$ と $\ee^{\ii\beta}\sin\alpha$ が入れ替わってから共役になるので元に戻り，対角成分は実数なので $M^{\dagger}=M$。次に，
+\begin{align*}
+(M^{2})_{11}&=\cos^{2}\alpha+\ee^{-\ii\beta}\sin\alpha\,\ee^{\ii\beta}\sin\alpha=\cos^{2}\alpha+\sin^{2}\alpha=1\\
+(M^{2})_{12}&=\cos\alpha\,\ee^{-\ii\beta}\sin\alpha-\ee^{-\ii\beta}\sin\alpha\cos\alpha=0
+\end{align*}
+同様に $(M^{2})_{21}=0$，$(M^{2})_{22}=1$ なので $M^{2}=I$。
+
+\shoumonkai{2} $M\vect{u}=\lambda\vect{u}$（$\vect{u}\neq\vect{0}$）に左から $M$ を掛けると $M^{2}\vect{u}=\lambda M\vect{u}=\lambda^{2}\vect{u}$。$M^{2}=I$ なので $\vect{u}=\lambda^{2}\vect{u}$，よって $\lambda^{2}=1$，$\lambda=\pm1$。2行2列の行列の2つの固有値の和は対角和 $\cos\alpha-\cos\alpha=0$ に等しいので，両方が $+1$（和 2）や両方が $-1$（和 $-2$）にはなれない。よって固有値は $+1$ と $-1$。
+
+\shoumonkai{3} 固有ベクトルを $(a,b)^{\mathrm{T}}$ とおく。$\lambda=+1$ では第1行から $(\cos\alpha-1)a+\ee^{-\ii\beta}\sin\alpha\,b=0$。半角の公式で書くと
+\[ -2\sin^{2}\frac{\alpha}{2}\,a+2\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\,\ee^{-\ii\beta}b=0 \]
+$0<\alpha<\pi$ では $\sin(\alpha/2)\neq 0$ なので，割って $\sin(\alpha/2)\,a=\cos(\alpha/2)\,\ee^{-\ii\beta}b$。$a=\cos(\alpha/2)$，$b=\ee^{\ii\beta}\sin(\alpha/2)$ とすれば満たされ，$\abs{a}^{2}+\abs{b}^{2}=1$ で規格化されている。
+
+$\lambda=-1$ では第1行から $(\cos\alpha+1)a+\ee^{-\ii\beta}\sin\alpha\,b=0$，すなわち
+\[ 2\cos^{2}\frac{\alpha}{2}\,a+2\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}\,\ee^{-\ii\beta}b=0 \]
+$\cos(\alpha/2)\neq 0$ で割って $\cos(\alpha/2)\,a=-\sin(\alpha/2)\,\ee^{-\ii\beta}b$。$a=-\ee^{-\ii\beta}\sin(\alpha/2)$，$b=\cos(\alpha/2)$ とすれば満たされ，大きさも 1 である。
+\[ \vect{u}_{+}=\begin{pmatrix}\cos(\alpha/2)\\ \ee^{\ii\beta}\sin(\alpha/2)\end{pmatrix},\qquad \vect{u}_{-}=\begin{pmatrix}-\ee^{-\ii\beta}\sin(\alpha/2)\\ \cos(\alpha/2)\end{pmatrix} \]
+第2行も満たすことは，$\lambda$ が固有値で $\det(M-\lambda I)=0$（2つの行が比例する）であることから従うが，直接代入しても確かめられる（$\lambda=+1$ では $\ee^{\ii\beta}\sin\alpha\cos(\alpha/2)-(1+\cos\alpha)\ee^{\ii\beta}\sin(\alpha/2)=2\ee^{\ii\beta}\sin(\alpha/2)\cos^{2}(\alpha/2)-2\ee^{\ii\beta}\cos^{2}(\alpha/2)\sin(\alpha/2)=0$）。
+
+\shoumonkai{4} 内積は次のとおり。
+\[ \vect{u}_{+}^{\dagger}\vect{u}_{-}=\cos\frac{\alpha}{2}\Bigl(-\ee^{-\ii\beta}\sin\frac{\alpha}{2}\Bigr)+\ee^{-\ii\beta}\sin\frac{\alpha}{2}\cos\frac{\alpha}{2}=0 \]
+$\alpha\to 0$ では $\vect{u}_{+}\to(1,0)^{\mathrm{T}}$，$\vect{u}_{-}\to(0,1)^{\mathrm{T}}$。このとき $M\to\mathrm{diag}(1,-1)$ で，固有値 $+1$，$-1$ の固有ベクトルはそれぞれ $(1,0)^{\mathrm{T}}$，$(0,1)^{\mathrm{T}}$ なので一致する。
+\kotae{\shoumonkai{1} $M^{\dagger}=M$，$M^{2}=I$ \shoumonkai{2} $\lambda^{2}=1$ と対角和 0 から $\lambda=\pm1$ \shoumonkai{3} $\vect{u}_{+}=(\cos(\alpha/2),\,\ee^{\ii\beta}\sin(\alpha/2))^{\mathrm{T}}$，$\vect{u}_{-}=(-\ee^{-\ii\beta}\sin(\alpha/2),\,\cos(\alpha/2))^{\mathrm{T}}$（位相因子は任意） \shoumonkai{4} $\vect{u}_{+}^{\dagger}\vect{u}_{-}=0$，$\alpha\to 0$ で $(1,0)^{\mathrm{T}}$，$(0,1)^{\mathrm{T}}$}
+\begin{ronten}
+  \item \shoumonkai{2} 固有ベクトルは $\vect{u}\neq\vect{0}$ なので，$\vect{u}=\lambda^{2}\vect{u}$ から $\lambda^{2}=1$ としてよいことを述べる。
+  \item \shoumonkai{2} 2つの固有値の和が対角和 0 に等しいことから，両方が同じ値になれないことを述べる。
+  \item \shoumonkai{3} $0<\alpha<\pi$ では $\sin(\alpha/2)\neq0$，$\cos(\alpha/2)\neq0$ なので，それで割ってよいことを述べる。
+\end{ronten}
+\kenzan 固有値の積は $\det M=-\cos^{2}\alpha-\sin^{2}\alpha=-1=(+1)(-1)$ で一致する。$\alpha=\pi/2$，$\beta=0$ では $M=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ で，$\vect{u}_{\pm}=(1,\pm1)^{\mathrm{T}}/\sqrt{2}$ となり，よく知られた結果と一致する（$\vect{u}_{-}$ は全体に $-1$ を掛けたもの）。
+\tsumazuki 固有ベクトルの全体の位相因子は決まらないので，$\vect{u}_{-}$ を
+\[ (\sin(\alpha/2),\,-\ee^{\ii\beta}\cos(\alpha/2))^{\mathrm{T}} \]
+などと書いても正しい（$-\ee^{\ii\beta}$ を掛けたもの）。内積で $\vect{u}_{+}$ の成分の複素共役をとり忘れると，上の $\vect{u}_{\pm}$ では
+\[ \sin(\alpha/2)\cos(\alpha/2)(\ee^{\ii\beta}-\ee^{-\ii\beta})=\ii\sin\alpha\sin\beta \]
+となり，$\sin\beta\neq 0$ では 0 にならないので直交性を正しく確かめられない。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\031_2026-10-28.tex
+\mondaibangou{6}
+\begin{mondai}{031-expand}{計算}{規格直交系による展開係数，規格化と係数の2乗和}
+区間 $0\le x\le L$ で，規格直交系 $\chi_{n}(x)=\sqrt{2/L}\,\sin(n\pi x/L)$（$n=1,2,3,\dots$）と，次の関数 $f$ を考える。
+  \[ f(x)=\sqrt{\frac{30}{L^{5}}}\,x(L-x) \]
+  $f$ は $f(x)=\sum_{n}c_{n}\chi_{n}(x)$ と展開でき，和と積分の順序を入れ替えてよいものとする。
+  \begin{shoumon}
+    \item $f$ が規格化されていること（$\abs{f}^{2}$ の $0$ から $L$ までの積分が 1 であること）を確かめよ。
+    \item 規格直交性を使って，展開係数が次で与えられることを示せ。
+    \[ c_{n}=\int_{0}^{L}\chi_{n}^{*}(x)f(x)\dd x \]
+    \item $c_{n}$ を求めよ（$n$ の偶奇で分けて答えよ）。
+    \item $\abs{c_{1}}^{2}$ を有効数字4桁で求めよ。また，$\abs{f}^{2}$ の積分が $\sum_{n}\abs{c_{n}}^{2}$ に等しいことを規格直交性から示し，(3) の結果がこれを満たすことを確かめよ。ただし，次の和を使ってよい。
+    \[ \sum_{n:\,\text{奇数}}\frac{1}{n^{6}}=\frac{\pi^{6}}{960} \]
+  \end{shoumon}
+\notekiroku{2026-10-28 S ◎◎◎◎}
+\begin{kotaeutsushi}{2026-10-28}
+\toi{1}{◎}{}
+\begin{align*}
+\int_{0}^{L}\abs{f}^{2}\dd x&=\frac{30}{L^{5}}\int_{0}^{L}x^{2}(L-x)^{2}\dd x\\
+&=\frac{30}{L^{5}}\int_{0}^{L}(x^{2}L^{2}-2x^{3}L+x^{4})\dd x\\
+&=\frac{30}{L^{5}}\Bigl[\frac{1}{3}x^{3}L^{2}-\frac{1}{2}x^{4}L+\frac{1}{5}x^{5}\Bigr]_{0}^{L}\\
+&=\frac{30}{L^{5}}\cdot L^{5}\Bigl(\frac{1}{3}-\frac{1}{2}+\frac{1}{5}\Bigr)=1
+\end{align*}
+\toi{2}{◎}{}
+\[ f(x)\chi_{m}^{*}(x)=\sum_{n}c_{n}\chi_{n}(x)\chi_{m}^{*}(x) \]
+\begin{align*}
+\int_{0}^{L}f\chi_{m}^{*}\dd x&=\int_{0}^{L}\sum_{n}c_{n}\chi_{m}^{*}\chi_{n}\dd x\\
+&=\sum_{n}\int_{0}^{L}c_{n}\chi_{m}^{*}\chi_{n}\dd x\\
+&=\sum_{n}c_{n}\delta_{nm}\\
+&=c_{m}
+\end{align*}
+\[ \therefore\ c_{n}=\int_{0}^{L}\chi_{n}^{*}(x)f(x)\dd x \]
+\toi{3}{◎}{}
+\begin{align*}
+c_{n}&=\int_{0}^{L}\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L}\sqrt{\frac{30}{L^{5}}}\,x(L-x)\dd x\\
+&=\frac{2\sqrt{15}}{L^{3}}\int_{0}^{L}(-x^{2}+Lx)\sin\frac{n\pi x}{L}\dd x
+\end{align*}
+\begin{align*}
+&\int_{0}^{L}x\sin\frac{n\pi x}{L}\dd x\\
+&=\Bigl[\frac{-Lx}{n\pi}\cos\frac{n\pi x}{L}\Bigr]_{0}^{L}+\int_{0}^{L}\frac{L}{n\pi}\cos\frac{n\pi x}{L}\dd x\\
+&=\frac{-L^{2}}{n\pi}\cos n\pi+\Bigl(\frac{L}{n\pi}\Bigr)^{2}\Bigl[\sin\frac{n\pi x}{L}\Bigr]_{0}^{L}\\
+&=\frac{-L^{2}}{n\pi}(-1)^{n}
+\end{align*}
+\begin{align*}
+&\int_{0}^{L}x^{2}\sin\frac{n\pi x}{L}\dd x\\
+&=\Bigl[\frac{-Lx^{2}}{n\pi}\cos\frac{n\pi x}{L}\Bigr]_{0}^{L}+\int_{0}^{L}\frac{2Lx}{n\pi}\cos\frac{n\pi x}{L}\dd x\\
+&=\frac{-L^{3}}{n\pi}(-1)^{n}+\frac{2L}{n\pi}\int_{0}^{L}x\cos\frac{n\pi x}{L}\dd x
+\end{align*}
+\begin{align*}
+&\int_{0}^{L}x\cos\frac{n\pi x}{L}\dd x\\
+&=\Bigl[\frac{Lx}{n\pi}\sin\frac{n\pi x}{L}\Bigr]_{0}^{L}-\int_{0}^{L}\frac{L}{n\pi}\sin\frac{n\pi x}{L}\dd x\\
+&=+\Bigl(\frac{L}{n\pi}\Bigr)^{2}\Bigl[\cos\frac{n\pi x}{L}\Bigr]_{0}^{L}\\
+&=\Bigl(\frac{L}{n\pi}\Bigr)^{2}\bigl((-1)^{n}-1\bigr)
+\end{align*}
+\[ =\frac{-L^{3}}{n\pi}(-1)^{n}+2\Bigl(\frac{L}{n\pi}\Bigr)^{3}\bigl((-1)^{n}-1\bigr) \]
+\begin{align*}
+c_{n}&=\frac{2\sqrt{15}}{L^{3}}\biggl(\frac{L^{3}}{n\pi}(-1)^{n}-2\Bigl(\frac{L}{n\pi}\Bigr)^{3}\bigl((-1)^{n}-1\bigr)\\
+&\qquad-\frac{L^{3}}{n\pi}(-1)^{n}\biggr)\\
+&=4\sqrt{15}\,\frac{1}{(n\pi)^{3}}\bigl(1-(-1)^{n}\bigr)
+\end{align*}
+奇数：$\dfrac{8\sqrt{15}}{(n\pi)^{3}}$，偶数：$0$
+\toi{4}{◎}{}
+\[ \abs{c_{1}}^{2}=\frac{64\cdot15}{\pi^{6}}=0.9986 \]
+\[ \abs{f}^{2}=\Bigl(\sum_{n}c_{n}\chi_{n}\Bigr)^{*}\Bigl(\sum_{m}c_{m}\chi_{m}\Bigr) \]
+\begin{align*}
+\int\abs{f}^{2}\dd x&=\sum_{n}\sum_{m}c_{n}^{*}c_{m}\int\chi_{n}^{*}\kakimachigai{\chi_{n}}{\chi_{m}}\dd x\\
+&=\sum_{n}\sum_{m}c_{n}^{*}c_{m}\delta_{nm}\\
+&=\sum_{n}\abs{c_{n}}^{2}
+\end{align*}
+\begin{align*}
+1&=\sum_{n\,\text{奇}}\frac{960}{(n\pi)^{6}}\\
+&=\frac{960}{\pi^{6}}\sum_{n\,\text{奇}}\frac{1}{n^{6}}=\frac{960}{\pi^{6}}\cdot\frac{\pi^{6}}{960}=1
+\end{align*}
+\end{kotaeutsushi}
+\end{mondai}
+
+\noteowari
+\end{document}
