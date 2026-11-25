@@ -1,0 +1,37 @@
+% 量子力学1 量子力学1-11 問題8（054-mom。当時は 量子力学1-7 問題8） 解いた日 2026-11-07
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\ii\hbar\pdv{\tilde{\psi}}{p}&=\frac{\ii\hbar}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\frac{-\ii x}{\hbar}\ee^{-\ii px/\hbar}\psi(x,t)\dd x\\
+&=\frac{1}{\sqrt{2\pi\hbar}}\int\ee^{-\ii px/\hbar}x\psi(x,t)\dd x
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+&\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\psi\dd x\\
+&=\Bigl[-\frac{\hbar}{\ii p}\ee^{-\ii px/\hbar}\psi\Bigr]_{-\infty}^{\infty}\\
+&\qquad+\int_{-\infty}^{\infty}\frac{\hbar}{\ii p}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\dd x\\
+&=\nuke{\text{境界項は }0}\frac{\hbar}{\ii p}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\dd x\\
+&=\frac{\hbar}{\ii p}\Bigl[-\frac{\hbar}{\ii p}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\Bigr]_{-\infty}^{\infty}\\
+&\qquad+\int_{-\infty}^{\infty}-\frac{\hbar^{2}}{p^{2}}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x\\
+&=-\frac{\hbar^{2}}{p^{2}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x
+\end{align*}
+\[ \therefore\ -\frac{p^{2}}{\hbar^{2}}\tilde{\psi}=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x \]
+\naze{結果は正しいが，部分積分の境界項を $0$ として落とした理由が無い。$\abs{\ee^{-\ii px/\hbar}}=1$ で，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になる（問題文の仮定）ので境界項は消える，と1行書く。}
+\toi{3}{◎}{}
+\[ \ii\hbar\pdv{\tilde{\psi}}{t}=-\frac{\hbar^{2}}{2m}\cdot\Bigl(-\frac{p^{2}}{\hbar^{2}}\Bigr)\tilde{\psi}-F\ii\hbar\pdv{\tilde{\psi}}{p} \]
+\[ \ii\hbar\Bigl(\pdv{\tilde{\psi}}{t}+F\pdv{\tilde{\psi}}{p}\Bigr)=\frac{p^{2}}{2m}\tilde{\psi} \]
+\toi{4}{△}{未着手}
+\begin{align*}
+&\ii\hbar\Bigl(-\frac{\ii E}{\hbar}\tilde{\phi}\ee^{-\ii Et/\hbar}+F\ee^{-\ii Et/\hbar}\pdv{\tilde{\phi}}{p}\Bigr)\\
+&=\frac{p^{2}}{2m}\tilde{\phi}\ee^{-\ii Et/\hbar}
+\end{align*}
+\[ E\tilde{\phi}+\ii\hbar F\pdv{\tilde{\phi}}{p}=\frac{p^{2}}{2m}\tilde{\phi} \]
+\[ \therefore\ \dv{\tilde{\phi}}{p}=\frac{\ii}{\hbar F}\Bigl(E-\frac{p^{2}}{2m}\Bigr)\tilde{\phi} \]
+\nuke{解}
+\naze{方程式までは正しいが，問われている解が無い。変数分離して $\dd\tilde{\phi}/\tilde{\phi}=\frac{\ii}{\hbar F}(E-p^{2}/(2m))\dd p$ の両辺を積分すると，$\tilde{\phi}(p)=C\exp\bigl[\frac{\ii}{\hbar F}(Ep-p^{3}/(6m))\bigr]$ である。}
+\toi{5}{×}{未着手}
+\mikai
+%% kizuki
+\item 部分積分で境界項を落とすときは，消える理由を1行書く：$\abs{\ee^{-\ii px/\hbar}}=1$ で，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になるから。問題文に仮定として書いてあることは，使った場所で名前を挙げる。
+\item \mae{第4章 問題7・10-28} 小問の途中で終わった（前回も (2) が途中，(3)(4) が未着手）。(4) は変数分離形で，$\dd\tilde{\phi}/\tilde{\phi}=(\text{$p$ の関数})\dd p$ を積分するだけである。解いたら $p$ で微分して元の方程式に戻るかで検算する。
+\item (5) の要点：指数の肩は純虚数（$E$，$p$，$F$，$\hbar$，$m$ は実数）なので $\abs{\tilde{\phi}}^{2}=\abs{C}^{2}$ で $p$ によらない。古典力学では $\dd p/\dd t=F$ が一定で，どの幅 $\dd p$ にも同じ時間 $\dd p/F$ だけとどまることと対応する。

@@ -7,11 +7,11 @@
   \ichirangyou{\hyperlink{bt-m-057-eigen}{1}}{L1・計算}{◎◎○}{A}{2026-11-04 (3)記述}
   \ichirangyou{\hyperlink{bt-m-058-delta}{2}}{L1・計算}{◎△◎}{B}{2026-11-04 (2)計算}
   \ichirangyou{\hyperlink{bt-m-059-ring}{3}}{L1・計算}{○△△△}{C}{2026-11-04 (1)記述 (2)立式 (3)未着手 (4)未着手}
-  \ichirangyou{4}{L2・計算}{▲◎◎◎}{B}{2026-11-07 (1)立式}
-  \ichirangyou{5}{L2・計算}{◎○◎}{A}{2026-11-07 (2)記述}
-  \ichirangyou{6}{L2・計算}{○◎◎}{A}{2026-11-07 (1)記述}
-  \ichirangyou{7}{L2・計算}{▲◎△△}{C}{2026-11-07 (1)方針 (3)未着手 (4)立式}
-  \ichirangyou{8}{L3・導出}{◎○◎△×}{C}{2026-11-07 (2)記述 (4)未着手 (5)未着手}
+  \ichirangyou{\hyperlink{bt-m-060-meaning}{4}}{L2・計算}{▲◎◎◎}{B}{2026-11-07 (1)立式}
+  \ichirangyou{\hyperlink{bt-m-061-gauss}{5}}{L2・計算}{◎○◎}{A}{2026-11-07 (2)記述}
+  \ichirangyou{\hyperlink{bt-m-062-complete}{6}}{L2・計算}{○◎◎}{A}{2026-11-07 (1)記述}
+  \ichirangyou{\hyperlink{bt-m-132-continuum}{7}}{L2・計算}{▲◎△△}{C}{2026-11-07 (1)方針 (3)未着手 (4)立式}
+  \ichirangyou{\hyperlink{bt-m-054-mom}{8}}{L3・導出}{◎○◎△×}{C}{2026-11-07 (2)記述 (4)未着手 (5)未着手}
   \ichirangyou{9}{L3・導出}{}{未着手}{}
   \ichirangyou{10}{L3・導出}{}{未着手}{}
   \ichirangyou{11}{L4・計算}{}{未着手}{}
@@ -280,6 +280,536 @@ E_{1}&=\frac{2\pi^{2}\hbar^{2}}{mL^{2}}=\qty{2.41e-19}{\joule}\\
 \end{ronten}
 \kenzan 次元：$\hbar/L$ は $\unit{\joule\second\per\metre}=\unit{\kilogram\metre\per\second}$ で運動量の次元，$\hbar^{2}/(mL^{2})$ はエネルギーの次元。数値：井戸の最低準位は同じ $L$ で \qty{0.376}{\electronvolt} になり，$E_{1}$ はその $4$ 倍（$=E_{2}^{\text{井戸}}$）で (4) と合う。極限：$L\to\infty$ では $p_{n}$ の間隔 $2\pi\hbar/L\to0$ で，運動量は連続的な値をとるようになる。
 \tsumazuki $n=0$ を落とさない。周期的境界条件では定数の関数も許される（井戸では $\phi\equiv0$ になって除かれる）。井戸の $\sin$ を2つの平面波に分けただけで「運動量は $+n\pi\hbar/L$ か $-n\pi\hbar/L$ が確率 $1/2$ ずつ得られる」とするのは誤りである。区間の外で $0$ であることを見落としている。
+\end{tadashii}
+\end{mondai}
+
+\level{2}
+% toubun: kiroku\toubun\量子力学1\060_2026-11-07.tex
+\mondaibangou{4}
+\begin{mondai}{060-meaning}{計算}{運動量表示の波動関数の物理的意味（展開係数と確率）と，運動量の期待値・2乗の期待値・運動量が負になる確率の計算}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+1次元系で，ある時刻の波動関数が
+  \[ \psi(x)=\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\ee^{\ii k_{0}x} \]
+  であるとする（$\kappa>0$，$k_{0}$ は実数の定数。規格化されている）。運動量表示は要点整理の規約で定める。必要なら次の積分を用いてよい。
+  \[ \int_{-\infty}^{\infty}\frac{\dd q}{(\kappa^{2}+q^{2})^{2}}=\frac{\pi}{2\kappa^{3}},\qquad \int_{-\infty}^{\infty}\frac{q^{2}\dd q}{(\kappa^{2}+q^{2})^{2}}=\frac{\pi}{2\kappa},\qquad \int\frac{\dd u}{(1+u^{2})^{2}}=\frac{u}{2(1+u^{2})}+\frac{1}{2}\arctan u \]
+  \begin{shoumon}
+    \item 運動量表示の逆変換が「運動量の固有関数による展開」であることから，$\abs{\tilde{\psi}(k)}^{2}\dd k$ が運動量を $\hbar k$ から $\hbar(k+\dd k)$ の間に見出す確率と読めることを説明せよ。それを使って，運動量の関数 $f(p)$ の期待値を $\tilde{\psi}(k)$ で表せ。
+    \item この $\psi(x)$ の運動量表示 $\tilde{\psi}(k)$ を求め，$\abs{\tilde{\psi}(k)}^{2}$ の $k$ についての積分が $1$ になることを確かめよ。
+    \item $\expval{p}$ と $\expval{p^{2}}$ を $\tilde{\psi}(k)$ から求めよ。
+    \item $k_{0}=\kappa$ のとき，運動量を測定して負の値が得られる確率を求めよ（厳密な値と，有効数字3桁の数値）。
+  \end{shoumon}
+\notekiroku{2026-11-07 B ▲◎◎◎}
+\begin{kotaeutsushi}{2026-11-07}
+\toi{1}{▲}{立式}
+\nuke{確率と読める理由}
+\[ \ayamari{f(p)}{\expval{f(p)}}=\int_{-\infty}^{\infty}\ayamari{\hbar k}{f(\hbar k)}\abs{\tilde{\psi}(k)}^{2}\dd k \]
+\naze{右辺は $\expval{p}$ の式で，一般の $f$ の期待値になっていない。左辺も関数 $f(p)$ そのものではなく期待値である。期待値は「値 $\times$ 確率」の和なので，$\expval{f(p)}=\int f(\hbar k)\abs{\tilde{\psi}(k)}^{2}\dd k$ である。また，$\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率と読める理由が無い。逆変換 $\psi=\int\tilde{\psi}(k)\phi_{k}\dd k$ は運動量の固有関数 $\phi_{k}$ による展開で，$\tilde{\psi}(k)$ が展開係数にあたるので，離散の $\abs{c_{n}}^{2}$ と同じく $\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率になる（規格化は変換で保たれ，合計は $1$）。}
+\toi{2}{◎}{}
+\begin{align*}
+\tilde{\psi}(k)&=\int_{-\infty}^{\infty}\frac{\dd x}{\sqrt{2\pi}}\ee^{-\ii kx}\psi(x)\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\,\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\ee^{\ii(k_{0}-k)x}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\int_{-\infty}^{\infty}\dd x\,\ee^{-\kappa\abs{x}}\\
+&\qquad\times\bigl(\cos(k_{0}-k)x+\ii\sin(k_{0}-k)x\bigr)\\
+&=\sqrt{\frac{\kappa}{2\pi}}\cdot2\int_{0}^{\infty}\dd x\,\ee^{-\kappa x}\\
+&\qquad\times\frac{\ee^{\ii(k_{0}-k)x}+\ee^{-\ii(k_{0}-k)x}}{2}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\int_{0}^{\infty}\dd x\,\ee^{(-\kappa+\ii k_{0}-\ii k)x}\\
+&\qquad+\ee^{(-\kappa-\ii k_{0}+\ii k)x}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\biggl(\frac{1}{\kappa+\ii(k_{0}-k)}\\
+&\qquad+\frac{1}{\kakimachigai{\kappa+\ii(k_{0}-k)}{\kappa-\ii(k_{0}-k)}}\biggr)\\
+&=\sqrt{\frac{\kappa}{2\pi}}\cdot\frac{2\kappa}{\kappa^{2}+(k-k_{0})^{2}}\\
+&=\sqrt{\frac{2\kappa^{3}}{\pi}}\,\frac{1}{\kappa^{2}+(k-k_{0})^{2}}
+\end{align*}
+\begin{align*}
+&\int_{-\infty}^{\infty}\dd k\,\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{1}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&=\frac{2\kappa^{3}}{\pi}\cdot\frac{\pi}{2\kappa^{3}}=1
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\expval{p}&=\int_{-\infty}^{\infty}\dd k\,\hbar k\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}\hbar}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{k}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&=\frac{2\kappa^{3}\hbar}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{k-k_{0}}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&\qquad+\frac{k_{0}}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&=\frac{2\kappa^{3}\hbar}{\pi}\Bigl(0+\frac{\pi k_{0}}{2\kappa^{3}}\Bigr)\\
+&=\hbar k_{0}
+\end{align*}
+\begin{align*}
+\expval{p^{2}}&=\int_{-\infty}^{\infty}\dd k\,\hbar^{2}k^{2}\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}\hbar^{2}}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{k^{2}}{(\kappa^{2}+(k-k_{0})^{2})^{2}}
+\end{align*}
+$k-k_{0}=k'$ とおく。
+\begin{align*}
+&=\frac{2\kappa^{3}\hbar^{2}}{\pi}\int_{-\infty}^{\infty}\dd k'\,\frac{k'^{2}+2k'k_{0}+k_{0}^{2}}{(\kappa^{2}+k'^{2})^{2}}\\
+&=\frac{2\kappa^{3}\hbar^{2}}{\pi}\Bigl(\frac{\pi}{2\kappa}+0+\frac{\pi k_{0}^{2}}{2\kappa^{3}}\Bigr)\\
+&=\hbar^{2}(\kappa^{2}+k_{0}^{2})
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+&\int_{-\infty}^{\kakimachigai{-\kappa}{0}}\dd k\,\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{0}\frac{\dd k}{(\kappa^{2}+(k-\kappa)^{2})^{2}}\\
+&=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{0}\frac{\frac{1}{\kappa^{4}}\dd k}{\bigl(1+(\frac{k}{\kappa}-1)^{2}\bigr)^{2}}
+\end{align*}
+$k/\kappa-1=u$ とおく。
+\begin{align*}
+&=\frac{2}{\pi}\int_{-\infty}^{-1}\frac{\dd u}{(1+u^{2})^{2}}\\
+&=\frac{2}{\pi}\Bigl[\frac{u}{2(1+u^{2})}+\frac{1}{2}\arctan u\Bigr]_{-\infty}^{-1}\\
+&=\frac{2}{\pi}\Bigl(-\frac{1}{4}-\frac{\pi}{8}-0-\frac{1}{2}\Bigl(-\frac{\pi}{2}\Bigr)\Bigr)\\
+&=\frac{2}{\pi}\Bigl(-\frac{1}{4}+\frac{\pi}{8}\Bigr)\\
+&=\frac{1}{4}-\frac{1}{2\pi}\\
+&\approx0.0908
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 期待値は「値 $\times$ 確率」の和である。測る量が $f(p)$ なら，運動量 $\hbar k$ での値 $f(\hbar k)$ に確率 $\abs{\tilde{\psi}(k)}^{2}\dd k$ をかけて積分する。左辺に $\expval{\ }$ が付いているか，$f(p)=p$ とおいて (3) の $\expval{p}$ の式に戻るかで確かめる。
+\item \mae{第7章 問題1・11-04，第6章 問題3・11-01} 「説明せよ」の理由が無い（前回も結論だけで理由の1文が無かった）。逆変換は運動量の固有関数による展開で，$\tilde{\psi}(k)$ が展開係数なので $\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率になる，を1行で書いてから式に進む。
+\item (2) の2つ目の分母を $\kappa+\ii(k_{0}-k)$，(4) の積分の上端を $-\kappa$ と書いた（次の行は正しい）。$p<0$ は $k<0$（$q=k-k_{0}<-\kappa$）で，変数を替えたら積分の端も同じ変数で書く。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は逆変換を運動量の固有関数による展開と見て，離散的な場合の「展開係数の絶対値の2乗が確率」を連続に読み替える。(2)〜(4) は $\tilde{\psi}(k)$ を求め，$q=k-k_{0}$ に移して与えられた積分を使う。
+\keisan \shoumonkai{1} 逆変換
+\[ \psi(x)=\int_{-\infty}^{\infty}\tilde{\psi}(k)\phi_{k}(x)\dd k \]
+は，$\psi$ を運動量の固有関数 $\phi_{k}$（固有値 $\hbar k$）で展開した式で，$\tilde{\psi}(k)$ が展開係数にあたる。離散的な固有値 $a_{n}$ の場合は
+\[ \psi=\sum_{n}c_{n}\phi_{n} \]
+で，$\abs{c_{n}}^{2}$ が $a_{n}$ を得る確率である（要点整理）。連続な場合は和が $k$ の積分に替わり，$\abs{\tilde{\psi}(k)}^{2}\dd k$ が，固有値が $\hbar k$ から $\hbar(k+\dd k)$ の間にある確率になる。$\psi$ が規格化されていれば $\abs{\tilde{\psi}}^{2}$ の $k$ についての積分も $1$ なので（要点整理），確率分布としての条件（非負・合計 $1$）を満たす。期待値は「値×確率」の和なので，
+\[ \expval{f(p)}=\int_{-\infty}^{\infty}f(\hbar k)\abs{\tilde{\psi}(k)}^{2}\dd k \]
+となる（$f(p)=p$ とすると要点整理の $\expval{p}$ の式）。
+
+\shoumonkai{2} $q=k-k_{0}$ とおくと $\ee^{\ii k_{0}x}\ee^{-\ii kx}=\ee^{-\ii qx}$ である。$x>0$ と $x<0$ に分けて
+\[ \int_{-\infty}^{\infty}\ee^{-\kappa\abs{x}}\ee^{-\ii qx}\dd x=\int_{0}^{\infty}\ee^{-(\kappa+\ii q)x}\dd x+\int_{-\infty}^{0}\ee^{(\kappa-\ii q)x}\dd x=\frac{1}{\kappa+\ii q}+\frac{1}{\kappa-\ii q}=\frac{2\kappa}{\kappa^{2}+q^{2}} \]
+なので
+\[ \tilde{\psi}(k)=\frac{\sqrt{\kappa}}{\sqrt{2\pi}}\cdot\frac{2\kappa}{\kappa^{2}+q^{2}}=\sqrt{\frac{2}{\pi}}\,\frac{\kappa^{3/2}}{\kappa^{2}+(k-k_{0})^{2}} \]
+である。$\dd k=\dd q$ で，与えられた積分から
+\[ \int_{-\infty}^{\infty}\abs{\tilde{\psi}(k)}^{2}\dd k=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{\infty}\frac{\dd q}{(\kappa^{2}+q^{2})^{2}}=\frac{2\kappa^{3}}{\pi}\cdot\frac{\pi}{2\kappa^{3}}=1 \]
+となる。
+
+\shoumonkai{3} $\abs{\tilde{\psi}}^{2}$ は $q$ の偶関数なので，$q$ の奇関数をかけた積分は $0$ になる（$q/(\kappa^{2}+q^{2})^{2}$ は大きな $\abs{q}$ で $1/\abs{q}^{3}$ のように減るので，積分は絶対収束する）。$\hbar k=\hbar(k_{0}+q)$ より
+\[ \expval{p}=\hbar k_{0}\int\abs{\tilde{\psi}}^{2}\dd q+\hbar\int q\abs{\tilde{\psi}}^{2}\dd q=\hbar k_{0} \]
+である。$(\hbar k)^{2}=\hbar^{2}(k_{0}^{2}+2k_{0}q+q^{2})$ で，$2k_{0}q$ の項は同じ理由で $0$ なので
+\[ \expval{p^{2}}=\hbar^{2}k_{0}^{2}+\hbar^{2}\,\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{\infty}\frac{q^{2}\dd q}{(\kappa^{2}+q^{2})^{2}}=\hbar^{2}k_{0}^{2}+\hbar^{2}\,\frac{2\kappa^{3}}{\pi}\cdot\frac{\pi}{2\kappa}=\hbar^{2}(k_{0}^{2}+\kappa^{2}) \]
+となる。
+
+\shoumonkai{4} $k_{0}=\kappa$ のとき，$p<0$ は $k<0$，つまり $q<-\kappa$ である。$u=q/\kappa$ とおくと $\dd q=\kappa\dd u$，$(\kappa^{2}+q^{2})^{2}=\kappa^{4}(1+u^{2})^{2}$ なので
+\[ P(p<0)=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{-\kappa}\frac{\dd q}{(\kappa^{2}+q^{2})^{2}}=\frac{2}{\pi}\int_{-\infty}^{-1}\frac{\dd u}{(1+u^{2})^{2}} \]
+である。原始関数 $G(u)=u/[2(1+u^{2})]+\frac{1}{2}\arctan u$ は $G(-1)=-1/4-\pi/8$，$u\to-\infty$ で $G\to-\pi/4$ なので，積分は $\pi/8-1/4$ である。よって
+\[ P(p<0)=\frac{2}{\pi}\left(\frac{\pi}{8}-\frac{1}{4}\right)=\frac{1}{4}-\frac{1}{2\pi}\approx0.0908 \]
+である。
+\kotae{\shoumonkai{1} $\abs{\tilde{\psi}(k)}^{2}$ は，運動量の固有関数による展開係数の絶対値の2乗である。$\expval{f(p)}=\int f(\hbar k)\abs{\tilde{\psi}(k)}^{2}\dd k$（全範囲） \shoumonkai{2} $\tilde{\psi}(k)=\sqrt{2/\pi}\,\kappa^{3/2}/[\kappa^{2}+(k-k_{0})^{2}]$ \shoumonkai{3} $\expval{p}=\hbar k_{0}$，$\expval{p^{2}}=\hbar^{2}(k_{0}^{2}+\kappa^{2})$ \shoumonkai{4} $1/4-1/(2\pi)\approx0.0908$}
+\begin{ronten}
+  \item \shoumonkai{1} 逆変換を運動量の固有関数による展開と見て，$\tilde{\psi}(k)$ を離散的な場合の展開係数に対応させることを述べる。
+  \item \shoumonkai{1} 規格化が変換で保たれることから，$\abs{\tilde{\psi}}^{2}$ が確率分布の条件（非負・合計 $1$）を満たすことを書く。
+  \item \shoumonkai{3} $q$ の奇関数の項が $0$ になる理由として，$\abs{\tilde{\psi}}^{2}$ が $q$ の偶関数であることと，その積分が絶対収束することを述べる。
+\end{ronten}
+\kenzan 次元：$\kappa$ は長さの逆数で，$\abs{\tilde{\psi}}^{2}\propto\kappa^{3}/\kappa^{4}$ は長さの次元をもち，$\abs{\tilde{\psi}}^{2}\dd k$ は無次元で正しい。極限：$\kappa\to0$（$x$ に広がった平面波に近づく）では $\expval{p^{2}}\to\hbar^{2}k_{0}^{2}$ で，運動量 $\hbar k_{0}$ の固有状態に近づく。運動量の標準偏差は $\sqrt{\expval{p^{2}}-\expval{p}^{2}}=\hbar\kappa$ で，位置の広がり $1/\kappa$ が小さいほど大きい。(4)：$1/4-1/(2\pi)>0$ で $1/2$ より小さく，$\abs{\tilde{\psi}}^{2}$ の中心が $k=\kappa>0$ にあることと合う。座標表示の確かめは Level 3 の運動量の2乗の期待値の問題で行う。
+\tsumazuki (1) の「確率」は $\abs{\tilde{\psi}(k)}^{2}$ そのものではなく $\abs{\tilde{\psi}(k)}^{2}\dd k$ である（$\abs{\tilde{\psi}}^{2}$ は確率密度）。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\061_2026-11-07.tex
+\mondaibangou{5}
+\begin{mondai}{061-gauss}{計算}{平方完成と積分路の平行移動によるガウス型波動関数の運動量表示と，位置のずれ（位相）・波数のずれ（分布の移動）の役割}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+1次元系で，$\xi>0$，$x_{0}$，$k_{0}$ を実数の定数として
+  \[ \psi(x)=\left(\frac{2}{\pi}\right)^{1/4}\frac{1}{\sqrt{\xi}}\exp\left[-\frac{(x-x_{0})^{2}}{\xi^{2}}+\ii k_{0}x\right] \]
+  を考える。運動量表示は要点整理の規約で定め，要点整理のガウス積分（$a$ が実数のとき $\ee^{-(x-\ii a)^{2}}$ の積分も $\sqrt{\pi}$。Level 3 の積分路の問題で示す）を用いてよい。
+  \begin{shoumon}
+    \item $\psi(x)$ が規格化されていることを確かめ，$\expval{x}$ を求めよ。
+    \item $u=x-x_{0}$ とおいて指数を平方完成し，$\tilde{\psi}(k)$ を求めよ。
+    \item $\abs{\tilde{\psi}(k)}^{2}$ を求め，$x_{0}$ によらないことを示せ。$\expval{p}$ を求め，$x_{0}$ と $k_{0}$ がそれぞれ $\tilde{\psi}(k)$ のどこに現れるかを述べよ。
+  \end{shoumon}
+\notekiroku{2026-11-07 A ◎○◎}
+\begin{kotaeutsushi}{2026-11-07}
+\toi{1}{◎}{}
+\begin{align*}
+\int\dd x\,\abs{\psi(x)}^{2}&=\int\dd x\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\exp\Bigl[-\frac{2(x-x_{0})^{2}}{\xi^{2}}\Bigr]\\
+&=\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\cdot\sqrt{\frac{\xi^{2}\pi}{2}}=1
+\end{align*}
+\begin{align*}
+\expval{x}&=\int\dd x\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\,x\exp\Bigl[-\frac{2(x-x_{0})^{2}}{\xi^{2}}\Bigr]\\
+&=\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\biggl(\underbrace{\int\dd x\,(x-x_{0})\exp(\quad)}_{0}\\
+&\qquad+\int\dd x\,x_{0}\exp(\quad)\biggr)\\
+&=\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\cdot x_{0}\sqrt{\frac{\xi^{2}\pi}{2}}=x_{0}
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+\tilde{\psi}(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}\cdot\Bigl(\frac{2}{\pi}\Bigr)^{1/4}\Bigl(\frac{1}{\xi}\Bigr)^{1/2}\\
+&\qquad\times\exp\Bigl[-\frac{(x-x_{0})^{2}}{\xi^{2}}+\ii k_{0}x\Bigr]\\
+&=\Bigl(\frac{1}{2\pi\xi}\Bigr)^{1/2}\Bigl(\frac{2}{\pi}\Bigr)^{1/4}\int\dd u\\
+&\qquad\times\exp\Bigl[\underline{-\frac{u^{2}}{\xi^{2}}-\ii(k-k_{0})(u+\kakimachigai{k_{0}}{x_{0}})}\Bigr]
+\end{align*}
+（下線の部分を次のように平方完成する）
+\begin{align*}
+&-\frac{1}{\xi^{2}}\bigl(u^{2}+\ii\xi^{2}(k-k_{0})u+\ii\xi^{2}(k-k_{0})x_{0}\bigr)\\
+&=-\frac{1}{\xi^{2}}\Bigl(u+\frac{\ii\xi^{2}(k-k_{0})}{2}\Bigr)^{2}-\frac{\xi^{2}(k-k_{0})^{2}}{4}\\
+&\qquad-\ii(k-k_{0})x_{0}
+\end{align*}
+\nuke{$u$ の積分と係数}
+\[ \tilde{\psi}(k)=\Bigl(\frac{\xi^{2}}{2\pi}\Bigr)^{1/4}\exp\Bigl[-\frac{\xi^{2}(k-k_{0})^{2}}{4}-\ii(k-k_{0})x_{0}\Bigr] \]
+\naze{答えは正しいが，平方完成からすぐ答えを書いている。$v=u/\xi$ とおくと指数の第1項は $-(v-\ii a)^{2}$（$a=-(k-k_{0})\xi/2$）で，$a$ が実数なので要点整理のガウス積分が使え，$u$ の積分は $\xi\sqrt{\pi}\,\ee^{-\xi^{2}(k-k_{0})^{2}/4}$ になる。係数は $(2\pi\xi)^{-1/2}(2/\pi)^{1/4}\cdot\xi\sqrt{\pi}=(\xi^{2}/(2\pi))^{1/4}$ である。この2つを書く。}
+\toi{3}{◎}{}
+\[ \abs{\tilde{\psi}(k)}^{2}=\frac{\xi}{\sqrt{2\pi}}\exp\Bigl[-\frac{\xi^{2}(k-k_{0})^{2}}{2}\Bigr] \]
+\begin{align*}
+\expval{p}&=\int\hbar k\,\frac{\xi}{\sqrt{2\pi}}\exp\Bigl[-\frac{\xi^{2}(k-k_{0})^{2}}{2}\Bigr]\dd k\\
+&=\frac{\hbar\xi}{\sqrt{2\pi}}\Bigl(\int(k-k_{0})\exp[\sim]\dd k\\
+&\qquad+\int k_{0}\exp[\sim]\dd k\Bigr)\\
+&=\frac{\hbar\xi k_{0}}{\sqrt{2\pi}}\cdot\sqrt{\frac{2\pi}{\xi^{2}}}=\hbar k_{0}
+\end{align*}
+$k_{0}$：中心，$x_{0}$：位相のみ
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 要点整理の $\int\ee^{-(x-\ii a)^{2}}\dd x=\sqrt{\pi}$ は $a$ が実数のときの式である。平方完成で出た $u+\ii\xi^{2}(k-k_{0})/2$ を $v=u/\xi$ で $v-\ii a$ の形に直し，$a=-(k-k_{0})\xi/2$ が実数であることを1行書いてから使う。これがこの問題の要点である。
+\item \mae{第7章 問題1・11-04，第6章 問題3・11-01} 途中を飛ばして答えだけを書いた（前回も理由の1文が無かった）。係数 $(2\pi\xi)^{-1/2}(2/\pi)^{1/4}\cdot\xi\sqrt{\pi}=(\xi^{2}/(2\pi))^{1/4}$ を1行書いておけば，(3) の $\int\abs{\tilde{\psi}}^{2}\dd k=1$ で検算できる。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は $\abs{\psi}^{2}$ がガウス関数になることを使う。(2) は $x$ によらない因子を積分の外に出し，指数を平方完成してから要点整理のガウス積分（虚数のずれを含む形）を使う。
+\keisan \shoumonkai{1} $\abs{\ee^{\ii k_{0}x}}=1$ なので
+\[ \abs{\psi(x)}^{2}=\sqrt{\frac{2}{\pi}}\,\frac{1}{\xi}\exp\left[-\frac{2(x-x_{0})^{2}}{\xi^{2}}\right] \]
+である。$\alpha>0$ に対して $\ee^{-\alpha u^{2}}$ の全範囲の積分は，$s=\sqrt{\alpha}\,u$ とおいて $\sqrt{\pi/\alpha}$ になる。$\alpha=2/\xi^{2}$ として
+\[ \int_{-\infty}^{\infty}\abs{\psi}^{2}\dd x=\sqrt{\frac{2}{\pi}}\,\frac{1}{\xi}\sqrt{\frac{\pi\xi^{2}}{2}}=1 \]
+で規格化されている。$\abs{\psi}^{2}$ は $x=x_{0}$ について対称なので $\expval{x}=x_{0}$ である（$(x-x_{0})\abs{\psi}^{2}$ は $x_{0}$ について奇関数で，積分は $0$）。
+
+\shoumonkai{2} $N=(2/\pi)^{1/4}\xi^{-1/2}$，$q=k-k_{0}$ とおく。$\ee^{\ii k_{0}x}\ee^{-\ii kx}=\ee^{-\ii qx}$ で，$x=u+x_{0}$ とすると $\ee^{-\ii qx}=\ee^{-\ii qx_{0}}\ee^{-\ii qu}$ なので
+\[ \tilde{\psi}(k)=\frac{N}{\sqrt{2\pi}}\,\ee^{-\ii qx_{0}}\int_{-\infty}^{\infty}\exp\left(-\frac{u^{2}}{\xi^{2}}-\ii qu\right)\dd u \]
+である。指数を平方完成すると
+\[ -\frac{u^{2}}{\xi^{2}}-\ii qu=-\frac{1}{\xi^{2}}\left(u^{2}+\ii q\xi^{2}u\right)=-\frac{1}{\xi^{2}}\left(u+\frac{\ii q\xi^{2}}{2}\right)^{2}-\frac{q^{2}\xi^{2}}{4} \]
+となる。最後の項は
+\[ -\frac{1}{\xi^{2}}\cdot\left(-\frac{q^{2}\xi^{4}}{4}\right) \]
+を移したものである。$v=u/\xi$ とおくと $\dd u=\xi\dd v$ で，指数の第1項は $-(v+\ii q\xi/2)^{2}=-(v-\ii a)^{2}$（$a=-q\xi/2$ は実数）になる。要点整理のガウス積分から
+\[ \int_{-\infty}^{\infty}\exp\left(-\frac{u^{2}}{\xi^{2}}-\ii qu\right)\dd u=\xi\sqrt{\pi}\,\ee^{-q^{2}\xi^{2}/4} \]
+である。係数をまとめると
+\[ \frac{N}{\sqrt{2\pi}}\,\xi\sqrt{\pi}=\left(\frac{2}{\pi}\right)^{1/4}\frac{\sqrt{\xi}}{\sqrt{2}}=2^{1/4-1/2}\pi^{-1/4}\xi^{1/2}=\left(\frac{\xi^{2}}{2\pi}\right)^{1/4} \]
+なので
+\[ \tilde{\psi}(k)=\left(\frac{\xi^{2}}{2\pi}\right)^{1/4}\exp\left[-\frac{\xi^{2}(k-k_{0})^{2}}{4}-\ii(k-k_{0})x_{0}\right] \]
+である。
+
+\shoumonkai{3} 位相因子 $\ee^{-\ii(k-k_{0})x_{0}}$ は絶対値 $1$ なので
+\[ \abs{\tilde{\psi}(k)}^{2}=\frac{\xi}{\sqrt{2\pi}}\exp\left[-\frac{\xi^{2}(k-k_{0})^{2}}{2}\right] \]
+で，$x_{0}$ を含まない。これは $k=k_{0}$ について対称なので，$\expval{p}=\hbar\expval{k}=\hbar k_{0}$ である。$x_{0}$（位置のずれ）は $\tilde{\psi}$ の位相 $-(k-k_{0})x_{0}$ にだけ現れ，運動量の分布を変えない。$k_{0}$（$\ee^{\ii k_{0}x}$ による波数のずれ）は $\abs{\tilde{\psi}}^{2}$ の中心を $k=k_{0}$ に移す。
+\kotae{\shoumonkai{1} 規格化されている。$\expval{x}=x_{0}$ \shoumonkai{2} $\tilde{\psi}(k)=(\xi^{2}/(2\pi))^{1/4}\exp[-\xi^{2}(k-k_{0})^{2}/4-\ii(k-k_{0})x_{0}]$ \shoumonkai{3} $\abs{\tilde{\psi}(k)}^{2}=\frac{\xi}{\sqrt{2\pi}}\ee^{-\xi^{2}(k-k_{0})^{2}/2}$（$x_{0}$ によらない）。$\expval{p}=\hbar k_{0}$。$x_{0}$ は位相に，$k_{0}$ は分布の中心に現れる}
+\begin{ronten}
+  \item \shoumonkai{1} $\expval{x}=x_{0}$ の根拠として，$\abs{\psi}^{2}$ が $x=x_{0}$ について対称であることを書く。
+  \item \shoumonkai{2} 平方完成のあとで要点整理のガウス積分を使えるのは，虚数方向のずれ $a=-q\xi/2$ が実数だからであることを述べる。
+  \item \shoumonkai{3} $\expval{p}=\hbar k_{0}$ の根拠として，$\abs{\tilde{\psi}(k)}^{2}$ が $k=k_{0}$ について対称であることを書く。
+\end{ronten}
+\kenzan 規格化：$\abs{\tilde{\psi}}^{2}$ を $k$ で積分すると，$\alpha=\xi^{2}/2$ として $\frac{\xi}{\sqrt{2\pi}}\sqrt{2\pi/\xi^{2}}=1$ で，$\psi$ の規格化と一致する（要点整理）。次元：$\xi k$ は無次元，$\abs{\tilde{\psi}}^{2}$ は長さ（$\xi$）の次元で，$\abs{\tilde{\psi}}^{2}\dd k$ は無次元。特殊ケース：$x_{0}=k_{0}=0$ では $\tilde{\psi}(k)=(\xi^{2}/(2\pi))^{1/4}\ee^{-\xi^{2}k^{2}/4}$ で，実数の偶関数のガウス関数は再び実数の偶関数のガウス関数に移る。$\xi$ が小さいほど $\abs{\tilde{\psi}}^{2}$ の幅（$\propto1/\xi$）が広がり，位置が定まるほど運動量が定まらない。
+\tsumazuki $\ee^{\ii k_{0}x}$ を $x=u+x_{0}$ で書き直したときに出る $\ee^{\ii k_{0}x_{0}}$ を落とすと，位相が $-(k-k_{0})x_{0}$ ではなく $-kx_{0}$ になる（$\abs{\tilde{\psi}}^{2}$ は変わらないが，$\tilde{\psi}$ としては誤り）。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\062_2026-11-07.tex
+\mondaibangou{6}
+\begin{mondai}{062-complete}{計算}{完全性の式を挟んだ $\braket{m}{n}$・$\braket{n}{\psi}$ の計算と，周期的境界条件の系での運動量の測定値・確率・期待値}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+Level 1 の周期的境界条件の系（長さ $L$，$0\le x\le L$，ポテンシャル $0$，質量 $m$）を考える。運動量の固有状態を $\ket{n}$（$n$ は整数）とし，その座標表示 $\braket{x}{n}$ は Level 1 の周期的境界条件の問題で求めたものとする。
+  \begin{shoumon}
+    \item $\braket{m}{n}$ が $\braket{m}{x}\braket{x}{n}$ の $x$ についての $0$ から $L$ までの積分に等しいことを，完全性の観点から説明し，$\braket{m}{n}$ を求めよ。同じ考え方で，状態 $\ket{\psi}$ の展開係数 $c_{n}=\braket{n}{\psi}$ を座標表示 $\braket{x}{\psi}$ の積分で表せ。
+    \item 座標表示が
+      \[ \braket{x}{\psi}=\frac{1}{\sqrt{L}}\left[\cos\frac{2\pi x}{L}+\ii\sin\frac{4\pi x}{L}\right] \]
+      の状態について，規格化されていることを確かめ，すべての $n$ について $c_{n}$ を求めよ。
+    \item (2) の状態で運動量を測定したときに得られる値とその確率を答え，$\expval{p}$ とエネルギーの期待値 $\expval{E}$ を求めよ。
+  \end{shoumon}
+\notekiroku{2026-11-07 A ○◎◎}
+\begin{kotaeutsushi}{2026-11-07}
+\toi{1}{○}{記述}
+\nuke{完全性の式を挟む}
+\begin{align*}
+&\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x\\
+&=\int_{0}^{L}\braket{x}{m}^{*}\braket{x}{n}\dd x\\
+&=\frac{1}{L}\int_{0}^{L}\exp\Bigl(\ii\frac{2\pi(n-m)}{L}x\Bigr)\dd x
+\end{align*}
+i) $n=m$ のとき
+\[ \braket{m}{n}=\frac{1}{L}\int_{0}^{L}\dd x=1 \]
+ii) $n\neq m$ のとき
+\begin{align*}
+\braket{m}{n}&=\frac{1}{L}\biggl[\frac{L}{\ii2\pi(n-m)}\exp\Bigl(\ii\frac{2\pi(n-m)}{L}x\Bigr)\biggr]_{0}^{L}\\
+&=1-1=0
+\end{align*}
+\begin{align*}
+c_{n}&=\int_{0}^{L}\braket{n}{x}\braket{x}{\psi}\dd x\\
+&=\int_{0}^{L}\frac{1}{\sqrt{L}}\exp\Bigl(-\ii\frac{2n\pi}{L}x\Bigr)\braket{x}{\psi}\dd x
+\end{align*}
+\naze{計算は正しいが，この積分が $\braket{m}{n}$ に等しい理由が無い。完全性の式 $\int_{0}^{L}\ketbra{x}{x}\dd x=1$ は恒等演算子なので，$\braket{m}{n}=\bra{m}\bigl(\int_{0}^{L}\ketbra{x}{x}\dd x\bigr)\ket{n}=\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x$ と挟んでも値は変わらない。この1行を書く（$c_{n}$ も同じ）。}
+\toi{2}{◎}{}
+\begin{align*}
+&\int_{0}^{L}\abs{\braket{x}{\psi}}^{2}\dd x\\
+&=\frac{1}{L}\int_{0}^{L}\cos^{2}\frac{2\pi x}{L}+\sin^{2}\frac{4\pi x}{L}\dd x\\
+&=\frac{1}{2L}\int_{0}^{L}\Bigl(1+\cos\frac{4\pi x}{L}\Bigr)\\
+&\qquad+\Bigl(1-\cos\frac{8\pi x}{L}\Bigr)\dd x\\
+&=\frac{1}{2L}\cdot2L=1
+\end{align*}
+\begin{align*}
+c_{n}&=\frac{1}{L}\int_{0}^{L}\Bigl(\cos\frac{2n\pi}{L}x-\ii\sin\frac{2n\pi}{L}x\Bigr)\\
+&\qquad\times\Bigl(\cos\frac{2\pi x}{L}+\ii\sin\frac{4\pi x}{L}\Bigr)\dd x\\
+&=\frac{1}{L}\int_{0}^{L}\dd x\,\cos\frac{2n\pi x}{L}\cos\frac{2\pi x}{L}\\
+&\qquad+\sin\frac{2n\pi x}{L}\sin\frac{4\pi x}{L}\\
+&\qquad+\ii\Bigl(\cos\frac{2n\pi x}{L}\sin\frac{4\pi x}{L}\\
+&\qquad-\sin\frac{2n\pi x}{L}\cos\frac{2\pi x}{L}\Bigr)\\
+&=\frac{1}{2L}\int_{0}^{L}\dd x\,\kakimachigai{\cos}{-\cos}\frac{2\pi x(n+2)}{L}+\cos\frac{2\pi x(n+1)}{L}\\
+&\qquad+\cos\frac{2\pi x(n-1)}{L}+\cos\frac{2\pi x(n-2)}{L}\\
+&\qquad+\ii\Bigl(\sin\frac{2\pi x(n+2)}{L}\kakimachigai{+}{-}\sin\frac{2\pi x(n+1)}{L}\\
+&\qquad-\sin\frac{2\pi x(n-1)}{L}\kakimachigai{+}{-}\sin\frac{2\pi x(n-2)}{L}\Bigr)
+\end{align*}
+\[ c_{1}=\frac{1}{2L}\int_{0}^{L}\dd x=\frac{1}{2} \]
+\[ c_{2}=\frac{1}{2L}\int_{0}^{L}\dd x=\frac{1}{2} \]
+\[ c_{-1}=\frac{1}{2L}\int_{0}^{L}\dd x=\frac{1}{2} \]
+\[ c_{-2}=\frac{1}{2L}\int_{0}^{L}-1\,\dd x=-\frac{1}{2} \]
+\toi{3}{◎}{}
+\[ p_{n}=\frac{2n\pi\hbar}{L} \]
+$1/4$ で $p_{1}=2\pi\hbar/L$，$1/4$ で $p_{2}=4\pi\hbar/L$\\
+$1/4$ で $p_{-1}=-2\pi\hbar/L$，$1/4$ で $p_{-2}=-4\pi\hbar/L$
+\[ \expval{p}=0 \]
+\begin{align*}
+\expval{E}&=\frac{2\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}+\frac{8\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}\\
+&\qquad+\frac{2\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}+\frac{8\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}\\
+&=\frac{1}{4}\cdot\frac{20\pi^{2}\hbar^{2}}{mL^{2}}=\frac{5\pi^{2}\hbar^{2}}{mL^{2}}
+\end{align*}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item \mae{第7章 問題1・11-04，第6章 問題3・11-01} 「説明せよ」の部分が式にも文にも無い（前回も理由の1文が無かった）。完全性の式 $\int_{0}^{L}\ketbra{x}{x}\dd x=1$ は恒等演算子なので，$\bra{m}$ と $\ket{n}$ の間に挟んでも値は変わらない。この1行が「完全性の観点からの説明」で，$c_{n}=\braket{n}{\psi}$ も同じ1行で出る。
+\item (2) で積を和に直したとき，$\cos(n+2)$ の項の符号と $\ii\sin$ の2つの項の符号を誤った（$c_{-2}=-1/2$ は正しい）。$\sin A\sin B=\frac{1}{2}[\cos(A-B)-\cos(A+B)]$ の負号を確かめる。$\cos$ と $\ii\sin$ を指数関数に直して $\braket{x}{n}$ と見比べれば，$c_{n}$ はすぐ読める。
+\end{kizuki}
+\begin{tadashii}
+\houshin 完全性の式（値は $1$）を内積の間に挟んで座標表示の積分に直す。与えられた状態は三角関数を指数関数に直して $\braket{x}{n}$ の重ね合わせとして読み，係数の絶対値の2乗を確率とする。
+\keisan \shoumonkai{1} 完全性の式
+\[ \int_{0}^{L}\ketbra{x}{x}\dd x=1 \]
+を $\bra{m}$ と $\ket{n}$ の間に挟むと
+\[ \braket{m}{n}=\bra{m}\left(\int_{0}^{L}\ketbra{x}{x}\dd x\right)\ket{n}=\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x \]
+となる。$\braket{m}{x}=\braket{x}{m}^{*}=\ee^{-2\pi\ii mx/L}/\sqrt{L}$ なので
+\[ \braket{m}{n}=\frac{1}{L}\int_{0}^{L}\ee^{2\pi\ii(n-m)x/L}\dd x \]
+である。$n=m$ では被積分関数が $1$ で値は $1$。$n\neq m$ では
+\[ \frac{1}{L}\left[\frac{L}{2\pi\ii(n-m)}\ee^{2\pi\ii(n-m)x/L}\right]_{0}^{L}=\frac{1}{2\pi\ii(n-m)}\left(\ee^{2\pi\ii(n-m)}-1\right)=0 \]
+となる。よって $\braket{m}{n}=\delta_{mn}$ である。同じく完全性の式を $\bra{n}$ と $\ket{\psi}$ の間に挟むと
+\[ c_{n}=\braket{n}{\psi}=\int_{0}^{L}\braket{n}{x}\braket{x}{\psi}\dd x=\int_{0}^{L}\braket{x}{n}^{*}\braket{x}{\psi}\dd x \]
+となる。
+
+\shoumonkai{2} $\cos$ と $\sin$ は実数なので，$\abs{\cos\theta+\ii\sin\theta'}^{2}=\cos^{2}\theta+\sin^{2}\theta'$ である。$0$ から $L$ までの積分では $\cos^{2}(2\pi x/L)$ も $\sin^{2}(4\pi x/L)$ も整数周期にわたるので，それぞれ $L/2$ になる。よって
+\[ \int_{0}^{L}\abs{\braket{x}{\psi}}^{2}\dd x=\frac{1}{L}\left(\frac{L}{2}+\frac{L}{2}\right)=1 \]
+で規格化されている。次に
+\[ \cos\frac{2\pi x}{L}=\frac{1}{2}\left(\ee^{2\pi\ii x/L}+\ee^{-2\pi\ii x/L}\right),\qquad \ii\sin\frac{4\pi x}{L}=\frac{1}{2}\left(\ee^{4\pi\ii x/L}-\ee^{-4\pi\ii x/L}\right) \]
+で，$\ee^{2\pi\ii nx/L}/\sqrt{L}=\braket{x}{n}$ なので
+\[ \braket{x}{\psi}=\frac{1}{2}\braket{x}{1}+\frac{1}{2}\braket{x}{-1}+\frac{1}{2}\braket{x}{2}-\frac{1}{2}\braket{x}{-2} \]
+である。(1) の $c_{n}$ の式に代入すると，規格直交性 $\braket{m}{n}=\delta_{mn}$ から各係数が取り出され，$c_{1}=c_{-1}=c_{2}=1/2$，$c_{-2}=-1/2$，それ以外の $n$ では $c_{n}=0$ となる。
+
+\shoumonkai{3} 測定値は $p_{n}=2\pi\hbar n/L$ で，$n=\pm1,\pm2$ のそれぞれの確率は $\abs{c_{n}}^{2}=1/4$ である。つまり $\pm2\pi\hbar/L$，$\pm4\pi\hbar/L$ が確率 $1/4$ ずつで得られる。期待値は
+\[ \expval{p}=\sum_{n}p_{n}\abs{c_{n}}^{2}=\frac{2\pi\hbar}{L}\cdot\frac{1}{4}(1-1+2-2)=0 \]
+である。エネルギーは $E_{n}=p_{n}^{2}/(2m)$ なので
+\[ \expval{E}=\sum_{n}\frac{p_{n}^{2}}{2m}\abs{c_{n}}^{2}=\frac{1}{2m}\left(\frac{2\pi\hbar}{L}\right)^{2}\cdot\frac{1}{4}(1+1+4+4)=\frac{1}{2m}\cdot\frac{4\pi^{2}\hbar^{2}}{L^{2}}\cdot\frac{5}{2}=\frac{5\pi^{2}\hbar^{2}}{mL^{2}} \]
+である。
+\kotae{\shoumonkai{1} 完全性の式を挟むと座標表示の積分になる。$\braket{m}{n}=\delta_{mn}$，$c_{n}=\int\braket{x}{n}^{*}\braket{x}{\psi}\dd x$（積分は $0\le x\le L$） \shoumonkai{2} $c_{1}=c_{-1}=c_{2}=1/2$，$c_{-2}=-1/2$，他は $0$ \shoumonkai{3} $\pm2\pi\hbar/L$，$\pm4\pi\hbar/L$ がそれぞれ確率 $1/4$。$\expval{p}=0$，$\expval{E}=5\pi^{2}\hbar^{2}/(mL^{2})$}
+\begin{ronten}
+  \item \shoumonkai{1} 完全性の式は値が $1$（恒等演算子）なので，内積の間に挟んでも値が変わらないことを述べる。
+  \item \shoumonkai{1} $n\neq m$ で積分が $0$ になるのは，被積分関数が区間 $0\le x\le L$ で整数周期の指数関数だからであることを書く。
+  \item \shoumonkai{2} $\abs{\braket{x}{\psi}}^{2}$ で交差項が消える理由として，$\cos$ と $\sin$ が実数であることを述べる。
+  \item \shoumonkai{3} $\ket{n}$ はエネルギーの固有状態でもある（$E_{n}=p_{n}^{2}/(2m)$）ので，$\expval{E}$ も運動量と同じ確率 $\abs{c_{n}}^{2}$ を重みにして求められることを書く。
+\end{ronten}
+\kenzan 確率の和は $4\times1/4=1$ で (2) の規格化と合う。座標表示でも確かめる：$\braket{x}{\psi}$ を2回微分すると
+\[ \dv[2]{}{x}\braket{x}{\psi}=-\left(\frac{2\pi}{L}\right)^{2}\frac{1}{\sqrt{L}}\left[\cos\frac{2\pi x}{L}+4\ii\sin\frac{4\pi x}{L}\right] \]
+で，$\braket{x}{\psi}^{*}$ をかけて $0$ から $L$ まで積分すると，周波数の違う積の項は消え，$\cos^{2}$ と $4\sin^{2}$ の項から $(L/2+2L)/L=5/2$ が残る。よって
+\[ \expval{E}=\frac{\hbar^{2}}{2m}\left(\frac{2\pi}{L}\right)^{2}\frac{5}{2}=\frac{5\pi^{2}\hbar^{2}}{mL^{2}} \]
+で一致する。次元：$\hbar^{2}/(mL^{2})$ はエネルギー。
+\tsumazuki $\ii\sin\theta$ を指数関数に直すとき，$\sin\theta=(\ee^{\ii\theta}-\ee^{-\ii\theta})/(2\ii)$ の $\ii$ が打ち消すので係数は実数の $\pm1/2$ になる。$c_{-2}$ の符号を落としやすい（確率には効かないが，状態としては別物）。
+\end{tadashii}
+\end{mondai}
+
+% toubun: kiroku\toubun\量子力学1\132_2026-11-07.tex
+\mondaibangou{7}
+\begin{mondai}{132-continuum}{計算}{周期的境界条件の系の長さを無限大にしたときの，離散的な運動量の固有状態と連続な運動量表示の対応（和と積分，$\delta_{nm}$ とデルタ関数）}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+長さ $L$ の周期的境界条件の系（$0\le x\le L$）で，運動量の規格化された固有関数を $\phi_{n}(x)=\ee^{\ii k_{n}x}/\sqrt{L}$（$k_{n}=2\pi n/L$，$n$ は整数）とする。規格化された波動関数 $\psi(x)$ は，ある有限の範囲の外では $0$ で，$L$ はその範囲を含むほど大きいとする（範囲の外では $\psi=0$ として全区間で考える）。運動量表示は要点整理の規約で $\tilde{\psi}(k)$ とする。
+  \begin{shoumon}
+    \item $\psi=\sum_{n}c_{n}\phi_{n}$ と展開したときの係数 $c_{n}$ が，$c_{n}=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ となることを示せ。
+    \item 隣り合う $k_{n}$ の間隔 $\Delta k$ を求め，$\sum_{n}\abs{c_{n}}^{2}=1$ が $L\to\infty$ で $\abs{\tilde{\psi}(k)}^{2}$ の積分が $1$ であることに移ることを説明せよ。
+    \item $(1/L)\sum_{n}\ee^{\ii k_{n}(x-x')}$ が $L\to\infty$ でデルタ関数 $\delta(x-x')$ に近づくことを，(2) と同じ考え方で説明せよ。また，$\phi_{k}(x)=\ee^{\ii kx}/\sqrt{2\pi}$ との関係 $\phi_{n}=\sqrt{2\pi/L}\,\phi_{k_{n}}$ を使い，$\delta_{nm}$ が $L\to\infty$ で $(2\pi/L)\,\delta(k-k')$ に対応することを説明せよ。
+    \item 電子（質量 $\melec$）を $L=\qty{1.00}{\micro\metre}$ の系に入れたとき，運動エネルギーが \qty{1.00}{\electronvolt} 以下の運動量の固有状態はおよそいくつあるか。有効数字2桁で答えよ。
+  \end{shoumon}
+\notekiroku{2026-11-07 C ▲◎△△}
+\begin{kotaeutsushi}{2026-11-07}
+\toi{1}{▲}{方針}
+（脇に $k_{n}=2n\pi/L$，$\dd k_{n}=(2\pi/L)\dd n$ と書く）
+\begin{align*}
+\psi&=\sum_{n}\sqrt{\frac{2\pi}{L}}\,\tilde{\psi}(k_{n})\frac{1}{\sqrt{L}}\ee^{\ii k_{n}x}\\
+&=\frac{2\pi}{L}\frac{1}{\sqrt{2\pi}}\int\ee^{\ii k_{n}x}\tilde{\psi}(k_{n})\dd n\\
+&=\frac{1}{\sqrt{2\pi}}\int\ee^{\ii k_{n}x}\tilde{\psi}(k_{n})\dd k_{n}\\
+&=\psi
+\end{align*}
+\naze{示すべき $c_{n}=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ を仮定して代入し，和を $\int\dd n$ に置き換えて逆変換に戻ることを確かめている。和を積分に置き換えるのは $L\to\infty$ での近似なので，有限の $L$ で成り立つ等式の証明にならない。規格直交性から $c_{n}=\int_{0}^{L}\phi_{n}^{*}\psi\dd x$ とし，$\psi$ が範囲の外で $0$ なので積分範囲を全区間に広げると，$c_{n}=\frac{1}{\sqrt{L}}\int_{-\infty}^{\infty}\ee^{-\ii k_{n}x}\psi\dd x=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ が近似なしで出る。}
+\toi{2}{◎}{}
+\[ \dd k=\frac{2\pi(n+1)}{L}-\frac{2n\pi}{L}=\frac{2\pi}{L}\ \xrightarrow{L\to\infty}\ 0 \]
+\[ \sum_{n}\abs{c_{n}}^{2}=\frac{2\pi}{L}\sum_{n}\abs{\tilde{\psi}(k_{n})}^{2}=1 \]
+\[ \therefore\ \frac{2\pi}{L}\int_{-\infty}^{\infty}\dd n\,\abs{\tilde{\psi}(k_{n})}^{2}=1 \]
+\[ \therefore\ \int_{-\infty}^{\infty}\dd k_{n}\,\abs{\tilde{\psi}(k_{n})}^{2}=1 \]
+\toi{3}{△}{未着手}
+\begin{align*}
+&\frac{1}{L}\int\dd n\,\ee^{\ii k_{n}(x-x')}\\
+&=\frac{1}{L}\cdot\frac{L}{2\pi}\int\dd k_{n}\,\ee^{\ii k_{n}(x-x')}\\
+&=\frac{1}{2\pi}\int\dd k_{n}\,\ee^{\ii k_{n}(x-x')}\\
+&=\delta(x-x')
+\end{align*}
+\nuke{$\delta_{nm}\leftrightarrow(2\pi/L)\delta(k-k')$}
+\naze{前半は正しいが，後半の「$\delta_{nm}$ が $(2\pi/L)\delta(k-k')$ に対応すること」が無い。$\phi_{n}=\sqrt{2\pi/L}\,\phi_{k_{n}}$ を $\int\phi_{n}^{*}\phi_{m}\dd x=\delta_{nm}$ に入れると $(2\pi/L)\int\phi_{k_{n}}^{*}\phi_{k_{m}}\dd x=\delta_{nm}$ で，$L\to\infty$ で左辺の積分は $\delta(k_{n}-k_{m})$ になる。}
+\toi{4}{△}{立式}
+\[ E_{n}=\frac{2n^{2}\pi^{2}\hbar^{2}}{\melec L^{2}}\le\qty{1.00}{\electronvolt} \]
+\[ \therefore\ n^{2}\le\frac{\melec eL^{2}}{2\pi^{2}\hbar^{2}}\,\mathrm{J} \]
+\[ \ayamari{n}{\abs{n}}\le\sqrt{\frac{\melec eL^{2}}{2\pi^{2}\hbar^{2}}}\approx810 \]
+\nuke{負の $n$ も数える}
+\naze{$n$ は負の整数（逆向きの運動量）もとり，$E_{n}$ は $n^{2}$ で決まるので，条件は $\abs{n}\le815$ 程度である。状態の数は $n=0$ を含めて $2\times815+1\approx\num{1.6e3}$ 個で，$n\le810$ の個数は答えの約半分にしかならない。}
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 展開係数を求める基本は内積 $c_{n}=\braket{\phi_{n}}{\psi}=\int_{0}^{L}\phi_{n}^{*}\psi\dd x$ である。「$\Delta k=2\pi/L$ をかけた和がリーマン和として積分に移る」は $L\to\infty$ の極限で使う道具で，(2)(3) で使うものである。示すべき式を仮定して元に戻るのを確かめても証明にならない。
+\item \mae{第7章 問題3・11-04} 周期的境界条件で負の $n$ を取りこぼした（前回は $\pm n$ の2重縮退を述べなかった）。$n$ を書いたら「$n=0,\pm1,\pm2,\ldots$」と書き添え，$k$ 軸に間隔 $2\pi/L$ で点を並べてから区間 $[-k_{0},k_{0}]$ に入る数を数える。個数はおよそ $2k_{0}/\Delta k$ で，$2$ を忘れない。
+\item 「〜を説明せよ。また，〜を説明せよ」のように問いが2つある小問は，答えた行に印を付けて数を数える（(3) の後半が無かった）。
+\end{kizuki}
+\begin{tadashii}
+\houshin 展開係数を内積で求めて運動量表示と比べる。$n$ についての和は，$k$ 軸上の間隔 $\Delta k=2\pi/L$ の点での値の和なので，$L\to\infty$ でリーマン和として $k$ についての積分に移る。
+\keisan
+\shoumonkai{1} $\phi_{n}$ は規格直交なので
+\[ c_{n}=\int_{0}^{L}\phi_{n}^{*}\psi\,\dd x=\frac{1}{\sqrt{L}}\int_{-\infty}^{\infty}\ee^{-\ii k_{n}x}\psi(x)\dd x=\sqrt{\frac{2\pi}{L}}\cdot\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\ee^{-\ii k_{n}x}\psi(x)\dd x=\sqrt{\frac{2\pi}{L}}\,\tilde{\psi}(k_{n}) \]
+（$\psi$ は範囲の外で $0$ なので，積分範囲を全区間に広げた。）
+\shoumonkai{2} $\Delta k=k_{n+1}-k_{n}=2\pi/L$ である。(1) から $\abs{c_{n}}^{2}=(2\pi/L)\abs{\tilde{\psi}(k_{n})}^{2}=\Delta k\,\abs{\tilde{\psi}(k_{n})}^{2}$ なので
+\[ 1=\sum_{n}\abs{c_{n}}^{2}=\sum_{n}\Delta k\,\abs{\tilde{\psi}(k_{n})}^{2}\ \longrightarrow\ \int_{-\infty}^{\infty}\abs{\tilde{\psi}(k)}^{2}\dd k\qquad(L\to\infty,\ \Delta k\to0) \]
+となる。右辺は $k$ 軸を幅 $\Delta k$ の区間に分けたリーマン和で，間隔が $0$ に近づくと積分になる。
+\shoumonkai{3} 同じく $1/L=\Delta k/(2\pi)$ として
+\[ \frac{1}{L}\sum_{n}\ee^{\ii k_{n}(x-x')}=\frac{1}{2\pi}\sum_{n}\Delta k\,\ee^{\ii k_{n}(x-x')}\ \longrightarrow\ \frac{1}{2\pi}\int_{-\infty}^{\infty}\ee^{\ii k(x-x')}\dd k=\delta(x-x') \]
+（最後はデルタ関数の積分表示）。また $\phi_{n}=\sqrt{2\pi/L}\,\phi_{k_{n}}$ を規格直交性 $\int\phi_{n}^{*}\phi_{m}\dd x=\delta_{nm}$ に入れると
+\[ \frac{2\pi}{L}\int_{0}^{L}\phi_{k_{n}}^{*}\phi_{k_{m}}\dd x=\delta_{nm} \]
+$L\to\infty$ で左辺の積分は $\delta(k_{n}-k_{m})$ になるので，$\delta_{nm}$ は $(2\pi/L)\delta(k-k')$ に対応する。実際，任意の関数 $f$ について $\sum_{m}f(k_{m})\delta_{nm}=f(k_{n})$ は，和を $(L/2\pi)\int\dd k'$ に置き換えると $\int f(k')\delta(k_{n}-k')\dd k'=f(k_{n})$ となり，両者は同じ働きをする。
+\shoumonkai{4} 運動エネルギーが $E=\qty{1.00}{\electronvolt}$ 以下なら $\abs{k_{n}}\le k_{0}$ で
+\[ k_{0}=\frac{\sqrt{2\melec E}}{\hbar}=\frac{\sqrt{2\times\num{9.109e-31}\times\num{1.602e-19}}}{\num{1.055e-34}}\,\unit{\per\metre}=\qty{5.12e9}{\per\metre} \]
+$k_{n}$ は間隔 $\Delta k=2\pi/L$ で並ぶので，その数はおよそ
+\[ \frac{2k_{0}}{\Delta k}=\frac{k_{0}L}{\pi}=\frac{\num{5.12e9}\times\num{1.00e-6}}{\pi}=\num{1.6e3} \]
+である。
+\zu[周期的境界条件での運動量の固有値（$k$ 軸上の点）。間隔は $2\pi/L$ で，$L\to\infty$ で連続になる]{\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[jiku] (-4.2,0) -- (4.4,0) node[right]{$k$};
+  \foreach \n in {-4,...,4}{\fill (\n*0.9,0) circle (1.6pt);}
+  \node[below] at (0,-0.1) {$0$};
+  \node[below] at (0.9,-0.1) {$k_{1}$};
+  \node[below] at (-0.9,-0.1) {$k_{-1}$};
+  \draw[sunpou] (1.8,0.35) -- (2.7,0.35) node[midway,above]{$2\pi/L$};
+\end{tikzpicture}}
+\kotae{\shoumonkai{1} $c_{n}=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$（導出は本文） \shoumonkai{2} $\Delta k=2\pi/L$。$\sum_{n}\abs{c_{n}}^{2}=\sum_{n}\Delta k\abs{\tilde{\psi}(k_{n})}^{2}$ はリーマン和で，$\int\abs{\tilde{\psi}}^{2}\dd k=1$ に移る \shoumonkai{3} 和が $\frac{1}{2\pi}\int\ee^{\ii k(x-x')}\dd k=\delta(x-x')$ に移る。$\delta_{nm}\leftrightarrow(2\pi/L)\delta(k-k')$ \shoumonkai{4} 約 $\num{1.6e3}$ 個}
+\begin{ronten}
+  \item \shoumonkai{1} $\psi$ が範囲の外で $0$ なので，積分範囲を $0$ から $L$ から全区間に広げてよいことを書く。
+  \item \shoumonkai{2} 和の各項に $\Delta k$ がかかった形にしてからリーマン和として積分に移すことを示す。
+\end{ronten}
+\kenzan 次元：$\tilde{\psi}(k)$ は $\sqrt{\text{長さ}}$ の次元をもち，$\sqrt{2\pi/L}\,\tilde{\psi}$ は無次元で $c_{n}$ と合う。(4) の数は $L$ に比例し，系を大きくすると状態の間隔が細かくなって数が増える。
+\tsumazuki $\phi_{n}$（規格化の係数 $1/\sqrt{L}$）と $\phi_{k}$（係数 $1/\sqrt{2\pi}$）を取り違えない。両者の比 $\sqrt{2\pi/L}$ が，和と積分の間の $\Delta k$ の因子を生む。
+\end{tadashii}
+\end{mondai}
+
+\level{3}
+% toubun: kiroku\toubun\量子力学1\054_2026-11-07.tex
+\mondaibangou{8}
+\begin{mondai}{054-mom}{導出}{フーリエ変換で $x$ と $\partial^{2}/\partial x^{2}$ が運動量表示でどう表されるかと，一様な力の場での運動量表示のエネルギー固有関数}
+\begin{teisuu}
+  換算プランク定数 & $\hbar$ & \qty{1.055e-34}{\joule\second}\\
+  電子の質量 & $\melec$ & \qty{9.109e-31}{\kilogram}\\
+  電気素量 & $e$ & \qty{1.602e-19}{\coulomb}\\
+\end{teisuu}
+1次元で質量 $m$ の粒子の波動関数 $\psi(x,t)$ と，運動量表示の波動関数
+  \[ \tilde{\psi}(p,t)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\psi(x,t)\dd x \]
+  を考える。$\psi$ とその $x$ についての導関数は十分滑らかで，$x\to\pm\infty$ で十分速く $0$ になり，微分と積分の順序は交換してよいとする。
+  \begin{shoumon}
+    \item $x\psi(x,t)$ のフーリエ変換（上の式で $\psi$ を $x\psi$ に置き換えたもの）が $\ii\hbar\,\partial\tilde{\psi}/\partial p$ に等しいことを示せ。
+    \item $\partial^{2}\psi/\partial x^{2}$ のフーリエ変換が $-(p^{2}/\hbar^{2})\tilde{\psi}$ に等しいことを示せ。
+    \item 粒子が一様な力 $F$（$F>0$，$x$ の正の向き）を受け，$V(x)=-Fx$ であるとする。座標表示のシュレーディンガー方程式
+      \[ \ii\hbar\pdv{\psi}{t}=-\frac{\hbar^{2}}{2m}\pdv[2]{\psi}{x}-Fx\psi \]
+      から，$\tilde{\psi}(p,t)$ の満たす方程式を導け。
+    \item (3) で $\tilde{\psi}(p,t)=\tilde{\phi}(p)\ee^{-\ii Et/\hbar}$（$E$ は実定数）とおき，$\tilde{\phi}(p)$ の満たす1階の微分方程式を導いて解け。積分定数は $C$ とする。
+    \item (4) の $\abs{\tilde{\phi}(p)}^{2}$ を求め，運動量の確率分布の特徴を述べよ。また，その特徴を，一様な力のもとでの古典力学の運動（運動量が時間とともにどう変わるか）と結びつけて説明せよ。
+  \end{shoumon}
+\notekiroku{2026-11-07 C ◎○◎△×}
+\begin{kotaeutsushi}{2026-11-07}
+\toi{1}{◎}{}
+\begin{align*}
+\ii\hbar\pdv{\tilde{\psi}}{p}&=\frac{\ii\hbar}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\frac{-\ii x}{\hbar}\ee^{-\ii px/\hbar}\psi(x,t)\dd x\\
+&=\frac{1}{\sqrt{2\pi\hbar}}\int\ee^{-\ii px/\hbar}x\psi(x,t)\dd x
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+&\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\psi\dd x\\
+&=\Bigl[-\frac{\hbar}{\ii p}\ee^{-\ii px/\hbar}\psi\Bigr]_{-\infty}^{\infty}\\
+&\qquad+\int_{-\infty}^{\infty}\frac{\hbar}{\ii p}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\dd x\\
+&=\nuke{\text{境界項は }0}\frac{\hbar}{\ii p}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\dd x\\
+&=\frac{\hbar}{\ii p}\Bigl[-\frac{\hbar}{\ii p}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\Bigr]_{-\infty}^{\infty}\\
+&\qquad+\int_{-\infty}^{\infty}-\frac{\hbar^{2}}{p^{2}}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x\\
+&=-\frac{\hbar^{2}}{p^{2}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x
+\end{align*}
+\[ \therefore\ -\frac{p^{2}}{\hbar^{2}}\tilde{\psi}=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x \]
+\naze{結果は正しいが，部分積分の境界項を $0$ として落とした理由が無い。$\abs{\ee^{-\ii px/\hbar}}=1$ で，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になる（問題文の仮定）ので境界項は消える，と1行書く。}
+\toi{3}{◎}{}
+\[ \ii\hbar\pdv{\tilde{\psi}}{t}=-\frac{\hbar^{2}}{2m}\cdot\Bigl(-\frac{p^{2}}{\hbar^{2}}\Bigr)\tilde{\psi}-F\ii\hbar\pdv{\tilde{\psi}}{p} \]
+\[ \ii\hbar\Bigl(\pdv{\tilde{\psi}}{t}+F\pdv{\tilde{\psi}}{p}\Bigr)=\frac{p^{2}}{2m}\tilde{\psi} \]
+\toi{4}{△}{未着手}
+\begin{align*}
+&\ii\hbar\Bigl(-\frac{\ii E}{\hbar}\tilde{\phi}\ee^{-\ii Et/\hbar}+F\ee^{-\ii Et/\hbar}\pdv{\tilde{\phi}}{p}\Bigr)\\
+&=\frac{p^{2}}{2m}\tilde{\phi}\ee^{-\ii Et/\hbar}
+\end{align*}
+\[ E\tilde{\phi}+\ii\hbar F\pdv{\tilde{\phi}}{p}=\frac{p^{2}}{2m}\tilde{\phi} \]
+\[ \therefore\ \dv{\tilde{\phi}}{p}=\frac{\ii}{\hbar F}\Bigl(E-\frac{p^{2}}{2m}\Bigr)\tilde{\phi} \]
+\nuke{解}
+\naze{方程式までは正しいが，問われている解が無い。変数分離して $\dd\tilde{\phi}/\tilde{\phi}=\frac{\ii}{\hbar F}(E-p^{2}/(2m))\dd p$ の両辺を積分すると，$\tilde{\phi}(p)=C\exp\bigl[\frac{\ii}{\hbar F}(Ep-p^{3}/(6m))\bigr]$ である。}
+\toi{5}{×}{未着手}
+\mikai
+\end{kotaeutsushi}
+\begin{kizuki}
+\item 部分積分で境界項を落とすときは，消える理由を1行書く：$\abs{\ee^{-\ii px/\hbar}}=1$ で，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になるから。問題文に仮定として書いてあることは，使った場所で名前を挙げる。
+\item \mae{第4章 問題7・10-28} 小問の途中で終わった（前回も (2) が途中，(3)(4) が未着手）。(4) は変数分離形で，$\dd\tilde{\phi}/\tilde{\phi}=(\text{$p$ の関数})\dd p$ を積分するだけである。解いたら $p$ で微分して元の方程式に戻るかで検算する。
+\item (5) の要点：指数の肩は純虚数（$E$，$p$，$F$，$\hbar$，$m$ は実数）なので $\abs{\tilde{\phi}}^{2}=\abs{C}^{2}$ で $p$ によらない。古典力学では $\dd p/\dd t=F$ が一定で，どの幅 $\dd p$ にも同じ時間 $\dd p/F$ だけとどまることと対応する。
+\end{kizuki}
+\begin{tadashii}
+\houshin (1) は積分の中で $p$ 微分し，(2) は部分積分を2回行う。(3) はシュレーディンガー方程式の両辺をフーリエ変換して (1)(2) を使う。(4) は変数分離で解き，(5) は絶対値をとる。
+\keisan \shoumonkai{1} 微分と積分の順序を交換し，$\ii\hbar\cdot(-\ii x/\hbar)=x$ を使う。
+\begin{align*}
+\ii\hbar\pdv{\tilde{\psi}}{p}
+&=\frac{\ii\hbar}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\left(-\frac{\ii x}{\hbar}\right)\ee^{-\ii px/\hbar}\psi\dd x\\
+&=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}x\psi\dd x
+\end{align*}
+右辺は $x\psi$ のフーリエ変換である。
+\shoumonkai{2} $\ee^{-\ii px/\hbar}$ の $x$ 微分は $(-\ii p/\hbar)\ee^{-\ii px/\hbar}$ である。部分積分を2回行い，境界項は $\abs{\ee^{-\ii px/\hbar}}=1$ と，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になることから消える。
+\begin{align*}
+\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv[2]{\psi}{x}\dd x
+&=\Bigl[\ee^{-\ii px/\hbar}\pdv{\psi}{x}\Bigr]_{-\infty}^{\infty}+\frac{\ii p}{\hbar}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\pdv{\psi}{x}\dd x\\
+&=\frac{\ii p}{\hbar}\left(\Bigl[\ee^{-\ii px/\hbar}\psi\Bigr]_{-\infty}^{\infty}+\frac{\ii p}{\hbar}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\psi\dd x\right)\\
+&=-\frac{p^{2}}{\hbar^{2}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\psi\dd x
+\end{align*}
+両辺に $1/\sqrt{2\pi\hbar}$ をかければ，$\partial^{2}\psi/\partial x^{2}$ のフーリエ変換は $-(p^{2}/\hbar^{2})\tilde{\psi}$ である。
+\shoumonkai{3} 両辺をフーリエ変換する。左辺は $t$ 微分と $x$ 積分の順序を交換して $\ii\hbar\,\partial\tilde{\psi}/\partial t$ になる。右辺の第1項は (2) から $p^{2}\tilde{\psi}/(2m)$，第2項は (1) から $-\ii\hbar F\,\partial\tilde{\psi}/\partial p$ になる。
+\[ \ii\hbar\pdv{\tilde{\psi}}{t}=\frac{p^{2}}{2m}\tilde{\psi}-\ii\hbar F\pdv{\tilde{\psi}}{p} \]
+これは要点整理の運動量表示の方程式で $V(x)=-Fx$ としたもの（$x$ を $\ii\hbar\,\partial/\partial p$ に置き換え）と一致する。
+\shoumonkai{4} 代入して両辺の $\ee^{-\ii Et/\hbar}$ を落とすと
+\[ E\tilde{\phi}=\frac{p^{2}}{2m}\tilde{\phi}-\ii\hbar F\dv{\tilde{\phi}}{p} \]
+となる。$-\ii\hbar F$ で割り，$1/(-\ii)=\ii$ を使うと
+\[ \dv{\tilde{\phi}}{p}=\frac{\ii}{\hbar F}\left(E-\frac{p^{2}}{2m}\right)\tilde{\phi} \]
+である。両辺を $\tilde{\phi}$ で割って $p$ で積分すると
+\[ \tilde{\phi}(p)=C\exp\left[\frac{\ii}{\hbar F}\left(Ep-\frac{p^{3}}{6m}\right)\right] \]
+となる。どの実数の $E$ についても解がある。
+\shoumonkai{5} 指数の肩は純虚数（$E$，$p$，$F$，$\hbar$，$m$ は実数）なので，$\abs{\tilde{\phi}(p)}^{2}=\abs{C}^{2}$ で $p$ によらない。運動量の確率分布はすべての $p$ で一様で，特定の運動量の値に定まらない（平面波と同じく，通常の意味では規格化できない）。古典力学では $\dd p/\dd t=F$ が一定なので，粒子はすべての運動量の値を一定の速さで通り過ぎ，運動量が $p$ と $p+\dd p$ の間にある時間 $\dd p/F$ は $p$ によらない。これが一様な分布に対応する。第12章の Level 1 の同時測定の問題と同じく，$E$ が定まった状態では $p$ が定まらないことも表している。
+\kotae{\shoumonkai{3} 運動エネルギーの項が $p^{2}\tilde{\psi}/(2m)$，$-Fx\psi$ が $-\ii\hbar F\,\partial\tilde{\psi}/\partial p$ になる（解説の式） \shoumonkai{4} $\tilde{\phi}(p)=C\exp\left[\frac{\ii(6mEp-p^{3})}{6m\hbar F}\right]$ \shoumonkai{5} $\abs{\tilde{\phi}}^{2}=\abs{C}^{2}$（$p$ によらず一様。古典的に運動量が一定の割合 $F$ で変わることに対応）}
+\begin{ronten}
+  \item \shoumonkai{2} 部分積分の境界項が消える理由として，$\abs{\ee^{-\ii px/\hbar}}=1$ と，$\psi$ と $\partial\psi/\partial x$ が $x\to\pm\infty$ で $0$ になることを述べる。
+  \item \shoumonkai{3} 左辺は $t$ 微分と $x$ 積分の順序を交換して変換したことを書く。
+  \item \shoumonkai{5} 指数の肩が純虚数であること（現れる量がすべて実数であること）を述べてから，分布が $p$ によらないと結論する。
+  \item \shoumonkai{5} 古典力学との対応では，運動量が一定の割合で変わるので，各運動量の幅にとどまる時間が $p$ によらないことを述べる。
+\end{ronten}
+\kenzan (4) の解を $p$ で微分し，両辺に $-\ii\hbar F$ をかけると
+\[ -\ii\hbar F\dv{\tilde{\phi}}{p}=-\ii\hbar F\cdot\frac{\ii}{\hbar F}\left(E-\frac{p^{2}}{2m}\right)\tilde{\phi}=\left(E-\frac{p^{2}}{2m}\right)\tilde{\phi} \]
+となり，(4) の最初の方程式（$E\tilde{\phi}$ を左辺に置いた式）を満たす。次元：$Ep/(\hbar F)$ は（エネルギー）（運動量）/（（エネルギー）（時間）（運動量）/（時間））で無次元，$p^{3}/(m\hbar F)$ も同様に無次元である。
+\tsumazuki (1) の符号は，フーリエ変換の核を $\ee^{-\ii px/\hbar}$ にとったことによる。核の符号を逆にとると $x$ は $-\ii\hbar\,\partial/\partial p$ に対応する。また，(2) で境界項を落とせる理由（$\psi$ と導関数が無限遠で $0$）を書き落とさない。
 \end{tadashii}
 \end{mondai}
 

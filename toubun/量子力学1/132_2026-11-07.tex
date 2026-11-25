@@ -1,0 +1,35 @@
+% 量子力学1 量子力学1-11 問題7（132-continuum。当時は 量子力学1-7 問題7） 解いた日 2026-11-07
+%% kotae
+\toi{1}{▲}{方針}
+（脇に $k_{n}=2n\pi/L$，$\dd k_{n}=(2\pi/L)\dd n$ と書く）
+\begin{align*}
+\psi&=\sum_{n}\sqrt{\frac{2\pi}{L}}\,\tilde{\psi}(k_{n})\frac{1}{\sqrt{L}}\ee^{\ii k_{n}x}\\
+&=\frac{2\pi}{L}\frac{1}{\sqrt{2\pi}}\int\ee^{\ii k_{n}x}\tilde{\psi}(k_{n})\dd n\\
+&=\frac{1}{\sqrt{2\pi}}\int\ee^{\ii k_{n}x}\tilde{\psi}(k_{n})\dd k_{n}\\
+&=\psi
+\end{align*}
+\naze{示すべき $c_{n}=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ を仮定して代入し，和を $\int\dd n$ に置き換えて逆変換に戻ることを確かめている。和を積分に置き換えるのは $L\to\infty$ での近似なので，有限の $L$ で成り立つ等式の証明にならない。規格直交性から $c_{n}=\int_{0}^{L}\phi_{n}^{*}\psi\dd x$ とし，$\psi$ が範囲の外で $0$ なので積分範囲を全区間に広げると，$c_{n}=\frac{1}{\sqrt{L}}\int_{-\infty}^{\infty}\ee^{-\ii k_{n}x}\psi\dd x=\sqrt{2\pi/L}\,\tilde{\psi}(k_{n})$ が近似なしで出る。}
+\toi{2}{◎}{}
+\[ \dd k=\frac{2\pi(n+1)}{L}-\frac{2n\pi}{L}=\frac{2\pi}{L}\ \xrightarrow{L\to\infty}\ 0 \]
+\[ \sum_{n}\abs{c_{n}}^{2}=\frac{2\pi}{L}\sum_{n}\abs{\tilde{\psi}(k_{n})}^{2}=1 \]
+\[ \therefore\ \frac{2\pi}{L}\int_{-\infty}^{\infty}\dd n\,\abs{\tilde{\psi}(k_{n})}^{2}=1 \]
+\[ \therefore\ \int_{-\infty}^{\infty}\dd k_{n}\,\abs{\tilde{\psi}(k_{n})}^{2}=1 \]
+\toi{3}{△}{未着手}
+\begin{align*}
+&\frac{1}{L}\int\dd n\,\ee^{\ii k_{n}(x-x')}\\
+&=\frac{1}{L}\cdot\frac{L}{2\pi}\int\dd k_{n}\,\ee^{\ii k_{n}(x-x')}\\
+&=\frac{1}{2\pi}\int\dd k_{n}\,\ee^{\ii k_{n}(x-x')}\\
+&=\delta(x-x')
+\end{align*}
+\nuke{$\delta_{nm}\leftrightarrow(2\pi/L)\delta(k-k')$}
+\naze{前半は正しいが，後半の「$\delta_{nm}$ が $(2\pi/L)\delta(k-k')$ に対応すること」が無い。$\phi_{n}=\sqrt{2\pi/L}\,\phi_{k_{n}}$ を $\int\phi_{n}^{*}\phi_{m}\dd x=\delta_{nm}$ に入れると $(2\pi/L)\int\phi_{k_{n}}^{*}\phi_{k_{m}}\dd x=\delta_{nm}$ で，$L\to\infty$ で左辺の積分は $\delta(k_{n}-k_{m})$ になる。}
+\toi{4}{△}{立式}
+\[ E_{n}=\frac{2n^{2}\pi^{2}\hbar^{2}}{\melec L^{2}}\le\qty{1.00}{\electronvolt} \]
+\[ \therefore\ n^{2}\le\frac{\melec eL^{2}}{2\pi^{2}\hbar^{2}}\,\mathrm{J} \]
+\[ \ayamari{n}{\abs{n}}\le\sqrt{\frac{\melec eL^{2}}{2\pi^{2}\hbar^{2}}}\approx810 \]
+\nuke{負の $n$ も数える}
+\naze{$n$ は負の整数（逆向きの運動量）もとり，$E_{n}$ は $n^{2}$ で決まるので，条件は $\abs{n}\le815$ 程度である。状態の数は $n=0$ を含めて $2\times815+1\approx\num{1.6e3}$ 個で，$n\le810$ の個数は答えの約半分にしかならない。}
+%% kizuki
+\item 展開係数を求める基本は内積 $c_{n}=\braket{\phi_{n}}{\psi}=\int_{0}^{L}\phi_{n}^{*}\psi\dd x$ である。「$\Delta k=2\pi/L$ をかけた和がリーマン和として積分に移る」は $L\to\infty$ の極限で使う道具で，(2)(3) で使うものである。示すべき式を仮定して元に戻るのを確かめても証明にならない。
+\item \mae{第7章 問題3・11-04} 周期的境界条件で負の $n$ を取りこぼした（前回は $\pm n$ の2重縮退を述べなかった）。$n$ を書いたら「$n=0,\pm1,\pm2,\ldots$」と書き添え，$k$ 軸に間隔 $2\pi/L$ で点を並べてから区間 $[-k_{0},k_{0}]$ に入る数を数える。個数はおよそ $2k_{0}/\Delta k$ で，$2$ を忘れない。
+\item 「〜を説明せよ。また，〜を説明せよ」のように問いが2つある小問は，答えた行に印を付けて数を数える（(3) の後半が無かった）。

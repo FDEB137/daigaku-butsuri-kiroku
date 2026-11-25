@@ -1,0 +1,64 @@
+% 量子力学1 量子力学1-11 問題4（060-meaning。当時は 量子力学1-7 問題4） 解いた日 2026-11-07
+%% kotae
+\toi{1}{▲}{立式}
+\nuke{確率と読める理由}
+\[ \ayamari{f(p)}{\expval{f(p)}}=\int_{-\infty}^{\infty}\ayamari{\hbar k}{f(\hbar k)}\abs{\tilde{\psi}(k)}^{2}\dd k \]
+\naze{右辺は $\expval{p}$ の式で，一般の $f$ の期待値になっていない。左辺も関数 $f(p)$ そのものではなく期待値である。期待値は「値 $\times$ 確率」の和なので，$\expval{f(p)}=\int f(\hbar k)\abs{\tilde{\psi}(k)}^{2}\dd k$ である。また，$\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率と読める理由が無い。逆変換 $\psi=\int\tilde{\psi}(k)\phi_{k}\dd k$ は運動量の固有関数 $\phi_{k}$ による展開で，$\tilde{\psi}(k)$ が展開係数にあたるので，離散の $\abs{c_{n}}^{2}$ と同じく $\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率になる（規格化は変換で保たれ，合計は $1$）。}
+\toi{2}{◎}{}
+\begin{align*}
+\tilde{\psi}(k)&=\int_{-\infty}^{\infty}\frac{\dd x}{\sqrt{2\pi}}\ee^{-\ii kx}\psi(x)\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\dd x\,\sqrt{\kappa}\,\ee^{-\kappa\abs{x}}\ee^{\ii(k_{0}-k)x}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\int_{-\infty}^{\infty}\dd x\,\ee^{-\kappa\abs{x}}\\
+&\qquad\times\bigl(\cos(k_{0}-k)x+\ii\sin(k_{0}-k)x\bigr)\\
+&=\sqrt{\frac{\kappa}{2\pi}}\cdot2\int_{0}^{\infty}\dd x\,\ee^{-\kappa x}\\
+&\qquad\times\frac{\ee^{\ii(k_{0}-k)x}+\ee^{-\ii(k_{0}-k)x}}{2}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\int_{0}^{\infty}\dd x\,\ee^{(-\kappa+\ii k_{0}-\ii k)x}\\
+&\qquad+\ee^{(-\kappa-\ii k_{0}+\ii k)x}\\
+&=\sqrt{\frac{\kappa}{2\pi}}\biggl(\frac{1}{\kappa+\ii(k_{0}-k)}\\
+&\qquad+\frac{1}{\kakimachigai{\kappa+\ii(k_{0}-k)}{\kappa-\ii(k_{0}-k)}}\biggr)\\
+&=\sqrt{\frac{\kappa}{2\pi}}\cdot\frac{2\kappa}{\kappa^{2}+(k-k_{0})^{2}}\\
+&=\sqrt{\frac{2\kappa^{3}}{\pi}}\,\frac{1}{\kappa^{2}+(k-k_{0})^{2}}
+\end{align*}
+\begin{align*}
+&\int_{-\infty}^{\infty}\dd k\,\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{1}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&=\frac{2\kappa^{3}}{\pi}\cdot\frac{\pi}{2\kappa^{3}}=1
+\end{align*}
+\toi{3}{◎}{}
+\begin{align*}
+\expval{p}&=\int_{-\infty}^{\infty}\dd k\,\hbar k\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}\hbar}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{k}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&=\frac{2\kappa^{3}\hbar}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{k-k_{0}}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&\qquad+\frac{k_{0}}{(\kappa^{2}+(k-k_{0})^{2})^{2}}\\
+&=\frac{2\kappa^{3}\hbar}{\pi}\Bigl(0+\frac{\pi k_{0}}{2\kappa^{3}}\Bigr)\\
+&=\hbar k_{0}
+\end{align*}
+\begin{align*}
+\expval{p^{2}}&=\int_{-\infty}^{\infty}\dd k\,\hbar^{2}k^{2}\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}\hbar^{2}}{\pi}\int_{-\infty}^{\infty}\dd k\,\frac{k^{2}}{(\kappa^{2}+(k-k_{0})^{2})^{2}}
+\end{align*}
+$k-k_{0}=k'$ とおく。
+\begin{align*}
+&=\frac{2\kappa^{3}\hbar^{2}}{\pi}\int_{-\infty}^{\infty}\dd k'\,\frac{k'^{2}+2k'k_{0}+k_{0}^{2}}{(\kappa^{2}+k'^{2})^{2}}\\
+&=\frac{2\kappa^{3}\hbar^{2}}{\pi}\Bigl(\frac{\pi}{2\kappa}+0+\frac{\pi k_{0}^{2}}{2\kappa^{3}}\Bigr)\\
+&=\hbar^{2}(\kappa^{2}+k_{0}^{2})
+\end{align*}
+\toi{4}{◎}{}
+\begin{align*}
+&\int_{-\infty}^{\kakimachigai{-\kappa}{0}}\dd k\,\abs{\tilde{\psi}(k)}^{2}\\
+&=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{0}\frac{\dd k}{(\kappa^{2}+(k-\kappa)^{2})^{2}}\\
+&=\frac{2\kappa^{3}}{\pi}\int_{-\infty}^{0}\frac{\frac{1}{\kappa^{4}}\dd k}{\bigl(1+(\frac{k}{\kappa}-1)^{2}\bigr)^{2}}
+\end{align*}
+$k/\kappa-1=u$ とおく。
+\begin{align*}
+&=\frac{2}{\pi}\int_{-\infty}^{-1}\frac{\dd u}{(1+u^{2})^{2}}\\
+&=\frac{2}{\pi}\Bigl[\frac{u}{2(1+u^{2})}+\frac{1}{2}\arctan u\Bigr]_{-\infty}^{-1}\\
+&=\frac{2}{\pi}\Bigl(-\frac{1}{4}-\frac{\pi}{8}-0-\frac{1}{2}\Bigl(-\frac{\pi}{2}\Bigr)\Bigr)\\
+&=\frac{2}{\pi}\Bigl(-\frac{1}{4}+\frac{\pi}{8}\Bigr)\\
+&=\frac{1}{4}-\frac{1}{2\pi}\\
+&\approx0.0908
+\end{align*}
+%% kizuki
+\item 期待値は「値 $\times$ 確率」の和である。測る量が $f(p)$ なら，運動量 $\hbar k$ での値 $f(\hbar k)$ に確率 $\abs{\tilde{\psi}(k)}^{2}\dd k$ をかけて積分する。左辺に $\expval{\ }$ が付いているか，$f(p)=p$ とおいて (3) の $\expval{p}$ の式に戻るかで確かめる。
+\item \mae{第7章 問題1・11-04，第6章 問題3・11-01} 「説明せよ」の理由が無い（前回も結論だけで理由の1文が無かった）。逆変換は運動量の固有関数による展開で，$\tilde{\psi}(k)$ が展開係数なので $\abs{\tilde{\psi}(k)}^{2}\dd k$ が確率になる，を1行で書いてから式に進む。
+\item (2) の2つ目の分母を $\kappa+\ii(k_{0}-k)$，(4) の積分の上端を $-\kappa$ と書いた（次の行は正しい）。$p<0$ は $k<0$（$q=k-k_{0}<-\kappa$）で，変数を替えたら積分の端も同じ変数で書く。

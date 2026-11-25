@@ -1,0 +1,58 @@
+% 量子力学1 量子力学1-11 問題6（062-complete。当時は 量子力学1-7 問題6） 解いた日 2026-11-07
+%% kotae
+\toi{1}{○}{記述}
+\nuke{完全性の式を挟む}
+\begin{align*}
+&\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x\\
+&=\int_{0}^{L}\braket{x}{m}^{*}\braket{x}{n}\dd x\\
+&=\frac{1}{L}\int_{0}^{L}\exp\Bigl(\ii\frac{2\pi(n-m)}{L}x\Bigr)\dd x
+\end{align*}
+i) $n=m$ のとき
+\[ \braket{m}{n}=\frac{1}{L}\int_{0}^{L}\dd x=1 \]
+ii) $n\neq m$ のとき
+\begin{align*}
+\braket{m}{n}&=\frac{1}{L}\biggl[\frac{L}{\ii2\pi(n-m)}\exp\Bigl(\ii\frac{2\pi(n-m)}{L}x\Bigr)\biggr]_{0}^{L}\\
+&=1-1=0
+\end{align*}
+\begin{align*}
+c_{n}&=\int_{0}^{L}\braket{n}{x}\braket{x}{\psi}\dd x\\
+&=\int_{0}^{L}\frac{1}{\sqrt{L}}\exp\Bigl(-\ii\frac{2n\pi}{L}x\Bigr)\braket{x}{\psi}\dd x
+\end{align*}
+\naze{計算は正しいが，この積分が $\braket{m}{n}$ に等しい理由が無い。完全性の式 $\int_{0}^{L}\ketbra{x}{x}\dd x=1$ は恒等演算子なので，$\braket{m}{n}=\bra{m}\bigl(\int_{0}^{L}\ketbra{x}{x}\dd x\bigr)\ket{n}=\int_{0}^{L}\braket{m}{x}\braket{x}{n}\dd x$ と挟んでも値は変わらない。この1行を書く（$c_{n}$ も同じ）。}
+\toi{2}{◎}{}
+\begin{align*}
+&\int_{0}^{L}\abs{\braket{x}{\psi}}^{2}\dd x\\
+&=\frac{1}{L}\int_{0}^{L}\cos^{2}\frac{2\pi x}{L}+\sin^{2}\frac{4\pi x}{L}\dd x\\
+&=\frac{1}{2L}\int_{0}^{L}\Bigl(1+\cos\frac{4\pi x}{L}\Bigr)\\
+&\qquad+\Bigl(1-\cos\frac{8\pi x}{L}\Bigr)\dd x\\
+&=\frac{1}{2L}\cdot2L=1
+\end{align*}
+\begin{align*}
+c_{n}&=\frac{1}{L}\int_{0}^{L}\Bigl(\cos\frac{2n\pi}{L}x-\ii\sin\frac{2n\pi}{L}x\Bigr)\\
+&\qquad\times\Bigl(\cos\frac{2\pi x}{L}+\ii\sin\frac{4\pi x}{L}\Bigr)\dd x\\
+&=\frac{1}{L}\int_{0}^{L}\dd x\,\cos\frac{2n\pi x}{L}\cos\frac{2\pi x}{L}\\
+&\qquad+\sin\frac{2n\pi x}{L}\sin\frac{4\pi x}{L}\\
+&\qquad+\ii\Bigl(\cos\frac{2n\pi x}{L}\sin\frac{4\pi x}{L}\\
+&\qquad-\sin\frac{2n\pi x}{L}\cos\frac{2\pi x}{L}\Bigr)\\
+&=\frac{1}{2L}\int_{0}^{L}\dd x\,\kakimachigai{\cos}{-\cos}\frac{2\pi x(n+2)}{L}+\cos\frac{2\pi x(n+1)}{L}\\
+&\qquad+\cos\frac{2\pi x(n-1)}{L}+\cos\frac{2\pi x(n-2)}{L}\\
+&\qquad+\ii\Bigl(\sin\frac{2\pi x(n+2)}{L}\kakimachigai{+}{-}\sin\frac{2\pi x(n+1)}{L}\\
+&\qquad-\sin\frac{2\pi x(n-1)}{L}\kakimachigai{+}{-}\sin\frac{2\pi x(n-2)}{L}\Bigr)
+\end{align*}
+\[ c_{1}=\frac{1}{2L}\int_{0}^{L}\dd x=\frac{1}{2} \]
+\[ c_{2}=\frac{1}{2L}\int_{0}^{L}\dd x=\frac{1}{2} \]
+\[ c_{-1}=\frac{1}{2L}\int_{0}^{L}\dd x=\frac{1}{2} \]
+\[ c_{-2}=\frac{1}{2L}\int_{0}^{L}-1\,\dd x=-\frac{1}{2} \]
+\toi{3}{◎}{}
+\[ p_{n}=\frac{2n\pi\hbar}{L} \]
+$1/4$ で $p_{1}=2\pi\hbar/L$，$1/4$ で $p_{2}=4\pi\hbar/L$\\
+$1/4$ で $p_{-1}=-2\pi\hbar/L$，$1/4$ で $p_{-2}=-4\pi\hbar/L$
+\[ \expval{p}=0 \]
+\begin{align*}
+\expval{E}&=\frac{2\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}+\frac{8\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}\\
+&\qquad+\frac{2\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}+\frac{8\pi^{2}\hbar^{2}}{mL^{2}}\cdot\frac{1}{4}\\
+&=\frac{1}{4}\cdot\frac{20\pi^{2}\hbar^{2}}{mL^{2}}=\frac{5\pi^{2}\hbar^{2}}{mL^{2}}
+\end{align*}
+%% kizuki
+\item \mae{第7章 問題1・11-04，第6章 問題3・11-01} 「説明せよ」の部分が式にも文にも無い（前回も理由の1文が無かった）。完全性の式 $\int_{0}^{L}\ketbra{x}{x}\dd x=1$ は恒等演算子なので，$\bra{m}$ と $\ket{n}$ の間に挟んでも値は変わらない。この1行が「完全性の観点からの説明」で，$c_{n}=\braket{n}{\psi}$ も同じ1行で出る。
+\item (2) で積を和に直したとき，$\cos(n+2)$ の項の符号と $\ii\sin$ の2つの項の符号を誤った（$c_{-2}=-1/2$ は正しい）。$\sin A\sin B=\frac{1}{2}[\cos(A-B)-\cos(A+B)]$ の負号を確かめる。$\cos$ と $\ii\sin$ を指数関数に直して $\braket{x}{n}$ と見比べれば，$c_{n}$ はすぐ読める。

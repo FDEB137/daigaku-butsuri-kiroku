@@ -1,0 +1,41 @@
+% 量子力学1 量子力学1-11 問題5（061-gauss。当時は 量子力学1-7 問題5） 解いた日 2026-11-07
+%% kotae
+\toi{1}{◎}{}
+\begin{align*}
+\int\dd x\,\abs{\psi(x)}^{2}&=\int\dd x\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\exp\Bigl[-\frac{2(x-x_{0})^{2}}{\xi^{2}}\Bigr]\\
+&=\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\cdot\sqrt{\frac{\xi^{2}\pi}{2}}=1
+\end{align*}
+\begin{align*}
+\expval{x}&=\int\dd x\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\,x\exp\Bigl[-\frac{2(x-x_{0})^{2}}{\xi^{2}}\Bigr]\\
+&=\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\biggl(\underbrace{\int\dd x\,(x-x_{0})\exp(\quad)}_{0}\\
+&\qquad+\int\dd x\,x_{0}\exp(\quad)\biggr)\\
+&=\Bigl(\frac{2}{\pi}\Bigr)^{1/2}\frac{1}{\xi}\cdot x_{0}\sqrt{\frac{\xi^{2}\pi}{2}}=x_{0}
+\end{align*}
+\toi{2}{○}{記述}
+\begin{align*}
+\tilde{\psi}(k)&=\frac{1}{\sqrt{2\pi}}\int\dd x\,\ee^{-\ii kx}\cdot\Bigl(\frac{2}{\pi}\Bigr)^{1/4}\Bigl(\frac{1}{\xi}\Bigr)^{1/2}\\
+&\qquad\times\exp\Bigl[-\frac{(x-x_{0})^{2}}{\xi^{2}}+\ii k_{0}x\Bigr]\\
+&=\Bigl(\frac{1}{2\pi\xi}\Bigr)^{1/2}\Bigl(\frac{2}{\pi}\Bigr)^{1/4}\int\dd u\\
+&\qquad\times\exp\Bigl[\underline{-\frac{u^{2}}{\xi^{2}}-\ii(k-k_{0})(u+\kakimachigai{k_{0}}{x_{0}})}\Bigr]
+\end{align*}
+（下線の部分を次のように平方完成する）
+\begin{align*}
+&-\frac{1}{\xi^{2}}\bigl(u^{2}+\ii\xi^{2}(k-k_{0})u+\ii\xi^{2}(k-k_{0})x_{0}\bigr)\\
+&=-\frac{1}{\xi^{2}}\Bigl(u+\frac{\ii\xi^{2}(k-k_{0})}{2}\Bigr)^{2}-\frac{\xi^{2}(k-k_{0})^{2}}{4}\\
+&\qquad-\ii(k-k_{0})x_{0}
+\end{align*}
+\nuke{$u$ の積分と係数}
+\[ \tilde{\psi}(k)=\Bigl(\frac{\xi^{2}}{2\pi}\Bigr)^{1/4}\exp\Bigl[-\frac{\xi^{2}(k-k_{0})^{2}}{4}-\ii(k-k_{0})x_{0}\Bigr] \]
+\naze{答えは正しいが，平方完成からすぐ答えを書いている。$v=u/\xi$ とおくと指数の第1項は $-(v-\ii a)^{2}$（$a=-(k-k_{0})\xi/2$）で，$a$ が実数なので要点整理のガウス積分が使え，$u$ の積分は $\xi\sqrt{\pi}\,\ee^{-\xi^{2}(k-k_{0})^{2}/4}$ になる。係数は $(2\pi\xi)^{-1/2}(2/\pi)^{1/4}\cdot\xi\sqrt{\pi}=(\xi^{2}/(2\pi))^{1/4}$ である。この2つを書く。}
+\toi{3}{◎}{}
+\[ \abs{\tilde{\psi}(k)}^{2}=\frac{\xi}{\sqrt{2\pi}}\exp\Bigl[-\frac{\xi^{2}(k-k_{0})^{2}}{2}\Bigr] \]
+\begin{align*}
+\expval{p}&=\int\hbar k\,\frac{\xi}{\sqrt{2\pi}}\exp\Bigl[-\frac{\xi^{2}(k-k_{0})^{2}}{2}\Bigr]\dd k\\
+&=\frac{\hbar\xi}{\sqrt{2\pi}}\Bigl(\int(k-k_{0})\exp[\sim]\dd k\\
+&\qquad+\int k_{0}\exp[\sim]\dd k\Bigr)\\
+&=\frac{\hbar\xi k_{0}}{\sqrt{2\pi}}\cdot\sqrt{\frac{2\pi}{\xi^{2}}}=\hbar k_{0}
+\end{align*}
+$k_{0}$：中心，$x_{0}$：位相のみ
+%% kizuki
+\item 要点整理の $\int\ee^{-(x-\ii a)^{2}}\dd x=\sqrt{\pi}$ は $a$ が実数のときの式である。平方完成で出た $u+\ii\xi^{2}(k-k_{0})/2$ を $v=u/\xi$ で $v-\ii a$ の形に直し，$a=-(k-k_{0})\xi/2$ が実数であることを1行書いてから使う。これがこの問題の要点である。
+\item \mae{第7章 問題1・11-04，第6章 問題3・11-01} 途中を飛ばして答えだけを書いた（前回も理由の1文が無かった）。係数 $(2\pi\xi)^{-1/2}(2/\pi)^{1/4}\cdot\xi\sqrt{\pi}=(\xi^{2}/(2\pi))^{1/4}$ を1行書いておけば，(3) の $\int\abs{\tilde{\psi}}^{2}\dd k=1$ で検算できる。
